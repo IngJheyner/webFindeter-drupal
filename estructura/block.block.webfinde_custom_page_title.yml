@@ -1,0 +1,20 @@
+uuid: 63b00f39-e61f-4237-ab00-f4e8195c9010
+langcode: en
+status: true
+dependencies:
+  theme:
+    - webfinde_custom
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: webfinde_custom_page_title
+theme: webfinde_custom
+region: content
+weight: -50
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Título de la página'
+  provider: core
+  label_display: '0'
+visibility: {  }

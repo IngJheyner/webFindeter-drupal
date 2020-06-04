@@ -1,0 +1,22 @@
+uuid: f2813b93-2a76-42f4-ba09-da34ed748b94
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - webfinde_custom
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: webfinde_custom_messages
+theme: webfinde_custom
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Mensajes de estado'
+  provider: system
+  label_display: '0'
+visibility: {  }
