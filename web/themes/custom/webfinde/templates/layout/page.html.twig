@@ -28,7 +28,7 @@
  *
  * Regions:
  * - page.region_A: Items for the header region.
- * - page.primary_menu: Items for the primary menu region.
+ * - page.region_B: Items for the primary menu region.
  * - page.secondary_menu: Items for the secondary menu region.
  * - page.highlighted: Items for the highlighted content region.
  * - page.help: Dynamic help text, mostly for admin pages.
@@ -89,19 +89,13 @@ HEADER(ENCABEZADO)
 </header>
 
 <main role="main">
-  <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-  {% 
-  set sidebar_first_classes = (page.sidebar_first and page.sidebar_second) ? 'col-12 col-sm-6 col-lg-3' : 'col-12 col-lg-3'
-  %}
   
-  {% 
-  set sidebar_second_classes = (page.sidebar_first and page.sidebar_second) ? 'col-12 col-sm-6 col-lg-3' : 'col-12 col-lg-3'
-  %}
-  
-  {% 
-  set content_classes = (page.sidebar_first and page.sidebar_second) ? 'col-12 col-lg-6' : ((page.sidebar_first or page.sidebar_second) ? 'col-12 col-lg-9' : 'col-12' )
-   %}
+  <section class="container">
+
+    {{ page.region_B }}
+
+  </section>
 
 
   <div class="{{ b4_top_container }}">

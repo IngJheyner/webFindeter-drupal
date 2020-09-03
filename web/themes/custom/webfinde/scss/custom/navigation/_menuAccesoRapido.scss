@@ -1,0 +1,50 @@
+@use '../variables' as var;
+
+@mixin _text($num, $color){
+    margin-left: $num;
+    margin-right: $num;
+    height: 100%;
+    line-height: 4;
+    color: $color;
+}
+
+.menuAccesoRapido{
+
+    nav{
+       
+        ul{
+            
+            //background-color: red;
+            border-top: 1px solid  var.$border-secundario !important;           
+
+            li{
+                
+                border-right: 1px solid  var.$border-secundario !important;
+                border-bottom: 1px solid  var.$border-secundario !important;
+                
+                &:nth-child(1){                    
+                    
+                    border-radius: 0 0 0 0.8em;                    
+                    border-right: 0 !important;                  
+                    background: repeating-linear-gradient(-79deg,
+                               white 0, white 7%,
+                                var.$bg-secundario 0, var.$bg-secundario);                    
+                }
+
+                &:last-child{
+                    border-radius: 0 0 0.8em 0;                    
+                }
+
+                a{                    
+                    @include _text(2.91rem, black);
+                }
+
+                span{
+                    @include _text(2.2rem, white);
+                }
+               
+            }
+        }
+       
+    }
+}

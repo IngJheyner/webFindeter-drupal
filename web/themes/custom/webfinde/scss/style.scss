@@ -20,7 +20,11 @@
 ESTILOS GLOBALES
 ============================== */
 h1,h2,h3,h4,h5{
-    font-weight: 100;
+    font-weight: 400;
+    margin: 0;
+}
+
+p{
     margin: 0;
 }
 
@@ -33,3 +37,12 @@ HEADER(ENCABEZADO)
 
 /* ===== ===== MENUPRINCIAPL ===== ===== */
 @import 'custom/navigation/menuPrincipal';
+
+/* ===== ===== BUSCADOR ===== ===== */
+@import 'custom/search-home';
+
+/* ===== ===== ACCESO RAPIDO ===== ===== */
+@import 'custom/navigation/menuAccesoRapido';
+
+/* ===== ===== PRODUCTOS Y SERVICIOS ===== ===== */
+@import 'custom/productos-servicios';
