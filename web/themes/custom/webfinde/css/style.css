@@ -1,6 +1,24 @@
 /* ==============================
-BOTONES
+COLORES DE FONDO
 ============================== */
+/* ==============================
+COLOR DE TEXTO
+============================== */
+/* ==============================
+BORDER
+============================== */
+/* ==============================
+VENTANA MODAL
+============================== */
+.modal-backdrop {
+  background-color: transparent;
+}
+
+.btn-secondary {
+  background-color: #296294 !important;
+  border: 0 !important;
+}
+
 /* ==============================
 ESTILOS GLOBALES
 ============================== */
@@ -163,6 +181,8 @@ section.productosServicios .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   width: 100%;
+  position: relative;
+  height: 100%;
 }
 section.productosServicios .grid-container .grid-item {
   width: 212px;
@@ -182,7 +202,10 @@ section.productosServicios .grid-container .grid-item figure {
   left: 0;
   width: 100%;
   height: 25%;
-  background: repeating-linear-gradient(184deg, transparent 0, transparent 19%, #296294 0, #296294);
+  background: #296294;
+  /*background: repeating-linear-gradient(184deg,
+  transparent 0, transparent 19%,
+      var.$bg-secundario 0, var.$bg-secundario);*/
 }
 section.productosServicios .grid-container .grid-item figure .fondo {
   position: absolute;
@@ -190,9 +213,13 @@ section.productosServicios .grid-container .grid-item figure .fondo {
   bottom: -16px;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 109%;
   color: #CDDC4B;
-  background: repeating-linear-gradient(183deg, transparent 0, transparent 11%, #112d6a 0, #112d6a);
+  border-radius: 0 0 0.8em 0.8em;
+  /*background-image: repeating-linear-gradient(183deg, 
+  transparent 0, transparent 11%, 
+  var.$bg-primario 0, var.$bg-primario);*/
+  background: #112d6a;
 }
 section.productosServicios .grid-container .grid-item figure .fondo h1 {
   position: absolute;
@@ -200,13 +227,59 @@ section.productosServicios .grid-container .grid-item figure .fondo h1 {
   font-size: 22px !important;
   width: 100%;
 }
-section.productosServicios .grid-container .grid-item figure .fondo button {
-  position: absolute;
-  top: 60%;
-  left: 10%;
-}
 section.productosServicios .grid-container .grid-item img {
   border-radius: 0.8em;
+}
+
+/* =================================
+VENTANA MODAL PRODUCTOS Y SERVICIOS
+==================================== */
+#modalProductosServicios {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  padding-right: 0 !important;
+  height: 500px;
+  border-radius: 0.8em;
+}
+#modalProductosServicios .modal-dialog {
+  max-width: 1141px;
+  margin: 0;
+}
+#modalProductosServicios .modal-dialog .modal-content {
+  background-color: initial !important;
+}
+#modalProductosServicios .modal-dialog .modal-content .modal-body {
+  background-color: #112d6a !important;
+  border-top: 10px solid #296294;
+  top: 12em;
+  padding: 20px 20px 20px 20px;
+}
+#modalProductosServicios .modal-dialog .modal-content .modal-body h3 {
+  margin-bottom: 5px;
+  color: #CDDC4B;
+}
+#modalProductosServicios .modal-dialog .modal-content .modal-body div.descripcion {
+  max-width: 70%;
+  color: white;
+}
+#modalProductosServicios .modal-dialog .modal-content .modal-body button.close {
+  color: white;
+  font-size: 2.5rem;
+}
+
+/* ===== ===== NOTICIAS ===== ===== */
+.sliderNoticiaHome div.slick-slide ul li:nth-child(n+2) img {
+  display: none;
+}
+.sliderNoticiaHome div.slick-slide ul li:nth-child(n+2) img {
+  display: none;
+}
+.sliderNoticiaHome div.slick-slide ul li:nth-child(n+2) img {
+  display: none;
+}
+.sliderNoticiaHome div.slick-slide ul li:nth-child(n+2) img {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -43,11 +43,47 @@
 
     <div{{ attributes.addClass('grid-container mt-5') }}>
 
+      {# ============================================
+      PRODUCTOS Y SERVICIOS
+      =============================================== #}
       {% for item in items %}
 
         <div{{ item.attributes.addClass('grid-item') }}>{{ item.content }}</div>
 
       {% endfor %}
+
+      {# ============================================
+      VENTANA MODAL
+      =============================================== #}
+      <!-- Modal -->
+      <div class="modal fade" id="modalProductosServicios" tabindex="-1" aria-labelledby="ProductoServicios" aria-hidden="true">
+
+        <div class="modal-dialog">
+
+          <div class="modal-content">
+
+            <div class="modal-body">
+
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                <span aria-hidden="true">&times;</span>
+
+              </button>
+
+              <h3></h3>
+
+              <div class="descripcion">
+              </div>
+
+              <a class="btn btn-secondary mt-2" href=""></a>
+
+            </div>
+            
+          </div>
+
+        </div>         
+
+      </div>
 
     </div>
 

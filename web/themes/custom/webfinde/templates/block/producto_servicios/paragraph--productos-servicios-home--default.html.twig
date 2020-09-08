@@ -46,6 +46,8 @@
     not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
+{#{ drupal_dump(content.field_enlace_url.0["#url"]['uri']) }#}
+
 {% block paragraph %}
   
     {% block content %}
@@ -54,14 +56,24 @@
 
         <div class="fondo">
 
-          <h1 class="mx-auto text-center"
-          descripcion="{{ content.field_descripcion.0 }}"
-          >
+          <h1 class="mx-auto text-center">
+
             {{ content.	field_titulo.0 }}
 
-          </h1>
+            <button class="btn btn-secondary mt-2"
+            data-toggle="modal" data-target="#modalProductosServicios"
+            titulo="{{ content.field_titulo.0 }}"
+            descripcion="{{ content.field_descripcion.0 }}"
+            imagen = "{{ file_url(content.field_fondo_modal[0]['#item'].entity.uri.value) }}"
+            url = "{{ content.field_enlace_url.0["#title"]  }}"
+            tituloUrl = {{ content.field_enlace_url.0["#title"] }}
+            >
 
-          <button class="btn btn-secondary">{{ content.field_ampliar_informacion.0 }}</button>
+              {{ content.field_ampliar_informacion.0 }}
+              
+            </button>
+
+          </h1>
 
         </div>
 
@@ -72,3 +84,4 @@
     {% endblock %}
   
 {% endblock paragraph %}
+

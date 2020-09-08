@@ -1,10 +1,19 @@
+@use '../custom/variables' as var;
 // Override bootstrap framework variables.
 // Full list of variables in [path to themes/contrib]/bootstrap4/dist/bootstrap/4.4.1/scss/_variables.scss
 // or [path to themes/contrib]/bootstrap4/scss/_theme_variables.scss.
 
-/* ==============================
-BOTONES
-============================== */
-.btn-secondary{
+//@import '../../../../contrib/bootstrap4/dist/bootstrap/4.5.0/scss/_variables.scss';
 
+/* ==============================
+VENTANA MODAL
+============================== */
+//$modal-backdrop-bg:  transparent;
+.modal-backdrop{
+    background-color: transparent;
+}
+
+.btn-secondary{    
+    background-color: var.$bg-secundario !important;
+    border: 0 !important;
 }

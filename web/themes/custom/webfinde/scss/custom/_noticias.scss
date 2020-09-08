@@ -1,0 +1,21 @@
+.sliderNoticiaHome{
+
+    div.slick-slide{
+        
+        ul{
+
+            @for $i from 1 through 4 {
+
+                li:nth-child(n + 2) {
+
+                  img{
+
+                      display: none;
+
+                  }
+
+                }
+            }
+        }
+    }
+}
