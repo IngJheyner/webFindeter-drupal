@@ -1,0 +1,85 @@
+div.encabezadoBlog{
+
+    position: relative;
+    background-position: center -61px;
+    background-repeat: no-repeat;  
+    background-size: cover;
+    height: 680px;
+
+    section.encabezado{
+
+        background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.4) 25%);
+
+        .menu nav{
+
+            margin: 40px 0;
+    
+            ul{
+    
+                li{
+                    margin: 0 10px 0 10px;               
+    
+                    a{
+                        color: white;
+                        font-size: 14px;
+                        padding: 12px 0px;
+                        position: relative;
+                        font-weight: bold;
+                        text-shadow: 1px 1px 2px black; 
+    
+                        &:hover::after{
+                            content: "";
+                            position: absolute;
+                            width: 105%;
+                            height: 3px;
+                            background-color: white;
+                            top: 3em;
+                            left: -5px;
+                        }
+                    }
+                }
+            }
+        }
+    
+        div.iconos{
+    
+            margin: 20px 0;
+    
+        }
+
+    }
+
+    section.titulos{
+
+        margin-top: 7rem;
+        //background: red;
+
+        h4{
+            
+            text-shadow: 1px 1px 2px black;
+            color: white;
+            position: relative;
+            margin-bottom: 60px;
+            
+            &::after{
+                content: "";
+                position: absolute;
+                width: 14%;
+                height: 2px;
+                background-color: white;
+                top: 2em;
+                left: 36rem;
+            }
+        }
+
+        h1{
+
+            width: 50%;
+            text-shadow: 1px 3px 2px black;
+            color: white;
+            font-weight: bold;
+        }
+    }
+}
+
+

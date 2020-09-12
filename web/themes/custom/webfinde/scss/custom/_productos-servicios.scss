@@ -4,13 +4,13 @@ section.productosServicios{
    
     .titulo{
 
-        border-bottom: 1px solid var.$bg-secundario;
+        border-bottom: 1px solid var.$color-secundario;
         padding-bottom: 20px;
 
         h1{
             text-align: center;
             width: 60%;
-            color: var.$text-primario;
+            color: var.$color-primario;
             position: relative;
 
             &:after{
@@ -57,11 +57,11 @@ section.productosServicios{
                 width:100%;
                 height:25%;
                 
-                background: var.$bg-secundario;
+                background: var.$color-secundario;
 
                 /*background: repeating-linear-gradient(184deg,
                 transparent 0, transparent 19%,
-                    var.$bg-secundario 0, var.$bg-secundario);*/
+                    var.$color-secundario 0, var.$color-secundario);*/
                 
                 .fondo{
                     position: absolute;
@@ -74,8 +74,8 @@ section.productosServicios{
                     border-radius: 0 0 0.8em 0.8em;
                     /*background-image: repeating-linear-gradient(183deg, 
                     transparent 0, transparent 11%, 
-                    var.$bg-primario 0, var.$bg-primario);*/
-                    background: var.$bg-primario;
+                    var.$color-primario 0, var.$color-primario);*/
+                    background: var.$color-primario;
 
                     h1{
                         position: absolute;
@@ -118,15 +118,15 @@ VENTANA MODAL PRODUCTOS Y SERVICIOS
 
             .modal-body{
                
-                background-color: var.$bg-primario !important;           
-                border-top: 10px solid var.$bg-secundario;
+                background-color: var.$color-primario !important;           
+                border-top: 10px solid var.$color-secundario;
                 top: 12em;
                 padding: 20px 20px 20px 20px;
                 
     
                 h3{
                     margin-bottom: 5px;
-                    color: var.$text-terciario;
+                    color: var.$color-terciario;
                 }
     
                 div.descripcion{

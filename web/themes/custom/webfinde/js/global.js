@@ -80,6 +80,24 @@
                 }    
             });
 
+            /*===========================================
+            BLOG
+            =============================================*/
+
+            /* ===== ===== Articulo internos ===== ===== */
+            var imgEncabezadoArticulo = $(".articuloInternasBlog").attr("imgFondoEncabezado");
+
+            if(imgEncabezadoArticulo != null){
+
+                $(".encabezadoBlog").css("background-image", "url('"+imgEncabezadoArticulo+"')");
+                
+            }else{
+
+                var imgEncabezado = $(".encabezadoBlog").attr("imgFondoEncabezado");
+
+                $(".encabezadoBlog").css("background-image", "url('"+imgEncabezado+"')");
+            }
+            
         //}
     //};
 

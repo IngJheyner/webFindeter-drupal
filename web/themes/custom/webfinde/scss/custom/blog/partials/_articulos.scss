@@ -1,0 +1,87 @@
+@use '../../variables' as var;
+
+@mixin articulo{
+
+    .grid{
+
+        .grid-item{
+
+            p.tipoArticulo{
+
+                color: var.$color-secundario;
+                font-size: 14px;
+                
+            }
+
+        }
+    }
+}
+
+div.articuloBlog{
+    transform: translate(0, -50px);    
+    @include articulo;
+}
+
+div.articuloBlogDos{
+    @include articulo; 
+}
+
+/* ==============================
+INTERNAS
+============================== */
+div.articuloInternasBlog{
+
+    h1,h2,h3,h4,h5
+    a{
+        color: var.$color-secundario;
+    }
+
+    background: white;
+    transform: translate(0, -70px);
+    padding: 5em;
+
+    .tipoArticulo,
+    .titulo{
+
+        margin-bottom: 1.5em;
+
+    }
+
+    div.infoSocial{
+
+        margin-bottom: 4em;
+
+        p{
+            font-size: 18px;
+        }
+    }
+
+    div.cuerpoArticulo{
+
+        p{
+            word-spacing: 4pt;
+        }
+
+        blockquote{
+
+            padding: 1em 0 0 2em;
+            font-weight: bold;
+            width: 90%;
+            font-style: oblique;
+
+            &::before{
+
+                content: "" url('../images/iconos/comillas-negro.png');
+                margin-left: 2em;
+            }
+            
+        }
+
+        div.field--name-field-media-oembed-video,
+        div.field--name-field-media-image{
+
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+}

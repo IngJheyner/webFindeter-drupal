@@ -1,11 +1,5 @@
 /* ==============================
-COLORES DE FONDO
-============================== */
-/* ==============================
-COLOR DE TEXTO
-============================== */
-/* ==============================
-BORDER
+COLORES
 ============================== */
 /* ==============================
 VENTANA MODAL
@@ -27,6 +21,15 @@ h1, h2, h3, h4, h5 {
   margin: 0;
 }
 
+ul, ol {
+  list-style: none;
+}
+
+a:visited, a:link, a:focus, a:hover, a:active {
+  list-style: none;
+  text-decoration: none;
+}
+
 p {
   margin: 0;
 }
@@ -36,30 +39,18 @@ HEADER(ENCABEZADO)
 ============================== */
 /* ===== ===== MENUGOVCO ===== ===== */
 /* ==============================
-COLORES DE FONDO
-============================== */
-/* ==============================
-COLOR DE TEXTO
-============================== */
-/* ==============================
-BORDER
+COLORES
 ============================== */
 .menuGovCo {
-  background-color: #E5eFFd;
+  background-color: #CDDC4B;
 }
 .menuGovCo .submenu nav ul li span {
-  color: #296294;
+  color: #112d6a;
 }
 
 /* ===== ===== MENUPRINCIAPL ===== ===== */
 /* ==============================
-COLORES DE FONDO
-============================== */
-/* ==============================
-COLOR DE TEXTO
-============================== */
-/* ==============================
-BORDER
+COLORES
 ============================== */
 .menuPrincipal {
   background-color: #112d6a;
@@ -67,13 +58,7 @@ BORDER
 
 /* ===== ===== BUSCADOR ===== ===== */
 /* ==============================
-COLORES DE FONDO
-============================== */
-/* ==============================
-COLOR DE TEXTO
-============================== */
-/* ==============================
-BORDER
+COLORES
 ============================== */
 form#search-block-form {
   position: relative;
@@ -89,7 +74,7 @@ form#search-block-form div.buscadorHome {
   box-shadow: 1rem 0rem 1rem rgba(0, 0, 0, 0.2) !important;
 }
 form#search-block-form div.buscadorHome label {
-  color: #296294;
+  color: #112d6a;
   font-weight: bold;
   font-size: 20px;
   word-spacing: -4pt;
@@ -110,13 +95,7 @@ form#search-block-form .btnSearch {
 
 /* ===== ===== ACCESO RAPIDO ===== ===== */
 /* ==============================
-COLORES DE FONDO
-============================== */
-/* ==============================
-COLOR DE TEXTO
-============================== */
-/* ==============================
-BORDER
+COLORES
 ============================== */
 .menuAccesoRapido nav ul {
   border-top: 1px solid #c9c8c6 !important;
@@ -150,13 +129,7 @@ BORDER
 
 /* ===== ===== PRODUCTOS Y SERVICIOS ===== ===== */
 /* ==============================
-COLORES DE FONDO
-============================== */
-/* ==============================
-COLOR DE TEXTO
-============================== */
-/* ==============================
-BORDER
+COLORES
 ============================== */
 section.productosServicios .titulo {
   border-bottom: 1px solid #296294;
@@ -165,7 +138,7 @@ section.productosServicios .titulo {
 section.productosServicios .titulo h1 {
   text-align: center;
   width: 60%;
-  color: #296294;
+  color: #112d6a;
   position: relative;
 }
 section.productosServicios .titulo h1:after {
@@ -205,7 +178,7 @@ section.productosServicios .grid-container .grid-item figure {
   background: #296294;
   /*background: repeating-linear-gradient(184deg,
   transparent 0, transparent 19%,
-      var.$bg-secundario 0, var.$bg-secundario);*/
+      var.$color-secundario 0, var.$color-secundario);*/
 }
 section.productosServicios .grid-container .grid-item figure .fondo {
   position: absolute;
@@ -218,7 +191,7 @@ section.productosServicios .grid-container .grid-item figure .fondo {
   border-radius: 0 0 0.8em 0.8em;
   /*background-image: repeating-linear-gradient(183deg, 
   transparent 0, transparent 11%, 
-  var.$bg-primario 0, var.$bg-primario);*/
+  var.$color-primario 0, var.$color-primario);*/
   background: #112d6a;
 }
 section.productosServicios .grid-container .grid-item figure .fondo h1 {
@@ -280,6 +253,317 @@ VENTANA MODAL PRODUCTOS Y SERVICIOS
 }
 .sliderNoticiaHome div.slick-slide ul li:nth-child(n+2) img {
   display: none;
+}
+
+/* ===== ===== NOTICIAS ===== ===== */
+/* ==============================
+COLORES
+============================== */
+.footer {
+  background-color: #112d6a;
+}
+.footer img.logoSuper {
+  position: absolute;
+  left: 0px;
+  top: 2rem;
+  transform: translate(-70px, 0);
+}
+.footer ul.iconosSocial li {
+  margin-right: 1.8rem;
+}
+.footer ul.iconosSocial li:last-child {
+  margin-right: 0;
+}
+.footer ul.masLogos {
+  margin-top: 5rem;
+}
+.footer div.field--name-field-sede-principal-footer {
+  margin-bottom: 2rem;
+}
+.footer div.field--name-field-sede-principal-footer div.field__label {
+  color: white;
+}
+.footer div.field--name-field-sede-principal-footer div.field__items div.field__item {
+  position: relative;
+  color: white;
+  font-size: 15px;
+  font-weight: lighter;
+}
+.footer div.field--name-field-horario-de-atencion-footer {
+  margin-bottom: 2rem;
+}
+.footer div.field--name-field-horario-de-atencion-footer div.field__label {
+  color: white;
+}
+.footer div.field--name-field-horario-de-atencion-footer div.field__items div.field__item {
+  position: relative;
+  color: white;
+  font-size: 15px;
+  font-weight: lighter;
+}
+.footer div.field--name-field-ntf-judiciales-footer {
+  margin-bottom: 2rem;
+}
+.footer div.field--name-field-ntf-judiciales-footer div.field__label {
+  color: white;
+}
+.footer div.field--name-field-ntf-judiciales-footer div.field__items div.field__item {
+  position: relative;
+  color: #CDDC4B;
+  font-size: 14px;
+  font-weight: lighter;
+  padding-left: 1.5rem;
+}
+.footer div.field--name-field-ntf-judiciales-footer div.field__items div.field__item::before {
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  margin-right: 1rem;
+  content: "" url("../images/iconos/mail.png");
+}
+.footer div.field--name-field-email-contacto-footer {
+  margin-bottom: 0;
+}
+.footer div.field--name-field-email-contacto-footer div.field__label {
+  color: white;
+}
+.footer div.field--name-field-email-contacto-footer div.field__items div.field__item {
+  position: relative;
+  color: #CDDC4B;
+  font-size: 14px;
+  font-weight: lighter;
+  padding-left: 1.5rem;
+}
+.footer div.field--name-field-email-contacto-footer div.field__items div.field__item::before {
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  margin-right: 1rem;
+  content: "" url("../images/iconos/mail.png");
+}
+.footer div.field--name-field-conmutador {
+  margin-bottom: 2rem;
+}
+.footer div.field--name-field-conmutador div.field__label {
+  color: white;
+}
+.footer div.field--name-field-conmutador div.field__items div.field__item {
+  position: relative;
+  color: white;
+  font-size: 15px;
+  font-weight: lighter;
+  padding-left: 1.5rem;
+}
+.footer div.field--name-field-conmutador div.field__items div.field__item::before {
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  margin-right: 1rem;
+  content: "" url("../images/iconos/telefono.png");
+}
+.footer div.field--name-field-pqr-footer {
+  margin-bottom: 2rem;
+}
+.footer div.field--name-field-pqr-footer div.field__label {
+  color: white;
+}
+.footer div.field--name-field-pqr-footer div.field__items div.field__item {
+  position: relative;
+  color: white;
+  font-size: 15px;
+  font-weight: lighter;
+  padding-left: 1.5rem;
+}
+.footer div.field--name-field-pqr-footer div.field__items div.field__item::before {
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  margin-right: 1rem;
+  content: "" url("../images/iconos/telefono.png");
+}
+.footer div.field--name-field-correo-institucional-foote {
+  margin-bottom: 2rem;
+}
+.footer div.field--name-field-correo-institucional-foote div.field__label {
+  color: white;
+}
+.footer div.field--name-field-correo-institucional-foote div.field__items div.field__item {
+  position: relative;
+  color: #CDDC4B;
+  font-size: 14px;
+  font-weight: lighter;
+  padding-left: 1.5rem;
+}
+.footer div.field--name-field-correo-institucional-foote div.field__items div.field__item::before {
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  margin-right: 1rem;
+  content: "" url("../images/iconos/mail.png");
+}
+.footer div.field--name-field-email-judiciales-footer {
+  margin-bottom: 0;
+}
+.footer div.field--name-field-email-judiciales-footer div.field__label {
+  color: white;
+}
+.footer div.field--name-field-email-judiciales-footer div.field__items div.field__item {
+  position: relative;
+  color: #CDDC4B;
+  font-size: 14px;
+  font-weight: lighter;
+  padding-left: 1.5rem;
+}
+.footer div.field--name-field-email-judiciales-footer div.field__items div.field__item::before {
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  margin-right: 1rem;
+  content: "" url("../images/iconos/mail.png");
+}
+.footer div.piePagina {
+  color: #CDDC4B;
+}
+
+/* ==============================
+BLOG
+============================== */
+/* ===== ===== Encabezado ===== ===== */
+div.encabezadoBlog {
+  position: relative;
+  background-position: center -61px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 680px;
+}
+div.encabezadoBlog section.encabezado {
+  background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.4) 25%);
+}
+div.encabezadoBlog section.encabezado .menu nav {
+  margin: 40px 0;
+}
+div.encabezadoBlog section.encabezado .menu nav ul li {
+  margin: 0 10px 0 10px;
+}
+div.encabezadoBlog section.encabezado .menu nav ul li a {
+  color: white;
+  font-size: 14px;
+  padding: 12px 0px;
+  position: relative;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+}
+div.encabezadoBlog section.encabezado .menu nav ul li a:hover::after {
+  content: "";
+  position: absolute;
+  width: 105%;
+  height: 3px;
+  background-color: white;
+  top: 3em;
+  left: -5px;
+}
+div.encabezadoBlog section.encabezado div.iconos {
+  margin: 20px 0;
+}
+div.encabezadoBlog section.titulos {
+  margin-top: 7rem;
+}
+div.encabezadoBlog section.titulos h4 {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  position: relative;
+  margin-bottom: 60px;
+}
+div.encabezadoBlog section.titulos h4::after {
+  content: "";
+  position: absolute;
+  width: 14%;
+  height: 2px;
+  background-color: white;
+  top: 2em;
+  left: 36rem;
+}
+div.encabezadoBlog section.titulos h1 {
+  width: 50%;
+  text-shadow: 1px 3px 2px black;
+  color: white;
+  font-weight: bold;
+}
+
+/* ===== ===== ARTICULOS ===== ===== */
+/* ==============================
+COLORES
+============================== */
+div.articuloBlog {
+  transform: translate(0, -50px);
+}
+div.articuloBlog .grid .grid-item p.tipoArticulo {
+  color: #296294;
+  font-size: 14px;
+}
+
+div.articuloBlogDos .grid .grid-item p.tipoArticulo {
+  color: #296294;
+  font-size: 14px;
+}
+
+/* ==============================
+INTERNAS
+============================== */
+div.articuloInternasBlog {
+  background: white;
+  transform: translate(0, -70px);
+  padding: 5em;
+}
+div.articuloInternasBlog h1, div.articuloInternasBlog h2, div.articuloInternasBlog h3, div.articuloInternasBlog h4, div.articuloInternasBlog h5 a {
+  color: #296294;
+}
+div.articuloInternasBlog .tipoArticulo,
+div.articuloInternasBlog .titulo {
+  margin-bottom: 1.5em;
+}
+div.articuloInternasBlog div.infoSocial {
+  margin-bottom: 4em;
+}
+div.articuloInternasBlog div.infoSocial p {
+  font-size: 18px;
+}
+div.articuloInternasBlog div.cuerpoArticulo p {
+  word-spacing: 4pt;
+}
+div.articuloInternasBlog div.cuerpoArticulo blockquote {
+  padding: 1em 0 0 2em;
+  font-weight: bold;
+  width: 90%;
+  font-style: oblique;
+}
+div.articuloInternasBlog div.cuerpoArticulo blockquote::before {
+  content: "" url("../images/iconos/comillas-negro.png");
+  margin-left: 2em;
+}
+div.articuloInternasBlog div.cuerpoArticulo div.field--name-field-media-oembed-video,
+div.articuloInternasBlog div.cuerpoArticulo div.field--name-field-media-image {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* ===== ===== ARTICULOS ===== ===== */
+/* ==============================
+COLORES
+============================== */
+section.seccionVideoBlog {
+  margin-top: 30px;
+  margin-bottom: 90px;
+}
+section.seccionVideoBlog div.titulo h1 {
+  color: #112d6a;
+  padding: 35px 35px;
+}
+section.seccionVideoBlog div.video div.field--name-field-media-oembed-video {
+  width: 100%;
+}
+section.seccionVideoBlog div.video div.field--name-field-media-oembed-video iframe {
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

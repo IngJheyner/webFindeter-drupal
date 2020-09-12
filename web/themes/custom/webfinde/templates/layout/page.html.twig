@@ -59,14 +59,17 @@ set footer_classes = ' ' ~
 {# ============================================
 HEADER(ENCABEZADO)
 =============================================== #}
-<header class="container-fluid p-0">
+{% if page.region_A %}
 
-  {{ page.region_A }}  
+  <header class="container-fluid p-0">
 
-</header>
+    {{ page.region_A }}  
+
+  </header>
+
+{% endif %}
 
 <main role="main">
-
   
   <section class="container">
 
@@ -84,41 +87,21 @@ HEADER(ENCABEZADO)
 
         {{ page.region_D }}
 
-      </div>
-      
+      </div>      
 
     </div>    
 
   </section>
 
-
-  <div class="{{ b4_top_container }}">
-    {% if page.breadcrumb %}
-      {{ page.breadcrumb }}
-    {% endif %}
-    <div class="row no-gutters">
-      {% if page.sidebar_first %}
-        <div class="order-2 order-lg-1 {{ sidebar_first_classes }}">
-          {{ page.sidebar_first }}
-        </div>
-      {% endif %}
-      <div class="order-1 order-lg-2 {{ content_classes }}">
-        {{ page.content }}
-      </div>
-      {% if page.sidebar_second %}
-        <div class="order-3 {{ sidebar_second_classes }}">
-          {{ page.sidebar_second }}
-        </div>
-      {% endif %}
-    </div>
-  </div>
-
 </main>
 
-{% if page.footer %}
-<footer class="mt-auto {{ footer_classes }}">
-  <div class="{{ b4_top_container }}">
-    {{ page.footer }}
-  </div>
-</footer>
+{% if page.region_I %}
+
+  <footer>
+
+    {{ page.region_I }}
+
+  </footer>
+
 {% endif %}
+
