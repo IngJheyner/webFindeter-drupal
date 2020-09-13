@@ -26,19 +26,20 @@ div.articuloBlogDos{
     @include articulo; 
 }
 
+div.masArticulosInterno{
+
+    border-top: 2px solid var.$color-quinario;
+}
+
 /* ==============================
 INTERNAS
 ============================== */
 div.articuloInternasBlog{
 
-    h1,h2,h3,h4,h5
-    a{
-        color: var.$color-secundario;
-    }
-
     background: white;
-    transform: translate(0, -70px);
-    padding: 5em;
+    transform: translate(0, -70px);    
+    padding: 5em 5em 0 5em;
+
 
     .tipoArticulo,
     .titulo{

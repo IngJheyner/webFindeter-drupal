@@ -1,3 +1,5 @@
+// Include custom sub theme.
+@use 'custom/variables' as var;
 // Include bootstrap variables definitions overrides.
 @import 'overrides/variables';
 
@@ -9,8 +11,8 @@
 // OR test new Bootstrap 4.5.0
 //@import "[DOCROOT]/themes/contrib/bootstrap4/scss/style-4-5-0";
 
-// Include custom sub theme.
-//@import 'custom/variables';
+
+
 
 // Include custom sub theme.
 //@import 'custom/mixins/misc';
@@ -20,6 +22,8 @@
 ESTILOS GLOBALES
 ============================== */
 h1,h2,h3,h4,h5{
+
+    color: var.$color-secundario;
     font-weight: 400;
     margin: 0;    
 }
@@ -28,10 +32,16 @@ ul, ol{
 	list-style: none;
 }
 
-a:visited, a:link, a:focus, a:hover, a:active{
-	list-style: none;
-	text-decoration: none;
+a{
+    color: var.$color-secundario;
+
+    &:visited, &:link, &:focus, &:hover, &:active{
+        list-style: none;
+        text-decoration: none;
+    }
+
 }
+
 
 p{
     margin: 0;

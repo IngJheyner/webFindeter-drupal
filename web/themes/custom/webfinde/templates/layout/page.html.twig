@@ -75,21 +75,25 @@ HEADER(ENCABEZADO)
 
     {{ page.region_B }}
 
-    <div class="row">
+    {% if page.region_C or page.region_D %}
 
-      <div class="col-8 pl-0">
+      <div class="row">
 
-        {{ page.region_C }}
+        <div class="col-8 pl-0">
 
-      </div>      
+          {{ page.region_C }}
 
-      <div class="col-4 pr-0">
+        </div>      
 
-        {{ page.region_D }}
+        <div class="col-4 pr-0">
 
-      </div>      
+          {{ page.region_D }}
 
-    </div>    
+        </div>      
+
+      </div>
+
+    {% endif %}
 
   </section>
 

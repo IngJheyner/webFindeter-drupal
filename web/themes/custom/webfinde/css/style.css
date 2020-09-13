@@ -2,6 +2,9 @@
 COLORES
 ============================== */
 /* ==============================
+COLORES
+============================== */
+/* ==============================
 VENTANA MODAL
 ============================== */
 .modal-backdrop {
@@ -17,6 +20,7 @@ VENTANA MODAL
 ESTILOS GLOBALES
 ============================== */
 h1, h2, h3, h4, h5 {
+  color: #296294;
   font-weight: 400;
   margin: 0;
 }
@@ -25,6 +29,9 @@ ul, ol {
   list-style: none;
 }
 
+a {
+  color: #296294;
+}
 a:visited, a:link, a:focus, a:hover, a:active {
   list-style: none;
   text-decoration: none;
@@ -507,16 +514,17 @@ div.articuloBlogDos .grid .grid-item p.tipoArticulo {
   font-size: 14px;
 }
 
+div.masArticulosInterno {
+  border-top: 2px solid #c9c8c6;
+}
+
 /* ==============================
 INTERNAS
 ============================== */
 div.articuloInternasBlog {
   background: white;
   transform: translate(0, -70px);
-  padding: 5em;
-}
-div.articuloInternasBlog h1, div.articuloInternasBlog h2, div.articuloInternasBlog h3, div.articuloInternasBlog h4, div.articuloInternasBlog h5 a {
-  color: #296294;
+  padding: 5em 5em 0 5em;
 }
 div.articuloInternasBlog .tipoArticulo,
 div.articuloInternasBlog .titulo {
