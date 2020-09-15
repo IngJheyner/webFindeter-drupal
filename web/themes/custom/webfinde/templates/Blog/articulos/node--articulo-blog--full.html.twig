@@ -71,7 +71,7 @@
  */
 #}
 
-{#{ drupal_dump( file_url(content.field_imagen_fondo_articulo[0]['#item'].entity.uri.value)) }#}
+{#{ drupal_dump( content ) }#}
 {#{ attach_library('classy/node') }#}
 
 
@@ -108,15 +108,14 @@
 
       <a href="javascript:history.back();"><img src="{{ url('<front>') }}themes/custom/webfinde/images/iconos/atras.png" width="30" class="d-inline-block mr-5"></a>
 
-      <img src="{{ url('<front>') }}themes/custom/webfinde/images/iconos/facebook-negro.png" width="30" class="d-inline-block mr-5">
-
-      <img src="{{ url('<front>') }}themes/custom/webfinde/images/iconos/twitter-negro.png" width="30" class="d-inline-block mr-5">
+      {# ===== ===== COMPARTIR REDES SOCIALES ===== ===== #}
+      {{ content.addtoany }}      
     
     </div>    
 
     <div class="cuerpoArticulo">
 
-      {{ content.body }}
+      {{ content.body }}     
 
     </div>
     
