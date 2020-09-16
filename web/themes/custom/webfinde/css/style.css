@@ -505,14 +505,46 @@ COLORES
 div.articuloBlog {
   transform: translate(0, -50px);
 }
+div.articuloBlog .grid .grid-item {
+  position: relative;
+  overflow: hidden;
+}
+div.articuloBlog .grid .grid-item img {
+  transform: scale(1, 1);
+  transition: 1s all;
+}
 div.articuloBlog .grid .grid-item p.tipoArticulo {
   color: #296294;
   font-size: 14px;
+  transition: 0.6s all;
+}
+div.articuloBlog .grid .grid-item:hover {
+  border-bottom: 1px solid #c9c8c6;
+}
+div.articuloBlog .grid .grid-item:hover img {
+  transform: scale(1.1, 1.1);
+  transition: 1s all;
 }
 
+div.articuloBlogDos .grid .grid-item {
+  position: relative;
+  overflow: hidden;
+}
+div.articuloBlogDos .grid .grid-item img {
+  transform: scale(1, 1);
+  transition: 1s all;
+}
 div.articuloBlogDos .grid .grid-item p.tipoArticulo {
   color: #296294;
   font-size: 14px;
+  transition: 0.6s all;
+}
+div.articuloBlogDos .grid .grid-item:hover {
+  border-bottom: 1px solid #c9c8c6;
+}
+div.articuloBlogDos .grid .grid-item:hover img {
+  transform: scale(1.1, 1.1);
+  transition: 1s all;
 }
 
 div.masArticulosInterno {

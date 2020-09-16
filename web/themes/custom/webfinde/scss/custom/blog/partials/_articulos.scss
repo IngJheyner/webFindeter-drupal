@@ -5,14 +5,37 @@
     .grid{
 
         .grid-item{
+            
+
+            position: relative;
+            overflow: hidden;
+
+            img{
+
+                transform: scale(1, 1);
+                transition: 1s all;                    
+            }
 
             p.tipoArticulo{
 
                 color: var.$color-secundario;
                 font-size: 14px;
-                
+                transition: .6s all;
             }
 
+            &:hover{
+
+                img{
+
+                    transform: scale(1.1, 1.1);
+                    transition: 1s all;  
+                }
+
+                border-bottom: 1px solid var.$color-quinario;
+                                    
+            }
+
+            
         }
     }
 }
@@ -27,7 +50,6 @@ div.articuloBlogDos{
 }
 
 div.masArticulosInterno{
-
     border-top: 2px solid var.$color-quinario;
 }
 
