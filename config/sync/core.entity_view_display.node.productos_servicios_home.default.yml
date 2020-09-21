@@ -1,0 +1,41 @@
+uuid: 9815e128-cbfa-4915-9f35-57d29cc63372
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.productos_servicios_home.body
+    - field.field.node.productos_servicios_home.field_img_fondo_ps_home
+    - node.type.productos_servicios_home
+  module:
+    - image
+    - text
+    - user
+id: node.productos_servicios_home.default
+targetEntityType: node
+bundle: productos_servicios_home
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_img_fondo_ps_home:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

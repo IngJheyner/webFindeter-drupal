@@ -1,0 +1,23 @@
+uuid: ac16c7cd-54b9-444d-a611-7cd53b26cc34
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_enlace_url
+    - paragraphs.paragraphs_type.productos_servicios_home
+  module:
+    - link
+id: paragraph.productos_servicios_home.field_enlace_url
+field_name: field_enlace_url
+entity_type: paragraph
+bundle: productos_servicios_home
+label: 'Enlace [ Botón ]'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

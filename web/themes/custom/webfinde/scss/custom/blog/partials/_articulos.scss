@@ -4,8 +4,7 @@
 
     .grid{
 
-        .grid-item{
-            
+        .grid-item{            
 
             position: relative;
             overflow: hidden;
@@ -31,7 +30,7 @@
                     transition: 1s all;  
                 }
 
-                border-bottom: 1px solid var.$color-quinario;
+                border-bottom: 1px solid var.$color-primario;
                                     
             }
 
@@ -47,6 +46,8 @@ div.articuloBlog{
 
 div.articuloBlogDos{
     @include articulo; 
+    border-bottom: 2px solid var.$color-quinario;
+    padding-bottom: 3rem;
 }
 
 div.masArticulosInterno{

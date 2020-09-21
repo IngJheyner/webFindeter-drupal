@@ -1,0 +1,79 @@
+uuid: 8f423b3e-4d12-4f5a-98dc-dffdb10a3859
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.productos_y_servicios_home_
+    - field.field.block_content.productos_y_servicios_home_.field_nombre_de_la_seccion
+    - field.field.block_content.productos_y_servicios_home_.field_seccion_bloque
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_ejecucion:
+      children:
+        - field_seccion_bloque
+      parent_name: ''
+      weight: 3
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        description: ''
+        open: true
+        weight: 0
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Contenido
+    group_informacion:
+      children:
+        - field_nombre_de_la_seccion
+        - info
+      parent_name: ''
+      weight: 0
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        description: ''
+        weight: 0
+        required_fields: true
+        id: ''
+        classes: ''
+        open: false
+      label: Información
+id: block_content.productos_y_servicios_home_.default
+targetEntityType: block_content
+bundle: productos_y_servicios_home_
+mode: default
+content:
+  field_nombre_de_la_seccion:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_seccion_bloque:
+    type: entity_reference_paragraphs
+    weight: 26
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  info:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

@@ -11,9 +11,15 @@ VENTANA MODAL
   background-color: transparent;
 }
 
-.btn-secondary {
+.btn-primary {
   background-color: #296294 !important;
   border: 0 !important;
+}
+
+.btn-secondary {
+  background-color: #00993e !important;
+  border: 0 !important;
+  border-radius: 0 !important;
 }
 
 /* ==============================
@@ -519,13 +525,17 @@ div.articuloBlog .grid .grid-item p.tipoArticulo {
   transition: 0.6s all;
 }
 div.articuloBlog .grid .grid-item:hover {
-  border-bottom: 1px solid #c9c8c6;
+  border-bottom: 1px solid #112d6a;
 }
 div.articuloBlog .grid .grid-item:hover img {
   transform: scale(1.1, 1.1);
   transition: 1s all;
 }
 
+div.articuloBlogDos {
+  border-bottom: 2px solid #c9c8c6;
+  padding-bottom: 3rem;
+}
 div.articuloBlogDos .grid .grid-item {
   position: relative;
   overflow: hidden;
@@ -540,7 +550,7 @@ div.articuloBlogDos .grid .grid-item p.tipoArticulo {
   transition: 0.6s all;
 }
 div.articuloBlogDos .grid .grid-item:hover {
-  border-bottom: 1px solid #c9c8c6;
+  border-bottom: 1px solid #112d6a;
 }
 div.articuloBlogDos .grid .grid-item:hover img {
   transform: scale(1.1, 1.1);
@@ -605,6 +615,22 @@ section.seccionVideoBlog div.video div.field--name-field-media-oembed-video {
 }
 section.seccionVideoBlog div.video div.field--name-field-media-oembed-video iframe {
   width: 100%;
+}
+
+section.boletinBlog {
+  padding: 2rem 10rem 0 10rem;
+}
+section.boletinBlog form {
+  background-color: #112d6a;
+  padding: 2rem 8rem 4rem 8rem;
+  border-radius: 0.8rem 0.8rem 0 0;
+}
+section.boletinBlog form input[type=email] {
+  height: calc(2.5em + 0.75rem + 1px);
+  border-radius: 0;
+}
+section.boletinBlog form input[type=submit] {
+  line-height: 2.6;
 }
 
 /*# sourceMappingURL=style.css.map */

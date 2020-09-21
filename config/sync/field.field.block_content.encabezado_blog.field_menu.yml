@@ -1,0 +1,23 @@
+uuid: 1b75396d-671e-4a12-b6a4-211efd5f5899
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.encabezado_blog
+    - field.storage.block_content.field_menu
+  module:
+    - link
+id: block_content.encabezado_blog.field_menu
+field_name: field_menu
+entity_type: block_content
+bundle: encabezado_blog
+label: Menú
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 1
+  title: 1
+field_type: link

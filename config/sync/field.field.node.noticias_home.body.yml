@@ -1,0 +1,23 @@
+uuid: 98ac1d21-71cf-49e3-a3a0-b9583a318516
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.noticias_home
+  module:
+    - text
+id: node.noticias_home.body
+field_name: body
+entity_type: node
+bundle: noticias_home
+label: Descripción
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

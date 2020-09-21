@@ -1,0 +1,30 @@
+uuid: e61d829d-926e-4fc4-9640-38fd39dbdc7b
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+    - file
+    - image
+id: block_content.field_mas_logos_footer
+field_name: field_mas_logos_footer
+entity_type: block_content
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

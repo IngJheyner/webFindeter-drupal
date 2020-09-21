@@ -1,0 +1,31 @@
+uuid: eaae282c-4d00-46a1-b24c-c667d0cb73a5
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.productos_y_servicios_home_
+    - field.storage.block_content.field_seccion_bloque
+    - paragraphs.paragraphs_type.productos_servicios_home
+  module:
+    - entity_reference_revisions
+id: block_content.productos_y_servicios_home_.field_seccion_bloque
+field_name: field_seccion_bloque
+entity_type: block_content
+bundle: productos_y_servicios_home_
+label: 'Sección del bloque'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      productos_servicios_home: productos_servicios_home
+    target_bundles_drag_drop:
+      productos_servicios_home:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

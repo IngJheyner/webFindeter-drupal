@@ -1,0 +1,34 @@
+uuid: 2156744b-216e-45fd-9dd7-43e02f75e4b9
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.productos_servicios_home.body
+    - field.field.node.productos_servicios_home.field_img_fondo_ps_home
+    - node.type.productos_servicios_home
+  module:
+    - text
+    - user
+id: node.productos_servicios_home.teaser
+targetEntityType: node
+bundle: productos_servicios_home
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  field_img_fondo_ps_home: true
+  langcode: true

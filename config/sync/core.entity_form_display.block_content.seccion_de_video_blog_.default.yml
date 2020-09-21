@@ -1,0 +1,66 @@
+uuid: 6c7e2998-e888-4e67-84f1-282806d430de
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.seccion_de_video_blog_
+    - field.field.block_content.seccion_de_video_blog_.field_titulo_frase
+    - field.field.block_content.seccion_de_video_blog_.field_url_youtube
+  module:
+    - field_group
+    - media_library
+third_party_settings:
+  field_group:
+    group_contenido_video_blog:
+      children:
+        - field_titulo_frase
+        - field_url_youtube_
+        - field_url_youtube
+      parent_name: ''
+      weight: 2
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+        weight: 0
+      label: Contenido
+id: block_content.seccion_de_video_blog_.default
+targetEntityType: block_content
+bundle: seccion_de_video_blog_
+mode: default
+content:
+  field_titulo_frase:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_url_youtube:
+    type: media_library_widget
+    weight: 4
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

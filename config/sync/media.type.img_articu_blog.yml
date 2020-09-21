@@ -1,0 +1,16 @@
+uuid: 41c0ff22-cc7d-48b7-ab7d-2b25de988e59
+langcode: es
+status: true
+dependencies: {  }
+id: img_articu_blog
+label: 'Imgenes [ Articulo - Blog ]'
+description: 'Imágenes internas del los artículos publicados del blog.'
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image
+field_map:
+  mimetype: name
+  width: field_media_image
+  height: field_media_image

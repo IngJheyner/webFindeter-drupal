@@ -1,0 +1,48 @@
+@use '../../variables' as var;
+
+section.seccionVideoBlog{
+
+    margin-top: 30px;
+    margin-bottom: 90px;
+
+    div.titulo{
+
+        h1{
+            color: var.$color-primario;
+            padding: 35px 35px;
+        }
+    }
+
+    div.video{
+
+        div.field--name-field-media-oembed-video{
+            width: 100%;
+
+            iframe{
+                width: 100%;
+            }
+        }
+    }
+}
+
+section.boletinBlog{   
+
+    padding: 2rem 10rem 0 10rem;
+
+    form{
+
+        background-color: var.$color-primario;
+        padding: 2rem 8rem 4rem 8rem;
+        border-radius: 0.8rem 0.8rem 0 0;
+
+        input[type='email']{
+            height: calc(2.5em + 0.75rem + 1px);
+            border-radius: 0;
+        }
+
+        input[type='submit']{
+
+            line-height: 2.6;
+        }
+    }
+}

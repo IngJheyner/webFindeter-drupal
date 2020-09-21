@@ -1,0 +1,27 @@
+uuid: 27145661-502a-477e-9cdd-27fd1578b7d5
+langcode: es
+status: false
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - webfinde
+_core:
+  default_config_hash: 35BFwuaW_wb2mnnYk1tNg7T9Ro9RaewrCqOTtyQ7VJE
+id: webfinde_main_navigation
+theme: webfinde
+region: content
+weight: -3
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: true
+visibility: {  }
