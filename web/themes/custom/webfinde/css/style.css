@@ -440,6 +440,53 @@ COLORES
 }
 
 /* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  div.field--name-field-ntf-judiciales-footer {
+    margin-bottom: 2rem;
+  }
+  div.field--name-field-ntf-judiciales-footer div.field__label {
+    color: white;
+  }
+  div.field--name-field-ntf-judiciales-footer div.field__items div.field__item {
+    position: relative;
+    color: #CDDC4B;
+    font-size: 13px !important;
+    font-weight: lighter;
+    padding-left: 1.5rem;
+  }
+  div.field--name-field-ntf-judiciales-footer div.field__items div.field__item::before {
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    margin-right: 1rem;
+    content: "" url("../images/iconos/mail.png");
+  }
+
+  div.field--name-field-email-judiciales-footer {
+    margin-bottom: 0;
+  }
+  div.field--name-field-email-judiciales-footer div.field__label {
+    color: white;
+  }
+  div.field--name-field-email-judiciales-footer div.field__items div.field__item {
+    position: relative;
+    color: #CDDC4B;
+    font-size: 12px !important;
+    font-weight: lighter;
+    padding-left: 1.5rem;
+  }
+  div.field--name-field-email-judiciales-footer div.field__items div.field__item::before {
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    margin-right: 1rem;
+    content: "" url("../images/iconos/mail.png");
+  }
+}
+/* ==============================
 BLOG
 ============================== */
 /* ===== ===== Encabezado ===== ===== */
@@ -504,6 +551,26 @@ div.encabezadoBlog section.titulos h1 {
   font-weight: bold;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  section.encabezado .menu nav ul li {
+    margin: 0 0px 0 9px !important;
+  }
+  section.encabezado .menu nav ul li a {
+    font-size: 12px !important;
+  }
+
+  section.titulos {
+    margin-top: 2rem !important;
+  }
+  section.titulos h4::after {
+    left: 25rem !important;
+    width: 22% !important;
+  }
+}
 /* ===== ===== ARTICULOS ===== ===== */
 /* ==============================
 COLORES
@@ -598,6 +665,15 @@ div.articuloInternasBlog div.cuerpoArticulo div.field--name-field-media-image {
   margin-left: auto;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  div.articuloBlog {
+    transform: translate(0, -90px);
+  }
+}
 /* ===== ===== ARTICULOS ===== ===== */
 /* ==============================
 COLORES
@@ -631,6 +707,17 @@ section.boletinBlog form input[type=email] {
 }
 section.boletinBlog form input[type=submit] {
   line-height: 2.6;
+}
+
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  section.seccionVideoBlog {
+    margin-top: -20px;
+  }
+  section.seccionVideoBlog div.titulo h1 {
+    padding: 0px 35px;
+    font-size: 2.2rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,3 +1,5 @@
+@use '../../../mixins/media-query' as media-query;
+
 div.encabezadoBlog{
 
     position: relative;
@@ -82,4 +84,41 @@ div.encabezadoBlog{
     }
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+@include media-query.media(lg){
+
+    section.encabezado{      
+
+        .menu nav{          
+    
+            ul{
+    
+                li{
+
+                    margin: 0 0px 0 9px !important; 
+
+                    a{                        
+                        font-size: 12px !important;                       
+                    }
+                }
+            }
+        }
+    }
+
+    section.titulos{
+
+        margin-top: 2rem !important;
+
+        h4{    
+
+            &::after{
+               
+                left: 25rem !important;
+                width: 22% !important;
+            }
+        }
+    }
+}
 

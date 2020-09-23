@@ -1,4 +1,5 @@
 @use '../../variables' as var;
+@use '../../../mixins/media-query' as media-query;
 
 section.seccionVideoBlog{
 
@@ -43,6 +44,23 @@ section.boletinBlog{
         input[type='submit']{
 
             line-height: 2.6;
+        }
+    }
+}
+
+@include media-query.media(lg){
+
+    section.seccionVideoBlog {
+
+        margin-top: -20px;
+        
+        div.titulo{
+
+            h1{
+               
+                padding: 0px 35px;
+                font-size: 2.2rem;
+            }
         }
     }
 }

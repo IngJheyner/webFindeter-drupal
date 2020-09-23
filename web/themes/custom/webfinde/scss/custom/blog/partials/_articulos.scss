@@ -1,4 +1,5 @@
 @use '../../variables' as var;
+@use '../../../mixins/media-query' as media-query;
 
 @mixin articulo{
 
@@ -108,4 +109,15 @@ div.articuloInternasBlog{
             margin-left: auto;
         }
     }
+}
+
+/* ==============================
+MEDIA QUERY
+============================== */
+@include media-query.media(lg){
+
+    div.articuloBlog{
+        transform: translate(0, -90px);    
+    }
+    
 }
