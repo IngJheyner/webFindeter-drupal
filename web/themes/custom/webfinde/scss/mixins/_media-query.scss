@@ -21,7 +21,7 @@ $breakpoint-xl: 1200px;
     @media (min-width: 768px) and (max-width: $breakpoint-md) { @content; }
   }
 
-  /*TABLET VERTICAL (lg REVISAMOS EN 1024px)*/
+  /*TABLET VERTICAL (lg REVISAMOS EN 992px)*/
   @else if $media == lg {
     @media (min-width: 992px) and (max-width: $breakpoint-lg) { @content; }
   }

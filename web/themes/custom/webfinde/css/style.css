@@ -486,6 +486,96 @@ MEDIA QUERY
     content: "" url("../images/iconos/mail.png");
   }
 }
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  ul.iconosSocial {
+    text-align: center;
+  }
+
+  div.field--name-field-ntf-judiciales-footer {
+    margin-bottom: 2rem;
+  }
+  div.field--name-field-ntf-judiciales-footer div.field__label {
+    color: white;
+  }
+  div.field--name-field-ntf-judiciales-footer div.field__items div.field__item {
+    position: relative;
+    color: #CDDC4B;
+    font-size: 15px !important;
+    font-weight: lighter;
+    padding-left: 1.5rem;
+  }
+  div.field--name-field-ntf-judiciales-footer div.field__items div.field__item::before {
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    margin-right: 1rem;
+    content: "" url("../images/iconos/mail.png");
+  }
+
+  div.field--name-field-email-contacto-footer {
+    margin-bottom: 0;
+  }
+  div.field--name-field-email-contacto-footer div.field__label {
+    color: white;
+  }
+  div.field--name-field-email-contacto-footer div.field__items div.field__item {
+    position: relative;
+    color: #CDDC4B;
+    font-size: 15px !important;
+    font-weight: lighter;
+    padding-left: 1.5rem;
+  }
+  div.field--name-field-email-contacto-footer div.field__items div.field__item::before {
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    margin-right: 1rem;
+    content: "" url("../images/iconos/mail.png");
+  }
+
+  div.field--name-field-correo-institucional-foote {
+    margin-bottom: 2rem;
+  }
+  div.field--name-field-correo-institucional-foote div.field__label {
+    color: white;
+  }
+  div.field--name-field-correo-institucional-foote div.field__items div.field__item {
+    position: relative;
+    color: #CDDC4B;
+    font-size: 15px !important;
+    font-weight: lighter;
+    padding-left: 1.5rem;
+  }
+  div.field--name-field-correo-institucional-foote div.field__items div.field__item::before {
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    margin-right: 1rem;
+    content: "" url("../images/iconos/mail.png");
+  }
+
+  div.field--name-field-email-judiciales-footer {
+    margin-bottom: 0;
+  }
+  div.field--name-field-email-judiciales-footer div.field__label {
+    color: white;
+  }
+  div.field--name-field-email-judiciales-footer div.field__items div.field__item {
+    position: relative;
+    color: #CDDC4B;
+    font-size: 15px !important;
+    font-weight: lighter;
+    padding-left: 1.5rem;
+  }
+  div.field--name-field-email-judiciales-footer div.field__items div.field__item::before {
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    margin-right: 1rem;
+    content: "" url("../images/iconos/mail.png");
+  }
+}
 /* ==============================
 BLOG
 ============================== */
@@ -499,12 +589,18 @@ div.encabezadoBlog {
 }
 div.encabezadoBlog section.encabezado {
   background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.4) 25%);
+  /* ==============================
+  MENU ESCRITORIO
+  ============================== */
+  /* ==============================
+  MENU TABLET
+  ============================== */
 }
 div.encabezadoBlog section.encabezado .menu nav {
   margin: 40px 0;
 }
 div.encabezadoBlog section.encabezado .menu nav ul li {
-  margin: 0 10px 0 10px;
+  margin: 0 20px 0 20px;
 }
 div.encabezadoBlog section.encabezado .menu nav ul li a {
   color: white;
@@ -522,6 +618,10 @@ div.encabezadoBlog section.encabezado .menu nav ul li a:hover::after {
   background-color: white;
   top: 3em;
   left: -5px;
+}
+div.encabezadoBlog section.encabezado .menuMovil nav a.navbar-brand {
+  color: white;
+  text-shadow: 1px 1px 2px black;
 }
 div.encabezadoBlog section.encabezado div.iconos {
   margin: 20px 0;
@@ -555,6 +655,7 @@ div.encabezadoBlog section.titulos h1 {
 MEDIA QUERY
 ============================== */
 /*MOVIL VERTICAL(sm 320px)*/
+/*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
   section.encabezado .menu nav ul li {
     margin: 0 0px 0 9px !important;
@@ -569,6 +670,79 @@ MEDIA QUERY
   section.titulos h4::after {
     left: 25rem !important;
     width: 22% !important;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  section.encabezado {
+    /* ==============================
+    MENU ESCRITORIO
+    ============================== */
+  }
+  section.encabezado .menu nav {
+    margin: 40px 0 0 !important;
+  }
+  section.encabezado .menu nav ul li {
+    margin: 0 0 12px 10px !important;
+  }
+  section.encabezado .menu nav ul li a:hover::after {
+    height: 2px !important;
+    top: 2.3em !important;
+  }
+  section.encabezado .menu nav button {
+    border-color: transparent;
+  }
+
+  section.titulos {
+    margin-top: 1rem !important;
+  }
+  section.titulos h4::after {
+    width: 22% !important;
+    left: 18rem !important;
+  }
+  section.titulos h1 {
+    width: 80% !important;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  /* ==============================
+  MENU ESCRITORIO
+  ============================== */
+  .menu nav {
+    margin: 40px 0 0 !important;
+  }
+  .menu nav ul li {
+    margin: 0 0 4px 0 !important;
+  }
+  .menu nav ul li a:hover::after {
+    height: 2px !important;
+    top: 2.3em !important;
+  }
+
+  /* ==============================
+  MENU TABLET
+  ============================== */
+  .menuMovil nav button {
+    margin-left: 11rem;
+  }
+  .menuMovil nav div#menuMovil {
+    position: absolute;
+    left: -278px;
+    top: 76px;
+    width: 174%;
+  }
+
+  section.titulos {
+    margin-top: 6rem !important;
+  }
+  section.titulos h4::after {
+    width: 40% !important;
+    left: 11rem !important;
+  }
+  section.titulos h1 {
+    width: 95% !important;
+    font-size: 2em;
   }
 }
 /* ===== ===== ARTICULOS ===== ===== */
@@ -674,6 +848,43 @@ MEDIA QUERY
     transform: translate(0, -90px);
   }
 }
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.articuloBlog {
+    transform: translate(0, -100px);
+  }
+
+  div.articuloBlogDos {
+    border-bottom: 2px solid #c9c8c6;
+    padding-bottom: 2rem;
+  }
+  div.articuloBlogDos .grid .grid-item {
+    position: relative;
+    overflow: hidden;
+  }
+  div.articuloBlogDos .grid .grid-item img {
+    transform: scale(1, 1);
+    transition: 1s all;
+  }
+  div.articuloBlogDos .grid .grid-item p.tipoArticulo {
+    color: #296294;
+    font-size: 14px;
+    transition: 0.6s all;
+  }
+  div.articuloBlogDos .grid .grid-item:hover {
+    border-bottom: 1px solid #112d6a;
+  }
+  div.articuloBlogDos .grid .grid-item:hover img {
+    transform: scale(1.1, 1.1);
+    transition: 1s all;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.articuloBlog {
+    transform: translate(0, -95px);
+  }
+}
 /* ===== ===== ARTICULOS ===== ===== */
 /* ==============================
 COLORES
@@ -709,6 +920,9 @@ section.boletinBlog form input[type=submit] {
   line-height: 2.6;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
   section.seccionVideoBlog {
@@ -717,6 +931,43 @@ section.boletinBlog form input[type=submit] {
   section.seccionVideoBlog div.titulo h1 {
     padding: 0px 35px;
     font-size: 2.2rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  section.seccionVideoBlog {
+    margin-top: -50px;
+  }
+  section.seccionVideoBlog div.titulo h1 {
+    padding: 30px 0px;
+    font-size: 1.9rem;
+  }
+
+  section.boletinBlog {
+    padding: 0;
+  }
+  section.boletinBlog form {
+    border-radius: 0;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  section.seccionVideoBlog {
+    margin-top: -80px;
+    margin-bottom: 80px;
+  }
+  section.seccionVideoBlog div.titulo h1 {
+    padding: 0;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  section.boletinBlog {
+    padding: 0;
+  }
+  section.boletinBlog form {
+    border-radius: 0;
+    padding: 2rem 2rem 4rem 2rem;
   }
 }
 

@@ -60,7 +60,10 @@ MENU BLOG
 
   {% if multiple %}
 
-    <nav  class="navbar navbar-expand-lg p-0 justify-content-center">
+    {# ============================================
+    MENU ESCRITORIO
+    =============================================== #}
+    <nav  class="d-none d-lg-block navbar navbar-expand-lg p-0 justify-content-center">
 
       <ul class="navbar-nav">
 
@@ -75,6 +78,38 @@ MENU BLOG
         {% endfor %}
 
       </ul>
+
+    </nav>
+
+    {# ============================================
+    MENU TABLET Y MOVIL
+    =============================================== #}
+    <nav  class="d-lg-none navbar navbar-dark p-0">    
+
+      <button class="navbar-toggler" 
+      type="button" data-toggle="collapse" data-target="#menuMovil"
+      aria-controls="menuMovil" aria-expanded="false" aria-label="Toggle navigation">       
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="menuMovil">
+
+        <ul class="navbar-nav mr-auto">
+
+          {% for item in items %}
+
+            <li class="nav-item">
+
+                {{ item.content }}
+
+            </li>
+
+          {% endfor %}
+
+        </ul>
+
+      </div>
 
     </nav>
 

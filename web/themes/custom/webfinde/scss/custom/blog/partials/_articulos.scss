@@ -121,3 +121,25 @@ MEDIA QUERY
     }
     
 }
+
+@include media-query.media(md){
+
+    div.articuloBlog{
+        transform: translate(0, -100px);    
+    }
+
+    div.articuloBlogDos{
+        @include articulo; 
+        border-bottom: 2px solid var.$color-quinario;
+        padding-bottom: 2rem;
+    }
+    
+}
+
+@include media-query.media(sm){
+
+    div.articuloBlog {
+        transform: translate(0, -95px);
+    }
+    
+}
