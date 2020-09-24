@@ -1,0 +1,24 @@
+
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.findeter_user_request.body
+    - node.type.findeter_user_request
+  module:
+    - text
+    - user
+id: node.findeter_user_request.default
+targetEntityType: node
+bundle: findeter_user_request
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_textarea_with_summary
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden: {  }
