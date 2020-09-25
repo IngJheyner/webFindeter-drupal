@@ -55,8 +55,9 @@
     {# ============================================
     LOGO
     =============================================== #}
-    {# ===== ===== media-query w=576px ===== ===== #}
-    <div class="d-lg-none col-sm-6 p-sm-0">
+
+    {# ===== ===== media-query w=320-576px ===== ===== #}
+    <div class="d-lg-none col-12 col-sm-6 p-0 text-center mx-auto">
 
       <a href="{{ url('<front>') }}"><img src="{{ file_url(content.field_logo[0]['#item'].entity.uri.value) }}" class="img-fluid"></a>      
       
@@ -72,8 +73,8 @@
     {# ============================================
     MENU
     =============================================== #}
-    {# ===== ===== media-query w=320px ===== ===== #}
-    <div class="d-lg-none col-sm-6 menu menuMovil">    
+    {# ===== ===== media-query w=320 - 576px ===== ===== #}
+    <div class="d-lg-none col-12 col-sm-6 menu menuMovil">    
 
       {{ content.field_menu }}
         

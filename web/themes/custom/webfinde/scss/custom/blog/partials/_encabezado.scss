@@ -22,7 +22,7 @@ div.encabezadoBlog{
             ul{
     
                 li{
-                    margin: 0 20px 0 20px;               
+                    margin: 0 10px 0 10px;               
     
                     a{
                         color: white;
@@ -105,10 +105,6 @@ div.encabezadoBlog{
 /* ==============================
 MEDIA QUERY
 ============================== */
-@include media-query.media(lg){
-
-}
-
 @include media-query.media(lg){
 
     section.encabezado{      
@@ -265,4 +261,55 @@ MEDIA QUERY
         }
     }
 
+}
+
+@include media-query.media(xs){
+
+    section.encabezado{      
+
+        .menu nav{
+
+            margin: 20px 0 !important;
+
+            ul{
+    
+                li{
+
+                    margin: 0 10px 10px 10px !important; 
+
+                    &:hover::after{
+                       
+                        height: 0 !important;
+                        padding: 0;
+                        
+                    }
+                }
+            }
+
+        }
+    }
+
+    section.titulos{
+
+        margin-top: 1rem !important;
+
+        h4{
+            margin-bottom: 40px !important;
+            font-size: 1.2rem;
+
+            &::after{
+                
+                width: 57% !important;               
+                top: 1.5em !important;
+                left: 4rem !important;
+            }
+        }
+
+        h1{
+
+            width: 100% !important;
+            font-size: 1.5rem;
+
+        }
+    }
 }
