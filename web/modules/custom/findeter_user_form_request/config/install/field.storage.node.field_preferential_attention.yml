@@ -1,0 +1,47 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_preferential_attention
+field_name: field_preferential_attention
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: ninguna
+      label: Ninguna
+    -
+      value: mujer_gestante
+      label: 'Mujer gestante'
+    -
+      value: adulto_mayor
+      label: 'Adulto mayor'
+    -
+      value: nina
+      label: Niña
+    -
+      value: nino
+      label: Niño
+    -
+      value: adolescente
+      label: Adolescente
+    -
+      value: veterano
+      label: 'Veterano fuerza pública'
+    -
+      value: periodista
+      label: Periodista
+    -
+      value: congresista
+      label: Congresista
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
