@@ -263,24 +263,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_image'
-  block_1:
-    display_plugin: block
-    id: block_1
-    display_title: 'Slider [ Home ]'
-    position: 1
-    display_options:
-      display_extenders: {  }
-      block_description: 'Slider [ Home ]'
-      display_description: ''
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.field_image'
   block_2:
     display_plugin: block
     id: block_2
@@ -721,3 +703,21 @@ display:
       tags:
         - 'config:field.storage.node.field_img_noticia_home'
         - 'config:field.storage.node.field_tipo_noticia'
+  slider_home:
+    display_plugin: block
+    id: slider_home
+    display_title: 'Slider [ Home ]'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      block_description: 'Slider [ Home ]'
+      display_description: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_image'
