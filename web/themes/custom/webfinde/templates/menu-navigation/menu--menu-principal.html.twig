@@ -24,62 +24,39 @@
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
-
 {# ============================================
-MENU GOVCO
+MENU PRINCIPAL
 =============================================== #}
-<div class="row mx-0 menuGovCo">
+<nav class="navbar navbar-expand-sm float-right pt-5">
+  
+  {{ menus.menu_links(items, attributes, 0) }}
 
-  {# ===== ===== GOVCO ===== ===== #}
-  <div class="col-4 pl-0 logo">
-    <img src="themes/custom/webfinde/images/logos/xd_2.png" class='img-fluid'>
-  </div>
+</nav> 
 
-  {# ===== ===== SUB MENU ===== ===== #}
-  <div class="col-8 submenu">
-
-    <nav class="navbar navbar-expand-sm float-right py-0">
-
-      {{ menus.menu_links(items, attributes, 0) }}
-
-    </nav>
-    
-
-  </div>
-
-</div>
-
-
-{# ============================================
-LINKS MENU
-=============================================== #}
 {% macro menu_links(items, attributes, menu_level) %}
-
   {% import _self as menus %}
-
   {% if items %}
-
-    <ul{{ attributes.addClass(['navbar-nav']) }}>
-    
-      {% for item in items %}
-
-        {%
-          set classes_link = [
-          'nav-link py-0',      
-          item.in_active_trail ? 'active',
-        ]
-        %}
-
-        <li{{ item.attributes.addClass('nav-item') }}>
-
-          {{ link(item.title, item.url, { 'class': classes_link }) }}
-
-        </li>
-
-      {% endfor %}
-
-    </ul>
-
+    {% if menu_level == 0 %}
+<ul{{ attributes.addClass(['navbar-nav']) }}>
+  {% else %}
+<ul>
   {% endif %}
-
+  {% for item in items %}
+    {%
+      set classes_link = [
+      'nav-link text-white',
+      item.is_expanded ? 'dropdown-toggle',
+      item.is_collapsed ? 'dropdown-toggle',
+      item.in_active_trail ? 'active',
+    ]
+    %}
+    <li{{ item.attributes.addClass('nav-item') }}>
+      {{ link(item.title, item.url, { 'class': classes_link }) }}
+      {% if item.below %}
+        {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+  {% endif %}
 {% endmacro %}

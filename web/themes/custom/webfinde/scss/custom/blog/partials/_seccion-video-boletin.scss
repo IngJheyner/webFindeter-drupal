@@ -121,3 +121,45 @@ MEDIA QUERY
         }
     }
 }
+
+
+@include media-query.media(xs){
+
+    section.seccionVideoBlog {
+
+        margin-top: 3rem;
+        margin-bottom: 0px;
+
+        div.titulo{
+
+            h1{
+                padding: 0;  
+                margin-bottom: 2rem;
+                font-size: 2rem;
+            }
+        }
+    }
+
+    section.boletinBlog{   
+
+        padding: 0;
+
+        form{
+
+            border-radius: 0;
+            padding: 1rem 1rem 2rem 1rem;
+
+            h3{
+                font-size: 1.4rem;
+            }
+
+            div.clear{
+
+                text-align: center;
+                margin-top: 1rem;
+
+            }
+        }
+    }    
+
+}
