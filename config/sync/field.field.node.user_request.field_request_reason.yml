@@ -1,0 +1,23 @@
+uuid: d6ae3fea-cf0b-4574-aa8c-be9e22b5a2f3
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_request_reason
+    - node.type.user_request
+  module:
+    - options
+_core:
+  default_config_hash: OUcQQUcBDAFBwq1na-2wOFqlF4c0yNU3EF7MryaLQKw
+id: node.user_request.field_request_reason
+field_name: field_request_reason
+entity_type: node
+bundle: user_request
+label: Motivo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

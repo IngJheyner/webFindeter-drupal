@@ -1,0 +1,23 @@
+uuid: fe0dcee6-7abb-4ace-8062-a2b65872a2bc
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_type_request
+    - node.type.user_request
+  module:
+    - options
+_core:
+  default_config_hash: vM1RvdCyiDz0bazH-czRBC0UP457D_sNuQ-lj9gw9IQ
+id: node.user_request.field_type_request
+field_name: field_type_request
+entity_type: node
+bundle: user_request
+label: 'Tipo de solicitud'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

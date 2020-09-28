@@ -1,0 +1,23 @@
+uuid: 7d6e1798-38b7-4df2-b622-93cbe7f9da66
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_request_marketing
+    - node.type.user_request
+  module:
+    - options
+_core:
+  default_config_hash: zfAC0wRJ-pnF1YPDgOLY7-bpsE8MI7DVn57P3DAIxHc
+id: node.user_request.field_request_marketing
+field_name: field_request_marketing
+entity_type: node
+bundle: user_request
+label: Marketing
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

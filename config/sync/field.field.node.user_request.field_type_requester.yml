@@ -1,0 +1,23 @@
+uuid: e0939f3a-58db-4ad3-a620-7caccd7b5ef2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_type_requester
+    - node.type.user_request
+  module:
+    - options
+_core:
+  default_config_hash: UlprD_u4AlonRCi2EMsOmZ3KQo9yiLXsz0SL3ml7EVA
+id: node.user_request.field_type_requester
+field_name: field_type_requester
+entity_type: node
+bundle: user_request
+label: 'Tipo de solicitante'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

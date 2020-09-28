@@ -1,0 +1,29 @@
+uuid: 674f894f-bd09-4e07-8bd1-5846fdf52ac2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_request_files
+    - node.type.user_request
+  module:
+    - file
+_core:
+  default_config_hash: Tds7JK0D1N4G6srdV1CnLon_G9I-EUfmazlXG-b4r7M
+id: node.user_request.field_request_files
+field_name: field_request_files
+entity_type: node
+bundle: user_request
+label: 'Adjuntar archivo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'user_request/[date:custom:Y]-[date:custom:m]'
+  file_extensions: txt
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

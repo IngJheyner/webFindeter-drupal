@@ -1,0 +1,21 @@
+uuid: 6be02217-5111-4779-af80-f1f59894de76
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_person_email
+    - node.type.user_request
+_core:
+  default_config_hash: t7g2JWQafbGKamw0C5mn5LKJ44lrZRW4V8mhuYo-R78
+id: node.user_request.field_person_email
+field_name: field_person_email
+entity_type: node
+bundle: user_request
+label: 'Correo electrónico'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

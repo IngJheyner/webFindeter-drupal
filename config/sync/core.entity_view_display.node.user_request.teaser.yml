@@ -1,0 +1,78 @@
+uuid: 1f05133c-f901-4583-bacd-8bec247923d8
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.user_request.field_age_range
+    - field.field.node.user_request.field_authorization
+    - field.field.node.user_request.field_contact_answer_channel
+    - field.field.node.user_request.field_ethnic_group
+    - field.field.node.user_request.field_legal_business_name
+    - field.field.node.user_request.field_legal_nit
+    - field.field.node.user_request.field_legal_type_business
+    - field.field.node.user_request.field_person_address
+    - field.field.node.user_request.field_person_email
+    - field.field.node.user_request.field_person_fax_contact
+    - field.field.node.user_request.field_person_first_lastname
+    - field.field.node.user_request.field_person_first_name
+    - field.field.node.user_request.field_person_number_id
+    - field.field.node.user_request.field_person_phone_contact
+    - field.field.node.user_request.field_person_second_lastname
+    - field.field.node.user_request.field_person_second_name
+    - field.field.node.user_request.field_person_type_id
+    - field.field.node.user_request.field_preferential_attention
+    - field.field.node.user_request.field_product_name
+    - field.field.node.user_request.field_request_description
+    - field.field.node.user_request.field_request_files
+    - field.field.node.user_request.field_request_marketing
+    - field.field.node.user_request.field_request_other
+    - field.field.node.user_request.field_request_reason
+    - field.field.node.user_request.field_type_handicap
+    - field.field.node.user_request.field_type_request
+    - field.field.node.user_request.field_type_requester
+    - node.type.user_request
+  module:
+    - user
+_core:
+  default_config_hash: cxNKNIm1LYStohf2ACSUVLvBLi67rO1HP2_JDjru6UQ
+id: node.user_request.teaser
+targetEntityType: node
+bundle: user_request
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  field_age_range: true
+  field_authorization: true
+  field_contact_answer_channel: true
+  field_ethnic_group: true
+  field_legal_business_name: true
+  field_legal_nit: true
+  field_legal_type_business: true
+  field_person_address: true
+  field_person_email: true
+  field_person_fax_contact: true
+  field_person_first_lastname: true
+  field_person_first_name: true
+  field_person_number_id: true
+  field_person_phone_contact: true
+  field_person_second_lastname: true
+  field_person_second_name: true
+  field_person_type_id: true
+  field_preferential_attention: true
+  field_product_name: true
+  field_request_description: true
+  field_request_files: true
+  field_request_marketing: true
+  field_request_other: true
+  field_request_reason: true
+  field_type_handicap: true
+  field_type_request: true
+  field_type_requester: true
+  langcode: true

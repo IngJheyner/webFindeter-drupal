@@ -1,0 +1,23 @@
+uuid: c5979c59-4656-46ac-9730-69e008f1c2b9
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product_name
+    - node.type.user_request
+  module:
+    - options
+_core:
+  default_config_hash: mVBryXP9oZafbNillif0dfQq9lZkvOy9HCHU8JOgyC8
+id: node.user_request.field_product_name
+field_name: field_product_name
+entity_type: node
+bundle: user_request
+label: 'Nombre del producto'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
