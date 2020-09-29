@@ -34,16 +34,16 @@
 %}
 
 
-<div{{ attributes.addClass(classes) }}>
+<div{{ attributes.addClass(classes) }}>  
 
   {# ============================================
   ENCABEZADO HOME
   =============================================== #}
-  {% block content %}   
+  {% block content %}  
 
-    <section class="row">
+    <section class="row m-0 menuGovCo">
 
-      <div class="col-8">
+      <div class="col-8 pl-0">
 
         <img src="{{ file_url(content.field_img_govco_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid" />
       
@@ -57,15 +57,15 @@
 
     </section>
 
-    <section class="row">
+    <section class="row m-0 menuPrincipal">
 
-      <div class="col-3">
+      <div class="col-3 p-0">
 
         <img src="{{ file_url(content.field_logo_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid" />
 
       </div>
 
-      <div class="col-9">
+      <div class="col-9 p-0">
 
         {{ drupal_menu('menu-principal') }}
 
@@ -73,6 +73,15 @@
 
 
     </section>
+
+    {# ============================================
+    SLIDER
+    =============================================== #}    
+    {% if path('<current>') == '/inicio' %}
+
+      {{ drupal_view('slider', 'slider_home') }}
+
+    {% endif %}
 
   {% endblock %}
 

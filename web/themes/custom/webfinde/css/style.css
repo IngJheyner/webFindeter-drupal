@@ -51,94 +51,89 @@ p {
 /* ==============================
 HEADER(ENCABEZADO)
 ============================== */
-/* ===== ===== MENUGOVCO ===== ===== */
 /* ==============================
 COLORES
 ============================== */
+/* ===== ===== MENUGOVCO ===== ===== */
 .menuGovCo {
-  background-color: #CDDC4B;
+  background-color: #c9c8c6;
 }
-.menuGovCo .submenu nav ul li span {
+.menuGovCo nav ul li span {
   color: #112d6a;
 }
 
-/* ===== ===== MENUPRINCIAPL ===== ===== */
-/* ==============================
-COLORES
-============================== */
-.menuPrincipal {
-  background-color: #112d6a;
+section.menuPrincipal {
+  background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.4) 25%);
+  /* ==============================
+  MENU ESCRITORIO
+  ============================== */
+}
+section.menuPrincipal nav ul li a, section.menuPrincipal nav ul li span {
+  position: relative;
+  text-shadow: 1px 1px 2px black;
 }
 
-/* ===== ===== BUSCADOR ===== ===== */
+/* ==============================
+SLIDER HOME
+============================== */
+div.sliderHome {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+/* ===== ===== BUSCADOR Y ACCESO RAPIDO ===== ===== */
 /* ==============================
 COLORES
 ============================== */
 form#search-block-form {
   position: relative;
+  margin: 21rem 2rem 0 2rem;
 }
 form#search-block-form div.form-item {
   margin: 0;
 }
-form#search-block-form div.buscadorHome {
-  padding: 2em 3em;
-  border: 1px solid #c9c8c6 !important;
-  border-bottom: none !important;
-  border-radius: 0.8em 0.8em 0 0;
-  box-shadow: 1rem 0rem 1rem rgba(0, 0, 0, 0.2) !important;
+form#search-block-form div.container-inline, form#search-block-form div {
+  display: grid;
 }
-form#search-block-form div.buscadorHome label {
-  color: #112d6a;
-  font-weight: bold;
-  font-size: 20px;
-  word-spacing: -4pt;
+form#search-block-form div.buscadorAcceso input[type=search] {
+  width: 100%;
 }
-form#search-block-form div.buscadorHome input[type=search] {
-  width: 51.6rem;
+form#search-block-form div.buscadorAcceso .menuAccesoRapido {
+  background: #c9c8c6;
+  padding: 1rem;
+  border-radius: 0 0 0.8rem 0.8rem;
+}
+form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li {
+  margin: 0 1rem 0 1rem;
+  text-align: center;
+}
+form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li a, form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li span {
+  color: black;
+  display: block;
+}
+form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(1) span.icon::before {
+  content: url("/themes/custom/webfinde/images/iconos/ER_convocatorias.png");
+}
+form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(2) span.icon::before {
+  content: url("/themes/custom/webfinde/images/iconos/ER_leytransparencia.png");
+}
+form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(3) span.icon::before {
+  content: url("/themes/custom/webfinde/images/iconos/ER_contratacion.png");
+}
+form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(4) span.icon::before {
+  content: url("/themes/custom/webfinde/images/iconos/ER_inversionistas.png");
 }
 form#search-block-form .btnSearch {
   position: absolute;
-  top: 81px;
-  right: 34px;
-  border-radius: 0 0.25rem 0.25rem 0;
-  line-height: 2.4;
-  background: url("http://webfinde.test/themes/custom/webfinde/images/iconos/buscador.png") no-repeat;
+  top: 0;
+  right: 0;
+  border-radius: 0 0.25rem 0 0;
+  line-height: 2.5;
+  background: url("/themes/custom/webfinde/images/iconos/buscador.png") no-repeat;
   background-position: center top;
   width: 53px;
-}
-
-/* ===== ===== ACCESO RAPIDO ===== ===== */
-/* ==============================
-COLORES
-============================== */
-.menuAccesoRapido nav ul {
-  border-top: 1px solid #c9c8c6 !important;
-}
-.menuAccesoRapido nav ul li {
-  border-right: 1px solid #c9c8c6 !important;
-  border-bottom: 1px solid #c9c8c6 !important;
-}
-.menuAccesoRapido nav ul li:nth-child(1) {
-  border-radius: 0 0 0 0.8em;
-  border-right: 0 !important;
-  background: repeating-linear-gradient(-79deg, white 0, white 7%, #296294 0, #296294);
-}
-.menuAccesoRapido nav ul li:last-child {
-  border-radius: 0 0 0.8em 0;
-}
-.menuAccesoRapido nav ul li a {
-  margin-left: 2.91rem;
-  margin-right: 2.91rem;
-  height: 100%;
-  line-height: 4;
-  color: black;
-}
-.menuAccesoRapido nav ul li span {
-  margin-left: 2.2rem;
-  margin-right: 2.2rem;
-  height: 100%;
-  line-height: 4;
-  color: white;
 }
 
 /* ===== ===== PRODUCTOS Y SERVICIOS ===== ===== */
@@ -151,7 +146,7 @@ section.productosServicios .titulo {
 }
 section.productosServicios .titulo h1 {
   text-align: center;
-  width: 60%;
+  width: 80%;
   color: #112d6a;
   position: relative;
 }
@@ -213,6 +208,7 @@ section.productosServicios .grid-container .grid-item figure .fondo h1 {
   top: 38%;
   font-size: 22px !important;
   width: 100%;
+  color: #CDDC4B;
 }
 section.productosServicios .grid-container .grid-item img {
   border-radius: 0.8em;
