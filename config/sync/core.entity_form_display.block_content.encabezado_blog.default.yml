@@ -6,12 +6,14 @@ dependencies:
     - block_content.type.encabezado_blog
     - field.field.block_content.encabezado_blog.field_buscador
     - field.field.block_content.encabezado_blog.field_facebook
+    - field.field.block_content.encabezado_blog.field_facebook_url
     - field.field.block_content.encabezado_blog.field_fondo
     - field.field.block_content.encabezado_blog.field_logo
     - field.field.block_content.encabezado_blog.field_menu
     - field.field.block_content.encabezado_blog.field_subtitulo
     - field.field.block_content.encabezado_blog.field_titulo
     - field.field.block_content.encabezado_blog.field_twitter
+    - field.field.block_content.encabezado_blog.field_twitter_url
     - image.style.thumbnail
   module:
     - field_group
@@ -74,7 +76,9 @@ third_party_settings:
       children:
         - field_buscador
         - field_facebook
+        - field_facebook_url
         - field_twitter
+        - field_twitter_url
       parent_name: group_contenido
       weight: 23
       format_type: details
@@ -137,6 +141,14 @@ content:
     third_party_settings: {  }
     type: image_image
     region: content
+  field_facebook_url:
+    weight: 24
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
   field_fondo:
     weight: 22
     settings:
@@ -178,12 +190,20 @@ content:
     type: string_textfield
     region: content
   field_twitter:
-    weight: 24
+    weight: 25
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_twitter_url:
+    weight: 26
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
     region: content
   info:
     type: string_textfield

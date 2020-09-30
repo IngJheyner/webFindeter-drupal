@@ -6,12 +6,14 @@ dependencies:
     - block_content.type.encabezado_blog
     - field.field.block_content.encabezado_blog.field_buscador
     - field.field.block_content.encabezado_blog.field_facebook
+    - field.field.block_content.encabezado_blog.field_facebook_url
     - field.field.block_content.encabezado_blog.field_fondo
     - field.field.block_content.encabezado_blog.field_logo
     - field.field.block_content.encabezado_blog.field_menu
     - field.field.block_content.encabezado_blog.field_subtitulo
     - field.field.block_content.encabezado_blog.field_titulo
     - field.field.block_content.encabezado_blog.field_twitter
+    - field.field.block_content.encabezado_blog.field_twitter_url
   module:
     - image
     - link
@@ -37,6 +39,18 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
+    region: content
+  field_facebook_url:
+    weight: 8
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
     region: content
   field_fondo:
     weight: 4
@@ -92,6 +106,18 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
+    region: content
+  field_twitter_url:
+    weight: 9
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
     region: content
 hidden:
   langcode: true
