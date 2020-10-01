@@ -92,7 +92,7 @@
 
       <div class="float-right">
 
-        <a href="" class="mr-2 mr-xl-4"><img src="{{ file_url(content.field_buscador[0]['#item'].entity.uri.value) }}"></a>
+        {#<a href="" class="mr-2 mr-xl-4"><img src="{{ file_url(content.field_buscador[0]['#item'].entity.uri.value) }}"></a>#}
 
         <a href="{{ content.field_facebook_url.0["#title"] }}" target="_blank" class="mr-2 mr-xl-4"><img src="{{ file_url(content.field_facebook[0]['#item'].entity.uri.value) }}"></a>
 
@@ -108,11 +108,11 @@
 
     <div class="text-center d-lg-none mb-3">
 
-      <a href="#" class="mr-4"><img src="{{ file_url(content.field_buscador[0]['#item'].entity.uri.value) }}"></a>
+      {#<a href="#" class="mr-4"><img src="{{ file_url(content.field_buscador[0]['#item'].entity.uri.value) }}"></a>#}
 
-      <a href="#" class="mr-4"><img src="{{ file_url(content.field_facebook[0]['#item'].entity.uri.value) }}"></a>
+      <a href="{{ content.field_facebook_url.0["#title"] }}" target="_blank" class="mr-4"><img src="{{ file_url(content.field_facebook[0]['#item'].entity.uri.value) }}"></a>
 
-      <a href="#"><img src="{{ file_url(content.field_twitter[0]['#item'].entity.uri.value) }}" class="img-fluid"></a>
+      <a href="{{ content.field_twitter_url.0["#title"] }}" target="_blank"><img src="{{ file_url(content.field_twitter[0]['#item'].entity.uri.value) }}" class="img-fluid"></a>
 
     </div>
 
