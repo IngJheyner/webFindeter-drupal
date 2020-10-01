@@ -255,17 +255,80 @@ VENTANA MODAL PRODUCTOS Y SERVICIOS
 }
 
 /* ===== ===== NOTICIAS ===== ===== */
-.sliderNoticiaHome div.slick-slide ul li:nth-child(n+2) img {
+/* ==============================
+COLORES
+============================== */
+.sliderNoticiaHome div.encabezado {
+  border-bottom: 1px solid #296294;
+  padding-bottom: 20px;
+}
+.sliderNoticiaHome div.encabezado h1 {
+  position: relative;
+}
+.sliderNoticiaHome div.encabezado h1::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 4px;
+  background-color: #296294;
+  top: 1.8em;
+  left: 0;
+}
+.sliderNoticiaHome div.slick {
+  /* ===== ===== Botonera ===== ===== */
+  /* ===== ===== anterior y siguiente ===== ===== */
+}
+.sliderNoticiaHome div.slick ul li.grid {
+  width: 50%;
+}
+.sliderNoticiaHome div.slick ul li.grid .grid__content .slide__caption {
+  padding: 0;
+}
+.sliderNoticiaHome div.slick ul li.grid h2 {
+  font-size: 1rem;
+}
+.sliderNoticiaHome div.slick ul li.grid:nth-child(1) img {
+  margin-bottom: 1em;
+}
+.sliderNoticiaHome div.slick ul li.grid:nth-child(1) p.resumen {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.sliderNoticiaHome div.slick ul li:nth-child(n+2).grid .grid__content .slide__caption {
+  padding: 0;
+}
+.sliderNoticiaHome div.slick ul li:nth-child(n+2) img {
   display: none;
 }
-.sliderNoticiaHome div.slick-slide ul li:nth-child(n+2) img {
+.sliderNoticiaHome div.slick ul li:nth-child(n+2).grid .grid__content .slide__caption {
+  padding: 0;
+}
+.sliderNoticiaHome div.slick ul li:nth-child(n+2) img {
   display: none;
 }
-.sliderNoticiaHome div.slick-slide ul li:nth-child(n+2) img {
+.sliderNoticiaHome div.slick ul li:nth-child(n+2).grid .grid__content .slide__caption {
+  padding: 0;
+}
+.sliderNoticiaHome div.slick ul li:nth-child(n+2) img {
   display: none;
 }
-.sliderNoticiaHome div.slick-slide ul li:nth-child(n+2) img {
+.sliderNoticiaHome div.slick ul li:nth-child(n+2).grid .grid__content .slide__caption {
+  padding: 0;
+}
+.sliderNoticiaHome div.slick ul li:nth-child(n+2) img {
   display: none;
+}
+.sliderNoticiaHome div.slick ul.slick-dots li button:before {
+  color: #112d6a !important;
+}
+.sliderNoticiaHome div.slick ul.slick-dots li .slick-active button:before {
+  color: #112d6a !important;
+}
+.sliderNoticiaHome div.slick nav.slick__arrow {
+  position: relative;
+  width: 15%;
+  bottom: 1em;
+  top: auto;
 }
 
 /* ===== ===== NOTICIAS ===== ===== */
