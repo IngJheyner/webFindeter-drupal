@@ -15,19 +15,6 @@
            =============================================*/
             $("form#search-block-form .btnSearch").attr("value","");
 
-            $(".busIdioma a.buscador").on('click', function(){
-               
-                
-                var vinculo = $(this).attr("href");
-		
-                $("html, body").animate({
-
-                    scrollTop: $(vinculo).offset().top - 60
-
-                }, 1000, "easeInOutBack")
-                        
-            });
-
             /*===========================================
             PRODUCTOS Y SERVICIOS
             =============================================*/
@@ -90,6 +77,8 @@
             if(imgEncabezadoArticulo != null){
 
                 $(".encabezadoBlog").css("background-image", "url('"+imgEncabezadoArticulo+"')");
+                $(".encabezadoBlog .titulos h4").hide();
+                $(".encabezadoBlog .titulos h1").hide();
                 
             }else{
 

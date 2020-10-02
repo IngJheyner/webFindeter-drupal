@@ -72,6 +72,33 @@ div.articuloInternasBlog{
 
     }
 
+    .tipoArticulo{
+
+        &::before{
+
+            content: "";
+            background: url(../images/iconos/punto-azul.png) no-repeat;
+            background-size: 30px, 30px;
+            background-size: 15px, 15px;
+            background-position: center top;
+            display: inline-block;
+            height: 15px;
+            width: 30px;
+        }
+
+        &::after{
+
+            content: "";
+            background: url(../images/iconos/punto-azul.png) no-repeat;
+            background-size: 30px, 30px;
+            background-size: 15px, 15px;
+            background-position: center top;
+            display: inline-block;
+            height: 15px;
+            width: 30px;
+        }
+    }
+
     div.infoSocial{
 
         margin-bottom: 4em;
@@ -87,18 +114,17 @@ div.articuloInternasBlog{
             word-spacing: 4pt;
         }
 
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+
         blockquote{
 
             padding: 1em 0 0 2em;
             font-weight: bold;
             width: 90%;
-            font-style: oblique;
-
-            &::before{
-
-                content: "" url('../images/iconos/comillas-negro.png');
-                margin-left: 2em;
-            }
+            font-style: oblique;            
             
         }
 

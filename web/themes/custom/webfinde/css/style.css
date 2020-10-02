@@ -908,6 +908,26 @@ div.articuloInternasBlog .tipoArticulo,
 div.articuloInternasBlog .titulo {
   margin-bottom: 1.5em;
 }
+div.articuloInternasBlog .tipoArticulo::before {
+  content: "";
+  background: url(../images/iconos/punto-azul.png) no-repeat;
+  background-size: 30px, 30px;
+  background-size: 15px, 15px;
+  background-position: center top;
+  display: inline-block;
+  height: 15px;
+  width: 30px;
+}
+div.articuloInternasBlog .tipoArticulo::after {
+  content: "";
+  background: url(../images/iconos/punto-azul.png) no-repeat;
+  background-size: 30px, 30px;
+  background-size: 15px, 15px;
+  background-position: center top;
+  display: inline-block;
+  height: 15px;
+  width: 30px;
+}
 div.articuloInternasBlog div.infoSocial {
   margin-bottom: 4em;
 }
@@ -917,15 +937,15 @@ div.articuloInternasBlog div.infoSocial p {
 div.articuloInternasBlog div.cuerpoArticulo p {
   word-spacing: 4pt;
 }
+div.articuloInternasBlog div.cuerpoArticulo img {
+  max-width: 100%;
+  height: auto;
+}
 div.articuloInternasBlog div.cuerpoArticulo blockquote {
   padding: 1em 0 0 2em;
   font-weight: bold;
   width: 90%;
   font-style: oblique;
-}
-div.articuloInternasBlog div.cuerpoArticulo blockquote::before {
-  content: "" url("../images/iconos/comillas-negro.png");
-  margin-left: 2em;
 }
 div.articuloInternasBlog div.cuerpoArticulo div.field--name-field-media-oembed-video,
 div.articuloInternasBlog div.cuerpoArticulo div.field--name-field-media-image {
@@ -1042,7 +1062,27 @@ section.seccionVideoBlog {
 }
 section.seccionVideoBlog div.titulo h1 {
   color: #112d6a;
-  padding: 35px 35px;
+  padding: 0 35px;
+  font-size: 2.4rem;
+}
+section.seccionVideoBlog div.titulo h1::before {
+  content: "";
+  background: url(../images/iconos/comillas-azules.png) no-repeat;
+  background-size: 30px, 30px;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  transform: translate(0, -10px);
+  margin-right: 1rem;
+}
+section.seccionVideoBlog div.titulo h1::after {
+  content: "";
+  background: url(../images/iconos/comillas-azules-cierran.png) no-repeat;
+  background-size: 30px, 30px;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  margin-left: 1rem;
 }
 section.seccionVideoBlog div.video div.field--name-field-media-oembed-video {
   width: 100%;

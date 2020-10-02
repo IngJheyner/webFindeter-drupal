@@ -9,8 +9,37 @@ section.seccionVideoBlog{
     div.titulo{
 
         h1{
+           
             color: var.$color-primario;
-            padding: 35px 35px;
+            padding: 0 35px;
+            font-size: 2.4rem;
+
+            &::before{                
+                
+                content: "";             
+                background: url(../images/iconos/comillas-azules.png) no-repeat;
+                background-size: 30px, 30px;
+                display: inline-block;
+                height: 30px;
+                width: 30px;
+                transform: translate(0, -10px);
+                margin-right: 1rem;
+               
+
+            }
+
+            &::after{                
+               
+                content: "";             
+                background: url(../images/iconos/comillas-azules-cierran.png) no-repeat;
+                background-size: 30px, 30px;
+                display: inline-block;
+                height: 30px;
+                width: 30px;
+                margin-left: 1rem;
+               
+
+            }
         }
     }
 
