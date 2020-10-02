@@ -4,9 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.media.img_articu_blog.field_media_image
-    - image.style.large
     - media.type.img_articu_blog
   module:
+    - field_formatter_class
     - image
 id: media.img_articu_blog.default
 targetEntityType: media
@@ -17,9 +17,11 @@ content:
     label: visually_hidden
     weight: 0
     settings:
-      image_style: large
+      image_style: ''
       image_link: ''
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: img-fluid
     type: image
     region: content
 hidden:
@@ -27,5 +29,6 @@ hidden:
   created: true
   langcode: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true
