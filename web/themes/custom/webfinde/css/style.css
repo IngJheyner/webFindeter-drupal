@@ -854,7 +854,7 @@ div.articuloBlog .grid .grid-item img {
   transform: scale(1, 1);
   transition: 1s all;
 }
-div.articuloBlog .grid .grid-item p.tipoArticulo {
+div.articuloBlog .grid .grid-item p.titulo {
   color: #296294;
   font-size: 14px;
   transition: 0.6s all;
@@ -879,7 +879,7 @@ div.articuloBlogDos .grid .grid-item img {
   transform: scale(1, 1);
   transition: 1s all;
 }
-div.articuloBlogDos .grid .grid-item p.tipoArticulo {
+div.articuloBlogDos .grid .grid-item p.titulo {
   color: #296294;
   font-size: 14px;
   transition: 0.6s all;
@@ -988,7 +988,7 @@ MEDIA QUERY
     transform: scale(1, 1);
     transition: 1s all;
   }
-  div.articuloBlogDos .grid .grid-item p.tipoArticulo {
+  div.articuloBlogDos .grid .grid-item p.titulo {
     color: #296294;
     font-size: 14px;
     transition: 0.6s all;
@@ -1030,7 +1030,7 @@ MEDIA QUERY
 /*MOVIL VERTICAL(sm 320px)*/
 @media (max-width: 575.98px) {
   div.articuloBlog {
-    transform: translate(0, 0px);
+    transform: translate(0, 0);
   }
 
   /* ==============================
@@ -1074,15 +1074,6 @@ section.seccionVideoBlog div.titulo h1::before {
   width: 30px;
   transform: translate(0, -10px);
   margin-right: 1rem;
-}
-section.seccionVideoBlog div.titulo h1::after {
-  content: "";
-  background: url(../images/iconos/comillas-azules-cierran.png) no-repeat;
-  background-size: 30px, 30px;
-  display: inline-block;
-  height: 30px;
-  width: 30px;
-  margin-left: 1rem;
 }
 section.seccionVideoBlog div.video div.field--name-field-media-oembed-video {
   width: 100%;

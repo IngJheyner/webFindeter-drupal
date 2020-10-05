@@ -1031,7 +1031,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ view_node }}\"><img src=\"{{ field_imagen }}\" class=\"img-fluid\"></a>\r\n\r\n<p class=\"text-center mx-auto my-3 tipoArticulo font-weight-bold\">{{ field_tipo_de_articulo }}</p>\r\n\r\n<a href=\"{{ view_node }}\" class=\"text-dark font-weight-bold\">{{ body }}</a>\r\n\r\n<div class=\"text-center mx-auto my-3\">\r\n<p class=\"text-muted d-inline-block\">{{ created }}</p>\r\n\r\n</div>\r\n"
+            text: "<a href=\"{{ view_node }}\"><img src=\"{{ field_imagen }}\" class=\"img-fluid\"></a>\r\n\r\n<p class=\"text-center mx-auto my-3 font-weight-bold titulo\">{{ title  }}</p>\r\n\r\n<a href=\"{{ view_node }}\" class=\"text-dark font-weight-bold\">{{ body }}</a>\r\n\r\n<div class=\"text-center mx-auto my-3\">\r\n<p class=\"text-muted d-inline-block\">{{ created }}</p>\r\n\r\n</div>\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -1566,7 +1566,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ view_node }}\"><img src=\"{{ field_imagen }}\" class=\"img-fluid\"></a>\r\n\r\n<p class=\"text-center mx-auto my-3 tipoArticulo font-weight-bold\">{{ field_tipo_de_articulo }}</p>\r\n\r\n<a href=\"{{ view_node }}\" class=\"text-dark font-weight-bold\">{{ body }}</a>\r\n\r\n<div class=\"text-center mx-auto my-3\">\r\n<p class=\"text-muted d-inline-block\">{{ created }}</p>\r\n</div>"
+            text: "<a href=\"{{ view_node }}\"><img src=\"{{ field_imagen }}\" class=\"img-fluid\"></a>\r\n\r\n<p class=\"text-center mx-auto my-3 font-weight-bold titulo\">{{ title  }}</p>\r\n\r\n<a href=\"{{ view_node }}\" class=\"text-dark font-weight-bold\">{{ body }}</a>\r\n\r\n<div class=\"text-center mx-auto my-3\">\r\n<p class=\"text-muted d-inline-block\">{{ created }}</p>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
