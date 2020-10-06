@@ -1,0 +1,15 @@
+findeter_user_form_request.multistep:
+  path: '/user-request-form'
+  defaults:
+    _form: '\Drupal\findeter_user_form_request\Form\MultiStepForm'
+    _title: 'Registro de petición de usuarios'
+  requirements:
+    _access: 'TRUE'
+
+findeter_user_form_request.user_request_ajax_response:
+  path: '/user-request-ajax-response'
+  defaults:
+    _controller: '\Drupal\findeter_user_form_request\Controller\UserRequestAjaxResponse::ajaxResponse'
+    _title: 'Ajax response'
+  requirements:
+    _permission: 'access content'
