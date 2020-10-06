@@ -143,6 +143,10 @@ form#search-block-form .btnSearch {
 /* ==============================
 COLORES
 ============================== */
+div.productoServicios {
+  margin-top: 7rem;
+}
+
 section.productosServicios .titulo {
   border-bottom: 1px solid #296294;
   padding-bottom: 20px;
@@ -254,9 +258,16 @@ VENTANA MODAL PRODUCTOS Y SERVICIOS
   font-size: 2.5rem;
 }
 
-/* ===== ===== NOTICIAS ===== ===== */
+/* ===== ===== NOTICIAS Y REDES ===== ===== */
 /* ==============================
 COLORES
+============================== */
+div.noticiasRedesSociales {
+  margin-top: 7rem;
+}
+
+/* ==============================
+NOTICIAS
 ============================== */
 .sliderNoticiaHome div.encabezado {
   border-bottom: 1px solid #296294;
@@ -286,6 +297,22 @@ COLORES
 }
 .sliderNoticiaHome div.slick ul li.grid h2 {
   font-size: 1rem;
+}
+.sliderNoticiaHome div.slick ul li.grid p.fecha {
+  position: relative;
+}
+.sliderNoticiaHome div.slick ul li.grid p.fecha small {
+  margin-left: 1.5rem;
+}
+.sliderNoticiaHome div.slick ul li.grid p.fecha::before {
+  position: absolute;
+  content: "";
+  background: url("/themes/custom/webfinde/images/iconos/iconoFecha.png") no-repeat;
+  display: inline-block;
+  background-size: 18px, 18px;
+  width: 18px;
+  height: 18px;
+  top: 0.2rem;
 }
 .sliderNoticiaHome div.slick ul li.grid:nth-child(1) img {
   margin-bottom: 1em;
@@ -318,6 +345,9 @@ COLORES
 .sliderNoticiaHome div.slick ul li:nth-child(n+2) img {
   display: none;
 }
+.sliderNoticiaHome div.slick .slick-dotted.slick-slider {
+  margin-bottom: 50px;
+}
 .sliderNoticiaHome div.slick ul.slick-dots li button:before {
   color: #112d6a !important;
 }
@@ -329,9 +359,104 @@ COLORES
   width: 15%;
   bottom: 1em;
   top: auto;
+  /* ===== ===== Anterior ===== ===== */
+  /* ===== ===== siguiente ===== ===== */
+}
+.sliderNoticiaHome div.slick nav.slick__arrow .slick-arrow {
+  height: 48px;
+  width: 48px;
+}
+.sliderNoticiaHome div.slick nav.slick__arrow .slick-prev:before, .sliderNoticiaHome div.slick nav.slick__arrow .slick-next:before {
+  font-family: initial !important;
+}
+.sliderNoticiaHome div.slick nav.slick__arrow .slick-prev:before {
+  content: "";
+  background: url("/themes/custom/webfinde/images/iconos/flechaIzq2.png") no-repeat;
+  display: inline-block;
+  background-size: 48px, 48px;
+  width: 48px;
+  height: 48px;
+  opacity: initial !important;
+}
+.sliderNoticiaHome div.slick nav.slick__arrow .slick-prev.slick-disabled:before {
+  content: "";
+  background: url("/themes/custom/webfinde/images/iconos/flechaIzq.png") no-repeat;
+  display: inline-block;
+  background-size: 48px, 48px;
+  width: 48px;
+  height: 48px;
+  opacity: initial !important;
+}
+.sliderNoticiaHome div.slick nav.slick__arrow .slick-next:before {
+  content: "";
+  background: url("/themes/custom/webfinde/images/iconos/flechaDer2.png") no-repeat;
+  display: inline-block;
+  background-size: 48px, 48px;
+  width: 48px;
+  height: 48px;
+  opacity: initial !important;
+}
+.sliderNoticiaHome div.slick nav.slick__arrow .slick-next.slick-disabled:before {
+  content: "";
+  background: url("/themes/custom/webfinde/images/iconos/flechaDer.png") no-repeat;
+  display: inline-block;
+  background-size: 48px, 48px;
+  width: 48px;
+  height: 48px;
+  opacity: initial !important;
 }
 
-/* ===== ===== NOTICIAS ===== ===== */
+/* ==============================
+REDES SOCIALES
+============================== */
+div.redeSociales ul.nav-tabs li {
+  position: relative;
+}
+div.redeSociales ul.nav-tabs li a.nav-link {
+  border: 1px solid #e5e5e5;
+  padding-left: 2rem;
+}
+div.redeSociales ul.nav-tabs li a.nav-link.active {
+  border-color: #112d6a #dee2e6 #fff !important;
+  border-top: 2px solid;
+}
+div.redeSociales ul.nav-tabs li:nth-child(1) a::before {
+  position: absolute;
+  content: "";
+  background: url(/themes/custom/webfinde/images/iconos/iconos-redes-twitter.png) no-repeat;
+  background-size: 25px, 25px;
+  width: 25px;
+  height: 25px;
+  top: 0.5rem;
+  left: 0.8rem;
+}
+div.redeSociales ul.nav-tabs li:nth-child(2) a::before {
+  position: absolute;
+  content: "";
+  background: url(/themes/custom/webfinde/images/iconos/iconos-redes-facebook.png) no-repeat;
+  background-size: 25px, 25px;
+  width: 25px;
+  height: 25px;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+div.redeSociales ul.nav-tabs li:nth-child(3) a::before {
+  position: absolute;
+  content: "";
+  background: url(/themes/custom/webfinde/images/iconos/iconos-redes-instagram.png) no-repeat;
+  background-size: 25px, 25px;
+  width: 25px;
+  height: 25px;
+  top: 0.5rem;
+  left: 0.4rem;
+}
+div.redeSociales div.tab-content {
+  border-left: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* ===== ===== PIE DE PAGINA ===== ===== */
 /* ==============================
 COLORES
 ============================== */

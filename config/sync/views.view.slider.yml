@@ -7,6 +7,7 @@ dependencies:
     - field.storage.node.field_image
     - field.storage.node.field_img_noticia_home
     - field.storage.node.field_tipo_noticia
+    - image.style.noticias_home
     - node.type.noticias_home
     - node.type.slider_home
   module:
@@ -508,7 +509,7 @@ display:
           click_sort_column: target_id
           type: image_url
           settings:
-            image_style: ''
+            image_style: noticias_home
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -682,9 +683,9 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: '0'
           element_class: ''
-          element_label_type: ''
+          element_label_type: '0'
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
@@ -724,7 +725,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<img src=\"{{ field_img_noticia_home }}\" class=\"img-fluid\">\r\n{{ field_tipo_noticia }}\r\n<p class=\"resumen\">{{ body }}</p>\r\n<p><small class=\"text-muted\">{{ created }}</small></p>"
+            text: "<img src=\"{{ field_img_noticia_home }}\" class=\"img-fluid\">\r\n{{ field_tipo_noticia }}\r\n<p class=\"resumen\">{{ body }}</p>\r\n<p class=\"fecha\"><small class=\"text-muted\">{{ created }}</small></p>"
             make_link: false
             path: ''
             absolute: false
@@ -762,7 +763,7 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
-      css_class: 'sliderNoticiaHome mt-5'
+      css_class: sliderNoticiaHome
       block_description: 'Noticias [ Home ]'
       header:
         area_text_custom:
