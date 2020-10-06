@@ -1,0 +1,56 @@
+<?php
+
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\Entity\Vocabulary;
+
+/**
+ * @file: Install and uninstall hooks and functions.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function findeter_user_form_request_install() {
+
+  $vid = "colombia_deparments";
+  $vocabulary = Vocabulary::create(array(
+    'vid' => $vid,
+    'description' => 'List of departments and municipalities of Colombia arranged hierarchically',
+    'name' => 'Colombia departaments',
+  ));
+  $vocabulary->save();
+
+  // Term names to be added.
+  $departments = [
+    'Amazonas' => ['Leticia', 'Puerto Nariño'],
+    'Antioquia' => ['Cáceres','Caucasia','El Bagre'],
+    'Arauca' => ['Arauca','Arauquita','Cravo Norte','Fortul','Puerto Rondón'],
+  ];
+
+  foreach ( $departments as $department => $municipalities ) {
+    $parentTerm = Term::create(array(
+      'parent' => [],
+      'name' => $department,
+      'vid' => $vid,
+    ));
+    $parentTerm->save();
+
+    foreach($municipalities as $municipality){
+
+      Term::create(array(
+        'parent' => $parentTerm->id(),
+        'name' => $municipality,
+        'vid' => $vid,
+      ))->save();
+
+    }
+  }
+
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function findeter_user_form_request_uninstall() {
+
+}
