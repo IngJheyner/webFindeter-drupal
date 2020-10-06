@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.user_request.field_age_range
+    - field.field.node.user_request.field_answer
     - field.field.node.user_request.field_authorization
     - field.field.node.user_request.field_contact_answer_channel
     - field.field.node.user_request.field_ethnic_group
@@ -11,10 +12,12 @@ dependencies:
     - field.field.node.user_request.field_legal_nit
     - field.field.node.user_request.field_legal_type_business
     - field.field.node.user_request.field_person_address
+    - field.field.node.user_request.field_person_deparment
     - field.field.node.user_request.field_person_email
     - field.field.node.user_request.field_person_fax_contact
     - field.field.node.user_request.field_person_first_lastname
     - field.field.node.user_request.field_person_first_name
+    - field.field.node.user_request.field_person_municipality
     - field.field.node.user_request.field_person_number_id
     - field.field.node.user_request.field_person_phone_contact
     - field.field.node.user_request.field_person_second_lastname
@@ -23,6 +26,7 @@ dependencies:
     - field.field.node.user_request.field_preferential_attention
     - field.field.node.user_request.field_product_name
     - field.field.node.user_request.field_request_description
+    - field.field.node.user_request.field_request_designatations
     - field.field.node.user_request.field_request_files
     - field.field.node.user_request.field_request_marketing
     - field.field.node.user_request.field_request_other
@@ -45,6 +49,7 @@ content:
     region: content
 hidden:
   field_age_range: true
+  field_answer: true
   field_authorization: true
   field_contact_answer_channel: true
   field_ethnic_group: true
@@ -52,10 +57,12 @@ hidden:
   field_legal_nit: true
   field_legal_type_business: true
   field_person_address: true
+  field_person_deparment: true
   field_person_email: true
   field_person_fax_contact: true
   field_person_first_lastname: true
   field_person_first_name: true
+  field_person_municipality: true
   field_person_number_id: true
   field_person_phone_contact: true
   field_person_second_lastname: true
@@ -64,6 +71,7 @@ hidden:
   field_preferential_attention: true
   field_product_name: true
   field_request_description: true
+  field_request_designatations: true
   field_request_files: true
   field_request_marketing: true
   field_request_other: true

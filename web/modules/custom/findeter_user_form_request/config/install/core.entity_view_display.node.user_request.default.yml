@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.node.user_request.field_age_range
+    - field.field.node.user_request.field_answer
     - field.field.node.user_request.field_authorization
     - field.field.node.user_request.field_contact_answer_channel
     - field.field.node.user_request.field_ethnic_group
@@ -10,10 +11,12 @@ dependencies:
     - field.field.node.user_request.field_legal_nit
     - field.field.node.user_request.field_legal_type_business
     - field.field.node.user_request.field_person_address
+    - field.field.node.user_request.field_person_deparment
     - field.field.node.user_request.field_person_email
     - field.field.node.user_request.field_person_fax_contact
     - field.field.node.user_request.field_person_first_lastname
     - field.field.node.user_request.field_person_first_name
+    - field.field.node.user_request.field_person_municipality
     - field.field.node.user_request.field_person_number_id
     - field.field.node.user_request.field_person_phone_contact
     - field.field.node.user_request.field_person_second_lastname
@@ -22,6 +25,7 @@ dependencies:
     - field.field.node.user_request.field_preferential_attention
     - field.field.node.user_request.field_product_name
     - field.field.node.user_request.field_request_description
+    - field.field.node.user_request.field_request_designatations
     - field.field.node.user_request.field_request_files
     - field.field.node.user_request.field_request_marketing
     - field.field.node.user_request.field_request_other
@@ -45,6 +49,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: list_default
+    region: content
+  field_answer:
+    weight: 32
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     region: content
   field_authorization:
     weight: 30
@@ -98,6 +109,14 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_person_deparment:
+    type: entity_reference_label
+    weight: 28
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
   field_person_email:
     weight: 11
     label: above
@@ -129,6 +148,14 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_person_municipality:
+    type: entity_reference_label
+    weight: 29
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
   field_person_number_id:
     weight: 7
     label: above
@@ -188,6 +215,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
+  field_request_designatations:
+    weight: 30
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_request_files:
     weight: 27
