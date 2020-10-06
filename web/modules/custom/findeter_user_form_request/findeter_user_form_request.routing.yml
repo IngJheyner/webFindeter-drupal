@@ -13,3 +13,19 @@ findeter_user_form_request.user_request_ajax_response:
     _title: 'Ajax response'
   requirements:
     _permission: 'access content'
+
+findeter_user_form_request.asign_request:
+  path: '/user-request-ajax-asign/{nid}'
+  defaults:
+    _form: '\Drupal\findeter_user_form_request\Form\AsignRequest'
+    _title: 'Asignar requerimiento'
+  requirements:
+    _access: 'TRUE'
+
+findeter_user_form_request.answer_request:
+  path: '/user-answer-ajax/{nid}'
+  defaults:
+    _form: '\Drupal\findeter_user_form_request\Form\AnswerRequest'
+    _title: 'Asignar requerimiento'
+  requirements:
+    _access: 'TRUE'
