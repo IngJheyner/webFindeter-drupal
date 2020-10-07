@@ -19,7 +19,7 @@ default_value_callback: ''
 settings:
   file_directory: 'user_request/[date:custom:Y]-[date:custom:m]'
   file_extensions: 'pdf zip doc docx jpg jpeg png xls xlsx'
-  max_filesize: '20'
+  max_filesize: '20 MB'
   description_field: false
   handler: 'default:file'
   handler_settings: {  }

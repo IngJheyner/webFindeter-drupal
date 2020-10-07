@@ -111,20 +111,21 @@ class StepThree extends BaseStep {
     ];
 
     $form['field_request_other'] = [
-      '#type'  => 'textfield',
-      '#title' => $definitions['field_request_other']->getLabel(),
+      '#type'       => 'textfield',
+      '#title'      => $definitions['field_request_other']->getLabel(),
       '#attributes' => ['placeholder'=>'Especifique cuál']
     ];
 
     $fileSettings = $definitions['field_request_files']->getSettings();
     $form['field_request_files'] = [
-      '#type'              => 'managed_file',
-      '#cardinality'       => 3,
-      '#multiple' => TRUE,
-      '#title'             => $definitions['field_request_files']->getLabel(),
+      '#type'            => 'managed_file',
+      '#cardinality'     => 3,
+      '#upload_location' => 'public://'.$fileSettings['file_directory'],
+      '#multiple'        => TRUE,
+      '#title'           => $definitions['field_request_files']->getLabel(),
       '#upload_validators' => [
         'file_validate_extensions' => [$fileSettings['file_extensions']],
-        'file_validate_size' => 20971520,
+        'file_validate_size'       => 20971520,
       ],
     ];
 

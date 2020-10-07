@@ -271,7 +271,19 @@ class MultiStepForm extends FormBase {
 
     foreach($steps as $step){
       foreach($step->getValues() as $field=>$value){
+
         $newRequest->set($field, $value);
+
+        if($field == 'field_request_files'){
+          foreach($value as $fid){
+            if (!empty($fid)) {
+              $file = File::load($fid);
+              $file->setPermanent();
+              $file->save();
+            }
+          }
+        }
+        
       }
     }
 
