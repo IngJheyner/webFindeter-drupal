@@ -103,6 +103,7 @@ class StepFour extends BaseStep {
         '#type'    => 'radios',
         '#validate' => true,
         '#options' => [0=>'Si',1=>'No'],
+        '#default_value' => 1,
         '#attributes' => ['id' => [
           'field-contact-answer-channel-anonimous',
           ]

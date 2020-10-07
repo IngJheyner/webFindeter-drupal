@@ -13,6 +13,14 @@
       if($('#field-contact-answer-channel-anonimous').length){
         $('#no-anonimous').hide();
 
+        $('.form-item-field-contact-answer-channel-anonimous label').click(function(){
+          $(this).parent().find('input').prop("checked", true);
+          if($(this).parent().find('input').attr('value')=='0'){
+            $('#no-anonimous').show();
+          }else{
+            $('#no-anonimous').hide();
+          }
+        });
 
         $('input[type=radio][name=field_contact_answer_channel_anonimous]').change(function() {
           if (this.value == '1') {
