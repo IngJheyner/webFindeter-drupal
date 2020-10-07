@@ -29,3 +29,11 @@ findeter_user_form_request.answer_request:
     _title: 'Asignar requerimiento'
   requirements:
     _access: 'TRUE'
+
+findeter_user_form_request.create_pdf:
+  path: '/create-pdf/{nid}'
+  defaults:
+    _controller: '\Drupal\findeter_user_form_request\Controller\CreatePDF::nodeToPdf'
+    _title: 'Crear PDF'
+  requirements:
+    _permission: 'access content'
