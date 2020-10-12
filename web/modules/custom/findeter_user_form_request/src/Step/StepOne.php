@@ -113,16 +113,16 @@ class StepOne extends BaseStep {
 
     $form['content-fields']['col1']['field_type_request'] = [
       '#type'         => 'select',
-      '#title'        => $definitions['field_type_request']->getLabel(),
+      '#title'        => '<span class"required">*</span>'.$definitions['field_type_request']->getLabel(),
       '#options'      => $definitions['field_type_request']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
       '#prefix'       => '<div class="row">',
-      '#suffix'       => '</div>'
+      '#suffix'       => '</div>',
     ];
 
     $form['content-fields']['col1']['field_type_requester'] = [
       '#type'         => 'select',
-      '#title'        => $definitions['field_type_requester']->getLabel(),
+      '#title'        => '<span class"required">*</span>'.$definitions['field_type_requester']->getLabel(),
       '#options'      => $definitions['field_type_requester']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
       '#prefix'       => '<div class="row">',
@@ -131,9 +131,11 @@ class StepOne extends BaseStep {
 
     $form['content-fields']['col1']['field_type_handicap'] = [
       '#type'         => 'select',
-      '#title'        => $definitions['field_type_handicap']->getLabel(),
+      '#title'        => '<span class"required">*</span>'.$definitions['field_type_handicap']->getLabel(),
       '#options'      => $definitions['field_type_handicap']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
+      '#prefix'       => '<div class="row">',
+      '#suffix'       => '</div>'
     ];
 
     $form['content-fields']['col2'] = [
@@ -144,21 +146,25 @@ class StepOne extends BaseStep {
 
     $form['content-fields']['col2']['field_ethnic_group'] = [
       '#type'         => 'select',
-      '#title'        => $definitions['field_ethnic_group']->getLabel(),
+      '#title'        => '<span class"required">*</span>'.$definitions['field_ethnic_group']->getLabel(),
       '#options'      => $definitions['field_ethnic_group']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
+      '#prefix'       => '<div class="row">',
+      '#suffix'       => '</div>'
     ];
 
     $form['content-fields']['col2']['field_preferential_attention'] = [
       '#type'         => 'select',
-      '#title'        => $definitions['field_preferential_attention']->getLabel(),
+      '#title'        => '<span class"required">*</span>'.$definitions['field_preferential_attention']->getLabel(),
       '#options'      => $definitions['field_preferential_attention']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
+      '#prefix'       => '<div class="row">',
+      '#suffix'       => '</div>'
     ];
 
     $form['content-fields']['field_age_range'] = [
       '#type'         => 'select',
-      '#title'        => $definitions['field_age_range']->getLabel(),
+      '#title'        => '<span class"required">*</span>'.$definitions['field_age_range']->getLabel(),
       '#options'      => $definitions['field_age_range']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
       '#prefix'       => '<div class="col-12">',

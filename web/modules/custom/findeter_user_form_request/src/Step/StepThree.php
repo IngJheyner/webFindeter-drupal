@@ -109,7 +109,7 @@ class StepThree extends BaseStep {
 
     $form['content-fields']['col1']['field_product_name'] = [
       '#type'    => 'select',
-      '#title'   => $definitions['field_product_name']->getLabel(),
+      '#title'   => '<span class"required">*</span>'.$definitions['field_product_name']->getLabel(),
       '#options' => $definitions['field_product_name']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
     ];
@@ -148,10 +148,10 @@ class StepThree extends BaseStep {
 
     $form['content-fields']['col2']['field_request_description'] = [
       '#type'        => 'textarea',
-      '#maxlength'   => 300,
-      '#title'       => $definitions['field_request_description']->getLabel(),
+      '#maxlength'   => 4000,
+      '#title'       => '<span class"required">*</span>'.$definitions['field_request_description']->getLabel(),
       '#attributes'  => ['placeholder'=>'Escriba el detalle de su Petición, Queja, Reclamo, Sugerencia o Denuncia.','id'=>'edit-field-request-description'],
-      '#description' => '<div>Puede ingresar hasta un máximo de 300 caracteres. <br>Caracteres ingresados: <span class="counter-char">-</span>, máximo 300 caracteres.</div>'  
+      '#description' => '<div>Puede ingresar hasta un máximo de 4000 caracteres. <br>Caracteres ingresados: <span class="counter-char">-</span>, máximo 4000 caracteres.</div>'  
     ];
 
     //Populate values

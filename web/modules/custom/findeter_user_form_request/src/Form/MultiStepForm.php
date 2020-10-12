@@ -239,12 +239,24 @@ class MultiStepForm extends FormBase {
     // Set step to navigate to.
     $triggering_element = $form_state->getTriggeringElement();
     
+    $this->stepId = $triggering_element['#goto_step'];
+
     // for anonimo request, jump step 2
-    if($this->step->getStep() == 1 && isset($values['field_type_requester']) && $values['field_type_requester']=='anonimo'){
-      $this->stepId = 3;
-    }else{
-      $this->stepId = $triggering_element['#goto_step'];
+    $allSteps = $this->stepManager->getAllSteps();    
+    if(isset($allSteps[1])){
+      $valuesStep1 = $allSteps[1]->getValues();
+      if($valuesStep1['field_type_requester'] == 'anonimo'){
+        if($this->step->getStep() == 1){
+          $this->stepId = 3;
+        }
+
+        if($this->step->getStep() == 3 && $triggering_element['#value']=='Volver'){
+          $this->stepId = 1;
+        }
+      }
+
     }
+    
     
     // If an extra submit handler is set, execute it.
     // We already tested if it is callable before.

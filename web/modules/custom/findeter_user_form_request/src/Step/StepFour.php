@@ -136,7 +136,7 @@ class StepFour extends BaseStep {
 
     $form['content-fields']['no-anonimuos']['field_authorization'] = [
       '#type'  => 'checkbox',
-      '#title' => array_shift($definitions['field_authorization']->getSetting('allowed_values')),
+      '#title' => '<span class"required">*</span> '.array_shift($definitions['field_authorization']->getSetting('allowed_values')),
     ];
 
     $form['content-fields']['no-anonimuos']['field_request_marketing'] = [
