@@ -89,14 +89,14 @@ class MultiStepForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
 
     $form['wrapper-messages'] = [
-      '#type' => 'container',
+      '#type'       => 'container',
       '#attributes' => [
         'id' => 'messages-wrapper',
       ],
     ];
 
     $form['wrapper'] = [
-      '#type' => 'container',
+      '#type'       => 'container',
       '#attributes' => [
         'id' => 'form-wrapper',
       ],
@@ -110,6 +110,9 @@ class MultiStepForm extends FormBase {
 
     // Attach buttons.
     $form['wrapper']['actions']['#type'] = 'actions';
+    // Begin of div in each step config
+    $form['wrapper']['actions']['#suffix'] = '</div>';
+    $form['wrapper']['actions']['#attributes'] = ['class'=>['row','justify-content-md-center']];
     $buttons = $this->step->getButtons();
 
     foreach ($buttons as $button) {
@@ -120,8 +123,8 @@ class MultiStepForm extends FormBase {
         // Add ajax to button.
         $form['wrapper']['actions'][$button->getKey()]['#ajax'] = [
           'callback' => '::loadStep',
-          'wrapper' => 'form-wrapper',
-          'effect' => 'fade',
+          'wrapper'  => 'form-wrapper',
+          'effect'   => 'fade',
         ];
       }
 
@@ -157,11 +160,11 @@ class MultiStepForm extends FormBase {
     if (!empty($messages)) {
       // Form did not validate, get messages and render them.
       $messages = [
-        '#theme' => 'status_messages',
-        '#message_list' => $messages,
+        '#theme'           => 'status_messages',
+        '#message_list'    => $messages,
         '#status_headings' => [
-          'status' => $this->t('Status message'),
-          'error' => $this->t('Error message'),
+          'status'  => $this->t('Status message'),
+          'error'   => $this->t('Error message'),
           'warning' => $this->t('Warning message'),
         ],
       ];
@@ -236,12 +239,12 @@ class MultiStepForm extends FormBase {
     // Set step to navigate to.
     $triggering_element = $form_state->getTriggeringElement();
     
+    // for anonimo request, jump step 2
     if($this->step->getStep() == 1 && isset($values['field_type_requester']) && $values['field_type_requester']=='anonimo'){
       $this->stepId = 3;
     }else{
       $this->stepId = $triggering_element['#goto_step'];
     }
-    
     
     // If an extra submit handler is set, execute it.
     // We already tested if it is callable before.
@@ -262,7 +265,7 @@ class MultiStepForm extends FormBase {
    */
   public function submitValues(array &$form, FormStateInterface $form_state) {
     
-    //rety all values
+    //retrying all values
     $steps = $this->stepManager->getAllSteps();   
 
     //define new node of content type
@@ -274,6 +277,7 @@ class MultiStepForm extends FormBase {
 
         $newRequest->set($field, $value);
 
+        // store all files
         if($field == 'field_request_files'){
           foreach($value as $fid){
             if (!empty($fid)) {
@@ -283,7 +287,7 @@ class MultiStepForm extends FormBase {
             }
           }
         }
-        
+
       }
     }
 

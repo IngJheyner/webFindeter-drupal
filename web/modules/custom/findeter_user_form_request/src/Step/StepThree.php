@@ -91,33 +91,44 @@ class StepThree extends BaseStep {
                     </ul>',
     );
 
+    $form['content-fields'] = [
+      '#type'       => 'container',
+      '#attributes' => ['class' => ['row']],
+      '#prefix'     => '<div class="container">'
+    ];
 
-    $form['title'] = array(
-      '#markup' => '<h2>Información del producto</h2>',
+
+    $form['content-fields']['title'] = array(
+      '#markup' => '<h2 class="text-center col-12">Información del producto</h2>',
     );
 
-    $form['field_product_name'] = [
+    $form['content-fields']['col1'] = [
+      '#type'       => 'container',
+      '#attributes' => ['class' => ['col']],
+    ];
+
+    $form['content-fields']['col1']['field_product_name'] = [
       '#type'    => 'select',
       '#title'   => $definitions['field_product_name']->getLabel(),
       '#options' => $definitions['field_product_name']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
     ];
 
-    $form['field_request_reason'] = [
+    $form['content-fields']['col1']['field_request_reason'] = [
       '#type'    => 'select',
       '#title'   => $definitions['field_request_reason']->getLabel(),
       '#options' => $definitions['field_request_reason']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
     ];
 
-    $form['field_request_other'] = [
+    $form['content-fields']['col1']['field_request_other'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_request_other']->getLabel(),
       '#attributes' => ['placeholder'=>'Especifique cuál']
     ];
 
     $fileSettings = $definitions['field_request_files']->getSettings();
-    $form['field_request_files'] = [
+    $form['content-fields']['col1']['field_request_files'] = [
       '#type'            => 'managed_file',
       '#cardinality'     => 3,
       '#upload_location' => 'public://'.$fileSettings['file_directory'],
@@ -129,11 +140,17 @@ class StepThree extends BaseStep {
       ],
     ];
 
-    $form['field_request_description'] = [
-      '#type'  => 'textarea',
-      '#maxlength' => 300,
-      '#title' => $definitions['field_request_description']->getLabel(),
-      '#attributes' => ['placeholder'=>'Escriba el detalle de su Petición, Queja, Reclamo, Sugerencia o Denuncia.','id'=>'edit-field-request-description'],
+    $form['content-fields']['col2'] = [
+      '#type'       => 'container',
+      '#attributes' => ['class' => ['col']],
+    ];
+
+
+    $form['content-fields']['col2']['field_request_description'] = [
+      '#type'        => 'textarea',
+      '#maxlength'   => 300,
+      '#title'       => $definitions['field_request_description']->getLabel(),
+      '#attributes'  => ['placeholder'=>'Escriba el detalle de su Petición, Queja, Reclamo, Sugerencia o Denuncia.','id'=>'edit-field-request-description'],
       '#description' => '<div>Puede ingresar hasta un máximo de 300 caracteres. <br>Caracteres ingresados: <span class="counter-char">-</span>, máximo 300 caracteres.</div>'  
     ];
 

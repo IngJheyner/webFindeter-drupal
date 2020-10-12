@@ -91,27 +91,33 @@ class StepFour extends BaseStep {
                     </ul>',
     );
 
+    $form['content-fields'] = [
+      '#type'       => 'container',
+      '#attributes' => ['class' => ['row']],
+      '#prefix'     => '<div class="container">'
+    ];
+
     $values = $steps[1]->getValues();
 
     if($values['field_type_requester'] == 'anonimo'){
 
-      $form['title'] = array(
-        '#markup' => '<h2>¿Usted desea ser notificado frente al trámite de esta solicitud?</h2>',
+      $form['content-fields']['title'] = array(
+        '#markup' => '<h2 class="text-center col-12">¿Usted desea ser notificado frente al trámite de esta solicitud?</h2>',
       );
 
-      $form['field_contact_answer_channel_anonimous'] = [
-        '#type'    => 'radios',
-        '#validate' => true,
-        '#options' => [0=>'Si',1=>'No'],
+      $form['content-fields']['field_contact_answer_channel_anonimous'] = [
+        '#type'          => 'radios',
+        '#validate'      => true,
+        '#options'       => [0=>'Si',1=>'No'],
         '#default_value' => 1,
-        '#attributes' => ['id' => [
+        '#attributes'    => ['id' => [
           'field-contact-answer-channel-anonimous',
           ]
         ],
       ];
     }
 
-    $form['no-anonimuos'] = [
+    $form['content-fields']['no-anonimuos'] = [
       '#type' => 'container',
       
       '#attributes' => ['id' => [
@@ -120,20 +126,20 @@ class StepFour extends BaseStep {
       ],
     ];
     
-    $form['no-anonimuos']['title'] = [
+    $form['content-fields']['no-anonimuos']['title'] = [
       '#markup' => '<h2>Seleccione el canal por medio del cual le gustaría recibir la respuesta a su solicitud</h2>',
     ];
-    $form['no-anonimuos']['field_contact_answer_channel'] = [
+    $form['content-fields']['no-anonimuos']['field_contact_answer_channel'] = [
       '#type'    => 'radios',
       '#options' => $definitions['field_contact_answer_channel']->getSetting('allowed_values')
     ];
 
-    $form['no-anonimuos']['field_authorization'] = [
+    $form['content-fields']['no-anonimuos']['field_authorization'] = [
       '#type'  => 'checkbox',
       '#title' => array_shift($definitions['field_authorization']->getSetting('allowed_values')),
     ];
 
-    $form['no-anonimuos']['field_request_marketing'] = [
+    $form['content-fields']['no-anonimuos']['field_request_marketing'] = [
       '#type'  => 'checkbox',
       '#title' => array_shift($definitions['field_request_marketing']->getSetting('allowed_values')),
     ];

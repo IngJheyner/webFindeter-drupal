@@ -102,24 +102,35 @@ class StepTwo extends BaseStep {
                     </ul>',
     );
 
+    $form['content-fields'] = [
+      '#type'       => 'container',
+      '#attributes' => ['class' => ['row']],
+      '#prefix'     => '<div class="container">'
+    ];
+
     if($values['field_type_requester'] == 'juridica'){
-      $form['title'] = array(
-        '#markup' => '<h2>Información básica: Persona jurídica</h2>',
+      $form['content-fields']['title'] = array(
+        '#markup' => '<h2 class="text-center col-12">Información básica: Persona jurídica</h2>',
       );
 
-      $form['field_legal_nit'] = [
+      $form['content-fields']['col1'] = [
+        '#type'       => 'container',
+        '#attributes' => ['class' => ['col']],
+      ];
+
+      $form['content-fields']['col1']['field_legal_nit'] = [
         '#type'       => 'textfield',
         '#title'      => $definitions['field_legal_nit']->getLabel(),
         '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_legal_nit']->getLabel())]
       ];
 
-      $form['field_legal_business_name'] = [
+      $form['content-fields']['col1']['field_legal_business_name'] = [
         '#type'       => 'textfield',
         '#title'      => $definitions['field_legal_business_name']->getLabel(),
         '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_legal_business_name']->getLabel())]
       ];
 
-      $form['field_legal_type_business'] = [
+      $form['content-fields']['col1']['field_legal_type_business'] = [
         '#type'         => 'select',
         '#title'        => $definitions['field_legal_type_business']->getLabel(),
         '#options'      => $definitions['field_legal_type_business']->getSetting('allowed_values'),
@@ -127,17 +138,22 @@ class StepTwo extends BaseStep {
       ];
 
     }else{
-      $form['title'] = array(
-        '#markup' => '<h2>Información básica: Persona '.$values['field_type_requester'].'</h2>',
+      $form['content-fields']['title'] = array(
+        '#markup' => '<h2 class="text-center col-12">Información básica: Persona '.$values['field_type_requester'].'</h2>',
       );
 
-      $form['field_person_number_id'] = [
+      $form['content-fields']['col1'] = [
+        '#type'       => 'container',
+        '#attributes' => ['class' => ['col']],
+      ];
+
+      $form['content-fields']['col1']['field_person_number_id'] = [
         '#type'       => 'textfield',
         '#title'      => $definitions['field_person_number_id']->getLabel(),
         '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_person_number_id']->getLabel())]
       ];
 
-      $form['field_person_type_id'] = [
+      $form['content-fields']['col1']['field_person_type_id'] = [
         '#type'    => 'select',
         '#title'   => $definitions['field_person_type_id']->getLabel(),
         '#options' => $definitions['field_person_type_id']->getSetting('allowed_values')
@@ -145,38 +161,43 @@ class StepTwo extends BaseStep {
 
     }
 
-    $form['field_person_first_name'] = [
+    $form['content-fields']['col1']['field_person_first_name'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_person_first_name']->getLabel(),
       '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_person_first_name']->getLabel())]
     ];
 
-    $form['field_person_second_name'] = [
+    $form['content-fields']['col1']['field_person_second_name'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_person_second_name']->getLabel(),
       '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_person_second_name']->getLabel())]
     ];
 
-    $form['field_person_first_lastname'] = [
+    $form['content-fields']['col1']['field_person_first_lastname'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_person_first_lastname']->getLabel(),
       '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_person_first_lastname']->getLabel())]
     ];
 
-    $form['field_person_second_lastname'] = [
+    $form['content-fields']['col1']['field_person_second_lastname'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_person_second_lastname']->getLabel(),
       '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_person_second_lastname']->getLabel())]
     ];
 
     if($values['field_type_requester'] == 'juridica'){
-      $form['field_person_first_name']['#title'] .= ' del representante legal';
-      $form['field_person_second_name']['#title'] .= ' del representante legal';
-      $form['field_person_first_lastname']['#title'] .= ' del representante legal';
-      $form['field_person_second_lastname']['#title'] .= ' del representante legal';
+      $form['content-fields']['col1']['field_person_first_name']['#title'] .= ' del representante legal';
+      $form['content-fields']['col1']['field_person_second_name']['#title'] .= ' del representante legal';
+      $form['content-fields']['col1']['field_person_first_lastname']['#title'] .= ' del representante legal';
+      $form['content-fields']['col1']['field_person_second_lastname']['#title'] .= ' del representante legal';
     }
 
-    $form['field_person_address'] = [
+    $form['content-fields']['col2'] = [
+      '#type'       => 'container',
+      '#attributes' => ['class' => ['col']],
+    ];
+
+    $form['content-fields']['col2']['field_person_address'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_person_address']->getLabel(),
       '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_person_address']->getLabel())]
@@ -185,7 +206,7 @@ class StepTwo extends BaseStep {
 
     $deparmentOptions = $this->getTaxonomyTermsForm(0);
 
-    $form['field_person_deparment'] = [
+    $form['content-fields']['col2']['field_person_deparment'] = [
       '#type'    => 'select',
       '#title'   => $definitions['field_person_deparment']->getLabel(),
       '#options' => $deparmentOptions,
@@ -206,31 +227,31 @@ class StepTwo extends BaseStep {
       $departmentValue = $steps[2]->values['field_person_deparment'];
     }
 
-    $form['field_person_municipality'] = [
+    $form['content-fields']['col2']['field_person_municipality'] = [
       '#type'      => 'select',
       '#title'     => $definitions['field_person_municipality']->getLabel(),
       '#prefix'    => '<div id="output-municipalities">',
       '#suffix'    => '</div>',
-      '#empty_option'   => '-Seleccione una opción-',
+      '#empty_option' => '-Seleccione una opción-',
     ];
 
     if ($departmentValue) {
-      $form['field_person_municipality']['#options'] = $this->getTaxonomyTermsForm($departmentValue);
+      $form['content-fields']['col2']['field_person_municipality']['#options'] = $this->getTaxonomyTermsForm($departmentValue);
     }
 
-    $form['field_person_phone_contact'] = [
+    $form['content-fields']['col2']['field_person_phone_contact'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_person_phone_contact']->getLabel(),
       '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_person_phone_contact']->getLabel())]
     ];
 
-    $form['field_person_fax_contact'] = [
+    $form['content-fields']['col2']['field_person_fax_contact'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_person_fax_contact']->getLabel(),
       '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_person_fax_contact']->getLabel())]
     ];
     
-    $form['field_person_email'] = [
+    $form['content-fields']['col2']['field_person_email'] = [
       '#type'       => 'email',
       '#title'      => $definitions['field_person_email']->getLabel(),
       '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_person_email']->getLabel())]

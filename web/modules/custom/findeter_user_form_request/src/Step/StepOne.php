@@ -96,113 +96,73 @@ class StepOne extends BaseStep {
                     </ul>',
     );
 
-    $form['title'] = array(
-      '#markup' => '<h2>Seleccione la manera como desea radicar su solicitud</h2>',
-    );
-
-    /*$fileSettings = $definitions['field_request_files']->getSettings();
-    
-    $form['field_request_files'] = [
-      '#type'              => 'managed_file',
-      '#cardinality'       => 3,
-      '#multiple' => TRUE,
-      '#title'             => $definitions['field_request_files']->getLabel(),
-      '#upload_validators' => [
-        'file_validate_extensions' => [$fileSettings['file_extensions']],
-        'file_validate_size' => 20971520,
-      ],
+    $form['content-fields'] = [
+      '#type'       => 'container',
+      '#attributes' => ['class' => ['row']],
+      '#prefix'     => '<div class="container">'
     ];
 
-    /*$form['field_request_files'] = [
-      '#type'              => 'managed_file',
-      '#cardinality'       => 3,
-      '#multiple' => TRUE,
-      '#title'             => $definitions['field_request_files']->getLabel(),
-      '#upload_validators' => [
-        'file_validate_extensions' => [$fileSettings['file_extensions']],
-      ],
-    ];*/
+    $form['content-fields']['title'] = array(
+      '#markup' => '<h2 class="text-center col-12">Seleccione la manera como desea radicar su solicitud</h2>',
+    );
 
+    $form['content-fields']['col1'] = [
+      '#type'       => 'container',
+      '#attributes' => ['class' => ['col']],
+    ];
 
-
-    /*
-    $form['entity_browser_wrapper'] = [
-      '#type' => 'container',
-      'widget' => [
-          '#title' => t('Entity Browser'),
-          '#field_name' => 'entity_browser_wrapper',
-          '#field_parents' => [],
-          '#required' => false,
-          '#parents' => ['entity_browser_wrapper'],
-          '#tree' => true,
-          '#id' => 'edit-entity-browser-wrapper',
-          '#type' => 'details',
-          '#open' => true,
-          'entity_browser' => [
-              '#type' => 'entity_browser',
-              '#entity_browser' => 'document_browser',
-              '#cardinality' => 1,
-              '#entity_browser_validators' => ['entity_type' => ['type' => 'media']],
-              '#process' => [
-                  ['\Drupal\entity_browser\Element\EntityBrowserElement', 'processEntityBrowser'],
-                  ['\Drupal\entity_browser\Plugin\Field\FieldWidget\EntityReferenceBrowserWidget', 'processEntityBrowser'],
-              ]
-          ],
-          'current' => [
-              '#theme_wrappers' => ['container'],
-              '#attributes' => [
-                  'class' => 'entities-list',
-              ],
-              'items' => [],
-          ],
-      ],
-  ];*/
-
-
-
-
-
-
-    $form['field_type_request'] = [
+    $form['content-fields']['col1']['field_type_request'] = [
       '#type'         => 'select',
       '#title'        => $definitions['field_type_request']->getLabel(),
       '#options'      => $definitions['field_type_request']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
+      '#prefix'       => '<div class="row">',
+      '#suffix'       => '</div>'
     ];
 
-    $form['field_type_requester'] = [
+    $form['content-fields']['col1']['field_type_requester'] = [
       '#type'         => 'select',
       '#title'        => $definitions['field_type_requester']->getLabel(),
       '#options'      => $definitions['field_type_requester']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
+      '#prefix'       => '<div class="row">',
+      '#suffix'       => '</div>'
     ];
 
-    $form['field_type_handicap'] = [
+    $form['content-fields']['col1']['field_type_handicap'] = [
       '#type'         => 'select',
       '#title'        => $definitions['field_type_handicap']->getLabel(),
       '#options'      => $definitions['field_type_handicap']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
     ];
 
-    $form['field_ethnic_group'] = [
+    $form['content-fields']['col2'] = [
+      '#type'       => 'container',
+      '#attributes' => ['class' => ['col']],
+    ];
+
+
+    $form['content-fields']['col2']['field_ethnic_group'] = [
       '#type'         => 'select',
       '#title'        => $definitions['field_ethnic_group']->getLabel(),
       '#options'      => $definitions['field_ethnic_group']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
     ];
 
-    $form['field_preferential_attention'] = [
+    $form['content-fields']['col2']['field_preferential_attention'] = [
       '#type'         => 'select',
       '#title'        => $definitions['field_preferential_attention']->getLabel(),
       '#options'      => $definitions['field_preferential_attention']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
     ];
 
-    $form['field_age_range'] = [
+    $form['content-fields']['field_age_range'] = [
       '#type'         => 'select',
       '#title'        => $definitions['field_age_range']->getLabel(),
       '#options'      => $definitions['field_age_range']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
+      '#prefix'       => '<div class="col-12">',
+      '#suffix'       => '</div>'
     ];
 
     //Populate values
