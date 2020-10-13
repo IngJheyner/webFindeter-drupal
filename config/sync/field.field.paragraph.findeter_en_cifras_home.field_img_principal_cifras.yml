@@ -1,29 +1,29 @@
-uuid: 522586dc-40cf-4de5-974d-526d3f7b0bdd
+uuid: c584233a-2657-4090-84d9-9eecbddcc4e1
 langcode: es
 status: true
 dependencies:
   config:
-    - field.storage.node.field_img_fondo_ps_home
-    - node.type.productos_servicios_home
+    - field.storage.paragraph.field_img_principal_cifras
+    - paragraphs.paragraphs_type.findeter_en_cifras_home
   module:
     - image
-id: node.productos_servicios_home.field_img_fondo_ps_home
-field_name: field_img_fondo_ps_home
-entity_type: node
-bundle: productos_servicios_home
-label: 'Imagen de Fondo'
+id: paragraph.findeter_en_cifras_home.field_img_principal_cifras
+field_name: field_img_principal_cifras
+entity_type: paragraph
+bundle: findeter_en_cifras_home
+label: 'Img. Principal'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: themes/custom/webfinde/images/productos_servicios_home
+  file_directory: webfinde/images/cifras
   file_extensions: 'png gif jpg jpeg'
-  max_filesize: '10 mb'
+  max_filesize: '2 mb'
   max_resolution: ''
   min_resolution: ''
-  alt_field: true
+  alt_field: false
   alt_field_required: true
   title_field: false
   title_field_required: false

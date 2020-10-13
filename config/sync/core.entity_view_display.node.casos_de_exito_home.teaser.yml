@@ -1,18 +1,19 @@
-uuid: 2156744b-216e-45fd-9dd7-43e02f75e4b9
+uuid: 81eb82f3-4187-4145-bfd8-d8f61ac38060
 langcode: es
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.productos_servicios_home.body
-    - field.field.node.productos_servicios_home.field_img_fondo_ps_home
-    - node.type.productos_servicios_home
+    - field.field.node.casos_de_exito_home.body
+    - field.field.node.casos_de_exito_home.field_img_carrusel_caso_exito
+    - field.field.node.casos_de_exito_home.field_img_fondo_caso_exito
+    - node.type.casos_de_exito_home
   module:
     - text
     - user
-id: node.productos_servicios_home.teaser
+id: node.casos_de_exito_home.teaser
 targetEntityType: node
-bundle: productos_servicios_home
+bundle: casos_de_exito_home
 mode: teaser
 content:
   body:
@@ -30,5 +31,7 @@ content:
     region: content
 hidden:
   addtoany: true
-  field_img_fondo_ps_home: true
+  field_img_carrusel_caso_exito: true
+  field_img_fondo_caso_exito: true
   langcode: true
+  search_api_excerpt: true
