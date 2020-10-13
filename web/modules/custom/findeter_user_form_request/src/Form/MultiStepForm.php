@@ -117,7 +117,7 @@ class MultiStepForm extends FormBase {
       if($nStep <= $this->stepId){
         $class = 'class="active"';
       }
-      
+
       $htmlStep .= '
         <li '.$class.'>
           <span class="number">'.$nStep.'</span>
@@ -125,10 +125,13 @@ class MultiStepForm extends FormBase {
         </li>';
     }
 
-    $form['wrapper']['wrapper-step'] = array(
-      '#markup' => '<ul class="steps-counter">'.$htmlStep.'</ul>',
-    );
-
+    // don't show finish step (6th step)
+    if($this->stepId < 6){
+      $form['wrapper']['wrapper-step'] = array(
+        '#markup' => '<ul class="steps-counter">'.$htmlStep.'</ul>',
+      );
+    }
+    
     $form['wrapper']['content-fields'] = [
       '#type'       => 'container',
       '#attributes' => [
