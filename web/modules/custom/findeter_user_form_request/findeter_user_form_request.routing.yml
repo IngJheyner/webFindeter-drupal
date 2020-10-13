@@ -37,3 +37,13 @@ findeter_user_form_request.create_pdf:
     _title: 'Crear PDF'
   requirements:
     _permission: 'access content'
+
+findeter_user_form_request.findeter_admin_form:
+  path: '/admin/config/findeter_user_form_request/admin'
+  defaults:
+    _form: '\Drupal\findeter_user_form_request\Form\FindeterAdminForm'
+    _title: 'Administración de registro de petición de usuarios'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE

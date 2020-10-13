@@ -18,18 +18,24 @@ use Drupal\findeter_user_form_request\Wkhtmlto\Pdf;
 class CreatePDF extends ControllerBase {
 
   public function nodeToPdf($nid){
+
+    $config = $this->config('findeter.admin');
     
     $entity_type = 'node';
-    $view_mode = 'default';
+    $view_mode = $config->get('view_mode');
     $view_builder = \Drupal::entityTypeManager()->getViewBuilder($entity_type);
     $storage = \Drupal::entityTypeManager()->getStorage($entity_type);
     $node = $storage->load($nid);
     $build = $view_builder->view($node, $view_mode);
     $output = render($build);
 
-    $module_handler = \Drupal::service('module_handler');
-    $module_path = $module_handler->getModule('findeter_user_form_request')->getPath();
-
+    $css_path = $config->get('css_path');
+    if($css_path == ''){
+      $module_handler = \Drupal::service('module_handler');
+      $module_path = $module_handler->getModule('findeter_user_form_request')->getPath();
+      $css_path = $module_path.'/css/pdf.css';
+    }
+    
     $options = array(
       'encoding' => 'UTF-8',  // option with argument
       'no-outline',         // Make Chrome not complain
@@ -40,7 +46,7 @@ class CreatePDF extends ControllerBase {
   
       // Default page options
       'disable-smart-shrinking',
-      'user-style-sheet' => $module_path.'/css/pdf.css',
+      'user-style-sheet' => $css_path,
     );
 
     // You can pass a filename, a HTML string, an URL or an options array to the constructor
@@ -67,7 +73,7 @@ class CreatePDF extends ControllerBase {
     }
 
     return [
-      '#type' => 'markup',
+      '#type'   => 'markup',
       '#markup' => $this->t('Implement method: hello with parameter(s): $nid'),
     ];
 

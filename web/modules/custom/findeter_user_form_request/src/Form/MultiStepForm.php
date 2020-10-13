@@ -346,7 +346,9 @@ class MultiStepForm extends FormBase {
       }
     }
 
-    $user = \Drupal\user\Entity\User::load(1);
+    $config = $this->config('findeter.admin');
+
+    $user = \Drupal\user\Entity\User::load($config->get('asign_user'));
     $newRequest->uid = $user->id(); 
     $newRequest->set('field_request_designatations', $user->getUsername().' | '.$user->id().' | '.date('j/m/Y H:i:s'));
 

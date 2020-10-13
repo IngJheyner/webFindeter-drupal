@@ -29,6 +29,8 @@ class AsignRequest extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, $nid = NULL) {
 
+    $config = $this->config('findeter.admin');
+
     $form_state->setCached(FALSE);
 
     // Nid param to store in the new references
@@ -41,11 +43,13 @@ class AsignRequest extends FormBase {
       '#markup' => 'Seleccione el usuario a quien se reasignará el pedido'
     ];
 
+    $rolesAllowed = explode(',',$config->get('roles'));
+
     $userStorage = \Drupal::entityTypeManager()->getStorage('user');
     $query = $userStorage->getQuery();
     $uids = $query
       ->condition('status', '1')
-      //->condition('roles', 'moderator')
+      ->condition('roles', $rolesAllowed,'IN')
       ->execute();
 
     $users = $userStorage->loadMultiple($uids);

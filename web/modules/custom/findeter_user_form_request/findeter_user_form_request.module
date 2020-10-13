@@ -1,8 +1,27 @@
 <?php 
 
-/**
- * Implements hook_form_alter
- */
-function findeter_user_form_request_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+use Drupal\Core\Url;
+use Drupal\Core\Routing\RouteMatchInterface;
 
+/**
+ * Implements hook_help().
+ *
+ * @inheritdoc
+ */
+function findeter_user_form_request_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.findeter_user_form_request':
+      $output = '';
+      $output .= '<h3>Acerca de</h3>';
+      $output .= '<p>Este módulo permite registrar los reclamos, peticiones, solicitudes, etc., para la institución Findeter, con campos y comportamientos específicos.</p>';
+      $output .= '<p>Para mayor comprensión se contruyó el formulario mediante pasos multiples con comportamiento ajax.</p>';
+      $output .= '<h3>Uso</h3>';
+      $output .= '<dl>';
+      $output .= '<dt>Configuración</dt>';
+      $output .= '<dd>Para configurar los principales parámetros necesarios para el funcionamiento del módulo, puede consultar la <a href="/admin/config/findeter_user_form_request/admin">página administrativa</a> del módulo</dd>';
+      $output .= '<dd>Una vez instalado el módulo, puede consultar el formulario en la <a href="/user-request-form">dirección</a></dd>';
+      
+      $output .= '</dl>';
+      return $output;
+  }
 }
