@@ -88,6 +88,9 @@ class MultiStepForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
+    // Get step from step manager.
+    $this->step = $this->stepManager->getStep($this->stepId);
+
     $form['wrapper-messages'] = [
       '#type'       => 'container',
       '#attributes' => [
@@ -98,21 +101,49 @@ class MultiStepForm extends FormBase {
     $form['wrapper'] = [
       '#type'       => 'container',
       '#attributes' => [
-        'id' => 'form-wrapper',
+        'id' => 'form-wrapper'
       ],
     ];
 
-    // Get step from step manager.
-    $this->step = $this->stepManager->getStep($this->stepId);
+    $textSteps[1] = 'Radicar solicitud';
+    $textSteps[2] = 'Información básica del solicitante';
+    $textSteps[3] = 'Información del producto';
+    $textSteps[4] = 'Canal de respuesta';
+
+    $htmlStep = '';
+    foreach($textSteps as $nStep=>$textStep){
+      $class = '';
+      
+      if($nStep <= $this->stepId){
+        $class = 'class="active"';
+      }
+      
+      $htmlStep .= '
+        <li '.$class.'>
+          <span class="number">'.$nStep.'</span>
+          <span class="text">'.$textStep.'</span>
+        </li>';
+    }
+
+    $form['wrapper']['wrapper-step'] = array(
+      '#markup' => '<ul class="steps-counter">'.$htmlStep.'</ul>',
+    );
+
+    $form['wrapper']['content-fields'] = [
+      '#type'       => 'container',
+      '#attributes' => [
+        'class' => ['row']
+      ],
+    ];
 
     // Attach step form elements.
-    $form['wrapper'] += $this->step->buildStepFormElements($this->stepManager->getAllSteps(),$form, $form_state);
+    $form['wrapper']['content-fields'] += $this->step->buildStepFormElements($this->stepManager->getAllSteps(),$form, $form_state);
 
     // Attach buttons.
     $form['wrapper']['actions']['#type'] = 'actions';
     // Begin of div in each step config
-    $form['wrapper']['actions']['#suffix'] = '</div>';
-    $form['wrapper']['actions']['#attributes'] = ['class'=>['row','justify-content-md-center']];
+    //$form['wrapper']['actions']['#suffix'] = '</div>';
+    $form['wrapper']['actions']['#attributes'] = ['class'=>['col-12','d-flex','justify-content-center']];
     $buttons = $this->step->getButtons();
 
     foreach ($buttons as $button) {
@@ -137,6 +168,15 @@ class MultiStepForm extends FormBase {
 
     $form_state->setRebuild();
     $form['#attached']['library'][] = 'findeter_user_form_request/global-scripts';
+
+    // populate fields with stored values
+    if($this->step->getValues() != ''){
+      foreach($this->step->getValues() as $field=>$value){
+        if(isset($form['wrapper']['content-fields'][$field])){
+          $form['wrapper']['content-fields'][$field]['#default_value'] = $value;
+        }
+      }
+    }
 
     return $form;
   }

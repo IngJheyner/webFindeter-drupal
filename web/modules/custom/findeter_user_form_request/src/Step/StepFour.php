@@ -70,28 +70,7 @@ class StepFour extends BaseStep {
     // Get the definitions
     $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'user_request');
 
-    $form['step'] = array(
-      '#markup' => '<ul class="steps-counter">
-                      <li class="active">
-                        <span class="number">1</span>
-                        <span class="text">Radicar solicitud</span>
-                      </li>
-                      <li class="active">
-                        <span class="number">2</span>
-                        <span class="text">Información básica del solicitante</span>
-                      </li>
-                      <li class="active">
-                        <span class="number">3</span>
-                        <span class="text">Información del producto</span>
-                      </li>
-                      <li class="active">
-                        <span class="number">4</span>
-                        <span class="text">Canal de respuesta</span>
-                      </li>
-                    </ul>',
-    );
-
-    $form['content-fields'] = [
+    $formStep['content-fields'] = [
       '#type'       => 'container',
       '#attributes' => ['class' => ['row']],
       '#prefix'     => '<div class="container">'
@@ -101,59 +80,40 @@ class StepFour extends BaseStep {
 
     if($values['field_type_requester'] == 'anonimo'){
 
-      $form['content-fields']['title'] = array(
-        '#markup' => '<h2 class="text-center col-12">¿Usted desea ser notificado frente al trámite de esta solicitud?</h2>',
-      );
+      $formStep['title-anonimous']['#markup'] = '<h2 class="text-center col-12">¿Usted desea ser notificado frente al trámite de esta solicitud?</h2>';
 
-      $form['content-fields']['field_contact_answer_channel_anonimous'] = [
+      $formStep['field_contact_answer_channel_anonimous'] = [
         '#type'          => 'radios',
         '#validate'      => true,
         '#options'       => [0=>'Si',1=>'No'],
         '#default_value' => 1,
-        '#attributes'    => ['id' => [
-          'field-contact-answer-channel-anonimous',
-          ]
+        '#attributes'    => ['id' => ['field-contact-answer-channel-anonimous']
         ],
       ];
-    }
 
-    $form['content-fields']['no-anonimuos'] = [
-      '#type' => 'container',
-      
-      '#attributes' => ['id' => [
-        'no-anonimous',
-        ]
-      ],
-    ];
+    }
     
-    $form['content-fields']['no-anonimuos']['title'] = [
-      '#markup' => '<h2>Seleccione el canal por medio del cual le gustaría recibir la respuesta a su solicitud</h2>',
+    $formStep['title'] = [
+      '#markup' => '<h2 class="text-center col-12">Seleccione el canal por medio del cual le gustaría recibir la respuesta a su solicitud</h2>',
+      '#prefix' => '<div id="no-anonimous">'
     ];
-    $form['content-fields']['no-anonimuos']['field_contact_answer_channel'] = [
+    $formStep['field_contact_answer_channel'] = [
       '#type'    => 'radios',
       '#options' => $definitions['field_contact_answer_channel']->getSetting('allowed_values')
     ];
 
-    $form['content-fields']['no-anonimuos']['field_authorization'] = [
+    $formStep['field_authorization'] = [
       '#type'  => 'checkbox',
       '#title' => '<span class"required">*</span> '.array_shift($definitions['field_authorization']->getSetting('allowed_values')),
     ];
 
-    $form['content-fields']['no-anonimuos']['field_request_marketing'] = [
+    $formStep['field_request_marketing'] = [
       '#type'  => 'checkbox',
       '#title' => array_shift($definitions['field_request_marketing']->getSetting('allowed_values')),
+      '#suffix' => '</div>'
     ];
 
-    //Populate values
-    if(isset($steps[4])){
-      foreach($steps[4]->values as $field=>$value){
-        if(isset($form[$field])){
-          $form[$field]['#default_value'] = $value;
-        }
-      }
-    }
-
-    return $form;
+    return $formStep;
   }
 
   /**

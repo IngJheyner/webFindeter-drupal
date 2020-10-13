@@ -70,65 +70,34 @@ class StepThree extends BaseStep {
     // Get the definitions
     $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'user_request');
 
-    $form['step'] = array(
-      '#markup' => '<ul class="steps-counter">
-                      <li class="active">
-                        <span class="number">1</span>
-                        <span class="text">Radicar solicitud</span>
-                      </li>
-                      <li class="active">
-                        <span class="number">2</span>
-                        <span class="text">Información básica del solicitante</span>
-                      </li>
-                      <li class="active">
-                        <span class="number">3</span>
-                        <span class="text">Información del producto</span>
-                      </li>
-                      <li>
-                        <span class="number">4</span>
-                        <span class="text">Canal de respuesta</span>
-                      </li>
-                    </ul>',
-    );
+    $formStep['title']['#markup'] = '<h2 class="text-center col-12">Información del producto</h2>';
 
-    $form['content-fields'] = [
-      '#type'       => 'container',
-      '#attributes' => ['class' => ['row']],
-      '#prefix'     => '<div class="container">'
-    ];
-
-
-    $form['content-fields']['title'] = array(
-      '#markup' => '<h2 class="text-center col-12">Información del producto</h2>',
-    );
-
-    $form['content-fields']['col1'] = [
-      '#type'       => 'container',
-      '#attributes' => ['class' => ['col']],
-    ];
-
-    $form['content-fields']['col1']['field_product_name'] = [
+    // start col 1
+    $formStep['field_product_name'] = [
       '#type'    => 'select',
       '#title'   => '<span class"required">*</span>'.$definitions['field_product_name']->getLabel(),
       '#options' => $definitions['field_product_name']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
+      '#prefix'       => '<div class="col">'
     ];
 
-    $form['content-fields']['col1']['field_request_reason'] = [
+    $formStep['field_request_reason'] = [
       '#type'    => 'select',
       '#title'   => $definitions['field_request_reason']->getLabel(),
       '#options' => $definitions['field_request_reason']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
     ];
 
-    $form['content-fields']['col1']['field_request_other'] = [
+    $formStep['field_request_other'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_request_other']->getLabel(),
       '#attributes' => ['placeholder'=>'Especifique cuál']
     ];
 
     $fileSettings = $definitions['field_request_files']->getSettings();
-    $form['content-fields']['col1']['field_request_files'] = [
+
+    // end col 1
+    $formStep['field_request_files'] = [
       '#type'            => 'managed_file',
       '#cardinality'     => 3,
       '#upload_location' => 'public://'.$fileSettings['file_directory'],
@@ -137,33 +106,21 @@ class StepThree extends BaseStep {
       '#upload_validators' => [
         'file_validate_extensions' => [$fileSettings['file_extensions']],
         'file_validate_size'       => 20971520,
-      ],
+      ]
     ];
 
-    $form['content-fields']['col2'] = [
-      '#type'       => 'container',
-      '#attributes' => ['class' => ['col']],
-    ];
-
-
-    $form['content-fields']['col2']['field_request_description'] = [
+    // start/end col 1
+    $formStep['field_request_description'] = [
       '#type'        => 'textarea',
       '#maxlength'   => 4000,
       '#title'       => '<span class"required">*</span>'.$definitions['field_request_description']->getLabel(),
       '#attributes'  => ['placeholder'=>'Escriba el detalle de su Petición, Queja, Reclamo, Sugerencia o Denuncia.','id'=>'edit-field-request-description'],
-      '#description' => '<div>Puede ingresar hasta un máximo de 4000 caracteres. <br>Caracteres ingresados: <span class="counter-char">-</span>, máximo 4000 caracteres.</div>'  
+      '#description' => '<div>Puede ingresar hasta un máximo de 4000 caracteres. <br>Caracteres ingresados: <span class="counter-char">-</span>, máximo 4000 caracteres.</div>',
+      '#prefix'      => '</div><div class="col">',
+      '#suffix'      => '</div>'
     ];
 
-    //Populate values
-    if(isset($steps[3])){
-      foreach($steps[3]->values as $field=>$value){
-        if(isset($form[$field])){
-          $form[$field]['#default_value'] = $value;
-        }
-      }
-    }
-
-    return $form;
+    return $formStep;
   }
 
   /**

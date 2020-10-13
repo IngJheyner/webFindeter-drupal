@@ -28,11 +28,11 @@ class StepFinalize extends BaseStep {
    */
   public function buildStepFormElements($steps,$form,$form_state) {
 
-    $form['completed'] = [
+    $formStep['completed'] = [
       '#markup' => '<h3>Gracias por comunicarse con nosotros, su Petición ha sido radicada satisfactoriamente.</h3> <p>(Texto temporal) Para consultar la lista de formularios: <a href="/admin/user-request-admin">click aquí</a></p>',
     ];
     		
-    return $form;
+    return $formStep;
   }
 
 }

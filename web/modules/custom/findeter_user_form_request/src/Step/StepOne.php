@@ -74,95 +74,53 @@ class StepOne extends BaseStep {
     
     // Get data field definitions of content type
     $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'user_request');
+    
+    $formStep['title']['#markup'] = '<h2 class="text-center col-12">Seleccione la manera como desea radicar su solicitud</h2>';
 
-    $form['step'] = array(
-      '#markup' => '<ul class="steps-counter">
-                      <li class="active">
-                        <span class="number">1</span>
-                        <span class="text">Radicar solicitud</span>
-                      </li>
-                      <li>
-                        <span class="number">2</span>
-                        <span class="text">Información básica del solicitante</span>
-                      </li>
-                      <li>
-                        <span class="number">3</span>
-                        <span class="text">Información del producto</span>
-                      </li>
-                      <li>
-                        <span class="number">4</span>
-                        <span class="text">Canal de respuesta</span>
-                      </li>
-                    </ul>',
-    );
-
-    $form['content-fields'] = [
-      '#type'       => 'container',
-      '#attributes' => ['class' => ['row']],
-      '#prefix'     => '<div class="container">'
-    ];
-
-    $form['content-fields']['title'] = array(
-      '#markup' => '<h2 class="text-center col-12">Seleccione la manera como desea radicar su solicitud</h2>',
-    );
-
-    $form['content-fields']['col1'] = [
-      '#type'       => 'container',
-      '#attributes' => ['class' => ['col']],
-    ];
-
-    $form['content-fields']['col1']['field_type_request'] = [
+    // start first col
+    $formStep['field_type_request'] = [
       '#type'         => 'select',
       '#title'        => '<span class"required">*</span>'.$definitions['field_type_request']->getLabel(),
       '#options'      => $definitions['field_type_request']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
-      '#prefix'       => '<div class="row">',
-      '#suffix'       => '</div>',
+      '#prefix'       => '<div class="col">'
     ];
 
-    $form['content-fields']['col1']['field_type_requester'] = [
+    $formStep['field_type_requester'] = [
       '#type'         => 'select',
       '#title'        => '<span class"required">*</span>'.$definitions['field_type_requester']->getLabel(),
       '#options'      => $definitions['field_type_requester']->getSetting('allowed_values'),
-      '#empty_option' => '-Seleccione una opción-',
-      '#prefix'       => '<div class="row">',
-      '#suffix'       => '</div>'
+      '#empty_option' => '-Seleccione una opción-'
     ];
 
-    $form['content-fields']['col1']['field_type_handicap'] = [
+    // end first col
+    $formStep['field_type_handicap'] = [
       '#type'         => 'select',
       '#title'        => '<span class"required">*</span>'.$definitions['field_type_handicap']->getLabel(),
       '#options'      => $definitions['field_type_handicap']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
-      '#prefix'       => '<div class="row">',
       '#suffix'       => '</div>'
     ];
 
-    $form['content-fields']['col2'] = [
-      '#type'       => 'container',
-      '#attributes' => ['class' => ['col']],
-    ];
-
-
-    $form['content-fields']['col2']['field_ethnic_group'] = [
+    // start second col
+    $formStep['field_ethnic_group'] = [
       '#type'         => 'select',
       '#title'        => '<span class"required">*</span>'.$definitions['field_ethnic_group']->getLabel(),
       '#options'      => $definitions['field_ethnic_group']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
-      '#prefix'       => '<div class="row">',
-      '#suffix'       => '</div>'
+      '#prefix'       => '<div class="col">'
     ];
 
-    $form['content-fields']['col2']['field_preferential_attention'] = [
+    // end second col
+    $formStep['field_preferential_attention'] = [
       '#type'         => 'select',
       '#title'        => '<span class"required">*</span>'.$definitions['field_preferential_attention']->getLabel(),
       '#options'      => $definitions['field_preferential_attention']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
-      '#prefix'       => '<div class="row">',
       '#suffix'       => '</div>'
     ];
 
-    $form['content-fields']['field_age_range'] = [
+    $formStep['field_age_range'] = [
       '#type'         => 'select',
       '#title'        => '<span class"required">*</span>'.$definitions['field_age_range']->getLabel(),
       '#options'      => $definitions['field_age_range']->getSetting('allowed_values'),
@@ -170,17 +128,8 @@ class StepOne extends BaseStep {
       '#prefix'       => '<div class="col-12">',
       '#suffix'       => '</div>'
     ];
-
-    //Populate values
-    if(isset($steps[1])){
-      foreach($steps[1]->values as $field=>$value){
-        if(isset($form[$field])){
-          $form[$field]['#default_value'] = $value;
-        }
-      }
-    }
     
-    return $form;
+    return $formStep;
 
   }
 
