@@ -60,7 +60,7 @@ class MultiStepForm extends FormBase {
    * {@inheritdoc}
    */
   public function __construct(MessengerInterface $messenger,LoggerInterface $logger) {
-    $this->stepId = StepsEnum::STEP_ONE;
+    $this->stepId = StepsEnum::STEP_ZERO;
     // StepManager class needs those two arguments
     $this->stepManager = new StepManager($messenger,$logger);
     $this->messenger = $messenger;
@@ -105,6 +105,7 @@ class MultiStepForm extends FormBase {
       ],
     ];
 
+    $textSteps[0] = 'Inicio';
     $textSteps[1] = 'Radicar solicitud';
     $textSteps[2] = 'Información básica del solicitante';
     $textSteps[3] = 'Información del producto';
@@ -120,7 +121,7 @@ class MultiStepForm extends FormBase {
 
       $htmlStep .= '
         <li '.$class.'>
-          <span class="number">'.$nStep.'</span>
+          <span class="number">'.($nStep+1).'</span>
           <span class="text">'.$textStep.'</span>
         </li>';
     }

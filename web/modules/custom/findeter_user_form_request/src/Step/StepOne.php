@@ -78,20 +78,25 @@ class StepOne extends BaseStep {
     $formStep['title']['#markup'] = '<h2 class="text-center col-12">Seleccione la manera como desea radicar su solicitud</h2>';
 
     // start first col
-    $formStep['field_type_request'] = [
-      '#type'         => 'select',
-      '#title'        => '<span class"required">*</span>'.$definitions['field_type_request']->getLabel(),
-      '#options'      => $definitions['field_type_request']->getSetting('allowed_values'),
-      '#empty_option' => '-Seleccione una opción-',
-      '#prefix'       => '<div class="col">'
-    ];
-
     $formStep['field_type_requester'] = [
       '#type'         => 'select',
       '#title'        => '<span class"required">*</span>'.$definitions['field_type_requester']->getLabel(),
       '#options'      => $definitions['field_type_requester']->getSetting('allowed_values'),
-      '#empty_option' => '-Seleccione una opción-'
+      '#empty_option' => '-Seleccione una opción-',
+      '#prefix'       => '<div class="col">'
     ];
+
+    $firstSubmit = $form_state->getTriggeringElement();
+    if($firstSubmit['#value'] == 'Peticiones'){
+      $formStep['field_type_request'] = [
+        '#type'         => 'select',
+        '#title'        => '<span class"required">*</span>'.$definitions['field_type_request']->getLabel(),
+        '#options'      => $definitions['field_type_request']->getSetting('allowed_values'),
+        '#empty_option' => '-Seleccione una opción-',
+        
+      ];
+    }
+    
 
     // end first col
     $formStep['field_type_handicap'] = [
