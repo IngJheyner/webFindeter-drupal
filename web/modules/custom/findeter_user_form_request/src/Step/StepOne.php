@@ -86,8 +86,8 @@ class StepOne extends BaseStep {
       '#prefix'       => '<div class="col">'
     ];
 
-    $firstSubmit = $form_state->getTriggeringElement();
-    if($firstSubmit['#value'] == 'Peticiones'){
+    //$firstSubmit = $form_state->getTriggeringElement();
+    //if($firstSubmit['#value'] == 'Peticiones'){
       $formStep['field_type_request'] = [
         '#type'         => 'select',
         '#title'        => '<span class"required">*</span>'.$definitions['field_type_request']->getLabel(),
@@ -95,7 +95,7 @@ class StepOne extends BaseStep {
         '#empty_option' => '-Seleccione una opción-',
         
       ];
-    }
+    //}
     
 
     // end first col
