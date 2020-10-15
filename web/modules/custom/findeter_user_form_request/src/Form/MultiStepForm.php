@@ -272,16 +272,22 @@ class MultiStepForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    // Set step to navigate to.
+    $triggering_element = $form_state->getTriggeringElement();
+
     // Save filled values to step. So we can use them as default_value later on.
     $values = [];
     foreach ($this->step->getFieldNames() as $name) {
       $values[$name] = $form_state->getValue($name);
     }
+    // only for step zero
+    if($this->step->getStep()===0){
+      $values['field_type_form'] = $triggering_element['#value'];
+    } 
+
     $this->step->setValues($values);
     // Add step to manager.
     $this->stepManager->addStep($this->step);
-    // Set step to navigate to.
-    $triggering_element = $form_state->getTriggeringElement();
     
     $this->stepId = $triggering_element['#goto_step'];
 

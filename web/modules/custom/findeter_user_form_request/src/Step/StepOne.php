@@ -6,6 +6,7 @@ use Drupal\findeter_user_form_request\Step\StepsEnum;
 use Drupal\findeter_user_form_request\Button\StepOneNextButton;
 
 use Drupal\findeter_user_form_request\Validator\ValidatorRequired;
+use Drupal\findeter_user_form_request\Validator\ValidatorTypeRequest;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Messenger\MessengerInterface;
@@ -86,16 +87,15 @@ class StepOne extends BaseStep {
       '#prefix'       => '<div class="col">'
     ];
 
-    //$firstSubmit = $form_state->getTriggeringElement();
-    //if($firstSubmit['#value'] == 'Peticiones'){
+    $firstSubmit = $form_state->getTriggeringElement();
+    if($firstSubmit['#value'] == 'Peticiones'){
       $formStep['field_type_request'] = [
         '#type'         => 'select',
         '#title'        => '<span class"required">*</span>'.$definitions['field_type_request']->getLabel(),
         '#options'      => $definitions['field_type_request']->getSetting('allowed_values'),
-        '#empty_option' => '-Seleccione una opción-',
-        
+        '#empty_option' => '-Seleccione una opción-'
       ];
-    //}
+    }
     
 
     // end first col
@@ -158,7 +158,7 @@ class StepOne extends BaseStep {
   public function getFieldsValidators() {
     return [
       'field_type_request' => [
-        new ValidatorRequired("Tipo de petición es requerido"),
+        new ValidatorTypeRequest("Tipo de petición es requerido"),
       ],
       'field_type_requester' => [
         new ValidatorRequired("Tipo de solicitante es requerido"),

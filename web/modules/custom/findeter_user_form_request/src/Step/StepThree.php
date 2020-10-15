@@ -112,10 +112,10 @@ class StepThree extends BaseStep {
     // start/end col 1
     $formStep['field_request_description'] = [
       '#type'        => 'textarea',
-      '#maxlength'   => 4000,
+      '#maxlength'   => 3500,
       '#title'       => '<span class"required">*</span>'.$definitions['field_request_description']->getLabel(),
       '#attributes'  => ['placeholder'=>'Escriba el detalle de su Petición, Queja, Reclamo, Sugerencia o Denuncia.','id'=>'edit-field-request-description'],
-      '#description' => '<div>Puede ingresar hasta un máximo de 4000 caracteres. <br>Caracteres ingresados: <span class="counter-char">-</span>, máximo 4000 caracteres.</div>',
+      '#description' => '<div>Puede ingresar hasta un máximo de 3500 caracteres. <br>Caracteres ingresados: <span class="counter-char">-</span>, máximo 3500 caracteres.</div>',
       '#prefix'      => '</div><div class="col">',
       '#suffix'      => '</div>'
     ];
