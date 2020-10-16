@@ -2,6 +2,7 @@
 
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
+use Drupal\Component\Serialization\Json;
 
 /**
  * @file: Install and uninstall hooks and functions.
@@ -12,40 +13,54 @@ use Drupal\taxonomy\Entity\Vocabulary;
  */
 function findeter_user_form_request_install() {
 
-  $vid = "colombia_deparments";
-  $vocabulary = Vocabulary::create(array(
-    'vid' => $vid,
-    'description' => 'List of departments and municipalities of Colombia arranged hierarchically',
-    'name' => 'Colombia departaments',
-  ));
-  $vocabulary->save();
+  $module_handler = \Drupal::service('module_handler');
+  $module_path = $module_handler->getModule('findeter_user_form_request')->getPath();
+  global $base_url;
+  $uriDeparments = $base_url.'/'.$module_path."/colombia.json";
 
-  // Term names to be added.
-  $departments = [
-    'Amazonas' => ['Leticia', 'Puerto Nariño'],
-    'Antioquia' => ['Cáceres','Caucasia','El Bagre'],
-    'Arauca' => ['Arauca','Arauquita','Cravo Norte','Fortul','Puerto Rondón'],
-  ];
 
-  foreach ( $departments as $department => $municipalities ) {
-    $parentTerm = Term::create(array(
-      'parent' => [],
-      'name' => $department,
-      'vid' => $vid,
-    ));
-    $parentTerm->save();
 
-    foreach($municipalities as $municipality){
+  try {
+    $response = \Drupal::httpClient()->get($uriDeparments, array('headers' => array('Accept' => 'application/json')));
+    $data = (string) $response->getBody();
+    if (empty($data)) {
+      return false;
+    }else{
+      $departments = Json::decode($data);
 
-      Term::create(array(
-        'parent' => $parentTerm->id(),
-        'name' => $municipality,
+
+      $vid = "colombia_deparments";
+      $vocabulary = Vocabulary::create(array(
         'vid' => $vid,
-      ))->save();
+        'description' => 'Lista de los departamentos y municipios de Colombia ordenados jerarquicamente',
+        'name' => 'Colombia departaments',
+      ));
+      $vocabulary->save();
+
+      foreach ( $departments as $department => $municipalities ) {
+        $parentTerm = Term::create(array(
+          'parent' => [],
+          'name' => $department,
+          'vid' => $vid,
+        ));
+        $parentTerm->save();
+    
+        foreach($municipalities as $municipality){
+    
+          Term::create(array(
+            'parent' => $parentTerm->id(),
+            'name' => $municipality,
+            'vid' => $vid,
+          ))->save();
+    
+        }
+      }
 
     }
   }
+  catch (RequestException $e) {
 
+  }
 }
 
 /**
