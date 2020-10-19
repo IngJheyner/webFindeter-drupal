@@ -32,6 +32,13 @@ BOTONES
 }
 
 /* ==============================
+INPUTS
+============================== */
+.form-control {
+  border: 1px solid #112d6a !important;
+}
+
+/* ==============================
 ESTILOS GLOBALES
 ============================== */
 h1, h2, h3, h4, h5 {
@@ -152,10 +159,6 @@ form#search-block-form .btnSearch {
 /* ==============================
 COLORES
 ============================== */
-div.productoServicios {
-  margin-top: 7rem;
-}
-
 section.productosServicios .titulo {
   border-bottom: 1px solid #296294;
   padding-bottom: 20px;
@@ -609,6 +612,161 @@ div.casosExito .slideCasoExito .slick ul.slick-dots li.slick-active::after {
   border-radius: 0.8rem;
   top: -1px;
   left: 0;
+}
+
+/* ===== ===== CASOS DE EXITO ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+CONTACTENOS
+============================== */
+div.contactenos div.titulo {
+  border-bottom: 1px solid #296294;
+  padding-bottom: 20px;
+}
+div.contactenos div.titulo h1 {
+  position: relative;
+}
+div.contactenos div.titulo h1::after {
+  content: "";
+  position: absolute;
+  width: 20%;
+  height: 4px;
+  background-color: #296294;
+  top: 1.6em;
+  left: 0;
+}
+div.contactenos form input[type=submit] {
+  width: 100%;
+}
+
+div.suscribirseHome {
+  background-color: #112d6a;
+  border-bottom: 1px solid #e5e5e5;
+}
+div.suscribirseHome form input[type=email] {
+  height: calc(2.5em + 0.75rem + 1px);
+  border-radius: 0;
+}
+div.suscribirseHome form input[type=submit] {
+  line-height: 2.6;
+}
+
+/* ==============================
+Estilos de mapa
+============================== */
+div.mapaHome {
+  /*Act*/
+  /**/
+  /**/
+  /*.col-11 {
+      -ms-flex: 0 0 91.66667%;
+      flex: 0 0 91.66667%;
+      max-width: 91.66667%;
+  }*/
+}
+div.mapaHome .title-regi {
+  color: #1c336e;
+}
+div.mapaHome .stlRCtroIn {
+  fill: "#cfd8e0";
+}
+div.mapaHome .stlRPIn {
+  fill: "#d2e4eb";
+}
+div.mapaHome .stlRECIn {
+  fill: "#ebf1f9";
+}
+div.mapaHome .stlRNorIn {
+  /*Nororiental*/
+  fill: "#ccdbe9";
+}
+div.mapaHome .stlRNocIn {
+  fill: "#d3d7e1";
+}
+div.mapaHome .stlRCarIn {
+  fill: "#ccecf9";
+}
+div.mapaHome .stlRCtroAc {
+  fill: "#0d3e66";
+}
+div.mapaHome .stlRPAc {
+  fill: "#1f7a9a";
+}
+div.mapaHome .stlRECAc {
+  fill: "#9db9e2";
+}
+div.mapaHome .stlRNorAc {
+  fill: "#00498f";
+}
+div.mapaHome .stlRNocAc {
+  fill: "#233568";
+}
+div.mapaHome .stlRCarAc {
+  fill: "#009fe3";
+}
+div.mapaHome .convstlRCtroAc {
+  background-color: #0d3e66;
+}
+div.mapaHome .convstlRPAc {
+  background-color: #1f7a9a;
+}
+div.mapaHome .convstlRECAc {
+  background-color: #9db9e2;
+}
+div.mapaHome .convstlRNorAc {
+  background-color: #00498f;
+}
+div.mapaHome .convstlRNocAc {
+  background-color: #233568;
+}
+div.mapaHome .convstlRCarAc {
+  background-color: #009fe3;
+}
+div.mapaHome .titulo-convenciones {
+  color: #fff;
+  background-color: #1c336e;
+  background: linear-gradient(90deg, #1c336e 0, #4087c7);
+  border-radius: 10px 0 10px 0;
+}
+div.mapaHome .pdl-1 {
+  padding-left: 1.5rem !important;
+}
+div.mapaHome .pdb-1rem {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+div.mapaHome .margin-top05 {
+  margin-top: 0.5rem;
+}
+div.mapaHome .punto-convencion {
+  padding: 13px;
+  border-radius: 50%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+div.mapaHome .margin15 {
+  margin: 15px;
+}
+div.mapaHome .align-items-lg-center {
+  -ms-flex-align: center !important;
+  align-items: center !important;
+}
+div.mapaHome .d-flex {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+div.mapaHome .flex-lg-column {
+  -ms-flex-direction: column !important;
+  flex-direction: column !important;
+}
+div.mapaHome .text-center {
+  text-align: center !important;
+}
+div.mapaHome .margin-b {
+  margin-bottom: 0px;
 }
 
 /* ===== ===== PIE DE PAGINA ===== ===== */

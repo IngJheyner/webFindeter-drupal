@@ -1,0 +1,37 @@
+uuid: 29978bfb-5adf-4547-b775-473d5818f5fc
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contenido
+    - node.type.transparencia_acceso_informacion
+    - paragraphs.paragraphs_type.transparencia_acceso_informacion
+  module:
+    - entity_reference_revisions
+id: node.transparencia_acceso_informacion.field_contenido
+field_name: field_contenido
+entity_type: node
+bundle: transparencia_acceso_informacion
+label: Contenido
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      transparencia_acceso_informacion: transparencia_acceso_informacion
+    target_bundles_drag_drop:
+      findeter_en_cifras_home:
+        weight: 4
+        enabled: false
+      productos_servicios_home:
+        weight: 5
+        enabled: false
+      transparencia_acceso_informacion:
+        enabled: true
+        weight: 6
+field_type: entity_reference_revisions

@@ -1,0 +1,21 @@
+uuid: c6db29b6-0e1f-461e-ae4c-2f3d82b791b0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_informacion_publica
+    - paragraphs.paragraphs_type.transparencia_acceso_informacion
+  module:
+    - text
+id: paragraph.transparencia_acceso_informacion.field_informacion_publica
+field_name: field_informacion_publica
+entity_type: paragraph
+bundle: transparencia_acceso_informacion
+label: 'Información Pública'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

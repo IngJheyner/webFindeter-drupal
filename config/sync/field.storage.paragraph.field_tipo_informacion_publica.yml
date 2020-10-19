@@ -1,0 +1,20 @@
+uuid: 88fe3a12-d152-4fe9-94ee-289ca411c3a2
+langcode: es
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - taxonomy
+id: paragraph.field_tipo_informacion_publica
+field_name: field_tipo_informacion_publica
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

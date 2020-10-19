@@ -70,20 +70,22 @@
             /*===========================================
             FINDETER CON CIFRAS
             =============================================*/
-            var imgPrimario = null;
-            var imgSecundario = null;
+            
             $("div.findeterCifras .grid-container .grid-item .contenido").on("mouseover", function(){
 
-                imgPrimario = $('img', this).attr('src');
-                imgSecundario = $('img', this).attr('imgSecundario');
-
+                var imgSecundario = $('img', this).attr('imgSecundario');
                 $('img', this).attr('src', imgSecundario);   
+
 
             });
 
             $("div.findeterCifras .grid-container .grid-item .contenido").on("mouseout", function(){                
-                $('img', this).attr('src', imgPrimario); 
+                var imgPrimario = $('img', this).attr('imgPrincipal');
+                $('img', this).attr('src', imgPrimario);
+               
             });
+
+            
 
             /*===========================================
             CASOS DE ÉXITO

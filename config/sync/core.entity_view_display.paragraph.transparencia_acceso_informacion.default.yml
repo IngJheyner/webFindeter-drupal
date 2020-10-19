@@ -1,0 +1,32 @@
+uuid: 41f825cd-04ff-4a37-86d8-3a5220e072cd
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.transparencia_acceso_informacion.field_informacion_publica
+    - field.field.paragraph.transparencia_acceso_informacion.field_tipo_informacion_publica
+    - paragraphs.paragraphs_type.transparencia_acceso_informacion
+  module:
+    - text
+id: paragraph.transparencia_acceso_informacion.default
+targetEntityType: paragraph
+bundle: transparencia_acceso_informacion
+mode: default
+content:
+  field_informacion_publica:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_tipo_informacion_publica:
+    weight: 0
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  search_api_excerpt: true

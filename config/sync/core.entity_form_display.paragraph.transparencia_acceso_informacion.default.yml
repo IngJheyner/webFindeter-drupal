@@ -1,0 +1,32 @@
+uuid: 3f5ca3e7-582a-4f1a-9941-82b7637b81d2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.transparencia_acceso_informacion.field_informacion_publica
+    - field.field.paragraph.transparencia_acceso_informacion.field_tipo_informacion_publica
+    - paragraphs.paragraphs_type.transparencia_acceso_informacion
+  module:
+    - text
+id: paragraph.transparencia_acceso_informacion.default
+targetEntityType: paragraph
+bundle: transparencia_acceso_informacion
+mode: default
+content:
+  field_informacion_publica:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_tipo_informacion_publica:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true
