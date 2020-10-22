@@ -1,11 +1,12 @@
-uuid: f60a9302-e1be-4966-b140-0143ad0809f1
+uuid: 0e8bf160-9223-48b8-9b29-56241587914d
 langcode: es
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.transparencia_acceso_informacion.body
-    - field.field.node.transparencia_acceso_informacion.field_contenido
+    - field.field.node.transparencia_acceso_informacion.field_img_fondo_transparencia
+    - field.field.node.transparencia_acceso_informacion.field_leyes_dcr_transparenc
     - node.type.transparencia_acceso_informacion
   module:
     - text
@@ -30,6 +31,7 @@ content:
     region: content
 hidden:
   addtoany: true
-  field_contenido: true
+  field_img_fondo_transparencia: true
+  field_leyes_dcr_transparenc: true
   langcode: true
   search_api_excerpt: true

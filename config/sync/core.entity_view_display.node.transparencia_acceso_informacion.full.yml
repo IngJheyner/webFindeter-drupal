@@ -1,0 +1,48 @@
+uuid: 535ddb56-a523-4d89-b519-bd0006893f16
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.transparencia_acceso_informacion.body
+    - field.field.node.transparencia_acceso_informacion.field_img_fondo_transparencia
+    - field.field.node.transparencia_acceso_informacion.field_leyes_dcr_transparenc
+    - node.type.transparencia_acceso_informacion
+  module:
+    - image
+    - text
+    - user
+id: node.transparencia_acceso_informacion.full
+targetEntityType: node
+bundle: transparencia_acceso_informacion
+mode: full
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_img_fondo_transparencia:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_leyes_dcr_transparenc:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  links: true
+  search_api_excerpt: true
