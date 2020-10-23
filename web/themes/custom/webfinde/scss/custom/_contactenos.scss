@@ -1,0 +1,187 @@
+@use 'variables' as var;
+
+/* ==============================
+CONTACTENOS
+============================== */
+div.contactenos{
+
+    div.titulo{
+
+        border-bottom: 1px solid var.$color-secundario;
+        padding-bottom: 20px;
+
+        h1{
+            position: relative;
+
+            &::after{
+                content: "";
+                position: absolute;
+                width: 20%;
+                height: 4px;
+                background-color: var.$color-secundario;
+                top: 1.6em;
+                left: 0;
+            }
+        }
+    }
+
+    form{
+
+        input[type="submit"]{
+
+            width: 100%;
+        }
+    }
+}
+
+div.suscribirseHome{
+
+    background-color: var.$color-primario;
+    border-bottom: 1px solid var.$color-quinario;
+
+    form{
+
+        input[type='email']{
+            height: calc(2.5em + 0.75rem + 1px);
+            border-radius: 0;
+        }
+
+        input[type='submit']{
+
+            line-height: 2.6;
+        }
+    }
+}
+
+/* ==============================
+Estilos de mapa
+============================== */
+div.mapaHome{
+
+    .title-regi {
+        color: #1c336e;
+    }
+    .stlRCtroIn{
+        fill : "#cfd8e0";
+    } 
+    .stlRPIn{
+        fill : "#d2e4eb";
+    }
+    
+    .stlRECIn{
+        fill : "#ebf1f9";
+    }
+    
+    .stlRNorIn{ /*Nororiental*/
+        fill: "#ccdbe9";
+    }
+    
+    .stlRNocIn{
+        fill: "#d3d7e1";
+    }
+    
+    .stlRCarIn{
+        fill: "#ccecf9";
+    }
+    
+    /*Act*/
+    .stlRCtroAc{
+        fill : "#0d3e66";
+    }
+    .stlRPAc{
+        fill : "#1f7a9a";
+    }
+    
+    .stlRECAc{
+        fill : "#9db9e2";
+    }
+    
+    .stlRNorAc{
+        fill: "#00498f";
+    }
+    
+    .stlRNocAc{
+        fill: "#233568";
+    }
+    
+    .stlRCarAc{
+        fill: "#009fe3";
+    }
+    /**/    
+    
+    .convstlRCtroAc{
+        background-color : #0d3e66;
+    }
+    .convstlRPAc{
+        background-color : #1f7a9a;
+    }
+    
+    .convstlRECAc{
+        background-color : #9db9e2;
+    }
+    
+    .convstlRNorAc{
+        background-color: #00498f;
+    }
+    
+    .convstlRNocAc{
+        background-color: #233568;
+    }
+    
+    .convstlRCarAc{
+        background-color: #009fe3;
+    }
+    /**/
+    
+    .titulo-convenciones {
+        color: #fff;
+        background-color: #1c336e;
+        background: linear-gradient(90deg,#1c336e 0,#4087c7);
+        border-radius: 10px 0 10px 0;
+    }
+    .pdl-1{
+        padding-left: 1.5rem!important;
+    }
+    .pdb-1rem{
+        padding-bottom: .5rem;
+        padding-top: .5rem;
+    }
+    .margin-top05{
+        margin-top: .5rem;
+    }
+    
+    .punto-convencion {
+        padding: 13px;
+        border-radius: 50%;
+        height: -webkit-fit-content;
+        height: -moz-fit-content;
+        height: fit-content;
+    }
+    
+    .margin15{
+        margin: 15px;
+    }
+    .align-items-lg-center {
+        -ms-flex-align: center!important;
+        align-items: center!important;
+    }
+    .d-flex {
+        display: -ms-flexbox!important;
+        display: flex!important;
+    }
+    .flex-lg-column {
+        -ms-flex-direction: column!important;
+        flex-direction: column!important;
+    }
+    .text-center {
+        text-align: center!important;
+    }
+    .margin-b{
+        margin-bottom: 0px;
+    }
+    /*.col-11 {
+        -ms-flex: 0 0 91.66667%;
+        flex: 0 0 91.66667%;
+        max-width: 91.66667%;
+    }*/
+}

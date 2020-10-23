@@ -1,0 +1,22 @@
+uuid: 1701d522-3dc2-4e32-b6a9-4f66b3b9675d
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.casos_de_exito_home
+id: node.casos_de_exito_home.promote
+field_name: promote
+entity_type: node
+bundle: casos_de_exito_home
+label: 'Promocionado a la página principal'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Activado
+  off_label: Desactivado
+field_type: boolean

@@ -1,0 +1,62 @@
+uuid: 1c75dbb1-3721-45ee-a007-a3ba54cbacab
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.casos_de_exito
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_informacion:
+      children:
+        - info
+        - langcode
+      parent_name: ''
+      weight: 0
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+        weight: 0
+      label: Información
+    group_contenido:
+      children:
+        - field_seccion_del_bloque
+      parent_name: ''
+      weight: 1
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+        weight: 0
+      label: Contenido
+id: block_content.casos_de_exito.default
+targetEntityType: block_content
+bundle: casos_de_exito
+mode: default
+content:
+  info:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

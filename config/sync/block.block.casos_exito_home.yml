@@ -1,0 +1,31 @@
+uuid: 8d76fb4f-cc3c-4c3d-a157-d0bf3f1d9309
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:casos_de_exito:d0a600db-44c3-4fc5-8ee1-93d9299a7276'
+  module:
+    - block_content
+    - system
+  theme:
+    - webfinde
+id: casos_exito_home
+theme: webfinde
+region: region_B
+weight: -5
+provider: null
+plugin: 'block_content:d0a600db-44c3-4fc5-8ee1-93d9299a7276'
+settings:
+  id: 'block_content:d0a600db-44c3-4fc5-8ee1-93d9299a7276'
+  label: 'Casos de éxito [ Home ]'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

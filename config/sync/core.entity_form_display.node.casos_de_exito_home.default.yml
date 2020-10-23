@@ -1,0 +1,171 @@
+uuid: 5df553b4-1326-4d6d-9207-44a850e37301
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.casos_de_exito_home.body
+    - field.field.node.casos_de_exito_home.field_img_carrusel_caso_exito
+    - field.field.node.casos_de_exito_home.field_img_fondo_caso_exito
+    - image.style.thumbnail
+    - node.type.casos_de_exito_home
+  module:
+    - field_group
+    - image
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_grupo:
+      children:
+        - group_informacion
+        - group_multimedia
+        - group_contenido
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: 'Grupo Tabs'
+    group_informacion:
+      children:
+        - title
+        - created
+        - uid
+        - promote
+        - sticky
+        - path
+        - status
+        - langcode
+      parent_name: group_grupo
+      weight: 1
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Información
+    group_multimedia:
+      children:
+        - field_img_fondo_caso_exito
+        - field_img_carrusel_caso_exito
+      parent_name: group_grupo
+      weight: 10
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Multimedia
+    group_contenido:
+      children:
+        - body
+      parent_name: group_grupo
+      weight: 13
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Contenido
+id: node.casos_de_exito_home.default
+targetEntityType: node
+bundle: casos_de_exito_home
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 14
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_img_carrusel_caso_exito:
+    weight: 12
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_img_fondo_caso_exito:
+    weight: 11
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  langcode:
+    type: language_select
+    weight: 9
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 8
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

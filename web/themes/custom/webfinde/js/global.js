@@ -7,8 +7,8 @@
 
     'use strict';
 
-    //Drupal.behaviors.webfinde = {
-        //attach: function(context, settings) {
+    Drupal.behaviors.webfinde = {
+        attach: function(context, settings) {
             
            /*===========================================
            BUSCADOR(HOME)
@@ -66,7 +66,57 @@
 
                 }    
             });
+            
+            /*===========================================
+            FINDETER CON CIFRAS
+            =============================================*/
+            
+            $("div.findeterCifras .grid-container .grid-item .contenido").on("mouseover", function(){
 
+                var imgSecundario = $('img', this).attr('imgSecundario');
+                $('img', this).attr('src', imgSecundario);   
+
+
+            });
+
+            $("div.findeterCifras .grid-container .grid-item .contenido").on("mouseout", function(){                
+                var imgPrimario = $('img', this).attr('imgPrincipal');
+                $('img', this).attr('src', imgPrimario);
+               
+            });
+
+            
+
+            /*===========================================
+            CASOS DE ÉXITO
+            =============================================*/
+            var gridDefecto = $("div.casosExito div.slideCasoExito .slick .slide--0 ul li.grid--0").children().children().children().children().children().children('.contenidoSlider').children('p');
+
+            $("div.casosExito").css(
+                {'background':'url("'+$(gridDefecto).attr('imgFondo')+'")'}
+            );
+            $("div.casosExito div.contenido h1.tituloCaso").html($(gridDefecto).attr('titulo'));
+            $("div.casosExito div.contenido p.descripcionCaso").html($(gridDefecto).attr('descripcion'));
+            $("div.casosExito div.contenido a.enlace").attr("href",$(gridDefecto).attr('enlace'));
+
+            /* ===== ===== Cambiar contenido de casos dinamico ===== ===== */
+            $("div.casosExito div.slideCasoExito div.contenidoSlider").on("click", function(){
+
+                var imgFondo = $('p', this).attr('imgFondo');
+                var titulo = $('p', this).attr('titulo');
+                var descripcion = $('p', this).attr('descripcion');
+                var enlace = $('p', this).attr('enlace');
+
+                $("div.casosExito").css(
+                    {'background':'url("'+imgFondo+'")'}
+                );
+                $("div.casosExito div.contenido h1.tituloCaso").html(titulo);
+                $("div.casosExito div.contenido p.descripcionCaso").html(descripcion);
+                $("div.casosExito div.contenido a.enlace").attr("href",enlace);
+
+            });
+
+            
             /*===========================================
             BLOG
             =============================================*/
@@ -87,7 +137,7 @@
                 $(".encabezadoBlog").css("background-image", "url('"+imgEncabezado+"')");
             }
             
-        //}
-    //};
+        }
+    };
 
-})(jQuery);
+})(jQuery, Drupal);

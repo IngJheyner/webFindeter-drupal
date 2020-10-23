@@ -70,35 +70,25 @@ HEADER(ENCABEZADO)
 {% endif %}
 
 <main role="main">
-  
-  <section class="container">
 
-    {{ page.region_B }}
+  {# ============================================
+  REGION B
+  =============================================== #}
+  {% if page.region_B %}
 
-    {% if page.region_C or page.region_D %}
+    <section class="container-fluid p-0">
 
-      <div class="row">
+      {{ page.region_B }}
 
-        <div class="col-8 pl-0">
+    </section>
 
-          {{ page.region_C }}
-
-        </div>      
-
-        <div class="col-4 pr-0">
-
-          {{ page.region_D }}
-
-        </div>      
-
-      </div>
-
-    {% endif %}
-
-  </section>
+  {% endif %}  
 
 </main>
 
+{# ============================================
+PIE DE PAGINA
+=============================================== #}
 {% if page.region_I %}
 
   <footer>

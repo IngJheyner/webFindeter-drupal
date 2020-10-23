@@ -1,0 +1,38 @@
+uuid: 5c418838-4996-4acc-9bcd-fe152231fa48
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_img_secundaria_cifras
+    - paragraphs.paragraphs_type.findeter_en_cifras_home
+  module:
+    - image
+id: paragraph.findeter_en_cifras_home.field_img_secundaria_cifras
+field_name: field_img_secundaria_cifras
+entity_type: paragraph
+bundle: findeter_en_cifras_home
+label: 'Img. Secundaria'
+description: 'Imagen que se usa para el movimiento 360º relover.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: webfinde/images/cifras
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '2 mb'
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

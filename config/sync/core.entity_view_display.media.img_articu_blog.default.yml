@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.media.img_articu_blog.field_media_image
+    - image.style.large
     - media.type.img_articu_blog
   module:
     - field_formatter_class
@@ -14,10 +15,10 @@ bundle: img_articu_blog
 mode: default
 content:
   field_media_image:
-    label: visually_hidden
+    label: hidden
     weight: 0
     settings:
-      image_style: ''
+      image_style: large
       image_link: ''
     third_party_settings:
       field_formatter_class:

@@ -11,6 +11,9 @@ VENTANA MODAL
   background-color: transparent;
 }
 
+/* ==============================
+BOTONES
+============================== */
 .btn-primary {
   background-color: #296294 !important;
   border: 0 !important;
@@ -20,6 +23,19 @@ VENTANA MODAL
   background-color: #00993e !important;
   border: 0 !important;
   border-radius: 0 !important;
+}
+
+.btn-default {
+  background-color: #CDDC4B !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* ==============================
+INPUTS
+============================== */
+.form-control {
+  border: 1px solid #112d6a !important;
 }
 
 /* ==============================
@@ -254,9 +270,12 @@ VENTANA MODAL PRODUCTOS Y SERVICIOS
   font-size: 2.5rem;
 }
 
-/* ===== ===== NOTICIAS ===== ===== */
+/* ===== ===== NOTICIAS Y REDES ===== ===== */
 /* ==============================
 COLORES
+============================== */
+/* ==============================
+NOTICIAS
 ============================== */
 .sliderNoticiaHome div.encabezado {
   border-bottom: 1px solid #296294;
@@ -286,6 +305,22 @@ COLORES
 }
 .sliderNoticiaHome div.slick ul li.grid h2 {
   font-size: 1rem;
+}
+.sliderNoticiaHome div.slick ul li.grid p.fecha {
+  position: relative;
+}
+.sliderNoticiaHome div.slick ul li.grid p.fecha small {
+  margin-left: 1.5rem;
+}
+.sliderNoticiaHome div.slick ul li.grid p.fecha::before {
+  position: absolute;
+  content: "";
+  background: url("/themes/custom/webfinde/images/iconos/iconoFecha.png") no-repeat;
+  display: inline-block;
+  background-size: 18px, 18px;
+  width: 18px;
+  height: 18px;
+  top: 0.2rem;
 }
 .sliderNoticiaHome div.slick ul li.grid:nth-child(1) img {
   margin-bottom: 1em;
@@ -318,6 +353,9 @@ COLORES
 .sliderNoticiaHome div.slick ul li:nth-child(n+2) img {
   display: none;
 }
+.sliderNoticiaHome div.slick .slick-dotted.slick-slider {
+  margin-bottom: 50px;
+}
 .sliderNoticiaHome div.slick ul.slick-dots li button:before {
   color: #112d6a !important;
 }
@@ -329,9 +367,409 @@ COLORES
   width: 15%;
   bottom: 1em;
   top: auto;
+  /* ===== ===== Anterior ===== ===== */
+  /* ===== ===== siguiente ===== ===== */
+}
+.sliderNoticiaHome div.slick nav.slick__arrow .slick-arrow {
+  height: 48px;
+  width: 48px;
+}
+.sliderNoticiaHome div.slick nav.slick__arrow .slick-prev:before, .sliderNoticiaHome div.slick nav.slick__arrow .slick-next:before {
+  font-family: initial !important;
+}
+.sliderNoticiaHome div.slick nav.slick__arrow .slick-prev:before {
+  content: "";
+  background: url("/themes/custom/webfinde/images/iconos/flechaIzq2.png") no-repeat;
+  display: inline-block;
+  background-size: 48px, 48px;
+  width: 48px;
+  height: 48px;
+  opacity: initial !important;
+}
+.sliderNoticiaHome div.slick nav.slick__arrow .slick-prev.slick-disabled:before {
+  content: "";
+  background: url("/themes/custom/webfinde/images/iconos/flechaIzq.png") no-repeat;
+  display: inline-block;
+  background-size: 48px, 48px;
+  width: 48px;
+  height: 48px;
+  opacity: initial !important;
+}
+.sliderNoticiaHome div.slick nav.slick__arrow .slick-next:before {
+  content: "";
+  background: url("/themes/custom/webfinde/images/iconos/flechaDer2.png") no-repeat;
+  display: inline-block;
+  background-size: 48px, 48px;
+  width: 48px;
+  height: 48px;
+  opacity: initial !important;
+}
+.sliderNoticiaHome div.slick nav.slick__arrow .slick-next.slick-disabled:before {
+  content: "";
+  background: url("/themes/custom/webfinde/images/iconos/flechaDer.png") no-repeat;
+  display: inline-block;
+  background-size: 48px, 48px;
+  width: 48px;
+  height: 48px;
+  opacity: initial !important;
 }
 
-/* ===== ===== NOTICIAS ===== ===== */
+/* ==============================
+REDES SOCIALES
+============================== */
+div.redeSociales ul.nav-tabs li {
+  position: relative;
+}
+div.redeSociales ul.nav-tabs li a.nav-link {
+  border: 1px solid #e5e5e5;
+  padding-left: 2rem;
+}
+div.redeSociales ul.nav-tabs li a.nav-link.active {
+  border-color: #112d6a #dee2e6 #fff !important;
+  border-top: 2px solid;
+}
+div.redeSociales ul.nav-tabs li:nth-child(1) a::before {
+  position: absolute;
+  content: "";
+  background: url(/themes/custom/webfinde/images/iconos/iconos-redes-twitter.png) no-repeat;
+  background-size: 25px, 25px;
+  width: 25px;
+  height: 25px;
+  top: 0.5rem;
+  left: 0.8rem;
+}
+div.redeSociales ul.nav-tabs li:nth-child(2) a::before {
+  position: absolute;
+  content: "";
+  background: url(/themes/custom/webfinde/images/iconos/iconos-redes-facebook.png) no-repeat;
+  background-size: 25px, 25px;
+  width: 25px;
+  height: 25px;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+div.redeSociales ul.nav-tabs li:nth-child(3) a::before {
+  position: absolute;
+  content: "";
+  background: url(/themes/custom/webfinde/images/iconos/iconos-redes-instagram.png) no-repeat;
+  background-size: 25px, 25px;
+  width: 25px;
+  height: 25px;
+  top: 0.5rem;
+  left: 0.4rem;
+}
+div.redeSociales div.tab-content {
+  border-left: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* ===== ===== FINDETER EN CIFFRAS ===== ===== */
+/* ==============================
+COLORES
+============================== */
+div.findeterCifras div.titulo {
+  border-bottom: 1px solid #112d6a;
+  padding-bottom: 20px;
+}
+div.findeterCifras div.titulo h1 {
+  position: relative;
+}
+div.findeterCifras div.titulo h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #296294;
+  top: 1.6em;
+  left: 0;
+}
+div.findeterCifras div.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  width: 100%;
+  height: 100%;
+}
+div.findeterCifras div.grid-container .grid-item {
+  text-align: center;
+}
+div.findeterCifras div.grid-container .grid-item div.contenido {
+  /*img:hover {
+      -webkit-transform: rotateY(180deg);
+      -webkit-transform-style: preserve-3d;
+      transform: rotateY(180deg);
+      transform-style: preserve-3d;
+  }*/
+}
+div.findeterCifras div.grid-container .grid-item div.contenido div.cifra {
+  margin: 0 3rem;
+}
+div.findeterCifras div.grid-container .grid-item div.contenido div.descripcion {
+  padding: 0 1rem;
+}
+
+/* ===== ===== CASOS DE EXITO ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+CASOS DE EXITO
+============================== */
+div.casosExito {
+  background-size: cover !important;
+  /* ==============================
+  SLIDER DE CONTENIDO
+  ============================== */
+}
+div.casosExito div.contenido {
+  width: 50%;
+  padding-top: 4rem;
+}
+div.casosExito div.contenido div.encabezado {
+  border-bottom: 1px solid white;
+  padding-bottom: 20px;
+}
+div.casosExito div.contenido div.encabezado h1 {
+  position: relative;
+}
+div.casosExito div.contenido div.encabezado h1::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 4px;
+  background-color: white;
+  top: 1.6em;
+  left: 0;
+}
+div.casosExito div.contenido h1.tituloCaso {
+  color: #CDDC4B !important;
+}
+div.casosExito .slideCasoExito {
+  /* ===== ===== Botones de navegacion ===== ===== */
+}
+div.casosExito .slideCasoExito ul.slide__content li {
+  padding: 0 0.625rem 0.5rem;
+}
+div.casosExito .slideCasoExito ul.slide__content li div.contenidoSlider {
+  position: relative;
+  cursor: pointer;
+}
+div.casosExito .slideCasoExito ul.slide__content li div.contenidoSlider p {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 50%;
+  font-weight: bold;
+}
+div.casosExito .slideCasoExito .slick {
+  /* ===== ===== Flechas de navegacion ===== ===== */
+  /* ===== ===== puntos de navegacion page===== ===== */
+}
+div.casosExito .slideCasoExito .slick nav.slick__arrow {
+  top: initial;
+  bottom: 1.2rem;
+}
+div.casosExito .slideCasoExito .slick nav.slick__arrow button.slick-arrow::before {
+  color: white !important;
+}
+div.casosExito .slideCasoExito .slick nav.slick__arrow .slick-prev:before, div.casosExito .slideCasoExito .slick nav.slick__arrow .slick-next:before {
+  font-family: initial;
+}
+div.casosExito .slideCasoExito .slick ul.slick-dots {
+  position: initial;
+  display: flex;
+  bottom: 0;
+  margin-bottom: 1rem;
+  padding: 0 3rem;
+}
+div.casosExito .slideCasoExito .slick ul.slick-dots li {
+  background-color: white;
+  opacity: 0.5;
+  margin: 0;
+  flex: 1 1 auto;
+  height: 4px;
+}
+div.casosExito .slideCasoExito .slick ul.slick-dots li button {
+  height: 0;
+  width: 0;
+  padding: 0;
+}
+div.casosExito .slideCasoExito .slick ul.slick-dots li button::before {
+  font-family: initial;
+  content: "";
+}
+div.casosExito .slideCasoExito .slick ul.slick-dots li.slick-active {
+  position: relative;
+  opacity: 1;
+}
+div.casosExito .slideCasoExito .slick ul.slick-dots li.slick-active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 0.8rem;
+  top: -1px;
+  left: 0;
+}
+
+/* ===== ===== CASOS DE EXITO ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+CONTACTENOS
+============================== */
+div.contactenos div.titulo {
+  border-bottom: 1px solid #296294;
+  padding-bottom: 20px;
+}
+div.contactenos div.titulo h1 {
+  position: relative;
+}
+div.contactenos div.titulo h1::after {
+  content: "";
+  position: absolute;
+  width: 20%;
+  height: 4px;
+  background-color: #296294;
+  top: 1.6em;
+  left: 0;
+}
+div.contactenos form input[type=submit] {
+  width: 100%;
+}
+
+div.suscribirseHome {
+  background-color: #112d6a;
+  border-bottom: 1px solid #e5e5e5;
+}
+div.suscribirseHome form input[type=email] {
+  height: calc(2.5em + 0.75rem + 1px);
+  border-radius: 0;
+}
+div.suscribirseHome form input[type=submit] {
+  line-height: 2.6;
+}
+
+/* ==============================
+Estilos de mapa
+============================== */
+div.mapaHome {
+  /*Act*/
+  /**/
+  /**/
+  /*.col-11 {
+      -ms-flex: 0 0 91.66667%;
+      flex: 0 0 91.66667%;
+      max-width: 91.66667%;
+  }*/
+}
+div.mapaHome .title-regi {
+  color: #1c336e;
+}
+div.mapaHome .stlRCtroIn {
+  fill: "#cfd8e0";
+}
+div.mapaHome .stlRPIn {
+  fill: "#d2e4eb";
+}
+div.mapaHome .stlRECIn {
+  fill: "#ebf1f9";
+}
+div.mapaHome .stlRNorIn {
+  /*Nororiental*/
+  fill: "#ccdbe9";
+}
+div.mapaHome .stlRNocIn {
+  fill: "#d3d7e1";
+}
+div.mapaHome .stlRCarIn {
+  fill: "#ccecf9";
+}
+div.mapaHome .stlRCtroAc {
+  fill: "#0d3e66";
+}
+div.mapaHome .stlRPAc {
+  fill: "#1f7a9a";
+}
+div.mapaHome .stlRECAc {
+  fill: "#9db9e2";
+}
+div.mapaHome .stlRNorAc {
+  fill: "#00498f";
+}
+div.mapaHome .stlRNocAc {
+  fill: "#233568";
+}
+div.mapaHome .stlRCarAc {
+  fill: "#009fe3";
+}
+div.mapaHome .convstlRCtroAc {
+  background-color: #0d3e66;
+}
+div.mapaHome .convstlRPAc {
+  background-color: #1f7a9a;
+}
+div.mapaHome .convstlRECAc {
+  background-color: #9db9e2;
+}
+div.mapaHome .convstlRNorAc {
+  background-color: #00498f;
+}
+div.mapaHome .convstlRNocAc {
+  background-color: #233568;
+}
+div.mapaHome .convstlRCarAc {
+  background-color: #009fe3;
+}
+div.mapaHome .titulo-convenciones {
+  color: #fff;
+  background-color: #1c336e;
+  background: linear-gradient(90deg, #1c336e 0, #4087c7);
+  border-radius: 10px 0 10px 0;
+}
+div.mapaHome .pdl-1 {
+  padding-left: 1.5rem !important;
+}
+div.mapaHome .pdb-1rem {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+div.mapaHome .margin-top05 {
+  margin-top: 0.5rem;
+}
+div.mapaHome .punto-convencion {
+  padding: 13px;
+  border-radius: 50%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+div.mapaHome .margin15 {
+  margin: 15px;
+}
+div.mapaHome .align-items-lg-center {
+  -ms-flex-align: center !important;
+  align-items: center !important;
+}
+div.mapaHome .d-flex {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+div.mapaHome .flex-lg-column {
+  -ms-flex-direction: column !important;
+  flex-direction: column !important;
+}
+div.mapaHome .text-center {
+  text-align: center !important;
+}
+div.mapaHome .margin-b {
+  margin-bottom: 0px;
+}
+
+/* ===== ===== PIE DE PAGINA ===== ===== */
 /* ==============================
 COLORES
 ============================== */
@@ -1174,6 +1612,22 @@ MEDIA QUERY
     text-align: center;
     margin-top: 1rem;
   }
+}
+/* ==============================
+INTERNAS
+============================== */
+/* ===== ===== Encabezado ===== ===== */
+figure.transparenciaAcceso {
+  position: absolute;
+  z-index: -1;
+  top: 7rem;
+}
+
+article.transparenciaAcceso h1.tituloPrincipal {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=style.css.map */
