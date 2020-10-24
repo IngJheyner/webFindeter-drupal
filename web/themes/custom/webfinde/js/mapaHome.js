@@ -7,8 +7,8 @@
 
     'use strict';
 
-    /*Drupal.behaviors.webfinde = {
-        attach: function(context, settings) {*/
+    Drupal.behaviors.webfinde = {
+        attach: function(context, settings) {
 
             var Rcar = document.getElementsByClassName('stlRCarIn');
             var Rcentro = document.getElementsByClassName('stlRCtroIn');
@@ -206,7 +206,7 @@
                     stlRNocIn.setAttribute('hidden', true);
                 });
             }
-        /*}
-    };*/
+        }
+    };
     
 })(jQuery, Drupal);
