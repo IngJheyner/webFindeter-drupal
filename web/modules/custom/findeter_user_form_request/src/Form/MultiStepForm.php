@@ -337,6 +337,14 @@ class MultiStepForm extends FormBase {
     foreach($steps as $step){
       foreach($step->getValues() as $field=>$value){
 
+        if($field == 'field_request_marketing'){
+          $value = 'autorizacion_marketing';
+        }
+
+        if($field == 'field_authorization' && $value){
+          $value = 'autorizacion_findeter';
+        }
+
         $newRequest->set($field, $value);
 
         // store all files
@@ -362,6 +370,10 @@ class MultiStepForm extends FormBase {
     $newRequest->enforceIsNew();
     $newRequest->save();
 
+
+    // store the nid value of new node created
+    $values['new_nid'] = $newRequest->id();
+    $this->step->setValues($values);
   }
 
 }
