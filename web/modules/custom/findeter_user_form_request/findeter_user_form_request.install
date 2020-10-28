@@ -33,7 +33,7 @@ function findeter_user_form_request_install() {
       $vocabulary = Vocabulary::create(array(
         'vid' => $vid,
         'description' => 'Lista de los departamentos y municipios de Colombia ordenados jerarquicamente',
-        'name' => 'Colombia departaments',
+        'name' => 'Departamentos/municipios de Colombia',
       ));
       $vocabulary->save();
 

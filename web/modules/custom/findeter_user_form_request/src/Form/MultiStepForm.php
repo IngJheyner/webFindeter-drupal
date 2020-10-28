@@ -338,14 +338,20 @@ class MultiStepForm extends FormBase {
       foreach($step->getValues() as $field=>$value){
 
         if($field == 'field_request_marketing'){
-          $value = 'autorizacion_marketing';
+          if($value){
+            $value = 'autorizacion_marketing';
+          }else{
+            $value = '';
+          } 
         }
 
-        if($field == 'field_authorization' && $value){
+        if($field == 'field_authorization'){
           $value = 'autorizacion_findeter';
         }
 
-        $newRequest->set($field, $value);
+        if($value != ''){
+          $newRequest->set($field, $value);
+        }
 
         // store all files
         if($field == 'field_request_files'){
