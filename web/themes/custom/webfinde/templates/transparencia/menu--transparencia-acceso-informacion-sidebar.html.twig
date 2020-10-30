@@ -24,8 +24,7 @@
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
-
-{{ menus.menu_links(items, attributes, 0) }}
+<div class="menuTransparenciaSidebar">{{ menus.menu_links(items, attributes, 0) }}</div>
 
 {% macro menu_links(items, attributes, menu_level) %}
 
@@ -35,70 +34,28 @@
 
     {% if menu_level == 0 %}
 
-<ul{{ attributes.addClass(['nav row']) }}>
+<ul{{ attributes.addClass(['nav navbar-nav']) }}>
 
   {% else %}
 
-<ul class="gridSubItems">
+<ul>
 
   {% endif %}
 
-  {% set iterar = 0 %}
-
   {% for item in items %}
-
-    {% set iterar = iterar + 1 %}
 
     {%
       set classes_link = [
-        item.is_expanded ? 'dropdown-toggle',
-        item.is_collapsed ? 'dropdown-toggle',
-        item.in_active_trail ? 'active',
-      ]      
-
-    %}    
-
-  {% if menu_level == 0 %}
-
-    <div class="col-xl-4 mb-4 gridContainer">
-
-    <li class="gridItem" mostrar="true">
-  
-  {% else %}
-
+      'nav-link',
+      'text-dark',
+      item.is_expanded ? 'dropdown-toggle',
+      item.is_collapsed ? 'dropdown-toggle',
+      item.in_active_trail ? 'active',
+    ]
+    %}
     <li{{ item.attributes.addClass('nav-item') }}>
 
-  {% endif %}  
-
-      {% if menu_level == 0 %}
-
-        <div class="gridItemTitulo d-flex"> 
-
-          <div class="icono pr-3 flex-fill">
-
-            <img src="/themes/custom/webfinde/images/iconos/Iconos-transparencia/icono-{{iterar}}.png">
-          
-          </div>
-
-      {% endif %}
-
-          {% if menu_level == 1 %} <div class="containerSubItems"> {% endif %}
-
-            {{ link(item.title, item.url, { 'class': "titulo flex-fill" }) }}
-
-          {% if menu_level == 1 %} </div> {% endif %}
-
-        {% if menu_level == 0 %}
-
-          <div class="flecha flex-fill">
-
-            <img src="/themes/custom/webfinde/images/iconos/flecha.png">
-
-          </div>
-
-        </div> 
-        
-        {% endif %}
+      {{ link(item.title, item.url, { 'class': classes_link }) }}
 
       {% if item.below %}
 
@@ -108,12 +65,10 @@
 
     </li>
 
-  {% if menu_level == 0 %} </div> {% endif %}
-
   {% endfor %}
 
 </ul>
 
   {% endif %}
-
+  
 {% endmacro %}

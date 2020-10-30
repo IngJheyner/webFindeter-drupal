@@ -142,17 +142,23 @@
             =============================================*/
 
             /* ===== ===== MENU ===== ===== */
-            $("div.transparenciaAcceso .menu ul.nav div.gridContainer li.gridItem").on("click", function(){ 
+            $(".menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem").on("click", function(){ 
 
                 if($(this).attr("mostrar") == "true"){
 
-                    $(this).children('ul').children('li').fadeIn(1000);
+                    $(this).children('ul').children('li').fadeIn(1000, function(){
+
+                        $(this).parent().parent().children('div.gridItemTitulo').children('div.flecha').children('img').attr({'src':'/themes/custom/webfinde/images/iconos/flecha2.png'})
+                    });
 
                     $(this).attr({"mostrar" : "false"});
 
                 }else{
 
-                    $(this).children('ul').children('li').fadeOut(100);
+                    $(this).children('ul').children('li').fadeOut(1000, function(){
+
+                        $(this).parent().parent().children('div.gridItemTitulo').children('div.flecha').children('img').attr({'src':'/themes/custom/webfinde/images/iconos/flecha.png'})
+                    });
 
                     $(this).attr({"mostrar" : "true"});
                 }                

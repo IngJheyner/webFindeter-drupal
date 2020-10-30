@@ -1626,6 +1626,7 @@ MEDIA QUERY
 /* ==============================
 INTERNAS
 ============================== */
+/* ===== ===== Transparencia ===== ===== */
 /* ===== ===== Encabezado ===== ===== */
 /* ==============================
 COLORES
@@ -1635,8 +1636,9 @@ figure.transparenciaAcceso {
   z-index: -1;
   top: 0;
   height: 23rem;
+  transform: translate(0, -10rem);
 }
-figure.transparenciaAcceso img {
+figure.transparenciaAcceso .img {
   height: 100%;
 }
 
@@ -1675,7 +1677,13 @@ div.transparenciaAcceso div.descripcion div.decretosLeyes div.field__item {
 /* ==============================
 COLORES
 ============================== */
-div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem {
+div.menuTransparenciaAcceso {
+  border-bottom: 1px solid #e5e5e5;
+}
+div.menuTransparenciaAcceso ul.nav div.gridContainer:last-child {
+  margin-bottom: 0 !important;
+}
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem {
   position: relative;
   background-color: #e5e5e5;
   padding: 2rem 1rem 2rem 1rem;
@@ -1683,16 +1691,16 @@ div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem {
   border-top: 10px solid #112d6a;
   cursor: pointer;
 }
-div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem div.gridItemTitulo div.icono {
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem div.gridItemTitulo div.icono {
   border-right: 1px solid #296294;
 }
-div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem div.gridItemTitulo span.titulo {
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem div.gridItemTitulo span.titulo {
   width: 65%;
   margin-left: 1rem;
   color: #296294;
   font-weight: bold;
 }
-div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem ul.gridSubItems {
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem ul.gridSubItems {
   position: absolute;
   left: 0;
   z-index: 1;
@@ -1701,28 +1709,71 @@ div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem ul.gridSub
   padding: 0;
   list-style: none;
 }
-div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem ul.gridSubItems li {
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem ul.gridSubItems li {
   text-align: left;
   background-color: #e5e5e5;
   display: none;
 }
-div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem ul.gridSubItems li:last-child {
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem ul.gridSubItems li:last-child {
   border-radius: 0 0 0.5rem 0.5rem;
 }
-div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem ul.gridSubItems li:hover {
-  background-color: white;
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem ul.gridSubItems li:hover {
+  background-color: #ebf1f8;
 }
-div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem ul.gridSubItems li div.containerSubItems {
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem ul.gridSubItems li div.containerSubItems {
   margin: 0 2rem;
   border-top: 1px solid #c7c7c7;
   padding: 1rem 0;
 }
-div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem ul.gridSubItems li div.containerSubItems a {
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem ul.gridSubItems li div.containerSubItems a {
   color: black;
   font-weight: bold;
 }
-div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem ul.gridSubItems li:nth-child(1) div.containerSubItems {
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem ul.gridSubItems li:nth-child(1) div.containerSubItems {
   border-top: none;
+}
+
+/* ==============================
+MENU SIDEBAR TRANSPARENCIA
+============================== */
+div.menuTransparenciaSidebar ul li a:hover {
+  color: #296294 !important;
+  font-weight: bold;
+}
+div.menuTransparenciaSidebar ul li a.active {
+  color: #296294 !important;
+  font-weight: bold;
+}
+
+/* ===== ===== Vistas ===== ===== */
+/* ==============================
+COLORES
+============================== */
+div.vistaTransparencia {
+  border-right: 1px solid #e5e5e5;
+}
+div.vistaTransparencia div.titulos figure {
+  border-right: 1px solid #296294;
+}
+
+/* ===== ===== Preguntas Frecuentes ===== ===== */
+/* ===== ===== Encabezado ===== ===== */
+/* ==============================
+COLORES
+============================== */
+div.encabezadoPreguntasFrecuentes figure {
+  position: absolute;
+  z-index: -1;
+  top: -10rem;
+}
+div.encabezadoPreguntasFrecuentes div.encabezado {
+  margin-bottom: 5rem;
+}
+div.encabezadoPreguntasFrecuentes div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=style.css.map */
