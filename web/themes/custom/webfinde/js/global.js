@@ -7,8 +7,8 @@
 
     'use strict';
 
-    Drupal.behaviors.webfinde = {
-        attach: function(context, settings) {
+    /*Drupal.behaviors.webfinde = {
+        attach: function(context, settings) {*/
             
            /*===========================================
            BUSCADOR(HOME)
@@ -136,8 +136,31 @@
 
                 $(".encabezadoBlog").css("background-image", "url('"+imgEncabezado+"')");
             }
+
+            /*===========================================
+            TRANSPARENCIA
+            =============================================*/
+
+            /* ===== ===== MENU ===== ===== */
+            $("div.transparenciaAcceso .menu ul.nav div.gridContainer li.gridItem").on("click", function(){ 
+
+                if($(this).attr("mostrar") == "true"){
+
+                    $(this).children('ul').children('li').fadeIn(1000);
+
+                    $(this).attr({"mostrar" : "false"});
+
+                }else{
+
+                    $(this).children('ul').children('li').fadeOut(100);
+
+                    $(this).attr({"mostrar" : "true"});
+                }                
+
+            });            
             
-        }
-    };
+            
+        /*}
+    };*/
 
 })(jQuery, Drupal);

@@ -39,6 +39,16 @@ INPUTS
 }
 
 /* ==============================
+BREADCRUMB(MIGAS DE PAN)
+============================== */
+nav#breadcrumb {
+  background-color: #e5e5e5;
+}
+nav#breadcrumb ol {
+  background-color: initial;
+}
+
+/* ==============================
 ESTILOS GLOBALES
 ============================== */
 h1, h2, h3, h4, h5 {
@@ -1617,17 +1627,102 @@ MEDIA QUERY
 INTERNAS
 ============================== */
 /* ===== ===== Encabezado ===== ===== */
+/* ==============================
+COLORES
+============================== */
 figure.transparenciaAcceso {
   position: absolute;
   z-index: -1;
-  top: 7rem;
+  top: 0;
+  height: 23rem;
+}
+figure.transparenciaAcceso img {
+  height: 100%;
 }
 
-article.transparenciaAcceso h1.tituloPrincipal {
+div.transparenciaAcceso h1.tituloEncabezado {
   text-shadow: 1px 1px 2px black;
   color: white;
   font-size: 3.5rem;
   font-weight: 600;
+}
+div.transparenciaAcceso div.titulo {
+  border-bottom: 1px solid #296294;
+  padding-bottom: 20px;
+}
+div.transparenciaAcceso div.titulo h1 {
+  position: relative;
+  width: 76%;
+}
+div.transparenciaAcceso div.titulo h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #296294;
+  top: 1.6em;
+  left: 0;
+}
+div.transparenciaAcceso div.descripcion {
+  border-bottom: 1px solid #e5e5e5;
+}
+div.transparenciaAcceso div.descripcion div.decretosLeyes div.field__item {
+  color: #296294;
+  text-decoration: underline;
+}
+
+/* ===== ===== Menu ===== ===== */
+/* ==============================
+COLORES
+============================== */
+div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem {
+  position: relative;
+  background-color: #e5e5e5;
+  padding: 2rem 1rem 2rem 1rem;
+  border-radius: 0.5rem;
+  border-top: 10px solid #112d6a;
+  cursor: pointer;
+}
+div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem div.gridItemTitulo div.icono {
+  border-right: 1px solid #296294;
+}
+div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem div.gridItemTitulo span.titulo {
+  width: 65%;
+  margin-left: 1rem;
+  color: #296294;
+  font-weight: bold;
+}
+div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem ul.gridSubItems {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  margin: 0;
+  border: initial;
+  padding: 0;
+  list-style: none;
+}
+div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem ul.gridSubItems li {
+  text-align: left;
+  background-color: #e5e5e5;
+  display: none;
+}
+div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem ul.gridSubItems li:last-child {
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem ul.gridSubItems li:hover {
+  background-color: white;
+}
+div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem ul.gridSubItems li div.containerSubItems {
+  margin: 0 2rem;
+  border-top: 1px solid #c7c7c7;
+  padding: 1rem 0;
+}
+div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem ul.gridSubItems li div.containerSubItems a {
+  color: black;
+  font-weight: bold;
+}
+div.transparenciaAcceso div.menu ul.nav div.gridContainer li.gridItem ul.gridSubItems li:nth-child(1) div.containerSubItems {
+  border-top: none;
 }
 
 /*# sourceMappingURL=style.css.map */

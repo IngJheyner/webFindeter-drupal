@@ -1,16 +1,60 @@
+@use '../../../variables' as var;
+
 figure.transparenciaAcceso{
 
     position: absolute;
     z-index: -1;
-    top: 7rem;
+    top: 0;
+    height: 23rem;
+
+    img{
+
+        height: 100%;
+    }
 }
 
-article.transparenciaAcceso{
+div.transparenciaAcceso{
 
-    h1.tituloPrincipal{
+    h1.tituloEncabezado{
         text-shadow: 1px 1px 2px black;
         color: white;
         font-size: 3.5rem;
-        font-weight: 600;
+        font-weight: 600;       
+    }
+
+    div.titulo{   
+        
+        border-bottom: 1px solid var.$color-secundario;
+        padding-bottom: 20px;
+
+        h1{
+            position: relative;
+            width: 76%;
+
+            &::after{
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                background-color: #296294;
+                top: 1.6em;
+                left: 0;
+            }
+        }        
+    
+    }
+
+    div.descripcion{
+
+        border-bottom: 1px solid var.$color-quinario;
+
+        div.decretosLeyes{
+
+            div.field__item{
+
+                color: var.$color-secundario;
+                text-decoration: underline;
+            }
+        }
     }
 }
