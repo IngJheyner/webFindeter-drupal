@@ -27,9 +27,12 @@ dependencies:
     - field.field.node.user_request.field_request_description
     - field.field.node.user_request.field_request_designatations
     - field.field.node.user_request.field_request_files
+    - field.field.node.user_request.field_request_keywords
     - field.field.node.user_request.field_request_marketing
     - field.field.node.user_request.field_request_other
     - field.field.node.user_request.field_request_reason
+    - field.field.node.user_request.field_request_receiving_channel
+    - field.field.node.user_request.field_request_reception_form
     - field.field.node.user_request.field_type_form
     - field.field.node.user_request.field_type_handicap
     - field.field.node.user_request.field_type_request
@@ -233,6 +236,14 @@ content:
     third_party_settings: {  }
     type: file_default
     region: content
+  field_request_keywords:
+    weight: 36
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_request_marketing:
     weight: 31
     label: above
@@ -250,6 +261,20 @@ content:
     region: content
   field_request_reason:
     weight: 25
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_request_receiving_channel:
+    weight: 34
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_request_reception_form:
+    weight: 35
     label: above
     settings: {  }
     third_party_settings: {  }

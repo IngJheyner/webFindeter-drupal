@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_request_keywords
+    - node.type.user_request
+id: node.user_request.field_request_keywords
+field_name: field_request_keywords
+entity_type: node
+bundle: user_request
+label: 'Palabras clave'
+description: 'Al momento de escribir la palabra clave, si existe le aparecerá un recuadro para hacer click, sino existe, termine la palabra con una coma.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      keywords_pqrsd: keywords_pqrsd
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

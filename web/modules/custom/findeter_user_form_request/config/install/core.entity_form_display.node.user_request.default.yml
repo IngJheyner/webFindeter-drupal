@@ -27,9 +27,12 @@ dependencies:
     - field.field.node.user_request.field_request_description
     - field.field.node.user_request.field_request_designatations
     - field.field.node.user_request.field_request_files
+    - field.field.node.user_request.field_request_keywords
     - field.field.node.user_request.field_request_marketing
     - field.field.node.user_request.field_request_other
     - field.field.node.user_request.field_request_reason
+    - field.field.node.user_request.field_request_receiving_channel
+    - field.field.node.user_request.field_request_reception_form
     - field.field.node.user_request.field_type_form
     - field.field.node.user_request.field_type_handicap
     - field.field.node.user_request.field_type_request
@@ -54,14 +57,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
-    region: content
-  field_answer:
-    weight: 35
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
     region: content
   field_authorization:
     weight: 33
@@ -112,14 +107,10 @@ content:
     type: string_textfield
     region: content
   field_person_deparment:
-    type: entity_reference_autocomplete
-    weight: 36
+    type: options_select
+    weight: 35
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_person_email:
     weight: 22
@@ -154,14 +145,10 @@ content:
     type: string_textfield
     region: content
   field_person_municipality:
-    type: entity_reference_autocomplete
-    weight: 37
+    type: options_select
+    weight: 36
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_person_number_id:
     weight: 14
@@ -228,6 +215,16 @@ content:
     third_party_settings: {  }
     type: file_generic
     region: content
+  field_request_keywords:
+    weight: 40
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
+    region: content
   field_request_marketing:
     weight: 34
     settings: {  }
@@ -248,8 +245,20 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
-  field_type_form:
+  field_request_receiving_channel:
     weight: 38
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_request_reception_form:
+    weight: 39
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_type_form:
+    weight: 37
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -325,4 +334,5 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
+  field_answer: true
   field_request_designatations: true
