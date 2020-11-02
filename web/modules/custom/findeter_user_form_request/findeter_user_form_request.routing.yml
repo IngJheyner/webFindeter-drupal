@@ -47,3 +47,28 @@ findeter_user_form_request.findeter_admin_form:
     _permission: 'access administration pages'
   options:
     _admin_route: TRUE
+
+findeter_user_form_request.register_pqrsd_admin:
+  path: '/admin/register-pqrsd'
+  defaults:
+    _form: '\Drupal\findeter_user_form_request\Form\RegisterPQRSDAdminForm'
+    _title: 'Registro de petición de usuarios'
+  requirements:
+    _access: 'TRUE'
+
+findeter_user_form_request.autocomplete.users:
+  path: '/admin/findeter_user_form_request/autocomplete/users'
+  defaults:
+    _controller: '\Drupal\findeter_user_form_request\Controller\UsersAutoCompleteController::handleAutocomplete'
+    _format: json
+  requirements:
+    _permission: 'access content'
+
+findeter_user_form_request.userslist:
+  path: '/admin/findeter_user_form_request/userslist'
+  defaults:
+    _controller: '\Drupal\findeter_user_form_request\Controller\UsersAutoCompleteController::handleList'
+    _title: 'Lista de usuarios para asignar'
+    _format: 'json|html'
+  requirements:
+    _permission: 'access content'

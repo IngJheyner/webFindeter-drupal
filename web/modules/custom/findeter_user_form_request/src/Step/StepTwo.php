@@ -165,14 +165,15 @@ class StepTwo extends BaseStep {
       '#prefix'     => '<div class="col">'
     ];
 
-    $deparmentOptions = $this->getTaxonomyTermsForm(0);
+    $deparmentOptions = getTaxonomyTermsForm(0);
 
     $formStep['field_person_deparment'] = [
       '#type'    => 'select',
       '#title'   => '<span class"required">*</span>'.$definitions['field_person_deparment']->getLabel(),
       '#options' => $deparmentOptions,
+      '#source'  => 'steps',
       '#ajax'    => [
-        'callback'  => [$this, 'callBackDeparment'], 
+        'callback'  => 'callBackDeparment', 
         'event'     => 'change',
         'progress'  => [
           'message' => 'Recupersando municipios...',
@@ -197,7 +198,7 @@ class StepTwo extends BaseStep {
     ];
 
     if ($departmentValue) {
-      $formStep['field_person_municipality']['#options'] = $this->getTaxonomyTermsForm($departmentValue);
+      $formStep['field_person_municipality']['#options'] = getTaxonomyTermsForm($departmentValue);
     }
 
     $formStep['field_person_phone_contact'] = [
@@ -223,28 +224,6 @@ class StepTwo extends BaseStep {
     return $formStep;
   }
 
-
-  /**
-   * Callback deparment select ajax event
-   */
-  public function callBackDeparment(array &$form, FormStateInterface $form_state) {
-    $form_state->setRebuild();
-
-    $parent_tid = $form_state->getValue('field_person_deparment'); // the parent term id
-    $municipalityOptions = $this->getTaxonomyTermsForm($parent_tid);
-  
-    $elem = $form['wrapper']['content-fields']['field_person_municipality'];
-    
-    $elem['#options'] = $municipalityOptions;
-    $renderer = \Drupal::service('renderer');
-    $renderedField = $renderer->render($elem);
-
-    $response = new AjaxResponse();
-  
-    $response->addCommand(new ReplaceCommand('#output-municipalities', $renderedField));
-    
-    return $response;
-  }
 
 
   /**
@@ -318,19 +297,6 @@ class StepTwo extends BaseStep {
         new ValidatorEmail("Correo electrónico inválido"),
       ],
     ];
-  }
-
-  /**
-   * Create an array with the taxonomy terms
-   */
-  function getTaxonomyTermsForm($tid){
-    $child_tids = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('colombia_deparments', $tid, 1, false);
-
-    $options = array();
-    foreach ($child_tids as $term) {
-      $options[$term->tid] = $term->name;
-    }
-    return $options;
   }
 
 }

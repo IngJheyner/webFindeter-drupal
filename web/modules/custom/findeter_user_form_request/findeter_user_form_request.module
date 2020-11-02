@@ -2,6 +2,9 @@
 
 use Drupal\Core\Url;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\ReplaceCommand;
 
 /**
  * Implements hook_help().
@@ -61,4 +64,49 @@ function findeter_user_form_request_preprocess_views_view_field(&$variables) {
 
   }
 
+}
+
+/**
+* Create an array with the taxonomy terms
+*/
+function getTaxonomyTermsForm($tid){
+  $child_tids = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('colombia_deparments', $tid, 1, false);
+
+  $options = array();
+  foreach ($child_tids as $term) {
+    $options[$term->tid] = $term->name;
+  }
+  return $options;
+}
+
+
+/**
+* Callback deparment select ajax event
+*/
+function callBackDeparment(array &$form, FormStateInterface $form_state) {
+
+  $element= $form_state->getTriggeringElement()["#source"];
+
+
+  $form_state->setRebuild();
+
+  $parent_tid = $form_state->getValue('field_person_deparment'); // the parent term id
+  $municipalityOptions = getTaxonomyTermsForm($parent_tid);
+
+  if($element == 'admin'){
+    $elem = $form['info_person']['field_person_municipality'];
+  }else{
+    $elem = $form['wrapper']['content-fields']['field_person_municipality'];
+  }
+  
+  
+  $elem['#options'] = $municipalityOptions;
+  $renderer = \Drupal::service('renderer');
+  $renderedField = $renderer->render($elem);
+
+  $response = new AjaxResponse();
+  
+  $response->addCommand(new ReplaceCommand('#output-municipalities', $renderedField));
+    
+  return $response;
 }

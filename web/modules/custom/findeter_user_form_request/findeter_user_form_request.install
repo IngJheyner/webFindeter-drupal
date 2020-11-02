@@ -18,17 +18,14 @@ function findeter_user_form_request_install() {
   global $base_url;
   $uriDeparments = $base_url.'/'.$module_path."/colombia.json";
 
-
-
   try {
     $response = \Drupal::httpClient()->get($uriDeparments, array('headers' => array('Accept' => 'application/json')));
     $data = (string) $response->getBody();
     if (empty($data)) {
       return false;
     }else{
-      $departments = Json::decode($data);
-
-
+      
+      // creating departments/municipality vocabulary
       $vid = "colombia_deparments";
       $vocabulary = Vocabulary::create(array(
         'vid' => $vid,
@@ -37,6 +34,8 @@ function findeter_user_form_request_install() {
       ));
       $vocabulary->save();
 
+      //creating each term for departments/municipality vocabulary 
+      $departments = Json::decode($data);
       foreach ( $departments as $department => $municipalities ) {
         $parentTerm = Term::create(array(
           'parent' => [],
@@ -55,6 +54,15 @@ function findeter_user_form_request_install() {
     
         }
       }
+
+      // creating keywords vocabulary
+      $vid = "keywords_pqrsd";
+      $vocabulary = Vocabulary::create(array(
+        'vid' => $vid,
+        'description' => 'Lista de los palabras clave para las PQRSD',
+        'name' => 'Palabras clave PQRSD',
+      ));
+      $vocabulary->save();
 
     }
   }
