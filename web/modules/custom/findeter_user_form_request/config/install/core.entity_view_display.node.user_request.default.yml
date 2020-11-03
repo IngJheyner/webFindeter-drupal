@@ -24,6 +24,7 @@ dependencies:
     - field.field.node.user_request.field_person_type_id
     - field.field.node.user_request.field_preferential_attention
     - field.field.node.user_request.field_product_name
+    - field.field.node.user_request.field_request_answer_date
     - field.field.node.user_request.field_request_description
     - field.field.node.user_request.field_request_designatations
     - field.field.node.user_request.field_request_files
@@ -39,6 +40,7 @@ dependencies:
     - field.field.node.user_request.field_type_requester
     - node.type.user_request
   module:
+    - datetime
     - file
     - options
     - user
@@ -212,6 +214,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: list_default
+    region: content
+  field_request_answer_date:
+    weight: 37
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_request_description:
     weight: 28

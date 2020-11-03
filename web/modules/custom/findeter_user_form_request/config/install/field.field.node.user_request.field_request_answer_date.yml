@@ -1,0 +1,21 @@
+uuid: f48ae56e-ed0a-45c3-9421-8eec7bc0468c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_request_answer_date
+    - node.type.user_request
+  module:
+    - datetime
+id: node.user_request.field_request_answer_date
+field_name: field_request_answer_date
+entity_type: node
+bundle: user_request
+label: 'Fecha respuesta'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
