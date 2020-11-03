@@ -63,13 +63,13 @@
       {% endif %}
       {# Now generate the actual pager piece. #}
       {% for key, item in items.pages %}
-        <li class="btn btn-primary pager__item{{ current == key ? ' active' : '' }} {{ btn_classes|join(' ') }}">
+        <li class="btn pager__item{{ current == key ? ' active' : '' }} {{ btn_classes|join(' ') }}">
           {% if current == key %}
             {% set title = 'Current page'|t %}
           {% else %}
             {% set title = 'Go to page @key'|t({'@key': key}) %}
           {% endif %}
-          <a href="{{ item.href }}" title="{{ title }}"{{ item.attributes|without('href', 'title') }} class="text-white">
+          <a href="{{ item.href }}" title="{{ title }}"{{ item.attributes|without('href', 'title') }}>
             <span class="visually-hidden">
               {{ current == key ? 'Current page'|t : 'Page'|t }}
             </span>

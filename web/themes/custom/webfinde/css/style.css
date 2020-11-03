@@ -1631,17 +1631,16 @@ INTERNAS
 /* ==============================
 COLORES
 ============================== */
-figure.transparenciaAcceso {
+div.transparenciaAcceso figure.transparenciaAcceso {
   position: absolute;
   z-index: -1;
   top: 0;
   height: 23rem;
-  transform: translate(0, -10rem);
+  transform: translate(0, -13rem);
 }
-figure.transparenciaAcceso .img {
+div.transparenciaAcceso figure.transparenciaAcceso img {
   height: 100%;
 }
-
 div.transparenciaAcceso h1.tituloEncabezado {
   text-shadow: 1px 1px 2px black;
   color: white;
@@ -1764,16 +1763,57 @@ COLORES
 div.encabezadoPreguntasFrecuentes figure {
   position: absolute;
   z-index: -1;
-  top: -10rem;
+  top: 0;
+  transform: translate(0, -13rem);
+  height: 23rem;
+}
+div.encabezadoPreguntasFrecuentes figure img {
+  height: 100%;
 }
 div.encabezadoPreguntasFrecuentes div.encabezado {
-  margin-bottom: 5rem;
+  height: 7rem;
 }
 div.encabezadoPreguntasFrecuentes div.encabezado h1.tituloEncabezado {
   text-shadow: 1px 1px 2px black;
   color: white;
   font-size: 3.5rem;
   font-weight: 600;
+}
+
+/* ==============================
+CONTENIDO
+============================== */
+div.preguntasFrecuentes div.view-header > div.titulo h1 {
+  position: relative;
+}
+div.preguntasFrecuentes div.view-header > div.titulo h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #296294;
+  top: 1.6em;
+  left: 0;
+}
+div.preguntasFrecuentes div.view-content ul {
+  margin-top: 2rem;
+}
+div.preguntasFrecuentes div.view-content ul li {
+  margin: 1rem 0;
+}
+div.preguntasFrecuentes div.view-content ul li:first-child {
+  margin: 0;
+  border-bottom: 0;
+}
+div.preguntasFrecuentes div.view-content ul li h4 {
+  margin-bottom: 1rem;
+}
+div.preguntasFrecuentes div.view-content ul li div.respuesta {
+  margin-left: 3rem;
+}
+div.preguntasFrecuentes div.view-content ul li div.respuesta p {
+  padding-left: 1rem;
+  border-left: 1px solid #112d6a;
 }
 
 /*# sourceMappingURL=style.css.map */

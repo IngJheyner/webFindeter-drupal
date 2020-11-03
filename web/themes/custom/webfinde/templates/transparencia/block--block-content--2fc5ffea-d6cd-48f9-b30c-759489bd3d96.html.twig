@@ -34,15 +34,15 @@
   ]
 %}
 
-<figure class="transparenciaAcceso w-100">
-
-  <img src="{{ file_url(content.field_img_fondo_transparencia[0]['#item'].entity.uri.value) }}" class="img-fluid w-100">
-
-</figure>
-
 <div{{ attributes.addClass(classes) }}>
 
   {% block content %}
+
+    <figure class="transparenciaAcceso w-100">
+
+      <img src="{{ file_url(content.field_img_fondo_transparencia[0]['#item'].entity.uri.value) }}" class="img-fluid w-100">
+
+    </figure>
 
     <div class="container mb-2">
 
@@ -52,7 +52,7 @@
 
     {{ drupal_breadcrumb() }}
 
-    <div class="container">  
+    <div class="container mt-5">  
 
       <div class="titulo">
 

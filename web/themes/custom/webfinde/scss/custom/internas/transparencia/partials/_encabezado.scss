@@ -1,20 +1,20 @@
 @use '../../../variables' as var;
 
-figure.transparenciaAcceso{
-
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    height: 23rem;
-    transform: translate(0, -10rem);
-
-    .img{
-
-        height: 100%;
-    }
-}
-
 div.transparenciaAcceso{
+
+    figure.transparenciaAcceso{
+
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        height: 23rem;
+        transform: translate(0, -13rem);
+    
+        img{
+    
+            height: 100%;
+        }
+    }
 
     h1.tituloEncabezado{
         text-shadow: 1px 1px 2px black;
