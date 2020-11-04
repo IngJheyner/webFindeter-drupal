@@ -4,6 +4,8 @@ dependencies:
   config:
     - field.field.node.user_request.field_age_range
     - field.field.node.user_request.field_answer
+    - field.field.node.user_request.field_answer_favor
+    - field.field.node.user_request.field_answer_files
     - field.field.node.user_request.field_authorization
     - field.field.node.user_request.field_contact_answer_channel
     - field.field.node.user_request.field_ethnic_group
@@ -58,6 +60,19 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_answer_favor:
+    weight: 42
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_answer_files:
+    weight: 41
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
     region: content
   field_authorization:
     weight: 33

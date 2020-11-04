@@ -100,7 +100,6 @@ class StepThree extends BaseStep {
     $formStep['field_request_files'] = [
       '#type'            => 'managed_file',
       '#cardinality'     => 3,
-      '#upload_location' => 'public://'.$fileSettings['file_directory'],
       '#multiple'        => TRUE,
       '#title'           => $definitions['field_request_files']->getLabel(),
       '#upload_validators' => [

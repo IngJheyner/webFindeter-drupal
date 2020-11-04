@@ -114,6 +114,9 @@ class RegisterPQRSDAdminForm extends FormBase {
                   $form[$idDetail][$idField]['#type'] = 'textfield';
                   $form[$idDetail][$idField]['#title'] = $definitions[$idField]->getLabel();
                   $form[$idDetail][$idField]['#description'] = $definitions[$idField]->getDescription();
+                  $form[$idDetail][$idField]['#attributes'] = [
+                    'placeholder'=>'Diligencie su '.strtolower($definitions[$idField]->getLabel())
+                  ];
                 break;
 
                 case 'list_string':
@@ -128,6 +131,9 @@ class RegisterPQRSDAdminForm extends FormBase {
                   $form[$idDetail][$idField]['#type'] = 'email';
                   $form[$idDetail][$idField]['#title'] = $definitions[$idField]->getLabel();
                   $form[$idDetail][$idField]['#description'] = $definitions[$idField]->getDescription();
+                  $form[$idDetail][$idField]['#attributes'] = [
+                    'placeholder'=>'Diligencie su '.strtolower($definitions[$idField]->getLabel())
+                  ];
                 break;
 
                 case 'file':
@@ -258,6 +264,17 @@ class RegisterPQRSDAdminForm extends FormBase {
       $form['info_admin']['field_asign']['#type'] = 'textfield';
       $form['info_admin']['field_asign']['#title'] = 'Asignar a';
       $form['info_admin']['field_asign']['#autocomplete_route_name'] = 'findeter_user_form_request.autocomplete.users';
+      $form['info_admin']['field_asign']['#attributes'] = [
+        'placeholder'=>'Diligencie el nombre de usuario'
+      ];
+
+      // define custom placeholders
+      $form['info_product']['field_request_other']['#attributes'] = ['placeholder'=>'Especifique cuál'];
+      $form['info_product']['field_request_description']['#attributes'] = [
+        'placeholder'=>'Escriba el detalle de su Petición, Queja, Reclamo, Sugerencia o Denuncia.','id'=>'edit-field-request-description'
+      ];
+      $form['info_admin']['field_request_keywords']['#attributes'] = ['placeholder'=>'Diligencie las palabras clave'];
+      $form['info_product']['field_request_files']['#description'] = 'Puede registrar hasta 4 archivos.';
 
 
       $url = Url::fromRoute('findeter_user_form_request.userslist');
@@ -332,6 +349,10 @@ class RegisterPQRSDAdminForm extends FormBase {
     if($typeRequester != 'anonimo'){
       if($form_state->getValue('field_person_number_id') == ''){
         $form_state->setErrorByName('field_person_number_id', 'Debe ingresar el Número identificación');
+      }else{
+        if(!filter_var($form_state->getValue('field_person_number_id'), FILTER_VALIDATE_INT)){
+          $form_state->setErrorByName('field_person_number_id', 'Debe ingresar un número válido');
+        }
       }
 
       if($form_state->getValue('field_person_type_id') == ''){
@@ -360,16 +381,28 @@ class RegisterPQRSDAdminForm extends FormBase {
 
       if($form_state->getValue('field_person_phone_contact') == ''){
         $form_state->setErrorByName('field_person_phone_contact', 'Debe ingresar el Teléfono de contacto');
+      }else{
+        if(!filter_var($form_state->getValue('field_person_phone_contact'), FILTER_VALIDATE_INT)){
+          $form_state->setErrorByName('field_person_phone_contact', 'Debe ingresar un número válido');
+        }
       }
 
       if($form_state->getValue('field_person_email') == ''){
         $form_state->setErrorByName('field_person_email', 'Debe ingresar el Correo electrónico');
+      }else{
+        if(!filter_var($form_state->getValue('field_person_email'), FILTER_VALIDATE_EMAIL)){
+          $form_state->setErrorByName('field_person_email', 'Debe ingresar una dirección de correo válido');
+        }
       }
 
-      if($typeRequester != 'juridica'){
+      if($typeRequester == 'juridica'){
 
         if($form_state->getValue('field_legal_nit') == ''){
           $form_state->setErrorByName('field_legal_nit', 'Debe ingresar el NIT');
+        }else{
+          if(!filter_var($form_state->getValue('field_legal_nit'), FILTER_VALIDATE_INT)){
+            $form_state->setErrorByName('field_legal_nit', 'Debe ingresar un número válido');
+          }
         }
 
         if($form_state->getValue('field_legal_business_name') == ''){
@@ -466,7 +499,7 @@ class RegisterPQRSDAdminForm extends FormBase {
       break;
 
       case 'Peticiones':
-        
+
         switch($form_state->getValue('field_type_request')){
           case 'general':
             $newDate = date('Y-m-d\TH:i:s',strtotime('+30 days'));
