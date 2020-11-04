@@ -373,6 +373,10 @@ class MultiStepForm extends FormBase {
     $newRequest->uid = $user->id(); 
     $newRequest->set('field_request_designatations', $user->getUsername().' | '.$user->id().' | '.date('j/m/Y H:i:s'));
 
+    // channel and way to recipt the PQRSD
+    $newRequest->set('field_request_receiving_channel', 'web');
+    $newRequest->set('field_request_reception_form', 'electronico');
+
     $newRequest->enforceIsNew();
     $newRequest->save();
 
