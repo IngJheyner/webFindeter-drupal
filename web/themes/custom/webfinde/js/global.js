@@ -7,8 +7,8 @@
 
     'use strict';
 
-    Drupal.behaviors.webfinde = {
-        attach: function(context, settings) {
+    /*Drupal.behaviors.webfinde = {
+        attach: function(context, settings) {*/
             
            /*===========================================
            BUSCADOR(HOME)
@@ -166,7 +166,7 @@
             });            
             
             
-        }
-    };
+        /*}
+    };*/
 
 })(jQuery, Drupal);

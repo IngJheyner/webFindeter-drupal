@@ -1,19 +1,18 @@
-uuid: ea66d3cd-6fb1-439b-ad5f-230e3dc33f08
+uuid: 92666df6-c526-4598-90c4-cefb89191101
 langcode: es
 status: true
 dependencies:
   config:
-    - field.field.node.preguntas_frecuentes.body
-    - field.field.node.preguntas_frecuentes.field_tema_pregunta_frecuentes
-    - field.field.node.preguntas_frecuentes.layout_builder__layout
-    - node.type.preguntas_frecuentes
+    - field.field.node.glosario.body
+    - field.field.node.glosario.field_etiqueta_glosario
+    - node.type.glosario
   module:
     - field_group
     - path
     - text
 third_party_settings:
   field_group:
-    group_group_tabs:
+    group_grupo_tabs:
       children:
         - group_informacion
         - group_contenido
@@ -25,7 +24,7 @@ third_party_settings:
         id: ''
         classes: ''
         direction: horizontal
-      label: 'Group tabs'
+      label: 'Grupo Tabs'
     group_informacion:
       children:
         - langcode
@@ -35,9 +34,8 @@ third_party_settings:
         - sticky
         - path
         - status
-        - field_encabezado_preguntas_frecu
-      parent_name: group_group_tabs
-      weight: 1
+      parent_name: group_grupo_tabs
+      weight: 20
       format_type: tab
       region: content
       format_settings:
@@ -49,11 +47,11 @@ third_party_settings:
       label: Información
     group_contenido:
       children:
-        - field_tema_pregunta_frecuentes
+        - field_etiqueta_glosario
         - title
         - body
-      parent_name: group_group_tabs
-      weight: 2
+      parent_name: group_grupo_tabs
+      weight: 21
       format_type: tab
       region: content
       format_settings:
@@ -63,14 +61,14 @@ third_party_settings:
         formatter: closed
         required_fields: true
       label: Contenido
-id: node.preguntas_frecuentes.default
+id: node.glosario.default
 targetEntityType: node
-bundle: preguntas_frecuentes
+bundle: glosario
 mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 6
+    weight: 12
     settings:
       rows: 9
       summary_rows: 3
@@ -80,26 +78,30 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 5
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_tema_pregunta_frecuentes:
-    weight: 4
-    settings: {  }
+  field_etiqueta_glosario:
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: options_select
+    type: entity_reference_autocomplete
     region: content
   langcode:
     type: language_select
-    weight: 3
+    weight: 2
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 8
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -107,26 +109,26 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 5
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 9
+    weight: 8
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 6
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 5
+    weight: 11
     region: content
     settings:
       size: 60
@@ -134,7 +136,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60
@@ -142,5 +144,4 @@ content:
       match_limit: 10
     region: content
     third_party_settings: {  }
-hidden:
-  layout_builder__layout: true
+hidden: {  }

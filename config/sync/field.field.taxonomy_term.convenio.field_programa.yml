@@ -1,0 +1,35 @@
+uuid: 0d93af4e-d890-4f35-8400-634575eceab6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_programa
+    - taxonomy.vocabulary.convenio
+    - taxonomy.vocabulary.programa
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: taxonomy_term.convenio.field_programa
+field_name: field_programa
+entity_type: taxonomy_term
+bundle: convenio
+label: Programa
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      programa: programa
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

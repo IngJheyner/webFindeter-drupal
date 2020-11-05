@@ -1,16 +1,16 @@
-uuid: ac067d2e-2ca3-49ff-a788-4690a7ab3929
+uuid: 52aabcee-2bad-4a4f-83cd-4dca77e949c1
 langcode: es
 status: true
 dependencies:
   module:
-    - block_content
     - node
-id: node.field_encabezado_preguntas_frecu
-field_name: field_encabezado_preguntas_frecu
+    - taxonomy
+id: node.field_etiqueta_glosario
+field_name: field_etiqueta_glosario
 entity_type: node
 type: entity_reference
 settings:
-  target_type: block_content
+  target_type: taxonomy_term
 module: core
 locked: false
 cardinality: 1

@@ -1,0 +1,100 @@
+uuid: 8ba8d22b-b8ad-49cb-8775-64c9c78f54bc
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.programa
+  module:
+    - field_group
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_informacion:
+      children:
+        - langcode
+        - path
+        - status
+      parent_name: group_gr
+      weight: 1
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+        weight: 0
+        formatter: closed
+      label: Información
+    group_contenido:
+      children:
+        - name
+        - description
+      parent_name: group_gr
+      weight: 2
+      format_type: tab
+      region: content
+      format_settings:
+        description: ''
+        formatter: open
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Contenido
+    group_gr:
+      children:
+        - group_informacion
+        - group_contenido
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: 'Grupo Tabs'
+id: taxonomy_term.programa.default
+targetEntityType: taxonomy_term
+bundle: programa
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 3
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+hidden: {  }
