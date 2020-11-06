@@ -117,6 +117,11 @@
             "include": [
                 "web/modules/contrib/webform/composer.libraries.json"
             ]
+        },
+        "patches":{
+            "drupal/core": {
+                "Notice: Undefined index: value in Drupal\\views\\Plugin\\views\\filter\\NumericFilter->acceptExposedInput()":"https://www.drupal.org/files/issues/2020-06-04/2825860-exposed-filter-notice-38.patch"
+            }
         }
     }
     
