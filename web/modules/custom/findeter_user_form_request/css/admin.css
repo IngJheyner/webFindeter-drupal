@@ -44,3 +44,34 @@
 }
 
 
+/*Exposed filters admin form*/
+.views-exposed-form{
+  background-color: #f3f3f3;
+  margin: 1rem 0px;
+  border: 1px solid #ccc;
+  padding: 1rem 0px;
+}
+.views-exposed-form .form--inline{
+  display: flex;
+  flex-flow: row wrap;
+}
+.views-exposed-form details.seven-details{
+  overflow: hidden;
+  padding: 0.5rem;
+  width: 48rem;
+  float: left;
+  margin: 0 0.5rem;
+}
+.views-exposed-form .form-actions{
+  width: 100%;
+}
+.views-exposed-form .seven-details__summary{
+  padding: 0.5rem 0;
+}
+.views-exposed-form .form-type-entity-autocomplete,
+.views-exposed-form .form-type-textfield{
+  width: 10rem;
+}
+.views-exposed-form .form-type-checkbox{
+  width: 10rem;
+}

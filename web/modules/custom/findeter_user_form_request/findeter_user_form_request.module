@@ -260,3 +260,37 @@ function _getBussinesDays($addDays){
 
   return $timeStamp;
 }
+
+
+/**
+ * Implements hook_preprocess_views_exposed_form()
+ */
+function findeter_user_form_request_preprocess_views_exposed_form(&$variables) {
+
+  if($variables['form']['#id'] == 'views-exposed-form-user-request-views-page-1'){
+
+    // for exposed user request filters, join all inputs in two fieldsets
+    $variables['form']['nid']['#prefix'] = '
+      <details class="seven-details" open="open">
+        <summary class="seven-details__summary">Buscar PQRSD:</summary>';
+    $variables['form']['field_request_keywords_target_id']['#suffix'] = '</details>';
+
+    $variables['form']['field_answer_value']['#prefix'] = '
+      <details class="seven-details" open="open">
+        <summary class="seven-details__summary">Filtrar por:</summary>';
+    $variables['form']['field_request_date_red_value']['#suffix'] = '</details>';
+  }
+  
+}
+
+
+/**
+ * Implements hook_form_alter
+ */
+function findeter_user_form_request_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  if($form['#id'] == 'views-exposed-form-user-request-views-page-1' ){
+    $form['#attached']['library'][] = 'findeter_user_form_request/admin_pages';
+  }
+  
+}
