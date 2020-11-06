@@ -334,8 +334,13 @@ class MultiStepForm extends FormBase {
     $newRequest = Node::create(['type' => 'user_request']);
     $newRequest->set('title', 'User request - '.date('U'));
 
+    //to retrive all values at one single array
+    $values = []; 
     foreach($steps as $step){
       foreach($step->getValues() as $field=>$value){
+
+        //adding all values in the same array
+        $values += $step->getValues();
 
         if($field == 'field_request_marketing'){
           if($value){
@@ -376,6 +381,11 @@ class MultiStepForm extends FormBase {
     // channel and way to recipt the PQRSD
     $newRequest->set('field_request_receiving_channel', 'web');
     $newRequest->set('field_request_reception_form', 'electronico');
+
+    // define date of answer
+    $datesConfigure = defineDatesSemaphore($values);
+    $newRequest->set('field_request_date_red', $datesConfigure['red']);
+    $newRequest->set('field_request_date_orange', $datesConfigure['orange']);
 
     $newRequest->enforceIsNew();
     $newRequest->save();

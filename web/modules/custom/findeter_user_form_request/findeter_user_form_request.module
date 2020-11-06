@@ -110,6 +110,27 @@ function findeter_user_form_request_preprocess_views_view_field(&$variables) {
         $variables['output'] = ['#markup' => $htmlOutput];        
       }
 
+      if($field->field == 'field_request_date_orange'){
+        $semaphore = '<div class="gray">Gris</div>';
+        $orangeDate = strtotime($variables['field']->getValue($variables['row']));
+        $redDate = strtotime($view->field['field_request_date_red']->original_value);
+        $timeStamp = strtotime('now');
+        
+        if($timeStamp<$orangeDate){
+          $semaphore = '<div class="green">Verde</div>';
+        }else{
+          if($timeStamp>=$orangeDate && $timeStamp<$redDate){
+            $semaphore = '<div class="orange">Naranja</div>';
+          }else{
+            if($timeStamp>=$redDate){
+              $semaphore = '<div class="red">Rojo</div>';
+            }
+          }
+        }
+
+        $variables['output'] = ['#markup' => $semaphore];
+      }
+
   }
 
 }
@@ -157,4 +178,85 @@ function callBackDeparment(array &$form, FormStateInterface $form_state) {
   $response->addCommand(new ReplaceCommand('#output-municipalities', $renderedField));
     
   return $response;
+}
+
+
+/**
+ * Define behavior of date red/orange for each scene
+ */
+function defineDatesSemaphore($values){
+
+  $answer = [];
+
+  $peticion['none']         = ['sequence'=>'business days','orange' => 8,'red'=>15];
+  $peticion['general']      = ['sequence'=>'business days','orange' => 20,'red'=>30];
+  $peticion['particular']   = ['sequence'=>'business days','orange' => 20,'red'=>30];
+  $peticion['informacion']  = ['sequence'=>'business days','orange' => 15,'red'=>20];
+  $peticion['publica']      = ['sequence'=>'business days','orange' => 15,'red'=>20];
+  $peticion['traslado']     = ['sequence'=>'business days','orange' => 8,'red'=>10];
+  $peticion['cargo']        = ['sequence'=>'business days','orange' => 25,'red'=>35];
+  $peticion['camaras']      = ['sequence'=>'calendar days','orange' => 8,'red'=>10];
+  $peticion['asesoria']     = ['sequence'=>'business days','orange' => 20,'red'=>30];
+  $peticion['irrespetuosa'] = ['sequence'=>'business days','orange' => 8,'red'=>10];
+  $peticion['incompleta|1'] = ['sequence'=>'business days','orange' => 8,'red'=>10];
+  $peticion['incompleta|2'] = ['sequence'=>'business days','orange' => 20,'red'=>30];
+  $peticion['all']          = ['sequence'=>'calendar days','orange' => 3,'red'=>5];
+
+  if($values['field_type_form'] == 'Peticiones'){
+    $typeRequest = $values['field_type_request'];
+    if(isset($peticion[$typeRequest])){
+      $addDays = $peticion[$typeRequest];
+    }else{
+      if(isset($values['field_preferential_attention']) && $values['field_preferential_attention'] == 'congresista'){
+        $addDays = $peticion['all'];
+      }
+    }
+  }else{
+    $addDays = $peticion['none'];
+  }
+
+  //correct day
+  $addDays['orange']--;
+  $addDays['red']--;
+
+  $dateFormat = 'Y-m-d';
+  if($addDays['sequence'] == 'calendar days'){
+    $dateOrange = date($dateFormat,strtotime('tomorrow +'.$addDays['orange'].' days'));
+    $dateRed = date($dateFormat,strtotime('tomorrow +'.$addDays['red'].' days'));
+    $answer = ['orange'=>$dateOrange,'red'=>$dateRed];
+  }else{
+    $dateOrange = date($dateFormat,_getBussinesDays($addDays['orange']));
+    $dateRed = date($dateFormat,_getBussinesDays($addDays['red']));
+    $answer = ['orange'=>$dateOrange,'red'=>$dateRed];
+  }
+  return $answer;
+}
+
+
+/**
+ * Calculate timestamp for bussines day in the future
+ */
+function _getBussinesDays($addDays){
+
+  $timeStamp = strtotime("tomorrow");
+
+  // loop for X days
+  for($i=0; $i<$addDays; $i++){
+
+      // add 1 day to timestamp
+      $addDay = 86400;
+
+      // get what day it is next day
+      $nextDay = date('w', ($timeStamp+$addDay));
+
+      // if it's Saturday or Sunday get $i-1
+      if($nextDay == 0 || $nextDay == 6) {
+          $i--;
+      }
+
+      // modify timestamp, add 1 day
+      $timeStamp = $timeStamp+$addDay;
+  }
+
+  return $timeStamp;
 }

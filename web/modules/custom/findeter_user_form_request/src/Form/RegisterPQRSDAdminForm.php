@@ -477,50 +477,9 @@ class RegisterPQRSDAdminForm extends FormBase {
     $newRequest->uid = $user->id(); 
 
     // define date of answer
-    switch ($form_state->getValue('field_type_form')) {
-      case 'Quejas':
-        $newDate = date('Y-m-d\TH:i:s',strtotime('+15 days'));
-        $newRequest->set('field_request_answer_date', $newDate);
-      break;
-
-      case 'Reclamos':
-        $newDate = date('Y-m-d\TH:i:s',strtotime('+15 days'));
-        $newRequest->set('field_request_answer_date', $newDate);
-      break;
-
-      case 'Sugerencias':
-        $newDate = date('Y-m-d\TH:i:s',strtotime('+15 days'));
-        $newRequest->set('field_request_answer_date', $newDate);
-      break;
-
-      case 'Denuncias':
-        $newDate = date('Y-m-d\TH:i:s',strtotime('+15 days'));
-        $newRequest->set('field_request_answer_date', $newDate);
-      break;
-
-      case 'Peticiones':
-
-        switch($form_state->getValue('field_type_request')){
-          case 'general':
-            $newDate = date('Y-m-d\TH:i:s',strtotime('+30 days'));
-          break;
-          case 'particular':
-            $newDate = date('Y-m-d\TH:i:s',strtotime('+20 days'));
-          break;
-          case 'informacion':
-            $newDate = date('Y-m-d\TH:i:s',strtotime('+35 days'));
-          break;
-          case 'publica':
-            $newDate = date('Y-m-d\TH:i:s',strtotime('+10 days'));
-          break;
-        }
-        
-        $newRequest->set('field_request_answer_date', $newDate);
-      break;
-
-      default:
-        break;
-    }
+    $datesConfigure = defineDatesSemaphore($values);
+    $newRequest->set('field_request_date_red', $datesConfigure['red']);
+    $newRequest->set('field_request_date_orange', $datesConfigure['orange']);
 
     $newRequest->enforceIsNew();
     $newRequest->save();

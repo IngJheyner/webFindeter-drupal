@@ -89,10 +89,17 @@ class StepOne extends BaseStep {
 
     $firstSubmit = $form_state->getTriggeringElement();
     if($firstSubmit['#value'] == 'Peticiones'){
+      $typeRequestValues = $definitions['field_type_request']->getSetting('allowed_values');
+      unset($typeRequestValues['traslado']);
+      unset($typeRequestValues['cargo']);
+      unset($typeRequestValues['camaras']);
+      unset($typeRequestValues['asesoria']);
+      unset($typeRequestValues['irrespetuosa']);
+      
       $formStep['field_type_request'] = [
         '#type'         => 'select',
         '#title'        => '<span class"required">*</span>'.$definitions['field_type_request']->getLabel(),
-        '#options'      => $definitions['field_type_request']->getSetting('allowed_values'),
+        '#options'      => $typeRequestValues,
         '#empty_option' => '-Seleccione una opción-'
       ];
     }
