@@ -308,3 +308,25 @@ function findeter_pqrsd_mail($key, &$message, $params) {
       break;
   }
  }
+
+
+
+ /**
+  * Create a ramdom number
+  */
+  function generarNumeroRadicado(){
+    
+    $numeroRadicado = '';
+    for($i=0;$i<=4;$i++){
+      $numeroRadicado .= rand (0, 9) ;
+    }
+
+    $arrayAbc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+    for($i=0;$i<2;$i++){
+      $rand = rand (0, 25) ;
+      $numeroRadicado .= $arrayAbc[$rand] ;
+    }
+
+    return $numeroRadicado;
+
+  }

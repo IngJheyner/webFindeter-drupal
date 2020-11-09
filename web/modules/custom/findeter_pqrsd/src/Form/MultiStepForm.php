@@ -338,6 +338,14 @@ class MultiStepForm extends FormBase {
     $newRequest = Node::create(['type' => 'pqrsd']);
     $newRequest->set('title', 'User request - '.date('U'));
 
+    $numeroRadicado = generarNumeroRadicado();
+
+    // define title of node
+    $newRequest->set('title', 'Radicado: '.$numeroRadicado.'.'.date('U'));
+
+    // set "# radicado"
+    $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);
+
     //to retrive all values at one single array
     $values = []; 
     foreach($steps as $step){
@@ -391,11 +399,14 @@ class MultiStepForm extends FormBase {
     $newRequest->set('field_pqrsd_fecha_roja', $datesConfigure['red']);
     $newRequest->set('field_pqrsd_fecha_naranja', $datesConfigure['orange']);
 
+    // set "# radicado"
+    $newRequest->set('field_pqrsd_numero_radicado',generarNumeroRadicado());
+
     $newRequest->enforceIsNew();
     $newRequest->save();
 
     // store the nid value of new node created
-    $values['new_nid'] = $newRequest->id();
+    $values['pqrsd_numero_radicado'] = $numeroRadicado;
     $this->step->setValues($values);
   }
 

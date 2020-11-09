@@ -42,9 +42,9 @@ class RegisterPQRSDAdminForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    $new_nid = $form_state->getValue('new_nid');
+    $numeroRadicado = $form_state->getValue('pqrsd_numero_radicado');
 
-    if($new_nid == NULL){
+    if($numeroRadicado == NULL){
 
       $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'pqrsd');
 
@@ -312,7 +312,7 @@ class RegisterPQRSDAdminForm extends FormBase {
       $form['#markup'] = '
         <div class="success">Se registró la PQRSD satisfactoriamente<br>
             El número de radicado es:
-              <span>'.$new_nid.'</span>
+              <span>'.$numeroRadicado.'</span>
         </div>
         <div class="actions-success">Puede:
           <div class="link">'.render($newPQRSDLink).'</div>
@@ -432,7 +432,15 @@ class RegisterPQRSDAdminForm extends FormBase {
     
     //define new node of content type
     $newRequest = Node::create(['type' => 'pqrsd']);
-    $newRequest->set('title', 'User request - '.date('U'));
+
+    $numeroRadicado = generarNumeroRadicado();
+    
+    // define title of node
+    $newRequest->set('title', 'Radicado: '.$numeroRadicado.'.'.date('U'));
+
+    // set "# radicado"
+    $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);
+    
 
     $values = $form_state->getValues();
     foreach($values as $key=>$value){
@@ -483,8 +491,8 @@ class RegisterPQRSDAdminForm extends FormBase {
     $newRequest->enforceIsNew();
     $newRequest->save();
     $form_state->setRebuild();
-    $form['new_nid'] = $newRequest->id();
-    $form_state->setValue('new_nid',$newRequest->id());
+    $form['pqrsd_numero_radicado'] = $numeroRadicado;
+    $form_state->setValue('pqrsd_numero_radicado',$numeroRadicado);
 
   } 
 
