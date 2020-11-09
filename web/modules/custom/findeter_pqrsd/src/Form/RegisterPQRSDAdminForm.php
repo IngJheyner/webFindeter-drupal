@@ -296,8 +296,6 @@ class RegisterPQRSDAdminForm extends FormBase {
         '#value' => 'Guardar',
       ];
 
-      
-
     }else{
 
       $newPQRSD = Url::fromRoute('findeter_pqrsd.register_pqrsd_admin');
@@ -307,7 +305,6 @@ class RegisterPQRSDAdminForm extends FormBase {
       $adminPage = Url::fromRoute('view.pqrsd.page_1');
       $adminPageLink = Link::fromTextAndUrl('Ir al panel de administración', $adminPage);
       $adminPageLink = $adminPageLink->toRenderable();
-
 
       $form['#markup'] = '
         <div class="success">Se registró la PQRSD satisfactoriamente<br>

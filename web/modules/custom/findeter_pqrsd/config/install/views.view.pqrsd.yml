@@ -15,6 +15,7 @@ dependencies:
     - field.storage.node.field_pqrsd_municipio
     - field.storage.node.field_pqrsd_nombre_producto
     - field.storage.node.field_pqrsd_numero_id
+    - field.storage.node.field_pqrsd_numero_radicado
     - field.storage.node.field_pqrsd_preferencial
     - field.storage.node.field_pqrsd_primer_apellido
     - field.storage.node.field_pqrsd_primer_nombre
@@ -102,7 +103,7 @@ display:
           description: ''
           columns:
             field_pqrsd_preferencial: field_pqrsd_preferencial
-            nid: nid
+            field_pqrsd_numero_radicado: field_pqrsd_numero_radicado
             uid: uid
             created: created
             field_pqrsd_fecha_roja: field_pqrsd_fecha_roja
@@ -135,7 +136,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            nid:
+            field_pqrsd_numero_radicado:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -320,6 +321,72 @@ display:
           hide_empty: false
           default_field_elements: true
       fields:
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
         field_pqrsd_preferencial:
           id: field_pqrsd_preferencial
           table: node__field_pqrsd_preferencial
@@ -382,14 +449,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        nid:
-          id: nid
-          table: node_field_data
-          field: nid
+        field_pqrsd_numero_radicado:
+          id: field_pqrsd_numero_radicado
+          table: node__field_pqrsd_numero_radicado
+          field: field_pqrsd_numero_radicado
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'No. Radicado'
+          label: '# Radicado'
           exclude: false
           alter:
             alter_text: false
@@ -431,10 +498,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: number_integer
+          type: string
           settings:
-            thousand_separator: ''
-            prefix_suffix: false
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -445,8 +511,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: nid
           plugin_id: field
         uid:
           id: uid
@@ -1937,29 +2001,26 @@ display:
           entity_type: node
           plugin_id: entity_link
       filters:
-        nid:
-          id: nid
-          table: node_field_data
-          field: nid
+        field_pqrsd_numero_radicado_value:
+          id: field_pqrsd_numero_radicado_value
+          table: node__field_pqrsd_numero_radicado
+          field: field_pqrsd_numero_radicado_value
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
+          operator: contains
+          value: ''
           group: 1
           exposed: true
           expose:
-            operator_id: nid_op
+            operator_id: field_pqrsd_numero_radicado_value_op
             label: '# Radicado'
             description: ''
             use_operator: false
-            operator: nid_op
+            operator: field_pqrsd_numero_radicado_value_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: nid
+            identifier: id_radicado
             required: false
             remember: false
             multiple: false
@@ -1970,8 +2031,6 @@ display:
               revisol: '0'
               auditor: '0'
             placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -1984,9 +2043,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
-          entity_field: nid
-          plugin_id: numeric
+          plugin_id: string
         field_pqrsd_numero_id_value:
           id: field_pqrsd_numero_id_value
           table: node__field_pqrsd_numero_id
@@ -2612,6 +2669,7 @@ display:
         - 'config:field.storage.node.field_pqrsd_municipio'
         - 'config:field.storage.node.field_pqrsd_nombre_producto'
         - 'config:field.storage.node.field_pqrsd_numero_id'
+        - 'config:field.storage.node.field_pqrsd_numero_radicado'
         - 'config:field.storage.node.field_pqrsd_preferencial'
         - 'config:field.storage.node.field_pqrsd_primer_apellido'
         - 'config:field.storage.node.field_pqrsd_primer_nombre'
@@ -2652,6 +2710,7 @@ display:
         - 'config:field.storage.node.field_pqrsd_municipio'
         - 'config:field.storage.node.field_pqrsd_nombre_producto'
         - 'config:field.storage.node.field_pqrsd_numero_id'
+        - 'config:field.storage.node.field_pqrsd_numero_radicado'
         - 'config:field.storage.node.field_pqrsd_preferencial'
         - 'config:field.storage.node.field_pqrsd_primer_apellido'
         - 'config:field.storage.node.field_pqrsd_primer_nombre'

@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.pqrsd.field_pqrsd_nit
     - field.field.node.pqrsd.field_pqrsd_nombre_producto
     - field.field.node.pqrsd.field_pqrsd_numero_id
+    - field.field.node.pqrsd.field_pqrsd_numero_radicado
     - field.field.node.pqrsd.field_pqrsd_otros
     - field.field.node.pqrsd.field_pqrsd_palabras_clave
     - field.field.node.pqrsd.field_pqrsd_preferencial
@@ -36,9 +37,9 @@ dependencies:
     - field.field.node.pqrsd.field_pqrsd_segundo_apellido
     - field.field.node.pqrsd.field_pqrsd_segundo_nombre
     - field.field.node.pqrsd.field_pqrsd_telefono
-    - field.field.node.pqrsd.field_pqrsd_tipo_empresa
     - field.field.node.pqrsd.field_pqrsd_tipo_discapacidad
     - field.field.node.pqrsd.field_pqrsd_tipo_documento
+    - field.field.node.pqrsd.field_pqrsd_tipo_empresa
     - field.field.node.pqrsd.field_pqrsd_tipo_peticion
     - field.field.node.pqrsd.field_pqrsd_tipo_radicado
     - field.field.node.pqrsd.field_pqrsd_tipo_solicitante
@@ -266,12 +267,6 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_pqrsd_tipo_empresa:
-    weight: 35
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
   field_pqrsd_tipo_discapacidad:
     weight: 41
     settings: {  }
@@ -280,6 +275,12 @@ content:
     region: content
   field_pqrsd_tipo_documento:
     weight: 39
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_pqrsd_tipo_empresa:
+    weight: 35
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -357,6 +358,7 @@ content:
 hidden:
   field_pqrsd_fecha_naranja: true
   field_pqrsd_fecha_roja: true
+  field_pqrsd_numero_radicado: true
   field_pqrsd_respuesta: true
   field_pqrsd_respuesta_a_favor: true
   field_pqrsd_respuesta_archivos: true

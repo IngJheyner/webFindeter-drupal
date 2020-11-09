@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.pqrsd.field_pqrsd_nit
     - field.field.node.pqrsd.field_pqrsd_nombre_producto
     - field.field.node.pqrsd.field_pqrsd_numero_id
+    - field.field.node.pqrsd.field_pqrsd_numero_radicado
     - field.field.node.pqrsd.field_pqrsd_otros
     - field.field.node.pqrsd.field_pqrsd_palabras_clave
     - field.field.node.pqrsd.field_pqrsd_preferencial
@@ -36,9 +37,9 @@ dependencies:
     - field.field.node.pqrsd.field_pqrsd_segundo_apellido
     - field.field.node.pqrsd.field_pqrsd_segundo_nombre
     - field.field.node.pqrsd.field_pqrsd_telefono
-    - field.field.node.pqrsd.field_pqrsd_tipo_empresa
     - field.field.node.pqrsd.field_pqrsd_tipo_discapacidad
     - field.field.node.pqrsd.field_pqrsd_tipo_documento
+    - field.field.node.pqrsd.field_pqrsd_tipo_empresa
     - field.field.node.pqrsd.field_pqrsd_tipo_peticion
     - field.field.node.pqrsd.field_pqrsd_tipo_radicado
     - field.field.node.pqrsd.field_pqrsd_tipo_solicitante
@@ -205,6 +206,14 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_pqrsd_numero_radicado:
+    weight: 140
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_pqrsd_otros:
     weight: 121
     label: above
@@ -305,13 +314,6 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_pqrsd_tipo_empresa:
-    weight: 133
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
   field_pqrsd_tipo_discapacidad:
     weight: 139
     label: above
@@ -321,6 +323,13 @@ content:
     region: content
   field_pqrsd_tipo_documento:
     weight: 137
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_pqrsd_tipo_empresa:
+    weight: 133
     label: above
     settings: {  }
     third_party_settings: {  }

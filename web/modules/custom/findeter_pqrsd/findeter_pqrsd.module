@@ -269,7 +269,7 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
   if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-1'){
 
     // for exposed user request filters, join all inputs in two fieldsets
-    $variables['form']['nid']['#prefix'] = '
+    $variables['form']['id_radicado']['#prefix'] = '
       <details class="seven-details" open="open">
         <summary class="seven-details__summary">Buscar PQRSD:</summary>';
     $variables['form']['palabras-clave']['#suffix'] = '</details>';
@@ -315,7 +315,7 @@ function findeter_pqrsd_mail($key, &$message, $params) {
   * Create a ramdom number
   */
   function generarNumeroRadicado(){
-    
+
     $numeroRadicado = '';
     for($i=0;$i<=4;$i++){
       $numeroRadicado .= rand (0, 9) ;
