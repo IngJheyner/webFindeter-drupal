@@ -14,6 +14,14 @@ findeter_pqrsd.asign_pqrsd:
   requirements:
     _access: 'TRUE'
 
+findeter_pqrsd.transfer_pqrsd:
+  path: '/pqrsd/transfer-pqrsd/{nid}'
+  defaults:
+    _form: '\Drupal\findeter_pqrsd\Form\TransferPQRSD'
+    _title: 'Asignar requerimiento'
+  requirements:
+    _permission: 'access content'
+
 findeter_pqrsd.answer_pqrsd:
   path: '/pqrsd/answer-pqrsd-ajax/{nid}'
   defaults:

@@ -86,7 +86,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
           $modalLink['#attributes'] = $modalOptions;
           $htmlOutput .= render($modalLink).'<br>';
 
-          $url = Url::fromRoute('findeter_pqrsd.asign_pqrsd',['nid' => $nid]);
+          $url = Url::fromRoute('findeter_pqrsd.transfer_pqrsd',['nid' => $nid]);
           $modalLink = Link::fromTextAndUrl('Trasladar', $url);
           $modalLink = $modalLink->toRenderable();
           $modalLink['#attributes'] = $modalOptions;
@@ -293,3 +293,18 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
   }
   
 }
+
+
+/**
+* Implements hook_mail().
+*/
+function findeter_pqrsd_mail($key, &$message, $params) {
+ 
+  switch ($key) {
+    case 'traslado':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = 'Se realizó el traslado de una PQRSD';
+      $message['body'][] = $params['message'];
+      break;
+  }
+ }
