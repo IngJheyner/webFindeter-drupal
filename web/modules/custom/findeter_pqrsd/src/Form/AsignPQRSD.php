@@ -12,15 +12,15 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\node\Entity\Node;
 
 /**
- * Class AsignRequest.
+ * Class AsignPQRSD.
  */
-class AsignRequest extends FormBase {
+class AsignPQRSD extends FormBase {
 
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'asign_request';
+    return 'asign_pqrsd';
   }
 
   /**
@@ -105,7 +105,7 @@ class AsignRequest extends FormBase {
 
     $node = Node::load($formValues['node_id']);
     $user = \Drupal\user\Entity\User::load($formValues['users']);
-    $node->field_request_designatations[] = $user->getUsername().' | '.$user->id().' | '.date('j/m/Y H:i:s');
+    $node->field_pqrsd_asignaciones[] = $user->getUsername().' | '.$user->id().' | '.date('j/m/Y H:i:s');
     $node->uid = $user->id(); 
     $node->save();
 

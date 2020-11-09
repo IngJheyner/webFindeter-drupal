@@ -6,26 +6,18 @@ findeter_pqrsd.multistep:
   requirements:
     _access: 'TRUE'
 
-findeter_pqrsd.user_request_ajax_response:
-  path: '/pqrsd/user-request-ajax-response'
+findeter_pqrsd.asign_pqrsd:
+  path: '/pqrsd/pqrsd-ajax-asign/{nid}'
   defaults:
-    _controller: '\Drupal\findeter_pqrsd\Controller\UserRequestAjaxResponse::ajaxResponse'
-    _title: 'Ajax response'
-  requirements:
-    _permission: 'access content'
-
-findeter_pqrsd.asign_request:
-  path: '/pqrsd/user-request-ajax-asign/{nid}'
-  defaults:
-    _form: '\Drupal\findeter_pqrsd\Form\AsignRequest'
+    _form: '\Drupal\findeter_pqrsd\Form\AsignPQRSD'
     _title: 'Asignar requerimiento'
   requirements:
     _access: 'TRUE'
 
-findeter_pqrsd.answer_request:
-  path: '/pqrsd/user-answer-ajax/{nid}'
+findeter_pqrsd.answer_pqrsd:
+  path: '/pqrsd/answer-pqrsd-ajax/{nid}'
   defaults:
-    _form: '\Drupal\findeter_pqrsd\Form\AnswerRequest'
+    _form: '\Drupal\findeter_pqrsd\Form\AnswerPQRSD'
     _title: 'Responder requerimiento'
   requirements:
     _access: 'TRUE'
@@ -42,7 +34,7 @@ findeter_pqrsd.findeter_admin_form:
   path: '/admin/pqrsd'
   defaults:
     _form: '\Drupal\findeter_pqrsd\Form\FindeterAdminForm'
-    _title: 'Administración de registro de petición de usuarios'
+    _title: 'Administración de PQRSD'
   requirements:
     _permission: 'access administration pages'
   options:
@@ -52,7 +44,7 @@ findeter_pqrsd.register_pqrsd_admin:
   path: '/admin/registrar-pqrsd'
   defaults:
     _form: '\Drupal\findeter_pqrsd\Form\RegisterPQRSDAdminForm'
-    _title: 'Registro de petición de usuarios'
+    _title: 'Registro de PQRSD'
   requirements:
     _access: 'TRUE'
 
@@ -65,7 +57,7 @@ findeter_pqrsd.autocomplete.users:
     _permission: 'access content'
 
 findeter_pqrsd.userslist:
-  path: '/admin/pqrsd/userslist'
+  path: '/pqrsd/userslist'
   defaults:
     _controller: '\Drupal\findeter_pqrsd\Controller\UsersAutoCompleteController::handleList'
     _title: 'Lista de usuarios para asignar'

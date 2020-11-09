@@ -80,19 +80,19 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
           $htmlOutput .=render($modalLink);
 
 
-          $url = Url::fromRoute('findeter_pqrsd.asign_request',['nid' => $nid]);
+          $url = Url::fromRoute('findeter_pqrsd.asign_pqrsd',['nid' => $nid]);
           $modalLink = Link::fromTextAndUrl('Asignar', $url);
           $modalLink = $modalLink->toRenderable();
           $modalLink['#attributes'] = $modalOptions;
           $htmlOutput .= render($modalLink).'<br>';
 
-          $url = Url::fromRoute('findeter_pqrsd.asign_request',['nid' => $nid]);
+          $url = Url::fromRoute('findeter_pqrsd.asign_pqrsd',['nid' => $nid]);
           $modalLink = Link::fromTextAndUrl('Trasladar', $url);
           $modalLink = $modalLink->toRenderable();
           $modalLink['#attributes'] = $modalOptions;
           $htmlOutput .= render($modalLink).'<br>';
 
-          $url = Url::fromRoute('findeter_pqrsd.answer_request',['nid' => $nid]);
+          $url = Url::fromRoute('findeter_pqrsd.answer_pqrsd',['nid' => $nid]);
           $modalLink = Link::fromTextAndUrl('Responder', $url);
           $modalLink = $modalLink->toRenderable();
           $modalLink['#attributes'] = $modalOptions;
