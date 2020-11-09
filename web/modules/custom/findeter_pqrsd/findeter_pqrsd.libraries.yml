@@ -1,0 +1,14 @@
+global-scripts:
+  version: 1.x.0
+  js:
+    js/findeter_pqrsd.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+admin_pages:
+  version: 1.x.0
+  css:
+    theme:
+      css/admin.css: {}
+  js:
+    js/admin_node_form.js: {}

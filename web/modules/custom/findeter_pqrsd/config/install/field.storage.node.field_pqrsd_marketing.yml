@@ -1,0 +1,24 @@
+uuid: b877861f-2dc2-4ac1-b2cf-ec618cedad76
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_pqrsd_marketing
+field_name: field_pqrsd_marketing
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: autorizacion_marketing
+      label: 'Autorizo a FINDETER el envío o suministro de información de interés a través de mi correo electrónico y/o celular.'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
