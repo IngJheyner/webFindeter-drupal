@@ -1,22 +1,22 @@
-uuid: 0d93af4e-d890-4f35-8400-634575eceab6
+uuid: 27b8e685-153b-4243-a15e-c03c1e79ca13
 langcode: es
 status: true
 dependencies:
   config:
-    - field.storage.taxonomy_term.field_programa
-    - taxonomy.vocabulary.convenio
-    - taxonomy.vocabulary.programa
+    - field.storage.node.field_convcatoria_contratacion
+    - node.type.convocatorias
+    - taxonomy.vocabulary.modalidad_contratacion
   module:
     - disable_field
 third_party_settings:
   disable_field:
     add_disable: none
     edit_disable: none
-id: taxonomy_term.convenio.field_programa
-field_name: field_programa
-entity_type: taxonomy_term
-bundle: convenio
-label: Programa
+id: node.convocatorias.field_convcatoria_contratacion
+field_name: field_convcatoria_contratacion
+entity_type: node
+bundle: convocatorias
+label: 'Modalidad de contratación'
 description: ''
 required: false
 translatable: false
@@ -26,7 +26,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      programa: programa
+      modalidad_contratacion: modalidad_contratacion
     sort:
       field: name
       direction: asc

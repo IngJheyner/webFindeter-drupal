@@ -1,0 +1,161 @@
+uuid: 59d16092-5206-4333-b77e-8a12c886bd09
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.convocatorias.body
+    - field.field.node.convocatorias.field_convcatoria_actividad
+    - field.field.node.convocatorias.field_convcatoria_archivos
+    - field.field.node.convocatorias.field_convcatoria_codigo_proceso
+    - field.field.node.convocatorias.field_convcatoria_contratacion
+    - field.field.node.convocatorias.field_convcatoria_departamento
+    - field.field.node.convocatorias.field_convcatoria_email_proceso
+    - field.field.node.convocatorias.field_convcatoria_estado
+    - field.field.node.convocatorias.field_convcatoria_fecha_apertura
+    - field.field.node.convocatorias.field_convcatoria_objeto
+    - field.field.node.convocatorias.field_convcatoria_presupuesto
+    - field.field.node.convocatorias.field_convcatoria_programa
+    - field.field.node.convocatorias.field_convcatoria_tipo
+    - field.field.node.convocatorias.field_convcatoria_tipo_contratac
+    - node.type.convocatorias
+  module:
+    - datetime
+    - field_formatter_class
+    - media
+    - options
+    - text
+    - user
+id: node.convocatorias.default
+targetEntityType: node
+bundle: convocatorias
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_convcatoria_actividad:
+    weight: 114
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_convcatoria_archivos:
+    type: media_thumbnail
+    weight: 111
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+  field_convcatoria_codigo_proceso:
+    weight: 106
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_convcatoria_contratacion:
+    weight: 112
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_convcatoria_departamento:
+    weight: 110
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: entity_reference_entity_view
+    region: content
+  field_convcatoria_email_proceso:
+    weight: 116
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_convcatoria_estado:
+    weight: 103
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_convcatoria_fecha_apertura:
+    weight: 108
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: datetime_default
+    region: content
+  field_convcatoria_objeto:
+    weight: 109
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_convcatoria_presupuesto:
+    weight: 107
+    label: above
+    settings:
+      thousand_separator: ','
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: number_decimal
+    region: content
+  field_convcatoria_programa:
+    weight: 104
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_convcatoria_tipo:
+    weight: 113
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_convcatoria_tipo_contratac:
+    weight: 115
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

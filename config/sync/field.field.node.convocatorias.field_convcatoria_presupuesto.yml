@@ -1,0 +1,29 @@
+uuid: b50f2f9a-be4c-4191-bf6b-186fae14dfe7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_convcatoria_presupuesto
+    - node.type.convocatorias
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.convocatorias.field_convcatoria_presupuesto
+field_name: field_convcatoria_presupuesto
+entity_type: node
+bundle: convocatorias
+label: Presupuesto
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: null
+  prefix: $
+  suffix: cop
+field_type: decimal

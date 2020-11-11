@@ -1,0 +1,35 @@
+uuid: 7d585825-db3b-40e9-9e1f-3b6d627ac714
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_convcatoria_tipo_contratac
+    - node.type.convocatorias
+    - taxonomy.vocabulary.convcatoria_contratacion
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.convocatorias.field_convcatoria_tipo_contratac
+field_name: field_convcatoria_tipo_contratac
+entity_type: node
+bundle: convocatorias
+label: 'Tipo de Contratacion'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      convcatoria_contratacion: convcatoria_contratacion
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

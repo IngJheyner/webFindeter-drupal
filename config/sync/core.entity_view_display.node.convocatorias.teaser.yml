@@ -1,0 +1,59 @@
+uuid: 28187952-7a6c-489f-bda6-955a0210777f
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.convocatorias.body
+    - field.field.node.convocatorias.field_convcatoria_actividad
+    - field.field.node.convocatorias.field_convcatoria_archivos
+    - field.field.node.convocatorias.field_convcatoria_codigo_proceso
+    - field.field.node.convocatorias.field_convcatoria_contratacion
+    - field.field.node.convocatorias.field_convcatoria_departamento
+    - field.field.node.convocatorias.field_convcatoria_email_proceso
+    - field.field.node.convocatorias.field_convcatoria_estado
+    - field.field.node.convocatorias.field_convcatoria_fecha_apertura
+    - field.field.node.convocatorias.field_convcatoria_objeto
+    - field.field.node.convocatorias.field_convcatoria_presupuesto
+    - field.field.node.convocatorias.field_convcatoria_programa
+    - field.field.node.convocatorias.field_convcatoria_tipo
+    - field.field.node.convocatorias.field_convcatoria_tipo_contratac
+    - node.type.convocatorias
+  module:
+    - text
+    - user
+id: node.convocatorias.teaser
+targetEntityType: node
+bundle: convocatorias
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  field_convcatoria_actividad: true
+  field_convcatoria_archivos: true
+  field_convcatoria_codigo_proceso: true
+  field_convcatoria_contratacion: true
+  field_convcatoria_departamento: true
+  field_convcatoria_email_proceso: true
+  field_convcatoria_estado: true
+  field_convcatoria_fecha_apertura: true
+  field_convcatoria_objeto: true
+  field_convcatoria_presupuesto: true
+  field_convcatoria_programa: true
+  field_convcatoria_tipo: true
+  field_convcatoria_tipo_contratac: true
+  langcode: true
+  search_api_excerpt: true

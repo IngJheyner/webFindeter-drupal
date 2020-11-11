@@ -1,12 +1,13 @@
-uuid: 3c673836-2dff-414d-bad5-94b424baf8fb
+uuid: 7afa292d-10d6-4d36-97ce-b9e270dd79df
 langcode: es
 status: true
 dependencies:
   module:
+    - node
     - taxonomy
-id: taxonomy_term.field_programa
-field_name: field_programa
-entity_type: taxonomy_term
+id: node.field_convcatoria_actividad
+field_name: field_convcatoria_actividad
+entity_type: node
 type: entity_reference
 settings:
   target_type: taxonomy_term
