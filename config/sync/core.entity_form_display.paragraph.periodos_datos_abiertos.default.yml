@@ -1,0 +1,43 @@
+uuid: 570d0810-983f-4ba1-8a75-8d9728376c71
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.periodos_datos_abiertos.field_archivos_datos_abiertos
+    - field.field.paragraph.periodos_datos_abiertos.field_contenido_datos_abierto
+    - field.field.paragraph.periodos_datos_abiertos.field_titulo_periodo
+    - paragraphs.paragraphs_type.periodos_datos_abiertos
+  module:
+    - file
+    - text
+id: paragraph.periodos_datos_abiertos.default
+targetEntityType: paragraph
+bundle: periodos_datos_abiertos
+mode: default
+content:
+  field_archivos_datos_abiertos:
+    weight: 2
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_contenido_datos_abierto:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_titulo_periodo:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

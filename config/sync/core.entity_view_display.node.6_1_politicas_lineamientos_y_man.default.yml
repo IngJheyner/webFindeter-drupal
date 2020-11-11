@@ -1,0 +1,31 @@
+uuid: 71d5d487-c5fe-4fba-bb97-61e6482fbebd
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.6_1_politicas_lineamientos_y_man.field_cont_politicas_lineamiento
+    - node.type.6_1_politicas_lineamientos_y_man
+  module:
+    - text
+    - user
+id: node.6_1_politicas_lineamientos_y_man.default
+targetEntityType: node
+bundle: 6_1_politicas_lineamientos_y_man
+mode: default
+content:
+  field_cont_politicas_lineamiento:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

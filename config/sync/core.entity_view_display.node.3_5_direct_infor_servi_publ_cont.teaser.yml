@@ -1,0 +1,25 @@
+uuid: f9170e61-8708-4b31-9d0c-7589e9b5985a
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.3_5_direct_infor_servi_publ_cont.field_cont_descr_direct_servidor
+    - node.type.3_5_direct_infor_servi_publ_cont
+  module:
+    - user
+id: node.3_5_direct_infor_servi_publ_cont.teaser
+targetEntityType: node
+bundle: 3_5_direct_infor_servi_publ_cont
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  field_cont_descr_direct_servidor: true
+  langcode: true
+  search_api_excerpt: true

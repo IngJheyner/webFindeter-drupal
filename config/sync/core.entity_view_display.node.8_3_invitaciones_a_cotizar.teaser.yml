@@ -1,0 +1,33 @@
+uuid: 0a213645-e74a-409d-a3de-eb173563e233
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.8_3_invitaciones_a_cotizar.body
+    - node.type.8_3_invitaciones_a_cotizar
+  module:
+    - text
+    - user
+id: node.8_3_invitaciones_a_cotizar.teaser
+targetEntityType: node
+bundle: 8_3_invitaciones_a_cotizar
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

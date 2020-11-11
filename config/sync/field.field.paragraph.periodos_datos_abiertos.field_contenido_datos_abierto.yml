@@ -1,0 +1,21 @@
+uuid: b1093f9d-2302-4676-ad70-f5e4923ba1b6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contenido_datos_abierto
+    - paragraphs.paragraphs_type.periodos_datos_abiertos
+  module:
+    - text
+id: paragraph.periodos_datos_abiertos.field_contenido_datos_abierto
+field_name: field_contenido_datos_abierto
+entity_type: paragraph
+bundle: periodos_datos_abiertos
+label: 'Contenido datos abierto'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

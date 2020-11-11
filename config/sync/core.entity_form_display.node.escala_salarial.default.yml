@@ -1,0 +1,129 @@
+uuid: 869830f9-007f-4238-8b3b-bab4f5bae466
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.escala_salarial.field_contenido_escala_salarial
+    - node.type.escala_salarial
+  module:
+    - field_group
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_tabs_escala_salarial:
+      children:
+        - group_informacion
+        - group_contenido
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: tabs_escala_salarial
+    group_informacion:
+      children:
+        - title
+        - langcode
+        - uid
+        - created
+      parent_name: group_tabs_escala_salarial
+      weight: 10
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Información
+    group_contenido:
+      children:
+        - field_contenido_escala_salarial
+      parent_name: group_tabs_escala_salarial
+      weight: 11
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: contenido
+id: node.escala_salarial.default
+targetEntityType: node
+bundle: escala_salarial
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_contenido_escala_salarial:
+    weight: 5
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 1
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 2
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

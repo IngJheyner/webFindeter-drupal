@@ -1,0 +1,22 @@
+uuid: e42437b3-0d34-4da9-925c-3cc83b6bfda3
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.1_3_politicas_seguridad_informac
+id: node.1_3_politicas_seguridad_informac.promote
+field_name: promote
+entity_type: node
+bundle: 1_3_politicas_seguridad_informac
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

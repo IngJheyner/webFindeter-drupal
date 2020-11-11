@@ -1,0 +1,22 @@
+uuid: 92283d21-fe84-4980-b20a-01986abb3209
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.8_6_plan_anual_de_adquisiciones
+id: node.8_6_plan_anual_de_adquisiciones.promote
+field_name: promote
+entity_type: node
+bundle: 8_6_plan_anual_de_adquisiciones
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

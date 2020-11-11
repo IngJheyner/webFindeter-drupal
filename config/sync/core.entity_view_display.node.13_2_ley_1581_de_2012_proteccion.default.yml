@@ -1,0 +1,31 @@
+uuid: bf754b2d-24be-48e2-895b-3542ce329bac
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.13_2_ley_1581_de_2012_proteccion.field_contenido_protecc_datos
+    - node.type.13_2_ley_1581_de_2012_proteccion
+  module:
+    - text
+    - user
+id: node.13_2_ley_1581_de_2012_proteccion.default
+targetEntityType: node
+bundle: 13_2_ley_1581_de_2012_proteccion
+mode: default
+content:
+  field_contenido_protecc_datos:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

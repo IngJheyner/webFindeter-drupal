@@ -1,0 +1,22 @@
+uuid: 3645c509-60ff-4044-9442-5b5b68172cd8
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.4_3_sistema_unico_de_informacion
+id: node.4_3_sistema_unico_de_informacion.promote
+field_name: promote
+entity_type: node
+bundle: 4_3_sistema_unico_de_informacion
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
