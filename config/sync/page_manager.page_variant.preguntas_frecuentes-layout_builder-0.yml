@@ -1,0 +1,91 @@
+uuid: 51cc5c56-ca17-4bfa-b7b0-aaad4e94ccc0
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.preguntas_frecuentes
+id: preguntas_frecuentes-layout_builder-0
+label: 'Preguntas Frecuentes'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: 53acf8c0-4238-42ab-b691-d97a3d72dccc
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_1col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          main:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|my-5
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        bbd80a7f-1daf-4585-b2fc-4e400767aa69:
+          uuid: bbd80a7f-1daf-4585-b2fc-4e400767aa69
+          region: top
+          configuration:
+            id: 'block_content:b96fe7bd-33c9-4b7d-849a-7515c598cadb'
+            label: 'Preguntas Frecuentes [ Encabezado ]'
+            provider: block_content
+            label_display: '0'
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 3
+        e4c5e593-240c-4ec0-a3b1-b09f10a06760:
+          uuid: e4c5e593-240c-4ec0-a3b1-b09f10a06760
+          region: main
+          configuration:
+            id: 'views_block:preguntas_frecuentes-preguntas_frecuentes'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: -9
+        4a107431-53a4-42cd-a9a3-2a815a98d28a:
+          uuid: 4a107431-53a4-42cd-a9a3-2a815a98d28a
+          region: main
+          configuration:
+            id: 'views_block:tema_categoria_preguntas_frecuentes-tema_categoria_preguntas_frecuentes'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: -10
+      third_party_settings: {  }
+page: preguntas_frecuentes
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

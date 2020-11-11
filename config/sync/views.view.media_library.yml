@@ -49,8 +49,8 @@ display:
         options:
           submit_button: 'Aplicar Filtros'
           reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
           expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
@@ -252,7 +252,7 @@ display:
           exposed: true
           expose:
             operator_id: name_op
-            label: Name
+            label: Nombre
             description: ''
             use_operator: false
             operator: name_op
@@ -420,7 +420,7 @@ display:
           order: DESC
           exposed: true
           expose:
-            label: 'Newest first'
+            label: 'El más nuevo primero'
           granularity: second
           entity_type: media
           entity_field: created
@@ -435,7 +435,7 @@ display:
           order: ASC
           exposed: true
           expose:
-            label: 'Name (A-Z)'
+            label: 'Nombre (A-Z)'
           entity_type: media
           entity_field: name
           plugin_id: standard
@@ -449,7 +449,7 @@ display:
           order: DESC
           exposed: true
           expose:
-            label: 'Name (Z-A)'
+            label: 'Nombre (Z-A)'
           entity_type: media
           entity_field: name
           plugin_id: standard
@@ -466,7 +466,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: 'No media available.'
+          content: 'No hay medios disponibles.'
           plugin_id: text_custom
       relationships: {  }
       display_extenders: {  }
@@ -657,7 +657,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: edit
+          text: Editar
           output_url_as_text: false
           absolute: false
           entity_type: media
@@ -710,7 +710,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: Delete
+          text: Eliminar
           output_url_as_text: false
           absolute: false
           entity_type: media
@@ -956,7 +956,7 @@ display:
           exposed: true
           expose:
             operator_id: name_op
-            label: Name
+            label: Nombre
             description: ''
             use_operator: false
             operator: name_op
@@ -1085,7 +1085,7 @@ display:
           table: views
           field: display_link
           display_id: widget_table
-          label: Table
+          label: Tabla
           plugin_id: display_link
           empty: true
       css_class: ''
@@ -1150,7 +1150,7 @@ display:
             image_link: ''
         name:
           id: name
-          label: Name
+          label: Nombre
           table: media_field_data
           field: name
           relationship: none
@@ -1244,7 +1244,7 @@ display:
           exposed: true
           expose:
             operator_id: name_op
-            label: Name
+            label: Nombre
             description: ''
             use_operator: false
             operator: name_op
@@ -1373,7 +1373,7 @@ display:
           table: views
           field: display_link
           display_id: widget_table
-          label: Table
+          label: Tabla
           plugin_id: display_link
           empty: true
       css_class: ''

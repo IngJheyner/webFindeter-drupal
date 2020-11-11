@@ -1,0 +1,35 @@
+uuid: 51423910-bfa4-4f4e-aea7-ba02d08486e5
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.glosario.body
+    - field.field.node.glosario.field_etiqueta_glosario
+    - node.type.glosario
+  module:
+    - text
+    - user
+id: node.glosario.teaser
+targetEntityType: node
+bundle: glosario
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  field_etiqueta_glosario: true
+  langcode: true
+  search_api_excerpt: true

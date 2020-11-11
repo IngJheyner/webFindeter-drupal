@@ -1,0 +1,78 @@
+uuid: ee5c2f17-4f74-4aeb-9b9f-bbf1ab9434dc
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.tema_o_categoria_preguntas_frecuentes
+id: tema_o_categoria_preguntas_frecuentes-layout_builder-0
+label: Tema
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: 267da74d-5044-4f6f-8b98-ab8af7bf7b18
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_1col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+          main:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|my-5
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        8ad423c0-4d0e-4488-8c5d-4443996a4c83:
+          uuid: 8ad423c0-4d0e-4488-8c5d-4443996a4c83
+          region: main
+          configuration:
+            id: 'views_block:preguntas_frecuentes-block_1'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        9023ff19-4608-425e-81f2-e9abf40c3409:
+          uuid: 9023ff19-4608-425e-81f2-e9abf40c3409
+          region: top
+          configuration:
+            id: 'block_content:b96fe7bd-33c9-4b7d-849a-7515c598cadb'
+            label: 'Preguntas Frecuentes [ Encabezado ]'
+            provider: block_content
+            label_display: '0'
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+      third_party_settings: {  }
+page: tema_o_categoria_preguntas_frecuentes
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

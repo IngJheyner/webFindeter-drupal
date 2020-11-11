@@ -39,9 +39,19 @@ INPUTS
 }
 
 /* ==============================
+BREADCRUMB(MIGAS DE PAN)
+============================== */
+nav#breadcrumb {
+  background-color: #e5e5e5;
+}
+nav#breadcrumb ol {
+  background-color: initial;
+}
+
+/* ==============================
 ESTILOS GLOBALES
 ============================== */
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
   color: #296294;
   font-weight: 400;
   margin: 0;
@@ -1535,6 +1545,9 @@ section.boletinBlog form input[type=email] {
 section.boletinBlog form input[type=submit] {
   line-height: 2.6;
 }
+section.boletinBlog form p.politicas a {
+  color: #00993e;
+}
 
 /* ==============================
 MEDIA QUERY
@@ -1612,6 +1625,198 @@ MEDIA QUERY
     text-align: center;
     margin-top: 1rem;
   }
+}
+/* ==============================
+INTERNAS
+============================== */
+/* ===== ===== Transparencia ===== ===== */
+/* ===== ===== Encabezado ===== ===== */
+/* ==============================
+COLORES
+============================== */
+div.transparenciaAcceso figure.transparenciaAcceso {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  height: 23rem;
+  transform: translate(0, -13rem);
+}
+div.transparenciaAcceso figure.transparenciaAcceso img {
+  height: 100%;
+}
+div.transparenciaAcceso h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+div.transparenciaAcceso div.titulo {
+  border-bottom: 1px solid #296294;
+  padding-bottom: 20px;
+}
+div.transparenciaAcceso div.titulo h1 {
+  position: relative;
+  width: 76%;
+}
+div.transparenciaAcceso div.titulo h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #296294;
+  top: 1.6em;
+  left: 0;
+}
+div.transparenciaAcceso div.descripcion {
+  border-bottom: 1px solid #e5e5e5;
+}
+div.transparenciaAcceso div.descripcion div.decretosLeyes div.field__item {
+  color: #296294;
+  text-decoration: underline;
+}
+
+/* ===== ===== Menu ===== ===== */
+/* ==============================
+COLORES
+============================== */
+div.menuTransparenciaAcceso {
+  border-bottom: 1px solid #e5e5e5;
+}
+div.menuTransparenciaAcceso ul.nav div.gridContainer:last-child {
+  margin-bottom: 0 !important;
+}
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem {
+  position: relative;
+  background-color: #e5e5e5;
+  padding: 2rem 1rem 2rem 1rem;
+  border-radius: 0.5rem;
+  border-top: 10px solid #112d6a;
+  cursor: pointer;
+}
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem div.gridItemTitulo div.icono {
+  border-right: 1px solid #296294;
+}
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem div.gridItemTitulo span.titulo {
+  width: 65%;
+  margin-left: 1rem;
+  color: #296294;
+  font-weight: bold;
+}
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem ul.gridSubItems {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  margin: 0;
+  border: initial;
+  padding: 0;
+  list-style: none;
+}
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem ul.gridSubItems li {
+  text-align: left;
+  background-color: #e5e5e5;
+  display: none;
+}
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem ul.gridSubItems li:last-child {
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem ul.gridSubItems li:hover {
+  background-color: #ebf1f8;
+}
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem ul.gridSubItems li div.containerSubItems {
+  margin: 0 2rem;
+  border-top: 1px solid #c7c7c7;
+  padding: 1rem 0;
+}
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem ul.gridSubItems li div.containerSubItems a {
+  color: black;
+  font-weight: bold;
+}
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem ul.gridSubItems li:nth-child(1) div.containerSubItems {
+  border-top: none;
+}
+
+/* ==============================
+MENU SIDEBAR TRANSPARENCIA
+============================== */
+div.menuTransparenciaSidebar ul li a:hover {
+  color: #296294 !important;
+  font-weight: bold;
+}
+div.menuTransparenciaSidebar ul li a.active {
+  color: #296294 !important;
+  font-weight: bold;
+}
+
+/* ===== ===== Vistas ===== ===== */
+/* ==============================
+COLORES
+============================== */
+div.vistaTransparencia {
+  border-right: 1px solid #e5e5e5;
+}
+div.vistaTransparencia div.titulos figure {
+  border-right: 1px solid #296294;
+}
+
+/* ===== ===== Preguntas Frecuentes ===== ===== */
+/* ===== ===== Encabezado ===== ===== */
+/* ==============================
+COLORES
+============================== */
+div.encabezadoPreguntasFrecuentes figure {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  transform: translate(0, -13rem);
+  height: 23rem;
+}
+div.encabezadoPreguntasFrecuentes figure img {
+  height: 100%;
+}
+div.encabezadoPreguntasFrecuentes div.encabezado {
+  height: 7rem;
+}
+div.encabezadoPreguntasFrecuentes div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+/* ==============================
+CONTENIDO
+============================== */
+div.preguntasFrecuentes div.view-header > div.titulo h1 {
+  position: relative;
+}
+div.preguntasFrecuentes div.view-header > div.titulo h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #296294;
+  top: 1.6em;
+  left: 0;
+}
+div.preguntasFrecuentes div.view-content ul {
+  margin-top: 2rem;
+}
+div.preguntasFrecuentes div.view-content ul li {
+  margin: 1rem 0;
+}
+div.preguntasFrecuentes div.view-content ul li:first-child {
+  margin: 0;
+  border-bottom: 0;
+}
+div.preguntasFrecuentes div.view-content ul li h4 {
+  margin-bottom: 1rem;
+}
+div.preguntasFrecuentes div.view-content ul li div.respuesta {
+  margin-left: 3rem;
+}
+div.preguntasFrecuentes div.view-content ul li div.respuesta p {
+  padding-left: 1rem;
+  border-left: 1px solid #112d6a;
 }
 
 /*# sourceMappingURL=style.css.map */

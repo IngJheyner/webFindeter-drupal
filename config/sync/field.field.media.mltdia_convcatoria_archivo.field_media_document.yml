@@ -1,0 +1,32 @@
+uuid: bf70367a-0c87-41f8-bf40-fd342a907e8b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_document
+    - media.type.mltdia_convcatoria_archivo
+  module:
+    - disable_field
+    - file
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: media.mltdia_convcatoria_archivo.field_media_document
+field_name: field_media_document
+entity_type: media
+bundle: mltdia_convcatoria_archivo
+label: Archivo
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'archivos/convocatorias/[current-page:title]'
+  file_extensions: 'doc docx pdf'
+  max_filesize: '2 mb'
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

@@ -1,0 +1,22 @@
+uuid: 7dc7f3e1-eeee-43ff-b12a-2f1a2d3357cc
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.media.mltdia_convcatoria_archivo.field_convctoria_tipo_documento
+    - field.field.media.mltdia_convcatoria_archivo.field_media_document
+    - media.type.mltdia_convcatoria_archivo
+id: media.mltdia_convcatoria_archivo.default
+targetEntityType: media
+bundle: mltdia_convcatoria_archivo
+mode: default
+content: {  }
+hidden:
+  created: true
+  field_convctoria_tipo_documento: true
+  field_media_document: true
+  langcode: true
+  name: true
+  path: true
+  status: true
+  uid: true
