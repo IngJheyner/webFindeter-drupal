@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact_answer_channel
+    - node.type.user_request
+  module:
+    - options
+id: node.user_request.field_contact_answer_channel
+field_name: field_contact_answer_channel
+entity_type: node
+bundle: user_request
+label: 'Medio de respuesta'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,50 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_request_receiving_channel
+field_name: field_request_receiving_channel
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: presencial
+      label: 'Punto de atención/oficina'
+    -
+      value: email
+      label: 'Correo electrónico'
+    -
+      value: web
+      label: 'Página web'
+    -
+      value: facebook
+      label: Facebook
+    -
+      value: twitter
+      label: Twitter
+    -
+      value: instagram
+      label: Instagram
+    -
+      value: youtube
+      label: Youtube
+    -
+      value: chat
+      label: Chat
+    -
+      value: telefono
+      label: Teléfono
+    -
+      value: linea_atencion
+      label: 'Línea de atención PQRSD'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

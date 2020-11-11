@@ -1,0 +1,74 @@
+findeter_user_form_request.multistep:
+  path: '/user-request-form'
+  defaults:
+    _form: '\Drupal\findeter_user_form_request\Form\MultiStepForm'
+    _title: 'Registro de petición de usuarios'
+  requirements:
+    _access: 'TRUE'
+
+findeter_user_form_request.user_request_ajax_response:
+  path: '/user-request-ajax-response'
+  defaults:
+    _controller: '\Drupal\findeter_user_form_request\Controller\UserRequestAjaxResponse::ajaxResponse'
+    _title: 'Ajax response'
+  requirements:
+    _permission: 'access content'
+
+findeter_user_form_request.asign_request:
+  path: '/user-request-ajax-asign/{nid}'
+  defaults:
+    _form: '\Drupal\findeter_user_form_request\Form\AsignRequest'
+    _title: 'Asignar requerimiento'
+  requirements:
+    _access: 'TRUE'
+
+findeter_user_form_request.answer_request:
+  path: '/user-answer-ajax/{nid}'
+  defaults:
+    _form: '\Drupal\findeter_user_form_request\Form\AnswerRequest'
+    _title: 'Responder requerimiento'
+  requirements:
+    _access: 'TRUE'
+
+findeter_user_form_request.create_pdf:
+  path: '/create-pdf/{nid}'
+  defaults:
+    _controller: '\Drupal\findeter_user_form_request\Controller\CreatePDF::nodeToPdf'
+    _title: 'Crear PDF'
+  requirements:
+    _permission: 'access content'
+
+findeter_user_form_request.findeter_admin_form:
+  path: '/admin/config/findeter_user_form_request/admin'
+  defaults:
+    _form: '\Drupal\findeter_user_form_request\Form\FindeterAdminForm'
+    _title: 'Administración de registro de petición de usuarios'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+
+findeter_user_form_request.register_pqrsd_admin:
+  path: '/admin/register-pqrsd'
+  defaults:
+    _form: '\Drupal\findeter_user_form_request\Form\RegisterPQRSDAdminForm'
+    _title: 'Registro de petición de usuarios'
+  requirements:
+    _access: 'TRUE'
+
+findeter_user_form_request.autocomplete.users:
+  path: '/admin/findeter_user_form_request/autocomplete/users'
+  defaults:
+    _controller: '\Drupal\findeter_user_form_request\Controller\UsersAutoCompleteController::handleAutocomplete'
+    _format: json
+  requirements:
+    _permission: 'access content'
+
+findeter_user_form_request.userslist:
+  path: '/admin/findeter_user_form_request/userslist'
+  defaults:
+    _controller: '\Drupal\findeter_user_form_request\Controller\UsersAutoCompleteController::handleList'
+    _title: 'Lista de usuarios para asignar'
+    _format: 'json|html'
+  requirements:
+    _permission: 'access content'

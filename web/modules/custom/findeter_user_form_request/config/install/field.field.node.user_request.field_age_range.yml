@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_age_range
+    - node.type.user_request
+  module:
+    - options
+id: node.user_request.field_age_range
+field_name: field_age_range
+entity_type: node
+bundle: user_request
+label: 'Rango de edad'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: list_string

@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_request_files
+    - node.type.user_request
+  module:
+    - file
+id: node.user_request.field_request_files
+field_name: field_request_files
+entity_type: node
+bundle: user_request
+label: 'Adjuntar archivo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'user_request/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'pdf zip doc docx jpg jpeg png xls xlsx'
+  max_filesize: '20 MB'
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

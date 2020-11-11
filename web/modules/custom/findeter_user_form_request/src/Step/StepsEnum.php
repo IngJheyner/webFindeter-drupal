@@ -1,0 +1,61 @@
+<?php
+
+namespace Drupal\findeter_user_form_request\Step;
+
+/**
+ * Class StepsEnum.
+ *
+ * @package Drupal\findeter_user_form_request\Step
+ */
+abstract class StepsEnum {
+
+  /**
+   * Steps used in form.
+   */
+  const STEP_ZERO = 0;
+  const STEP_ONE = 1;
+  const STEP_TWO = 2;
+  const STEP_THREE = 3;
+  const STEP_FOUR = 4;
+  const STEP_FINALIZE = 6;
+
+  /**
+   * Return steps associative array.
+   *
+   * @return array
+   *   Associative array of steps.
+   */
+  public static function toArray() {
+    return [
+      self::STEP_zero => 'step-zero',
+      self::STEP_ONE => 'step-one',
+      self::STEP_TWO => 'step-two',
+      self::STEP_THREE => 'step-three',
+      self::STEP_FOUR => 'step-four',
+      self::STEP_FINALIZE => 'step-finalize',
+    ];
+  }
+
+  /**
+   * Map steps to it's class.
+   *
+   * @param int $step
+   *   Step number.
+   *
+   * @return bool
+   *   Return true if exist.
+   */
+  public static function map($step) {
+    $map = [
+      self::STEP_ZERO => 'Drupal\\findeter_user_form_request\\Step\\StepZero',
+      self::STEP_ONE => 'Drupal\\findeter_user_form_request\\Step\\StepOne',
+      self::STEP_TWO => 'Drupal\\findeter_user_form_request\\Step\\StepTwo',
+      self::STEP_THREE => 'Drupal\\findeter_user_form_request\\Step\\StepThree',
+      self::STEP_FOUR => 'Drupal\\findeter_user_form_request\\Step\\StepFour',
+      self::STEP_FINALIZE => 'Drupal\\findeter_user_form_request\\Step\\StepFinalize',
+    ];
+
+    return isset($map[$step]) ? $map[$step] : FALSE;
+  }
+
+}

@@ -1,0 +1,20 @@
+global-scripts:
+  version: 1.103.x
+  css:
+    theme:
+      css/ui.slider.extras.css: {}
+      css/jquery-ui-1.7.1.custom.css: {}
+  js:
+    js/selectToUISlider.jQuery.js: {}
+    js/jquery-ui-1.7.1.custom.min.js: {}
+    js/findeter_user_form_request.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+admin_pages:
+  version: 1.x.32
+  css:
+    theme:
+      css/admin.css: {}
+  js:
+    js/admin_node_form.js: {}

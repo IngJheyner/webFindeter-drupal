@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_answer_favor
+    - node.type.user_request
+  module:
+    - options
+id: node.user_request.field_answer_favor
+field_name: field_answer_favor
+entity_type: node
+bundle: user_request
+label: 'Respuesta final a favor de'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

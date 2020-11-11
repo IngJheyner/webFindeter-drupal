@@ -1,0 +1,9 @@
+name: Formularios Findeter (PQRSD)
+type: module
+description: 'Definir los formularios particulares de Findeter'
+core: 8.x
+package: 'Findeter'
+dependencies:
+  - node
+
+configure: findeter_user_form_request.findeter_admin_form
