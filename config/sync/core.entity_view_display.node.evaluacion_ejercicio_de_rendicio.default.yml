@@ -1,0 +1,31 @@
+uuid: 55e96768-b289-49db-a126-51b0a0db790a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.evaluacion_ejercicio_de_rendicio.field_contenido_evaluacion
+    - node.type.evaluacion_ejercicio_de_rendicio
+  module:
+    - text
+    - user
+id: node.evaluacion_ejercicio_de_rendicio.default
+targetEntityType: node
+bundle: evaluacion_ejercicio_de_rendicio
+mode: default
+content:
+  field_contenido_evaluacion:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

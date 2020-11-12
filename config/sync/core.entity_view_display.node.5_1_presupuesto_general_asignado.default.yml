@@ -1,0 +1,31 @@
+uuid: 108c1bce-baab-48ee-a0e4-ba63fb26bca5
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.5_1_presupuesto_general_asignado.field_cont_des_presupuesto
+    - node.type.5_1_presupuesto_general_asignado
+  module:
+    - text
+    - user
+id: node.5_1_presupuesto_general_asignado.default
+targetEntityType: node
+bundle: 5_1_presupuesto_general_asignado
+mode: default
+content:
+  field_cont_des_presupuesto:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

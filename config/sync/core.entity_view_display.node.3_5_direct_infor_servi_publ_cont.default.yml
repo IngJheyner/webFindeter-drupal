@@ -1,0 +1,31 @@
+uuid: a3b0cd7c-ef16-464e-93ac-040964e0898a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.3_5_direct_infor_servi_publ_cont.field_cont_descr_direct_servidor
+    - node.type.3_5_direct_infor_servi_publ_cont
+  module:
+    - text
+    - user
+id: node.3_5_direct_infor_servi_publ_cont.default
+targetEntityType: node
+bundle: 3_5_direct_infor_servi_publ_cont
+mode: default
+content:
+  field_cont_descr_direct_servidor:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

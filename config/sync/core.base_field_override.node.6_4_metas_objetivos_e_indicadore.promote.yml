@@ -1,0 +1,22 @@
+uuid: 3da651e8-d08d-4f73-a69d-98c32a341f38
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.6_4_metas_objetivos_e_indicadore
+id: node.6_4_metas_objetivos_e_indicadore.promote
+field_name: promote
+entity_type: node
+bundle: 6_4_metas_objetivos_e_indicadore
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

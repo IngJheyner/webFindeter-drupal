@@ -1,0 +1,31 @@
+uuid: 781f4ff4-c053-40c3-82cb-0849d00573a7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.7_3_planes_de_mejoramiento.field_cont_plan_mejoramiento
+    - node.type.7_3_planes_de_mejoramiento
+  module:
+    - text
+    - user
+id: node.7_3_planes_de_mejoramiento.default
+targetEntityType: node
+bundle: 7_3_planes_de_mejoramiento
+mode: default
+content:
+  field_cont_plan_mejoramiento:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

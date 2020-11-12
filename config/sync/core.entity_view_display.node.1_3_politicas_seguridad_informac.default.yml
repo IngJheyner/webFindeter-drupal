@@ -1,0 +1,31 @@
+uuid: b3c47324-3999-47bc-93eb-a7cd94930c11
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.1_3_politicas_seguridad_informac.body
+    - node.type.1_3_politicas_seguridad_informac
+  module:
+    - text
+    - user
+id: node.1_3_politicas_seguridad_informac.default
+targetEntityType: node
+bundle: 1_3_politicas_seguridad_informac
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

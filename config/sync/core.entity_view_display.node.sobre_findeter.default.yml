@@ -1,0 +1,59 @@
+uuid: d8410270-9479-4906-9487-eea202d9a9c0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.sobre_findeter.body
+    - field.field.node.sobre_findeter.field_img_fondo_sobre_findeter
+    - field.field.node.sobre_findeter.field_tabs_descrip_sobre_findete
+    - field.field.node.sobre_findeter.field_tabs_nav_sobre_findeter
+    - node.type.sobre_findeter
+  module:
+    - image
+    - text
+    - user
+id: node.sobre_findeter.default
+targetEntityType: node
+bundle: sobre_findeter
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_img_fondo_sobre_findeter:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_tabs_descrip_sobre_findete:
+    weight: 104
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_tabs_nav_sobre_findeter:
+    weight: 105
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

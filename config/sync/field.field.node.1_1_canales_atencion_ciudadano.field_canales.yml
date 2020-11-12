@@ -1,0 +1,21 @@
+uuid: 6df2f232-b70d-4458-b358-eee26bd53435
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_canales
+    - node.type.1_1_canales_atencion_ciudadano
+  module:
+    - text
+id: node.1_1_canales_atencion_ciudadano.field_canales
+field_name: field_canales
+entity_type: node
+bundle: 1_1_canales_atencion_ciudadano
+label: canales
+description: 'Los canales de atención al ciudadano'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

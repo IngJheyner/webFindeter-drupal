@@ -1,0 +1,21 @@
+uuid: 93d754cc-aea9-4a66-85b9-6c6e0be3b003
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contenido_preguntas_frecue
+    - node.type.preguntas_frecuentas
+  module:
+    - text
+id: node.preguntas_frecuentas.field_contenido_preguntas_frecue
+field_name: field_contenido_preguntas_frecue
+entity_type: node
+bundle: preguntas_frecuentas
+label: 'Contenido preguntas'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

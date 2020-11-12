@@ -1,0 +1,31 @@
+uuid: 0dd5c5b5-2a8d-4e84-8295-b1692e7b04b1
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.3_4_organigrama.field_contenido_organigrama
+    - node.type.3_4_organigrama
+  module:
+    - text
+    - user
+id: node.3_4_organigrama.default
+targetEntityType: node
+bundle: 3_4_organigrama
+mode: default
+content:
+  field_contenido_organigrama:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true
