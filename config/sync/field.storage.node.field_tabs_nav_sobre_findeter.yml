@@ -1,16 +1,17 @@
-uuid: 2aa7f0a1-c240-4928-9d0c-805b4b4e5db6
+uuid: 00e8961a-c468-4c75-9c55-96927ce8b913
 langcode: es
 status: true
 dependencies:
   module:
     - node
-    - taxonomy
-id: node.field_convcatoria_tipo
-field_name: field_convcatoria_tipo
+id: node.field_tabs_nav_sobre_findeter
+field_name: field_tabs_nav_sobre_findeter
 entity_type: node
-type: entity_reference
+type: string
 settings:
-  target_type: taxonomy_term
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
 module: core
 locked: false
 cardinality: -1

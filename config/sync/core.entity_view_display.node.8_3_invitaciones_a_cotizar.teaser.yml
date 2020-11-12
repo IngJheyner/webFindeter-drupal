@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.8_3_invitaciones_a_cotizar.body
     - node.type.8_3_invitaciones_a_cotizar
   module:
     - text
@@ -29,5 +28,6 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_cont_invitaciones_cotizar: true
   langcode: true
   search_api_excerpt: true

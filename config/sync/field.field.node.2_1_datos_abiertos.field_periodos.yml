@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_periodos
     - node.type.2_1_datos_abiertos
-    - paragraphs.paragraphs_type.periodos_datos_abiertos
   module:
     - entity_reference_revisions
 id: node.2_1_datos_abiertos.field_periodos
@@ -22,8 +21,7 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     negate: 0
-    target_bundles:
-      periodos_datos_abiertos: periodos_datos_abiertos
+    target_bundles: {  }
     target_bundles_drag_drop:
       findeter_en_cifras_home:
         weight: 5

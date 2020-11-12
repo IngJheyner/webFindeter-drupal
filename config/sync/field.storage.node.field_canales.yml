@@ -1,15 +1,18 @@
-uuid: 25f5a6b3-d7be-4b7b-9588-41aaca3258b8
+uuid: 1d9169e1-93de-4a2f-8ca6-faf8cc74d789
 langcode: es
 status: true
 dependencies:
   module:
     - node
-id: node.field_convcatoria_email_proceso
-field_name: field_convcatoria_email_proceso
+id: node.field_canales
+field_name: field_canales
 entity_type: node
-type: text_long
-settings: {  }
-module: text
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

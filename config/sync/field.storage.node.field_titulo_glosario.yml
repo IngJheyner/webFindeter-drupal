@@ -1,20 +1,20 @@
-uuid: 7e118b4c-fc97-401c-a0f0-d9dbf319b7e3
+uuid: 31e7463f-550e-4d63-ace7-4701ccb4072e
 langcode: es
 status: true
 dependencies:
   module:
     - node
-id: node.field_convcatoria_codigo_proceso
-field_name: field_convcatoria_codigo_proceso
+id: node.field_titulo_glosario
+field_name: field_titulo_glosario
 entity_type: node
 type: string
 settings:
-  max_length: 100
+  max_length: 255
   is_ascii: false
   case_sensitive: false
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

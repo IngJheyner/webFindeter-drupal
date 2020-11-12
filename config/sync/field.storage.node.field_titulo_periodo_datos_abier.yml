@@ -1,16 +1,17 @@
-uuid: 7fc5ca11-3705-4e1f-86e4-360c45adbd77
+uuid: 0148a863-ca3d-4589-9149-2ab69b3529ef
 langcode: es
 status: true
 dependencies:
   module:
     - node
-id: node.field_convcatoria_presupuesto
-field_name: field_convcatoria_presupuesto
+id: node.field_titulo_periodo_datos_abier
+field_name: field_titulo_periodo_datos_abier
 entity_type: node
-type: decimal
+type: string
 settings:
-  precision: 15
-  scale: 0
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
 module: core
 locked: false
 cardinality: -1
