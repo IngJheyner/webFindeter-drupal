@@ -23,7 +23,7 @@ form#search-block-form{
         .menuAccesoRapido{
 
             background: var.$color-quinario;
-            padding: 1rem;
+            padding: 2rem;
             border-radius: 0 0 0.8rem 0.8rem;
 
             nav{
@@ -40,14 +40,14 @@ form#search-block-form{
                             display: block;
                         }
 
-                        $li: (1:"ER_convocatorias.png",2:"ER_leytransparencia.png",3:"ER_contratacion.png",4:"ER_inversionistas.png");
+                        $li: (1:"ER_convocatorias.png",2:"ER_leytransparencia.png",3:"ER_contratacion.png",4:"ER_inversionistas.png",5:"ER_properity.png");
 
                         @each $num, $icon in $li {
 
                             &:nth-child(#{$num}){
 
                                 span.icon::before{
-                                    content: url('/themes/custom/webfinde/images/iconos/#{$icon}');
+                                    content: url('/themes/custom/webfinde/images/iconos/Acceso-Directo/#{$icon}');
                                 }
                             }
                             
