@@ -1,0 +1,32 @@
+uuid: c0462eb8-a224-48f3-b4d8-c7595362ce50
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.img_articu_blog.field_media_image
+    - image.style.medium
+    - media.type.img_articu_blog
+  module:
+    - image
+id: media.img_articu_blog.media_library
+targetEntityType: media
+bundle: img_articu_blog
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    weight: 0
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  created: true
+  field_media_image: true
+  langcode: true
+  name: true
+  uid: true

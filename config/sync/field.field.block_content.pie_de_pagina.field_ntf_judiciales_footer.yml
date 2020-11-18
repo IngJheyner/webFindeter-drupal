@@ -1,0 +1,21 @@
+uuid: c5c75e7d-3ca5-461c-8b7b-82ac71e6af5c
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.pie_de_pagina
+    - field.storage.block_content.field_ntf_judiciales_footer
+id: block_content.pie_de_pagina.field_ntf_judiciales_footer
+field_name: field_ntf_judiciales_footer
+entity_type: block_content
+bundle: pie_de_pagina
+label: 'Envió de notificaciones judiciales'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: notificacionesjudiciales@findeter.gov.co
+default_value_callback: ''
+settings: {  }
+field_type: email

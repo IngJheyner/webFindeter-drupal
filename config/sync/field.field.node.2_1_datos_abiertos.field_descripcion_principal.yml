@@ -1,0 +1,21 @@
+uuid: e046a1ca-18e3-48fb-a288-4964be79a565
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_descripcion_principal
+    - node.type.2_1_datos_abiertos
+  module:
+    - text
+id: node.2_1_datos_abiertos.field_descripcion_principal
+field_name: field_descripcion_principal
+entity_type: node
+bundle: 2_1_datos_abiertos
+label: Contenido
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

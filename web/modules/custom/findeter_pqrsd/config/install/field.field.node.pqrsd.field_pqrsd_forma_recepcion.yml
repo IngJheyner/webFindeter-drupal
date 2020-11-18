@@ -1,0 +1,21 @@
+uuid: e5c2d00e-2099-4115-b00b-a4c94a5d5cf6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pqrsd_forma_recepcion
+    - node.type.pqrsd
+  module:
+    - options
+id: node.pqrsd.field_pqrsd_forma_recepcion
+field_name: field_pqrsd_forma_recepcion
+entity_type: node
+bundle: pqrsd
+label: 'Forma recepción'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

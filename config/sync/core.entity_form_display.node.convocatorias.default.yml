@@ -1,0 +1,291 @@
+uuid: cc60193d-b91a-4db7-8e21-3c3ff4a6c165
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.convocatorias.body
+    - field.field.node.convocatorias.field_convcatoria_actividad
+    - field.field.node.convocatorias.field_convcatoria_archivos
+    - field.field.node.convocatorias.field_convcatoria_codigo_proceso
+    - field.field.node.convocatorias.field_convcatoria_contratacion
+    - field.field.node.convocatorias.field_convcatoria_departamento
+    - field.field.node.convocatorias.field_convcatoria_email_proceso
+    - field.field.node.convocatorias.field_convcatoria_estado
+    - field.field.node.convocatorias.field_convcatoria_fecha_apertura
+    - field.field.node.convocatorias.field_convcatoria_objeto
+    - field.field.node.convocatorias.field_convcatoria_presupuesto
+    - field.field.node.convocatorias.field_convcatoria_programa
+    - field.field.node.convocatorias.field_convcatoria_tipo
+    - field.field.node.convocatorias.field_convcatoria_tipo_contratac
+    - node.type.convocatorias
+  module:
+    - conditional_fields
+    - cshs
+    - datetime
+    - field_group
+    - media_library
+third_party_settings:
+  field_group:
+    group_gr:
+      children:
+        - group_informacion
+        - group_contenido
+        - group_multimedia
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      region: content
+      format_settings:
+        direction: horizontal
+        id: ''
+        classes: ''
+      label: 'Grupo Tabs'
+    group_informacion:
+      children:
+        - title
+        - field_convcatoria_estado
+        - uid
+        - status
+        - langcode
+      parent_name: group_gr
+      weight: 3
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Información
+    group_contenido:
+      children:
+        - field_convcatoria_codigo_proceso
+        - field_convcatoria_fecha_apertura
+        - field_convcatoria_email_proceso
+        - field_convcatoria_presupuesto
+        - field_convcatoria_objeto
+        - group_grupo_tabs_detalles
+      parent_name: group_gr
+      weight: 4
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: open
+        required_fields: true
+      label: Contenido
+    group_multimedia:
+      children:
+        - field_convcatoria_archivos
+      parent_name: group_gr
+      weight: 13
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Multimedia
+    group_lista_de_elementos_de_la_c:
+      children:
+        - field_convcatoria_programa
+        - field_convcatoria_contratacion
+        - field_convcatoria_tipo
+        - field_convcatoria_actividad
+        - field_convcatoria_tipo_contratac
+      parent_name: group_grupo_tabs_detalles
+      weight: 12
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+        formatter: closed
+      label: 'Lista de elementos de la convocatoria'
+    group_grupo_tabs_detalles:
+      children:
+        - group_lista_de_elementos_de_la_c
+        - group_departamentos_y_municipios
+      parent_name: group_contenido
+      weight: 11
+      format_type: tabs
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+      label: 'Grupo Tabs Detalles'
+    group_departamentos_y_municipios:
+      children:
+        - field_convcatoria_departamento
+      parent_name: group_grupo_tabs_detalles
+      weight: 20
+      format_type: tab
+      region: content
+      format_settings:
+        description: ''
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Departamentos y Municipios'
+id: node.convocatorias.default
+targetEntityType: node
+bundle: convocatorias
+mode: default
+content:
+  field_convcatoria_actividad:
+    weight: 15
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_convcatoria_archivos:
+    type: media_library_widget
+    weight: 14
+    settings:
+      media_types: {  }
+    third_party_settings:
+      conditional_fields: {  }
+    region: content
+  field_convcatoria_codigo_proceso:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_convcatoria_contratacion:
+    weight: 12
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_convcatoria_departamento:
+    weight: 7
+    settings:
+      force_deepest: true
+      parent: '0'
+      level_labels: 'Departamento, Ciudad y/o Municipio'
+    third_party_settings: {  }
+    type: cshs
+    region: content
+  field_convcatoria_email_proceso:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_convcatoria_estado:
+    weight: 5
+    settings: {  }
+    third_party_settings:
+      conditional_fields: {  }
+    type: options_select
+    region: content
+  field_convcatoria_fecha_apertura:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_convcatoria_objeto:
+    weight: 10
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_convcatoria_presupuesto:
+    weight: 9
+    settings:
+      placeholder: '400.000.000,00'
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_convcatoria_programa:
+    weight: 10
+    settings:
+      force_deepest: true
+      parent: '0'
+      level_labels: '--, No. Convenio'
+    third_party_settings: {  }
+    type: cshs
+    region: content
+  field_convcatoria_tipo:
+    weight: 13
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_convcatoria_tipo_contratac:
+    weight: 16
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  langcode:
+    type: language_select
+    weight: 8
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: 'Nombre de la convocatoria. Ej: Proceso Numero PAF-SENA-I-059-2020'
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 6
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden:
+  body: true
+  created: true
+  path: true
+  promote: true
+  sticky: true

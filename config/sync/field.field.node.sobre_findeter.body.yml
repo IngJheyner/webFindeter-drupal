@@ -1,0 +1,23 @@
+uuid: e6635bbd-c277-4709-b0ae-fcfc2eac8dd3
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.sobre_findeter
+  module:
+    - text
+id: node.sobre_findeter.body
+field_name: body
+entity_type: node
+bundle: sobre_findeter
+label: Descripción
+description: 'Descripcion sobre findeter'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

@@ -1,0 +1,52 @@
+uuid: 99b16738-133c-47a7-82a3-480ae6ea8638
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.casos_de_exito_home.body
+    - field.field.node.casos_de_exito_home.field_img_carrusel_caso_exito
+    - field.field.node.casos_de_exito_home.field_img_fondo_caso_exito
+    - node.type.casos_de_exito_home
+  module:
+    - image
+    - text
+    - user
+id: node.casos_de_exito_home.default
+targetEntityType: node
+bundle: casos_de_exito_home
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_img_carrusel_caso_exito:
+    weight: 103
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_img_fondo_caso_exito:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

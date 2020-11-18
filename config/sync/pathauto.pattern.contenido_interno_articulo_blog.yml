@@ -1,0 +1,22 @@
+uuid: dda5df2c-600d-4249-8e62-5c834568133d
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: contenido_interno_articulo_blog
+label: 'Contenido interno - Articulo [ Blog ]'
+type: 'canonical_entities:node'
+pattern: 'blog/[node:field_tipo_de_articulo:entity:name]/[node:nid]'
+selection_criteria:
+  9bb11021-3206-4e07-afac-d27503429523:
+    id: node_type
+    bundles:
+      articulo_blog: articulo_blog
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 9bb11021-3206-4e07-afac-d27503429523
+selection_logic: and
+weight: -5
+relationships: {  }

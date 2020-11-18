@@ -1,0 +1,25 @@
+uuid: 5c354083-d07a-461d-86fe-1dd13c6f9548
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.7_6_defensa_judicial.field_contenido_defensa_judicial
+    - node.type.7_6_defensa_judicial
+  module:
+    - user
+id: node.7_6_defensa_judicial.teaser
+targetEntityType: node
+bundle: 7_6_defensa_judicial
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  field_contenido_defensa_judicial: true
+  langcode: true
+  search_api_excerpt: true

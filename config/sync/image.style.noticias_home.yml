@@ -1,0 +1,23 @@
+uuid: 1b55727c-9b10-442a-a616-41e171bec91b
+langcode: es
+status: true
+dependencies: {  }
+name: noticias_home
+label: 'Noticias [ Home ]'
+effects:
+  a873f7be-531c-44ab-9cf1-c7e8399da8ae:
+    uuid: a873f7be-531c-44ab-9cf1-c7e8399da8ae
+    id: image_scale
+    weight: 1
+    data:
+      width: 355
+      height: 246
+      upscale: false
+  7ff87ec2-6ef2-4f5b-b204-dc3ba0e327de:
+    uuid: 7ff87ec2-6ef2-4f5b-b204-dc3ba0e327de
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 355
+      height: 246
+      anchor: center-center

@@ -1,0 +1,243 @@
+@use '../../variables' as var;
+@use '../../../mixins/media-query' as media-query;
+
+@mixin articulo{
+
+    .grid{
+
+        .grid-item{            
+
+            position: relative;
+            overflow: hidden;
+
+            img{
+
+                transform: scale(1, 1);
+                transition: 1s all;                    
+            }
+
+            p.titulo{
+
+                color: var.$color-secundario;
+                font-size: 14px;
+                transition: .6s all;
+            }
+
+            &:hover{
+
+                img{
+
+                    transform: scale(1.1, 1.1);
+                    transition: 1s all;  
+                }
+
+                border-bottom: 1px solid var.$color-primario;
+                                    
+            }
+
+            
+        }
+    }
+}
+
+div.articuloBlog{
+    transform: translate(0, -50px);    
+    @include articulo;
+}
+
+div.articuloBlogDos{
+    @include articulo; 
+    border-bottom: 2px solid var.$color-quinario;
+    padding-bottom: 3rem;
+}
+
+div.masArticulosInterno{
+    border-top: 2px solid var.$color-quinario;
+}
+
+/* ==============================
+INTERNAS
+============================== */
+div.articuloInternasBlog{
+
+    background: white;
+    transform: translate(0, -70px);    
+    padding: 5em 5em 0 5em;
+
+
+    .tipoArticulo,
+    .titulo{
+
+        margin-bottom: 1.5em;
+
+    }
+
+    .tipoArticulo{
+
+        &::before{
+
+            content: "";
+            background: url(../images/iconos/punto-azul.png) no-repeat;
+            background-size: 30px, 30px;
+            background-size: 15px, 15px;
+            background-position: center top;
+            display: inline-block;
+            height: 15px;
+            width: 30px;
+        }
+
+        &::after{
+
+            content: "";
+            background: url(../images/iconos/punto-azul.png) no-repeat;
+            background-size: 30px, 30px;
+            background-size: 15px, 15px;
+            background-position: center top;
+            display: inline-block;
+            height: 15px;
+            width: 30px;
+        }
+    }
+
+    div.infoSocial{
+
+        margin-bottom: 4em;
+
+        p{
+            font-size: 18px;
+        }
+    }
+
+    div.cuerpoArticulo{
+
+        p{
+            word-spacing: 4pt;
+        }
+
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+
+        blockquote{
+
+            padding: 1em 0 0 2em;
+            font-weight: bold;
+            width: 90%;
+            font-style: oblique;            
+            
+        }
+
+        div.field--name-field-media-oembed-video,
+        div.field--name-field-media-image{
+
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+}
+
+/* ==============================
+MEDIA QUERY
+============================== */
+
+@include media-query.media(lg){
+
+    div.articuloBlog{
+        transform: translate(0, -90px);    
+    }
+
+    /* ==============================
+    INTERNAS
+    ============================== */
+    div.articuloInternasBlog{
+        
+        transform: translate(0, -100px);
+        padding: 4em 4em 0 4em;
+    }
+    
+}
+
+@include media-query.media(md){
+
+    div.articuloBlog{
+        transform: translate(0, -100px);    
+    }
+
+    div.articuloBlogDos{
+        @include articulo; 
+        border-bottom: 2px solid var.$color-quinario;
+        padding-bottom: 2rem;
+    }
+
+    /* ==============================
+    INTERNAS
+    ============================== */
+    div.articuloInternasBlog{
+        
+        transform: translate(0, -100px);
+        padding: 2em 2em 0 2em;
+    }
+    
+}
+
+@include media-query.media(sm){
+
+    div.articuloBlog {
+        transform: translate(0, -95px);
+    }
+
+    /* ==============================
+    INTERNAS
+    ============================== */
+    div.articuloInternasBlog{
+        
+        transform: translate(0, 0);
+        padding: 1em 1em 0 1em;
+    }
+
+    div.masArticulosInterno{
+        
+        margin-top: 2em;
+    }
+    
+}
+
+@include media-query.media(xs){
+
+    div.articuloBlog {
+
+        transform: translate(0, 0);
+        
+    }
+
+    /* ==============================
+    INTERNAS
+    ============================== */
+    div.articuloInternasBlog{
+        
+        transform: translate(0, 0);
+        padding: 0;
+
+        .tipoArticulo,
+        .titulo{
+
+            margin-bottom: 1em;
+
+        }
+
+        div.infoSocial{
+
+            p:nth-child(1){
+
+                display: block !important;
+            }
+        }
+    }
+
+    div.masArticulosInterno{
+        
+        margin-top: 2em;
+    }
+    
+}

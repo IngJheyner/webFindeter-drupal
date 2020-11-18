@@ -1,0 +1,22 @@
+uuid: 795d38f4-34c3-4d57-ad18-2b646f594e8e
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.7_4_entes_de_control_y_mecanismo
+id: node.7_4_entes_de_control_y_mecanismo.promote
+field_name: promote
+entity_type: node
+bundle: 7_4_entes_de_control_y_mecanismo
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

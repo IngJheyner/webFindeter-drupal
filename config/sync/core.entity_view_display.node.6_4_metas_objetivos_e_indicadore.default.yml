@@ -1,0 +1,31 @@
+uuid: c11021bd-05e9-4996-b774-a082fc4d36e3
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.6_4_metas_objetivos_e_indicadore.field_contenido_metas_objetivos
+    - node.type.6_4_metas_objetivos_e_indicadore
+  module:
+    - text
+    - user
+id: node.6_4_metas_objetivos_e_indicadore.default
+targetEntityType: node
+bundle: 6_4_metas_objetivos_e_indicadore
+mode: default
+content:
+  field_contenido_metas_objetivos:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,29 @@
+uuid: 2f0a7262-293d-4866-a89c-30d6dc483486
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tema_pregunta_frecuentes
+    - node.type.preguntas_frecuentes
+    - taxonomy.vocabulary.preguntas_frecuentes
+id: node.preguntas_frecuentes.field_tema_pregunta_frecuentes
+field_name: field_tema_pregunta_frecuentes
+entity_type: node
+bundle: preguntas_frecuentes
+label: 'Tema de la pregunta'
+description: "<b>Seleccione</b> el tema que se va a relacionar esta pregunta\r\n<br><br>"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      preguntas_frecuentes: preguntas_frecuentes
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

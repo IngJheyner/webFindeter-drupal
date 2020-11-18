@@ -1,0 +1,112 @@
+@use 'variables' as var;
+@use '../mixins/media-query' as media-query;
+
+@mixin infoGeneral($propiedad, $colorItem, $mb: 2rem, $fz: 15px, $img: '',) {
+    
+    div.#{$propiedad}{
+        
+        margin-bottom: $mb;
+
+        div.field__label{
+
+            color: white;
+        }
+
+        div.field__items{
+
+            div.field__item{                
+                
+                position: relative;               
+                color: $colorItem;
+                font-size: $fz;
+                font-weight: lighter;
+
+                @if $img != '' {
+                    
+                    padding-left: 1.5rem;
+                    
+                    &::before{
+
+                        position: absolute;
+                        top: 2px;
+                        left: 0px;
+                        margin-right: 1rem;
+                        content: '' url($img);
+    
+                    }
+                }
+                
+            }
+        }
+
+    }
+}
+
+.footer{
+
+    background-color: var.$color-primario;
+
+    img.logoSuper{
+
+        position: absolute;
+        left: 0px;
+        top: 2rem;
+        transform: translate(-70px, 0);
+    
+    }
+
+    ul.iconosSocial{
+
+        li{
+
+            margin-right: 1.8rem;
+
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+
+    ul.masLogos{
+        margin-top: 5rem;
+    }
+
+    @include infoGeneral("field--name-field-sede-principal-footer", white);
+    @include infoGeneral("field--name-field-horario-de-atencion-footer",white);
+    @include infoGeneral("field--name-field-ntf-judiciales-footer", var.$color-terciario, 2rem, 14px, '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-email-contacto-footer", var.$color-terciario, 0, 14px, '../images/iconos/mail.png');
+
+    @include infoGeneral("field--name-field-conmutador", white, 2rem, 15px, '../images/iconos/telefono.png');
+    @include infoGeneral("field--name-field-pqr-footer", white, 2rem, 15px, '../images/iconos/telefono.png');
+    @include infoGeneral("field--name-field-correo-institucional-foote", var.$color-terciario, 2rem, 14px, '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-email-judiciales-footer", var.$color-terciario, 0, 14px, '../images/iconos/mail.png');
+
+    div.piePagina{
+        color: var.$color-terciario;
+    }
+
+}
+
+/* ==============================
+MEDIA QUERY
+============================== */
+@include media-query.media(lg){
+
+    @include infoGeneral("field--name-field-ntf-judiciales-footer", var.$color-terciario, 2rem, 13px !important, '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-email-judiciales-footer", var.$color-terciario, 0, 12px !important, '../images/iconos/mail.png');
+    
+}
+
+@include media-query.media(sm){
+
+    ul.iconosSocial{
+
+        text-align: center;
+    }
+
+    @include infoGeneral("field--name-field-ntf-judiciales-footer", var.$color-terciario, 2rem, 15px !important, '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-email-contacto-footer", var.$color-terciario, 0, 15px !important, '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-correo-institucional-foote", var.$color-terciario, 2rem, 15px !important, '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-email-judiciales-footer", var.$color-terciario, 0, 15px !important, '../images/iconos/mail.png');
+
+}

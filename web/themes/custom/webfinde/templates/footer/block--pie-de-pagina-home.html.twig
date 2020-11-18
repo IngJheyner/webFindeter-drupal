@@ -1,0 +1,187 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+
+  {{ title_prefix }}
+
+  {% if label %}
+
+    <h2{{ title_attributes }}>{{ label }}</h2>
+
+  {% endif %}
+
+  {{ title_suffix }}
+
+  {#{ drupal_dump(content.field_url_facebook_footer.0 ) }#}
+
+  {% block content %}
+
+  {# ============================================
+  FOOTER(PIE DE PAGINA)
+  =============================================== #}
+
+    <div class="container-fluid footer">
+
+      <div class="container py-5">
+
+        <div class="row">
+
+          <div class="col-12 col-md-6 col-lg-3">
+
+            {# ===== ===== Logo superitendencia ===== ===== #}
+            <img src="{{ file_url(content.field_logo_superintendencia_foot[0]['#item'].entity.uri.value) }}" class="img-fluid logoSuper">
+
+            {# ===== ===== Logo findeter ===== ===== #}
+            <img src="{{ file_url(content.field_logo_footer[0]['#item'].entity.uri.value) }}" class="img-fluid">
+
+            {# ===== ===== iconos ===== ===== #}
+            <ul class="list-inline iconosSocial">
+
+              {# ===== ===== Icono twitter ===== ===== #}
+              <li class="list-inline-item">
+                
+                <a href="{{ content.field_url_twitter_footer.0["#title"] }}" target="_blank">
+
+                  <img src="{{ file_url(content.field_twitter_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid">
+
+                </a>
+
+              </li>
+
+              {# ===== ===== Icono facebook ===== ===== #}
+              <li class="list-inline-item">
+                
+                <a href="{{ content.field_url_facebook_footer.0["#title"] }}" target="_blank">
+
+                  <img src="{{ file_url(content.field_facebook_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid">
+
+                </a>
+
+              </li>
+
+              {# ===== ===== Icono youtube ===== ===== #}
+              <li class="list-inline-item">
+                
+                <a href="{{ content.field_url_youtube_footer.0["#title"] }}" target="_blank">
+
+                  <img src="{{ file_url(content.field_youtube_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid">
+
+                </a>
+
+              </li>
+
+              {# ===== ===== Icono instagram ===== ===== #}
+              <li class="list-inline-item">
+                
+                <a href="{{ content.field_url_instagram_footer.0["#title"] }}" target="_blank">
+
+                  <img src="{{ file_url(content.field_instagram_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid">
+
+                </a>
+
+              </li>
+
+              {# ===== ===== Icono likedin ===== ===== #}
+              <li class="list-inline-item">
+                
+                <a href="{{ content.field_url_likedin_footer.0["#title"] }}" target="_blank">
+
+                  <img src="{{ file_url(content.field_likedin_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid">
+
+                </a>
+
+              </li>
+
+            </ul>
+
+            {# ===== ===== Más logos ===== ===== #}
+            {{ content.field_mas_logos_footer }}
+
+
+          </div>
+
+          {# ===== ===== MENU ===== ===== #}
+          <div class="col-12 col-md-6 col-lg-3">
+            {#{content.field_menu_footer}#}
+          </div>
+
+          {# ===== ===== Info. general ===== ===== #}
+          <div class="col-12 col-md-6 col-lg-3 pl-lg-0">
+
+            {{ content.field_sede_principal_footer }}
+
+            {{ content.field_horario_de_atencion_footer }}
+
+            {{ content.field_ntf_judiciales_footer }}
+
+            {{ content.field_email_contacto_footer }}
+
+          </div>          
+          <div class="col-12 col-md-6 col-lg-3">
+
+             {{ content.field_conmutador }}
+
+             {{ content.field_pqr_footer }}
+
+             {{ content.field_correo_institucional_foote }}
+
+             {{ content.field_email_judiciales_footer }}
+
+          </div>
+
+          {# ===== ===== PiePagina ===== ===== #}
+          <div class="col-12 col-md-6 piePagina mt-5">
+
+            <p>Mapa del sitio - Politicas de uso</p>
+            <p class="text-white"> Copyright &#9400; | Fecha</p>
+            
+          </div>
+
+          <div class="col-12 col-md-6 mt-5">
+
+             <img src="{{ file_url(content.field_logo_ministerio_hacienda_f[0]['#item'].entity.uri.value) }}" width="300" class="float-md-right img-fluid">
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  {% endblock %}
+
+</div>

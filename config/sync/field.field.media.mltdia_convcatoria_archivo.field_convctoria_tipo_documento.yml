@@ -1,0 +1,26 @@
+uuid: 2da01820-69b7-4d17-a219-ed8e4f65b067
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_convctoria_tipo_documento
+    - media.type.mltdia_convcatoria_archivo
+  module:
+    - disable_field
+    - options
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: media.mltdia_convcatoria_archivo.field_convctoria_tipo_documento
+field_name: field_convctoria_tipo_documento
+entity_type: media
+bundle: mltdia_convcatoria_archivo
+label: 'Tipo de Documento'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

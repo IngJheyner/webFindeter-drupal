@@ -1,0 +1,25 @@
+uuid: eb233af1-4862-42a0-9689-eaa5a545924a
+langcode: es
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - webfinde
+_core:
+  default_config_hash: 0XmTH5dbJRl-fsDBgX10MzeFMarkhKpzU7ZGdGPfAMU
+id: webfinde_branding
+theme: webfinde
+region: content
+weight: -7
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

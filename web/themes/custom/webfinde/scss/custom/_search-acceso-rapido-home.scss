@@ -1,0 +1,75 @@
+@use 'variables' as var;
+
+form#search-block-form{
+
+    position: relative; 
+    margin: 21rem 2rem 0 2rem;
+
+    div.form-item{
+        margin: 0;        
+    }
+
+    div.container-inline,div{
+        display: grid;
+    }
+
+
+    div.buscadorAcceso{       
+       
+        input[type=search]{
+            width: 100%;
+        }
+        
+        .menuAccesoRapido{
+
+            background: var.$color-quinario;
+            padding: 2rem;
+            border-radius: 0 0 0.8rem 0.8rem;
+
+            nav{
+               
+                ul{                    
+                   
+                    li{                       
+                       
+                        margin: 0 1rem 0 1rem;
+                        text-align: center;
+        
+                        a,span{                    
+                            color: black;
+                            display: block;
+                        }
+
+                        $li: (1:"ER_convocatorias.png",2:"ER_leytransparencia.png",3:"ER_contratacion.png",4:"ER_inversionistas.png",5:"ER_properity.png");
+
+                        @each $num, $icon in $li {
+
+                            &:nth-child(#{$num}){
+
+                                span.icon::before{
+                                    content: url('/themes/custom/webfinde/images/iconos/Acceso-Directo/#{$icon}');
+                                }
+                            }
+                            
+                        }
+                       
+                    }
+                }
+               
+            }
+        }
+        
+    }
+
+    .btnSearch{
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 0 .25rem 0 0;
+        line-height: 2.5;
+        background: url('/themes/custom/webfinde/images/iconos/buscador.png') no-repeat;
+        background-position:center top;
+        width: 53px;
+    }
+
+}

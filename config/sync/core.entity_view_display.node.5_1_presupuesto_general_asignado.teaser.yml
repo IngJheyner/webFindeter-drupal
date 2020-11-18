@@ -1,0 +1,25 @@
+uuid: 91b2635e-a1ba-4435-a722-92ca06dde1b4
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.5_1_presupuesto_general_asignado.field_cont_des_presupuesto
+    - node.type.5_1_presupuesto_general_asignado
+  module:
+    - user
+id: node.5_1_presupuesto_general_asignado.teaser
+targetEntityType: node
+bundle: 5_1_presupuesto_general_asignado
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  field_cont_des_presupuesto: true
+  langcode: true
+  search_api_excerpt: true

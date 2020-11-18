@@ -1,0 +1,96 @@
+uuid: 0283f07b-d6f8-45ef-80b8-4caaacf27c5a
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.transparencia_acceso_informacion
+    - field.field.block_content.transparencia_acceso_informacion.body
+    - field.field.block_content.transparencia_acceso_informacion.field_img_fondo_transparencia
+    - field.field.block_content.transparencia_acceso_informacion.field_leyes_transparencia
+    - image.style.thumbnail
+  module:
+    - field_group
+    - image
+    - text
+third_party_settings:
+  field_group:
+    group_info:
+      children:
+        - info
+        - langcode
+      parent_name: ''
+      weight: 0
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+        weight: 0
+      label: Información
+    group_contenido:
+      children:
+        - field_img_fondo_transparencia
+        - body
+        - field_leyes_transparencia
+      parent_name: ''
+      weight: 1
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+        weight: 0
+      label: Contenido
+id: block_content.transparencia_acceso_informacion.default
+targetEntityType: block_content
+bundle: transparencia_acceso_informacion
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 4
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  field_img_fondo_transparencia:
+    weight: 3
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_leyes_transparencia:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  info:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

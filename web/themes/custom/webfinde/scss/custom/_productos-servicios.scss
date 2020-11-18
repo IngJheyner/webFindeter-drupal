@@ -1,0 +1,149 @@
+@use '_variables' as var;
+
+section.productosServicios{
+   
+    .titulo{
+
+        border-bottom: 1px solid var.$color-secundario;
+        padding-bottom: 20px;
+
+        h1{
+            text-align: center;
+            width: 80%;
+            color: var.$color-primario;
+            position: relative;
+
+            &:after{
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                background-color: #296294;
+                top: 2.8em;
+                left: 0;
+            }
+        }
+
+    }
+
+    .grid-container{
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        width: 100%;   
+        position: relative; 
+        height: 100%;   
+
+        .grid-item{
+
+            width: 212px;
+            position:relative;
+            //background-color: silver;
+            margin-right: 20px;           
+            height: 25em;
+            cursor: pointer;
+            box-shadow: 1rem 0rem 1rem #C8D0E3!important;
+
+           &:last-child{
+
+                margin-right:0em ;
+
+           }
+
+            figure{
+                position: absolute;
+                z-index: 1;
+                bottom: 0px;
+                left:0;
+                width:100%;
+                height:25%;
+                
+                background: var.$color-secundario;
+
+                /*background: repeating-linear-gradient(184deg,
+                transparent 0, transparent 19%,
+                    var.$color-secundario 0, var.$color-secundario);*/
+                
+                .fondo{
+                    position: absolute;
+                    z-index: 2;
+                    bottom: -16px;
+                    left: 0;
+                    width: 100%;
+                    height: 109%;
+                    color: #CDDC4B;
+                    border-radius: 0 0 0.8em 0.8em;
+                    /*background-image: repeating-linear-gradient(183deg, 
+                    transparent 0, transparent 11%, 
+                    var.$color-primario 0, var.$color-primario);*/
+                    background: var.$color-primario;
+
+                    h1{
+                        position: absolute;
+                        top: 38%;                   
+                        font-size: 22px !important;
+                        width: 100%;
+                        color: var.$color-terciario;
+                       
+                    }
+                    
+                }
+               
+            }
+
+            img{
+                border-radius: 0.8em;
+            }
+        }
+        
+    }
+}
+
+/* =================================
+VENTANA MODAL PRODUCTOS Y SERVICIOS
+==================================== */
+#modalProductosServicios{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    padding-right: 0 !important;
+    height: 500px;
+    border-radius: 0.8em;
+
+    .modal-dialog{
+        max-width: 1141px;
+        margin: 0;
+        
+        .modal-content{
+
+            background-color: initial !important;
+
+            .modal-body{
+               
+                background-color: var.$color-primario !important;           
+                border-top: 10px solid var.$color-secundario;
+                top: 12em;
+                padding: 20px 20px 20px 20px;
+                
+    
+                h3{
+                    margin-bottom: 5px;
+                    color: var.$color-terciario;
+                }
+    
+                div.descripcion{
+    
+                    max-width: 70%;
+                    color: white;
+                }
+    
+                button.close{
+                    color: white;
+                    font-size: 2.5rem;
+                }
+                
+            }
+        }       
+        
+        
+    }
+}

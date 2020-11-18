@@ -1,0 +1,22 @@
+uuid: 7459e746-cf3a-4149-b4fd-ff370d424f1c
+langcode: es
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - webfinde
+_core:
+  default_config_hash: tZtWC6EKIYALVtpV4mPz79GsLZD6IFWb7Wk1B7Rd8Go
+id: webfinde_messages
+theme: webfinde
+region: content
+weight: -3
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,38 @@
+uuid: 1637d3ef-0b93-4c40-adcd-9c43bf25c095
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_periodos
+    - node.type.2_1_datos_abiertos
+  module:
+    - entity_reference_revisions
+id: node.2_1_datos_abiertos.field_periodos
+field_name: field_periodos
+entity_type: node
+bundle: 2_1_datos_abiertos
+label: 'Periodos datos abiertos'
+description: 'Periodos, Datos abiertos'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles: {  }
+    target_bundles_drag_drop:
+      findeter_en_cifras_home:
+        weight: 5
+        enabled: false
+      periodos_datos_abiertos:
+        enabled: true
+        weight: 6
+      productos_servicios_home:
+        weight: 7
+        enabled: false
+      transparencia_acceso_informacion:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,23 @@
+uuid: 8c627c44-71bd-4186-93a7-530f9a169a52
+langcode: es
+status: true
+dependencies: {  }
+name: productos_y_servicios_fondo_home
+label: 'Productos y Servicios Fondo [ Home ]'
+effects:
+  1c1791a9-89c1-468a-8b8e-f150eda9b804:
+    uuid: 1c1791a9-89c1-468a-8b8e-f150eda9b804
+    id: image_scale
+    weight: -10
+    data:
+      width: 212
+      height: 400
+      upscale: false
+  860e9f3e-239b-4ba4-9460-996857dce964:
+    uuid: 860e9f3e-239b-4ba4-9460-996857dce964
+    id: image_scale_and_crop
+    weight: -9
+    data:
+      width: 212
+      height: 400
+      anchor: center-center

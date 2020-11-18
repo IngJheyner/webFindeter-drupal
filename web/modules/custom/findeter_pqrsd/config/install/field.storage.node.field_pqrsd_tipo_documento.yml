@@ -1,0 +1,39 @@
+uuid: f78b9b7c-ccb9-4693-a0d9-a8f1d4f7a233
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_pqrsd_tipo_documento
+field_name: field_pqrsd_tipo_documento
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: cedula_ciudadania
+      label: 'Cédula ciudadanía'
+    -
+      value: registro_civil
+      label: 'Registro civil'
+    -
+      value: tarjeta_identidad
+      label: 'Tarjeta de identidad'
+    -
+      value: extrajeria
+      label: 'Cédula extrajería'
+    -
+      value: pasaporte
+      label: Pasaporte
+    -
+      value: visa
+      label: Visa
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
