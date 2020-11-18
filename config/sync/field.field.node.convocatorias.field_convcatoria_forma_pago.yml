@@ -1,22 +1,22 @@
-uuid: 7d585825-db3b-40e9-9e1f-3b6d627ac714
+uuid: 18bed382-1cd6-4898-9901-e60f64729a4a
 langcode: es
 status: true
 dependencies:
   config:
-    - field.storage.node.field_convcatoria_tipo_contratac
+    - field.storage.node.field_convcatoria_forma_pago
     - node.type.convocatorias
-    - taxonomy.vocabulary.convcatoria_contratacion
+    - taxonomy.vocabulary.convcatoria_tipo_forma_pago
   module:
     - disable_field
 third_party_settings:
   disable_field:
     add_disable: none
     edit_disable: none
-id: node.convocatorias.field_convcatoria_tipo_contratac
-field_name: field_convcatoria_tipo_contratac
+id: node.convocatorias.field_convcatoria_forma_pago
+field_name: field_convcatoria_forma_pago
 entity_type: node
 bundle: convocatorias
-label: 'Tipo de Contratacion'
+label: 'Tipo Forma de Pago'
 description: ''
 required: false
 translatable: false
@@ -26,7 +26,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      convcatoria_contratacion: convcatoria_contratacion
+      convcatoria_tipo_forma_pago: convcatoria_tipo_forma_pago
     sort:
       field: name
       direction: asc

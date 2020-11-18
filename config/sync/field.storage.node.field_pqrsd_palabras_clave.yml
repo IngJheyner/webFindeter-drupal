@@ -1,19 +1,21 @@
-uuid: ba74a53e-4073-4329-9425-b0a2847cf2bd
+uuid: 730f1945-88db-48d4-8230-f7c44e73dbb7
 langcode: es
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.field_convcatoria_tipo_contratac
-field_name: field_convcatoria_tipo_contratac
+_core:
+  default_config_hash: Cbe3YMuozcFbJ15u8ZCoP7XB07YPbZNGpLufHhF9kpI
+id: node.field_pqrsd_palabras_clave
+field_name: field_pqrsd_palabras_clave
 entity_type: node
 type: entity_reference
 settings:
   target_type: taxonomy_term
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
