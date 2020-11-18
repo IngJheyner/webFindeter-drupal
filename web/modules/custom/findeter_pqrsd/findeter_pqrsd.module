@@ -718,3 +718,43 @@ function buildPQRSDform(){
 
   return $form;
 }
+
+
+/**
+ * Function to send an email when a PQRSD has been asigned
+ */
+function sendNotificationAsign($user,$node){
+  $mailManager = \Drupal::service('plugin.manager.mail');
+  $module = 'findeter_pqrsd';
+  $key = 'asigned_pqrsd';
+  $to = $user->getEmail();
+
+  $userName = '';
+  if(isset($node->get('field_pqrsd_primer_nombre')->getValue()[0]['value'])){
+    $userName = $node->get('field_pqrsd_primer_nombre')->getValue()[0]['value'].' ';
+  }
+  if(isset($node->get('field_pqrsd_primer_apellido')->getValue()[0]['value'])){
+    $userName = $node->get('field_pqrsd_primer_apellido')->getValue()[0]['value'];
+  }
+
+  $mailBody[] = 'Hola '.$user->getUsername();
+  $mailBody[] = 'Le informamos que se le asignó una PQRSD para que le dé respuesta:';
+  $mailBody[] = '<div class="numero-radicado">
+                  <b>#Radicatoria: </b>'.$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'].'
+                  <b>Cliente: </b>'.$userName.'
+                  <b>Fecha registro: </b>'.date('d/m/Y H:m:i',$node->getCreatedTime()).'
+                  <b>Fecha vencimiento respuesta: </b>'.$node->get('field_pqrsd_fecha_roja')->getValue()[0]['value'].'
+                </div>';
+  $mailBody[] = 'Le invitamos a gestionar esta PQRSD, iniciando sesión en la página administrativa del sistema';
+  $mailBody[] = '';
+  $mailBody[] = 'Cordialmente,';
+  $mailBody[] = 'Vicepresidencia comercial - Servicio al cliente';
+  $mailBody[] = 'Findeter';
+
+  $params['message'] = implode('<br>',$mailBody);
+
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
+  $send = true;
+
+  $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+}
