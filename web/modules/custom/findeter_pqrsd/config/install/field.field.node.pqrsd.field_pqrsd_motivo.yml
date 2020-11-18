@@ -1,0 +1,21 @@
+uuid: f0081d87-255f-4c15-998c-6221412f8b74
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pqrsd_motivo
+    - node.type.pqrsd
+  module:
+    - options
+id: node.pqrsd.field_pqrsd_motivo
+field_name: field_pqrsd_motivo
+entity_type: node
+bundle: pqrsd
+label: Motivo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,71 @@
+<?php
+
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\Entity\Vocabulary;
+use Drupal\Component\Serialization\Json;
+
+/**
+ * @file: Install and uninstall hooks and functions.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function findeter_pqrsd_install() {
+
+  // recover terms from the file 
+  $module_handler = \Drupal::service('module_handler');
+  $module_path = $module_handler->getModule('findeter_pqrsd')->getPath();
+  global $base_url;
+  $uriDeparments = $base_url.'/'.$module_path."/colombia.json";
+
+  try {
+    $response = \Drupal::httpClient()->get($uriDeparments, array('headers' => array('Accept' => 'application/json')));
+    $data = (string) $response->getBody();
+    if (empty($data)) {
+      return false;
+    }else{
+      
+      // Vocabulary machine name
+      $vid = "colombia_deparments";
+      $vocabulary = Vocabulary::create(array(
+        'vid' => $vid,
+        'description' => 'Lista de los departamentos y municipios de Colombia ordenados jerarquicamente',
+        'name' => 'Departamentos/municipios de Colombia',
+      ));
+      $vocabulary->save();  
+
+      //creating each term for departments/municipality vocabulary 
+      $departments = Json::decode($data);
+      foreach ( $departments as $department => $municipalities ) {
+        $parentTerm = Term::create(array(
+          'parent' => [],
+          'name' => $department,
+          'vid' => $vid,
+        ));
+        $parentTerm->save();
+    
+        foreach($municipalities as $municipality){
+    
+          Term::create(array(
+            'parent' => $parentTerm->id(),
+            'name' => $municipality,
+            'vid' => $vid,
+          ))->save();
+    
+        }
+      }
+
+    }
+  }
+  catch (RequestException $e) {
+
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function findeter_pqrsd_uninstall() {
+
+}

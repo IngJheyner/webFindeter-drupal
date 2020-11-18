@@ -1,0 +1,36 @@
+uuid: fc1dcfba-f2d7-4764-871c-348166a05a85
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_pqrsd_tipo_radicado
+field_name: field_pqrsd_tipo_radicado
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Peticiones
+      label: Peticiones
+    -
+      value: Quejas
+      label: Quejas
+    -
+      value: Reclamos
+      label: Reclamos
+    -
+      value: Sugerencias
+      label: Sugerencias
+    -
+      value: Denuncias
+      label: Denuncias
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

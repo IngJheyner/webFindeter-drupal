@@ -1,0 +1,21 @@
+uuid: 3b897c1c-0ab2-40a4-afe9-1de99ef9173e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pqrsd_autorizacion
+    - node.type.pqrsd
+  module:
+    - options
+id: node.pqrsd.field_pqrsd_autorizacion
+field_name: field_pqrsd_autorizacion
+entity_type: node
+bundle: pqrsd
+label: Autorización
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
