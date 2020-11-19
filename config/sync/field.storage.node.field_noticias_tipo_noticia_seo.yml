@@ -1,0 +1,20 @@
+uuid: c9ed508b-2f1e-494d-9bc2-10a0e5f9387b
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_noticias_tipo_noticia_seo
+field_name: field_noticias_tipo_noticia_seo
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,43 @@
+uuid: eabc90f6-4227-4909-8126-463779f64a75
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.convocatorias_encabezado
+    - field.field.block_content.convocatorias_encabezado.body
+    - field.field.block_content.convocatorias_encabezado.field_convocatoria_img_fondo
+    - field.field.block_content.convocatorias_encabezado.field_convocatoria_titulo
+  module:
+    - image
+    - text
+id: block_content.convocatorias_encabezado.default
+targetEntityType: block_content
+bundle: convocatorias_encabezado
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_convocatoria_img_fondo:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_convocatoria_titulo:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  langcode: true

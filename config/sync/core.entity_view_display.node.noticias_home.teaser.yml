@@ -6,6 +6,11 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.noticias_home.body
     - field.field.node.noticias_home.field_img_noticia_home
+    - field.field.node.noticias_home.field_noticias_resumen_redes
+    - field.field.node.noticias_home.field_noticias_resumen_seo
+    - field.field.node.noticias_home.field_noticias_tipo_noticia_seo
+    - field.field.node.noticias_home.field_noticias_titulo_redes
+    - field.field.node.noticias_home.field_noticias_titulo_seo
     - field.field.node.noticias_home.field_tipo_noticia
     - node.type.noticias_home
   module:
@@ -32,5 +37,10 @@ content:
 hidden:
   addtoany: true
   field_img_noticia_home: true
+  field_noticias_resumen_redes: true
+  field_noticias_resumen_seo: true
+  field_noticias_tipo_noticia_seo: true
+  field_noticias_titulo_redes: true
+  field_noticias_titulo_seo: true
   field_tipo_noticia: true
   langcode: true

@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_convcatoria_departamento
     - node.type.convocatorias
-    - taxonomy.vocabulary.departamentos_y_ciudades
+    - taxonomy.vocabulary.colombia_deparments
   module:
     - disable_field
 third_party_settings:
@@ -26,7 +26,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      departamentos_y_ciudades: departamentos_y_ciudades
+      colombia_deparments: colombia_deparments
     sort:
       field: name
       direction: asc

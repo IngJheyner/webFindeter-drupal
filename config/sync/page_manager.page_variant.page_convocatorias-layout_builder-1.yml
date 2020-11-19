@@ -1,0 +1,73 @@
+uuid: ef448816-788f-48d8-a276-6d32453887f1
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.page_convocatorias
+  module:
+    - user
+id: page_convocatorias-layout_builder-1
+label: 'Ciudadano [ Anonimo ]'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: a8bc3f6e-9668-4687-aa6d-330aeab0176b
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_1col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+          main:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        b8074768-5a6e-479e-a336-02c7ff38ba35:
+          uuid: b8074768-5a6e-479e-a336-02c7ff38ba35
+          region: main
+          configuration:
+            id: 'views_block:convocatorias-block_2'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+      third_party_settings: {  }
+page: page_convocatorias
+weight: 1
+selection_criteria:
+  -
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+selection_logic: and
+static_context: {  }
