@@ -1,19 +1,19 @@
-uuid: 7afa292d-10d6-4d36-97ce-b9e270dd79df
+uuid: 6a0e9669-51e3-4c58-99cc-1db1517f5267
 langcode: es
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.field_convcatoria_actividad
-field_name: field_convcatoria_actividad
+id: node.field_convcatoria_forma_pago
+field_name: field_convcatoria_forma_pago
 entity_type: node
 type: entity_reference
 settings:
   target_type: taxonomy_term
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

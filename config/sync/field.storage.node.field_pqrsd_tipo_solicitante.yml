@@ -1,0 +1,35 @@
+uuid: 842fc863-6d47-4fdf-bb09-83efbb0dfb41
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - options
+_core:
+  default_config_hash: _u6rLdn2Ac24nv31QDNddkaxm6e4iTW5k1Fp0j0muwU
+id: node.field_pqrsd_tipo_solicitante
+field_name: field_pqrsd_tipo_solicitante
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: natural
+      label: 'Persona natural'
+    -
+      value: juridica
+      label: 'Persona jurídica'
+    -
+      value: anonimo
+      label: Anónimo
+    -
+      value: apoderado
+      label: Apoderado
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,22 +1,22 @@
-uuid: 0d828317-2bf8-45a8-a748-2fa0f3f4b74f
+uuid: f3123de9-1803-4c86-b0c4-0a29a55a377d
 langcode: es
 status: true
 dependencies:
   config:
-    - field.storage.node.field_convcatoria_actividad
+    - field.storage.node.field_convcatoria_contractual
     - node.type.convocatorias
-    - taxonomy.vocabulary.convcatoria_actividad
+    - taxonomy.vocabulary.convcatoria_tipo_contractuales
   module:
     - disable_field
 third_party_settings:
   disable_field:
     add_disable: none
     edit_disable: none
-id: node.convocatorias.field_convcatoria_actividad
-field_name: field_convcatoria_actividad
+id: node.convocatorias.field_convcatoria_contractual
+field_name: field_convcatoria_contractual
 entity_type: node
 bundle: convocatorias
-label: Actividad
+label: 'Tipologías contractuales'
 description: ''
 required: false
 translatable: false
@@ -26,7 +26,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      convcatoria_actividad: convcatoria_actividad
+      convcatoria_tipo_contractuales: convcatoria_tipo_contractuales
     sort:
       field: name
       direction: asc

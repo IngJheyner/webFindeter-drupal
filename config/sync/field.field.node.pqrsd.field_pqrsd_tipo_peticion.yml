@@ -1,0 +1,23 @@
+uuid: 85d0598f-1d4d-48a2-865b-162379b0f89b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pqrsd_tipo_peticion
+    - node.type.pqrsd
+  module:
+    - options
+_core:
+  default_config_hash: WQEcrW5Mgv-R-QYW8osNw2AGV_Yt6v3INN0jOHlQnZo
+id: node.pqrsd.field_pqrsd_tipo_peticion
+field_name: field_pqrsd_tipo_peticion
+entity_type: node
+bundle: pqrsd
+label: 'Tipo de petición'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

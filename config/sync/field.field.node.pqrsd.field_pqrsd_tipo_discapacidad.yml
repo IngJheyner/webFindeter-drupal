@@ -1,0 +1,23 @@
+uuid: f76b773b-b734-4307-aa12-e2e4c4be315d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pqrsd_tipo_discapacidad
+    - node.type.pqrsd
+  module:
+    - options
+_core:
+  default_config_hash: Tbe8n4aZZFrqlTn1xXIpqZJrHRihkvB0BtVX22_i2Ag
+id: node.pqrsd.field_pqrsd_tipo_discapacidad
+field_name: field_pqrsd_tipo_discapacidad
+entity_type: node
+bundle: pqrsd
+label: '¿Presenta algún tipo de discapacidad?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

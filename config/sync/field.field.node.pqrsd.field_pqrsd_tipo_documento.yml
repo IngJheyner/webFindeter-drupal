@@ -1,0 +1,23 @@
+uuid: 465ec0ac-eafe-4036-ae3b-1919c66ab9b8
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pqrsd_tipo_documento
+    - node.type.pqrsd
+  module:
+    - options
+_core:
+  default_config_hash: qV6AGyzH2_-OQLJtj7Sv1Eh-GspbkXUSOmjPGUleXBU
+id: node.pqrsd.field_pqrsd_tipo_documento
+field_name: field_pqrsd_tipo_documento
+entity_type: node
+bundle: pqrsd
+label: 'Tipo documento ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

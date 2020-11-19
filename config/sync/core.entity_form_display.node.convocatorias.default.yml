@@ -4,19 +4,19 @@ status: true
 dependencies:
   config:
     - field.field.node.convocatorias.body
-    - field.field.node.convocatorias.field_convcatoria_actividad
     - field.field.node.convocatorias.field_convcatoria_archivos
     - field.field.node.convocatorias.field_convcatoria_codigo_proceso
+    - field.field.node.convocatorias.field_convcatoria_contractual
     - field.field.node.convocatorias.field_convcatoria_contratacion
     - field.field.node.convocatorias.field_convcatoria_departamento
     - field.field.node.convocatorias.field_convcatoria_email_proceso
     - field.field.node.convocatorias.field_convcatoria_estado
     - field.field.node.convocatorias.field_convcatoria_fecha_apertura
+    - field.field.node.convocatorias.field_convcatoria_forma_pago
     - field.field.node.convocatorias.field_convcatoria_objeto
     - field.field.node.convocatorias.field_convcatoria_presupuesto
     - field.field.node.convocatorias.field_convcatoria_programa
     - field.field.node.convocatorias.field_convcatoria_tipo
-    - field.field.node.convocatorias.field_convcatoria_tipo_contratac
     - node.type.convocatorias
   module:
     - conditional_fields
@@ -95,9 +95,9 @@ third_party_settings:
       children:
         - field_convcatoria_programa
         - field_convcatoria_contratacion
+        - field_convcatoria_contractual
         - field_convcatoria_tipo
-        - field_convcatoria_actividad
-        - field_convcatoria_tipo_contratac
+        - field_convcatoria_forma_pago
       parent_name: group_grupo_tabs_detalles
       weight: 12
       format_type: tab
@@ -141,16 +141,6 @@ targetEntityType: node
 bundle: convocatorias
 mode: default
 content:
-  field_convcatoria_actividad:
-    weight: 15
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_convcatoria_archivos:
     type: media_library_widget
     weight: 14
@@ -167,8 +157,18 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_convcatoria_contratacion:
+  field_convcatoria_contractual:
     weight: 12
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_convcatoria_contratacion:
+    weight: 11
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -207,6 +207,12 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_convcatoria_forma_pago:
+    weight: 14
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
   field_convcatoria_objeto:
     weight: 10
     settings:
@@ -233,16 +239,6 @@ content:
     region: content
   field_convcatoria_tipo:
     weight: 13
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_convcatoria_tipo_contratac:
-    weight: 16
     settings:
       match_operator: CONTAINS
       match_limit: 10
