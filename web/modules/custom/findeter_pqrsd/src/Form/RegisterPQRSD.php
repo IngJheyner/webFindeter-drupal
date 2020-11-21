@@ -19,6 +19,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 use Drupal\node\Entity\Node;
 use Drupal\file\Entity\File;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
 
 /**
  * Provides multi step ajax example form.
@@ -406,7 +408,7 @@ class RegisterPQRSD extends FormBase {
     $newRequest->save();
 
     // send email
-    if($values['field_pqrsd_email'] != ''){
+    if(isset($values['field_pqrsd_email']) && $values['field_pqrsd_email'] != ''){
 
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'findeter_pqrsd';
@@ -439,7 +441,7 @@ class RegisterPQRSD extends FormBase {
       }
     }
 
-    sendNotificationAsign($user->id(),$newRequest->id());
+    sendNotificationAsign($user,$newRequest);
 
     // store the nid value of new node created
     $values['pqrsd_numero_radicado'] = $numeroRadicado;

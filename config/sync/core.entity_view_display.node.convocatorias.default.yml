@@ -4,19 +4,19 @@ status: true
 dependencies:
   config:
     - field.field.node.convocatorias.body
-    - field.field.node.convocatorias.field_convcatoria_actividad
     - field.field.node.convocatorias.field_convcatoria_archivos
     - field.field.node.convocatorias.field_convcatoria_codigo_proceso
+    - field.field.node.convocatorias.field_convcatoria_contractual
     - field.field.node.convocatorias.field_convcatoria_contratacion
     - field.field.node.convocatorias.field_convcatoria_departamento
     - field.field.node.convocatorias.field_convcatoria_email_proceso
     - field.field.node.convocatorias.field_convcatoria_estado
     - field.field.node.convocatorias.field_convcatoria_fecha_apertura
+    - field.field.node.convocatorias.field_convcatoria_forma_pago
     - field.field.node.convocatorias.field_convcatoria_objeto
     - field.field.node.convocatorias.field_convcatoria_presupuesto
     - field.field.node.convocatorias.field_convcatoria_programa
     - field.field.node.convocatorias.field_convcatoria_tipo
-    - field.field.node.convocatorias.field_convcatoria_tipo_contratac
     - node.type.convocatorias
   module:
     - datetime
@@ -37,14 +37,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_convcatoria_actividad:
-    weight: 114
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_convcatoria_archivos:
     type: media_thumbnail
     weight: 111
@@ -61,6 +53,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_convcatoria_contractual:
+    weight: 117
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_convcatoria_contratacion:
     weight: 112
@@ -106,6 +106,14 @@ content:
         class: ''
     type: datetime_default
     region: content
+  field_convcatoria_forma_pago:
+    weight: 118
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_convcatoria_objeto:
     weight: 109
     label: above
@@ -136,14 +144,6 @@ content:
     region: content
   field_convcatoria_tipo:
     weight: 113
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_convcatoria_tipo_contratac:
-    weight: 115
     label: above
     settings:
       link: true

@@ -1822,4 +1822,52 @@ div.preguntasFrecuentes div.view-content ul li div.respuesta p {
   border-left: 1px solid #112d6a;
 }
 
+/* ===== ===== Convocatorias ===== ===== */
+/* ===== ===== Encabezado ===== ===== */
+/* ==============================
+COLORES
+============================== */
+div.encabezadoConvocatorias figure {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  transform: translate(0, -13rem);
+  height: 23rem;
+}
+div.encabezadoConvocatorias figure img {
+  height: 100%;
+}
+div.encabezadoConvocatorias div.encabezado {
+  height: 7rem;
+}
+div.encabezadoConvocatorias div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+/* ===== ===== Ciudadano ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+VISTA
+============================== */
+div.convocatoriaCiudadano form div.form--inline {
+  padding: 2rem;
+  background-color: #112d6a;
+  color: white;
+}
+div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-codigo-proceso-value {
+  display: contents !important;
+}
+div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-departamento-target-id {
+  display: block !important;
+  width: 100%;
+}
+div.convocatoriaCiudadano form div.form--inline input[type=submit] {
+  background-color: #00993e !important;
+}
+
 /*# sourceMappingURL=style.css.map */

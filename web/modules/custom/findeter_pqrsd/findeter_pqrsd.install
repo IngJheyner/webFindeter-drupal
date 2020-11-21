@@ -30,7 +30,7 @@ function findeter_pqrsd_install() {
       $vid = "colombia_deparments";
       $vocabulary = Vocabulary::create(array(
         'vid' => $vid,
-        'description' => 'Lista de los departamentos y municipios de Colombia ordenados jerarquicamente',
+        'description' => 'Tax. para PQRSD',
         'name' => 'Departamentos/municipios de Colombia',
       ));
       $vocabulary->save();  

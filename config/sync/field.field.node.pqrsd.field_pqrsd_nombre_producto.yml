@@ -1,0 +1,23 @@
+uuid: 523a403b-0ac2-4ce1-87a5-c2ccd26c2547
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pqrsd_nombre_producto
+    - node.type.pqrsd
+  module:
+    - options
+_core:
+  default_config_hash: 1n2gIyg5gYyCEnobSFpuohLuqaB2-uc6GHtkIKEzab8
+id: node.pqrsd.field_pqrsd_nombre_producto
+field_name: field_pqrsd_nombre_producto
+entity_type: node
+bundle: pqrsd
+label: 'Nombre del producto'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
