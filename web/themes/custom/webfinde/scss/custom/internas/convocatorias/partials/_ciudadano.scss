@@ -1,0 +1,35 @@
+@use '../../../variables' as var;
+
+/* ==============================
+VISTA
+============================== */
+div.convocatoriaCiudadano{
+
+    form{
+
+        div.form--inline{
+
+            padding: 2rem;
+            background-color: var.$color-primario;
+            color: white;
+
+            //Codigo proceso
+            div.form-item-field-convcatoria-codigo-proceso-value{
+
+                display: contents !important;
+            }
+
+            //Departamento
+            div.form-item-field-convcatoria-departamento-target-id{
+
+                display: block !important;
+                width: 100%;
+            }
+
+            input[type="submit"]{
+
+                background-color: var.$color-cuaternario !important;
+            }
+        }
+    }
+}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3039d8f887bbbc98b60b455440b694db",
+    "content-hash": "d9b50b061a623f0567748aeabf3cff3d",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3542,7 +3542,8 @@
                 "patches_applied": {
                     "Notice: Undefined index: value in Drupal\\views\\Plugin\\views\\filter\\NumericFilter->acceptExposedInput()": "https://www.drupal.org/files/issues/2020-06-04/2825860-exposed-filter-notice-38.patch",
                     "Multiple usages of FieldPluginBase::getEntity do not check for NULL, leading to WSOD": "https://www.drupal.org/files/issues/2020-09-03/3007424-108.patch",
-                    "AssertionError: Tokens need to be valid Twig variables. in assert": "https://www.drupal.org/files/issues/2019-05-22/views-ignore_invalid_tokens_in_replace-3056489-1-D8.6.16.patch"
+                    "AssertionError: Tokens need to be valid Twig variables. in assert": "https://www.drupal.org/files/issues/2019-05-22/views-ignore_invalid_tokens_in_replace-3056489-1-D8.6.16.patch",
+                    "Exposed date filter leads to a notice": "https://www.drupal.org/files/issues/2020-11-12/2811887-53.patch"
                 }
             },
             "autoload": {
@@ -7935,16 +7936,16 @@
         },
         {
             "name": "pear/archive_tar",
-            "version": "1.4.10",
+            "version": "1.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pear/Archive_Tar.git",
-                "reference": "bbb4f10f71a1da2715ec6d9a683f4f23c507a49b"
+                "reference": "17d355cb7d3c4ff08e5729f29cd7660145208d9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pear/Archive_Tar/zipball/bbb4f10f71a1da2715ec6d9a683f4f23c507a49b",
-                "reference": "bbb4f10f71a1da2715ec6d9a683f4f23c507a49b",
+                "url": "https://api.github.com/repos/pear/Archive_Tar/zipball/17d355cb7d3c4ff08e5729f29cd7660145208d9d",
+                "reference": "17d355cb7d3c4ff08e5729f29cd7660145208d9d",
                 "shasum": ""
             },
             "require": {
@@ -7997,7 +7998,7 @@
                 "archive",
                 "tar"
             ],
-            "time": "2020-09-15T14:13:23+00:00"
+            "time": "2020-11-19T22:10:24+00:00"
         },
         {
             "name": "pear/console_getopt",

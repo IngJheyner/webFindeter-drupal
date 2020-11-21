@@ -24,20 +24,20 @@ variant_settings:
           classes:
             row: row
           add_layout_class: 1
-          attributes: ''
+          attributes: class|mx-0
         regions:
           top:
             wrapper: div
             classes:
               col-sm-12: col-sm-12
             add_region_classes: 1
-            attributes: ''
+            attributes: class|px-0
           main:
             wrapper: div
             classes:
               col-sm-12: col-sm-12
             add_region_classes: 1
-            attributes: ''
+            attributes: 'class|mb-5 mt-2'
           bottom:
             wrapper: div
             classes:
@@ -45,11 +45,25 @@ variant_settings:
             add_region_classes: 1
             attributes: ''
       components:
-        b8074768-5a6e-479e-a336-02c7ff38ba35:
-          uuid: b8074768-5a6e-479e-a336-02c7ff38ba35
+        adf1dd33-6320-450d-9aca-ef4baad6fcf3:
+          uuid: adf1dd33-6320-450d-9aca-ef4baad6fcf3
+          region: top
+          configuration:
+            id: 'block_content:6699f94b-8e4f-4c82-b46b-49c63d21f502'
+            label: 'Convocatorias [ Encabezado ]'
+            provider: block_content
+            label_display: '0'
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 1
+        701e927d-0227-43c0-b4be-c4a6c1d99eb5:
+          uuid: 701e927d-0227-43c0-b4be-c4a6c1d99eb5
           region: main
           configuration:
-            id: 'views_block:convocatorias-block_2'
+            id: 'views_block:convocatorias-block_convocatoria_ciudadano'
             label: ''
             provider: views
             label_display: '0'
@@ -57,7 +71,7 @@ variant_settings:
             items_per_page: none
             context_mapping: {  }
           additional: {  }
-          weight: 0
+          weight: 1
       third_party_settings: {  }
 page: page_convocatorias
 weight: 1
@@ -65,7 +79,7 @@ selection_criteria:
   -
     id: user_role
     roles:
-      anonymous: anonymous
+      authenticated: authenticated
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
