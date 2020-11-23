@@ -1,0 +1,20 @@
+uuid: 7d067ee9-e115-4000-93f0-7deaa3ad0de8
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_pqrsd_departamento
+field_name: field_pqrsd_departamento
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

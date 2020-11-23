@@ -1,0 +1,29 @@
+uuid: 1204ea81-1bb3-4fe3-b8ae-4184f91b8105
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pqrsd_archivo
+    - node.type.pqrsd
+  module:
+    - file
+_core:
+  default_config_hash: AXa9ZDvnTHPL0YzVV1Sznc6E5nH-oqLhcdZdGGIAqzg
+id: node.pqrsd.field_pqrsd_archivo
+field_name: field_pqrsd_archivo
+entity_type: node
+bundle: pqrsd
+label: 'Adjuntar archivo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'pqrsd/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt doc docx pdf xls odf'
+  max_filesize: '20 MB'
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

@@ -131,7 +131,7 @@ form#search-block-form div.buscadorAcceso input[type=search] {
 }
 form#search-block-form div.buscadorAcceso .menuAccesoRapido {
   background: #e5e5e5;
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 0 0 0.8rem 0.8rem;
 }
 form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li {
@@ -143,16 +143,19 @@ form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li a, form#se
   display: block;
 }
 form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(1) span.icon::before {
-  content: url("/themes/custom/webfinde/images/iconos/ER_convocatorias.png");
+  content: url("/themes/custom/webfinde/images/iconos/Acceso-Directo/ER_convocatorias.png");
 }
 form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(2) span.icon::before {
-  content: url("/themes/custom/webfinde/images/iconos/ER_leytransparencia.png");
+  content: url("/themes/custom/webfinde/images/iconos/Acceso-Directo/ER_leytransparencia.png");
 }
 form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(3) span.icon::before {
-  content: url("/themes/custom/webfinde/images/iconos/ER_contratacion.png");
+  content: url("/themes/custom/webfinde/images/iconos/Acceso-Directo/ER_contratacion.png");
 }
 form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(4) span.icon::before {
-  content: url("/themes/custom/webfinde/images/iconos/ER_inversionistas.png");
+  content: url("/themes/custom/webfinde/images/iconos/Acceso-Directo/ER_inversionistas.png");
+}
+form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(5) span.icon::before {
+  content: url("/themes/custom/webfinde/images/iconos/Acceso-Directo/ER_properity.png");
 }
 form#search-block-form .btnSearch {
   position: absolute;
@@ -1817,6 +1820,54 @@ div.preguntasFrecuentes div.view-content ul li div.respuesta {
 div.preguntasFrecuentes div.view-content ul li div.respuesta p {
   padding-left: 1rem;
   border-left: 1px solid #112d6a;
+}
+
+/* ===== ===== Convocatorias ===== ===== */
+/* ===== ===== Encabezado ===== ===== */
+/* ==============================
+COLORES
+============================== */
+div.encabezadoConvocatorias figure {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  transform: translate(0, -13rem);
+  height: 23rem;
+}
+div.encabezadoConvocatorias figure img {
+  height: 100%;
+}
+div.encabezadoConvocatorias div.encabezado {
+  height: 7rem;
+}
+div.encabezadoConvocatorias div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+/* ===== ===== Ciudadano ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+VISTA
+============================== */
+div.convocatoriaCiudadano form div.form--inline {
+  padding: 2rem;
+  background-color: #112d6a;
+  color: white;
+}
+div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-codigo-proceso-value {
+  display: contents !important;
+}
+div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-departamento-target-id {
+  display: block !important;
+  width: 100%;
+}
+div.convocatoriaCiudadano form div.form--inline input[type=submit] {
+  background-color: #00993e !important;
 }
 
 /*# sourceMappingURL=style.css.map */

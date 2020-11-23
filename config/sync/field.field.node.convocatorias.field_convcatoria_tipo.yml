@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_convcatoria_tipo
     - node.type.convocatorias
-    - taxonomy.vocabulary.convcatoria_contratacion
+    - taxonomy.vocabulary.tipo_de_convocatoria
   module:
     - disable_field
 third_party_settings:
@@ -26,7 +26,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      convcatoria_contratacion: convcatoria_contratacion
+      tipo_de_convocatoria: tipo_de_convocatoria
     sort:
       field: name
       direction: asc
