@@ -6,7 +6,6 @@ use Drupal\findeter_pqrsd\Step\StepInterface;
 use Drupal\findeter_pqrsd\Step\StepsEnum;
 
 use Drupal\Core\Messenger\MessengerInterface;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -19,9 +18,6 @@ class StepManager {
   // property to show messages
   private $messenger;
 
-  // to manage logs entry
-  private $logger;
-
   /**
    * Multi steps of the form.
    *
@@ -33,9 +29,8 @@ class StepManager {
   /**
    * {@inheritdoc}
    */
-  public function __construct(MessengerInterface $messenger,LoggerInterface $logger) {
+  public function __construct(MessengerInterface $messenger) {
     $this->messenger = $messenger;
-    $this->logger = $logger;
   }
 
   /**
@@ -44,7 +39,7 @@ class StepManager {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('messenger'),
-      $container->get('logger.factory')->get('multiStep')
+      //$container->get('logger.factory')->get('multiStep')
     );
   }
 
@@ -77,7 +72,7 @@ class StepManager {
       // Get class.
       $class = StepsEnum::map($step_id);
       // Init step.
-      $step = new $class($this->messenger,$this->logger,$this);
+      $step = new $class($this->messenger,$this);
     }
     
     return $step;
