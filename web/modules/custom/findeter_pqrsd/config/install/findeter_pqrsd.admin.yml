@@ -8,104 +8,106 @@ semaphore:
     orange: 8
     red: 15
     title: 'Quejas, reclamos, sugerencias y denuncias'
-    condition: 
-      0: '<b>Tipo de radicado:</b> Quejas o reclamos o sugerencias o denuncias'
-  general: 
+    condition:
+      - '<b>Tipo de radicado:</b> Quejas o reclamos o sugerencias o denuncias'
+  general:
     logic: 'business days'
     orange: 20
     red: 30
     title: 'Solicitud de interés general'
-    condition: 
-      0: '<b>Tipo de radicado:</b> Peticiones'
-      1: '<b>Tipo de petición:</b> Solicitud de interés general'
-  particular: 
+    condition:
+      - '<b>Tipo de radicado:</b> Peticiones'
+      - '<b>Tipo de petición:</b> Solicitud de interés general'
+  particular:
     logic: 'business days'
     orange: 20
     red: 30
     title: 'Solicitud de interés particular'
-    condition: 
-      0: '<b>Tipo de radicado:</b> Peticiones'
-      1: '<b>Tipo de petición:</b> Solicitud de interés particular'
+    condition:
+      - '<b>Tipo de radicado:</b> Peticiones'
+      - '<b>Tipo de petición:</b> Solicitud de interés particular'
   informacion:
     logic: 'business days'
     orange: 15
     red: 20
     title: 'Solicitud de documentos, copias, información'
-    condition: 
-      0: '<b>Tipo de radicado:</b> Peticiones'
-      1: '<b>Tipo de petición:</b> Solicitud de documentos, copias, información'
+    condition:
+      - '<b>Tipo de radicado:</b> Peticiones'
+      - '<b>Tipo de petición:</b> Solicitud de documentos, copias, información'
   publica:
     logic: 'business days'
     orange: 15
     red: 20
     title: 'Solicitud de información pública'
-    condition: 
-      0: '<b>Tipo de radicado:</b> Peticiones'
-      1: '<b>Tipo de petición:</b> Solicitud de información pública'
+    condition:
+      - '<b>Tipo de radicado:</b> Peticiones'
+      - '<b>Tipo de petición:</b> Solicitud de información pública'
   traslado:
     logic: 'business days'
     orange: 8
     red: 10
     title: 'Solicitud por traslado de otras entidades'
     condition:
-      0: '<b>Tipo de radicado:</b> Peticiones'
-      1: '<b>Tipo de petición:</b> Solicitud por traslado de otras entidades'
+      - '<b>Tipo de radicado:</b> Peticiones'
+      - '<b>Tipo de petición:</b> Solicitud por traslado de otras entidades'
   cargo:
     logic: 'business days'
     orange: 25
     red: 35
     title: 'Solicitud de información relacionada al cargo'
-    condition: 
-      0: '<b>Tipo de radicado:</b> Peticiones'
-      1: '<b>Tipo de petición:</b> Solicitud de información relacionada al cargo'
+    condition:
+      - '<b>Tipo de radicado:</b> Peticiones'
+      - '<b>Tipo de petición:</b> Solicitud de información relacionada al cargo'
   camaras:
     logic: 'calendar days'
     orange: 8
     red: 10
     title: 'Solicitud de información de camaras legislativas'
     condition:
-      0: '<b>Tipo de radicado:</b> Peticiones'
-      1: '<b>Tipo de petición:</b> Solicitud de información de camaras legislativas'
+      - '<b>Tipo de radicado:</b> Peticiones'
+      - '<b>Tipo de petición:</b> Solicitud de información de camaras legislativas'
   asesoria:
     logic: 'business days'
     orange: 20
     red: 30
     title: 'Solicitud de asesorias y capacitación'
-    condition: 
-      0: '<b>Tipo de radicado:</b> Peticiones'
-      1: '<b>Tipo de petición:</b> Solicitud de asesorias y capacitación'
+    condition:
+      - '<b>Tipo de radicado:</b> Peticiones'
+      - '<b>Tipo de petición:</b> Solicitud de asesorias y capacitación'
   irrespetuosa:
     logic: 'business days'
     orange: 8
     red: 10
     title: 'Solicitudes irrespetuosas, oscuras o reiterativas'
-    condition: 
-      0: '<b>Tipo de radicado:</b> Peticiones'
-      1: '<b>Tipo de petición:</b> Solicitudes irrespetuosas, oscuras o reiterativas'
+    condition:
+      - '<b>Tipo de radicado:</b> Peticiones'
+      - '<b>Tipo de petición:</b> Solicitudes irrespetuosas, oscuras o reiterativas'
   incompleta|1:
     logic: 'business days'
     orange: 8
     red: 10
     title: 'Solicitud incompleta'
     condition:
-      0: '<b>Tipo de radicado:</b> Peticiones'
-      1: '<b>Tipo de petición:</b> Solicitud incompleta'
-      2: '<b>Opción de extensión:</b> No seleccionada'
+      - '<b>Tipo de radicado:</b> Peticiones'
+      - '<b>Tipo de petición:</b> Solicitud incompleta'
+      - '<b>Opción de extensión:</b> No seleccionada'
   incompleta|2:
     logic: 'business days'
     orange: 20
     red: 30
     title: 'Solicitud incompleta (extendida)'
-    condition: 
-      0: '<b>Tipo de radicado:</b> Peticiones'
-      1: '<b>Tipo de petición:</b> Solicitud incompleta'
-      2: '<b>Opción de extensión:</b> Seleccionada'
+    condition:
+      - '<b>Tipo de radicado:</b> Peticiones'
+      - '<b>Tipo de petición:</b> Solicitud incompleta'
+      - '<b>Opción de extensión:</b> Seleccionada'
   all:
     logic: 'calendar days'
     orange: 3
     red: 5
     title: 'Solicitud de información de los congresistas'
-    condition: 
-      0: '<b>Tipo de radicado:</b> Peticiones'
-      1: '<b>Tipo de petición:</b> - Cualquiera -'
-      2: '<b>Atención preferencial:</b> Congresista'
+    condition:
+      - '<b>Tipo de radicado:</b> Peticiones'
+      - '<b>Tipo de petición:</b> - Cualquiera -'
+      - '<b>Atención preferencial:</b> Congresista'
+_core:
+  default_config_hash: YLPPgLtCUD5tpdqQqu6cftzPTW8ShlxL_nkxqEg_jo8

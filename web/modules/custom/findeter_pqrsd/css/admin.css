@@ -11,7 +11,7 @@
 }
 #update-pqrsd-admin .details-wrapper .col,
 #register-pqrsd-admin .details-wrapper .col{
-  width: 46%;
+  width: 44%;
   padding: 2%;
 }
 
@@ -98,4 +98,19 @@
   background-size: contain;
   text-indent: 10000px;
   display: block;
+}
+
+/*Report styles*/
+.chart-container{
+  position: relative;
+  height: auto;
+  width: 500px;
+  border: 1px solid #ccc;
+  margin: 5px;
+  padding: 5px;
+  background-color: #fff;
+}
+#tipo-solicitante-chart,
+#tipo-radicado-chart{
+  width: 200px;
 }
