@@ -79,8 +79,22 @@ class StepOne extends BaseStep {
       '#prefix'       => '<div class="col">'
     ];
 
-    $firstSubmit = $form_state->getTriggeringElement();
-    if($firstSubmit['#value'] == 'Peticiones'){
+
+    $showPeticiones = false;
+    if(isset($steps[0])){
+      $valuesZeroStep = $steps[0]->getValues();
+      if($valuesZeroStep['field_pqrsd_tipo_radicado'] == 'Peticiones'){
+        $showPeticiones = true;
+      }
+    }else{
+      $firstSubmit = $form_state->getTriggeringElement();
+      if($firstSubmit['#value'] == 'Peticiones'){
+        $showPeticiones = true;
+      }
+    }
+
+
+    if($showPeticiones){
       $typeRequestValues = $definitions['field_pqrsd_tipo_peticion']->getSetting('allowed_values');
       // these options is just for administrator role
       unset($typeRequestValues['traslado']);
@@ -102,7 +116,7 @@ class StepOne extends BaseStep {
     // end first col
     $formStep['field_pqrsd_tipo_discapacidad'] = [
       '#type'         => 'select',
-      '#title'        => $definitions['field_pqrsd_tipo_discapacidad']->getLabel(),
+      '#title'        => '<span class"required">*</span>'.$definitions['field_pqrsd_tipo_discapacidad']->getLabel(),
       '#options'      => $definitions['field_pqrsd_tipo_discapacidad']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
       '#suffix'       => '</div>'
@@ -111,7 +125,7 @@ class StepOne extends BaseStep {
     // start second col
     $formStep['field_pqrsd_grupo_etnico'] = [
       '#type'         => 'select',
-      '#title'        => $definitions['field_pqrsd_grupo_etnico']->getLabel(),
+      '#title'        => '<span class"required">*</span>'.$definitions['field_pqrsd_grupo_etnico']->getLabel(),
       '#options'      => $definitions['field_pqrsd_grupo_etnico']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
       '#prefix'       => '<div class="col">'
@@ -120,7 +134,7 @@ class StepOne extends BaseStep {
     // end second col
     $formStep['field_pqrsd_preferencial'] = [
       '#type'         => 'select',
-      '#title'        => $definitions['field_pqrsd_preferencial']->getLabel(),
+      '#title'        => '<span class"required">*</span>'.$definitions['field_pqrsd_preferencial']->getLabel(),
       '#options'      => $definitions['field_pqrsd_preferencial']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
       '#suffix'       => '</div>'
@@ -162,6 +176,15 @@ class StepOne extends BaseStep {
     return [
       'field_pqrsd_tipo_peticion' => [
         new ValidatorTypeRequest("Tipo de petición es requerido"),
+      ],
+      'field_pqrsd_tipo_discapacidad' => [
+        new ValidatorRequired("Tipo de discapacidad es requerido"),
+      ],
+      'field_pqrsd_grupo_etnico' => [
+        new ValidatorRequired("Grupo étnico es requerido"),
+      ],
+      'field_pqrsd_preferencial' => [
+        new ValidatorRequired("Atención preferencial es requerido"),
       ],
       'field_pqrsd_tipo_solicitante' => [
         new ValidatorRequired("Tipo de solicitante es requerido"),
