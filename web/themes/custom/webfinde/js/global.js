@@ -165,7 +165,52 @@
 
             });            
             
+
+            /*===========================================
+            CONVOCATORIAS
+            =============================================*/
+            $(".convocatoriaCiudadano form div.form-item-field-convcatoria-fecha-apertura-value-min input[type='text']").addClass('datepicker InicialApertura').attr('readonly','');
+
+            $(".convocatoriaCiudadano form div.form-item-field-convcatoria-fecha-apertura-value-max input[type='text']").addClass('datepicker FinalApertura').attr('readonly','');
+
+            $(".convocatoriaCiudadano form div.form-item-field-convcatoria-fecha-apertura-value-max label").html('Hasta');
             
+            /* ===== ===== Fechas ===== ===== */
+            $(".datepicker.InicialApertura").datepicker({
+
+                language: "es",
+                format: 'dd-mm-yyyy',                
+                todayHighlight: true,                
+            });
+
+            $(".datepicker.InicialApertura").on("change", function(){
+
+                var fechaInicial = $(this).val();
+
+                $(".datepicker.FinalApertura").datepicker({
+
+                    language: "es",
+                    datesDisabled: fechaInicial - 1,
+                    startDate: fechaInicial,    
+                    format: 'dd-mm-yyyy',         
+                });
+
+            });
+            
+            $(".convocatoriaCiudadano form #edit-actions input[type='submit']").after(`
+            <a href="javascript:void(0)" class="text-white ml-5 busquedaAvz"><i class="fas fa-search-plus"></i> Mas campos de busqueda</a>
+            `);
+
+            $(".convocatoriaCiudadano form .form--inline div:gt(1):not(div:last):not(div.form-item-items-per-page)").hide();
+
+            $(".convocatoriaCiudadano form #edit-actions a").on('click', function(){
+                $(".convocatoriaCiudadano form .form--inline div:nth-child(3)").slideToggle("slow");
+                $(".convocatoriaCiudadano form .form--inline div:nth-child(4)").slideToggle("slow");
+                $(".convocatoriaCiudadano form .form--inline div:nth-child(5)").slideToggle("slow");
+                $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").slideToggle("slow");
+                $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").slideToggle("slow");                
+            });           
+
         /*}
     };*/
 

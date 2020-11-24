@@ -1,13 +1,16 @@
 global:
   js:
     ../../contrib/bootstrap4/dist/bootstrap/4.5.3/dist/js/bootstrap.bundle.min.js: {minified: true}
-    js/global.js: {}
     js/plugins/easing.example.js: {}
+    js/plugins/datepicker/bootstrap-datepicker.min.js: {}
+    js/plugins/datepicker/bootstrap-datepicker.es.min.js: {}
+    js/global.js: {}
   dependencies:
     - core/jquery
   css:
     theme:
       ../../contrib/bootstrap4/dist/bootstrap/4.5.3/dist/css/bootstrap.min.css: {minified: true}
+      css/plugins/bootstrap-datepicker.standalone.min.css: {}
       css/style.css: {}
 
 mapaHome:
