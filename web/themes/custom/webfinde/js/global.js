@@ -168,48 +168,87 @@
 
             /*===========================================
             CONVOCATORIAS
-            =============================================*/
-            $(".convocatoriaCiudadano form div.form-item-field-convcatoria-fecha-apertura-value-min input[type='text']").addClass('datepicker InicialApertura').attr('readonly','');
+            =============================================*/            
+           
+            let activarBusqueda = false;
+            //console.log("🚀 ~ file: global.js ~ line 174 ~ mostrarFiltros", mostrarFiltros)
 
-            $(".convocatoriaCiudadano form div.form-item-field-convcatoria-fecha-apertura-value-max input[type='text']").addClass('datepicker FinalApertura').attr('readonly','');
+            $(document).ajaxStop(function() {
+                
+                $(".convocatoriaCiudadano form div.form-item-field-convcatoria-fecha-apertura-value-min input[type='text']").addClass('datepicker InicialApertura').attr('readonly','');
 
-            $(".convocatoriaCiudadano form div.form-item-field-convcatoria-fecha-apertura-value-max label").html('Hasta');
-            
-            /* ===== ===== Fechas ===== ===== */
-            $(".datepicker.InicialApertura").datepicker({
+                $(".convocatoriaCiudadano form div.form-item-field-convcatoria-fecha-apertura-value-max input[type='text']").addClass('datepicker FinalApertura').attr('readonly','');
+                
+                $(".convocatoriaCiudadano form div.form-item-field-convcatoria-fecha-apertura-value-max label").html('Hasta');
 
-                language: "es",
-                format: 'dd-mm-yyyy',                
-                todayHighlight: true,                
-            });
-
-            $(".datepicker.InicialApertura").on("change", function(){
-
-                var fechaInicial = $(this).val();
-
-                $(".datepicker.FinalApertura").datepicker({
+                /* ===== ===== Fechas ===== ===== */
+                $(".datepicker.InicialApertura").datepicker({
 
                     language: "es",
-                    datesDisabled: fechaInicial - 1,
-                    startDate: fechaInicial,    
-                    format: 'dd-mm-yyyy',         
+                    format: 'dd-mm-yyyy',                
+                    todayHighlight: true,                
                 });
 
-            });
-            
-            $(".convocatoriaCiudadano form #edit-actions input[type='submit']").after(`
-            <a href="javascript:void(0)" class="text-white ml-5 busquedaAvz"><i class="fas fa-search-plus"></i> Mas campos de busqueda</a>
-            `);
+                $(".datepicker.InicialApertura").on("change", function(){
 
-            $(".convocatoriaCiudadano form .form--inline div:gt(1):not(div:last):not(div.form-item-items-per-page)").hide();
+                    var fechaInicial = $(this).val();
 
-            $(".convocatoriaCiudadano form #edit-actions a").on('click', function(){
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(3)").slideToggle("slow");
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(4)").slideToggle("slow");
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(5)").slideToggle("slow");
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").slideToggle("slow");
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").slideToggle("slow");                
-            });           
+                    $(".datepicker.FinalApertura").datepicker({
+
+                        language: "es",
+                        datesDisabled: fechaInicial - 1,
+                        startDate: fechaInicial,    
+                        format: 'dd-mm-yyyy',         
+                    });
+
+                });                
+
+                $(".convocatoriaCiudadano form .form-actions input[type='submit']").after(`
+                    <a href="javascript:void(0)" class="text-white ml-5 busquedaAvz"><i class="fas fa-search-plus"></i> Mostar mas campos de busqueda</a>
+                `);                
+
+                if(activarBusqueda === false){
+
+                    $(".convocatoriaCiudadano form .form--inline div:nth-child(3)").hide();
+                    $(".convocatoriaCiudadano form .form--inline div:nth-child(4)").hide();
+                    $(".convocatoriaCiudadano form .form--inline div:nth-child(5)").hide();
+                    $(".convocatoriaCiudadano form .form--inline div:nth-child(6)").hide();
+                    $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").hide();
+                    $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").hide();
+                }
+               
+
+                $(".convocatoriaCiudadano form .form-actions a").on('click', function(){
+
+                    if(activarBusqueda === false){
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(3)").slideDown("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(4)").slideDown("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(5)").slideDown("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(6)").slideDown("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").slideDown("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").slideDown("slow");
+                        activarBusqueda = true;
+                    }else{
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(3)").slideUp("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(4)").slideUp("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(5)").slideUp("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(6)").slideUp("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").slideUp("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").slideUp("slow");
+                        activarBusqueda = false;
+                    }
+                                         
+                    
+                   
+                });
+
+                $(".convocatoriaCiudadano form .form-actions input[type='submit']").on('click', function(){
+                    if(activarBusqueda){ mostrarFiltros = true };
+                    //console.log("🚀 ~ file: global.js ~ line 240 ~ $ ~ mostrarFiltros", mostrarFiltros)
+                });
+                    
+                      
+            });         
 
         /*}
     };*/

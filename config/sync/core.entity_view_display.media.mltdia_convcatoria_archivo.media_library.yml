@@ -4,11 +4,14 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.media_library
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_mltdia_editar
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_muldia_fecha
     - field.field.media.mltdia_convcatoria_archivo.field_convctoria_tipo_documento
     - field.field.media.mltdia_convcatoria_archivo.field_media_document
     - image.style.medium
     - media.type.mltdia_convcatoria_archivo
   module:
+    - datetime
     - field_formatter_class
     - file
     - image
@@ -18,15 +21,26 @@ targetEntityType: media
 bundle: mltdia_convcatoria_archivo
 mode: media_library
 content:
-  created:
-    type: timestamp
+  field_convcatoria_mltdia_editar:
+    type: boolean
+    weight: 5
+    region: content
+    label: inline
+    settings:
+      format: yes-no
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+  field_convcatoria_muldia_fecha:
+    type: datetime_default
     weight: 4
     region: content
     label: inline
     settings:
-      date_format: custom
-      custom_date_format: d/m/Y
-      timezone: America/Bogota
+      timezone_override: ''
+      format_type: short
     third_party_settings:
       field_formatter_class:
         class: ''
@@ -34,7 +48,7 @@ content:
     type: list_default
     weight: 3
     region: content
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
   field_media_document:
@@ -66,6 +80,7 @@ content:
     region: content
 hidden:
   addtoany: true
+  created: true
   langcode: true
   search_api_excerpt: true
   uid: true
