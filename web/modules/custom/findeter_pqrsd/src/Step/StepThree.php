@@ -9,7 +9,6 @@ use Drupal\findeter_pqrsd\Button\StepThreePreviousButton;
 use Drupal\findeter_pqrsd\Validator\ValidatorRequired;
 
 use Drupal\Core\Messenger\MessengerInterface;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -22,16 +21,11 @@ class StepThree extends BaseStep {
   // property to show messages
   private $messenger;
 
-  // to manage logs entry
-  private $logger;
-
   /**
    * {@inheritdoc}
    */
-  public function __construct(MessengerInterface $messenger,LoggerInterface $logger) {
+  public function __construct(MessengerInterface $messenger) {
     $this->messenger = $messenger;
-    $this->logger = $logger;
-
     $this->step = StepsEnum::STEP_THREE;
   }
 
@@ -40,8 +34,7 @@ class StepThree extends BaseStep {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('messenger'),
-      $container->get('logger.factory')->get('multiStep')
+      $container->get('messenger')
     );
   }
 

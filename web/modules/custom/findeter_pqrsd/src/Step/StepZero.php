@@ -9,13 +9,11 @@ use Drupal\findeter_pqrsd\Validator\ValidatorRequired;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Messenger\MessengerInterface;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 use Drupal\entity_browser\Element;
 use Drupal\entity_browser\Element\EntityBrowserElement;
 use Drupal\entity_browser\Plugin\Field\FieldWidget\EntityReferenceBrowserWidget;
-
 
 
 /**
@@ -28,16 +26,11 @@ class StepZero extends BaseStep {
   // property to show messages
   private $messenger;
 
-  // to manage logs entry
-  private $logger;
-
   /**
    * {@inheritdoc}
    */
-  public function __construct(MessengerInterface $messenger,LoggerInterface $logger) {
+  public function __construct(MessengerInterface $messenger) {
     $this->messenger = $messenger;
-    $this->logger = $logger;
-
     $this->step = StepsEnum::STEP_ZERO;
   }
 
@@ -46,8 +39,7 @@ class StepZero extends BaseStep {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('messenger'),
-      $container->get('logger.factory')->get('multiStep')
+      $container->get('messenger')
     );
   }
 
