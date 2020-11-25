@@ -5,6 +5,17 @@
 
       $(document, context).once('findeterUserFormRequest ').each( function() {
 
+        //replace url params to generate pdf file
+        if($('.export-link').length){
+          var queryString = window.location.search;
+          queryString = queryString.substring(1);
+          if(queryString != ''){
+            var link = $('.export-link').attr('href');
+            var newLink = link.replace("filter", queryString);
+            $('.export-link').attr('href',newLink);
+          }
+        }
+
         // Source of data, see module hook_views_pre_render function
         if($('canvas#tipo-radicado-chart').length){
           colorArray = colorize(settings.pqrsdReports.tipoRadicado);
@@ -204,7 +215,6 @@
       }
 
       function colorize(data) {
-        console.log(data);
         var opacity = '0.8';
         var result = [];
         let colorList = [];

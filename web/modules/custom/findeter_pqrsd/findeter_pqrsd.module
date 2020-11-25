@@ -735,13 +735,26 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
   }
 
   if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-2'){
+
+    $url = Url::fromRoute('findeter_pqrsd.expor_report_pdf',['filter'=>'filter']);
+    $link_options = array(
+      'attributes' => array(
+        'class' => array(
+          'export-link',
+        ),
+      ),
+    );
+    $url->setOptions($link_options);
+    $exportPdf = Link::fromTextAndUrl('Exportar datos PDF', $url);
+    $exportPdf = $exportPdf->toRenderable();
+
     $variables['form']['actions']['#suffix'] = Markup::create('
       <div class="chart-container"><canvas id="time-chart"></canvas></div>
       <div class="chart-container"><canvas id="tipo-radicado-chart"></canvas></div>
       <div class="chart-container"><canvas id="tipo-solicitante-chart"></canvas></div>
       <div class="chart-container"><canvas id="tipo-producto-chart"></canvas></div>
       <div class="chart-container"><canvas id="canal-recepcion-chart"></canvas></div>
-      <div class="chart-container"><canvas id="forma-recepcion-chart"></canvas></div>');
+      <div class="chart-container"><canvas id="forma-recepcion-chart"></canvas></div>'.render($exportPdf));
   }
   
 }

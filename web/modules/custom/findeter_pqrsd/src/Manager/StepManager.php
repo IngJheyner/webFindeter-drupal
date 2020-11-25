@@ -4,7 +4,6 @@ namespace Drupal\findeter_pqrsd\Manager;
 
 use Drupal\findeter_pqrsd\Step\StepInterface;
 use Drupal\findeter_pqrsd\Step\StepsEnum;
-
 use Drupal\Core\Messenger\MessengerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -38,8 +37,7 @@ class StepManager {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('messenger'),
-      //$container->get('logger.factory')->get('multiStep')
+      $container->get('messenger')
     );
   }
 

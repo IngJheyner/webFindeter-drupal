@@ -13,7 +13,6 @@ use Drupal\findeter_pqrsd\Step\StepsEnum;
 
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\views\Ajax\ScrollTopCommand;
-use Psr\Log\LoggerInterface;
 use Drupal\Component\Utility\Xss;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\views\Views;
@@ -60,10 +59,10 @@ class StatusPQRSD extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function __construct(MessengerInterface $messenger,LoggerInterface $logger) {
+  public function __construct(MessengerInterface $messenger) {
     $this->stepId = StepsEnum::STEP_ZERO;
     // StepManager class needs those two arguments
-    $this->stepManager = new StepManager($messenger,$logger);
+    $this->stepManager = new StepManager($messenger);
     $this->messenger = $messenger;
   }
 
@@ -72,8 +71,7 @@ class StatusPQRSD extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('messenger'),
-      $container->get('logger.factory')->get('statusPQRSD')
+      $container->get('messenger')
     );
   }
 
