@@ -22,6 +22,7 @@ dependencies:
     - datetime
     - field_group
     - media_library
+    - path
 third_party_settings:
   field_group:
     group_gr:
@@ -90,7 +91,6 @@ third_party_settings:
       children:
         - field_convcatoria_programa
         - field_convcatoria_contratacion
-        - field_convcatoria_tipo
         - field_convcatoria_contractual
         - field_convcatoria_forma_pago
       parent_name: group_grupo_tabs_detalles
@@ -223,6 +223,12 @@ content:
     settings:
       include_locked: true
     third_party_settings: {  }
+  path:
+    type: path
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 4
@@ -234,7 +240,6 @@ content:
 hidden:
   body: true
   created: true
-  path: true
   promote: true
   status: true
   sticky: true
