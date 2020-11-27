@@ -1,0 +1,102 @@
+uuid: 5b9e2c95-ce0c-4f97-9124-f8f8d3d0aacb
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.10_12_informe_de_peticiones_quejas_reclamos_y_denuncias_pqrsd
+id: 10_12_informe_de_peticiones_quejas_reclamos_y_denuncias_pqrsd-layout_builder-0
+label: 'Informes de peticiones'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: 48dfbf41-6ec1-43e9-809c-d682ae400bff
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        73a736c0-6d23-4900-96e9-220882b5fe69:
+          uuid: 73a736c0-6d23-4900-96e9-220882b5fe69
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información publica'
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 1
+        d7285ef8-8eae-45c7-a3ea-03d39ec74dda:
+          uuid: d7285ef8-8eae-45c7-a3ea-03d39ec74dda
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-10_12_informe_de_peticiones_quejas_reclamos_y_denuncias_pqrsd'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: '1'
+            context_mapping: {  }
+          additional: {  }
+          weight: 2
+        a684ebde-fbc1-4fe3-820b-9e93df73bd19:
+          uuid: a684ebde-fbc1-4fe3-820b-9e93df73bd19
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: '0'
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 1
+            expand: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:691db354-e5f9-4666-b987-80fb2c5299ca'
+            suggestion: transparencia_acceso_informacion_sidebar
+            context_mapping: {  }
+          additional: {  }
+          weight: 2
+      third_party_settings: {  }
+page: 10_12_informe_de_peticiones_quejas_reclamos_y_denuncias_pqrsd
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }
