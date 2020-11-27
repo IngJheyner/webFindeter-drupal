@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.convocatorias.body
     - field.field.node.convocatorias.field_convcatoria_archivos
+    - field.field.node.convocatorias.field_convcatoria_codigo_proceso
     - field.field.node.convocatorias.field_convcatoria_contractual
     - field.field.node.convocatorias.field_convcatoria_contratacion
     - field.field.node.convocatorias.field_convcatoria_departamento
@@ -16,6 +17,7 @@ dependencies:
     - field.field.node.convocatorias.field_convcatoria_objeto
     - field.field.node.convocatorias.field_convcatoria_presupuesto
     - field.field.node.convocatorias.field_convcatoria_programa
+    - field.field.node.convocatorias.field_convcatoria_tipo
     - node.type.convocatorias
   module:
     - text
@@ -41,6 +43,7 @@ content:
 hidden:
   addtoany: true
   field_convcatoria_archivos: true
+  field_convcatoria_codigo_proceso: true
   field_convcatoria_contractual: true
   field_convcatoria_contratacion: true
   field_convcatoria_departamento: true
@@ -51,5 +54,6 @@ hidden:
   field_convcatoria_objeto: true
   field_convcatoria_presupuesto: true
   field_convcatoria_programa: true
+  field_convcatoria_tipo: true
   langcode: true
   search_api_excerpt: true

@@ -1,22 +1,22 @@
-uuid: 27b8e685-153b-4243-a15e-c03c1e79ca13
+uuid: cb03a0f5-5093-4631-acb0-b80e087adaa7
 langcode: es
 status: true
 dependencies:
   config:
-    - field.storage.node.field_convcatoria_contratacion
+    - field.storage.node.field_convcatoria_tipo
     - node.type.convocatorias
-    - taxonomy.vocabulary.modalidad_contratacion
+    - taxonomy.vocabulary.tipo_de_convocatoria
   module:
     - disable_field
 third_party_settings:
   disable_field:
     add_disable: none
     edit_disable: none
-id: node.convocatorias.field_convcatoria_contratacion
-field_name: field_convcatoria_contratacion
+id: node.convocatorias.field_convcatoria_tipo
+field_name: field_convcatoria_tipo
 entity_type: node
 bundle: convocatorias
-label: 'Modalidad de contratación'
+label: 'Tipo de Convocatoria'
 description: ''
 required: false
 translatable: false
@@ -26,10 +26,10 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      modalidad_contratacion: modalidad_contratacion
+      tipo_de_convocatoria: tipo_de_convocatoria
     sort:
       field: name
       direction: asc
-    auto_create: false
+    auto_create: true
     auto_create_bundle: ''
 field_type: entity_reference
