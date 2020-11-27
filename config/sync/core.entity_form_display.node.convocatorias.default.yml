@@ -10,8 +10,8 @@ dependencies:
     - field.field.node.convocatorias.field_convcatoria_departamento
     - field.field.node.convocatorias.field_convcatoria_email_proceso
     - field.field.node.convocatorias.field_convcatoria_estado
-    - field.field.node.convocatorias.field_convcatoria_fecha_apertura
     - field.field.node.convocatorias.field_convcatoria_forma_pago
+    - field.field.node.convocatorias.field_convcatoria_moneda
     - field.field.node.convocatorias.field_convcatoria_objeto
     - field.field.node.convocatorias.field_convcatoria_presupuesto
     - field.field.node.convocatorias.field_convcatoria_programa
@@ -19,7 +19,6 @@ dependencies:
   module:
     - conditional_fields
     - cshs
-    - datetime
     - field_group
     - media_library
     - path
@@ -57,8 +56,8 @@ third_party_settings:
       label: Información
     group_contenido:
       children:
-        - field_convcatoria_fecha_apertura
         - field_convcatoria_email_proceso
+        - field_convcatoria_moneda
         - field_convcatoria_presupuesto
         - field_convcatoria_objeto
         - group_grupo_tabs_detalles
@@ -109,7 +108,7 @@ third_party_settings:
         - group_lista_de_elementos_de_la_c
         - group_departamentos_y_municipios
       parent_name: group_contenido
-      weight: 11
+      weight: 12
       format_type: tabs
       region: content
       format_settings:
@@ -180,20 +179,20 @@ content:
       conditional_fields: {  }
     type: options_select
     region: content
-  field_convcatoria_fecha_apertura:
-    weight: 6
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_convcatoria_forma_pago:
     weight: 14
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
+  field_convcatoria_moneda:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_convcatoria_objeto:
-    weight: 10
+    weight: 11
     settings:
       rows: 5
       placeholder: ''
@@ -201,7 +200,7 @@ content:
     type: string_textarea
     region: content
   field_convcatoria_presupuesto:
-    weight: 9
+    weight: 10
     settings:
       placeholder: '400.000.000,00'
     third_party_settings: {  }
@@ -218,7 +217,7 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 8
+    weight: 7
     region: content
     settings:
       include_locked: true

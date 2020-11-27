@@ -57,11 +57,11 @@
 
   {% if multiple %}
 
-    <div{{ attributes.addClass(classes, 'field__items aqui') }}>
+    <div{{ attributes.addClass(classes, 'field__items') }}>
 
       {% for item in items %}
 
-        <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+        <td{{ item.attributes.addClass('tipoAdjuntoArchivo') }}>{{ item.content }}</td>
 
       {% endfor %}
 
@@ -71,36 +71,10 @@
 
     {% for item in items %}
 
-      <td{{ attributes.addClass(classes, 'field__item') }}>{{ item.content }}</td>
+      <td{{ attributes.addClass(classes, 'tipoAdjuntoArchivo') }}>{{ item.content }}</td>
 
     {% endfor %}
 
   {% endif %}
-
-{% else %}
-
-  <div{{ attributes.addClass(classes) }}>
-
-    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
-
-    {% if multiple %}
-
-      <div class="field__items">
-
-    {% endif %}
-
-    {% for item in items %}
-
-      <div{{ item.attributes.addClass('field__item acaaa') }}>{{ item.content }}</div>
-
-    {% endfor %}
-
-    {% if multiple %}
-
-      </div>
-
-    {% endif %}
-
-  </div>
 
 {% endif %}

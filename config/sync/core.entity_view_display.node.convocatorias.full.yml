@@ -11,15 +11,14 @@ dependencies:
     - field.field.node.convocatorias.field_convcatoria_departamento
     - field.field.node.convocatorias.field_convcatoria_email_proceso
     - field.field.node.convocatorias.field_convcatoria_estado
-    - field.field.node.convocatorias.field_convcatoria_fecha_apertura
     - field.field.node.convocatorias.field_convcatoria_forma_pago
+    - field.field.node.convocatorias.field_convcatoria_moneda
     - field.field.node.convocatorias.field_convcatoria_objeto
     - field.field.node.convocatorias.field_convcatoria_presupuesto
     - field.field.node.convocatorias.field_convcatoria_programa
     - node.type.convocatorias
   module:
     - cshs
-    - datetime
     - field_formatter_class
     - layout_builder
     - options
@@ -37,13 +36,13 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     region: content
   field_convcatoria_archivos:
     type: entity_reference_entity_view
-    weight: 111
+    weight: 8
     label: hidden
     settings:
       view_mode: convocatorias_archivos
@@ -53,7 +52,7 @@ content:
         class: ''
     region: content
   field_convcatoria_contractual:
-    weight: 117
+    weight: 11
     label: above
     settings:
       link: false
@@ -63,7 +62,7 @@ content:
     type: entity_reference_label
     region: content
   field_convcatoria_contratacion:
-    weight: 112
+    weight: 9
     label: above
     settings:
       link: false
@@ -73,7 +72,7 @@ content:
     type: entity_reference_label
     region: content
   field_convcatoria_departamento:
-    weight: 110
+    weight: 7
     label: hidden
     settings:
       reverse: '1'
@@ -85,32 +84,21 @@ content:
     type: cshs_full_hierarchy
     region: content
   field_convcatoria_email_proceso:
-    weight: 116
+    weight: 10
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_convcatoria_estado:
-    weight: 103
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
-  field_convcatoria_fecha_apertura:
-    weight: 108
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings:
-      field_formatter_class:
-        class: ''
-    type: datetime_default
-    region: content
   field_convcatoria_forma_pago:
-    weight: 118
+    weight: 12
     label: above
     settings:
       link: false
@@ -119,15 +107,23 @@ content:
         class: ''
     type: entity_reference_label
     region: content
+  field_convcatoria_moneda:
+    type: entity_reference_label
+    weight: 4
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
   field_convcatoria_objeto:
-    weight: 109
+    weight: 6
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_convcatoria_presupuesto:
-    weight: 107
+    weight: 5
     label: above
     settings:
       thousand_separator: ','
@@ -140,19 +136,18 @@ content:
     type: number_decimal
     region: content
   field_convcatoria_programa:
-    weight: 104
+    weight: 3
     label: inline
     settings:
-      separator: ' <br><b>No. Convenio</b> '
       linked: 0
       reverse: 0
     third_party_settings:
       field_formatter_class:
         class: ''
-    type: cshs_full_hierarchy
+    type: cshs_group_by_root
     region: content
   links:
-    weight: 100
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }

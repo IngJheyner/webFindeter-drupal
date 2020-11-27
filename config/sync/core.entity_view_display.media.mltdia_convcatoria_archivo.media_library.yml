@@ -6,7 +6,7 @@ dependencies:
     - core.entity_view_mode.media.media_library
     - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_mltdia_editar
     - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_muldia_fecha
-    - field.field.media.mltdia_convcatoria_archivo.field_convctoria_tipo_documento
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_tipo_adjunto
     - field.field.media.mltdia_convcatoria_archivo.field_media_document
     - media.type.mltdia_convcatoria_archivo
   module:
@@ -14,7 +14,6 @@ dependencies:
     - field_formatter_class
     - file
     - image
-    - options
 id: media.mltdia_convcatoria_archivo.media_library
 targetEntityType: media
 bundle: mltdia_convcatoria_archivo
@@ -43,13 +42,6 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
-  field_convctoria_tipo_documento:
-    type: list_default
-    weight: 3
-    region: content
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
   field_media_document:
     type: file_default
     weight: 2
@@ -82,6 +74,7 @@ content:
 hidden:
   addtoany: true
   created: true
+  field_convcatoria_tipo_adjunto: true
   langcode: true
   search_api_excerpt: true
   uid: true

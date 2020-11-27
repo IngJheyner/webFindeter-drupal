@@ -1868,6 +1868,16 @@ div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-
 div.convocatoriaCiudadano form div.form--inline input[type=submit] {
   background-color: #00993e !important;
 }
+div.convocatoriaCiudadano table:nth-child(2) thead tr > th:nth-child(1) {
+  width: 200px;
+}
+div.convocatoriaCiudadano table:nth-child(2) tbody tr > td:nth-child(1) a {
+  color: #00993e !important;
+  font-weight: bolder;
+}
+div.convocatoriaCiudadano table:nth-child(2) tbody tr > td:nth-child(1) a:hover {
+  text-decoration: underline;
+}
 
 /* ===== ===== Detalle del proceso ===== ===== */
 article.detalleProcesoConvocatorias div.titulo {
@@ -1885,6 +1895,55 @@ article.detalleProcesoConvocatorias div.titulo h1::after {
   height: 4px;
   background-color: #296294;
   top: 1.6em;
+  left: 0;
+}
+
+/* ===== ===== Productos y servicios ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+Encabezado
+============================== */
+article.productoServicios figure {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+article.productoServicios figure img {
+  height: 100%;
+}
+article.productoServicios div.encabezado {
+  height: 7rem;
+}
+article.productoServicios div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+/* ==============================
+Contenido
+============================== */
+article.productoServicios > div.cuerpoContenido div.titulo {
+  border-bottom: 1px solid #296294;
+  padding-bottom: 4rem;
+}
+article.productoServicios > div.cuerpoContenido div.titulo h1 {
+  position: relative;
+  float: left;
+  padding-bottom: 1rem;
+}
+article.productoServicios > div.cuerpoContenido div.titulo h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #296294;
+  top: 1.5em;
   left: 0;
 }
 

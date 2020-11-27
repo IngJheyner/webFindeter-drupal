@@ -1,0 +1,57 @@
+uuid: 7f5bea17-6ed8-4949-a94c-fcca45a3bd9e
+langcode: es
+status: true
+dependencies:
+  module:
+    - media
+    - options
+id: media.field_convcatoria_tipo_adjunto
+field_name: field_convcatoria_tipo_adjunto
+entity_type: media
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: 'Estudios Previos'
+    -
+      value: '2'
+      label: 'Términos De Referencia'
+    -
+      value: '3'
+      label: 'Acta De Suspensión'
+    -
+      value: '4'
+      label: 'Acta De Reinicio'
+    -
+      value: '5'
+      label: 'Acta De Declaratoria De Desierta'
+    -
+      value: '6'
+      label: 'Acta De Cancelación'
+    -
+      value: '7'
+      label: 'Acta De Adjudicación'
+    -
+      value: '8'
+      label: Contrato
+    -
+      value: '9'
+      label: 'Acta/Orden De Inicio'
+    -
+      value: '10'
+      label: 'Acta De Terminación'
+    -
+      value: '11'
+      label: 'Acta De Liquidación'
+    -
+      value: '12'
+      label: Adenda
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_convcatoria_contractual
     - field.storage.node.field_convcatoria_departamento
     - field.storage.node.field_convcatoria_estado
-    - field.storage.node.field_convcatoria_fecha_apertura
     - field.storage.node.field_convcatoria_objeto
     - field.storage.node.field_convcatoria_presupuesto
     - node.type.convocatorias
@@ -19,7 +18,6 @@ dependencies:
     - user.role.secretaria_general
   module:
     - cshs
-    - datetime
     - node
     - options
     - taxonomy
@@ -504,8 +502,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Título
-          exclude: true
+          label: 'Código proceso'
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -533,14 +531,14 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: '0'
           element_class: ''
-          element_label_type: ''
+          element_label_type: '0'
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -562,56 +560,6 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: field
-        counter:
-          id: counter
-          table: views
-          field: counter
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: No.
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: '0'
-          element_class: ''
-          element_label_type: '0'
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          counter_start: 1
-          plugin_id: counter
         nid:
           id: nid
           table: node_field_data
@@ -620,7 +568,7 @@ display:
           group_type: group
           admin_label: ''
           label: No.
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
             text: '{{ counter }}'
@@ -685,7 +633,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Estado de la convocatoria'
+          label: 'Estado convocatoria'
           exclude: false
           alter:
             alter_text: false
@@ -803,15 +751,15 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        view_node:
-          id: view_node
-          table: node
-          field: view_node
+        field_convcatoria_objeto:
+          id: field_convcatoria_objeto
+          table: node__field_convcatoria_objeto
+          field: field_convcatoria_objeto
           relationship: none
           group_type: group
           admin_label: ''
-          label: et
-          exclude: true
+          label: Objeto
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -829,67 +777,14 @@ display:
             suffix: ''
             target: ''
             nl2br: false
-            max_length: 0
+            max_length: 200
             word_boundary: true
             ellipsis: true
             more_link: false
             more_link_text: ''
             more_link_path: ''
             strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          text: view
-          output_url_as_text: true
-          absolute: false
-          entity_type: node
-          plugin_id: entity_link
-        field_convcatoria_objeto:
-          id: field_convcatoria_objeto
-          table: node__field_convcatoria_objeto
-          field: field_convcatoria_objeto
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Objeto
-          exclude: false
-          alter:
-            alter_text: true
-            text: '<a href="{{ view_node }}">{{ field_convcatoria_objeto }}</a>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
+            trim: true
             preserve_tags: ''
             html: false
           element_type: '0'
@@ -1049,14 +944,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_convcatoria_fecha_apertura:
-          id: field_convcatoria_fecha_apertura
-          table: node__field_convcatoria_fecha_apertura
-          field: field_convcatoria_fecha_apertura
+        created:
+          id: created
+          table: node_field_data
+          field: created
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Fecha de apertura'
+          label: 'Fecha apertura'
           exclude: false
           alter:
             alter_text: false
@@ -1089,7 +984,7 @@ display:
           element_class: ''
           element_label_type: '0'
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: false
@@ -1098,10 +993,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: datetime_default
+          type: timestamp
           settings:
-            timezone_override: America/Bogota
-            format_type: short
+            date_format: short
+            custom_date_format: ''
+            timezone: America/Bogota
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1112,6 +1008,8 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: node
+          entity_field: created
           plugin_id: field
       defaults:
         fields: false
@@ -1134,69 +1032,45 @@ display:
           row_class: ''
           default_row_class: true
           override: 1
-          sticky: 0
+          sticky: 1
           caption: 'Convocatorias Findeter.'
           summary: ''
           description: ''
           columns:
             title: title
-            counter: counter
             nid: nid
-            field_convcatoria_codigo_proceso: field_convcatoria_codigo_proceso
             field_convcatoria_estado: field_convcatoria_estado
             field_convcatoria_contractual: field_convcatoria_contractual
-            view_node: view_node
             field_convcatoria_objeto: field_convcatoria_objeto
             field_convcatoria_departamento: field_convcatoria_departamento
             field_convcatoria_presupuesto: field_convcatoria_presupuesto
-            field_convcatoria_fecha_apertura: field_convcatoria_fecha_apertura
+            created: created
           info:
             title:
-              sortable: 0
+              sortable: 1
               default_sort_order: asc
-              align: views-align-center
-              separator: ''
-              empty_column: 0
-              responsive: ''
-            counter:
-              sortable: 0
-              default_sort_order: desc
               align: views-align-center
               separator: ''
               empty_column: 0
               responsive: ''
             nid:
-              sortable: 0
+              sortable: 1
               default_sort_order: desc
               align: views-align-center
               separator: ''
               empty_column: 0
               responsive: ''
-            field_convcatoria_codigo_proceso:
-              sortable: 0
-              default_sort_order: asc
-              align: views-align-center
-              separator: ''
-              empty_column: 0
-              responsive: ''
             field_convcatoria_estado:
-              sortable: 0
+              sortable: 1
               default_sort_order: asc
               align: views-align-center
               separator: ''
               empty_column: 0
               responsive: ''
             field_convcatoria_contractual:
-              sortable: 0
+              sortable: 1
               default_sort_order: asc
               align: views-align-center
-              separator: ''
-              empty_column: 0
-              responsive: ''
-            view_node:
-              sortable: 0
-              default_sort_order: asc
-              align: ''
               separator: ''
               empty_column: 0
               responsive: ''
@@ -1213,20 +1087,20 @@ display:
               empty_column: 0
               responsive: ''
             field_convcatoria_presupuesto:
-              sortable: 0
+              sortable: 1
               default_sort_order: asc
               align: views-align-center
               separator: ''
               empty_column: 0
               responsive: ''
-            field_convcatoria_fecha_apertura:
-              sortable: 0
-              default_sort_order: asc
-              align: views-align-center
+            created:
+              sortable: 1
+              default_sort_order: desc
+              align: ''
               separator: ''
               empty_column: 0
               responsive: ''
-          default: '-1'
+          default: created
           empty_table: 1
           responsive: 1
           bootstrap_styles:
@@ -1651,6 +1525,58 @@ display:
             operator_limit_selection: false
             operator_list: {  }
           group: 2
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: between
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: created_op
+            label: 'Fecha de apertura'
+            description: ''
+            use_operator: false
+            operator: created_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: created
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              abogado: '0'
+              secretaria_general: '0'
+              colaborador: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: created
+          plugin_id: date
       filter_groups:
         operator: AND
         groups:
@@ -1680,7 +1606,6 @@ display:
         - 'config:field.storage.node.field_convcatoria_contractual'
         - 'config:field.storage.node.field_convcatoria_departamento'
         - 'config:field.storage.node.field_convcatoria_estado'
-        - 'config:field.storage.node.field_convcatoria_fecha_apertura'
         - 'config:field.storage.node.field_convcatoria_objeto'
         - 'config:field.storage.node.field_convcatoria_presupuesto'
   block_convocatoria_funcionario:

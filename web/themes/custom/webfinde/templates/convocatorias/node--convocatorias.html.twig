@@ -83,7 +83,6 @@
 %}
 
 {{ attach_library('classy/node') }}
-{{ attach_library('webfinde/convocatorias') }}
 
 <article{{ attributes.addClass(classes) }}>  
 
@@ -96,7 +95,7 @@
       {# ===== ===== Titulo ===== ===== #} 
       <div class="titulo mb-4">
 
-        <h1>{{ "Detalle del proceso número "|t }} {{ label }}</h1>
+        <h1>{{ "Proceso número "|t }} {{ label }}</h1>
 
       </div>
 
@@ -107,14 +106,17 @@
 
           <tr class="bg-dark">
             <td colspan="2" scope="col">
-              <h5 class="text-white">1. Información general del proceso</h5>
+              <h5 class="text-white">1. {{ "Información general del proceso"|t }}</h5>
             </td>
           <tr>
 
           {# ===== ===== Programa ===== ===== #}
           <tr>
 
-            <td><b> {{ "Programa:"|t }} </b></td>
+            <td>
+            <b> {{ "Programa:"|t }} </b><br>
+            <b> {{ "No. Convenio:"|t }} </b><br>
+            </td>
 
             <td>{{ content.field_convcatoria_programa.0 }}</td>
 
@@ -170,7 +172,7 @@
 
             <td><b> {{ "Cuantia a contratar:"|t }} </b></td>
 
-            <td>{{ content.field_convcatoria_presupuesto.0 }}</td>
+            <td>{{ content.field_convcatoria_presupuesto.0 }} {{ content.field_convcatoria_moneda.0 }} </td>
 
           <tr>
 
@@ -197,7 +199,7 @@
           =============================================== #}
           <tr class="bg-dark">
             <td colspan="2" scope="col">
-              <h5 class="text-white">2. Ubicación geográfica del proceso</h5>
+              <h5 class="text-white">2. {{ "Ubicación geográfica del proceso"|t }}</h5>
             </td>
           <tr>
 

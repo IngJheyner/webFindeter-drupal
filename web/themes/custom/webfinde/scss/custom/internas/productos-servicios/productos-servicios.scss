@@ -1,0 +1,36 @@
+@use '../../variables' as var;
+@use '../../../mixins/encabezado' as encabezado;
+
+/* ==============================
+Encabezado
+============================== */
+@include encabezado.encabezado("article","productoServicios");
+
+/* ==============================
+Contenido
+============================== */
+article.productoServicios > div.cuerpoContenido{
+
+    div.titulo{
+
+        border-bottom: 1px solid var.$color-secundario;       
+        padding-bottom: 4rem;
+
+        h1{
+
+            position: relative;
+            float: left;
+            padding-bottom: 1rem;
+
+            &::after{
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                background-color: var.$color-secundario;
+                top: 1.5em;
+                left: 0;
+            }
+        }
+    }
+}
