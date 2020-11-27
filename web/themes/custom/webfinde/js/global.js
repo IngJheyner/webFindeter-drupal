@@ -165,11 +165,9 @@
 
             });            
             
-
-            /*===========================================
+             /*===========================================
             CONVOCATORIAS
-            =============================================*/            
-           
+            =============================================*/           
             let activarBusqueda = false;
             //console.log("🚀 ~ file: global.js ~ line 174 ~ mostrarFiltros", mostrarFiltros)
 
@@ -249,6 +247,24 @@
                     
                       
             });         
+
+            /* ===== ===== INTERNAS DETALLE DE PROCESO ===== ===== */
+            $('#tableDetalleConvocatorias').DataTable({
+
+                "language": {                    
+                    "info": "Mostrando pagina _PAGE_ de _PAGES_, total de archivos _TOTAL_",
+                    "search": "Buscar:",
+                    "emptyTable": "No se encontraron archivos adjuntos para la convocatoria.",      
+                    "zeroRecords": "No se encontraron resultados.",    
+                    "infoFiltered": " - de _MAX_ filtros",
+                    "lengthMenu": "Mostrar _MENU_ registros por pagina.",          
+                    "paginate": {
+                        "previous": "Anterior",
+                        "next": "Siguiente"
+                    }                                   
+                },
+                order: [[ 2, 'desc' ], [ 0, 'asc' ]],
+            });
 
         /*}
     };*/

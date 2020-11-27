@@ -42,36 +42,43 @@ content:
     third_party_settings: {  }
     region: content
   field_convcatoria_archivos:
-    type: entity_reference_label
+    type: entity_reference_entity_view
     weight: 111
-    label: above
+    label: hidden
     settings:
+      view_mode: convocatorias_archivos
       link: false
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
     region: content
   field_convcatoria_contractual:
     weight: 117
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
     type: entity_reference_label
     region: content
   field_convcatoria_contratacion:
     weight: 112
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
     type: entity_reference_label
     region: content
   field_convcatoria_departamento:
     weight: 110
-    label: above
+    label: hidden
     settings:
-      separator: /
+      reverse: '1'
+      separator: ' - '
       linked: 0
-      reverse: 0
     third_party_settings:
       field_formatter_class:
         class: ''
@@ -79,7 +86,7 @@ content:
     region: content
   field_convcatoria_email_proceso:
     weight: 116
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
@@ -106,8 +113,10 @@ content:
     weight: 118
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
     type: entity_reference_label
     region: content
   field_convcatoria_objeto:
@@ -132,11 +141,15 @@ content:
     region: content
   field_convcatoria_programa:
     weight: 104
-    label: above
+    label: inline
     settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
+      separator: ' <br><b>No. Convenio</b> '
+      linked: 0
+      reverse: 0
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: cshs_full_hierarchy
     region: content
   links:
     weight: 100

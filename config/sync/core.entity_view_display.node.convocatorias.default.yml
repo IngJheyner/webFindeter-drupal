@@ -17,127 +17,26 @@ dependencies:
     - field.field.node.convocatorias.field_convcatoria_programa
     - node.type.convocatorias
   module:
-    - datetime
-    - field_formatter_class
-    - media
-    - options
-    - text
     - user
 id: node.convocatorias.default
 targetEntityType: node
 bundle: convocatorias
 mode: default
-content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 101
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  field_convcatoria_archivos:
-    type: media_thumbnail
-    weight: 111
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    region: content
-  field_convcatoria_contractual:
-    weight: 117
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_convcatoria_contratacion:
-    weight: 112
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_convcatoria_departamento:
-    weight: 110
-    label: above
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings:
-      field_formatter_class:
-        class: ''
-    type: entity_reference_entity_view
-    region: content
-  field_convcatoria_email_proceso:
-    weight: 116
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_convcatoria_estado:
-    weight: 103
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
-  field_convcatoria_fecha_apertura:
-    weight: 108
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings:
-      field_formatter_class:
-        class: ''
-    type: datetime_default
-    region: content
-  field_convcatoria_forma_pago:
-    weight: 118
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_convcatoria_objeto:
-    weight: 109
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_convcatoria_presupuesto:
-    weight: 107
-    label: above
-    settings:
-      thousand_separator: ','
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
-    third_party_settings:
-      field_formatter_class:
-        class: ''
-    type: number_decimal
-    region: content
-  field_convcatoria_programa:
-    weight: 104
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  links:
-    weight: 100
-    region: content
-    settings: {  }
-    third_party_settings: {  }
+content: {  }
 hidden:
   addtoany: true
+  body: true
+  field_convcatoria_archivos: true
+  field_convcatoria_contractual: true
+  field_convcatoria_contratacion: true
+  field_convcatoria_departamento: true
+  field_convcatoria_email_proceso: true
+  field_convcatoria_estado: true
+  field_convcatoria_fecha_apertura: true
+  field_convcatoria_forma_pago: true
+  field_convcatoria_objeto: true
+  field_convcatoria_presupuesto: true
+  field_convcatoria_programa: true
   langcode: true
+  links: true
   search_api_excerpt: true
