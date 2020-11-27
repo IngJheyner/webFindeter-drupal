@@ -165,7 +165,107 @@
 
             });            
             
-            
+             /*===========================================
+            CONVOCATORIAS
+            =============================================*/           
+            let activarBusqueda = false;
+            //console.log("🚀 ~ file: global.js ~ line 174 ~ mostrarFiltros", mostrarFiltros)
+
+            $(document).ajaxStop(function() {
+                
+                $(".convocatoriaCiudadano form div.form-item-field-convcatoria-fecha-apertura-value-min input[type='text']").addClass('datepicker InicialApertura').attr('readonly','');
+
+                $(".convocatoriaCiudadano form div.form-item-field-convcatoria-fecha-apertura-value-max input[type='text']").addClass('datepicker FinalApertura').attr('readonly','');
+                
+                $(".convocatoriaCiudadano form div.form-item-field-convcatoria-fecha-apertura-value-max label").html('Hasta');
+
+                /* ===== ===== Fechas ===== ===== */
+                $(".datepicker.InicialApertura").datepicker({
+
+                    language: "es",
+                    format: 'dd-mm-yyyy',                
+                    todayHighlight: true,                
+                });
+
+                $(".datepicker.InicialApertura").on("change", function(){
+
+                    var fechaInicial = $(this).val();
+
+                    $(".datepicker.FinalApertura").datepicker({
+
+                        language: "es",
+                        datesDisabled: fechaInicial - 1,
+                        startDate: fechaInicial,    
+                        format: 'dd-mm-yyyy',         
+                    });
+
+                });                
+
+                $(".convocatoriaCiudadano form .form-actions input[type='submit']").after(`
+                    <a href="javascript:void(0)" class="text-white ml-5 busquedaAvz"><i class="fas fa-search-plus"></i> Mostar mas campos de busqueda</a>
+                `);                
+
+                if(activarBusqueda === false){
+
+                    $(".convocatoriaCiudadano form .form--inline div:nth-child(3)").hide();
+                    $(".convocatoriaCiudadano form .form--inline div:nth-child(4)").hide();
+                    $(".convocatoriaCiudadano form .form--inline div:nth-child(5)").hide();
+                    $(".convocatoriaCiudadano form .form--inline div:nth-child(6)").hide();
+                    $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").hide();
+                    $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").hide();
+                }
+               
+
+                $(".convocatoriaCiudadano form .form-actions a").on('click', function(){
+
+                    if(activarBusqueda === false){
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(3)").slideDown("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(4)").slideDown("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(5)").slideDown("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(6)").slideDown("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").slideDown("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").slideDown("slow");
+                        activarBusqueda = true;
+                    }else{
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(3)").slideUp("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(4)").slideUp("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(5)").slideUp("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(6)").slideUp("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").slideUp("slow");
+                        $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").slideUp("slow");
+                        activarBusqueda = false;
+                    }
+                                         
+                    
+                   
+                });
+
+                $(".convocatoriaCiudadano form .form-actions input[type='submit']").on('click', function(){
+                    if(activarBusqueda){ mostrarFiltros = true };
+                    //console.log("🚀 ~ file: global.js ~ line 240 ~ $ ~ mostrarFiltros", mostrarFiltros)
+                });
+                    
+                      
+            });         
+
+            /* ===== ===== INTERNAS DETALLE DE PROCESO ===== ===== */
+            $('#tableDetalleConvocatorias').DataTable({
+
+                "language": {                    
+                    "info": "Mostrando pagina _PAGE_ de _PAGES_, total de archivos _TOTAL_",
+                    "search": "Buscar:",
+                    "emptyTable": "No se encontraron archivos adjuntos para la convocatoria.",      
+                    "zeroRecords": "No se encontraron resultados.",    
+                    "infoFiltered": " - de _MAX_ filtros",
+                    "lengthMenu": "Mostrar _MENU_ registros por pagina.",          
+                    "paginate": {
+                        "previous": "Anterior",
+                        "next": "Siguiente"
+                    }                                   
+                },
+                order: [[ 2, 'desc' ], [ 0, 'asc' ]],
+            });
+
         /*}
     };*/
 

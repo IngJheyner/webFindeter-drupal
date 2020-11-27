@@ -1,0 +1,268 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - node.getCreatedTime() will return the node creation timestamp.
+ *   - node.hasField('field_example') returns TRUE if the node bundle includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   - node.isPublished() will return whether the node is published or not.
+ *   Calling other methods, such as node.delete(), will result in an exception.
+ *   See \Drupal\node\Entity\Node for a full list of public properties and
+ *   methods for the node object.
+ * - label: (optional) The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: (optional) Themed creation date field.
+ * - author_name: (optional) Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_node()
+ *
+ * @todo Remove the id attribute (or make it a class), because if that gets
+ *   rendered twice on a page this is invalid CSS for example: two lists
+ *   in different view modes.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'detalleProcesoConvocatorias',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+{{ attach_library('classy/node') }}
+{{ attach_library('webfinde/convocatorias') }}
+
+<article{{ attributes.addClass(classes) }}>  
+
+  {{ drupal_block('block_content:6699f94b-8e4f-4c82-b46b-49c63d21f502') }}
+  
+  <div class="container my-5">
+
+    <div{{ content_attributes.addClass('node__content') }}> 
+
+      {# ===== ===== Titulo ===== ===== #} 
+      <div class="titulo mb-4">
+
+        <h1>{{ "Detalle del proceso número "|t }} {{ label }}</h1>
+
+      </div>
+
+      {# ===== ===== Contenido ===== ===== #}
+      <table class="table table-condensed">
+
+        <tbody>
+
+          <tr class="bg-dark">
+            <td colspan="2" scope="col">
+              <h5 class="text-white">1. Información general del proceso</h5>
+            </td>
+          <tr>
+
+          {# ===== ===== Programa ===== ===== #}
+          <tr>
+
+            <td><b> {{ "Programa:"|t }} </b></td>
+
+            <td>{{ content.field_convcatoria_programa.0 }}</td>
+
+          <tr>
+
+          {# ===== ===== Codigo del proceso ===== ===== #}
+          <tr>
+
+            <td><b> {{ "Código del proceso:"|t }} </b></td>
+
+            <td>{{ label }}</td>
+
+          <tr>
+
+          {# ===== ===== Tipologías contractuales ===== ===== #}
+          <tr>
+
+            <td><b> {{ "Tipología contractual:"|t }} </b></td>
+
+            <td>{{ content.field_convcatoria_contractual.0 }}</td>
+
+          <tr>
+
+          {# ===== ===== Estado del proceso ===== ===== #}
+          <tr>
+
+            <td><b> {{ "Estado del proceso:"|t }} </b></td>
+
+            <td>{{ content.field_convcatoria_estado.0 }}</td>
+
+          <tr>
+
+          {# ===== ===== Tipo Forma de Pago ===== ===== #}
+          <tr>
+
+            <td><b> {{ "Tipo forma de pago:"|t }} </b></td>
+
+            <td>{{ content.field_convcatoria_forma_pago.0 }}</td>
+
+          <tr>
+
+          {# ===== ===== Objeto de la convocatoria ===== ===== #}
+          <tr>
+
+            <td width="200"><b> {{ "Objeto de la convocatoria:"|t }} </b></td>
+
+            <td>{{ content.field_convcatoria_objeto.0 }}</td>
+
+          <tr>
+
+          {# ===== ===== Cuantia a contratar ===== ===== #}
+          <tr>
+
+            <td><b> {{ "Cuantia a contratar:"|t }} </b></td>
+
+            <td>{{ content.field_convcatoria_presupuesto.0 }}</td>
+
+          <tr>
+
+          {# ===== ===== Modalidad ===== ===== #}
+          <tr>
+
+            <td><b> {{ "Modalidad de contratación:"|t }} </b></td>
+
+            <td>{{ content.field_convcatoria_contratacion.0 }}</td>
+
+          <tr>
+
+          {# ===== ===== Ultima fecha de actualizacion ===== ===== #}
+          <tr>
+
+            <td><b> {{ "Ultima fecha de actualización:"|t }} </b></td>
+
+            <td><i class="far fa-calendar-alt"></i> {{ node.published_at.value|date('d-m-Y') }}</td>
+
+          <tr>
+
+          {# ============================================
+          Ubicacion Geografica
+          =============================================== #}
+          <tr class="bg-dark">
+            <td colspan="2" scope="col">
+              <h5 class="text-white">2. Ubicación geográfica del proceso</h5>
+            </td>
+          <tr>
+
+          {# ===== ===== Departamento y Municipio ===== ===== #}
+          <tr>
+
+            <td><b> {{ "Departamento y Municipio:"|t }} </b></td>
+
+            <td>{{ content.field_convcatoria_departamento }}</td>
+
+          <tr>
+
+          {# ============================================
+          3.	Datos de contacto del proceso
+          =============================================== #}
+          <tr class="bg-dark">
+            <td colspan="2" scope="col">
+              <h5 class="text-white">3. Datos de contacto del proceso</h5>
+            </td>
+          <tr>
+
+          {# ===== ===== DCorreo electrónico de contacto del proceso ===== ===== #}
+          <tr>
+
+            <td><b> {{ "Correo electrónico:"|t }} </b></td>
+
+            <td>{{ content.field_convcatoria_email_proceso.0 }}</td>
+
+          <tr>
+
+          {# ============================================
+          4. Documentos del proceso
+          =============================================== #}
+          <tr class="bg-dark">
+            <td colspan="2" scope="col">
+              <h5 class="text-white">4. Documentos del proceso</h5>
+            </td>
+          <tr>          
+
+        </tbody>
+
+      </table>
+
+      <table id="tableDetalleConvocatorias" class="table">
+
+        <thead>
+
+          <tr>
+            <th>{{ "Nombre"|t }}</th>   
+            <th>{{ "Tipo de documento"|t }}</th>  
+            <th>{{ "Fecha de publicación"|t }}</th>                           
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          {{ content.field_convcatoria_archivos }}
+
+        </tbody>
+        
+      </table>   
+
+    </div>
+
+  </div>  
+
+</article>

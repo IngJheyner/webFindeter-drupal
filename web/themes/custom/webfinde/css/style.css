@@ -1859,15 +1859,33 @@ div.convocatoriaCiudadano form div.form--inline {
   background-color: #112d6a;
   color: white;
 }
-div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-codigo-proceso-value {
+div.convocatoriaCiudadano form div.form--inline div.form-item-title {
   display: contents !important;
 }
 div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-departamento-target-id {
-  display: block !important;
   width: 100%;
 }
 div.convocatoriaCiudadano form div.form--inline input[type=submit] {
   background-color: #00993e !important;
+}
+
+/* ===== ===== Detalle del proceso ===== ===== */
+article.detalleProcesoConvocatorias div.titulo {
+  border-bottom: 1px solid #296294;
+  padding-bottom: 20px;
+}
+article.detalleProcesoConvocatorias div.titulo h1 {
+  position: relative;
+  width: 80%;
+}
+article.detalleProcesoConvocatorias div.titulo h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #296294;
+  top: 1.6em;
+  left: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

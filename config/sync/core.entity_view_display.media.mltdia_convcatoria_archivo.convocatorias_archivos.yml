@@ -1,0 +1,61 @@
+uuid: e0a5a41b-3b19-4675-b36d-c8079585ce3a
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.convocatorias_archivos
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_mltdia_editar
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_muldia_fecha
+    - field.field.media.mltdia_convcatoria_archivo.field_convctoria_tipo_documento
+    - field.field.media.mltdia_convcatoria_archivo.field_media_document
+    - media.type.mltdia_convcatoria_archivo
+  module:
+    - datetime
+    - field_formatter_class
+    - file
+    - layout_builder
+    - options
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: media.mltdia_convcatoria_archivo.convocatorias_archivos
+targetEntityType: media
+bundle: mltdia_convcatoria_archivo
+mode: convocatorias_archivos
+content:
+  field_convcatoria_muldia_fecha:
+    type: datetime_default
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      timezone_override: America/Bogota
+      format_type: short
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+  field_convctoria_tipo_documento:
+    type: list_default
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_media_document:
+    type: file_default
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  created: true
+  field_convcatoria_mltdia_editar: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true
