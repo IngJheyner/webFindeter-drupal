@@ -24,8 +24,8 @@ default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: 'archivos/convocatorias/[current-page:title]'
-  file_extensions: 'doc docx pdf'
-  max_filesize: '2 mb'
+  file_extensions: 'doc docx pdf xls xlsx zip rar dwg 7z'
+  max_filesize: '250 mb'
   description_field: false
   handler: 'default:file'
   handler_settings: {  }

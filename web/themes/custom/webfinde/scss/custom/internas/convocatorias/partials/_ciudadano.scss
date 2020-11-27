@@ -32,4 +32,31 @@ div.convocatoriaCiudadano{
             }
         }
     }
+
+    table:nth-child(2){
+
+        thead{
+
+            tr > th:nth-child(1){
+                width: 200px;
+                
+            }
+        }
+
+        tbody{
+
+            tr > td:nth-child(1){
+
+                a{
+                    color: var.$color-cuaternario !important;
+                    font-weight: bolder;
+
+                    &:hover{
+
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
 }

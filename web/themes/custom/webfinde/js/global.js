@@ -173,11 +173,11 @@
 
             $(document).ajaxStop(function() {
                 
-                $(".convocatoriaCiudadano form div.form-item-field-convcatoria-fecha-apertura-value-min input[type='text']").addClass('datepicker InicialApertura').attr('readonly','');
+                $(".convocatoriaCiudadano form div.form-item-created-min input[type='text']").addClass('datepicker InicialApertura').attr('readonly','');
 
-                $(".convocatoriaCiudadano form div.form-item-field-convcatoria-fecha-apertura-value-max input[type='text']").addClass('datepicker FinalApertura').attr('readonly','');
+                $(".convocatoriaCiudadano form div.form-item-created-max input[type='text']").addClass('datepicker FinalApertura').attr('readonly','');
                 
-                $(".convocatoriaCiudadano form div.form-item-field-convcatoria-fecha-apertura-value-max label").html('Hasta');
+                $(".convocatoriaCiudadano form div.form-item-created-max label").html('Hasta');
 
                 /* ===== ===== Fechas ===== ===== */
                 $(".datepicker.InicialApertura").datepicker({

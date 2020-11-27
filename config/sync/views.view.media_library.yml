@@ -481,7 +481,24 @@ display:
         - 'url.query_args:sort_by'
         - user
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.media.audio.default'
+        - 'config:core.entity_view_display.media.audio.media_library'
+        - 'config:core.entity_view_display.media.document.default'
+        - 'config:core.entity_view_display.media.document.media_library'
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.image.media_library'
+        - 'config:core.entity_view_display.media.img_articu_blog.default'
+        - 'config:core.entity_view_display.media.img_articu_blog.media_library'
+        - 'config:core.entity_view_display.media.mltdia_convcatoria_archivo.convocatorias_archivos'
+        - 'config:core.entity_view_display.media.mltdia_convcatoria_archivo.default'
+        - 'config:core.entity_view_display.media.mltdia_convcatoria_archivo.media_library'
+        - 'config:core.entity_view_display.media.remote_video.default'
+        - 'config:core.entity_view_display.media.remote_video.media_library'
+        - 'config:core.entity_view_display.media.url_youtube_articulo_blog.default'
+        - 'config:core.entity_view_display.media.url_youtube_articulo_blog.media_library'
+        - 'config:core.entity_view_display.media.video.default'
+        - 'config:core.entity_view_display.media.video.media_library'
   page:
     display_plugin: page
     id: page
@@ -771,14 +788,30 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
         - 'url.query_args:sort_by'
         - user
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.media.audio.default'
+        - 'config:core.entity_view_display.media.audio.media_library'
+        - 'config:core.entity_view_display.media.document.default'
+        - 'config:core.entity_view_display.media.document.media_library'
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.image.media_library'
+        - 'config:core.entity_view_display.media.img_articu_blog.default'
+        - 'config:core.entity_view_display.media.img_articu_blog.media_library'
+        - 'config:core.entity_view_display.media.mltdia_convcatoria_archivo.convocatorias_archivos'
+        - 'config:core.entity_view_display.media.mltdia_convcatoria_archivo.default'
+        - 'config:core.entity_view_display.media.mltdia_convcatoria_archivo.media_library'
+        - 'config:core.entity_view_display.media.remote_video.default'
+        - 'config:core.entity_view_display.media.remote_video.media_library'
+        - 'config:core.entity_view_display.media.url_youtube_articulo_blog.default'
+        - 'config:core.entity_view_display.media.url_youtube_articulo_blog.media_library'
+        - 'config:core.entity_view_display.media.video.default'
+        - 'config:core.entity_view_display.media.video.media_library'
   widget:
     display_plugin: page
     id: widget
@@ -1098,7 +1131,24 @@ display:
         - url.query_args
         - 'url.query_args:sort_by'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.media.audio.default'
+        - 'config:core.entity_view_display.media.audio.media_library'
+        - 'config:core.entity_view_display.media.document.default'
+        - 'config:core.entity_view_display.media.document.media_library'
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.image.media_library'
+        - 'config:core.entity_view_display.media.img_articu_blog.default'
+        - 'config:core.entity_view_display.media.img_articu_blog.media_library'
+        - 'config:core.entity_view_display.media.mltdia_convcatoria_archivo.convocatorias_archivos'
+        - 'config:core.entity_view_display.media.mltdia_convcatoria_archivo.default'
+        - 'config:core.entity_view_display.media.mltdia_convcatoria_archivo.media_library'
+        - 'config:core.entity_view_display.media.remote_video.default'
+        - 'config:core.entity_view_display.media.remote_video.media_library'
+        - 'config:core.entity_view_display.media.url_youtube_articulo_blog.default'
+        - 'config:core.entity_view_display.media.url_youtube_articulo_blog.media_library'
+        - 'config:core.entity_view_display.media.video.default'
+        - 'config:core.entity_view_display.media.video.media_library'
   widget_table:
     display_plugin: page
     id: widget_table
@@ -1186,6 +1236,57 @@ display:
             date_format: short
             custom_date_format: ''
             timezone: ''
+        operations:
+          id: operations
+          table: media
+          field: operations
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Opciones
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          destination: false
+          entity_type: media
+          plugin_id: entity_operations
       access:
         type: perm
         options:

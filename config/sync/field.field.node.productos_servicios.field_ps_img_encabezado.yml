@@ -1,0 +1,43 @@
+uuid: 80d9545d-028f-41b1-b5bd-21c74c9209bd
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ps_img_encabezado
+    - node.type.productos_servicios
+  module:
+    - disable_field
+    - image
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.productos_servicios.field_ps_img_encabezado
+field_name: field_ps_img_encabezado
+entity_type: node
+bundle: productos_servicios
+label: 'Img. Fondo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: webfinde/images/productos_servicios_home/internas
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '2 mb'
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: fef15bbe-691d-4200-975e-d4e1f39c2201
+    alt: ''
+    title: ''
+    width: 1440
+    height: 320
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

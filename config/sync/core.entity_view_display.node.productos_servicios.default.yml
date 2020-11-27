@@ -1,0 +1,29 @@
+uuid: ac7948b9-0b95-4c03-aec6-60c737d923ab
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.productos_servicios.body
+    - field.field.node.productos_servicios.field_ps_imagen_portada
+    - field.field.node.productos_servicios.field_ps_img_encabezado
+    - field.field.node.productos_servicios.field_ps_titulo_encabezado
+    - field.field.node.productos_servicios.field_ps_titulo_tab
+    - field.field.node.productos_servicios.field_ps_titulos_subtabs
+    - node.type.productos_servicios
+  module:
+    - user
+id: node.productos_servicios.default
+targetEntityType: node
+bundle: productos_servicios
+mode: default
+content: {  }
+hidden:
+  addtoany: true
+  body: true
+  field_ps_imagen_portada: true
+  field_ps_img_encabezado: true
+  field_ps_titulo_encabezado: true
+  field_ps_titulo_tab: true
+  field_ps_titulos_subtabs: true
+  langcode: true
+  links: true
