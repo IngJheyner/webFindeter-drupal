@@ -173,8 +173,11 @@
       }
                            
       var requester = $( "#edit-field-pqrsd-tipo-solicitante option:selected" ).text();
-      if(requester !== 'anonimo' && requester !== '-Seleccione una opción-'){
+      console.log(requester);
+      if(requester !== 'Anónimo' && requester !== '-Seleccione una opción-'){
         $('#edit-info-person').show();
+      }else{
+        $('#edit-info-person').hide();
       }
 
     
