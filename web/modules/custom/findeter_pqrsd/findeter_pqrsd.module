@@ -336,9 +336,9 @@ function buildPQRSDform(){
   $arrayFields['info_radicado']['field_pqrsd_tipo_peticion'] = '';
   $arrayFields['info_radicado']['field_pqrsd_tipo_solicitante'] = 'required';
   $arrayFields['info_radicado']['field_pqrsd_rango_edad'] = 'close required';
-  $arrayFields['info_radicado']['field_pqrsd_grupo_etnico'] = 'open';
-  $arrayFields['info_radicado']['field_pqrsd_preferencial'] = '';
-  $arrayFields['info_radicado']['field_pqrsd_tipo_discapacidad'] = 'close';
+  $arrayFields['info_radicado']['field_pqrsd_grupo_etnico'] = 'open required';
+  $arrayFields['info_radicado']['field_pqrsd_preferencial'] = 'required';
+  $arrayFields['info_radicado']['field_pqrsd_tipo_discapacidad'] = 'close required';
 
   $arrayFields['info_person']['title_detail'] = 'Información de la persona';
   $arrayFields['info_person']['field_pqrsd_numero_id'] = 'open';
@@ -493,6 +493,13 @@ function buildPQRSDform(){
     }
 
   }
+
+  //limit "Número identificacion" field
+  $form['info_person']['field_pqrsd_numero_id']['#size'] = 10;
+  $form['info_person']['field_pqrsd_numero_id']['#maxlength'] = 10;
+
+  // set default value Email option
+  $form['info_admin']['field_pqrsd_medio_respuesta']['#default_value'] = 'email';
 
   // define values and parameters for Department/municipalities
   $deparmentOptions = getTaxonomyTermsForm(0);

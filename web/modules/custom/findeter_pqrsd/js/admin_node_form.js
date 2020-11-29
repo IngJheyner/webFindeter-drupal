@@ -5,6 +5,26 @@
 
       $(document, context).once('findeterUserFormRequest ').each( function() {
 
+        $('#edit-created-min').before('<input id="datepicker-min" type="text" placeholder="F. Inicio"/>');
+        $('#edit-created-max').before('<input id="datepicker-max" type="text" placeholder="F. Fin"/>');
+        
+        $("#datepicker-min").datepicker({
+          dateFormat: "dd-mm-yy",
+          altField: "input[data-drupal-selector=edit-created-min]",
+          altFormat: "dd-mm-yy"
+        });
+
+        $('#datepicker-min').val($('#edit-created-min').val());
+
+        $("#datepicker-max").datepicker({
+          dateFormat: "dd-mm-yy",
+          altField: "input[data-drupal-selector=edit-created-max]",
+          altFormat: "dd-mm-yy"
+        });
+
+        $('#datepicker-max').val($('#edit-created-max').val());
+        
+
         //replace url params to generate pdf file
         if($('.export-link').length){
           var queryString = window.location.search;
@@ -179,6 +199,8 @@
       }else{
         $('#edit-info-person').hide();
       }
+
+      $( "#edit-field-pqrsd-autorizacion" ).prop( "checked", true );
 
     
       $('#edit-field-pqrsd-tipo-radicado').on('change', function() {
