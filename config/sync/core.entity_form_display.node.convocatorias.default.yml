@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.node.convocatorias.body
     - field.field.node.convocatorias.field_convcatoria_archivos
-    - field.field.node.convocatorias.field_convcatoria_codigo_proceso
     - field.field.node.convocatorias.field_convcatoria_contractual
     - field.field.node.convocatorias.field_convcatoria_contratacion
     - field.field.node.convocatorias.field_convcatoria_departamento
@@ -16,13 +15,13 @@ dependencies:
     - field.field.node.convocatorias.field_convcatoria_objeto
     - field.field.node.convocatorias.field_convcatoria_presupuesto
     - field.field.node.convocatorias.field_convcatoria_programa
-    - field.field.node.convocatorias.field_convcatoria_tipo
     - node.type.convocatorias
   module:
     - conditional_fields
     - cshs
     - field_group
     - media_library
+    - path
 third_party_settings:
   field_group:
     group_gr:
@@ -43,8 +42,6 @@ third_party_settings:
       children:
         - title
         - field_convcatoria_estado
-        - uid
-        - status
         - langcode
       parent_name: group_gr
       weight: 3
@@ -94,7 +91,6 @@ third_party_settings:
         - field_convcatoria_programa
         - field_convcatoria_contratacion
         - field_convcatoria_contractual
-        - field_convcatoria_tipo
         - field_convcatoria_forma_pago
       parent_name: group_grupo_tabs_detalles
       weight: 12
@@ -147,33 +143,17 @@ content:
     third_party_settings:
       conditional_fields: {  }
     region: content
-  field_convcatoria_codigo_proceso:
-    weight: 5
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_convcatoria_contractual:
-    weight: 12
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    weight: 13
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_convcatoria_contratacion:
     weight: 11
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_convcatoria_departamento:
     weight: 7
@@ -235,16 +215,6 @@ content:
     third_party_settings: {  }
     type: cshs
     region: content
-  field_convcatoria_tipo:
-    weight: 13
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   langcode:
     type: language_select
     weight: 7
@@ -252,12 +222,11 @@ content:
     settings:
       include_locked: true
     third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 7
+  path:
+    type: path
+    weight: 1
     region: content
+    settings: {  }
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -267,19 +236,10 @@ content:
       size: 60
       placeholder: 'Nombre de la convocatoria. Ej: Proceso Numero PAF-SENA-I-059-2020'
     third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 6
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-      match_limit: 10
-    region: content
-    third_party_settings: {  }
 hidden:
   body: true
   created: true
-  path: true
   promote: true
+  status: true
   sticky: true
+  uid: true

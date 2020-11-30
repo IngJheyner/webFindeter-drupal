@@ -1,17 +1,17 @@
-uuid: 2aa7f0a1-c240-4928-9d0c-805b4b4e5db6
+uuid: d8f99d2a-47aa-48f0-9d04-2b99589eae16
 langcode: es
 status: true
 dependencies:
   module:
+    - datetime
     - node
-    - taxonomy
-id: node.field_convcatoria_tipo
-field_name: field_convcatoria_tipo
+id: node.field_pqrsd_fecha_respuesta
+field_name: field_pqrsd_fecha_respuesta
 entity_type: node
-type: entity_reference
+type: datetime
 settings:
-  target_type: taxonomy_term
-module: core
+  datetime_type: datetime
+module: datetime
 locked: false
 cardinality: 1
 translatable: true

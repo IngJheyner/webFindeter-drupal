@@ -1,16 +1,18 @@
-uuid: 17a7a024-0faa-41d8-8703-bc394408a086
+uuid: 1d9169e1-93de-4a2f-8ca6-faf8cc74d789
 langcode: es
 status: true
 dependencies:
   module:
     - node
-    - text
 id: node.field_canales
 field_name: field_canales
 entity_type: node
-type: text_long
-settings: {  }
-module: text
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true
