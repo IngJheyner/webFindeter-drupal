@@ -7,13 +7,15 @@ dependencies:
     - field.field.node.productos_servicios.body
     - field.field.node.productos_servicios.field_ps_imagen_portada
     - field.field.node.productos_servicios.field_ps_img_encabezado
+    - field.field.node.productos_servicios.field_ps_items
+    - field.field.node.productos_servicios.field_ps_opciones
     - field.field.node.productos_servicios.field_ps_titulo_encabezado
-    - field.field.node.productos_servicios.field_ps_titulo_tab
-    - field.field.node.productos_servicios.field_ps_titulos_subtabs
+    - field.field.node.productos_servicios.field_ps_titulo_tabs_opc1
     - node.type.productos_servicios
   module:
     - image
     - layout_builder
+    - options
     - text
     - user
 third_party_settings:
@@ -27,14 +29,14 @@ mode: full
 content:
   body:
     type: text_default
-    weight: 2
+    weight: 4
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_ps_imagen_portada:
     type: image
-    weight: 3
+    weight: 5
     region: content
     label: above
     settings:
@@ -50,9 +52,32 @@ content:
       image_style: ''
       image_link: ''
     third_party_settings: {  }
+  field_ps_items:
+    type: string
+    weight: 6
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ps_opciones:
+    type: list_default
+    weight: 1
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   field_ps_titulo_encabezado:
     type: string
-    weight: 1
+    weight: 3
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ps_titulo_tabs_opc1:
+    type: string
+    weight: 2
     region: content
     label: above
     settings:
@@ -60,7 +85,5 @@ content:
     third_party_settings: {  }
 hidden:
   addtoany: true
-  field_ps_titulo_tab: true
-  field_ps_titulos_subtabs: true
   langcode: true
   links: true

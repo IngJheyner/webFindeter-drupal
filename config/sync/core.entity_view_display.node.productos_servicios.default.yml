@@ -6,9 +6,10 @@ dependencies:
     - field.field.node.productos_servicios.body
     - field.field.node.productos_servicios.field_ps_imagen_portada
     - field.field.node.productos_servicios.field_ps_img_encabezado
+    - field.field.node.productos_servicios.field_ps_items
+    - field.field.node.productos_servicios.field_ps_opciones
     - field.field.node.productos_servicios.field_ps_titulo_encabezado
-    - field.field.node.productos_servicios.field_ps_titulo_tab
-    - field.field.node.productos_servicios.field_ps_titulos_subtabs
+    - field.field.node.productos_servicios.field_ps_titulo_tabs_opc1
     - node.type.productos_servicios
   module:
     - user
@@ -22,8 +23,9 @@ hidden:
   body: true
   field_ps_imagen_portada: true
   field_ps_img_encabezado: true
+  field_ps_items: true
+  field_ps_opciones: true
   field_ps_titulo_encabezado: true
-  field_ps_titulo_tab: true
-  field_ps_titulos_subtabs: true
+  field_ps_titulo_tabs_opc1: true
   langcode: true
   links: true

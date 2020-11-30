@@ -102,6 +102,9 @@
 
   <div class="cuerpoContenido container my-5">
 
+    {# ============================================
+    Titulo y descripcion
+    =============================================== #}
     <div class="row">
       
       <div class="col-6">
@@ -122,11 +125,50 @@
 
       <div class="col-6">
 
-        <img src="{{ file_url(content.field_ps_imagen_portada[0]['#item'].entity.uri.value) }}" class="img-fluid w-100">
+        <img src="{{ file_url(content.field_ps_imagen_portada[0]['#item'].entity.uri.value) }}" class="img-fluid w-100 imgPortada">
 
       </div>
 
     </div>
+
+    {# ============================================
+    Tabs
+    =============================================== #}
+     <h4 class="mt-4 tituloTabs text-center text-white">{{ content.field_ps_titulo_tabs_opc1[0] }}</h4>
+
+     {{ drupal_dump(content.field_ps_items) }}
+
+     {% for key, user in content.field_ps_items['#cache']|keys %}
+        <li>{{ key }}: {{ user['#context'] }}</li>
+    {% endfor %}
+
+     <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+        <li class="nav-item">
+
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+
+        </li>
+
+        <li class="nav-item">
+
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+
+        </li>
+
+        <li class="nav-item">
+
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+
+        </li>
+
+      </ul>
+
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+      </div>
 
   </div>
 

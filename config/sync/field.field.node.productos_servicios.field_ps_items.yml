@@ -1,9 +1,9 @@
-uuid: 6a1d6c24-5482-4ac0-91b4-76ddf2290c2d
+uuid: 3a889c3a-4e93-4916-89ea-9d967fdf476b
 langcode: es
 status: true
 dependencies:
   config:
-    - field.storage.node.field_ps_titulos_subtabs
+    - field.storage.node.field_ps_items
     - node.type.productos_servicios
   module:
     - disable_field
@@ -11,11 +11,11 @@ third_party_settings:
   disable_field:
     add_disable: none
     edit_disable: none
-id: node.productos_servicios.field_ps_titulos_subtabs
-field_name: field_ps_titulos_subtabs
+id: node.productos_servicios.field_ps_items
+field_name: field_ps_items
 entity_type: node
 bundle: productos_servicios
-label: 'Titulos Tabs'
+label: Items
 description: ''
 required: false
 translatable: false
