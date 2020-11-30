@@ -7,6 +7,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
 use Drupal\file\Entity\File;
+use Drupal\taxonomy\Entity\Term;
 
 class RegisterPQRSDAdmin extends FormBase {
 
@@ -173,6 +174,21 @@ class RegisterPQRSDAdmin extends FormBase {
 
     $values = $form_state->getValues();
     foreach($values as $key=>$value){
+
+      if($key == 'field_pqrsd_palabras_clave'){
+        $tag = $form_state->getValue('field_pqrsd_palabras_clave');
+        if (empty($tag)) {
+          drupal_set_message("Tag is empty, nothing to do");
+        }
+        elseif (is_string($tag)) {
+          drupal_set_message("A term selected, tid = $tag");
+        }
+        elseif (isset($tag['entity']) && ($tag['entity'] instanceof Term)) {
+          $entity = $tag['entity'];
+          $entity->save();
+          drupal_set_message("A new term : " . $entity->id() . " : " . $entity->label());
+        }
+      }
 
       if(strpos($key,"field_")!== false){
         if($value!='' && $key!='field_asign'){

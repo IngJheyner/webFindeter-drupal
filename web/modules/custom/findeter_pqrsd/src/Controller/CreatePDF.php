@@ -107,7 +107,6 @@ class CreatePDF extends ControllerBase {
       $module_path = $module_handler->getModule('findeter_pqrsd')->getPath();
       $css_path = $module_path.'/css/pdf.css';
     }
-    
     $options = array(
       'encoding' => 'UTF-8',  // option with argument
       'no-outline',         // Make Chrome not complain
