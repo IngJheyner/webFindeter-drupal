@@ -6,9 +6,10 @@ dependencies:
     - field.field.node.productos_servicios.body
     - field.field.node.productos_servicios.field_ps_imagen_portada
     - field.field.node.productos_servicios.field_ps_img_encabezado
+    - field.field.node.productos_servicios.field_ps_items
+    - field.field.node.productos_servicios.field_ps_opciones
     - field.field.node.productos_servicios.field_ps_titulo_encabezado
-    - field.field.node.productos_servicios.field_ps_titulo_tab
-    - field.field.node.productos_servicios.field_ps_titulos_subtabs
+    - field.field.node.productos_servicios.field_ps_titulo_tabs_opc1
     - image.style.thumbnail
     - node.type.productos_servicios
   module:
@@ -72,7 +73,8 @@ third_party_settings:
       children:
         - field_ps_imagen_portada
         - body
-        - group_tabs_dinamicos
+        - field_ps_opciones
+        - group_prestancion_uno_1
       parent_name: group_grupo_tabs
       weight: 20
       format_type: tab
@@ -84,21 +86,20 @@ third_party_settings:
         id: ''
         classes: ''
       label: Contenido
-    group_tabs_dinamicos:
+    group_prestancion_uno_1:
       children:
-        - field_ps_titulo_tab
-        - field_ps_titulos_subtabs
-        - field_ps_subtitulo_tab
+        - field_ps_titulo_tabs_opc1
+        - field_ps_items
       parent_name: group_contenido
-      weight: 15
+      weight: 16
       format_type: fieldset
       region: content
       format_settings:
-        id: ''
-        classes: ''
         description: ''
         required_fields: true
-      label: 'TABS Dinamicos'
+        id: ''
+        classes: ''
+      label: 'Presentación '
 id: node.productos_servicios.default
 targetEntityType: node
 bundle: productos_servicios
@@ -136,6 +137,20 @@ content:
     third_party_settings: {  }
     type: image_image
     region: content
+  field_ps_items:
+    weight: 28
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ps_opciones:
+    weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
   field_ps_titulo_encabezado:
     weight: 12
     settings:
@@ -144,20 +159,13 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_ps_titulo_tab:
-    weight: 14
+  field_ps_titulo_tabs_opc1:
+    weight: 27
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_ps_titulos_subtabs:
-    weight: 15
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields: {  }
     type: string_textfield
     region: content
   langcode:
