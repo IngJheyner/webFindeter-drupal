@@ -79,7 +79,9 @@ selection_criteria:
   -
     id: user_role
     roles:
-      anonymous: anonymous
+      authenticated: authenticated
+      abogado: abogado
+      secretaria_general: secretaria_general
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'

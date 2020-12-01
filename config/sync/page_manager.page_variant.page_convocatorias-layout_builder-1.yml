@@ -79,7 +79,7 @@ selection_criteria:
   -
     id: user_role
     roles:
-      authenticated: authenticated
+      anonymous: anonymous
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'

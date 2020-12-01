@@ -1,15 +1,15 @@
-uuid: 928c2580-4f9b-4b06-938b-0455c7454bb4
+uuid: f55cef1e-625e-490f-83aa-85270bddecd2
 langcode: es
 status: true
 dependencies:
   config:
-    - page_manager.page.5_1_presupuesto_general_asignado_para_cada_ano_fiscal
-id: 5_1_presupuesto_general_asignado_para_cada_ano_fiscal-layout_builder-0
-label: 'presupuesto general asignado para cada año fiscal'
+    - page_manager.page.2_4_preguntas_y_respuestas_frecuentes
+id: 2_4_preguntas_y_respuestas_frecuentes-layout_builder-0
+label: 'Preguntas y respuestas frecuentes'
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: 563569e1-abf6-4b21-a409-50a43973e74f
+  uuid: c11c4d40-240c-48e5-85a7-1782183b70e8
   label: null
   weight: 0
   sections:
@@ -49,8 +49,8 @@ variant_settings:
             add_region_classes: 1
             attributes: ''
       components:
-        d2ca3020-65a1-4797-8e84-587d1e5bc476:
-          uuid: d2ca3020-65a1-4797-8e84-587d1e5bc476
+        b0224a53-9406-4159-9c80-8e92852c1676:
+          uuid: b0224a53-9406-4159-9c80-8e92852c1676
           region: top
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
@@ -62,9 +62,9 @@ variant_settings:
             view_mode: full
             context_mapping: {  }
           additional: {  }
-          weight: 3
-        20a4033d-dfb3-4af6-8a81-280074f12ccb:
-          uuid: 20a4033d-dfb3-4af6-8a81-280074f12ccb
+          weight: 2
+        9b0cec72-3b6c-4da1-81e4-4a0dbdfc7ebb:
+          uuid: 9b0cec72-3b6c-4da1-81e4-4a0dbdfc7ebb
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
@@ -76,26 +76,26 @@ variant_settings:
             level: 1
             depth: 1
             expand: false
-            parent: 'transparencia-acceso-informacion:menu_link_content:cfacbab7-2c3c-495a-bf2a-4a22748aa9d4'
+            parent: 'transparencia-acceso-informacion:menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
             suggestion: transparencia_acceso_informacion_sidebar
             context_mapping: {  }
           additional: {  }
           weight: 2
-        2117eeb3-e2bb-40bc-963d-bdea59a67ef3:
-          uuid: 2117eeb3-e2bb-40bc-963d-bdea59a67ef3
+        594bfcc3-39e8-4c01-9478-c310124c794e:
+          uuid: 594bfcc3-39e8-4c01-9478-c310124c794e
           region: left
           configuration:
-            id: 'views_block:transparencia_acceso_informacion_publica-pag_5_1_presupuesto_general_asignado_para_cada_anio_fiscal'
+            id: 'views_block:transparencia_acceso_informacion_publica-2_4_preguntas_y_respuestas_frecuentes'
             label: ''
             provider: views
             label_display: '0'
             views_label: ''
-            items_per_page: '1'
+            items_per_page: none
             context_mapping: {  }
           additional: {  }
-          weight: 3
+          weight: 2
       third_party_settings: {  }
-page: 5_1_presupuesto_general_asignado_para_cada_ano_fiscal
+page: 2_4_preguntas_y_respuestas_frecuentes
 weight: 0
 selection_criteria: {  }
 selection_logic: and
