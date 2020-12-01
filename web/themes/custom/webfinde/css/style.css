@@ -1928,6 +1928,14 @@ article.productoServicios div.encabezado h1.tituloEncabezado {
 /* ==============================
 Contenido
 ============================== */
+article.productoServicios > div.cuerpoContenido {
+  /* ==============================
+  TABS
+  ============================== */
+  /* ==============================
+  TABS CONTENIDO
+  ============================== */
+}
 article.productoServicios > div.cuerpoContenido div.titulo {
   border-bottom: 1px solid #296294;
   padding-bottom: 4rem;
@@ -1952,6 +1960,26 @@ article.productoServicios > div.cuerpoContenido div.row img.imgPortada {
 article.productoServicios > div.cuerpoContenido h4.tituloTabs {
   background-color: #112d6a;
   padding: 0.5rem;
+}
+article.productoServicios > div.cuerpoContenido ul.tabPrincipal li > a {
+  color: #a8a8a8;
+}
+article.productoServicios > div.cuerpoContenido ul.tabPrincipal li > a.active {
+  color: #112d6a;
+  font-weight: bold;
+}
+article.productoServicios > div.cuerpoContenido ul.tabInternas li > a {
+  color: #a8a8a8;
+}
+article.productoServicios > div.cuerpoContenido ul.tabInternas li > a.active {
+  color: white;
+  background-color: #112d6a;
+  font-weight: bold;
+}
+article.productoServicios > div.cuerpoContenido div#myTabContentPrincipal {
+  padding: 3rem 4rem 3rem 4rem;
+  border: 1px solid #e5e5e5;
+  border-top: none;
 }
 
 /*# sourceMappingURL=style.css.map */

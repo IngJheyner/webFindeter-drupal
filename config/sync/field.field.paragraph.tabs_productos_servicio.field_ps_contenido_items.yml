@@ -1,0 +1,48 @@
+uuid: 2e4fbec1-f39d-4937-9f44-e7e6c8897e77
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ps_contenido_items
+    - paragraphs.paragraphs_type.ps_contenido_items_internos
+    - paragraphs.paragraphs_type.tabs_productos_servicio
+  module:
+    - disable_field
+    - entity_reference_revisions
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: paragraph.tabs_productos_servicio.field_ps_contenido_items
+field_name: field_ps_contenido_items
+entity_type: paragraph
+bundle: tabs_productos_servicio
+label: 'Contenido Items'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      ps_contenido_items_internos: ps_contenido_items_internos
+    target_bundles_drag_drop:
+      findeter_en_cifras_home:
+        weight: 6
+        enabled: false
+      productos_servicios_home:
+        weight: 7
+        enabled: false
+      ps_contenido_items_internos:
+        enabled: true
+        weight: 8
+      ps_grillas_internas:
+        weight: 9
+        enabled: false
+      tabs_productos_servicio:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

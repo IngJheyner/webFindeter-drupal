@@ -46,4 +46,45 @@ article.productoServicios > div.cuerpoContenido{
         background-color: var.$color-primario;
         padding: 0.5rem;
     }
+
+    /* ==============================
+    TABS
+    ============================== */
+    ul.tabPrincipal{
+
+        li > a{
+
+            color: rgb(168, 168, 168);
+
+            &.active{
+
+                color: var.$color-primario;
+                font-weight: bold;
+            }
+        }
+    }
+
+    ul.tabInternas{
+
+        li > a{
+
+            color: rgb(168, 168, 168);
+
+            &.active{
+                color: white;
+                background-color: var.$color-primario;
+                font-weight: bold;
+            }
+        }
+    }
+
+    /* ==============================
+    TABS CONTENIDO
+    ============================== */
+    div#myTabContentPrincipal{
+
+        padding: 3rem 4rem 3rem 4rem;
+        border: 1px solid var.$color-quinario;
+        border-top: none;
+    }
 }

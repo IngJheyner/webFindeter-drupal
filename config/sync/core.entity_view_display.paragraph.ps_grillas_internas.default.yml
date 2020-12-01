@@ -1,0 +1,31 @@
+uuid: fc4e2e99-3d47-4ea2-9e4b-00888c8cd787
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ps_grillas_internas.field_ps_descripcio_o_contenido
+    - field.field.paragraph.ps_grillas_internas.field_ps_titulo
+    - paragraphs.paragraphs_type.ps_grillas_internas
+  module:
+    - text
+id: paragraph.ps_grillas_internas.default
+targetEntityType: paragraph
+bundle: ps_grillas_internas
+mode: default
+content:
+  field_ps_descripcio_o_contenido:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_ps_titulo:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

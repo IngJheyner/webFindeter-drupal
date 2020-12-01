@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.productos_servicios.field_ps_img_encabezado
     - field.field.node.productos_servicios.field_ps_items
     - field.field.node.productos_servicios.field_ps_opciones
+    - field.field.node.productos_servicios.field_ps_paragra_tabs_internas
     - field.field.node.productos_servicios.field_ps_titulo_encabezado
     - field.field.node.productos_servicios.field_ps_titulo_tabs_opc1
     - image.style.thumbnail
@@ -15,6 +16,7 @@ dependencies:
   module:
     - field_group
     - image
+    - paragraphs
     - path
     - text
 third_party_settings:
@@ -74,6 +76,7 @@ third_party_settings:
         - field_ps_imagen_portada
         - body
         - field_ps_opciones
+        - field_ps_titulo_tabs_opc1
         - group_prestancion_uno_1
       parent_name: group_grupo_tabs
       weight: 20
@@ -88,18 +91,45 @@ third_party_settings:
       label: Contenido
     group_prestancion_uno_1:
       children:
-        - field_ps_titulo_tabs_opc1
-        - field_ps_items
+        - group_items_menu_navegacion
+        - group_ps_paragra_contenido_itern
       parent_name: group_contenido
-      weight: 16
-      format_type: fieldset
+      weight: 17
+      format_type: tabs
       region: content
       format_settings:
-        description: ''
-        required_fields: true
+        direction: vertical
         id: ''
         classes: ''
-      label: 'Presentación '
+      label: 'Group Tabs Iternas'
+    group_items_menu_navegacion:
+      children:
+        - field_ps_items
+      parent_name: group_prestancion_uno_1
+      weight: 20
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Items o menu de navegacion principal'
+    group_ps_paragra_contenido_itern:
+      children:
+        - field_ps_paragra_tabs_internas
+      parent_name: group_prestancion_uno_1
+      weight: 21
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Contenido Interno, para cada uno de los items o menú principal'
 id: node.productos_servicios.default
 targetEntityType: node
 bundle: productos_servicios
@@ -138,7 +168,7 @@ content:
     type: image_image
     region: content
   field_ps_items:
-    weight: 28
+    weight: 21
     settings:
       size: 60
       placeholder: ''
@@ -151,6 +181,18 @@ content:
     third_party_settings: {  }
     type: options_buttons
     region: content
+  field_ps_paragra_tabs_internas:
+    type: entity_reference_paragraphs
+    weight: 22
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
   field_ps_titulo_encabezado:
     weight: 12
     settings:
@@ -160,7 +202,7 @@ content:
     type: string_textfield
     region: content
   field_ps_titulo_tabs_opc1:
-    weight: 27
+    weight: 16
     settings:
       size: 60
       placeholder: ''
