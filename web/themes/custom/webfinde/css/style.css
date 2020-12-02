@@ -1903,8 +1903,9 @@ article.detalleProcesoConvocatorias div.titulo h1::after {
 COLORES
 ============================== */
 /* ==============================
-Encabezado
+INTERNAS
 ============================== */
+/* ===== ===== ENCABEZADO ===== ===== */
 article.productoServicios figure {
   position: absolute;
   z-index: -1;
@@ -1925,9 +1926,7 @@ article.productoServicios div.encabezado h1.tituloEncabezado {
   font-weight: 600;
 }
 
-/* ==============================
-Contenido
-============================== */
+/* ===== ===== CONTENIDO ===== ===== */
 article.productoServicios > div.cuerpoContenido {
   /* ==============================
   TABS
@@ -1953,6 +1952,10 @@ article.productoServicios > div.cuerpoContenido div.titulo h1::after {
   background-color: #296294;
   top: 1.5em;
   left: 0;
+}
+article.productoServicios > div.cuerpoContenido div.descripcionContenido {
+  word-spacing: 5pt;
+  font-size: 20px;
 }
 article.productoServicios > div.cuerpoContenido div.row img.imgPortada {
   border-radius: 0.8rem;
@@ -1980,6 +1983,18 @@ article.productoServicios > div.cuerpoContenido div#myTabContentPrincipal {
   padding: 3rem 4rem 3rem 4rem;
   border: 1px solid #e5e5e5;
   border-top: none;
+}
+article.productoServicios > div.cuerpoContenido div#myTabContentInternas > .tab-pane > .paragraph img {
+  border-radius: 0.8rem;
+}
+article.productoServicios > div.cuerpoContenido div#myTabContentInternas > .tab-pane > .paragraph div.gridContainer div.grid div.gridContenido {
+  border: 1px solid #CDDC4B;
+  border-radius: 0.5rem;
+}
+article.productoServicios > div.cuerpoContenido div#myTabContentInternas > .tab-pane > .paragraph div.gridContainer div.grid div.gridContenido div.titulos {
+  background-color: #CDDC4B;
+  color: #296294;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

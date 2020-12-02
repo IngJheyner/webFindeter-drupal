@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.productos_servicios.field_ps_imagen_portada
     - field.field.node.productos_servicios.field_ps_img_encabezado
     - field.field.node.productos_servicios.field_ps_items
-    - field.field.node.productos_servicios.field_ps_opciones
     - field.field.node.productos_servicios.field_ps_paragra_tabs_internas
     - field.field.node.productos_servicios.field_ps_titulo_encabezado
     - field.field.node.productos_servicios.field_ps_titulo_tabs_opc1
@@ -75,7 +74,6 @@ third_party_settings:
       children:
         - field_ps_imagen_portada
         - body
-        - field_ps_opciones
         - field_ps_titulo_tabs_opc1
         - group_prestancion_uno_1
       parent_name: group_grupo_tabs
@@ -110,11 +108,11 @@ third_party_settings:
       format_type: tab
       region: content
       format_settings:
-        id: ''
-        classes: ''
-        description: ''
+        description: "Items principal que se visualizan como menú de navegación o tabs del contenido. <br><br>\r\nColoque los items en orden del primero al ultimo la cual se visualiza de izquierda a derecha, es muy <b>importante</b> ordenar de tal manera que en los <i>Contenidos internos para cada uno de los items</i> deben quedar en el mismo orden para los items principales."
         formatter: closed
         required_fields: true
+        id: ''
+        classes: ''
       label: 'Items o menu de navegacion principal'
     group_ps_paragra_contenido_itern:
       children:
@@ -124,11 +122,11 @@ third_party_settings:
       format_type: tab
       region: content
       format_settings:
-        id: ''
-        classes: ''
         description: ''
         formatter: closed
         required_fields: true
+        id: ''
+        classes: ''
       label: 'Contenido Interno, para cada uno de los items o menú principal'
 id: node.productos_servicios.default
 targetEntityType: node
@@ -174,12 +172,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-    region: content
-  field_ps_opciones:
-    weight: 15
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
     region: content
   field_ps_paragra_tabs_internas:
     type: entity_reference_paragraphs

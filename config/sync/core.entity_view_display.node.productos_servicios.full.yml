@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.productos_servicios.field_ps_imagen_portada
     - field.field.node.productos_servicios.field_ps_img_encabezado
     - field.field.node.productos_servicios.field_ps_items
-    - field.field.node.productos_servicios.field_ps_opciones
     - field.field.node.productos_servicios.field_ps_paragra_tabs_internas
     - field.field.node.productos_servicios.field_ps_titulo_encabezado
     - field.field.node.productos_servicios.field_ps_titulo_tabs_opc1
@@ -17,7 +16,6 @@ dependencies:
     - entity_reference_revisions
     - image
     - layout_builder
-    - options
     - text
     - user
 third_party_settings:
@@ -42,9 +40,11 @@ content:
     region: content
     label: above
     settings:
-      image_style: ''
+      image_style: ps_img_portada_interna
       image_link: ''
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
   field_ps_img_encabezado:
     type: image
     weight: 0
@@ -61,13 +61,6 @@ content:
     label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-  field_ps_opciones:
-    type: list_default
-    weight: 1
-    region: content
-    label: above
-    settings: {  }
     third_party_settings: {  }
   field_ps_paragra_tabs_internas:
     type: entity_reference_revisions_entity_view

@@ -74,31 +74,21 @@
 {#{ drupal_dump( content ) }#}
 {#{ attach_library('classy/node') }#}
 
-
+{% 
+    
+  set tipoArticulo = content.field_tipo_de_articulo[0]["#plain_text"]|lower|replace({'á':'a','é':'e','í':'i','ó':'o','ú':'u'})
+    
+%}
 
 <article{{ attributes.addClass(classes) }}>
 
-  {% if display_submitted %}
+  <div class="articuloInternasBlog container" imgFondoEncabezado="{{ file_url(content.field_imagen_fondo_articulo[0]['#item'].entity.uri.value) }}">
 
-    <footer class="node__meta">
+    <a {{ create_attribute({'href': ['/blog/tipo-articulo/'~tipoArticulo]}) }}>
 
-      {{ author_picture }}
-
-      <div{{ author_attributes.addClass('node__submitted') }}>
-
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-
-        {{ metadata }}
-
-      </div>
-
-    </footer>
-
-  {% endif %}
-
-  <div class="articuloInternasBlog" imgFondoEncabezado="{{ file_url(content.field_imagen_fondo_articulo[0]['#item'].entity.uri.value) }}">
-
-    <h5 class="text-center tipoArticulo">{{ content.field_tipo_de_articulo.0 }}<h5>
+      <h5 class="text-center tipoArticulo">{{ content.field_tipo_de_articulo[0]["#plain_text"] }}<h5>
+      
+    </a>
 
     <h1 class="text-center titulo font-weight-bold">{{ node.label }}</h1>
     

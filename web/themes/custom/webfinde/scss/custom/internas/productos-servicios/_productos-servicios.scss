@@ -2,13 +2,13 @@
 @use '../../../mixins/encabezado' as encabezado;
 
 /* ==============================
-Encabezado
+INTERNAS
 ============================== */
+
+/* ===== ===== ENCABEZADO ===== ===== */
 @include encabezado.encabezado("article","productoServicios");
 
-/* ==============================
-Contenido
-============================== */
+/* ===== ===== CONTENIDO ===== ===== */
 article.productoServicios > div.cuerpoContenido{
 
     div.titulo{
@@ -32,6 +32,12 @@ article.productoServicios > div.cuerpoContenido{
                 left: 0;
             }
         }
+    }
+
+    div.descripcionContenido{
+
+        word-spacing: 5pt;
+        font-size: 20px;
     }
 
     div.row{
@@ -86,5 +92,27 @@ article.productoServicios > div.cuerpoContenido{
         padding: 3rem 4rem 3rem 4rem;
         border: 1px solid var.$color-quinario;
         border-top: none;
+    }
+
+    div#myTabContentInternas > .tab-pane > .paragraph{
+
+        img{
+
+            border-radius: 0.8rem;
+        }
+    
+        div.gridContainer div.grid div.gridContenido{
+
+            border: 1px solid var.$color-terciario;
+            border-radius: 0.5rem;
+
+            div.titulos{
+
+                background-color: var.$color-terciario;
+                color: var.$color-secundario;
+                cursor: pointer;
+            }
+        }
+
     }
 }

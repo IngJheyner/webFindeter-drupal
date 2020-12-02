@@ -18,8 +18,8 @@ field_name: field_ps_paragra_tabs_internas
 entity_type: node
 bundle: productos_servicios
 label: 'Tabs Internas'
-description: ''
-required: false
+description: '<b>Importante</b> Recuerde ordenar los <i>Tabs [ Internos ]</i> en el mismo orden que están los <i>Items principales</i> que se diligencio en el apartado anterior.'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -35,6 +35,12 @@ settings:
         enabled: false
       productos_servicios_home:
         weight: 5
+        enabled: false
+      ps_contenido_items_internos:
+        weight: 8
+        enabled: false
+      ps_grillas_internas:
+        weight: 9
         enabled: false
       tabs_productos_servicio:
         enabled: true

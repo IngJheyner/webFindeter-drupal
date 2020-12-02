@@ -67,6 +67,27 @@
                 }    
             });
             
+            /* ===== ===== INTERNAS ===== ===== */
+            $("div#myTabContentInternas div.gridContainer div.grid div.gridContenido .paragraph .descripcion").hide();
+
+            $("div#myTabContentInternas div.tab-pane.active div.gridContainer div.grid div.gridContenido").on("click", function(){
+
+                if($(this).attr('modo') === 'arriba'){
+
+                    $(this).children('.paragraph').children('.descripcion').slideDown("slow");
+                    $(this).children('.paragraph').children('.titulos').children('svg').removeClass('fa-chevron-left');
+                    $(this).children('.paragraph').children('.titulos').children('svg').addClass('fa-chevron-down');
+                    $(this).attr('modo', 'abajo');
+
+                }else{
+                    $(this).children('.paragraph').children('.descripcion').slideUp("slow");
+                    $(this).children('.paragraph').children('.titulos').children('svg').removeClass('fa-chevron-down');
+                    $(this).children('.paragraph').children('.titulos').children('svg').addClass('fa-chevron-left');
+                    $(this).attr('modo', 'arriba');
+                }
+                
+
+            });
             /*===========================================
             FINDETER CON CIFRAS
             =============================================*/
@@ -169,10 +190,15 @@
             CONVOCATORIAS
             =============================================*/           
             let activarBusqueda = false;
-            //console.log("🚀 ~ file: global.js ~ line 174 ~ mostrarFiltros", mostrarFiltros)
+            formBusquedaAvanzada();           
 
-            $(document).ajaxStop(function() {
-                
+            $(document).ajaxStop(function() {                
+                formBusquedaAvanzada();                  
+                      
+            }); 
+
+            function formBusquedaAvanzada() {
+
                 $(".convocatoriaCiudadano form div.form-item-created-min input[type='text']").addClass('datepicker InicialApertura').attr('readonly','');
 
                 $(".convocatoriaCiudadano form div.form-item-created-max input[type='text']").addClass('datepicker FinalApertura').attr('readonly','');
@@ -244,9 +270,8 @@
                     if(activarBusqueda){ mostrarFiltros = true };
                     //console.log("🚀 ~ file: global.js ~ line 240 ~ $ ~ mostrarFiltros", mostrarFiltros)
                 });
-                    
-                      
-            });         
+
+            }
 
             /* ===== ===== INTERNAS DETALLE DE PROCESO ===== ===== */
             $('#tableDetalleConvocatorias').DataTable({
@@ -265,7 +290,7 @@
                 },
                 order: [[ 2, 'desc' ], [ 0, 'asc' ]],
             });
-
+            
         /*}
     };*/
 
