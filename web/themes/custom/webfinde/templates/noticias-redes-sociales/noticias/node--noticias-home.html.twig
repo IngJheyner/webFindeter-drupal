@@ -70,29 +70,28 @@
  *   in different view modes.
  */
 #}
-
-{#{ drupal_dump( content ) }#}
-{#{ attach_library('classy/node') }#}
-
-{% 
-    
-  set tipoArticulo = content.field_tipo_de_articulo[0]["#plain_text"]|lower|replace({'á':'a','é':'e','í':'i','ó':'o','ú':'u'})
-    
+{%
+  set classes = [
+    'node noticiasInternas',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
 %}
+
 
 <article{{ attributes.addClass(classes) }}>
 
-  <div class="articuloInternasBlog container" imgFondoEncabezado="{{ file_url(content.field_imagen_fondo_articulo[0]['#item'].entity.uri.value) }}">
+  {# ===== ===== Encabezado ===== ===== #}
+  {{ drupal_block('block_content:a712eac5-4839-4f13-bf57-92cb1e5aee81') }}  
 
-    <a {{ create_attribute({'href': ['/blog/tipo-articulo/'~tipoArticulo]}) }}>
+  <div class="container my-5">
 
-      <h5 class="text-center tipoArticulo">{{ content.field_tipo_de_articulo[0]["#plain_text"] }}<h5>
-      
-    </a>
+    <h1 class="text-left titulo font-weight-bold">{{ node.label }}</h1>
 
-    <h1 class="text-center titulo font-weight-bold">{{ node.label }}</h1>
-    
-    <div class="w-100 text-center infoSocial">
+    <div class="w-100 mt-4 text-center infoSocial">
 
       <p class="text-muted d-inline-block mb-3 mb-sm-0 mr-sm-5">{{ node.created.value|format_date('custom', 'd \\d\\e F \\d\\e Y') }}</p>
 
@@ -101,20 +100,27 @@
       {# ===== ===== COMPARTIR REDES SOCIALES ===== ===== #}
       {{ content.addtoany }}      
     
-    </div>    
+    </div>
 
-    <div class="cuerpoArticulo">
-      
+    <div class="cuerpoArticulo mt-5">
+
+      <div class="mb-3 h-100 d-flex">
+
+        <img src="{{ file_url(content.field_img_noticia_home[0]['#item'].entity.uri.value|image_style('noticias_home')) }}" class="img-fluid">
+
+        <div class="m-5"><em>{{ node.body.summary }}</em></div>
+
+      </div>      
 
       {{ content.body }}     
 
     </div>
-    
+    asd
   </div>
 
-  {# ============================================
-  Mostrar mas 
-  =============================================== #}
-  {{ drupal_view('articulo_blog', 'mas_articulos_contenido_interno') }}
+  <hr>
+  {# ===== ===== Noticias Relacionadas ===== ===== #}
+  {{ drupal_view('noticias','noticias_mas_relacionadas') }}
+ 
 
 </article>

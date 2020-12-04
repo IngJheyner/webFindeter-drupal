@@ -6,6 +6,7 @@ dependencies:
     - block_content.type.noticias_encabezado
     - field.field.block_content.noticias_encabezado.body
     - field.field.block_content.noticias_encabezado.field_noticias_img_fondo
+    - field.field.block_content.noticias_encabezado.field_noticias_titulo
   module:
     - image
     - text
@@ -29,6 +30,14 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
+    region: content
+  field_noticias_titulo:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
 hidden:
   langcode: true

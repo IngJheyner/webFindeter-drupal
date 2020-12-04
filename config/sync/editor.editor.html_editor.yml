@@ -1,36 +1,37 @@
-uuid: af9a6bee-66ef-4f70-89a5-2addd54ed6e6
+uuid: 490c72db-d852-4724-b1f6-579198f775f8
 langcode: es
-status: false
+status: true
 dependencies:
   config:
-    - filter.format.full_html
+    - filter.format.html_editor
   module:
     - ckeditor
-_core:
-  default_config_hash: 967ijj7p6i7rwrYl7r08WQFeCY_c23YAh0h8u-w_CXM
-format: full_html
+format: html_editor
 editor: ckeditor
 settings:
   toolbar:
     rows:
       -
         -
-          name: Formatting
+          name: Formato
           items:
+            - Underline
+            - Strike
             - Bold
             - Italic
-            - Strike
-            - Superscript
-            - Subscript
             - '-'
-            - RemoveFormat
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyRight
+            - JustifyBlock
+            - '-'
         -
-          name: Linking
+          name: Enlaces
           items:
             - DrupalLink
             - DrupalUnlink
         -
-          name: Lists
+          name: Listas
           items:
             - BulletedList
             - NumberedList
@@ -39,25 +40,26 @@ settings:
           items:
             - Blockquote
             - DrupalImage
-            - Table
-            - HorizontalRule
+            - DrupalMediaLibrary
         -
-          name: 'Block Formatting'
+          name: Herramientas
+          items:
+            - Source
+            - Table
+        -
+          name: HTML
           items:
             - Format
-        -
-          name: Tools
-          items:
-            - ShowBlocks
-            - Source
   plugins:
+    language:
+      language_list: un
     stylescombo:
       styles: ''
 image_upload:
   status: true
   scheme: public
-  directory: inline-images
-  max_size: ''
+  directory: webfinde/images/internas
+  max_size: '2 mb'
   max_dimensions:
-    width: 0
-    height: 0
+    width: 500
+    height: 500

@@ -16,6 +16,7 @@ dependencies:
   module:
     - field_group
     - image
+    - path
     - text
 third_party_settings:
   field_group:
@@ -73,7 +74,7 @@ third_party_settings:
     group_mas_informacion:
       children: {  }
       parent_name: ''
-      weight: 3
+      weight: 6
       format_type: tab
       region: hidden
       format_settings:
@@ -100,7 +101,7 @@ third_party_settings:
     group_group_tabs:
       children: {  }
       parent_name: ''
-      weight: 2
+      weight: 5
       format_type: tabs
       region: hidden
       format_settings:
@@ -111,7 +112,7 @@ third_party_settings:
     group_seo:
       children: {  }
       parent_name: ''
-      weight: 11
+      weight: 7
       format_type: tab
       region: hidden
       format_settings:
@@ -202,6 +203,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  path:
+    type: path
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
     weight: 10
@@ -229,6 +236,5 @@ content:
     third_party_settings: {  }
 hidden:
   langcode: true
-  path: true
   promote: true
   sticky: true
