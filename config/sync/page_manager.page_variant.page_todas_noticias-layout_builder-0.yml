@@ -1,0 +1,78 @@
+uuid: 34db8b05-52f3-4536-a86e-a47b97b2f852
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.page_todas_noticias
+id: page_todas_noticias-layout_builder-0
+label: 'Todas las noticias'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: f9a5c790-afc1-4f12-b77d-12b735ca59d8
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_1col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          main:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|my-5
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        211fbb1b-6fb4-421f-a749-befb3d560675:
+          uuid: 211fbb1b-6fb4-421f-a749-befb3d560675
+          region: top
+          configuration:
+            id: 'block_content:a712eac5-4839-4f13-bf57-92cb1e5aee81'
+            label: Noticias
+            provider: block_content
+            label_display: '0'
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 1
+        77ac4b74-e6d6-4783-af70-ea495fb3bc04:
+          uuid: 77ac4b74-e6d6-4783-af70-ea495fb3bc04
+          region: main
+          configuration:
+            id: 'views_block:noticias-block_1'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 1
+      third_party_settings: {  }
+page: page_todas_noticias
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

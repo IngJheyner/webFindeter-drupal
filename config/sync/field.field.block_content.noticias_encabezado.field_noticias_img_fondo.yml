@@ -1,10 +1,10 @@
-uuid: fead88bf-f494-463c-8cf1-22feed20c513
+uuid: 37d62aec-bd85-4f6e-9153-d648537e0ff0
 langcode: es
 status: true
 dependencies:
   config:
-    - field.storage.node.field_img_noticia_home
-    - node.type.noticias_home
+    - block_content.type.noticias_encabezado
+    - field.storage.block_content.field_noticias_img_fondo
   module:
     - disable_field
     - image
@@ -12,22 +12,22 @@ third_party_settings:
   disable_field:
     add_disable: none
     edit_disable: none
-id: node.noticias_home.field_img_noticia_home
-field_name: field_img_noticia_home
-entity_type: node
-bundle: noticias_home
-label: 'Imagen de portada'
+id: block_content.noticias_encabezado.field_noticias_img_fondo
+field_name: field_noticias_img_fondo
+entity_type: block_content
+bundle: noticias_encabezado
+label: 'Img. Fondo'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: webfinde/images/noticias
+  file_directory: webfinde/images/noticias/encabezado
   file_extensions: 'png gif jpg jpeg'
   max_filesize: '2 mb'
-  max_resolution: 355x250
-  min_resolution: 355x246
+  max_resolution: ''
+  min_resolution: ''
   alt_field: false
   alt_field_required: true
   title_field: false

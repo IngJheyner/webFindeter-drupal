@@ -283,6 +283,108 @@ VENTANA MODAL PRODUCTOS Y SERVICIOS
   font-size: 2.5rem;
 }
 
+/* ==============================
+INTERNAS
+============================== */
+/* ===== ===== INTERNAS ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+INTERNAS
+============================== */
+/* ===== ===== ENCABEZADO ===== ===== */
+article.productoServicios figure {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+article.productoServicios figure img {
+  height: 100%;
+}
+article.productoServicios div.encabezado {
+  height: 7rem;
+}
+article.productoServicios div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+/* ===== ===== CONTENIDO ===== ===== */
+article.productoServicios > div.cuerpoContenido {
+  /* ==============================
+  TABS
+  ============================== */
+  /* ==============================
+  TABS CONTENIDO
+  ============================== */
+}
+article.productoServicios > div.cuerpoContenido div.titulo {
+  border-bottom: 1px solid #296294;
+  padding-bottom: 4rem;
+}
+article.productoServicios > div.cuerpoContenido div.titulo h1 {
+  position: relative;
+  float: left;
+  padding-bottom: 1rem;
+}
+article.productoServicios > div.cuerpoContenido div.titulo h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #296294;
+  top: 1.5em;
+  left: 0;
+}
+article.productoServicios > div.cuerpoContenido div.descripcionContenido {
+  word-spacing: 5pt;
+  font-size: 20px;
+}
+article.productoServicios > div.cuerpoContenido div.row img.imgPortada {
+  border-radius: 0.8rem;
+}
+article.productoServicios > div.cuerpoContenido h4.tituloTabs {
+  background-color: #112d6a;
+  padding: 0.5rem;
+}
+article.productoServicios > div.cuerpoContenido ul.tabPrincipal li > a {
+  color: #a8a8a8;
+}
+article.productoServicios > div.cuerpoContenido ul.tabPrincipal li > a.active {
+  color: #112d6a;
+  font-weight: bold;
+}
+article.productoServicios > div.cuerpoContenido ul.tabInternas li > a {
+  color: #a8a8a8;
+}
+article.productoServicios > div.cuerpoContenido ul.tabInternas li > a.active {
+  color: white;
+  background-color: #112d6a;
+  font-weight: bold;
+}
+article.productoServicios > div.cuerpoContenido div#myTabContentPrincipal {
+  padding: 3rem 4rem 3rem 4rem;
+  border: 1px solid #e5e5e5;
+  border-top: none;
+}
+article.productoServicios > div.cuerpoContenido div#myTabContentInternas > .tab-pane > .paragraph img {
+  border-radius: 0.8rem;
+}
+article.productoServicios > div.cuerpoContenido div#myTabContentInternas > .tab-pane > .paragraph div.gridContainer div.grid div.gridContenido {
+  border: 1px solid #CDDC4B;
+  border-radius: 0.5rem;
+}
+article.productoServicios > div.cuerpoContenido div#myTabContentInternas > .tab-pane > .paragraph div.gridContainer div.grid div.gridContenido div.titulos {
+  background-color: #CDDC4B;
+  color: #296294;
+  cursor: pointer;
+}
+
 /* ===== ===== NOTICIAS Y REDES ===== ===== */
 /* ==============================
 COLORES
@@ -475,6 +577,57 @@ div.redeSociales div.tab-content {
   border-left: 1px solid #e5e5e5;
   border-right: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
+}
+
+/* ==============================
+INTERNAS Y LISTADO DE NOTICIAS
+============================== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+TODAS LAS NOTICIAS
+============================== */
+/* ===== ===== ENCABEZADO ===== ===== */
+div.encabezadoNoticias figure {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+div.encabezadoNoticias figure img {
+  height: 100%;
+}
+div.encabezadoNoticias div.encabezado {
+  height: 7rem;
+}
+div.encabezadoNoticias div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+div.pageNoticias .grid-item {
+  position: relative;
+  overflow: hidden;
+}
+div.pageNoticias .grid-item img {
+  transform: scale(1, 1);
+  transition: 1s all;
+}
+div.pageNoticias .grid-item p.titulo {
+  color: #296294;
+  font-size: 14px;
+  transition: 0.6s all;
+}
+div.pageNoticias .grid-item:hover {
+  border-bottom: 1px solid #112d6a;
+}
+div.pageNoticias .grid-item:hover img {
+  transform: scale(1.1, 1.1);
+  transition: 1s all;
 }
 
 /* ===== ===== FINDETER EN CIFFRAS ===== ===== */
@@ -1896,105 +2049,6 @@ article.detalleProcesoConvocatorias div.titulo h1::after {
   background-color: #296294;
   top: 1.6em;
   left: 0;
-}
-
-/* ===== ===== Productos y servicios ===== ===== */
-/* ==============================
-COLORES
-============================== */
-/* ==============================
-INTERNAS
-============================== */
-/* ===== ===== ENCABEZADO ===== ===== */
-article.productoServicios figure {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  transform: translate(0, -14rem);
-  height: 23rem;
-}
-article.productoServicios figure img {
-  height: 100%;
-}
-article.productoServicios div.encabezado {
-  height: 7rem;
-}
-article.productoServicios div.encabezado h1.tituloEncabezado {
-  text-shadow: 1px 1px 2px black;
-  color: white;
-  font-size: 3.5rem;
-  font-weight: 600;
-}
-
-/* ===== ===== CONTENIDO ===== ===== */
-article.productoServicios > div.cuerpoContenido {
-  /* ==============================
-  TABS
-  ============================== */
-  /* ==============================
-  TABS CONTENIDO
-  ============================== */
-}
-article.productoServicios > div.cuerpoContenido div.titulo {
-  border-bottom: 1px solid #296294;
-  padding-bottom: 4rem;
-}
-article.productoServicios > div.cuerpoContenido div.titulo h1 {
-  position: relative;
-  float: left;
-  padding-bottom: 1rem;
-}
-article.productoServicios > div.cuerpoContenido div.titulo h1::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  background-color: #296294;
-  top: 1.5em;
-  left: 0;
-}
-article.productoServicios > div.cuerpoContenido div.descripcionContenido {
-  word-spacing: 5pt;
-  font-size: 20px;
-}
-article.productoServicios > div.cuerpoContenido div.row img.imgPortada {
-  border-radius: 0.8rem;
-}
-article.productoServicios > div.cuerpoContenido h4.tituloTabs {
-  background-color: #112d6a;
-  padding: 0.5rem;
-}
-article.productoServicios > div.cuerpoContenido ul.tabPrincipal li > a {
-  color: #a8a8a8;
-}
-article.productoServicios > div.cuerpoContenido ul.tabPrincipal li > a.active {
-  color: #112d6a;
-  font-weight: bold;
-}
-article.productoServicios > div.cuerpoContenido ul.tabInternas li > a {
-  color: #a8a8a8;
-}
-article.productoServicios > div.cuerpoContenido ul.tabInternas li > a.active {
-  color: white;
-  background-color: #112d6a;
-  font-weight: bold;
-}
-article.productoServicios > div.cuerpoContenido div#myTabContentPrincipal {
-  padding: 3rem 4rem 3rem 4rem;
-  border: 1px solid #e5e5e5;
-  border-top: none;
-}
-article.productoServicios > div.cuerpoContenido div#myTabContentInternas > .tab-pane > .paragraph img {
-  border-radius: 0.8rem;
-}
-article.productoServicios > div.cuerpoContenido div#myTabContentInternas > .tab-pane > .paragraph div.gridContainer div.grid div.gridContenido {
-  border: 1px solid #CDDC4B;
-  border-radius: 0.5rem;
-}
-article.productoServicios > div.cuerpoContenido div#myTabContentInternas > .tab-pane > .paragraph div.gridContainer div.grid div.gridContenido div.titulos {
-  background-color: #CDDC4B;
-  color: #296294;
-  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

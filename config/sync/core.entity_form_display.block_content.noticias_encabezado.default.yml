@@ -1,12 +1,12 @@
-uuid: ee7df983-611b-41e6-b575-c316d9124a39
+uuid: ae67c5de-91ca-4140-b748-94d7b0a91bb9
 langcode: es
 status: true
 dependencies:
   config:
-    - block_content.type.preguntas_frecuentes
-    - field.field.block_content.preguntas_frecuentes.body
-    - field.field.block_content.preguntas_frecuentes.field_img_fondo_preg_frecuentes
-    - field.field.block_content.preguntas_frecuentes.field_titulo_preg_frecuentes
+    - block_content.type.noticias_encabezado
+    - field.field.block_content.noticias_encabezado.body
+    - field.field.block_content.noticias_encabezado.field_noticias_img_fondo
+    - field.field.block_content.noticias_encabezado.field_noticias_titulo
     - image.style.thumbnail
   module:
     - field_group
@@ -14,11 +14,11 @@ dependencies:
     - text
 third_party_settings:
   field_group:
-    group_informacion:
+    group_informacion_contenido:
       children:
-        - field_titulo_preg_frecuentes
         - info
-        - field_img_fondo_preg_frecuentes
+        - field_noticias_titulo
+        - field_noticias_img_fondo
         - body
         - langcode
       parent_name: ''
@@ -26,21 +26,21 @@ third_party_settings:
       format_type: details_sidebar
       region: content
       format_settings:
-        description: ''
-        weight: 0
-        required_fields: true
         id: ''
         classes: ''
+        direction: vertical
         open: false
+        required_fields: true
+        weight: 0
       label: 'Información y Contenido'
-id: block_content.preguntas_frecuentes.default
+id: block_content.noticias_encabezado.default
 targetEntityType: block_content
-bundle: preguntas_frecuentes
+bundle: noticias_encabezado
 mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 29
+    weight: 4
     settings:
       rows: 9
       summary_rows: 3
@@ -48,16 +48,16 @@ content:
       show_summary: false
     third_party_settings: {  }
     region: content
-  field_img_fondo_preg_frecuentes:
-    weight: 28
+  field_noticias_img_fondo:
+    weight: 3
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
     region: content
-  field_titulo_preg_frecuentes:
-    weight: 26
+  field_noticias_titulo:
+    weight: 2
     settings:
       size: 60
       placeholder: ''
@@ -66,7 +66,7 @@ content:
     region: content
   info:
     type: string_textfield
-    weight: 27
+    weight: 1
     region: content
     settings:
       size: 60
@@ -74,7 +74,7 @@ content:
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 30
+    weight: 5
     region: content
     settings:
       include_locked: true

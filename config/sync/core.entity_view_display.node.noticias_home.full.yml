@@ -1,0 +1,107 @@
+uuid: addf1858-6e6e-4534-b303-5ceb1c75cef0
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.noticias_home.body
+    - field.field.node.noticias_home.field_img_noticia_home
+    - field.field.node.noticias_home.field_noticias_resumen_redes
+    - field.field.node.noticias_home.field_noticias_resumen_seo
+    - field.field.node.noticias_home.field_noticias_tipo_noticia_seo
+    - field.field.node.noticias_home.field_noticias_titulo_redes
+    - field.field.node.noticias_home.field_noticias_titulo_seo
+    - field.field.node.noticias_home.field_tipo_noticia
+    - image.style.noticias_home
+    - node.type.noticias_home
+  module:
+    - field_formatter_class
+    - image
+    - layout_builder
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.noticias_home.full
+targetEntityType: node
+bundle: noticias_home
+mode: full
+content:
+  addtoany:
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_img_noticia_home:
+    weight: 3
+    label: hidden
+    settings:
+      image_style: noticias_home
+      image_link: ''
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: image
+    region: content
+  field_noticias_resumen_redes:
+    weight: 7
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_noticias_resumen_seo:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_noticias_tipo_noticia_seo:
+    weight: 8
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_noticias_titulo_redes:
+    weight: 6
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_noticias_titulo_seo:
+    weight: 4
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_tipo_noticia:
+    weight: 2
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
