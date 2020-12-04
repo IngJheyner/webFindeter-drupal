@@ -9,8 +9,9 @@
 
     /*Drupal.behaviors.webfinde = {
         attach: function(context, settings) {*/
-            
-           /*===========================================
+        
+        
+          /*===========================================
            BUSCADOR(HOME)
            =============================================*/
             $("form#search-block-form .btnSearch").attr("value","");
@@ -66,11 +67,60 @@
 
                 }    
             });
+
+
             
-            /* ===== ===== INTERNAS ===== ===== */
+            /* ===== ===== INTERNAS ===== ===== */        
+            let iterarTab = 0;
+            
+            /* ===== ===== Cambio de atributos al cambiar en los tabs principal, usabilidad interna ===== ===== */
+            $('.productoServicios .cuerpoContenido ul.tabPrincipal li a').on("click", function(){
+
+                $('.productoServicios #myTabContentPrincipal .tab-pane.show.active .paragraph ul').children('li').each(function(index, element){                 
+                    
+                    $(element).children('a').attr('href', "");
+
+                });
+
+                tabProductosServicios();                
+                
+            });
+
+            /* ===== ===== Funcion de cambios de atributos, tabs internos ===== ===== */
+            const tabProductosServicios = () =>{
+                
+                let tabCotenidoPrincipal = $('.productoServicios #myTabContentPrincipal .tab-pane.show.active .paragraph ul').attr('data-quickedit-entity-id'); 
+                iterarTab++;
+                if(tabCotenidoPrincipal != undefined) { let nomTabInterno = tabCotenidoPrincipal.replace('/','-') + "-" + String(iterarTab) };               
+
+                /* ===== ===== Anclas ===== ===== */
+                $('.productoServicios #myTabContentPrincipal .tab-pane.show.active .paragraph ul').children('li').each(function(index, element){                 
+                    
+                    let hreA = $(element).children('a').attr('ancla');                    
+                    let hreAn = hreA + '-' + nomTabInterno;
+                    $(element).children('a').attr('href', hreAn);                  
+
+                }); 
+                
+                /* ===== ===== Contenido de las anclas ===== ===== */
+                $('.productoServicios #myTabContentPrincipal .tab-pane.show.active #myTabContentInternas div.tab-pane').each(function(index, element){                 
+                        
+                    let hreA = $(element).attr('idAncla');                    
+                    let hreAn = hreA + '-' + nomTabInterno;
+                    $(element).attr('id', hreAn);
+
+                });
+            
+
+            }            
+
+            //Se ejecuta la funcion de cambio de atributos de anclas
+            tabProductosServicios();
+
+            /* ===== ===== Efecto para la descripcion de menu o grillas internas de las tabs ===== ===== */
             $("div#myTabContentInternas div.gridContainer div.grid div.gridContenido .paragraph .descripcion").hide();
 
-            $("div#myTabContentInternas div.tab-pane.active div.gridContainer div.grid div.gridContenido").on("click", function(){
+            $("div#myTabContentInternas div.gridContainer div.grid div.gridContenido").on("click", function(){
 
                 if($(this).attr('modo') === 'arriba'){
 
@@ -88,6 +138,7 @@
                 
 
             });
+            
             /*===========================================
             FINDETER CON CIFRAS
             =============================================*/
@@ -189,12 +240,10 @@
              /*===========================================
             CONVOCATORIAS
             =============================================*/           
-            let activarBusqueda = false;
-            formBusquedaAvanzada();           
+            let activarBusqueda = false;                       
 
             $(document).ajaxStop(function() {                
                 formBusquedaAvanzada();                  
-                      
             }); 
 
             function formBusquedaAvanzada() {
@@ -273,6 +322,8 @@
 
             }
 
+            formBusquedaAvanzada();
+
             /* ===== ===== INTERNAS DETALLE DE PROCESO ===== ===== */
             $('#tableDetalleConvocatorias').DataTable({
 
@@ -295,3 +346,4 @@
     };*/
 
 })(jQuery, Drupal);
+            

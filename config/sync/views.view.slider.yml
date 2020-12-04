@@ -21,9 +21,9 @@ dependencies:
     - user
     - views_bootstrap
 id: slider
-label: Slider
+label: 'Slider Carrusel'
 module: views
-description: ''
+description: 'Se utiliza para vistas de tipo carrusel. [ Slider, Noticias, Casos de Exito ]'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -1334,8 +1334,8 @@ display:
           group_type: group
           admin_label: ''
           empty: false
-          tokenize: false
-          content: "<div class=\"encabezado d-flex mb-3\">\r\n<h1 class=\"flex-fill\">Noticias</h1>\r\n<div class=\"flex-fill\"><a href=\"#\" class=\"float-right mt-4 text-muted lead\">Todas las noticias</a></div>\r\n</div>"
+          tokenize: true
+          content: "<div class=\"encabezado d-flex mb-3\">\r\n<h1 class=\"flex-fill\">{{ 'Noticias'|t }}</h1>\r\n<div class=\"flex-fill\"><a href=\"/noticias\" class=\"float-right mt-4 text-muted lead\">{{ 'Todas las noticias'|t }}</a></div>\r\n</div>"
           plugin_id: text_custom
     cache_metadata:
       max-age: -1
