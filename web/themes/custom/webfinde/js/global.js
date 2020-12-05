@@ -89,9 +89,10 @@
             /* ===== ===== Funcion de cambios de atributos, tabs internos ===== ===== */
             const tabProductosServicios = () =>{
                 
+                let nomTabInterno = "";
                 let tabCotenidoPrincipal = $('.productoServicios #myTabContentPrincipal .tab-pane.show.active .paragraph ul').attr('data-quickedit-entity-id'); 
                 iterarTab++;
-                if(tabCotenidoPrincipal != undefined) { let nomTabInterno = tabCotenidoPrincipal.replace('/','-') + "-" + String(iterarTab) };               
+                if(tabCotenidoPrincipal != undefined) { nomTabInterno = tabCotenidoPrincipal.replace('/','-') + "-" + String(iterarTab) };               
 
                 /* ===== ===== Anclas ===== ===== */
                 $('.productoServicios #myTabContentPrincipal .tab-pane.show.active .paragraph ul').children('li').each(function(index, element){                 
