@@ -19,10 +19,10 @@ filters:
   filter_html:
     id: filter_html
     provider: filter
-    status: true
+    status: false
     weight: -10
     settings:
-      allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id align> <h3 id align> <h4 id align> <h5 id align> <h6 id align> <p align> <br> <span> <img src alt height width data-entity-type data-entity-uuid data-align data-caption> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <u> <s><drupal-media data-entity-type data-entity-uuid>'
+      allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id align> <h3 id align> <h4 id align> <h5 id align> <h6 id align> <p align> <br> <span> <img src alt height width data-entity-type data-entity-uuid data-align data-caption> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <u> <s><drupal-media data-entity-type data-entity-uuid><div>'
       filter_html_help: true
       filter_html_nofollow: true
   filter_htmlcorrector:
@@ -45,10 +45,10 @@ filters:
     weight: 100
     settings:
       default_view_mode: full
-      allowed_view_modes:
-        default: default
       allowed_media_types:
         url_youtube_articulo_blog: url_youtube_articulo_blog
+      allowed_view_modes:
+        default: default
   filter_html_image_secure:
     id: filter_html_image_secure
     provider: filter
