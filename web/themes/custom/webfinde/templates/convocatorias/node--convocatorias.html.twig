@@ -82,6 +82,8 @@
   ]
 %}
 
+{% if node.isPublished() %}
+
 <article{{ attributes.addClass(classes) }}>  
 
   {# ===== ===== Encabezado ===== ===== #}
@@ -267,3 +269,5 @@
   </div>  
 
 </article>
+
+{% endif %}

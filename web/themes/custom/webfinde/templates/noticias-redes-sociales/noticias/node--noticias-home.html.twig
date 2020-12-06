@@ -81,6 +81,7 @@
   ]
 %}
 
+{% if node.isPublished() %}
 
 <article{{ attributes.addClass(classes) }}>
 
@@ -106,7 +107,11 @@
 
       <div class="mb-3 h-100 d-flex">
 
-        <img src="{{ file_url(content.field_img_noticia_home[0]['#item'].entity.uri.value|image_style('noticias_home')) }}" class="img-fluid">
+        {% if content.field_img_noticia_home[0]|render|trim is not empty %}
+
+          <img src="{{ file_url(content.field_img_noticia_home[0]['#item'].entity.uri.value|image_style('noticias_home')) }}" class="img-fluid">
+
+        {% endif %}
 
         <div class="m-5"><em>{{ node.body.summary }}</em></div>
 
@@ -121,6 +126,7 @@
   <hr>
   {# ===== ===== Noticias Relacionadas ===== ===== #}
   {{ drupal_view('noticias','noticias_mas_relacionadas') }}
- 
 
 </article>
+
+{% endif %}

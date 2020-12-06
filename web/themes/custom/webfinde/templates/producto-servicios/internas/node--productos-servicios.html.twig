@@ -82,7 +82,8 @@
   ]
 %}
 
-{{ attach_library('classy/node') }}
+
+{% if node.isPublished() %}
 
 <article{{ attributes.addClass(classes) }}>
 
@@ -125,8 +126,12 @@
 
       <div class="col-6">
 
-        <img src="{{ file_url(content.field_ps_imagen_portada[0]['#item'].entity.uri.value|image_style('ps_img_portada_interna')) }}" class="img-fluid w-100 imgPortada">
+        {% if content.field_ps_imagen_portada[0]|render|trim is not empty %}
 
+          <img src="{{ file_url(content.field_ps_imagen_portada[0]['#item'].entity.uri.value|image_style('ps_img_portada_interna')) }}" class="img-fluid w-100 imgPortada">
+
+        {% endif %}
+        
       </div>
 
     </div>
@@ -206,3 +211,5 @@
   </div>
 
 </article>
+
+{% endif %}
