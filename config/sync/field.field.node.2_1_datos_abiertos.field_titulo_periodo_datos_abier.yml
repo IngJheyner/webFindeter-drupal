@@ -5,13 +5,19 @@ dependencies:
   config:
     - field.storage.node.field_titulo_periodo_datos_abier
     - node.type.2_1_datos_abiertos
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
 id: node.2_1_datos_abiertos.field_titulo_periodo_datos_abier
 field_name: field_titulo_periodo_datos_abier
 entity_type: node
 bundle: 2_1_datos_abiertos
 label: 'titulo periodo'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

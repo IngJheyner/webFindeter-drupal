@@ -1,15 +1,15 @@
-uuid: 14399441-bca6-4e03-b83e-f9f15a8e5431
+uuid: 70d3795e-ad19-43f8-8790-dd5099555fba
 langcode: es
 status: true
 dependencies:
   config:
-    - page_manager.page.6_2_planes_estrategicos_sectoriales_e_institucionales
-id: 6_2_planes_estrategicos_sectoriales_e_institucionales-layout_builder-0
-label: 'Planes estratégicos, sectoriales e institucionales'
+    - page_manager.page.1_3_terminos_y_condiciones_de_uso_del_portal
+id: 1_3_terminos_y_condiciones_de_uso_del_portal-layout_builder-0
+label: 'Términos y condiciones de uso del portal'
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: ebe36d0a-11fc-4bc8-bcf0-d9b94d32eb27
+  uuid: d92093f4-4d90-4ae1-8424-0b772818d399
   label: null
   weight: 0
   sections:
@@ -49,8 +49,8 @@ variant_settings:
             add_region_classes: 1
             attributes: ''
       components:
-        fd780f61-5f09-4fb8-a6ef-731af312208b:
-          uuid: fd780f61-5f09-4fb8-a6ef-731af312208b
+        6e8c64c7-8fc5-4977-a080-36f3e65c7939:
+          uuid: 6e8c64c7-8fc5-4977-a080-36f3e65c7939
           region: top
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
@@ -63,11 +63,11 @@ variant_settings:
             context_mapping: {  }
           additional: {  }
           weight: 2
-        9d59683c-56f0-4d28-b715-3aca35919667:
-          uuid: 9d59683c-56f0-4d28-b715-3aca35919667
+        dbdc2234-7e10-496a-a9a0-710508ff55d4:
+          uuid: dbdc2234-7e10-496a-a9a0-710508ff55d4
           region: left
           configuration:
-            id: 'views_block:transparencia_acceso_informacion_publica-6_2_planes_estrategicos_sectoriales_e_institucionales'
+            id: 'views_block:transparencia_acceso_informacion_publica-transp_terminos_condiciones_portal'
             label: ''
             provider: views
             label_display: '0'
@@ -76,8 +76,8 @@ variant_settings:
             context_mapping: {  }
           additional: {  }
           weight: 1
-        f0a282e7-df33-405e-a624-fe9df3bc1ef9:
-          uuid: f0a282e7-df33-405e-a624-fe9df3bc1ef9
+        4c2cf07f-fc63-4172-bbfd-8a4f54566cc7:
+          uuid: 4c2cf07f-fc63-4172-bbfd-8a4f54566cc7
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
@@ -89,13 +89,13 @@ variant_settings:
             level: 1
             depth: 1
             expand: false
-            parent: 'transparencia-acceso-informacion:menu_link_content:2bcec003-9329-4286-9ed5-3140842114ed'
+            parent: 'transparencia-acceso-informacion:menu_link_content:9d663ce0-7090-4f10-9bc9-f402051bee86'
             suggestion: transparencia_acceso_informacion_sidebar
             context_mapping: {  }
           additional: {  }
           weight: 2
       third_party_settings: {  }
-page: 6_2_planes_estrategicos_sectoriales_e_institucionales
+page: 1_3_terminos_y_condiciones_de_uso_del_portal
 weight: 0
 selection_criteria: {  }
 selection_logic: and

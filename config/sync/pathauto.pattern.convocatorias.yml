@@ -7,16 +7,16 @@ dependencies:
 id: convocatorias
 label: Convocatorias
 type: 'canonical_entities:node'
-pattern: 'convocatorias/proceso-[node:title]'
+pattern: 'convocatorias/[node:title]'
 selection_criteria:
-  b505c53e-2d26-4b4b-93ad-d8689150a38d:
+  a56b5fe9-51e9-4663-b742-b2619641fb76:
     id: node_type
     bundles:
       convocatorias: convocatorias
     negate: false
     context_mapping:
       node: node
-    uuid: b505c53e-2d26-4b4b-93ad-d8689150a38d
+    uuid: a56b5fe9-51e9-4663-b742-b2619641fb76
 selection_logic: and
 weight: -5
 relationships: {  }
