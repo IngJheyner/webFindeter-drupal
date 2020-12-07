@@ -5,9 +5,9 @@
 
       $(document, context).once('findeterUserFormRequest ').each( function() {
 
-        $('#edit-created-min').before('<input id="datepicker-min" type="text" placeholder="F. Inicio"/>');
-        $('#edit-created-max').before('<input id="datepicker-max" type="text" placeholder="F. Fin"/>');
-        
+        $('#edit-created-min').before('<label class="custom-label">Del:</label><input id="datepicker-min" type="text" placeholder="F. Inicio"/>');
+        $('#edit-created-max').before('<label class="custom-label">Al:</label><input id="datepicker-max" type="text" placeholder="F. Fin"/>');
+
         $("#datepicker-min").datepicker({
           dateFormat: "dd-mm-yy",
           altField: "input[data-drupal-selector=edit-created-min]",
@@ -23,7 +23,7 @@
         });
 
         $('#datepicker-max').val($('#edit-created-max').val());
-        
+
 
         //replace url params to generate pdf file
         if($('.export-link').length){
@@ -48,7 +48,7 @@
                 data: $.map(settings.pqrsdReports.monthly, function(element,index) {return element}),
                 backgroundColor: colorArray,
                 borderColor: colorArray
-              }]  
+              }]
             },
             options: {
               title: {
@@ -57,7 +57,7 @@
               }
             }
           });
-          
+
           colorArray = colorize(settings.pqrsdReports.tipoRadicado);
           new Chart($('#tipo-radicado-chart'), {
             type: 'pie',
@@ -67,7 +67,7 @@
                 data: $.map(settings.pqrsdReports.tipoRadicado, function(element,index) {return element}),
                 backgroundColor: colorArray,
                 borderColor: colorArray
-              }]  
+              }]
             },
             options: {
               title: {
@@ -86,7 +86,7 @@
                 data: $.map(settings.pqrsdReports.tipoSolicitante, function(element,index) {return element}),
                 backgroundColor: colorArray,
                 borderColor: colorArray
-              }]  
+              }]
             },
             options: {
               title: {
@@ -105,7 +105,7 @@
                 data: $.map(settings.pqrsdReports.tipoProducto, function(element,index) {return element}),
                 backgroundColor: colorArray,
                 borderColor: colorArray
-              }]  
+              }]
             },
             options: {
               title: {
@@ -124,7 +124,7 @@
                 data: $.map(settings.pqrsdReports.canalRecepcion, function(element,index) {return element}),
                 backgroundColor: colorArray,
                 borderColor: colorArray
-              }]  
+              }]
             },
             options: {
               title: {
@@ -143,7 +143,7 @@
                 data: $.map(settings.pqrsdReports.formaRecepcion, function(element,index) {return element}),
                 backgroundColor: colorArray,
                 borderColor: colorArray
-              }]  
+              }]
             },
             options: {
               title: {
@@ -184,14 +184,14 @@
       $('.form-item-field-pqrsd-nit label').addClass('js-form-required form-required');
       $('.form-item-field-pqrsd-razon-social label').addClass('js-form-required form-required');
       $('.form-item-field-pqrsd-tipo-empresa label').addClass('js-form-required form-required');
-      
+
       // show fields when some value is setted
-                               
+
       var typeForm = $( "#edit-field-pqrsd-tipo-radicado option:selected" ).text();
       if(typeForm == 'Peticiones'){
         $('.form-item-field-pqrsd-tipo-peticion').show();
       }
-                           
+
       var requester = $( "#edit-field-pqrsd-tipo-solicitante option:selected" ).text();
       console.log(requester);
       if(requester !== 'Anónimo' && requester !== '-Seleccione una opción-'){
@@ -202,7 +202,7 @@
 
       $( "#edit-field-pqrsd-autorizacion" ).prop( "checked", true );
 
-    
+
       $('#edit-field-pqrsd-tipo-radicado').on('change', function() {
         if(this.value == 'Peticiones'){
           $('.form-item-field-pqrsd-tipo-peticion').fadeIn();
@@ -211,7 +211,7 @@
         }
       });
 
-      
+
 
       $('#edit-field-pqrsd-tipo-solicitante').on('change', function() {
         if(this.value == 'anonimo'){
@@ -273,7 +273,7 @@
         colorList[27] = 'rgba(162, 205, 204, '+opacity+')',
         colorList[28] = 'rgba(169, 187, 203, '+opacity+')',
         colorList[29] = 'rgba(132, 197, 225, '+opacity+')'
-        
+
         $.map(data, function(element,index) {
           var index = Math.floor(Math.random() * colorList.length);
           result.push(colorList[index]);

@@ -56,18 +56,20 @@
   background-color: #f3f3f3;
   margin: 1rem 0px;
   border: 1px solid #ccc;
-  padding: 1rem 0px;
+  padding: 1rem 10px;
 }
-.views-exposed-form .form--inline{
-  display: flex;
-  flex-flow: row wrap;
+#views-exposed-form-pqrsd-page-1 .form--inline{
+  display: grid;
 }
 .views-exposed-form details.seven-details{
-  overflow: hidden;
-  padding: 0.5rem;
-  width: 48rem;
-  float: left;
-  margin: 0 0.5rem;
+  margin: 5px;
+  padding: 10px;
+}
+.views-exposed-form details.seven-details.col-1 {
+  grid-column: 1;
+}
+.views-exposed-form details.seven-details.col-2 {
+  grid-column: 2;
 }
 .views-exposed-form .form-actions{
   width: 100%;
@@ -80,14 +82,30 @@
   width: 10rem;
 }
 .views-exposed-form .form-type-checkbox{
-  width: 10rem;
+  width: 100px;
+  margin-top: 23px !important;
 }
 .views-exposed-form .form-item-created-max label{
-  color: #fff;
+  color: #F3F3F3;
 }
 .views-exposed-form #edit-created-max,
 .views-exposed-form #edit-created-min{
   display: none;
+}
+.views-exposed-form .list-charts{
+  overflow: hidden;
+}
+.views-exposed-form .form-item-created-min{
+  clear: both;
+}
+.views-exposed-form .hasDatepicker{
+  width: 100px;
+}
+.views-exposed-form .custom-label{
+  color: #333 !important;
+  float: left;
+  margin-right: 5px;
+  font-size: 10px;
 }
 
 /*Table styles*/
@@ -116,11 +134,12 @@
 .chart-container{
   position: relative;
   height: auto;
-  width: 500px;
+  width: 450px;
   border: 1px solid #ccc;
   margin: 5px;
   padding: 5px;
   background-color: #fff;
+  float: left;
 }
 #tipo-solicitante-chart,
 #tipo-radicado-chart{
@@ -128,8 +147,10 @@
 }
 .export-link{
   margin: 15px;
-  border:1px solid #ccc;
+  border: 1px solid #ccc;
   padding: 10px;
   background-color: #fff;
-  display: block;
+  display: inline-block;
+  width: 150px;
+  text-align: center;
 }

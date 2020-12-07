@@ -36,7 +36,7 @@ class StepFinalize extends BaseStep {
                     <p>Usted pódra consultar <a href="#">aquí</a> el estado de su petición con el No. de radicado: <b>'.$valueNid['pqrsd_numero_radicado'].'</b> </p>
                     <p>Su opinión es muy importante para nosotros. Lo invitamos a diligenciar <a href="#">aquí</a> la siguiente encuesta de satisfacción para conitnuar mejorando nuestro servicio. </p>',
     ];
-    		
+
     return $formStep;
   }
 

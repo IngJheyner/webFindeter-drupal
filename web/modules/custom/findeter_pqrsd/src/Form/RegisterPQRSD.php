@@ -28,7 +28,7 @@ use Drupal\Core\Link;
  */
 class RegisterPQRSD extends FormBase {
   use StringTranslationTrait;
-  
+
     /**
    * Step Id.
    *
@@ -118,7 +118,7 @@ class RegisterPQRSD extends FormBase {
     $htmlStep = '';
     foreach($textSteps as $nStep=>$textStep){
       $class = '';
-      
+
       // set as active the previous and current step
       if($nStep <= $this->stepId){
         $class = 'class="active"';
@@ -134,7 +134,7 @@ class RegisterPQRSD extends FormBase {
     $form['wrapper']['wrapper-step'] = array(
       '#markup' => '<ul class="steps-counter">'.$htmlStep.'</ul>',
     );
-    
+
     $form['wrapper']['content-fields'] = [
       '#type'       => 'container',
       '#attributes' => [
@@ -202,7 +202,7 @@ class RegisterPQRSD extends FormBase {
 
     $response = new AjaxResponse();
     $messages = $this->messenger->all();
-    
+
     if (!empty($messages)) {
       // Form did not validate, get messages and render them.
       $messages = [
@@ -224,11 +224,23 @@ class RegisterPQRSD extends FormBase {
       $response->addCommand(new HtmlCommand('#messages-wrapper', ''));
     }
 
-    // Update Form.
-    $response->addCommand(new ReplaceCommand('#form-wrapper',$form['wrapper']));
 
-    //Scroll at the top of the form
-    $response->addCommand(new ScrollTopCommand('#form-wrapper'));
+    if($this->stepId == 6){
+
+      $steps = $this->stepManager->getAllSteps();
+
+      $url = Url::fromRoute('findeter_pqrsd.confirm_register_pqrsd',['operation'=>'create','nid'=>$steps[4]->getValues()['new_nid']])->toString();
+      $response->addCommand(new \Drupal\Core\Ajax\RedirectCommand($url));
+
+    }else{
+
+      // Update Form.
+      $response->addCommand(new ReplaceCommand('#form-wrapper',$form['wrapper']));
+
+      //Scroll at the top of the form
+      $response->addCommand(new ScrollTopCommand('#form-wrapper'));
+
+    }
 
     return $response;
   }
@@ -238,7 +250,7 @@ class RegisterPQRSD extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-  
+
     $values = [];
     foreach ($this->step->getFieldNames() as $name) {
       $values[$name] = $form_state->getValue($name);
@@ -246,7 +258,7 @@ class RegisterPQRSD extends FormBase {
     $this->step->setValues($values);
 
     $allValues = $form_state->getValues();
-    $steps = $this->stepManager->getAllSteps();    
+    $steps = $this->stepManager->getAllSteps();
     if($steps!=''){
       foreach($steps as $step){
         $allValues += $step->getValues();
@@ -287,16 +299,16 @@ class RegisterPQRSD extends FormBase {
     // only for step zero
     if($this->step->getStep()===0){
       $values['field_pqrsd_tipo_radicado'] = $triggering_element['#value'];
-    } 
+    }
 
     $this->step->setValues($values);
     // Add step to manager.
     $this->stepManager->addStep($this->step);
-    
+
     $this->stepId = $triggering_element['#goto_step'];
 
     // for anonimo request, jump step 2
-    $allSteps = $this->stepManager->getAllSteps();    
+    $allSteps = $this->stepManager->getAllSteps();
     if(isset($allSteps[1])){
       $valuesStep1 = $allSteps[1]->getValues();
       if($valuesStep1['field_pqrsd_tipo_solicitante'] == 'anonimo'){
@@ -310,16 +322,16 @@ class RegisterPQRSD extends FormBase {
       }
 
     }
-    
+
     // If an extra submit handler is set, execute it.
     // We already tested if it is callable before.
     if (isset($triggering_element['#submit_handler'])) {
       $this->{$triggering_element['#submit_handler']}($form, $form_state);
     }
-    
+
     $form_state->setRebuild(TRUE);
   }
-  
+
 
   /**
    * Submit handler for last step of form.
@@ -330,9 +342,9 @@ class RegisterPQRSD extends FormBase {
    *   Form state interface.
    */
   public function submitValues(array &$form, FormStateInterface $form_state) {
-    
+
     //retrying all values
-    $steps = $this->stepManager->getAllSteps();   
+    $steps = $this->stepManager->getAllSteps();
 
     //define new node of content type
     $newRequest = Node::create(['type' => 'pqrsd']);
@@ -347,7 +359,7 @@ class RegisterPQRSD extends FormBase {
     $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);
 
     //to retrive all values at one single array
-    $values = []; 
+    $values = [];
     foreach($steps as $step){
       foreach($step->getValues() as $field=>$value){
 
@@ -359,7 +371,7 @@ class RegisterPQRSD extends FormBase {
             $value = 'autorizacion_marketing';
           }else{
             $value = '';
-          } 
+          }
         }
 
         if($field == 'field_pqrsd_autorizacion'){
@@ -387,7 +399,7 @@ class RegisterPQRSD extends FormBase {
     $config = $this->config('findeter_pqrsd.admin');
 
     $user = \Drupal\user\Entity\User::load($config->get('asign_user'));
-    $newRequest->uid = $user->id(); 
+    $newRequest->uid = $user->id();
     $newRequest->set('field_pqrsd_asignaciones', $user->getUsername().' | '.$user->id().' | '.date('j/m/Y H:i:s'));
 
     // channel and way to recipt the PQRSD
@@ -400,7 +412,7 @@ class RegisterPQRSD extends FormBase {
     $newRequest->set('field_pqrsd_fecha_naranja', $datesConfigure['orange']);
 
     // set "# radicado"
-    $newRequest->set('field_pqrsd_numero_radicado',generarNumeroRadicado());
+    $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);
 
     $newRequest->enforceIsNew();
     $newRequest->save();
@@ -431,7 +443,7 @@ class RegisterPQRSD extends FormBase {
 
       $langcode = \Drupal::currentUser()->getPreferredLangcode();
       $send = true;
-    
+
       $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
 
       if($result['result'] !== true){
@@ -442,7 +454,7 @@ class RegisterPQRSD extends FormBase {
     sendNotificationAsign($user,$newRequest);
 
     // store the nid value of new node created
-    $values['pqrsd_numero_radicado'] = $numeroRadicado;
+    $values['new_nid'] = $newRequest->id();
     $this->step->setValues($values);
   }
 
