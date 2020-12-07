@@ -1,0 +1,20 @@
+findeter_pqrsd.dashboard:
+  route_name: view.pqrsd.page_1
+  title: 'Dashboard'
+  base_route: view.pqrsd.page_1
+  weight: 0
+findeter_pqrsd.report:
+  route_name: view.pqrsd.page_2
+  title: 'Reportes'
+  base_route: view.pqrsd.page_1
+  weight: 5
+findeter_pqrsd.register:
+  route_name: findeter_pqrsd.register_pqrsd_admin
+  title: 'Registrar PQRSD'
+  base_route: view.pqrsd.page_1
+  weight: 10
+findeter_pqrsd.config:
+  route_name: findeter_pqrsd.admin_module
+  title: 'Configuración'
+  base_route: view.pqrsd.page_1
+  weight: 15
