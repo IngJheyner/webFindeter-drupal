@@ -1,0 +1,62 @@
+@use '../../variables' as var;
+@use '../../../mixins/encabezado' as encabezado;
+
+/* ==============================
+PROSPERITY FUND CONVOCATORIAS
+============================== */
+
+/* ===== ===== ENCABEZADO ===== ===== */
+@include encabezado.encabezado("div","encabezadoProsperityFund");
+
+div.pageProsperityFund{
+
+    div.view-content{
+
+        div.view-grouping{
+
+            div.view-grouping-header{
+
+                color: var.$color-secundario;
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            div.view-grouping-content{
+
+                div.view-grouping{
+
+                    div.view-grouping-header{
+
+                        color: black;
+                        font-size: 1rem;
+                        font-weight: bolder;
+
+                    }
+                }
+
+                ul{
+
+                    li:hover{
+
+                        border-bottom: 2px solid var.$color-cuaternario;
+                        color: var.$color-cuaternario;
+                        a:hover{
+                            color: var.$color-cuaternario;
+                        }
+                    }
+            
+                }
+            }
+        }
+    }    
+}
+
+/* ==============================
+INTERNA
+============================== */
+article.detalleProsperity div.container > h1.titulo{
+
+    span{
+        font-size: 1rem;
+    }
+}
