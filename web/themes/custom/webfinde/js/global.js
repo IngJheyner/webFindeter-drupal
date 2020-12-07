@@ -325,7 +325,7 @@
 
             formBusquedaAvanzada();
 
-            /* ===== ===== INTERNAS DETALLE DE PROCESO ===== ===== */
+            /* ===== ===== INTERNAS DETALLE DE PROCESO y prosperity fund ===== ===== */
             $('#tableDetalleConvocatorias').DataTable({
 
                 "language": {                    
