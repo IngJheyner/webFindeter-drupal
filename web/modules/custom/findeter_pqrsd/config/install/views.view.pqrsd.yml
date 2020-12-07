@@ -28,6 +28,7 @@ dependencies:
     - field.storage.node.field_pqrsd_tipo_solicitante
     - node.type.pqrsd
     - taxonomy.vocabulary.keywords_pqrsd
+    - user.role.administrator
     - user.role.authenticated
   module:
     - datetime
@@ -3918,6 +3919,7 @@ display:
         options:
           role:
             authenticated: authenticated
+            administrator: administrator
       filters:
         field_pqrsd_numero_radicado_value:
           id: field_pqrsd_numero_radicado_value
@@ -4584,6 +4586,7 @@ display:
         fields: false
         filters: false
         filter_groups: false
+        access: false
       fields:
         nid:
           id: nid
@@ -6973,6 +6976,12 @@ display:
         operator: AND
         groups:
           1: AND
+      access:
+        type: role
+        options:
+          role:
+            authenticated: authenticated
+            administrator: administrator
     cache_metadata:
       max-age: -1
       contexts:
@@ -6982,7 +6991,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_pqrsd_canal_recepcion'
         - 'config:field.storage.node.field_pqrsd_departamento'
