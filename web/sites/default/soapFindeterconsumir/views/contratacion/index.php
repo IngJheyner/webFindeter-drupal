@@ -9,6 +9,31 @@
 <body>
     <div class="row" style="margin-top: 25px;">
         <div class="container">
+            <form method="POST" id="form-service">
+                <div class="row">
+                    <div class="col-md-3 form-group">
+                        <label for="">Modalidad:</label>
+                        <select name="modalidad" id="modalidad" class="form-control" required>
+                            <option value=""> Cargando... </option>
+                        </select>
+                    </div>
+                    <!--div class="col-md-3 form-group" hidden>
+                        <label for="">Estado:</label>
+                        <select name="estado" id="estado" class="form-control">
+                            <option value=""> Cargando... </option>
+                        </select>
+                    </div-->
+                    <div class="col-md-3 form-group">
+                        <label for="">Procesos:</label>
+                        <select name="procesos" id="procesos" class="form-control" required>
+                            <option value=""> Cargando... </option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <input type="submit" value="Filtrar" class="btn btn-info">
+                    </div>
+                </div>
+            </form>
             <div id="respuesta">
                 <div class="table_responsive">
                     <table id="tblProcesos" class="tablaGen table table-striped table-condensed table-hover tablaGenPagineAjax  dataTable no-footer" role="grid" aria-describedby="tblProcesos_info" style="width: 1140px;">
@@ -24,41 +49,7 @@
                             </tr>
                         </thead>
                         <tbody id="tbodyrespuesta">
-                            <!--<tr data-alt="0181-2020" data-alt2="5637145334" class="abreProceso odd" role="row">
-                                <td>1</td><td class=" colModalidad">INVITACION A OFERTAR</td>
-                                <td>2020-12-02</td>
-                                <td>VIGENTE</td>
-                                <td>REALIZAR LOS ESTUDIOS DE SATISFACCIÓN DE CLIENTE INTERNO Y EXTERNO BUSCANDO CONOCER LOS NIVELES DE SATISFACCIÓN OFRECIDOS AL INTERIOR DE L...</td>
-                                <td>123.800.000,00</td>
-                                <td class="hide info-detalle">0181-2020*5637145334</td>
-                            </tr>
-                            <tr data-alt="0179-2020" data-alt2="5637145334" class="abreProceso even" role="row">
-                                <td>2</td>
-                                <td class=" colModalidad">INVITACION A OFERTAR</td>
-                                <td>2020-12-01</td>
-                                <td>VIGENTE</td>
-                                <td>RENOVACIÓN DEL LICENCIAMIENTO ANTIVIRUS MCAFEE COMPLETE ENDPOINT FOR BUSINESS (CEB), CON EL SOPORTE Y MANTENIMIENTO PARA LA PLATAFORMA DE PROTECCIÓN END-POINT.</td>
-                                <td>121.506.140,00</td>
-                                <td class=" hide info-detalle">0179-2020*5637145334</td>
-                            </tr>
-                            <tr data-alt="0175-2020" data-alt2="5637145334" class="abreProceso odd" role="row">
-                                <td>3</td>
-                                <td class=" colModalidad">INVITACION A OFERTAR</td>
-                                <td>2020-11-27</td>
-                                <td>VIGENTE</td>
-                                <td>CONTRATAR EL SUMINISTRO, INSTALACIÓN Y FUNCIONALIDAD DE 4 PARQUES INFANTILES RECREATIVOS EN DIFERENTES MUNICIPIOS PRIORIZADOS A NIVEL NACIO...</td>
-                                <td>200.444.673,00</td>
-                                <td class=" hide info-detalle">0175-2020*5637145334</td>
-                            </tr>
-                            <tr data-alt="0068-2019" data-alt2="5637152083" class="abreProceso even" role="row">
-                                <td>4</td>
-                                <td class=" colModalidad">CONVOCATORIA ABIERTA</td>
-                                <td>1900-01-01</td>
-                                <td>VIGENTE</td>
-                                <td>SUMINISTRO DE ELEMENTOS DE ASEO Y CAFETERÍA, EN LAS CIUDADES DE MEDELLÍN, CALI, BUCARAMANGA, NEIVA, BARRANQUILLA, PEREIRA, MONTERÍA, BOGO...</td>
-                                <td>737.964.969,00</td>
-                                <td class=" hide info-detalle">0068-2019*5637152083</td>
-                            </tr>-->
+                           
                         </tbody>
                     </table>
                 </div>
@@ -73,26 +64,33 @@
                 url: '../../controller/controller.php',
                 type: "POST",
                 data : {
-                    'procedimientos' : 77,
-                    'argumentos' : '@CANTIDAD=10, @PAGINA=1'
+                    'procedimientos' : 73,
+                    //'procedimientos' : 77,
+                    //'argumentos' : '@CANTIDAD=10, @PAGINA=1'
+                    'argumentos' : ''
                 },
                 dataType: 'json',
                 success: function(data){
-                    tbodyrep  = '';
-                    //console.log(data);
+                    //tbodyrep  = '';
+                    selectmodalidresp = '';
+                    //console.log(data.Registro);
+                    selectmodalidresp += '<option value=""> --Seleccione-- </option>'
                     data.Registro.forEach(element => {
                         //console.log(element);
-                        tbodyrep += '<tr>'
+                        /*tbodyrep += '<tr>'
                             +'<td>N°</td>'
                             +'<td>'+ element.modalidad +'</td>'
                             +'<td align="right">'+element.INITDATE +'</td>'
                             +'<td align="right">'+ element.estado+' </td>'
                             +'<td align="right">'+ element.objeto+' </td>'
                             +'<td align="right">'+ element.presupuestado+' </td>'
-                        +'</tr>';
+                        +'</tr>';*/
+                        selectmodalidresp += '<option value="'+ element.tcnn_codigo+'"> '+element.tcnc_nombre +'</option>'
+                        
 
                     });
-                    $("#tbodyrespuesta").html(tbodyrep);
+                    $('#modalidad').html(selectmodalidresp);
+                    //$("#tbodyrespuesta").html(tbodyrep);
                     //console.log(data.Registro);
                     //var obj = jQuery.parseJSON(data);
                     //console.log(obj);
@@ -101,6 +99,85 @@
                     console.log(data);
                 }
             });
+            /*$.ajax({
+                url: '../../controller/controller.php',
+                type: "POST",
+                data : {
+                    'procedimientos' : 74,
+                    'argumentos' : ''
+                },
+                dataType: 'json',
+                success: function(data){
+                    selectestadoresp = '';
+                    //console.log(data.Registro);
+                    selectestadoresp += '<option val=""> --Seleccione-- </option>'
+                    data.Registro.forEach(element => {
+                        selectestadoresp += '<option val="'+ element.STATE+'"> '+element.pctc_estado +'</option>'
+                        
+
+                    });
+                    $('#estado').html(selectestadoresp);
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });*/
+            $.ajax({
+                url: '../../controller/controller.php',
+                type: "POST",
+                data : {
+                    'procedimientos' : 75,
+                    'argumentos' : ''
+                },
+                dataType: 'json',
+                success: function(data){
+                    selectprocesosresp = '';
+                    //console.log(data.Registro);
+                    selectprocesosresp += '<option value=""> --Seleccione-- </option>'
+                    data.Registro.forEach(element => {
+                        selectprocesosresp += '<option value="'+ element.interno+'"> '+element.interno +'</option>'
+                    });
+                    $('#procesos').html(selectprocesosresp);
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
+
+            $('#form-service').submit(function(event){
+                var modalidad = $("#modalidad").val();
+                var procesos = $("#procesos").val();
+                event.preventDefault();
+                $.ajax({
+                    url: '../../controller/controller.php',
+                    type: "POST",
+                    data : {
+                        'procedimientos' : 78,
+                        'argumentos' : '@tipo_contrato="'+modalidad+'", @interno="'+procesos+'"'
+                    },
+                    dataType: 'json',
+                    success: function(data){
+                        tbodyrep='';
+                        console.log(data.Registro);
+                        /*data.Registro.forEach(element => {
+                            
+                        });*/
+                        
+                        tbodyrep += '<tr>'
+                            +'<td>1</td>'
+                            +'<td>'+ $("#modalidad option:selected").text() +'</td>'
+                            +'<td align="right">'+data.Registro.pctf_apertura +'</td>'
+                            +'<td align="right">'+ data.Registro.papc_nombre+' </td>'
+                            +'<td align="right">'+ data.Registro.objeto+' </td>'
+                            +'<td align="right">'+ data.Registro.pctv_presupuestado+' </td>'
+                        +'</tr>';
+                        $('#tbodyrespuesta').html(tbodyrep);
+                    },
+                    error: function(data){
+                        console.log(data);
+                    }
+                });
+            })
         });
     </script>
 </body>

@@ -1,0 +1,32 @@
+uuid: 60000ead-63c7-4445-a4eb-fa065a752e01
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tipcont_polit_obj_sist_gest_int.body
+    - node.type.tipcont_polit_obj_sist_gest_int
+  module:
+    - text
+    - user
+id: node.tipcont_polit_obj_sist_gest_int.teaser
+targetEntityType: node
+bundle: tipcont_polit_obj_sist_gest_int
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

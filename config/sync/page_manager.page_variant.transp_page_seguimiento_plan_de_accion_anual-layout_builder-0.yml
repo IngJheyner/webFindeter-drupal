@@ -1,0 +1,102 @@
+uuid: 606a2b44-e99f-4d9c-a691-799eacb57917
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.transp_page_seguimiento_plan_de_accion_anual
+id: transp_page_seguimiento_plan_de_accion_anual-layout_builder-0
+label: 'seguimiento plan de acción anual'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: 10850975-854c-4e0a-8775-017ed86d3950
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        f6bfcfd3-ac5b-4af7-a11f-e38bb5075e44:
+          uuid: f6bfcfd3-ac5b-4af7-a11f-e38bb5075e44
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 2
+        6a49fe10-08fe-46bf-8f2f-53a331e9fc98:
+          uuid: 6a49fe10-08fe-46bf-8f2f-53a331e9fc98
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-block_seguimiento_plan_de_accion_anual'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: '1'
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        8c268e47-4ecd-447e-a09a-eae40e1b41bd:
+          uuid: 8c268e47-4ecd-447e-a09a-eae40e1b41bd
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: '0'
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 1
+            expand: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:2bcec003-9329-4286-9ed5-3140842114ed'
+            suggestion: transparencia_acceso_informacion_sidebar
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+      third_party_settings: {  }
+page: transp_page_seguimiento_plan_de_accion_anual
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

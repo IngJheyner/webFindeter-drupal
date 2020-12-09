@@ -1,10 +1,11 @@
 <html>
 <head>
-    <!--link rel="stylesheet" href="bootstrap/bootstrap-4/css/bootstrap.min.css"-->
+    <link rel="stylesheet" href="bootstrap/bootstrap-4/css/bootstrap.min.css">
+	<!--link rel="stylesheet" href="../../../themes/contrib/bootstrap4/dist/bootstrap/4.5.3/dist/css/bootstrap.min.css"-->
 </head>
-<body style="width: 100%;">
+<body style="width: 98%;">
    
-    <div class="container">
+    <div class="container" style="margin:0px;">
         <div class="row">
             <div class="col-md-6">
                 <label>Vigencia</label>
@@ -57,7 +58,7 @@
             </div>
         </div>
     </div>
-    <!--script src="js/jquery-3.5.1.min.js"></script-->
+    <script src="js/jquery-3.5.1.min.js"></script>
     <script>
         var formatter = new Intl.NumberFormat("es", {
             style: "currency",

@@ -1,0 +1,32 @@
+uuid: 340fcc7c-ca27-4d16-a35d-b992acb71484
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tipo_cont_estados_financieros.body
+    - node.type.tipo_cont_estados_financieros
+  module:
+    - text
+    - user
+id: node.tipo_cont_estados_financieros.teaser
+targetEntityType: node
+bundle: tipo_cont_estados_financieros
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

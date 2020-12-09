@@ -1,0 +1,39 @@
+uuid: b445a051-f1ac-4a32-88a4-f62232f34c94
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_evento_dep_mun
+    - node.type.evento
+    - taxonomy.vocabulary.colombia_deparments
+  content:
+    - 'taxonomy_term:colombia_deparments:82d1775b-0dd1-42df-a5a5-fcd9fa545b95'
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.evento.field_evento_dep_mun
+field_name: field_evento_dep_mun
+entity_type: node
+bundle: evento
+label: 'Departamento - Municipio'
+description: 'Seleccione un Departamento y Municipio del evento'
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 82d1775b-0dd1-42df-a5a5-fcd9fa545b95
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      colombia_deparments: colombia_deparments
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
