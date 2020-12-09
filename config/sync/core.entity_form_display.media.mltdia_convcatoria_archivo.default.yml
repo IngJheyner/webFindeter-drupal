@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_mltdia_editar
     - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_muldia_fecha
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_ruta_archivo
     - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_tipo_adjunto
     - field.field.media.mltdia_convcatoria_archivo.field_media_document
     - media.type.mltdia_convcatoria_archivo
@@ -15,9 +16,10 @@ third_party_settings:
   field_group:
     group_grupo:
       children:
+        - field_convcatoria_ruta_archivo
+        - name
         - field_media_document
         - field_convcatoria_tipo_adjunto
-        - field_convcatoria_mltdia_editar
         - created
         - status
       parent_name: ''
@@ -37,40 +39,49 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_convcatoria_mltdia_editar:
-    type: boolean_checkbox
-    weight: 3
-    region: content
+  field_convcatoria_ruta_archivo:
+    weight: 26
     settings:
-      display_label: true
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_convcatoria_tipo_adjunto:
     type: options_select
-    weight: 2
+    weight: 29
     region: content
     settings: {  }
     third_party_settings: {  }
   field_media_document:
     type: file_generic
-    weight: 1
+    weight: 28
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 27
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 5
+    weight: 31
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
 hidden:
+  field_convcatoria_mltdia_editar: true
   field_convcatoria_muldia_fecha: true
   langcode: true
-  name: true
   path: true
   uid: true
