@@ -53,15 +53,16 @@
   ]
 %}
 
+
 {% if label_hidden %}
 
   {% if multiple %}
 
-    <div{{ attributes.addClass(classes, 'field__items aqui') }}>
+    <div{{ attributes.addClass(classes, 'field__items') }}>
 
       {% for item in items %}
 
-        <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+        <td{{ item.attributes.addClass('field__item') }}>{{ item.content }}</td>
 
       {% endfor %}
 
@@ -91,7 +92,7 @@
 
     {% for item in items %}
 
-      <div{{ item.attributes.addClass('field__item acaaa') }}>{{ item.content }}</div>
+      <td{{ item.attributes.addClass('field__item') }}>{{ item.content }}</td>
 
     {% endfor %}
 

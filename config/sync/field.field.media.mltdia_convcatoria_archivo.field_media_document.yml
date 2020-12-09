@@ -8,7 +8,25 @@ dependencies:
   module:
     - disable_field
     - file
+    - filefield_paths
 third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: 'convocatorias/[media:field_convcatoria_ruta_archivo]'
+      options:
+        slashes: false
+        pathauto: true
+        transliterate: false
+    redirect: true
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:name]'
+      options:
+        slashes: false
+        pathauto: true
+        transliterate: false
   disable_field:
     add_disable: none
     edit_disable: none
@@ -23,7 +41,7 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: 'archivos/convocatorias/[current-page:title]'
+  file_directory: ''
   file_extensions: 'doc docx pdf xls xlsx zip rar dwg 7z'
   max_filesize: '250 mb'
   description_field: false
