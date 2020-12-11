@@ -130,6 +130,7 @@ section.menuPrincipal nav ul li ul.submenu {
   background-color: white;
   padding: 20px;
   position: absolute;
+  z-index: 1000;
   display: none;
   border-bottom: 3px solid #00993e;
 }
@@ -159,6 +160,11 @@ div.sliderHome {
   top: 0;
   width: 100%;
 }
+div.sliderHome video {
+  top: 0;
+  left: 0;
+  transform: translate(0, -25%);
+}
 
 /* ===== ===== BUSCADOR Y ACCESO RAPIDO ===== ===== */
 /* ==============================
@@ -166,7 +172,7 @@ COLORES
 ============================== */
 form#search-block-form {
   position: relative;
-  margin: 21rem 2rem 0 2rem;
+  margin: 30rem 2rem 0 2rem;
 }
 form#search-block-form div.form-item {
   margin: 0;
@@ -363,7 +369,11 @@ article.productoServicios div.encabezado h1.tituloEncabezado {
 }
 
 /* ===== ===== CONTENIDO ===== ===== */
-article.productoServicios > div.cuerpoContenido {
+article.productoServicios {
+  position: relative;
+  z-index: -1;
+}
+article.productoServicios div.cuerpoContenido {
   /* ==============================
   TABS
   ============================== */
@@ -371,45 +381,45 @@ article.productoServicios > div.cuerpoContenido {
   TABS CONTENIDO
   ============================== */
 }
-article.productoServicios > div.cuerpoContenido div.descripcionContenido {
+article.productoServicios div.cuerpoContenido div.descripcionContenido {
   word-spacing: 5pt;
   font-size: 20px;
 }
-article.productoServicios > div.cuerpoContenido div.row img.imgPortada {
+article.productoServicios div.cuerpoContenido div.row img.imgPortada {
   border-radius: 0.8rem;
 }
-article.productoServicios > div.cuerpoContenido h4.tituloTabs {
+article.productoServicios div.cuerpoContenido h4.tituloTabs {
   background-color: #112d6a;
   padding: 0.5rem;
 }
-article.productoServicios > div.cuerpoContenido ul.tabPrincipal li > a {
+article.productoServicios div.cuerpoContenido ul.tabPrincipal li > a {
   color: #a8a8a8;
 }
-article.productoServicios > div.cuerpoContenido ul.tabPrincipal li > a.active {
+article.productoServicios div.cuerpoContenido ul.tabPrincipal li > a.active {
   color: #112d6a;
   font-weight: bold;
 }
-article.productoServicios > div.cuerpoContenido ul.tabInternas li > a {
+article.productoServicios div.cuerpoContenido ul.tabInternas li > a {
   color: #a8a8a8;
 }
-article.productoServicios > div.cuerpoContenido ul.tabInternas li > a.active {
+article.productoServicios div.cuerpoContenido ul.tabInternas li > a.active {
   color: white;
   background-color: #112d6a;
   font-weight: bold;
 }
-article.productoServicios > div.cuerpoContenido div#myTabContentPrincipal {
+article.productoServicios div.cuerpoContenido div#myTabContentPrincipal {
   padding: 3rem 4rem 3rem 4rem;
   border: 1px solid #e5e5e5;
   border-top: none;
 }
-article.productoServicios > div.cuerpoContenido div#myTabContentInternas > .tab-pane > .paragraph img {
+article.productoServicios div.cuerpoContenido div#myTabContentInternas > .tab-pane > .paragraph img {
   border-radius: 0.8rem;
 }
-article.productoServicios > div.cuerpoContenido div#myTabContentInternas > .tab-pane > .paragraph div.gridContainer div.grid div.gridContenido {
+article.productoServicios div.cuerpoContenido div#myTabContentInternas > .tab-pane > .paragraph div.gridContainer div.grid div.gridContenido {
   border: 1px solid #CDDC4B;
   border-radius: 0.5rem;
 }
-article.productoServicios > div.cuerpoContenido div#myTabContentInternas > .tab-pane > .paragraph div.gridContainer div.grid div.gridContenido div.titulos {
+article.productoServicios div.cuerpoContenido div#myTabContentInternas > .tab-pane > .paragraph div.gridContainer div.grid div.gridContenido div.titulos {
   background-color: #CDDC4B;
   color: #296294;
   cursor: pointer;
@@ -2132,6 +2142,51 @@ INTERNA
 ============================== */
 article.detalleProsperity div.container > h1.titulo span {
   font-size: 1rem;
+}
+
+/* ===== ===== Glosario ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+TODAS LAS NOTICIAS
+============================== */
+/* ===== ===== ENCABEZADO ===== ===== */
+div.encabezadoGlosario figure {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+div.encabezadoGlosario figure img {
+  height: 100%;
+}
+div.encabezadoGlosario div.encabezado {
+  height: 7rem;
+}
+div.encabezadoGlosario div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+div.pageGlosario div.view-filters {
+  background-color: #112d6a;
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+div.pageGlosario div.view-filters form {
+  color: white;
+}
+div.pageGlosario div.view-filters form input[type=submit] {
+  background-color: #00993e !important;
+}
+div.pageGlosario div.view-content div.view-grouping div.view-grouping-header {
+  color: #296294;
+  font-size: 3rem;
+  font-style: italic;
 }
 
 /*# sourceMappingURL=style.css.map */

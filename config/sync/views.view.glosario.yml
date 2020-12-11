@@ -6,10 +6,11 @@ dependencies:
     - field.storage.node.body
     - field.storage.node.field_etiqueta_glosario
     - node.type.glosario
+    - taxonomy.vocabulary.glosario
   module:
     - node
+    - taxonomy
     - text
-    - user
     - views_bootstrap
 id: glosario
 label: Glosario
@@ -26,9 +27,8 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
-        options:
-          perm: 'access content'
+        type: none
+        options: {  }
       cache:
         type: tag
         options: {  }
@@ -43,7 +43,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Aplicar
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
@@ -78,13 +78,13 @@ display:
             -
               field: field_etiqueta_glosario
               rendered: true
-              rendered_strip: true
+              rendered_strip: false
             -
               field: title
               rendered: true
-              rendered_strip: true
-          row_class: ''
-          default_row_class: false
+              rendered_strip: false
+          row_class: mb-3
+          default_row_class: true
           title_field: ''
       row:
         type: fields
@@ -130,8 +130,8 @@ display:
           element_label_type: '0'
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: p
+          element_wrapper_class: 'font-weight-bold mb-3'
           element_default_classes: false
           empty: ''
           hide_empty: false
@@ -193,8 +193,8 @@ display:
           element_label_type: '0'
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: h5
+          element_wrapper_class: etiqueta
           element_default_classes: false
           empty: ''
           hide_empty: false
@@ -303,6 +303,59 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
+        field_etiqueta_glosario_target_id:
+          id: field_etiqueta_glosario_target_id
+          table: node__field_etiqueta_glosario
+          field: field_etiqueta_glosario_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_etiqueta_glosario_target_id_op
+            label: 'Seleccione la etiqueta.'
+            description: ''
+            use_operator: false
+            operator: field_etiqueta_glosario_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_etiqueta_glosario_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              abogado: '0'
+              secretaria_general: '0'
+              colaborador: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          type: select
+          limit: true
+          vid: glosario
+          hierarchy: false
+          error_message: true
+          parent: 0
+          level_labels: ''
+          force_deepest: false
+          plugin_id: taxonomy_index_tid
       sorts:
         field_etiqueta_glosario_target_id:
           id: field_etiqueta_glosario_target_id
@@ -323,20 +376,23 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      css_class: pageGlosario
+      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
-        - user.permissions
       tags:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_etiqueta_glosario'
-  transp_page_glosarios:
+  page_glosarios:
     display_plugin: block
-    id: transp_page_glosarios
+    id: page_glosarios
     display_title: Glosario
     position: 1
     display_options:
@@ -349,9 +405,10 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
-        - user.permissions
       tags:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_etiqueta_glosario'
