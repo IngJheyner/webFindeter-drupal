@@ -819,7 +819,7 @@ function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
   $spanishMonths['November'] = 'Noviembre';
   $spanishMonths['December'] = 'Diciembre';
 
-  $tipoRadicados = ['Peticiones','Quejas','Reclamos','Sugerencias','Denuncias'];
+  $tipoRadicados = ['Peticiones','Quejas','Reclamos','Sugerencias','Denuncias','Total'];
   foreach($tipoRadicados as $tr){
     $mResume[$tr]['name'] = $tr;
     $mResume[$tr]['recibidas'] = 0;
@@ -928,6 +928,20 @@ function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
         $mResume[$tipoRadicado]['info_publica']++;
       }
 
+    }
+
+    foreach ($mResume as $tR=>$values){
+      if($tR != 'Total'){
+        $mResume['Total']['recibidas'] += $values['recibidas'];
+        $mResume['Total']['por_resolver'] += $values['por_resolver'];
+        $mResume['Total']['favor_consumidor'] += $values['favor_consumidor'];
+        $mResume['Total']['favor_entidad'] += $values['favor_entidad'];
+        $mResume['Total']['cerrados'] += $values['cerrados'];
+        $mResume['Total']['cerrado_a_tiempo'] += $values['cerrado_a_tiempo'];
+        $mResume['Total']['vencidas'] += $values['vencidas'];
+        $mResume['Total']['info_publica'] += $values['info_publica'];
+        $mResume['Total']['trasladadas'] += $values['trasladadas'];
+      }
     }
 
     $buildTable = array(
