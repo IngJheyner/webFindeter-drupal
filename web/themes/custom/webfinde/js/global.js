@@ -9,8 +9,7 @@
 
     /*Drupal.behaviors.webfinde = {
         attach: function(context, settings) {*/
-        
-        
+
           /*===========================================
            BUSCADOR(HOME)
            =============================================*/
