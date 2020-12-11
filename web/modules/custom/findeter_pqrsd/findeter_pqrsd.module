@@ -819,6 +819,20 @@ function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
   $spanishMonths['November'] = 'Noviembre';
   $spanishMonths['December'] = 'Diciembre';
 
+  $tipoRadicados = ['Peticiones','Quejas','Reclamos','Sugerencias','Denuncias'];
+  foreach($tipoRadicados as $tr){
+    $mResume[$tr]['name'] = $tr;
+    $mResume[$tr]['recibidas'] = 0;
+    $mResume[$tr]['por_resolver'] = 0;
+    $mResume[$tr]['favor_consumidor'] = 0;
+    $mResume[$tr]['favor_entidad'] = 0;
+    $mResume[$tr]['cerrados'] = 0;
+    $mResume[$tr]['cerrado_a_tiempo'] = 0;
+    $mResume[$tr]['vencidas'] = 0;
+    $mResume[$tr]['info_publica'] = 0;
+    $mResume[$tr]['trasladadas'] = 0;
+  }
+
   if($view->id() == 'pqrsd' && $view->current_display == 'page_2'){
 
     $data = [];
@@ -869,9 +883,74 @@ function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
       }
       $data['formaRecepcion'][$formaRecepcion]++;
 
+
+      // define matrix resume
+
+      $now = strtotime('today');
+      $fOrange = strtotime($value->_entity->get('field_pqrsd_fecha_naranja')->value);
+      $fRed = strtotime($value->_entity->get('field_pqrsd_fecha_roja')->value);
+      $fAnswer = strtotime($value->_entity->get('field_pqrsd_fecha_respuesta')->value);
+
+
+      // PQRSD cerradas/abiertas
+      $mResume[$tipoRadicado]['name'] = $tipoRadicado;
+      $mResume[$tipoRadicado]['recibidas'] = $data['tipoRadicado'][$tipoRadicado];
+
+      if( $value->_entity->get('field_pqrsd_respuesta')->value == ''){
+        $mResume[$tipoRadicado]['por_resolver']++;
+
+        if($now > $fRed){
+          $mResume[$tipoRadicado]['vencidas']++;
+        }
+      }else{
+
+        $mResume[$tipoRadicado]['cerrados']++;
+
+        if($value->_entity->get('field_pqrsd_respuesta_a_favor')->value == 'findeter'){
+          $mResume[$tipoRadicado]['favor_entidad']++;
+        }
+
+        if($value->_entity->get('field_pqrsd_respuesta_a_favor')->value == 'consumidor'){
+          $mResume[$tipoRadicado]['favor_consumidor']++;
+        }
+
+        if($fAnswer < $fRed){
+          $mResume[$tipoRadicado]['cerrado_a_tiempo']++;
+        }
+
+        if( strpos($value->_entity->get('field_pqrsd_respuesta')->value, 'PQRSD Trasladada a:') ){
+          $mResume[$tipoRadicado]['trasladadas']++;
+        }
+
+      }
+
+      if( $value->_entity->get('field_pqrsd_tipo_peticion')->value == 'publica') {
+        $mResume[$tipoRadicado]['info_publica']++;
+      }
+
     }
 
+    $buildTable = array(
+      '#theme' => 'table',
+      '#rows' => $mResume,
+      '#weight' => 1,
+      '#title' => 'Tabla resumen de resultados',
+      '#header' => [
+        'Tipo',
+        'Recibidas',
+        'Pendientes por resolver',
+        'Aprobadas a favor del consumidor financiero',
+        'Aprobadas a favor de la entidad',
+        'Trámites concluidos (cerrados)',
+        'Resultas a tiempo',
+        'Vencidas',
+        'Solicitud acceso información pública',
+        'Solicitudes trasladas a otra institución'
+      ],
+    );
+    
     $view->element['#attached']['drupalSettings']['pqrsdReports'] = $data;
+    $view->element['mResume'] = $buildTable;
 
   }
 }
