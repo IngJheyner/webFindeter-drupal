@@ -1,0 +1,30 @@
+uuid: 08da2b4d-99e8-4060-9e81-c7f1ee5a98f8
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_cont_contratacion.body
+    - node.type.tipo_cont_contratacion
+  module:
+    - text
+    - user
+id: node.tipo_cont_contratacion.default
+targetEntityType: node
+bundle: tipo_cont_contratacion
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

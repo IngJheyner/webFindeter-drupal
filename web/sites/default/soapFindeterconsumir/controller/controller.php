@@ -1,7 +1,45 @@
 <?php
 
 function consult(){
+
     $procedimiento =  $_POST['procedimientos'];
+
+    if($procedimiento == 76 ){
+        //$ingEstdo = intval($_POST['estado']);
+        if($_POST['modalidad'] != '') $queryModalidad = ' modalidadCodigo = '.$_POST['modalidad']. ' ';
+        if($_POST['estado'] != '') $queryEstado = ' estado = \''.$_POST['estado'].'\' ';
+        if($_POST['procesos'] != '') $queryInterno = ' interno = \''.$_POST['procesos'].'\' ';
+        if($_POST['objeto'] != '') $queryObjeto = ' objeto like \'%'.$_POST['objeto'].'%\' ';
+
+        if($_POST['modalidad'] != '')
+        {
+            if($_POST['estado'] != '' || $_POST['procesos'] != '' || $_POST['objeto'] != '')
+            {
+                $queryModalidad = $queryModalidad . 'and';
+            }
+        } 
+
+        if($_POST['estado'] != '')
+        {
+            if($_POST['procesos'] != '' || $_POST['objeto'] != '')
+            {
+                $queryEstado = $queryEstado . 'and';
+            }
+
+        }
+        if($_POST['procesos'] != '')
+        {
+            if($_POST['objeto'] != '')
+            {
+                $queryInterno = $queryInterno . 'and';
+            }
+        }
+        
+        $parametros = "$queryModalidad $queryEstado $queryInterno $queryObjeto";
+        
+        $_POST['argumentos'] = '@aym_filtro="'.$parametros.'"';
+        
+    }
     $argumentos = $_POST['argumentos'];
     $url = "http://w2sdg022:8084/sp_ws.asmx?WSDL";
     $client = new SoapClient($url);
