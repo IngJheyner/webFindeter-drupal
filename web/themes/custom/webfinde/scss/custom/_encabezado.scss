@@ -1,4 +1,5 @@
 @use 'variables' as var;
+
 /* ===== ===== MENUGOVCO ===== ===== */
 .menuGovCo{
     background-color: var.$color-quinario;
@@ -73,6 +74,7 @@ section.menuPrincipal{
                     background-color: white;
                     padding: 20px;
                     position: absolute;
+                    z-index: 1000;
                     display: none;
                     border-bottom: 3px solid var.$color-cuaternario;
 
@@ -118,4 +120,9 @@ div.sliderHome{
     top: 0;
     width: 100%;
    
+    video{
+        top: 0;
+        left: 0;
+        transform: translate(0, -25%);
+    }
 }

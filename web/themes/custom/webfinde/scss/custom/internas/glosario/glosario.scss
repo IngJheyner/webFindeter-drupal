@@ -1,0 +1,46 @@
+@use '../../variables' as var;
+@use '../../../mixins/encabezado' as encabezado;
+
+/* ==============================
+TODAS LAS NOTICIAS
+============================== */
+
+/* ===== ===== ENCABEZADO ===== ===== */
+@include encabezado.encabezado("div","encabezadoGlosario");
+
+div.pageGlosario{
+
+    div.view-filters{
+
+        background-color: var.$color-primario;
+        padding: 2rem;
+        margin-bottom: 3rem;
+
+        form{
+            color: white;
+
+            input[type="submit"]{
+
+                background-color: var.$color-cuaternario !important;
+            }
+        }
+        
+    }
+
+    div.view-content{
+
+        div.view-grouping{
+
+            div.view-grouping-header{
+                color: var.$color-secundario;
+                font-size: 3rem;
+                font-style: italic;
+            }
+
+            div.view-grouping-content{
+
+            }
+            
+        }
+    }
+}

@@ -171,6 +171,7 @@
             $("div.casosExito").css(
                 {'background':'url("'+$(gridDefecto).attr('imgFondo')+'")'}
             );
+            
             $("div.casosExito div.contenido h1.tituloCaso").html($(gridDefecto).attr('titulo'));
             $("div.casosExito div.contenido p.descripcionCaso").html($(gridDefecto).attr('descripcion'));
             $("div.casosExito div.contenido a.enlace").attr("href",$(gridDefecto).attr('enlace'));
@@ -182,10 +183,17 @@
                 var titulo = $('p', this).attr('titulo');
                 var descripcion = $('p', this).attr('descripcion');
                 var enlace = $('p', this).attr('enlace');
+                
+                const imgFondoCaso = () =>{
 
-                $("div.casosExito").css(
-                    {'background':'url("'+imgFondo+'")'}
-                );
+                    $("div.casosExito").css({
+                        'background':'url("'+imgFondo+'")'
+                    });
+                };
+                
+                $("div.casosExito").fadeOut( 1000, "linear", imgFondoCaso );
+                $("div.casosExito").fadeIn( 'slow', "linear");
+
                 $("div.casosExito div.contenido h1.tituloCaso").html(titulo);
                 $("div.casosExito div.contenido p.descripcionCaso").html(descripcion);
                 $("div.casosExito div.contenido a.enlace").attr("href",enlace);

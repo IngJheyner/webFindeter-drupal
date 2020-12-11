@@ -1,3 +1,3 @@
-<video autoplay loop muted="muted"  {{ autoplay ? 'autoplay' : '' }} width="100%">
+<video webkit-playsinline data-covervideo-video playsinline loop muted="muted" autoplay  {{ autoplay ? 'autoplay' : '' }} width="100%">
     <source src="{{ src }}" type="{{ type }}"/>
 </video>
