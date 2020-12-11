@@ -1,0 +1,30 @@
+uuid: aba40277-d28f-4a1b-b40e-dfb8966172e6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_cont_informes_auditoria.body
+    - node.type.tipo_cont_informes_auditoria
+  module:
+    - text
+    - user
+id: node.tipo_cont_informes_auditoria.default
+targetEntityType: node
+bundle: tipo_cont_informes_auditoria
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

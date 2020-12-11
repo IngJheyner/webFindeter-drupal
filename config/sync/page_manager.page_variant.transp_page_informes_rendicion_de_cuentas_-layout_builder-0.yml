@@ -1,15 +1,15 @@
-uuid: e2e536e4-ec62-4300-9288-1870f89a1612
+uuid: e4b289a9-37fb-435a-9701-4c5efd499d59
 langcode: es
 status: true
 dependencies:
   config:
-    - page_manager.page.tranps_page_informes_enviados_al_congreso
-id: tranps_page_informes_enviados_al_congreso-layout_builder-0
-label: 'informes enviados al congreso'
+    - page_manager.page.transp_page_informes_rendicion_de_cuentas_
+id: transp_page_informes_rendicion_de_cuentas_-layout_builder-0
+label: 'Informes de rendición de cuentas'
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: b2a5a849-0372-4abd-ac43-426bf4dec800
+  uuid: 26a4ff29-394c-45b6-8676-7427dd87d26b
   label: null
   weight: 0
   sections:
@@ -49,22 +49,22 @@ variant_settings:
             add_region_classes: 1
             attributes: ''
       components:
-        db39acd1-6409-410f-8a9a-be260501e0c3:
-          uuid: db39acd1-6409-410f-8a9a-be260501e0c3
+        2799bd36-4a3d-4264-8b34-856450729818:
+          uuid: 2799bd36-4a3d-4264-8b34-856450729818
           region: top
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
             label: 'Transparencia y acceso a la información pública'
             provider: block_content
-            label_display: visible
+            label_display: '0'
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
           additional: {  }
           weight: 1
-        bb56f778-aa79-4b45-a1a0-73119c3079c1:
-          uuid: bb56f778-aa79-4b45-a1a0-73119c3079c1
+        698efb6f-b890-4bb0-bb44-e70f396060b6:
+          uuid: 698efb6f-b890-4bb0-bb44-e70f396060b6
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
@@ -76,16 +76,16 @@ variant_settings:
             level: 1
             depth: 1
             expand: false
-            parent: 'transparencia-acceso-informacion:menu_link_content:69786591-4579-4385-9d42-4aaca45aa84c'
+            parent: 'transparencia-acceso-informacion:menu_link_content:2bcec003-9329-4286-9ed5-3140842114ed'
             suggestion: transparencia_acceso_informacion_sidebar
             context_mapping: {  }
           additional: {  }
           weight: 0
-        7f3054db-198f-4734-8b95-acfb4bdacd66:
-          uuid: 7f3054db-198f-4734-8b95-acfb4bdacd66
+        7bd4d25a-e60b-4b25-a7e0-ca72ac303e7d:
+          uuid: 7bd4d25a-e60b-4b25-a7e0-ca72ac303e7d
           region: left
           configuration:
-            id: 'views_block:transparencia_acceso_informacion_publica-block_informes_enviados_congreso'
+            id: 'views_block:transparencia_acceso_informacion_publica-block_trans_informes_rendicion_cuentas'
             label: ''
             provider: views
             label_display: '0'
@@ -95,7 +95,7 @@ variant_settings:
           additional: {  }
           weight: 1
       third_party_settings: {  }
-page: tranps_page_informes_enviados_al_congreso
+page: transp_page_informes_rendicion_de_cuentas_
 weight: 0
 selection_criteria: {  }
 selection_logic: and

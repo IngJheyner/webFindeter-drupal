@@ -1,15 +1,15 @@
-uuid: e2e536e4-ec62-4300-9288-1870f89a1612
+uuid: 66ff150c-f4af-4a63-b029-ce4a4ab0f140
 langcode: es
 status: true
 dependencies:
   config:
-    - page_manager.page.tranps_page_informes_enviados_al_congreso
-id: tranps_page_informes_enviados_al_congreso-layout_builder-0
-label: 'informes enviados al congreso'
+    - page_manager.page.7_1_5_informes_rendicion_de_cuentas_fiscales
+id: 7_1_5_informes_rendicion_de_cuentas_fiscales-layout_builder-0
+label: 'Informes de rendición de cuentas'
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: b2a5a849-0372-4abd-ac43-426bf4dec800
+  uuid: fcc8d7e6-0feb-4431-994a-57bdfeb4529a
   label: null
   weight: 0
   sections:
@@ -49,8 +49,8 @@ variant_settings:
             add_region_classes: 1
             attributes: ''
       components:
-        db39acd1-6409-410f-8a9a-be260501e0c3:
-          uuid: db39acd1-6409-410f-8a9a-be260501e0c3
+        bdf07073-a4fd-4f02-889c-426009a5ebcb:
+          uuid: bdf07073-a4fd-4f02-889c-426009a5ebcb
           region: top
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
@@ -62,9 +62,9 @@ variant_settings:
             view_mode: full
             context_mapping: {  }
           additional: {  }
-          weight: 1
-        bb56f778-aa79-4b45-a1a0-73119c3079c1:
-          uuid: bb56f778-aa79-4b45-a1a0-73119c3079c1
+          weight: 2
+        d2730004-cc1e-4184-9ecd-e8723e07691b:
+          uuid: d2730004-cc1e-4184-9ecd-e8723e07691b
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
@@ -80,12 +80,12 @@ variant_settings:
             suggestion: transparencia_acceso_informacion_sidebar
             context_mapping: {  }
           additional: {  }
-          weight: 0
-        7f3054db-198f-4734-8b95-acfb4bdacd66:
-          uuid: 7f3054db-198f-4734-8b95-acfb4bdacd66
+          weight: 2
+        cd94d205-3494-41be-ab32-5378739600e4:
+          uuid: cd94d205-3494-41be-ab32-5378739600e4
           region: left
           configuration:
-            id: 'views_block:transparencia_acceso_informacion_publica-block_informes_enviados_congreso'
+            id: 'views_block:transparencia_acceso_informacion_publica-block_informes_rendicion_cuentas_fiscales'
             label: ''
             provider: views
             label_display: '0'
@@ -93,9 +93,9 @@ variant_settings:
             items_per_page: '1'
             context_mapping: {  }
           additional: {  }
-          weight: 1
+          weight: 2
       third_party_settings: {  }
-page: tranps_page_informes_enviados_al_congreso
+page: 7_1_5_informes_rendicion_de_cuentas_fiscales
 weight: 0
 selection_criteria: {  }
 selection_logic: and

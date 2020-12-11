@@ -1,0 +1,22 @@
+uuid: b957a423-8e44-4e45-b53d-62277cc54487
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.tip_cont_relacion_inversionistas
+id: node.tip_cont_relacion_inversionistas.promote
+field_name: promote
+entity_type: node
+bundle: tip_cont_relacion_inversionistas
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

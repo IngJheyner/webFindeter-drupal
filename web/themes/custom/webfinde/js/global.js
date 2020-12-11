@@ -37,9 +37,13 @@
             $(".productosServicios .grid-container .grid-item").on('mouseout', function(){
 
                 $(this).children("figure").children(".fondo").css({
-                    "height": "109%", 
+                    "height": "169%", 
                     "transition" : ".5s all",
-                    //"background" : "repeating-linear-gradient(184deg, transparent 0, transparent 19%, #296294 0, #296294",                   
+					"background" : "none",
+                    "background" : "repeating-linear-gradient(188deg, transparent 0, transparent 15%, rgb(17, 45, 106) 0, #296294)",
+					//"background": "linear-gradient(70deg, black, white)",
+					//"background" : "rgba(17, 45, 106, 0.1 )",
+					//"background-image": "-webkit-linear-gradient(85deg, rgb(17, 45, 106) 45%, rgba(17, 45, 106, 0.1 )30%)",
                     "border-radius": "0 0 0.8em 0.8em"});
                 
                     $(this).children("figure").children(".fondo").children("h1").children("button").hide();

@@ -34,9 +34,10 @@
                     </div>
                 </div>
             </form>
-            <div id="respuesta">
+        </div>
+		           <div id="respuesta">
                 <div class="table_responsive">
-                    <table id="tblProcesos" class="tablaGen table table-striped table-condensed table-hover tablaGenPagineAjax  dataTable no-footer" role="grid" aria-describedby="tblProcesos_info" style="width: 1140px;">
+                    <table id="tblProcesos" class="table table-striped table-condensed table-hover tablaGenPagineAjax  dataTable no-footer" role="grid" aria-describedby="tblProcesos_info" style="width: 1140px;">
                         <thead>
                             <tr role="row">
                                 <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 25px;">No.</th>
@@ -54,7 +55,6 @@
                     </table>
                 </div>
             </div>
-        </div>
     </div>
 
     <script src="../../js/jquery-3.5.1.min.js"></script>

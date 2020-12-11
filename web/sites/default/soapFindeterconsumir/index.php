@@ -37,33 +37,26 @@
     </div>
 
     <div class="row" style="margin-top: 25px;">
-        <div class="container">
-            <div id="respuesta">
-                <div class="table_responsive">
-                    <table class="tablaGen table table-striped table-condensed table-hover tablaGenPagine" style>
-                        <thead>
-                            <tr>
-                                <th style="text-align: center;">Tipo</th>
-                                <th style="text-align: center;" class="titulo" data-toggle="tooltip" data-placement="left" title="Presupuesto aprobado por la Junta Directiva para cada vigencia." alt="Presupuesto aprobado por la Junta Directiva para cada vigencia.">Inicial</th>
-                                <th style="text-align: center;" class="titulo" data-toggle="tooltip" data-placement="left" title="Presupuesto inicial mas modificaciones que se requieran." alt="Presupuesto inicial mas modificaciones que se requieran.">Neto</th>
-                                <th style="text-align: center;" class="titulo" data-toggle="tooltip" data-placement="left" title="Son los actos realizados en desarrollo de la capacidad de contratar y de comprometer el presupuesto" alt="Son los actos realizados en desarrollo de la capacidad de contratar y de comprometer el presupuesto">Ejecución</th>
-                                <th style="text-align: center;" class="titulo" data-toggle="tooltip" data-placement="left" title="Corresponde al NETO - EJECUCION" alt="Corresponde al NETO - EJECUCION">Saldo</th>
-                            </tr>     
-                        </thead>	
-                        <tbody id="tbodyrespuesta" style="font-size:14px;">	
+            <div id="respuesta" class="col-md-12">
+				<table class="table table-striped table-condensed table-hover tablaGenPagine" style="">
+					<thead>
+						<tr>
+							<th style="text-align: center;">Tipo</th>
+							<th style="text-align: center;" class="titulo" data-toggle="tooltip" data-placement="left" title="Presupuesto aprobado por la Junta Directiva para cada vigencia." alt="Presupuesto aprobado por la Junta Directiva para cada vigencia.">Inicial</th>
+							<th style="text-align: center;" class="titulo" data-toggle="tooltip" data-placement="left" title="Presupuesto inicial mas modificaciones que se requieran." alt="Presupuesto inicial mas modificaciones que se requieran.">Neto</th>
+							<th style="text-align: center;" class="titulo" data-toggle="tooltip" data-placement="left" title="Son los actos realizados en desarrollo de la capacidad de contratar y de comprometer el presupuesto" alt="Son los actos realizados en desarrollo de la capacidad de contratar y de comprometer el presupuesto">Ejecución</th>
+							<th style="text-align: center;" class="titulo" data-toggle="tooltip" data-placement="left" title="Corresponde al NETO - EJECUCION" alt="Corresponde al NETO - EJECUCION">Saldo</th>
+						</tr>     
+					</thead>	
+					<tbody id="tbodyrespuesta" style="font-size:11px;">	
 
-                        </tbody>	
-                    </table>        
-                </div>  
+					</tbody>	
+				</table>  
             </div>
-        </div>
     </div>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script>
-        var formatter = new Intl.NumberFormat("es", {
-            style: "currency",
-            currency: "COP"
-        });
+        var formatter = new Intl.NumberFormat("es");
 
         var tipoelemen = '<option value="0">--Seleccione--</option> <option value="1">fuentes</option><option value="2">aplicaciones</option>'
 
@@ -121,10 +114,10 @@
                             +'<td>'
                                 +'<a href="#" value="1" class="enlaceTipo" alt="">'+ element.Nombre+'</a>'
                             +'</td>'
-                            +'<td align="middle">'+ '$ '+ formatter.format(element.INICIAL) +'</td>'
-                            +'<td align="middle">'+ '$ '+ formatter.format(element.NETO) +'</td>'
-                            +'<td align="middle">'+ '$ '+ formatter.format(element.EJECUCION) +'</td>'
-                            +'<td align="middle">'+ '$ '+ formatter.format(element.SALDO) +'</td>'
+                            +'<td align="middle">'+ '$'+ formatter.format(element.INICIAL) +'</td>'
+                            +'<td align="middle">'+ '$'+ formatter.format(element.NETO) +'</td>'
+                            +'<td align="middle">'+ '$'+ formatter.format(element.EJECUCION) +'</td>'
+                            +'<td align="middle">'+ '$'+ formatter.format(element.SALDO) +'</td>'
                         +'</tr>';
 
                     });
@@ -181,10 +174,10 @@
                             +'<td>'
                                 +'<a href="#" value="1" class="enlaceTipo" alt="">'+ element.Nombre+'</a>'
                             +'</td>'
-                            +'<td align="middle">'+ '$ '+ formatter.format(element.INICIAL) +'</td>'
-                            +'<td align="middle">'+ '$ '+ formatter.format(element.NETO) +'</td>'
-                            +'<td align="middle">'+ '$ '+ formatter.format(element.EJECUCION) +'</td>'
-                            +'<td align="middle">'+ '$ '+ formatter.format(element.SALDO) +'</td>'
+                            +'<td align="middle">'+ '$'+ formatter.format(element.INICIAL) +'</td>'
+                            +'<td align="middle">'+ '$'+ formatter.format(element.NETO) +'</td>'
+                            +'<td align="middle">'+ '$'+ formatter.format(element.EJECUCION) +'</td>'
+                            +'<td align="middle">'+ '$'+ formatter.format(element.SALDO) +'</td>'
                         +'</tr>';
 
                     });
@@ -294,10 +287,10 @@
                             +'<td>'
                                 +'<a href="#" value="1" class="enlaceTipo" alt="">'+ element.Nombre+'</a>'
                             +'</td>'
-                            +'<td align="middle">'+ '$ '+ formatter.format(element.INICIAL) +'</td>'
-                            +'<td align="middle">'+ '$ '+ formatter.format(element.NETO) +'</td>'
-                            +'<td align="middle">'+ '$ '+ formatter.format(element.EJECUCION) +'</td>'
-                            +'<td align="middle">'+ '$ '+ formatter.format(element.SALDO) +'</td>'
+                            +'<td align="middle">'+ '$'+ formatter.format(element.INICIAL) +'</td>'
+                            +'<td align="middle">'+ '$'+ formatter.format(element.NETO) +'</td>'
+                            +'<td align="middle">'+ '$'+ formatter.format(element.EJECUCION) +'</td>'
+                            +'<td align="middle">'+ '$'+ formatter.format(element.SALDO) +'</td>'
                         +'</tr>';
 
                     });
@@ -337,10 +330,10 @@
                                 +'<td>'
                                     +'<a href="#" value="1" class="enlaceTipo" alt="">'+ element.Nombre+'</a>'
                                 +'</td>'
-                                +'<td align="middle">'+ '$ '+ formatter.format(element.INICIAL) +'</td>'
-                                +'<td align="middle">'+ '$ '+ formatter.format(element.NETO) +'</td>'
-                                +'<td align="middle">'+ '$ '+ formatter.format(element.EJECUCION) +'</td>'
-                                +'<td align="middle">'+ '$ '+ formatter.format(element.SALDO) +'</td>'
+                                +'<td align="middle">'+ '$'+ formatter.format(element.INICIAL) +'</td>'
+                                +'<td align="middle">'+ '$'+ formatter.format(element.NETO) +'</td>'
+                                +'<td align="middle">'+ '$'+ formatter.format(element.EJECUCION) +'</td>'
+                                +'<td align="middle">'+ '$'+ formatter.format(element.SALDO) +'</td>'
                             +'</tr>';
                         });
                     }else{
@@ -348,10 +341,10 @@
                                 +'<td>'
                                     +'<a href="#" value="1" class="enlaceTipo" alt="">'+ data.Registro.Nombre+'</a>'
                                 +'</td>'
-                                +'<td align="middle">'+ '$ ' + formatter.format(data.Registro.INICIAL) +'</td>'
-                                +'<td align="middle">'+ '$ ' + formatter.format(data.Registro.NETO) +'</td>'
-                                +'<td align="middle">'+ '$ ' + formatter.format(data.Registro.EJECUCION) +'</td>'
-                                +'<td align="middle">'+ '$ ' + formatter.format(data.Registro.SALDO) +'</td>'
+                                +'<td align="middle">'+ '$' + formatter.format(data.Registro.INICIAL) +'</td>'
+                                +'<td align="middle">'+ '$' + formatter.format(data.Registro.NETO) +'</td>'
+                                +'<td align="middle">'+ '$' + formatter.format(data.Registro.EJECUCION) +'</td>'
+                                +'<td align="middle">'+ '$' + formatter.format(data.Registro.SALDO) +'</td>'
                             +'</tr>';
                     }
                     
