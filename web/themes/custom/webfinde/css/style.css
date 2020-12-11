@@ -97,9 +97,57 @@ section.menuPrincipal {
   MENU ESCRITORIO
   ============================== */
 }
-section.menuPrincipal nav ul li a, section.menuPrincipal nav ul li span {
+section.menuPrincipal nav {
+  margin: 40px auto;
+}
+section.menuPrincipal nav > ul {
+  width: 100%;
+}
+section.menuPrincipal nav ul {
   position: relative;
+  margin: 0;
+  padding: 0;
+}
+section.menuPrincipal nav ul li {
+  list-style: none;
+}
+section.menuPrincipal nav ul li > a, section.menuPrincipal nav ul li span {
   text-shadow: 1px 1px 2px black;
+  display: block;
+  cursor: pointer;
+}
+section.menuPrincipal nav ul li > svg {
+  position: absolute;
+  bottom: -10px;
+  display: none;
+  margin-left: 2rem;
+  font-size: 30px;
+}
+section.menuPrincipal nav ul li:hover svg {
+  display: block;
+}
+section.menuPrincipal nav ul li ul.submenu {
+  background-color: white;
+  padding: 20px;
+  position: absolute;
+  display: none;
+  border-bottom: 3px solid #00993e;
+}
+section.menuPrincipal nav ul li ul.submenu > li.submenuItems {
+  margin: 0 20px;
+}
+section.menuPrincipal nav ul li ul.submenu > li.submenuItems > span {
+  display: none;
+}
+section.menuPrincipal nav ul li ul.submenu > li.submenuItems ul > li > a, section.menuPrincipal nav ul li ul.submenu > li.submenuItems span {
+  color: black !important;
+  text-shadow: none;
+}
+section.menuPrincipal nav ul li ul.submenu > li.submenuItems ul > li > a:hover, section.menuPrincipal nav ul li ul.submenu > li.submenuItems span:hover {
+  text-decoration: underline;
+}
+section.menuPrincipal nav ul li:hover ul.submenu {
+  display: flex;
 }
 
 /* ==============================
@@ -1282,15 +1330,15 @@ div.encabezadoBlog section.titulos h4 {
   color: white;
   position: relative;
   margin-bottom: 60px;
-}
-div.encabezadoBlog section.titulos h4::after {
-  content: "";
-  position: absolute;
-  width: 14%;
-  height: 2px;
-  background-color: white;
-  top: 2em;
-  left: 36rem;
+  /*&::after{
+      content: "";
+      position: absolute;
+      width: 14%;
+      height: 2px;
+      background-color: white;
+      top: 2em;
+      left: 36rem;
+  }*/
 }
 div.encabezadoBlog section.titulos h1 {
   width: 50%;

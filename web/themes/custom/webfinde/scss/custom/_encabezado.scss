@@ -28,16 +28,80 @@ section.menuPrincipal{
      /* ==============================
     MENU ESCRITORIO
     ============================== */
-    nav{           
+    nav{
+        
+        margin: 40px auto;
+
+        > ul{
+
+            width: 100%;
+        }
     
         ul{
 
+            position: relative;
+            margin: 0;
+            padding: 0;
+
             li{                            
 
-                a,span{
-                            
-                    position: relative;                    
+                list-style: none;
+
+                > a,span{                   
                     text-shadow: 1px 1px 2px black; 
+                    display: block;
+                    cursor: pointer;
+                }
+
+                > svg{
+
+                    position: absolute;
+                    bottom: -10px;
+                    display: none;
+                    margin-left: 2rem;
+                    font-size: 30px;
+                }
+
+                &:hover svg{
+
+                    display: block;
+
+                }
+
+                ul.submenu{
+
+                    background-color: white;
+                    padding: 20px;
+                    position: absolute;
+                    display: none;
+                    border-bottom: 3px solid var.$color-cuaternario;
+
+                    > li.submenuItems{
+
+                        margin: 0 20px;
+
+                        > span{
+                            display: none;
+                        }
+
+                        ul > li > a,span{
+
+                            color: black !important;
+                            text-shadow: none;
+
+                            &:hover{
+
+                                text-decoration: underline;
+                            }
+                        }
+
+                    }
+                }
+
+                &:hover ul.submenu{
+
+                    display: flex;
+                    
                 }
             }
         }

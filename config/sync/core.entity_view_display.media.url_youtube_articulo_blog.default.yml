@@ -5,25 +5,15 @@ dependencies:
   config:
     - field.field.media.url_youtube_articulo_blog.field_media_oembed_video
     - media.type.url_youtube_articulo_blog
-  module:
-    - media
 id: media.url_youtube_articulo_blog.default
 targetEntityType: media
 bundle: url_youtube_articulo_blog
 mode: default
-content:
-  field_media_oembed_video:
-    type: oembed
-    label: visually_hidden
-    weight: 0
-    settings:
-      max_width: 0
-      max_height: 0
-    third_party_settings: {  }
-    region: content
+content: {  }
 hidden:
   addtoany: true
   created: true
+  field_media_oembed_video: true
   langcode: true
   name: true
   thumbnail: true
