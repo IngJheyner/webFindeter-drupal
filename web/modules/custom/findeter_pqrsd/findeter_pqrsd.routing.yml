@@ -4,7 +4,7 @@ findeter_pqrsd.register_pqrsd:
     _form: '\Drupal\findeter_pqrsd\Form\RegisterPQRSD'
     _title: 'Registro de petición de usuarios'
   requirements:
-    _custom_access: '\Drupal\findeter_pqrsd\Controller\UserControl::access'
+    _permission: 'access content'
 
 findeter_pqrsd.asign_pqrsd:
   path: '/pqrsd/pqrsd-ajax-asign/{nid}'
@@ -56,7 +56,7 @@ findeter_pqrsd.register_pqrsd_admin:
     _form: '\Drupal\findeter_pqrsd\Form\RegisterPQRSDAdmin'
     _title: 'Registro de PQRSD'
   requirements:
-    _user_is_logged_in: 'TRUE'
+    _custom_access: '\Drupal\findeter_pqrsd\Controller\UserControl::access'
 
 findeter_pqrsd.update_pqrsd_admin:
   path: '/admin/actualizar-pqrsd/{nid}'
@@ -71,6 +71,8 @@ findeter_pqrsd.confirm_register_pqrsd:
   defaults:
     _controller: '\Drupal\findeter_pqrsd\Controller\ConfirmRegisterPQRSD::confirmRegister'
     _title: 'Registro de PQRSD'
+  requirements:
+    _permission: 'access content'
 
 findeter_pqrsd.confirm_register_pqrsd_admin:
   path: '/admin/confirm-pqrsd/{operation}/{nid}'
