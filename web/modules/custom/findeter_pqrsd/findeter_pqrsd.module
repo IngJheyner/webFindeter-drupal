@@ -934,7 +934,7 @@ function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
       '#theme' => 'table',
       '#rows' => $mResume,
       '#weight' => 1,
-      '#title' => 'Tabla resumen de resultados',
+      '#prefix' => '<hr><h3>Tabla resumen de resultados</h3>',
       '#header' => [
         'Tipo',
         'Recibidas',
@@ -948,7 +948,7 @@ function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
         'Solicitudes trasladas a otra institución'
       ],
     );
-    
+
     $view->element['#attached']['drupalSettings']['pqrsdReports'] = $data;
     $view->element['mResume'] = $buildTable;
 
