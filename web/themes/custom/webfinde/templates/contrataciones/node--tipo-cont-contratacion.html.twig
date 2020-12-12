@@ -134,8 +134,15 @@
     display: inline-block;
   }
   .encabezado h1{
-    border-bottom: 4px solid #296294;
     padding-bottom: 12px;
+  }
+    .encabezadoProsperityFund{
+    width:100%;
+    position: relative;
+    z-index: -1;
+    top: 0;
+    transform: translate(0, -14rem);
+    height: 23rem;
   }
   
   /*.col-md-6 .encabezado h1:after{
@@ -146,6 +153,14 @@
     background-color: #296294;
     top: 1.4em;
     left: 0.2em;
+  }
+  .encabezadoProsperityFund{
+    width:100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    transform: translate(0, -14rem);
+    height: 23rem;
   }
   .col-md-12 .encabezado h1:after{
     display: inline-block;
@@ -159,71 +174,22 @@
   }*/
 </style>
 <article{{ attributes.addClass(classes) }}>
+<div class="block encabezadoProsperityFund block-block-content block-block-content992ef26e-7538-4427-bf44-b6ad1415ca6e">
 
-  <div class="d-flex" style="
-      width:100%;
-      height:290px;
-      background-image: url( {{ file_url(node.field_img_fondo_sobre_findeter.entity.fileuri) }} );
-      position: relative;
-      background-size: 100% 100%;
-      background-position: center;
-      background-repeat: no-repeat;"> 
-    <div class="container justify-content-center align-self-center ">
-      <h1  class=" " style="
-        color:white;
-        font-size:67px;
-      ">
-        {{ label }}
-      </h1>
+  <figure class="w-100">
+    <img src="{{ file_url(node.field_contrat_imagen_de_cabecera.entity.fileuri) }}" class="img-fluid w-100">
+  </figure>
+    <div class=" encabezado container">
+      <h1 class="tituloEncabezado mt-3">{{ label }}</h1>   
     </div>
-  </div>
+  
   {{ drupal_breadcrumb() }}
 
 
   <div class="container ">
-    <div class="text-center m-tb-2rem">
-      <ul class="nav nav-pills mb-3 " id="myTab" role="tablist">
-        {% for key,value in node.field_tabs_nav_sobre_findeter if key|first != '#'   %}
-          {% if key == '0' %}
-            <li class="nav-item" style="margin-left: -10px;">
-              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#des{{key}}" role="tab" aria-controls="{{key}}" aria-selected="true">{{ content.field_tabs_nav_sobre_findeter[key] }}</a>
-            </li>
-          {% else %}
-            <li class="nav-item">
-              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#des{{key}}" role="tab" aria-controls="{{key}}" aria-selected="false">{{ content.field_tabs_nav_sobre_findeter[key] }}</a>
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
-    <div>
-      <div class="tab-content pb-115px" id="myTabContent">
-        {% for key,value in node.field_tabs_descrip_sobre_findete if key|first != '#'   %}
-          {% if key == '0' %}
-            <div class="tab-pane fade show active" id="des{{key}}" role="tabpanel" aria-labelledby="{{key}}-tab">{{ content.field_tabs_descrip_sobre_findete[key] }}</div>
-          {% else %}
-            <div class="tab-pane fade" id="des{{key}}" role="tabpanel" aria-labelledby="{{key}}-tab">{{ content.field_tabs_descrip_sobre_findete[key] }}</div>
-          {% endif %}
-        {% endfor %}        
-      </div>
-    </div>
-      
+
+    {{ content.body.0 }}
 
   </div>
-  {% for key,value in node.field_titulo_contenido_ext_sobr_ if key|first != '#'   %}
-    {% if key == '0' %}
-      <div class="background-gr">
-    {% else %}
-      <div class="">
-    {% endif %}
-      <div class="container ptb-115px">
-        <h2 style="margin-bottom: 35px;">
-          {{ content.field_titulo_contenido_ext_sobr_[key]}}
-        </h2>
-        <p>
-          {{ content.field_descrip_contenido_extra_so[key] }}
-        </p>
-      </div>
-    </div>
-  {% endfor %}
+ 
 </article>

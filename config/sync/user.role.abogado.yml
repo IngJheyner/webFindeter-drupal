@@ -3,7 +3,12 @@ langcode: es
 status: true
 dependencies: {  }
 id: abogado
-label: Abogad@
+label: C-Abogado
 weight: 3
 is_admin: null
-permissions: {  }
+permissions:
+  - 'create convocatorias content'
+  - 'create mltdia_convcatoria_archivo media'
+  - 'edit any convocatorias content'
+  - 'edit own convocatorias content'
+  - 'view convocatorias revisions'

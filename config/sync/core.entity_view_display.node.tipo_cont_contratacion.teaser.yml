@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.tipo_cont_contratacion.body
+    - field.field.node.tipo_cont_contratacion.field_contrat_imagen_de_cabecera
     - node.type.tipo_cont_contratacion
   module:
     - text
@@ -29,4 +30,5 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_contrat_imagen_de_cabecera: true
   langcode: true
