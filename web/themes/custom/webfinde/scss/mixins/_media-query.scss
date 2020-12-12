@@ -2,7 +2,8 @@ $breakpoint-xs: 575.98px;
 $breakpoint-sm: 767.98px;
 $breakpoint-md: 991.98px;
 $breakpoint-lg: 1199.98px;
-$breakpoint-xl: 1200px;
+$breakpoint-xl: 1919.98px;
+$breakpoint-xxl: 1920px;
 
 @mixin media($media) {
 
@@ -28,7 +29,12 @@ $breakpoint-xl: 1200px;
 
   /*TABLET HORIZONTAL (XL REVISAMOS EN 1200px)*/
   @else if $media == xl {
-    @media (min-width: $breakpoint-xl) { @content; }
+    @media (min-width: 1200px) and (max-width: $breakpoint-xl) { @content; }
+  }
+
+  /*TABLET HORIZONTAL (XXL REVISAMOS EN 1980px)*/
+  @else if $media == xxl {
+    @media (min-width: $breakpoint-xxl) { @content; }
   }
 
 }

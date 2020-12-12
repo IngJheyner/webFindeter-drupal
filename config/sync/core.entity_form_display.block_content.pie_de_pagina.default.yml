@@ -9,6 +9,8 @@ dependencies:
     - field.field.block_content.pie_de_pagina.field_email_contacto_footer
     - field.field.block_content.pie_de_pagina.field_email_judiciales_footer
     - field.field.block_content.pie_de_pagina.field_facebook_icono_footer
+    - field.field.block_content.pie_de_pagina.field_footer_img_credito_directo
+    - field.field.block_content.pie_de_pagina.field_footer_url_credito_directo
     - field.field.block_content.pie_de_pagina.field_horario_de_atencion_footer
     - field.field.block_content.pie_de_pagina.field_instagram_icono_footer
     - field.field.block_content.pie_de_pagina.field_likedin_icono_footer
@@ -60,17 +62,18 @@ third_party_settings:
         - group_youtube
         - group_instagram
         - group_likedin
+        - group_credito_directo
       parent_name: group_contenido
       weight: 10
       format_type: details
       region: content
       format_settings:
+        description: ''
+        required_fields: true
         id: ''
         classes: ''
-        description: ''
         open: false
-        required_fields: true
-      label: Iconos
+      label: 'Iconos con enlaces'
     group_facebook:
       children:
         - field_url_facebook_footer
@@ -90,7 +93,7 @@ third_party_settings:
         - field_url_twitter_footer
         - field_twitter_icono_footer
       parent_name: group_iconos
-      weight: 14
+      weight: 12
       format_type: fieldset
       region: content
       format_settings:
@@ -104,7 +107,7 @@ third_party_settings:
         - field_url_youtube_footer
         - field_youtube_icono_footer
       parent_name: group_iconos
-      weight: 17
+      weight: 13
       format_type: fieldset
       region: content
       format_settings:
@@ -118,7 +121,7 @@ third_party_settings:
         - field_url_instagram_footer
         - field_instagram_icono_footer
       parent_name: group_iconos
-      weight: 20
+      weight: 14
       format_type: fieldset
       region: content
       format_settings:
@@ -132,7 +135,7 @@ third_party_settings:
         - field_url_likedin_footer
         - field_likedin_icono_footer
       parent_name: group_iconos
-      weight: 23
+      weight: 15
       format_type: fieldset
       region: content
       format_settings:
@@ -222,6 +225,20 @@ third_party_settings:
         classes: ''
         open: false
       label: 'Información General'
+    group_credito_directo:
+      children:
+        - field_footer_url_credito_directo
+        - field_footer_img_credito_directo
+      parent_name: group_iconos
+      weight: 16
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Credito Directo'
 id: block_content.pie_de_pagina.default
 targetEntityType: block_content
 bundle: pie_de_pagina
@@ -266,6 +283,22 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_footer_img_credito_directo:
+    weight: 18
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_footer_url_credito_directo:
+    weight: 17
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
     region: content
   field_horario_de_atencion_footer:
     weight: 30

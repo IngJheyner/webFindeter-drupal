@@ -12400,7 +12400,7 @@ menus:
     menu_name: menu-principal
     title: Noticias
     parent: null
-    uri: 'internal:/noticias'
+    uri: 'route:<nolink>'
     link_title: ''
     description: null
     enabled: '1'
@@ -12409,46 +12409,10 @@ menus:
     langcode: es
     uuid: 317753a6-81e3-4e9d-8254-fbe6297b3f2e
   -
-    menu_name: menu-govco
-    title: 'OFICINA VIRTUAL'
-    parent: null
-    uri: 'route:<nolink>'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '-50'
-    langcode: es
-    uuid: 23d0e334-3221-4407-b565-6f8c024dcb4b
-  -
-    menu_name: menu-govco
-    title: PARTICIPACIÓN
-    parent: null
-    uri: 'route:<nolink>'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '-49'
-    langcode: es
-    uuid: f885eaed-d16e-4330-a3b6-ab06c5c8cba1
-  -
-    menu_name: menu-govco
-    title: ENTIDADES
-    parent: null
-    uri: 'route:<nolink>'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '-48'
-    langcode: es
-    uuid: db6124ae-f6cb-4505-bc76-59add32612c8
-  -
     menu_name: menu-principal
-    title: 'Sobre Findeter'
+    title: 'Sobre Findenter'
     parent: null
-    uri: 'internal:/sobre-findeter'
+    uri: 'route:<nolink>'
     link_title: ''
     description: null
     enabled: '1'
@@ -12484,7 +12448,7 @@ menus:
     menu_name: acceso-rapido-home
     title: 'Contratación de bienes y servicios'
     parent: null
-    uri: 'internal:/contratación'
+    uri: 'route:<nolink>'
     link_title: ''
     description: null
     enabled: '1'
@@ -12496,7 +12460,7 @@ menus:
     menu_name: acceso-rapido-home
     title: 'Convocatorias de terceros'
     parent: null
-    uri: 'internal:/convocatorias'
+    uri: 'route:<nolink>'
     link_title: ''
     description: null
     enabled: '1'
@@ -12520,7 +12484,7 @@ menus:
     menu_name: transparencia-acceso-informacion
     title: '2.1 Publicación de datos abiertos'
     parent: 'menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
-    uri: 'internal:/datos-abiertos'
+    uri: 'internal:/'
     link_title: ''
     description: null
     enabled: '1'
@@ -12544,7 +12508,7 @@ menus:
     menu_name: transparencia-acceso-informacion
     title: '2.2 Estudios, investigaciones y otras publicaciones'
     parent: 'menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
-    uri: 'https://repositorio.findeter.gov.co/'
+    uri: 'internal:/'
     link_title: ''
     description: null
     enabled: '1'
@@ -12556,7 +12520,7 @@ menus:
     menu_name: transparencia-acceso-informacion
     title: '2.3 Convocatorias'
     parent: 'menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
-    uri: 'internal:/transparencia-y-acceso-a-la-informacion-publica/convocatorias'
+    uri: 'internal:/'
     link_title: ''
     description: null
     enabled: '1'
@@ -12568,7 +12532,7 @@ menus:
     menu_name: transparencia-acceso-informacion
     title: '2.4 Preguntas y respuestas frecuentes'
     parent: 'menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
-    uri: 'internal:/transparencia-y-acceso-a-la-informacion-publica/preguntas-y-respuestas-frecuentes'
+    uri: 'internal:/'
     link_title: ''
     description: null
     enabled: '1'
@@ -12638,7 +12602,7 @@ menus:
     uuid: cfacbab7-2c3c-495a-bf2a-4a22748aa9d4
   -
     menu_name: transparencia-acceso-informacion
-    title: '6.  Planeación'
+    title: '6. Planeación'
     parent: null
     uri: 'route:<nolink>'
     link_title: ''
@@ -12668,7 +12632,7 @@ menus:
     link_title: ''
     description: null
     enabled: '1'
-    expanded: '1'
+    expanded: '0'
     weight: '-42'
     langcode: es
     uuid: fbbf2d8f-3985-4704-ab5d-c2dbc833bc38
@@ -12680,7 +12644,7 @@ menus:
     link_title: ''
     description: null
     enabled: '1'
-    expanded: '0'
+    expanded: '1'
     weight: '-41'
     langcode: es
     uuid: 5213e782-2217-41a3-8fa6-9a63324691ac
@@ -12692,7 +12656,7 @@ menus:
     link_title: ''
     description: null
     enabled: '1'
-    expanded: '0'
+    expanded: '1'
     weight: '-38'
     langcode: es
     uuid: 999b77da-bfcb-41c7-a8d4-b477c62da57a
@@ -12704,13 +12668,13 @@ menus:
     link_title: ''
     description: null
     enabled: '1'
-    expanded: '0'
+    expanded: '1'
     weight: '-39'
     langcode: es
     uuid: 89c5f63f-9f3b-4116-aabb-51b62a8e694f
   -
     menu_name: transparencia-acceso-informacion
-    title: '10. Instrumentos de Gestión de Información Pública'
+    title: '10. Instrumentos de Gestión de  Información Pública'
     parent: null
     uri: 'route:<nolink>'
     link_title: ''
@@ -12736,7 +12700,7 @@ menus:
     menu_name: transparencia-acceso-informacion
     title: '2.7 Calendario de eventos'
     parent: 'menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
-    uri: 'route:<nolink>'
+    uri: 'internal:/'
     link_title: ''
     description: null
     enabled: '1'
@@ -12748,7 +12712,7 @@ menus:
     menu_name: transparencia-acceso-informacion
     title: '2.8 Información para niños, niñas y adolescentes'
     parent: 'menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
-    uri: 'internal:/transparencia-y-acceso-a-la-informacion-publica/informacion-para-ninos-ninas-y-adolecentes'
+    uri: 'internal:/'
     link_title: ''
     description: null
     enabled: '1'
@@ -12760,7 +12724,7 @@ menus:
     menu_name: transparencia-acceso-informacion
     title: '2.9 Información de interés adicional'
     parent: 'menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
-    uri: 'internal:/sites/default/files/2020-12/Carta de trato digno 2020.pdf'
+    uri: 'internal:/'
     link_title: ''
     description: null
     enabled: '1'
@@ -12772,7 +12736,7 @@ menus:
     menu_name: acceso-rapido-home
     title: 'Convocatorias Prosperity Fund'
     parent: null
-    uri: 'route:<nolink>'
+    uri: 'internal:/convocatorias'
     link_title: ''
     description: null
     enabled: '1'
@@ -12782,9 +12746,9 @@ menus:
     uuid: 3ab0e689-2ad0-41dc-b77f-ce6e8f9b5a94
   -
     menu_name: transparencia-acceso-informacion
-    title: '1.2 Sedes y horarios  de atención'
+    title: '1.1 Sobre Findenter'
     parent: 'menu_link_content:9d663ce0-7090-4f10-9bc9-f402051bee86'
-    uri: 'internal:/transparencia-y-acceso-a-la-informacion-publica/sedes-y-horarios-de-atencion#cont'
+    uri: 'internal:/transparencia-y-acceso-a-la-informacion-publica/sobre-findeter'
     link_title: ''
     description: null
     enabled: '1'
@@ -12859,7 +12823,7 @@ menus:
     uri: 'route:<nolink>'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: es
@@ -12868,7 +12832,7 @@ menus:
     menu_name: transparencia-acceso-informacion
     title: '1.1 Canales de atención al ciudadano'
     parent: 'menu_link_content:9d663ce0-7090-4f10-9bc9-f402051bee86'
-    uri: 'internal:/transparencia-y-acceso-a-la-informacion-publica/mecanismos-de-atencion-al-ciudadano#cont'
+    uri: 'internal:/transparencia-y-acceso-a-la-informacion-publica/mecanismos-de-atencion-al-ciudadano'
     link_title: ''
     description: null
     enabled: '1'
@@ -12880,7 +12844,7 @@ menus:
     menu_name: transparencia-acceso-informacion
     title: '1.3 Políticas de Seguridad de la Información'
     parent: 'menu_link_content:9d663ce0-7090-4f10-9bc9-f402051bee86'
-    uri: 'internal:/transparencia-y-acceso-a-la-informacion-publica/politicas-de-seguridad-de-la-informacion#cont'
+    uri: 'internal:/transparencia-y-acceso-a-la-informacion-publica/politicas-de-seguridad-de-la-informacion'
     link_title: ''
     description: null
     enabled: '1'
@@ -12907,7 +12871,7 @@ menus:
     uri: 'internal:/transparencia-y-acceso-a-la-informacion-publica/procesos-y-procedimientos'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: es
@@ -12998,9 +12962,9 @@ menus:
     uuid: 4b53309a-07de-4fa8-be6f-ff2f1be24eab
   -
     menu_name: transparencia-acceso-informacion
-    title: '5.1 Presupuesto Findeter'
+    title: '5.1 Presupuesto general asignado para cada año fiscal'
     parent: 'menu_link_content:cfacbab7-2c3c-495a-bf2a-4a22748aa9d4'
-    uri: 'internal:/transparencia-y-acceso-a-la-información-pública/presupuesto-findeter'
+    uri: 'internal:/transparencia-y-acceso-a-la-informacion-publica/presupuesto-general-asignado-para-cada-anio-fiscal'
     link_title: ''
     description: null
     enabled: '1'
@@ -13012,10 +12976,10 @@ menus:
     menu_name: transparencia-acceso-informacion
     title: '5.2 Ejecución presupuestal histórica'
     parent: 'menu_link_content:cfacbab7-2c3c-495a-bf2a-4a22748aa9d4'
-    uri: 'internal:/transparencia-y-acceso-a-la-informacion-publica/ejecucion-presupuestal-historica#cont'
+    uri: 'internal:/transparencia-y-acceso-a-la-informacion-publica/ejecucion-presupuestal-historica'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: es
@@ -13213,54 +13177,6 @@ menus:
     langcode: es
     uuid: d42e0742-9156-4651-8cce-3475ed2bc715
   -
-    menu_name: transparencia-acceso-informacion
-    title: '10.11 Mecanismos para presentar Peticiones, Quejas, Reclamos y Denuncias- PQRSD'
-    parent: 'menu_link_content:691db354-e5f9-4666-b987-80fb2c5299ca'
-    uri: 'internal:/registrar-pqrsd'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: es
-    uuid: 08f6cf29-01cd-4a48-a0ed-76b69c8decc1
-  -
-    menu_name: transparencia-acceso-informacion
-    title: '4.1 Decreto único reglamentario sectorial'
-    parent: 'menu_link_content:2c824b48-d3d7-4364-b37e-6f78bfff832a'
-    uri: 'https://normograma.info/findeter/docs/arbol/decreto_unico_reglamentario_sectorial.htm'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: es
-    uuid: 9ebf26f0-1b4d-4358-a1d5-c3222beb3d1f
-  -
-    menu_name: transparencia-acceso-informacion
-    title: '5.2 Estados financieros'
-    parent: 'menu_link_content:cfacbab7-2c3c-495a-bf2a-4a22748aa9d4'
-    uri: 'internal:/transparencia-y-acceso-a-la-información-publica/estados-financieros'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: es
-    uuid: 9d73d597-eaad-4563-a4a6-2fb1218a0788
-  -
-    menu_name: transparencia-acceso-informacion
-    title: '6.3 Programas y proyectos en ejecución (proyectos de inversión)'
-    parent: 'menu_link_content:2bcec003-9329-4286-9ed5-3140842114ed'
-    uri: 'internal:/system/files/2020-12/GA-DA-016%20PROGRAMA%20GESTION%20DOCUMENTAL%20V4.pdf'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: es
-    uuid: 886b25a6-8c84-4a52-b358-08350c28a5db
-  -
     menu_name: menu-principal
     title: 'FAQ - Preguntas Frecuentes'
     parent: 'menu_link_content:030ac45d-3ce3-43ee-bb35-7f36b72d22f3'
@@ -13387,9 +13303,9 @@ menus:
     uri: 'route:<nolink>'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '1'
-    weight: '-49'
+    weight: '-50'
     langcode: es
     uuid: 7b92eb68-d14f-4f08-911d-1b9ee0287588
   -
@@ -13473,33 +13389,81 @@ menus:
     description: null
     enabled: '1'
     expanded: '1'
-    weight: '-49'
+    weight: '-50'
     langcode: es
     uuid: 363ad7ac-cb0d-4e3d-a15f-18e3c9c3ba32
   -
     menu_name: menu-principal
-    title: 'Convocatorias de terceros'
+    title: 'Contrataciones de terceros'
     parent: 'menu_link_content:363ad7ac-cb0d-4e3d-a15f-18e3c9c3ba32'
-    uri: 'internal:/convocatorias'
+    uri: 'route:<nolink>'
     link_title: ''
     description: null
     enabled: '1'
     expanded: '0'
-    weight: '-49'
+    weight: '0'
     langcode: es
     uuid: 3439dd5a-0279-433f-a5d5-d6dd0b3ea6e9
   -
     menu_name: menu-principal
     title: 'Convocatorias del Prosperity Fund'
     parent: 'menu_link_content:363ad7ac-cb0d-4e3d-a15f-18e3c9c3ba32'
-    uri: 'internal:/convocatorias-prosperity-fund'
+    uri: 'route:<nolink>'
     link_title: ''
     description: null
     enabled: '1'
     expanded: '0'
-    weight: '-48'
+    weight: '0'
     langcode: es
     uuid: b38f7350-9838-4fc2-9cd5-7b8037e5d1ec
+  -
+    menu_name: transparencia-acceso-informacion
+    title: '10.11 Mecanismos para presentar Peticiones, Quejas, Reclamos y Denuncias- PQRSD'
+    parent: 'menu_link_content:691db354-e5f9-4666-b987-80fb2c5299ca'
+    uri: 'internal:/registrar-pqrsd'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: es
+    uuid: 08f6cf29-01cd-4a48-a0ed-76b69c8decc1
+  -
+    menu_name: transparencia-acceso-informacion
+    title: '4.1 Decreto único reglamentario sectorial'
+    parent: 'menu_link_content:2c824b48-d3d7-4364-b37e-6f78bfff832a'
+    uri: 'https://normograma.info/findeter/docs/arbol/decreto_unico_reglamentario_sectorial.htm'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: es
+    uuid: 9ebf26f0-1b4d-4358-a1d5-c3222beb3d1f
+  -
+    menu_name: transparencia-acceso-informacion
+    title: '5.3 Estados financieros'
+    parent: 'menu_link_content:cfacbab7-2c3c-495a-bf2a-4a22748aa9d4'
+    uri: 'internal:/transparencia-y-acceso-a-la-información-publica/estados-financieros'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: es
+    uuid: 9d73d597-eaad-4563-a4a6-2fb1218a0788
+  -
+    menu_name: transparencia-acceso-informacion
+    title: '6.3 Programas y proyectos en ejecución (proyectos de inversión)'
+    parent: 'menu_link_content:2bcec003-9329-4286-9ed5-3140842114ed'
+    uri: 'internal:/system/files/2020-12/GA-DA-016%20PROGRAMA%20GESTION%20DOCUMENTAL%20V4.pdf'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: es
+    uuid: 886b25a6-8c84-4a52-b358-08350c28a5db
   -
     menu_name: menu-principal
     title: 'Asistencia técnica en Desarrollo Territorial Integrado'
@@ -13507,7 +13471,7 @@ menus:
     uri: 'route:<nolink>'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '-50'
     langcode: es
@@ -13531,9 +13495,9 @@ menus:
     uri: 'route:<nolink>'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
-    weight: '-49'
+    weight: '0'
     langcode: es
     uuid: fea02a16-7e5d-471d-b628-dd5f9a5cbc65
   -
@@ -13598,12 +13562,24 @@ menus:
     uuid: 9738f25e-a20c-4afe-82d6-143756cc8962
   -
     menu_name: menu-principal
+    title: 'Biblioteca Digital'
+    parent: 'menu_link_content:9738f25e-a20c-4afe-82d6-143756cc8962'
+    uri: 'route:<nolink>'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: es
+    uuid: 2e8b5387-1d81-4553-8262-e2de9d2b296a
+  -
+    menu_name: menu-principal
     title: 'Cursos y formación'
     parent: 'menu_link_content:9738f25e-a20c-4afe-82d6-143756cc8962'
     uri: 'route:<nolink>'
     link_title: ''
     description: null
-    enabled: '0'
+    enabled: '1'
     expanded: '0'
     weight: '0'
     langcode: es
@@ -13680,3 +13656,63 @@ menus:
     weight: '0'
     langcode: es
     uuid: e3def419-2acf-4432-bfcf-1114409e3966
+  -
+    menu_name: menu-govco
+    title: Assista
+    parent: null
+    uri: 'http://assista/proactivanet/portal/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-50'
+    langcode: es
+    uuid: 0341242b-eaf6-48ac-9d74-66861da7f447
+  -
+    menu_name: menu-govco
+    title: 'CRM 365'
+    parent: null
+    uri: 'https://crm365.findeter.gov.co:9443/main.aspx'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-49'
+    langcode: es
+    uuid: 035cd322-4491-43bb-b118-89286519b63e
+  -
+    menu_name: menu-govco
+    title: 'Office 365'
+    parent: null
+    uri: 'http://portal.office.com/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-48'
+    langcode: es
+    uuid: 23535748-00e2-495c-8163-77b77b100acc
+  -
+    menu_name: menu-govco
+    title: 'Acceso al sistema'
+    parent: null
+    uri: 'internal:/user'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-47'
+    langcode: es
+    uuid: b441b2c4-a363-46e2-aa0e-41722e8a2b73
+  -
+    menu_name: menu-govco
+    title: Intranet
+    parent: null
+    uri: 'https://serviciosinternos.findeter.gov.co:8444/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-46'
+    langcode: es
+    uuid: c2e896e8-127d-4681-9d6c-332a925a0b00

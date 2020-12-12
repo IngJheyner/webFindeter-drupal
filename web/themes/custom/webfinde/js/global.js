@@ -10,10 +10,16 @@
     /*Drupal.behaviors.webfinde = {
         attach: function(context, settings) {*/
 
-          /*===========================================
+            /*===========================================
+            MENU-GOVCO
+            =============================================*/
+            $("section.menuGovCo nav ul li a").html("");
+
+            /*===========================================
            BUSCADOR(HOME)
            =============================================*/
             $("form#search-block-form .btnSearch").attr("value","");
+            
 
             /*===========================================
             PRODUCTOS Y SERVICIOS
@@ -184,15 +190,10 @@
                 var descripcion = $('p', this).attr('descripcion');
                 var enlace = $('p', this).attr('enlace');
                 
-                const imgFondoCaso = () =>{
-
-                    $("div.casosExito").css({
-                        'background':'url("'+imgFondo+'")'
-                    });
-                };
-                
-                $("div.casosExito").fadeOut( 1000, "linear", imgFondoCaso );
-                $("div.casosExito").fadeIn( 'slow', "linear");
+               
+                $("div.casosExito").css({
+                    'background':'url("'+imgFondo+'")'
+                });
 
                 $("div.casosExito div.contenido h1.tituloCaso").html(titulo);
                 $("div.casosExito div.contenido p.descripcionCaso").html(descripcion);

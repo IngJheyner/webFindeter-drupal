@@ -130,6 +130,14 @@
             {# ===== ===== Más logos ===== ===== #}
             {{ content.field_mas_logos_footer }}
 
+            {# ===== ===== Credito Directo ===== ===== #}
+
+            <a href="{{ content.field_footer_url_credito_directo.0["#title"] }}" target="_blank">
+
+              <img src="{{ file_url(content.field_footer_img_credito_directo[0]['#item'].entity.uri.value) }}" class="img-fluid w-50">
+
+            </a>
+
 
           </div>
 

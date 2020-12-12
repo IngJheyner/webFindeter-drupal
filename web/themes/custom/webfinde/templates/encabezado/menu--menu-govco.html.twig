@@ -50,12 +50,12 @@ LINKS MENU
 
         {%
           set classes_link = [
-          'nav-link py-0',      
+          'nav-link',      
           item.in_active_trail ? 'active',
         ]
         %}
 
-        <li{{ item.attributes.addClass('nav-item') }}>
+        <li{{ item.attributes.addClass('nav-item mr-3') }}>
 
           {{ link(item.title, item.url, { 'class': classes_link }) }}
 
