@@ -7,10 +7,9 @@ COLORES
 /* ==============================
 VENTANA MODAL
 ============================== */
-.modal-backdrop {
-  background-color: transparent;
-}
-
+/*.modal-backdrop{
+    background-color: transparent;
+}*/
 /* ==============================
 BOTONES
 ============================== */
@@ -87,8 +86,20 @@ COLORES
 .menuGovCo div.govCo {
   background-color: #112d6a;
 }
-.menuGovCo nav ul li span {
-  color: #112d6a;
+.menuGovCo nav ul li:nth-child(1) a::before {
+  content: url("/themes/custom/webfinde/images/iconos/menu-govco/assista.png");
+}
+.menuGovCo nav ul li:nth-child(2) a::before {
+  content: url("/themes/custom/webfinde/images/iconos/menu-govco/crm-findeter.jpg");
+}
+.menuGovCo nav ul li:nth-child(3) a::before {
+  content: url("/themes/custom/webfinde/images/iconos/menu-govco/office_365.jpg");
+}
+.menuGovCo nav ul li:nth-child(4) a::before {
+  content: url("/themes/custom/webfinde/images/iconos/menu-govco/acceso_admin.jpg");
+}
+.menuGovCo nav ul li:nth-child(5) a::before {
+  content: url("/themes/custom/webfinde/images/iconos/menu-govco/intranet.jpg");
 }
 
 section.menuPrincipal {
@@ -160,11 +171,6 @@ div.sliderHome {
   top: 0;
   width: 100%;
 }
-div.sliderHome video {
-  top: 0;
-  left: 0;
-  transform: translate(0, -25%);
-}
 
 /* ===== ===== BUSCADOR Y ACCESO RAPIDO ===== ===== */
 /* ==============================
@@ -172,7 +178,7 @@ COLORES
 ============================== */
 form#search-block-form {
   position: relative;
-  margin: 30rem 2rem 0 2rem;
+  margin: 36rem 2rem 0 2rem;
 }
 form#search-block-form div.form-item {
   margin: 0;
@@ -222,6 +228,15 @@ form#search-block-form .btnSearch {
   width: 53px;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 1200px) and (max-width: 1919.98px) {
+  form#search-block-form {
+    margin: 25rem 2rem 0 2rem;
+  }
+}
 /* ===== ===== PRODUCTOS Y SERVICIOS ===== ===== */
 /* ==============================
 COLORES
@@ -369,7 +384,6 @@ article.productoServicios div.encabezado h1.tituloEncabezado {
 /* ===== ===== CONTENIDO ===== ===== */
 article.productoServicios {
   position: relative;
-  /*z-index: -1;*/
 }
 article.productoServicios div.cuerpoContenido {
   /* ==============================

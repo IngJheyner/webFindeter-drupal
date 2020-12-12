@@ -12,8 +12,17 @@
     nav{
         ul{
             li{
-                span{
-                    color: var.$color-primario;
+                $li: (1:"assista.png",2:"crm-findeter.jpg",3:"office_365.jpg",4:"acceso_admin.jpg",5:"intranet.jpg");
+
+                @each $num, $icon in $li {
+
+                    &:nth-child(#{$num}){
+
+                        a::before{
+                            content: url('/themes/custom/webfinde/images/iconos/menu-govco/#{$icon}');
+                        }
+                    }
+                    
                 }
             }
         }
@@ -119,10 +128,4 @@ div.sliderHome{
     position: absolute;
     top: 0;
     width: 100%;
-   
-    video{
-        top: 0;
-        left: 0;
-        transform: translate(0, -25%);
-    }
 }

@@ -1,9 +1,10 @@
 @use 'variables' as var;
+@use '../mixins/media-query' as media-query;
 
 form#search-block-form{
 
     position: relative; 
-    margin: 30rem 2rem 0 2rem;
+    margin: 36rem 2rem 0 2rem;
 
     div.form-item{
         margin: 0;        
@@ -72,4 +73,14 @@ form#search-block-form{
         width: 53px;
     }
 
+}
+
+/* ==============================
+MEDIA QUERY
+============================== */
+@include media-query.media(xl){
+
+    form#search-block-form{ 
+        margin: 25rem 2rem 0 2rem;
+    }
 }
