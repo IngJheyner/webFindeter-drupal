@@ -182,6 +182,54 @@
                     console.log(data);
                 }
             });
+            $.ajax({
+                    url: '../../controller/controller.php',
+                    type: "POST",
+                    data : {
+                        'procedimientos'    :   76,
+                        'estado'            :   'VIGENTE'
+                    },
+                    dataType: 'json',
+                    success: function(data){
+                        tbodyrep='';
+                        if(data.Registro.Error){
+                            tbodyrep += '<tr>'
+                                +'<td colspan="6">'+ data.Registro.Error +'</td>'
+                            +'</tr>';
+                        }else{
+                            if(data.Registro.length > 1)
+                            {
+                                num = 1
+                                data.Registro.forEach(element => {
+
+                                    tbodyrep += '<tr class="rowfilt">'
+                                        +'<td name="interno" value="'+element.interno+'">'+num+'</td>'
+                                        +'<td name="modalidad" value="'+ element.modalidadCodigo +'">'+ element.modalidad +'</td>'
+                                        +'<td align="right">'+element.INITDATE.split("T")[0] +'</td>'
+                                        +'<td align="right">'+ element.estado+' </td>'
+                                        +'<td align="right">'+ element.objeto+' </td>'
+                                        +'<td align="right">'+ formatter.format(element.presupuestado)+' </td>'
+                                    +'</tr>';
+                                    num ++;
+                                });
+                            }else{
+                                tbodyrep += '<tr class="rowfilt">'
+                                    +'<td name="interno" value="'+data.Registro.interno+'">1</td>'
+                                    +'<td name="modalidad" value="'+ data.Registro.modalidadCodigo +'">'+ data.Registro.modalidad +'</td>'
+                                    +'<td align="right">'+data.Registro.INITDATE.split("T")[0] +'</td>'
+                                    +'<td align="right">'+ data.Registro.estado+' </td>'
+                                    +'<td align="right">'+ data.Registro.objeto+' </td>'
+                                    +'<td align="right">'+ formatter.format(data.Registro.presupuestado)+' </td>'
+                                +'</tr>';
+                            }
+                        }
+                        $('#tbodyrespuesta').html(tbodyrep);
+                    },
+                    error: function(data){
+                        console.log(data);
+                    }
+
+                });
             $("#tbodyrespuesta").on('click', '.rowfilt', function () {
                 internomod      = $(this)[0].childNodes[0].getAttribute('value');
                 modalidaddoc    = $(this)[0].childNodes[1].getAttribute('value');               

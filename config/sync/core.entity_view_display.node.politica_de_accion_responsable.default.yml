@@ -1,0 +1,41 @@
+uuid: 263c94ad-800a-4388-a757-deb3aed1b069
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.politica_de_accion_responsable.body
+    - field.field.node.politica_de_accion_responsable.field_img_politi_accion_respon
+    - node.type.politica_de_accion_responsable
+  module:
+    - image
+    - text
+    - user
+id: node.politica_de_accion_responsable.default
+targetEntityType: node
+bundle: politica_de_accion_responsable
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_img_politi_accion_respon:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

@@ -136,9 +136,9 @@
   .encabezado h1{
     padding-bottom: 12px;
   }
-    .encabezadoProsperityFund{
+  .encabezadoProsperityFund{
     width:100%;
-    position: relative;
+    position: absolute;
     z-index: -1;
     top: 0;
     transform: translate(0, -14rem);
@@ -173,15 +173,26 @@
     top:55px;
   }*/
 </style>
-<article{{ attributes.addClass(classes) }}>
-<div class="block encabezadoProsperityFund block-block-content block-block-content992ef26e-7538-4427-bf44-b6ad1415ca6e">
+{%
+  set classes = [
+    'node',
+    'productoServicios',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
 
+<article{{ attributes.addClass(classes) }}>
   <figure class="w-100">
     <img src="{{ file_url(node.field_contrat_imagen_de_cabecera.entity.fileuri) }}" class="img-fluid w-100">
-  </figure>
-    <div class=" encabezado container">
-      <h1 class="tituloEncabezado mt-3">{{ label }}</h1>   
-    </div>
+  </figure>  
+  <div class="encabezado container">
+    <h1 class="tituloEncabezado mt-3">{{ label }}</h1>   
+  </div>
+
   
   {{ drupal_breadcrumb() }}
 

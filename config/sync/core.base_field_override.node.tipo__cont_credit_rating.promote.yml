@@ -1,0 +1,22 @@
+uuid: bbcb5fdc-bf3c-4ab3-bd51-6ae6022492ce
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.tipo__cont_credit_rating
+id: node.tipo__cont_credit_rating.promote
+field_name: promote
+entity_type: node
+bundle: tipo__cont_credit_rating
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

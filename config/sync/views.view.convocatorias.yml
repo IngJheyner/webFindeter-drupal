@@ -56,8 +56,8 @@ display:
         type: basic
         options:
           submit_button: Aplicar
-          reset_button: false
-          reset_button_label: Reiniciar
+          reset_button: true
+          reset_button_label: Limpiar
           exposed_sorts_label: 'Ordenar por'
           expose_sort_order: true
           sort_asc_label: Asc
@@ -502,7 +502,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Código proceso'
+          label: Código
           exclude: false
           alter:
             alter_text: false
@@ -633,7 +633,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Estado convocatoria'
+          label: Estado
           exclude: false
           alter:
             alter_text: false
@@ -695,7 +695,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Tipologías contractuales'
+          label: 'Tipología contractual'
           exclude: false
           alter:
             alter_text: false
@@ -885,7 +885,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Cuantia
+          label: Cuantía
           exclude: false
           alter:
             alter_text: false
@@ -1131,7 +1131,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
+          operator: contains
           value: ''
           group: 1
           exposed: true
@@ -1153,6 +1153,8 @@ display:
               administrator: '0'
               abogado: '0'
               secretaria_general: '0'
+              colaborador: '0'
+              c_modificador: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -1398,6 +1400,51 @@ display:
                   min: ''
                   max: ''
           plugin_id: numeric
+        field_convcatoria_objeto_value:
+          id: field_convcatoria_objeto_value
+          table: node__field_convcatoria_objeto
+          field: field_convcatoria_objeto_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_convcatoria_objeto_value_op
+            label: Objeto
+            description: ''
+            use_operator: false
+            operator: field_convcatoria_objeto_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_convcatoria_objeto_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              abogado: '0'
+              secretaria_general: '0'
+              colaborador: '0'
+              c_modificador: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
         field_convcatoria_departamento_target_id:
           id: field_convcatoria_departamento_target_id
           table: node__field_convcatoria_departamento
@@ -1427,19 +1474,33 @@ display:
               administrator: '0'
               abogado: '0'
               secretaria_general: '0'
+              colaborador: '0'
+              c_modificador: '0'
             reduce: false
           is_grouped: false
           group_info:
-            label: ''
+            label: 'Departamento y Municipio (field_convcatoria_departamento)'
             description: ''
-            identifier: ''
+            identifier: field_convcatoria_departamento_target_id
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items: {  }
+            group_items:
+              1:
+                title: ''
+                operator: or
+                value: null
+              2:
+                title: ''
+                operator: or
+                value: null
+              3:
+                title: ''
+                operator: or
+                value: null
           reduce_duplicates: false
           type: cshs
           limit: true
@@ -1499,32 +1560,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: datetime
-        status:
-          value: '1'
-          table: node_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-          group: 2
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            convocatorias: convocatorias
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
-          group: 2
         created:
           id: created
           table: node_field_data
@@ -1577,6 +1612,32 @@ display:
           entity_type: node
           entity_field: created
           plugin_id: date
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 2
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            convocatorias: convocatorias
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 2
       filter_groups:
         operator: AND
         groups:
