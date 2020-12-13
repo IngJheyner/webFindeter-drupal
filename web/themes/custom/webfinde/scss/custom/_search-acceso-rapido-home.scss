@@ -4,7 +4,7 @@
 form#search-block-form{
 
     position: relative; 
-    margin: 36rem 2rem 0 2rem;
+    margin: 36.5rem 2rem 0 2rem;
 
     div.form-item{
         margin: 0;        
@@ -81,6 +81,22 @@ MEDIA QUERY
 @include media-query.media(xl){
 
     form#search-block-form{ 
-        margin: 25rem 2rem 0 2rem;
+        margin: 26rem 2rem 0 2rem;
+    }
+}
+
+/* ===== ===== MEDIA REVISAMOS EN 1520 ===== ===== */
+@include media-query.media(xxl){
+
+    form#search-block-form{ 
+        margin: 26rem 2rem 0 2rem;
+    }
+}
+
+/* ===== ===== MEDIA REVISAMOS EN 1600 ===== ===== */
+@include media-query.media(yl){
+    
+    form#search-block-form{ 
+        margin: 28.5rem 2rem 0 2rem;
     }
 }
