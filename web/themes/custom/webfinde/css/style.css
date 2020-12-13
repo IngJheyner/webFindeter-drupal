@@ -90,16 +90,16 @@ COLORES
   content: url("/themes/custom/webfinde/images/iconos/menu-govco/assista.png");
 }
 .menuGovCo nav ul li:nth-child(2) a::before {
-  content: url("/themes/custom/webfinde/images/iconos/menu-govco/crm-findeter.jpg");
+  content: url("/themes/custom/webfinde/images/iconos/menu-govco/crm-findeter.png");
 }
 .menuGovCo nav ul li:nth-child(3) a::before {
-  content: url("/themes/custom/webfinde/images/iconos/menu-govco/office_365.jpg");
+  content: url("/themes/custom/webfinde/images/iconos/menu-govco/office_365.png");
 }
 .menuGovCo nav ul li:nth-child(4) a::before {
-  content: url("/themes/custom/webfinde/images/iconos/menu-govco/acceso_admin.jpg");
+  content: url("/themes/custom/webfinde/images/iconos/menu-govco/intranet.png");
 }
 .menuGovCo nav ul li:nth-child(5) a::before {
-  content: url("/themes/custom/webfinde/images/iconos/menu-govco/intranet.jpg");
+  content: url("/themes/custom/webfinde/images/iconos/menu-govco/acceso_admin.png");
 }
 
 section.menuPrincipal {
@@ -178,7 +178,7 @@ COLORES
 ============================== */
 form#search-block-form {
   position: relative;
-  margin: 36rem 2rem 0 2rem;
+  margin: 36.5rem 2rem 0 2rem;
 }
 form#search-block-form div.form-item {
   margin: 0;
@@ -233,9 +233,23 @@ form#search-block-form .btnSearch {
 MEDIA QUERY
 ============================== */
 /*MOVIL VERTICAL(sm 320px)*/
-@media (min-width: 1200px) and (max-width: 1919.98px) {
+@media (min-width: 1200px) and (max-width: 1365.98px) {
   form#search-block-form {
-    margin: 25rem 2rem 0 2rem;
+    margin: 26rem 2rem 0 2rem;
+  }
+}
+/* ===== ===== MEDIA REVISAMOS EN 1520 ===== ===== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 1520px) and (max-width: 1599.98px) {
+  form#search-block-form {
+    margin: 26rem 2rem 0 2rem;
+  }
+}
+/* ===== ===== MEDIA REVISAMOS EN 1600 ===== ===== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 1600px) and (max-width: 1919.98px) {
+  form#search-block-form {
+    margin: 28.5rem 2rem 0 2rem;
   }
 }
 /* ===== ===== PRODUCTOS Y SERVICIOS ===== ===== */
