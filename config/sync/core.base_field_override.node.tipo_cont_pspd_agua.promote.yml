@@ -1,0 +1,22 @@
+uuid: faf7a4d4-b27b-48e4-815e-e516c175e85d
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.tipo_cont_pspd_agua
+id: node.tipo_cont_pspd_agua.promote
+field_name: promote
+entity_type: node
+bundle: tipo_cont_pspd_agua
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

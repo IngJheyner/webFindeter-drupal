@@ -1,0 +1,32 @@
+uuid: bca5d5cb-9344-4a86-a556-f8b3a557255d
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tip_cont_agua_saneamiento_basico.body
+    - node.type.tip_cont_agua_saneamiento_basico
+  module:
+    - text
+    - user
+id: node.tip_cont_agua_saneamiento_basico.teaser
+targetEntityType: node
+bundle: tip_cont_agua_saneamiento_basico
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

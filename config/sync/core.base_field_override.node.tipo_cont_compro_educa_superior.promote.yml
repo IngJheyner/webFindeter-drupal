@@ -1,0 +1,22 @@
+uuid: cfdf6c36-2a7d-4679-bb1b-c5215abdcf59
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.tipo_cont_compro_educa_superior
+id: node.tipo_cont_compro_educa_superior.promote
+field_name: promote
+entity_type: node
+bundle: tipo_cont_compro_educa_superior
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

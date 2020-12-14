@@ -1,0 +1,32 @@
+uuid: 0a0073fa-0788-469f-9bb3-2ae02115beb2
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tipo_cont_infraestructura_social.body
+    - node.type.tipo_cont_infraestructura_social
+  module:
+    - text
+    - user
+id: node.tipo_cont_infraestructura_social.teaser
+targetEntityType: node
+bundle: tipo_cont_infraestructura_social
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

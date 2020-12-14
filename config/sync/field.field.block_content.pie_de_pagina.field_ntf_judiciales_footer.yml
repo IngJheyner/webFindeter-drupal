@@ -5,17 +5,21 @@ dependencies:
   config:
     - block_content.type.pie_de_pagina
     - field.storage.block_content.field_ntf_judiciales_footer
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
 id: block_content.pie_de_pagina.field_ntf_judiciales_footer
 field_name: field_ntf_judiciales_footer
 entity_type: block_content
 bundle: pie_de_pagina
 label: 'Envió de notificaciones judiciales'
 description: ''
-required: true
+required: false
 translatable: false
-default_value:
-  -
-    value: notificacionesjudiciales@findeter.gov.co
+default_value: {  }
 default_value_callback: ''
 settings: {  }
 field_type: email

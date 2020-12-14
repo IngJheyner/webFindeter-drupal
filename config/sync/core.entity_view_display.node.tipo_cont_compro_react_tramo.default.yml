@@ -1,0 +1,30 @@
+uuid: e241bc40-5ce3-416f-8f33-6268c826af18
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_cont_compro_react_tramo.body
+    - node.type.tipo_cont_compro_react_tramo
+  module:
+    - text
+    - user
+id: node.tipo_cont_compro_react_tramo.default
+targetEntityType: node
+bundle: tipo_cont_compro_react_tramo
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
