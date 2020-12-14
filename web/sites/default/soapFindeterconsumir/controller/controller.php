@@ -10,7 +10,7 @@ function consult(){
         if($_POST['estado'] != '') $queryEstado = ' estado = \''.$_POST['estado'].'\' ';
         if($_POST['procesos'] != '') $queryInterno = ' interno = \''.$_POST['procesos'].'\' ';
         if($_POST['objeto'] != '') $queryObjeto = ' objeto like \'%'.$_POST['objeto'].'%\' ';
-
+        //var_dump($queryEstado);
         if($_POST['modalidad'] != '')
         {
             if($_POST['estado'] != '' || $_POST['procesos'] != '' || $_POST['objeto'] != '')

@@ -1,0 +1,14 @@
+uuid: 61b1248c-544a-41d2-bb5a-c7a2db66d675
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.c_modificador
+  module:
+    - user
+id: user_remove_role_action.c_modificador
+label: 'Elimina el rol C-Modificador al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: c_modificador

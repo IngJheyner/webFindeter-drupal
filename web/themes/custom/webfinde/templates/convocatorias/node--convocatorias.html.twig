@@ -96,7 +96,7 @@
       {# ===== ===== Titulo ===== ===== #} 
       <div class="titulo mb-4">
 
-        <h1>{{ "Proceso número "|t }} {{ label }}</h1>
+        <h1>{{ ""|t }} {{ label }}</h1>
 
       </div>
 
@@ -116,7 +116,7 @@
 
             <td>
             <b> {{ "Programa:"|t }} </b><br>
-            <b> {{ "No. Convenio:"|t }} </b><br>
+            <b> {{ "Convenio:"|t }} </b><br>
             </td>
 
             <td>{{ content.field_convcatoria_programa.0 }}</td>
@@ -124,13 +124,13 @@
           <tr>
 
           {# ===== ===== Codigo del proceso ===== ===== #}
-          <tr>
+          <!--<tr>
 
             <td><b> {{ "Código del proceso:"|t }} </b></td>
 
             <td>{{ label }}</td>
 
-          <tr>
+          <tr>-->
 
           {# ===== ===== Tipologías contractuales ===== ===== #}
           <tr>
@@ -191,7 +191,7 @@
 
             <td><b> {{ "Ultima fecha de actualización:"|t }} </b></td>
 
-            <td><i class="far fa-calendar-alt"></i> {{ node.published_at.value|date('d-m-Y') }}</td>
+            <td><i class="far fa-calendar-alt"></i> {{ node.published_at.value|date('Y-m-d') }}</td>
 
           <tr>
 
@@ -227,7 +227,7 @@
 
             <td><b> {{ "Correo electrónico:"|t }} </b></td>
 
-            <td>{{ content.field_convcatoria_email_proceso.0 }}</td>
+            <td><a href="mailto:{{ content.field_convcatoria_email_proceso.0 }}">{{ content.field_convcatoria_email_proceso.0 }}</a></td>
 
           <tr>
 
@@ -249,8 +249,8 @@
         <thead>
 
           <tr>
-            <th>{{ "Nombre"|t }}</th>   
-            <th>{{ "Tipo de documento"|t }}</th>  
+            <th>{{ "Tipo de documento"|t }}</th>
+			<th>{{ "Archivo"|t }}</th>   
             <th>{{ "Fecha de publicación"|t }}</th>                           
           </tr>
 

@@ -11,41 +11,28 @@ dependencies:
     - field.field.media.mltdia_convcatoria_archivo.field_media_document
     - media.type.mltdia_convcatoria_archivo
   module:
-    - datetime
     - field_formatter_class
     - file
-    - image
 id: media.mltdia_convcatoria_archivo.media_library
 targetEntityType: media
 bundle: mltdia_convcatoria_archivo
 mode: media_library
 content:
-  field_convcatoria_mltdia_editar:
-    type: boolean
-    weight: 5
+  created:
+    type: timestamp
+    weight: 2
     region: content
-    label: inline
+    label: hidden
     settings:
-      format: yes-no
-      format_custom_true: ''
-      format_custom_false: ''
-    third_party_settings:
-      field_formatter_class:
-        class: ''
-  field_convcatoria_muldia_fecha:
-    type: datetime_default
-    weight: 4
-    region: content
-    label: inline
-    settings:
-      timezone_override: ''
-      format_type: short
+      date_format: html_date
+      custom_date_format: ''
+      timezone: ''
     third_party_settings:
       field_formatter_class:
         class: ''
   field_media_document:
     type: file_default
-    weight: 2
+    weight: 1
     region: content
     label: hidden
     settings:
@@ -61,22 +48,13 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  thumbnail:
-    type: image
-    label: hidden
-    settings:
-      image_style: ''
-      image_link: ''
-    weight: 1
-    third_party_settings:
-      field_formatter_class:
-        class: ''
-    region: content
 hidden:
   addtoany: true
-  created: true
+  field_convcatoria_mltdia_editar: true
+  field_convcatoria_muldia_fecha: true
   field_convcatoria_ruta_archivo: true
   field_convcatoria_tipo_adjunto: true
   langcode: true
   search_api_excerpt: true
+  thumbnail: true
   uid: true

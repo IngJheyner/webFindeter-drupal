@@ -4,8 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.node.tipo_cont_contratacion.body
+    - field.field.node.tipo_cont_contratacion.field_contrat_imagen_de_cabecera
+    - image.style.thumbnail
     - node.type.tipo_cont_contratacion
   module:
+    - image
     - path
     - text
 id: node.tipo_cont_contratacion.default
@@ -29,6 +32,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_contrat_imagen_de_cabecera:
+    weight: 122
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
   langcode:
     type: language_select
     weight: 2
