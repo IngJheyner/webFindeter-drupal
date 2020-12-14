@@ -1,4 +1,5 @@
 @use 'variables' as var;
+@use '../mixins/media-query' as media-query;
 
 /* ===== ===== MENUGOVCO ===== ===== */
 .menuGovCo{
@@ -61,6 +62,7 @@ section.menuPrincipal{
                     text-shadow: 1px 1px 2px black; 
                     display: block;
                     cursor: pointer;
+                    
                 }
 
                 > svg{
@@ -128,4 +130,76 @@ div.sliderHome{
     position: absolute;
     top: 0;
     width: 100%;
+}
+
+/* ==============================
+MEDIA QUERY
+============================== */
+@include media-query.media(xs){
+
+    .menuGovCo{
+        
+        nav > ul{
+
+            flex-direction: initial;
+
+            li:last-child{
+                margin: 0 !important;
+            }
+        }
+    }
+
+    section.menuPrincipal{
+
+        background: var.$color-primario;
+    }
+     
+}
+
+@include media-query.media(sm){
+
+    section.menuPrincipal{
+
+        background: var.$color-primario;
+    }
+     
+}
+
+@include media-query.media(lg){
+
+    section.menuPrincipal{ 
+
+        /* ==============================
+        MENU ESCRITORIO
+        ============================== */
+        nav{
+            
+            margin: 0;
+            background-color: var.$color-primario;
+            
+            ul > li > a,span{ 
+                
+                font-size: 14px;                
+            }
+        }
+    }
+     
+}
+
+@include media-query.media(xl){
+
+    section.menuPrincipal{ 
+
+        /* ==============================
+        MENU ESCRITORIO
+        ============================== */
+        nav{
+            
+            ul > li > a,span{ 
+                
+                font-size: 14px;
+            }
+        }
+    }
+     
 }

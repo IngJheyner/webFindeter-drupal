@@ -1,4 +1,5 @@
 @use 'variables' as var;
+@use '../mixins/media-query' as media-query;
 
 /* ==============================
 CONTACTENOS
@@ -184,4 +185,48 @@ div.mapaHome{
         flex: 0 0 91.66667%;
         max-width: 91.66667%;
     }*/
+}
+
+/* ==============================
+MEDIA QUERY
+============================== */
+@include media-query.media(xs){
+
+    div.contactenos {
+
+        div.titulo >  h1{
+
+            font-size: 1.5rem;
+            
+            &::after{
+                background-color: initial;
+            
+            }
+          
+        }
+
+        h2{
+            font-size: 1.5rem;
+        }
+
+        h5{
+            font-size: 1rem;
+        }
+
+    } 
+     
+}
+
+@include media-query.media(sm){
+
+    div.contactenos {
+
+        div.titulo > h1::after{
+
+            background-color: initial;
+
+        }
+
+    } 
+     
 }
