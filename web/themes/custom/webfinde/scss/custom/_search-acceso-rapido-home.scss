@@ -10,12 +10,13 @@ form#search-block-form{
         margin: 0;        
     }
 
-    div.container-inline,div{
+    /*div.container-inline,div{
         display: grid;
-    }
+    }*/
 
 
-    div.buscadorAcceso{       
+    div.buscadorAcceso{     
+        
        
         input[type=search]{
             width: 100%;
@@ -78,10 +79,78 @@ form#search-block-form{
 /* ==============================
 MEDIA QUERY
 ============================== */
+@include media-query.media(xs){
+
+    form#search-block-form{ 
+        margin: 1.5rem 0rem 0 0rem;
+        
+        div.buscadorAcceso{       
+            
+            .menuAccesoRapido{
+                overflow-x: scroll;
+                padding: 2rem 0 2rem 0;
+
+                nav{
+               
+                    ul{ 
+                        flex-direction: initial;
+
+                        li{                       
+                       
+                            margin: 0 1rem 0 0.5rem;
+                            text-align: center;
+                        }
+                     }
+                }
+            }
+        }
+    }
+}
+
+@include media-query.media(sm){
+
+    form#search-block-form{ 
+        margin: 1.5rem 0rem 0 0rem;
+
+        div.buscadorAcceso{       
+            
+            .menuAccesoRapido{
+                overflow-x: scroll;
+                padding: 2rem 0 2rem 0;
+
+                nav{
+               
+                    ul{  
+
+                        li{                       
+                           
+                            margin: 0 1rem 0 2.1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-query.media(md){
+
+    form#search-block-form{ 
+        margin: 17rem 0rem 0 0rem;
+    }
+}
+
+@include media-query.media(lg){
+
+    form#search-block-form{ 
+        margin: 17.5rem 2rem 0 2rem;
+    }
+}
+
 @include media-query.media(xl){
 
     form#search-block-form{ 
-        margin: 26rem 2rem 0 2rem;
+        margin: 18rem 2rem 0 2rem;
     }
 }
 

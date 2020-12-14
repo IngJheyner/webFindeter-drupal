@@ -43,13 +43,15 @@
 
     <section class="row m-0 menuGovCo">
 
-      <div class="col-2 pl-0 govCo">
+      {# ===== ===== Pantalla para > 768px ===== ===== #}
 
-        <img src="{{ file_url(content.field_img_govco_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid" />
+      <div class="col-4 col-sm-3 col-md-2 pl-0  d-md-block govCo">
+
+        <img src="{{ file_url(content.field_img_govco_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid mt-3 mt-sm-2 mt-lg-0" />
       
       </div>
 
-      <div class="col-10">
+      <div class="col-8 col-sm-9 col-md-10">
 
         {{ drupal_menu('menu-govco') }}
 
@@ -59,18 +61,28 @@
 
     <section class="row m-0 menuPrincipal">
 
-      <div class="col-2 p-0">
+      {# ===== ===== Pantalla < 576 ===== ===== #}
+      <div class="col-7 col-sm-5 col-xl-2 p-0 d-md-none d-xl-block">
 
         <a href="{{ url('<front>') }}"><img src="{{ file_url(content.field_logo_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
 
       </div>
 
-      <div class="col-10 p-0">
+      {# ===== ===== Pantalla laptop o mediana 992 hasta 1998.98pxpx ===== ===== #}
+
+      <div class="d-none d-lg-block d-xl-none col-12 p-0">
 
         {{ drupal_menu('menu-principal') }}
 
       </div>
 
+      {# ===== ===== Pantalla Grande > 1200px ===== ===== #}
+
+      <div class="d-none d-xl-block col-10 p-0">
+
+        {{ drupal_menu('menu-principal') }}
+
+      </div>
 
     </section>
 

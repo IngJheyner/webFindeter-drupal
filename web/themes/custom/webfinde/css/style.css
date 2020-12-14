@@ -172,6 +172,54 @@ div.sliderHome {
   width: 100%;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  .menuGovCo nav > ul {
+    flex-direction: initial;
+  }
+  .menuGovCo nav > ul li:last-child {
+    margin: 0 !important;
+  }
+
+  section.menuPrincipal {
+    background: #112d6a;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  section.menuPrincipal {
+    background: #112d6a;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  section.menuPrincipal {
+    /* ==============================
+    MENU ESCRITORIO
+    ============================== */
+  }
+  section.menuPrincipal nav {
+    margin: 0;
+    background-color: #112d6a;
+  }
+  section.menuPrincipal nav ul > li > a, section.menuPrincipal nav span {
+    font-size: 14px;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 1200px) and (max-width: 1365.98px) {
+  section.menuPrincipal {
+    /* ==============================
+    MENU ESCRITORIO
+    ============================== */
+  }
+  section.menuPrincipal nav ul > li > a, section.menuPrincipal nav span {
+    font-size: 14px;
+  }
+}
 /* ===== ===== BUSCADOR Y ACCESO RAPIDO ===== ===== */
 /* ==============================
 COLORES
@@ -179,12 +227,12 @@ COLORES
 form#search-block-form {
   position: relative;
   margin: 36.5rem 2rem 0 2rem;
+  /*div.container-inline,div{
+      display: grid;
+  }*/
 }
 form#search-block-form div.form-item {
   margin: 0;
-}
-form#search-block-form div.container-inline, form#search-block-form div {
-  display: grid;
 }
 form#search-block-form div.buscadorAcceso input[type=search] {
   width: 100%;
@@ -232,9 +280,51 @@ form#search-block-form .btnSearch {
 MEDIA QUERY
 ============================== */
 /*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  form#search-block-form {
+    margin: 1.5rem 0rem 0 0rem;
+  }
+  form#search-block-form div.buscadorAcceso .menuAccesoRapido {
+    overflow-x: scroll;
+    padding: 2rem 0 2rem 0;
+  }
+  form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul {
+    flex-direction: initial;
+  }
+  form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li {
+    margin: 0 1rem 0 0.5rem;
+    text-align: center;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  form#search-block-form {
+    margin: 1.5rem 0rem 0 0rem;
+  }
+  form#search-block-form div.buscadorAcceso .menuAccesoRapido {
+    overflow-x: scroll;
+    padding: 2rem 0 2rem 0;
+  }
+  form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li {
+    margin: 0 1rem 0 2.1rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  form#search-block-form {
+    margin: 17rem 0rem 0 0rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  form#search-block-form {
+    margin: 17.5rem 2rem 0 2rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 1200px) and (max-width: 1365.98px) {
   form#search-block-form {
-    margin: 26rem 2rem 0 2rem;
+    margin: 18rem 2rem 0 2rem;
   }
 }
 /* ===== ===== MEDIA REVISAMOS EN 1520 ===== ===== */
@@ -451,6 +541,53 @@ article.productoServicios div.cuerpoContenido div#myTabContentInternas > .tab-pa
   cursor: pointer;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  section.productosServicios .titulo h1 {
+    width: 100%;
+    font-size: 1.5rem;
+  }
+  section.productosServicios .titulo h1::after {
+    background-color: initial;
+  }
+  section.productosServicios .grid-container {
+    overflow-x: scroll;
+  }
+  section.productosServicios .grid-container .grid-item {
+    margin-left: 1.5rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  section.productosServicios .titulo h1 {
+    width: 100%;
+    font-size: 1.9rem;
+  }
+  section.productosServicios .titulo h1::after {
+    background-color: initial;
+  }
+  section.productosServicios .grid-container {
+    overflow-x: scroll;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  section.productosServicios .titulo h1 {
+    width: 100%;
+  }
+  section.productosServicios .grid-container {
+    overflow-x: scroll;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  section.productosServicios .grid-container {
+    overflow-x: scroll;
+  }
+}
 /* ===== ===== NOTICIAS Y REDES ===== ===== */
 /* ==============================
 COLORES
@@ -644,6 +781,9 @@ div.redeSociales div.tab-content {
   border-right: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
 }
+div.redeSociales div.tab-content > div.tab-pane {
+  overflow-x: scroll;
+}
 
 /* ==============================
 INTERNAS Y LISTADO DE NOTICIAS
@@ -696,6 +836,33 @@ div.pageNoticias .grid-item:hover img {
   transition: 1s all;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  .sliderNoticiaHome div.encabezado > h1::after {
+    background-color: initial;
+  }
+  .sliderNoticiaHome div.slick ul li.grid {
+    width: 100%;
+  }
+  .sliderNoticiaHome div.slick ul li.grid div.slide__description a img {
+    width: 100%;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .sliderNoticiaHome div.encabezado > h1::after {
+    background-color: initial;
+  }
+  .sliderNoticiaHome div.slick ul li.grid {
+    width: 100%;
+  }
+  .sliderNoticiaHome div.slick ul li.grid div.slide__description a img {
+    width: 100%;
+  }
+}
 /* ===== ===== FINDETER EN CIFFRAS ===== ===== */
 /* ==============================
 COLORES
@@ -740,6 +907,42 @@ div.findeterCifras div.grid-container .grid-item div.contenido div.descripcion {
   padding: 0 1rem;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  div.findeterCifras div.titulo > h1, div.findeterCifras h2 {
+    font-size: 1.5rem;
+  }
+  div.findeterCifras div.titulo > h1::after, div.findeterCifras h2::after {
+    background-color: initial;
+  }
+  div.findeterCifras div.grid-container {
+    overflow-x: scroll;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.findeterCifras div.titulo > h1::after {
+    background-color: initial;
+  }
+  div.findeterCifras div.grid-container {
+    overflow-x: scroll;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.findeterCifras div.grid-container {
+    overflow-x: scroll;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  div.findeterCifras div.grid-container {
+    overflow-x: scroll;
+  }
+}
 /* ===== ===== CASOS DE EXITO ===== ===== */
 /* ==============================
 COLORES
@@ -846,6 +1049,44 @@ div.casosExito .slideCasoExito .slick ul.slick-dots li.slick-active::after {
   left: 0;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  div.casosExito div.contenido {
+    width: 100%;
+  }
+  div.casosExito div.contenido div.encabezado > h1 {
+    font-size: 1.5rem;
+  }
+  div.casosExito div.contenido div.encabezado > h1::after {
+    background-color: initial;
+  }
+  div.casosExito div.contenido h1.tituloCaso {
+    font-size: 1.5rem;
+  }
+  div.casosExito .slideCasoExito ul.slide__content li div.contenidoSlider img {
+    display: none;
+  }
+  div.casosExito .slideCasoExito ul.slide__content li div.contenidoSlider p {
+    position: static;
+    width: 100%;
+    color: white;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.casosExito div.contenido {
+    width: 100%;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.casosExito div.contenido {
+    width: 100%;
+  }
+}
 /* ===== ===== CASOS DE EXITO ===== ===== */
 /* ==============================
 COLORES
@@ -1001,6 +1242,30 @@ div.mapaHome .margin-b {
   margin-bottom: 0px;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  div.contactenos div.titulo > h1 {
+    font-size: 1.5rem;
+  }
+  div.contactenos div.titulo > h1::after {
+    background-color: initial;
+  }
+  div.contactenos h2 {
+    font-size: 1.5rem;
+  }
+  div.contactenos h5 {
+    font-size: 1rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.contactenos div.titulo > h1::after {
+    background-color: initial;
+  }
+}
 /* ===== ===== PIE DE PAGINA ===== ===== */
 /* ==============================
 COLORES
