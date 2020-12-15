@@ -53,16 +53,21 @@
   ]
 %}
 
-
 {% if label_hidden %}
 
   {% if multiple %}
 
-    <div{{ attributes.addClass(classes, 'field__items') }}>
+    <div{{ attributes.addClass(classes, 'field__items aqui') }}>
+
+    <!--/system/files/convocatorias/PAF-JU-O-045-2020/NUEVO.pdf-->
 
       {% for item in items %}
 
-        <td{{ item.attributes.addClass('field__item') }}>{{ item.content }}</td>
+        {%
+          set nombreArchivo = item.content["#markup"]|split('/')
+        %}
+
+        <td{{ attributes.addClass(classes, 'archivo') }}><a target="_blank" href="{{ item.content }}"><i class="far fa-file"></i> {{ nombreArchivo[5] }}</a></td>
 
       {% endfor %}
 
@@ -72,36 +77,14 @@
 
     {% for item in items %}
 
-      <td{{ attributes.addClass(classes, 'field__item') }}>{{ item.content }}</td>
+      {%
+        set nombreArchivo = item.content["#markup"]|split('/')
+      %}
+
+      <td{{ attributes.addClass(classes, 'archivo') }}><a target="_blank" href="{{ item.content }}"><i class="far fa-file"></i> {{ nombreArchivo[5] }}</a></td>
 
     {% endfor %}
 
   {% endif %}
-
-{% else %}
-
-  <div{{ attributes.addClass(classes) }}>
-
-    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
-
-    {% if multiple %}
-
-      <div class="field__items">
-
-    {% endif %}
-
-    {% for item in items %}
-
-      <td{{ item.attributes.addClass('field__item') }}>{{ item.content }}</td>
-
-    {% endfor %}
-
-    {% if multiple %}
-
-      </div>
-
-    {% endif %}
-
-  </div>
 
 {% endif %}

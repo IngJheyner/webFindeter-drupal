@@ -13,19 +13,19 @@ third_party_settings:
   filefield_paths:
     enabled: true
     file_path:
-      value: 'convocatorias/[media:field_convcatoria_ruta_archivo]'
+      value: ''
       options:
         slashes: false
-        pathauto: true
+        pathauto: false
         transliterate: false
-    redirect: true
+    redirect: false
     retroactive_update: false
     active_updating: false
     file_name:
-      value: '[file:name]'
+      value: 'convocatorias/[media:field_convcatoria_ruta_archivo]/[file:name]'
       options:
         slashes: false
-        pathauto: true
+        pathauto: false
         transliterate: false
   disable_field:
     add_disable: none
@@ -36,7 +36,7 @@ entity_type: media
 bundle: mltdia_convcatoria_archivo
 label: Archivo
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
