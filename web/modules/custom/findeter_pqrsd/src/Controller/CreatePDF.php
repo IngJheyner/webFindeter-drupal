@@ -39,11 +39,6 @@ class CreatePDF extends ControllerBase {
     $options = array(
       'encoding' => 'UTF-8',  // option with argument
       'no-outline',         // Make Chrome not complain
-      'margin-top'    => '2cm',
-      'margin-right'  => '2cm',
-      'margin-bottom' => '2cm',
-      'margin-left'   => '2cm',
-      'landscape' => true,
 
       // Default page options
       'disable-smart-shrinking',
