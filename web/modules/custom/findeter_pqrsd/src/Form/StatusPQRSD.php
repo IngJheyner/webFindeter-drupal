@@ -27,7 +27,7 @@ use Drupal\file\Entity\File;
  */
 class StatusPQRSD extends FormBase {
   use StringTranslationTrait;
-  
+
     /**
    * Step Id.
    *
@@ -131,19 +131,20 @@ class StatusPQRSD extends FormBase {
     $form['wrapper-status']['status-radicado'] = [
       '#type'       => 'container',
       '#attributes' => [
-        'class'=>['col-6']
+        'class'=>['col-6'],
+        'id' => 'edit-status-radicado'
       ],
     ];
 
     $form['wrapper-status']['status-radicado']['radicado_text'] = [
-      
+
       '#markup' => '<p>Ingrese el número de su radicado en el formulario de la izquierda. Este número se le presenta al finalizar el registro de un radicado, como por ejemplo:</p>
         <div class="number-example">5692TD</div>
         <p>También puede revisar el email enviado a su correo electrónico.</p>
       '
 
     ];
-    
+
     //$form['#attached']['library'][] = 'findeter_pqrsd/global-scripts';
 
     return $form;
@@ -188,7 +189,7 @@ class StatusPQRSD extends FormBase {
     }
 
     $numberRadicado = Xss::filter($form_state->getValue('radicado_number'));
-    
+
     $view = Views::getView('pqrsd');
     $view->setDisplay('block_2');
     $view->setArguments([$numberRadicado]);
@@ -197,7 +198,7 @@ class StatusPQRSD extends FormBase {
     $responseHtml = [];
 
     if(isset($render_view['#rows'][0]['#rows'][0])){
-      
+
       if(isset($render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_primer_nombre')->getValue()[0]['value'])){
         $radicatorName = $render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_primer_nombre')->getValue()[0]['value'];
         $radicatorName .= $render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_segundo_nombre')->getValue()[0]['value']?:' ';
@@ -211,7 +212,7 @@ class StatusPQRSD extends FormBase {
       $responseHtml[] = '<b>Fecha registro: </b> '.date('d/m/Y H:i',$render_view['#rows'][0]['#rows'][0]->_entity->get('created')->getValue()[0]['value']);
       $responseHtml[] = '<b>Fecha máxima de respuesta: </b> '.date('d/m/Y',$render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_fecha_roja')->getValue()[0]['value']);
       $responseHtml[] = '<b>Asunto: </b> '.$render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_descripcion')->getValue()[0]['value'];
-      
+
       $responseHtml[] = '<div class="status-answer"><b>Estado de su radicatoria:</b>';
 
       if(isset($render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_respuesta')->getValue()[0]['value'])){
@@ -250,7 +251,7 @@ class StatusPQRSD extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $form_state->setRebuild(TRUE);
   }
-  
+
 
 
 }

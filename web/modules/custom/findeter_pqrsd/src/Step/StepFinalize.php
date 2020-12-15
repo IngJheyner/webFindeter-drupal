@@ -29,7 +29,7 @@ class StepFinalize extends BaseStep {
   public function buildStepFormElements($steps,$form,$form_state) {
 
     // retry the last value, the nid of user request
-    $valueNid = $steps[4]->getValues();
+    $valueNid = $steps[3]->getValues();
 
     $formStep['completed'] = [
       '#markup' => '<p>Gracias por comunicarse con nosotros, su Petición ha sido radicada satisfactoriamente.</p>
