@@ -192,6 +192,7 @@ class RegisterPQRSD extends FormBase {
 
     $form_state->setRebuild();
     $form['#attached']['library'][] = 'findeter_pqrsd/global-scripts';
+    $form['#attributes']['class'][] = 'container';
 
     return $form;
   }
