@@ -90,14 +90,24 @@
 /* ==============================
 MEDIA QUERY
 ============================== */
-@include media-query.media(lg){
+@include media-query.media(xs){
 
-    @include infoGeneral("field--name-field-ntf-judiciales-footer", var.$color-terciario, 2rem, 13px !important, '../images/iconos/mail.png');
-    @include infoGeneral("field--name-field-email-judiciales-footer", var.$color-terciario, 0, 12px !important, '../images/iconos/mail.png');
-    
+    .footer{
+
+        img.imgCreditoDirecto{
+            width: 25% !important;
+        }
+    }
 }
 
 @include media-query.media(sm){
+
+    .footer{
+
+        img.imgCreditoDirecto{
+            width: 25% !important;
+        }
+    }
 
     ul.iconosSocial{
 
@@ -110,3 +120,11 @@ MEDIA QUERY
     @include infoGeneral("field--name-field-email-judiciales-footer", var.$color-terciario, 0, 15px !important, '../images/iconos/mail.png');
 
 }
+
+@include media-query.media(lg){
+
+    @include infoGeneral("field--name-field-ntf-judiciales-footer", var.$color-terciario, 2rem, 13px !important, '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-email-judiciales-footer", var.$color-terciario, 0, 12px !important, '../images/iconos/mail.png');
+    
+}
+

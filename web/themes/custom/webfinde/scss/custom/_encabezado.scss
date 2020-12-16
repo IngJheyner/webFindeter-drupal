@@ -122,6 +122,86 @@ section.menuPrincipal{
 }
 
 /* ==============================
+MENU MOVIL
+============================== */    
+button#sidebarCollapse, button#sidebarCollapseMd{
+    background-color: var.$color-cuaternario !important;
+}
+
+
+section.menuMovil{
+
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100vh;
+    padding-top: 2rem;
+    background-color: var.$color-primario;
+
+  
+    > div.imgClose{
+
+        width: 300px;
+        position: absolute;
+        display: none;
+        top: 0;
+
+        button{
+            color: white;
+            font-size: 2.5rem;
+        }
+    }
+
+    nav{        
+        min-width: 300px;
+        max-width: 300px;
+        display: none;
+        overflow-y: scroll;
+        flex-flow: column;  
+        transition: all 0.3s; 
+        margin-top: 9rem; 
+        
+
+        > ul{
+            flex-direction: initial !important;
+            display: initial;
+
+            > li{
+
+                //display: flex;
+                margin-bottom: 2rem;
+                border-bottom: 1px solid var.$color-quinario;
+
+                > span{
+                    flex: 1 1 auto;
+                }
+
+                svg{
+                    display: none;
+                }
+                > ul.submenu{
+                    padding: 0;
+                    list-style: none;
+
+                    li.submenuItems{
+                        padding-left: 1rem;
+
+                        ul{
+                            list-style: none;
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ==============================
 SLIDER HOME
 ============================== */
 div.sliderHome{
