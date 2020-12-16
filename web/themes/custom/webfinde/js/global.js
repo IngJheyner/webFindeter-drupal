@@ -11,6 +11,35 @@
         attach: function(context, settings) {*/
 
             /*===========================================
+            MENU SIDEBAR MOVIL
+            =============================================*/
+            $("section.menuMovil nav").attr("id", "sidebar");
+            $("section.menuMovil nav ul li ul.submenu li.submenuItems > span").addClass('d-none');
+            $("section.menuMovil nav ul li ul.submenu").addClass('collapse');
+
+            //Abrir el menu
+            $("#sidebarCollapse").on('click', function(){
+                $("section.menuMovil div.imgClose").toggle();
+                $("#sidebar").toggle();                
+            });
+
+            $("#sidebarCollapseMd").on('click', function(){
+                $("section.menuMovil div.imgClose").toggle();
+                $("#sidebar").toggle();                
+            });
+
+            $("section.menuMovil nav ul li").on('click', function(){
+                
+                $(this).children('ul.submenu').toggle('slow');
+            });
+
+            $("section.menuMovil div.imgClose button").on('click', function(){
+                
+                $("#sidebar").hide();
+                $("section.menuMovil div.imgClose").toggle();
+            });
+
+            /*===========================================
             MENU-GOVCO
             =============================================*/
             $("section.menuGovCo nav ul li a").html("");

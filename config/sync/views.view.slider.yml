@@ -64,7 +64,7 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 12
+          items_per_page: 6
           offset: 0
       style:
         type: views_bootstrap_carousel
@@ -2528,7 +2528,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: true
-          content: "<div class=\"encabezado d-flex mb-3\">\r\n<h1 class=\"flex-fill\">{{ 'Noticias'|t }}</h1>\r\n<div class=\"flex-fill\"><a href=\"/noticias\" class=\"float-right mt-4 text-muted lead\">{{ 'Todas las noticias'|t }}</a></div>\r\n</div>"
+          content: "<div class=\"encabezado d-flex mb-3\">\r\n<h1 class=\"flex-fill\">{{ 'Noticias'|t }}</h1>\r\n<div class=\"flex-fill\"><a href=\"/noticias\" class=\"float-right text-muted lead\">{{ 'Todas las noticias'|t }}</a></div>\r\n</div>"
           plugin_id: text_custom
     cache_metadata:
       max-age: -1

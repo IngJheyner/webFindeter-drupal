@@ -267,9 +267,13 @@ MEDIA QUERY
 
     .sliderNoticiaHome{
 
-        div.encabezado > h1::after{
+        div.encabezado > h1{
 
+            font-size: 1.5rem;
+        
+            &::after{
             background-color: initial;
+            }
         }
     
         div.slick ul li.grid{
@@ -288,9 +292,12 @@ MEDIA QUERY
 
     .sliderNoticiaHome{
 
-        div.encabezado > h1::after{
-
+        div.encabezado > h1{
+              
+        
+            &::after{
             background-color: initial;
+            }
         }
     
         div.slick ul li.grid{

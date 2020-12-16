@@ -163,6 +163,70 @@ section.menuPrincipal nav ul li:hover ul.submenu {
 }
 
 /* ==============================
+MENU MOVIL
+============================== */
+button#sidebarCollapse, button#sidebarCollapseMd {
+  background-color: #00993e !important;
+}
+
+section.menuMovil {
+  display: flex;
+  text-decoration: none;
+  transition: all 0.3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 100vh;
+  padding-top: 2rem;
+  background-color: #112d6a;
+}
+section.menuMovil > div.imgClose {
+  width: 300px;
+  position: absolute;
+  display: none;
+  top: 0;
+}
+section.menuMovil > div.imgClose button {
+  color: white;
+  font-size: 2.5rem;
+}
+section.menuMovil nav {
+  min-width: 300px;
+  max-width: 300px;
+  display: none;
+  overflow-y: scroll;
+  flex-flow: column;
+  transition: all 0.3s;
+  margin-top: 9rem;
+}
+section.menuMovil nav > ul {
+  flex-direction: initial !important;
+  display: initial;
+}
+section.menuMovil nav > ul > li {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+section.menuMovil nav > ul > li > span {
+  flex: 1 1 auto;
+}
+section.menuMovil nav > ul > li svg {
+  display: none;
+}
+section.menuMovil nav > ul > li > ul.submenu {
+  padding: 0;
+  list-style: none;
+}
+section.menuMovil nav > ul > li > ul.submenu li.submenuItems {
+  padding-left: 1rem;
+}
+section.menuMovil nav > ul > li > ul.submenu li.submenuItems ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* ==============================
 SLIDER HOME
 ============================== */
 div.sliderHome {
@@ -843,6 +907,9 @@ MEDIA QUERY
 ============================== */
 /*MOVIL VERTICAL(sm 320px)*/
 @media (max-width: 575.98px) {
+  .sliderNoticiaHome div.encabezado > h1 {
+    font-size: 1.5rem;
+  }
   .sliderNoticiaHome div.encabezado > h1::after {
     background-color: initial;
   }
@@ -1443,51 +1510,17 @@ COLORES
 MEDIA QUERY
 ============================== */
 /*MOVIL VERTICAL(sm 320px)*/
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  div.field--name-field-ntf-judiciales-footer {
-    margin-bottom: 2rem;
-  }
-  div.field--name-field-ntf-judiciales-footer div.field__label {
-    color: white;
-  }
-  div.field--name-field-ntf-judiciales-footer div.field__items div.field__item {
-    position: relative;
-    color: #CDDC4B;
-    font-size: 13px !important;
-    font-weight: lighter;
-    padding-left: 1.5rem;
-  }
-  div.field--name-field-ntf-judiciales-footer div.field__items div.field__item::before {
-    position: absolute;
-    top: 2px;
-    left: 0px;
-    margin-right: 1rem;
-    content: "" url("../images/iconos/mail.png");
-  }
-
-  div.field--name-field-email-judiciales-footer {
-    margin-bottom: 0;
-  }
-  div.field--name-field-email-judiciales-footer div.field__label {
-    color: white;
-  }
-  div.field--name-field-email-judiciales-footer div.field__items div.field__item {
-    position: relative;
-    color: #CDDC4B;
-    font-size: 12px !important;
-    font-weight: lighter;
-    padding-left: 1.5rem;
-  }
-  div.field--name-field-email-judiciales-footer div.field__items div.field__item::before {
-    position: absolute;
-    top: 2px;
-    left: 0px;
-    margin-right: 1rem;
-    content: "" url("../images/iconos/mail.png");
+@media (max-width: 575.98px) {
+  .footer img.imgCreditoDirecto {
+    width: 25% !important;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
+  .footer img.imgCreditoDirecto {
+    width: 25% !important;
+  }
+
   ul.iconosSocial {
     text-align: center;
   }
@@ -1565,6 +1598,50 @@ MEDIA QUERY
     position: relative;
     color: #CDDC4B;
     font-size: 15px !important;
+    font-weight: lighter;
+    padding-left: 1.5rem;
+  }
+  div.field--name-field-email-judiciales-footer div.field__items div.field__item::before {
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    margin-right: 1rem;
+    content: "" url("../images/iconos/mail.png");
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  div.field--name-field-ntf-judiciales-footer {
+    margin-bottom: 2rem;
+  }
+  div.field--name-field-ntf-judiciales-footer div.field__label {
+    color: white;
+  }
+  div.field--name-field-ntf-judiciales-footer div.field__items div.field__item {
+    position: relative;
+    color: #CDDC4B;
+    font-size: 13px !important;
+    font-weight: lighter;
+    padding-left: 1.5rem;
+  }
+  div.field--name-field-ntf-judiciales-footer div.field__items div.field__item::before {
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    margin-right: 1rem;
+    content: "" url("../images/iconos/mail.png");
+  }
+
+  div.field--name-field-email-judiciales-footer {
+    margin-bottom: 0;
+  }
+  div.field--name-field-email-judiciales-footer div.field__label {
+    color: white;
+  }
+  div.field--name-field-email-judiciales-footer div.field__items div.field__item {
+    position: relative;
+    color: #CDDC4B;
+    font-size: 12px !important;
     font-weight: lighter;
     padding-left: 1.5rem;
   }
