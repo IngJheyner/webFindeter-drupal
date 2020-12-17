@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.productos_servicios.body
+    - field.field.node.productos_servicios.field_ps_descripcion
     - field.field.node.productos_servicios.field_ps_imagen_portada
     - field.field.node.productos_servicios.field_ps_img_encabezado
     - field.field.node.productos_servicios.field_ps_items
@@ -35,6 +36,7 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_ps_descripcion: true
   field_ps_imagen_portada: true
   field_ps_img_encabezado: true
   field_ps_items: true

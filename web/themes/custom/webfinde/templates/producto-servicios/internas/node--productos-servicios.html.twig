@@ -108,7 +108,7 @@
     =============================================== #}
     <div class="row">
       
-      <div class="col-6">
+      <div class="col-12 col-lg-6 mb-3 mb-lg-0">
       
         <div class="titulo">
 
@@ -118,21 +118,31 @@
 
         <div class="descripcionContenido mt-4">
 
-          {{ content.body.0 }}
+          <p>{{ content.field_ps_descripcion.0 }}</p>
           
         </div>  
 
       </div>
 
-      <div class="col-6">
+      <div class="col-12 col-lg-6">
 
         {% if content.field_ps_imagen_portada[0]|render|trim is not empty %}
-
+            
           <img src="{{ file_url(content.field_ps_imagen_portada[0]['#item'].entity.uri.value|image_style('ps_img_portada_interna')) }}" class="img-fluid w-100 imgPortada">
 
         {% endif %}
-        
+
       </div>
+
+      <div class="col-12">
+
+        <div class="masInformacion mt-4">
+
+          <p>{{ content.body.0 }}</p>
+          
+        </div> 
+
+      </div> 
 
     </div>
 
@@ -164,7 +174,7 @@
 
       <div class="row">
 
-        <div class="col-6">
+        <div class="col-12 col-md-6 mb-3 mb-md-0">
 
           <h4 class="text-white font-weight-bold">
             {{ 'Boletín informativo'|t }}
@@ -177,7 +187,7 @@
           
         </div>
 
-        <div class="col-6">
+        <div class="col-12 col-md-6">
 
           <section id="mc_embed_signup">    
 
