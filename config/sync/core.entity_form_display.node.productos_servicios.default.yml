@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.productos_servicios.body
+    - field.field.node.productos_servicios.field_ps_descripcion
     - field.field.node.productos_servicios.field_ps_imagen_portada
     - field.field.node.productos_servicios.field_ps_img_encabezado
     - field.field.node.productos_servicios.field_ps_items
@@ -73,6 +74,7 @@ third_party_settings:
     group_contenido:
       children:
         - field_ps_imagen_portada
+        - field_ps_descripcion
         - body
         - field_ps_titulo_tabs_opc1
         - group_prestancion_uno_1
@@ -135,7 +137,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 14
+    weight: 15
     settings:
       rows: 9
       summary_rows: 3
@@ -149,6 +151,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_ps_descripcion:
+    weight: 14
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
   field_ps_imagen_portada:
     weight: 13
     settings:
@@ -253,5 +263,10 @@ content:
       placeholder: ''
       match_limit: 10
     region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }

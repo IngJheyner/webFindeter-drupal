@@ -61,7 +61,7 @@
 
       {% for item in items %}
 
-        <div{{ item.attributes.addClass('col-4 mb-4 pr-0 grid') }}>
+        <div{{ item.attributes.addClass('col-12 col-lg-4 mb-4 pr-md-0 grid') }}>
         
           <div class="gridContenido" modo="arriba">{{ item.content }} </div>
         
@@ -77,7 +77,7 @@
 
       {% for item in items %}
 
-        <div{{ item.attributes.addClass('col-4 pr-0 grid') }}>
+        <div{{ item.attributes.addClass('col-12 pr-0 grid') }}>
         
           <div class="gridContenido">{{ item.content }} </div>
         

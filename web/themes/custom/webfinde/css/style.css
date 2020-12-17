@@ -99,6 +99,9 @@ COLORES
   content: url("/themes/custom/webfinde/images/iconos/menu-govco/intranet.png");
 }
 .menuGovCo nav ul li:nth-child(5) a::before {
+  content: url("/themes/custom/webfinde/images/iconos/menu-govco/en.png");
+}
+.menuGovCo nav ul li:nth-child(6) a::before {
   content: url("/themes/custom/webfinde/images/iconos/menu-govco/acceso_admin.png");
 }
 
@@ -549,6 +552,27 @@ article.productoServicios div.encabezado h1.tituloEncabezado {
   color: white;
   font-size: 3.5rem;
   font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  article.productoServicios div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  article.productoServicios div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  article.productoServicios div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
 }
 
 /* ===== ===== CONTENIDO ===== ===== */
@@ -563,7 +587,7 @@ article.productoServicios div.cuerpoContenido {
   TABS CONTENIDO
   ============================== */
 }
-article.productoServicios div.cuerpoContenido div.descripcionContenido {
+article.productoServicios div.cuerpoContenido div.descripcionContenido, article.productoServicios div.cuerpoContenido div.masInformacion {
   word-spacing: 5pt;
   font-size: 20px;
 }
@@ -612,6 +636,27 @@ MEDIA QUERY
 ============================== */
 /*MOVIL VERTICAL(sm 320px)*/
 @media (max-width: 575.98px) {
+  article.productoServicios div.cuerpoContenido div#myTabContentPrincipal {
+    padding: 1rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  article.productoServicios div.cuerpoContenido div#myTabContentPrincipal {
+    padding: 3rem 1rem 3rem 1rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  article.productoServicios div.cuerpoContenido div#myTabContentPrincipal {
+    padding: 3rem 3rem 3rem 3rem;
+  }
+}
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
   section.productosServicios .titulo h1 {
     width: 100%;
     font-size: 1.5rem;
@@ -624,6 +669,16 @@ MEDIA QUERY
   }
   section.productosServicios .grid-container .grid-item {
     margin-left: 1.5rem;
+  }
+
+  #modalProductosServicios {
+    height: auto;
+  }
+  #modalProductosServicios .modal-dialog .modal-content .modal-body {
+    top: 0;
+  }
+  #modalProductosServicios .modal-dialog .modal-content .modal-body div.descripcion {
+    max-width: 100%;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
@@ -879,6 +934,27 @@ div.encabezadoNoticias div.encabezado h1.tituloEncabezado {
   color: white;
   font-size: 3.5rem;
   font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  div.encabezadoNoticias div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.encabezadoNoticias div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.encabezadoNoticias div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
 }
 
 div.pageNoticias .grid-item {
@@ -2488,6 +2564,27 @@ div.encabezadoProsperityFund div.encabezado h1.tituloEncabezado {
   color: white;
   font-size: 3.5rem;
   font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  div.encabezadoProsperityFund div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.encabezadoProsperityFund div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.encabezadoProsperityFund div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
 }
 
 div.pageProsperityFund div.view-content div.view-grouping div.view-grouping-header {
@@ -2541,6 +2638,27 @@ div.encabezadoGlosario div.encabezado h1.tituloEncabezado {
   color: white;
   font-size: 3.5rem;
   font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  div.encabezadoGlosario div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.encabezadoGlosario div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.encabezadoGlosario div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
 }
 
 div.pageGlosario div.view-filters {
