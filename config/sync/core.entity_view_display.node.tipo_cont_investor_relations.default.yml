@@ -1,0 +1,41 @@
+uuid: 0085ee04-5fdd-4635-b73e-ea651034e72d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_cont_investor_relations.body
+    - field.field.node.tipo_cont_investor_relations.field_invest_relat_img_encabezad
+    - node.type.tipo_cont_investor_relations
+  module:
+    - image
+    - text
+    - user
+id: node.tipo_cont_investor_relations.default
+targetEntityType: node
+bundle: tipo_cont_investor_relations
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_invest_relat_img_encabezad:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
