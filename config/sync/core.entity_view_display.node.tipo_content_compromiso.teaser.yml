@@ -1,0 +1,32 @@
+uuid: b8f4feac-9b50-42d4-8caa-a82166935b34
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tipo_content_compromiso.body
+    - node.type.tipo_content_compromiso
+  module:
+    - text
+    - user
+id: node.tipo_content_compromiso.teaser
+targetEntityType: node
+bundle: tipo_content_compromiso
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

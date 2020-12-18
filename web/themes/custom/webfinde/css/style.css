@@ -1,16 +1,16 @@
 /* ==============================
 COLORES
 ============================== */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 /* ==============================
 COLORES
 ============================== */
 /* ==============================
 VENTANA MODAL
 ============================== */
-.modal-backdrop {
-  background-color: transparent;
-}
-
+/*.modal-backdrop{
+    background-color: transparent;
+}*/
 /* ==============================
 BOTONES
 ============================== */
@@ -51,6 +51,10 @@ nav#breadcrumb ol {
 /* ==============================
 ESTILOS GLOBALES
 ============================== */
+* {
+  font-family: "Roboto", sans-serif;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: #296294;
   font-weight: 400;
@@ -67,6 +71,7 @@ a:visited, a:link, a:focus, a:hover, a:active {
 
 p {
   margin: 0;
+  word-spacing: 5pt;
 }
 
 /* ===== ===== ToAny Redes Sociales ===== ===== */
@@ -87,8 +92,23 @@ COLORES
 .menuGovCo div.govCo {
   background-color: #112d6a;
 }
-.menuGovCo nav ul li span {
-  color: #112d6a;
+.menuGovCo nav ul li:nth-child(1) a::before {
+  content: url("/themes/custom/webfinde/images/iconos/menu-govco/assista.png");
+}
+.menuGovCo nav ul li:nth-child(2) a::before {
+  content: url("/themes/custom/webfinde/images/iconos/menu-govco/crm-findeter.png");
+}
+.menuGovCo nav ul li:nth-child(3) a::before {
+  content: url("/themes/custom/webfinde/images/iconos/menu-govco/office_365.png");
+}
+.menuGovCo nav ul li:nth-child(4) a::before {
+  content: url("/themes/custom/webfinde/images/iconos/menu-govco/intranet.png");
+}
+.menuGovCo nav ul li:nth-child(5) a::before {
+  content: url("/themes/custom/webfinde/images/iconos/menu-govco/en.png");
+}
+.menuGovCo nav ul li:nth-child(6) a::before {
+  content: url("/themes/custom/webfinde/images/iconos/menu-govco/acceso_admin.png");
 }
 
 section.menuPrincipal {
@@ -97,9 +117,122 @@ section.menuPrincipal {
   MENU ESCRITORIO
   ============================== */
 }
-section.menuPrincipal nav ul li a, section.menuPrincipal nav ul li span {
+section.menuPrincipal nav {
+  margin: 40px auto;
+}
+section.menuPrincipal nav > ul {
+  width: 100%;
+}
+section.menuPrincipal nav ul {
   position: relative;
+  margin: 0;
+  padding: 0;
+}
+section.menuPrincipal nav ul li {
+  list-style: none;
+}
+section.menuPrincipal nav ul li > a, section.menuPrincipal nav ul li span {
   text-shadow: 1px 1px 2px black;
+  display: block;
+  cursor: pointer;
+}
+section.menuPrincipal nav ul li > svg {
+  position: absolute;
+  bottom: -10px;
+  display: none;
+  margin-left: 2rem;
+  font-size: 30px;
+}
+section.menuPrincipal nav ul li:hover svg {
+  display: block;
+}
+section.menuPrincipal nav ul li ul.submenu {
+  background-color: white;
+  padding: 20px;
+  position: absolute;
+  z-index: 1000;
+  display: none;
+  border-bottom: 3px solid #00993e;
+}
+section.menuPrincipal nav ul li ul.submenu > li.submenuItems {
+  margin: 0 20px;
+}
+section.menuPrincipal nav ul li ul.submenu > li.submenuItems > span {
+  display: none;
+}
+section.menuPrincipal nav ul li ul.submenu > li.submenuItems ul > li > a, section.menuPrincipal nav ul li ul.submenu > li.submenuItems span {
+  color: black !important;
+  text-shadow: none;
+}
+section.menuPrincipal nav ul li ul.submenu > li.submenuItems ul > li > a:hover, section.menuPrincipal nav ul li ul.submenu > li.submenuItems span:hover {
+  text-decoration: underline;
+}
+section.menuPrincipal nav ul li:hover ul.submenu {
+  display: flex;
+}
+
+/* ==============================
+MENU MOVIL
+============================== */
+button#sidebarCollapse, button#sidebarCollapseMd {
+  background-color: #00993e !important;
+}
+
+section.menuMovil {
+  display: flex;
+  text-decoration: none;
+  transition: all 0.3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 100vh;
+  padding-top: 2rem;
+  background-color: #112d6a;
+}
+section.menuMovil > div.imgClose {
+  width: 300px;
+  position: absolute;
+  display: none;
+  top: 0;
+}
+section.menuMovil > div.imgClose button {
+  color: white;
+  font-size: 2.5rem;
+}
+section.menuMovil nav {
+  min-width: 300px;
+  max-width: 300px;
+  display: none;
+  overflow-y: scroll;
+  flex-flow: column;
+  transition: all 0.3s;
+  margin-top: 9rem;
+}
+section.menuMovil nav > ul {
+  flex-direction: initial !important;
+  display: initial;
+}
+section.menuMovil nav > ul > li {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+section.menuMovil nav > ul > li > span {
+  flex: 1 1 auto;
+}
+section.menuMovil nav > ul > li svg {
+  display: none;
+}
+section.menuMovil nav > ul > li > ul.submenu {
+  padding: 0;
+  list-style: none;
+}
+section.menuMovil nav > ul > li > ul.submenu li.submenuItems {
+  padding-left: 1rem;
+}
+section.menuMovil nav > ul > li > ul.submenu li.submenuItems ul {
+  list-style: none;
+  padding: 0;
 }
 
 /* ==============================
@@ -112,22 +245,71 @@ div.sliderHome {
   width: 100%;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  .menuGovCo nav > ul {
+    flex-direction: initial;
+  }
+  .menuGovCo nav > ul li:last-child {
+    margin: 0 !important;
+  }
+
+  section.menuPrincipal {
+    background: #112d6a;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  section.menuPrincipal {
+    background: #112d6a;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  section.menuPrincipal {
+    /* ==============================
+    MENU ESCRITORIO
+    ============================== */
+  }
+  section.menuPrincipal nav {
+    margin: 0;
+    background-color: #112d6a;
+  }
+  section.menuPrincipal nav ul > li > a, section.menuPrincipal nav span {
+    font-size: 14px;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 1200px) and (max-width: 1365.98px) {
+  section.menuPrincipal {
+    /* ==============================
+    MENU ESCRITORIO
+    ============================== */
+  }
+  section.menuPrincipal nav ul > li > a, section.menuPrincipal nav span {
+    font-size: 14px;
+  }
+}
 /* ===== ===== BUSCADOR Y ACCESO RAPIDO ===== ===== */
 /* ==============================
 COLORES
 ============================== */
 form#search-block-form {
   position: relative;
-  margin: 21rem 2rem 0 2rem;
+  margin: 36.5rem 2rem 0 2rem;
+  /*div.container-inline,div{
+      display: grid;
+  }*/
 }
 form#search-block-form div.form-item {
   margin: 0;
 }
-form#search-block-form div.container-inline, form#search-block-form div {
-  display: grid;
-}
 form#search-block-form div.buscadorAcceso input[type=search] {
   width: 100%;
+  border: none !important;
 }
 form#search-block-form div.buscadorAcceso .menuAccesoRapido {
   background: #e5e5e5;
@@ -168,6 +350,78 @@ form#search-block-form .btnSearch {
   width: 53px;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  form#search-block-form {
+    margin: 1.5rem 0rem 0 0rem;
+  }
+  form#search-block-form div.buscadorAcceso input[type=search] {
+    height: calc(1em + .75rem + 2px);
+  }
+  form#search-block-form div.buscadorAcceso .menuAccesoRapido {
+    overflow-x: scroll;
+    padding: 2rem 0 2rem 0;
+  }
+  form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul {
+    flex-direction: initial;
+  }
+  form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li {
+    margin: 0 1rem 0 0.5rem;
+    text-align: center;
+  }
+  form#search-block-form .btnSearch {
+    line-height: 2;
+    width: 44px;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  form#search-block-form {
+    margin: 1.5rem 0rem 0 0rem;
+  }
+  form#search-block-form div.buscadorAcceso .menuAccesoRapido {
+    overflow-x: scroll;
+    padding: 2rem 0 2rem 0;
+  }
+  form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li {
+    margin: 0 1rem 0 2.1rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  form#search-block-form {
+    margin: 17rem 0rem 0 0rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  form#search-block-form {
+    margin: 17.5rem 2rem 0 2rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 1200px) and (max-width: 1365.98px) {
+  form#search-block-form {
+    margin: 18rem 2rem 0 2rem;
+  }
+}
+/* ===== ===== MEDIA REVISAMOS EN 1366 ===== ===== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 1366px) and (max-width: 1599.98px) {
+  form#search-block-form {
+    margin: 24rem 2rem 0 2rem;
+  }
+}
+/* ===== ===== MEDIA REVISAMOS EN 1600 ===== ===== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 1600px) and (max-width: 1919.98px) {
+  form#search-block-form {
+    margin: 28.5rem 2rem 0 2rem;
+  }
+}
 /* ===== ===== PRODUCTOS Y SERVICIOS ===== ===== */
 /* ==============================
 COLORES
@@ -205,6 +459,7 @@ section.productosServicios .grid-container .grid-item {
   height: 25em;
   cursor: pointer;
   box-shadow: 1rem 0rem 1rem #C8D0E3 !important;
+  border-radius: 0.8rem;
 }
 section.productosServicios .grid-container .grid-item:last-child {
   margin-right: 0em;
@@ -217,8 +472,8 @@ section.productosServicios .grid-container .grid-item figure {
   width: 100%;
   height: 25%;
   background: #296294;
-  /*background: repeating-linear-gradient(184deg,
-  transparent 0, transparent 19%,
+  /*background: repeating-linear-gradient(187deg,
+  transparent 0, transparent 15%,
       var.$color-secundario 0, var.$color-secundario);*/
 }
 section.productosServicios .grid-container .grid-item figure .fondo {
@@ -227,13 +482,11 @@ section.productosServicios .grid-container .grid-item figure .fondo {
   bottom: -16px;
   left: 0;
   width: 100%;
-  height: 109%;
+  height: 169%;
   color: #CDDC4B;
   border-radius: 0 0 0.8em 0.8em;
-  /*background-image: repeating-linear-gradient(183deg, 
-  transparent 0, transparent 11%, 
-  var.$color-primario 0, var.$color-primario);*/
-  background: #112d6a;
+  background-image: repeating-linear-gradient(188deg, transparent 0, transparent 15%, #112d6a 0, #296294);
+  /*background: var.$color-primario;*/
 }
 section.productosServicios .grid-container .grid-item figure .fondo h1 {
   position: absolute;
@@ -283,6 +536,187 @@ VENTANA MODAL PRODUCTOS Y SERVICIOS
   font-size: 2.5rem;
 }
 
+/* ==============================
+INTERNAS
+============================== */
+/* ===== ===== INTERNAS ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+INTERNAS
+============================== */
+/* ===== ===== ENCABEZADO ===== ===== */
+article.productoServicios figure {
+  position: absolute;
+  z-index: -1;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+article.productoServicios figure img {
+  height: 100%;
+}
+article.productoServicios div.encabezado {
+  height: 7rem;
+}
+article.productoServicios div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  article.productoServicios div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  article.productoServicios div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  article.productoServicios div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+
+/* ===== ===== CONTENIDO ===== ===== */
+article.productoServicios {
+  position: relative;
+}
+article.productoServicios div.cuerpoContenido {
+  /* ==============================
+  TABS
+  ============================== */
+  /* ==============================
+  TABS CONTENIDO
+  ============================== */
+}
+article.productoServicios div.cuerpoContenido div.row img.imgPortada {
+  border-radius: 0.8rem;
+}
+article.productoServicios div.cuerpoContenido h4.tituloTabs {
+  background-color: #112d6a;
+  padding: 0.5rem;
+}
+article.productoServicios div.cuerpoContenido ul.tabPrincipal li > a {
+  color: #a8a8a8;
+}
+article.productoServicios div.cuerpoContenido ul.tabPrincipal li > a.active {
+  color: #112d6a;
+  font-weight: bold;
+}
+article.productoServicios div.cuerpoContenido ul.tabInternas li > a {
+  color: #a8a8a8;
+}
+article.productoServicios div.cuerpoContenido ul.tabInternas li > a.active {
+  color: white;
+  background-color: #112d6a;
+  font-weight: bold;
+}
+article.productoServicios div.cuerpoContenido div#myTabContentPrincipal {
+  padding: 3rem 4rem 3rem 4rem;
+  border: 1px solid #e5e5e5;
+  border-top: none;
+}
+article.productoServicios div.cuerpoContenido div#myTabContentInternas > .tab-pane > .paragraph img {
+  border-radius: 0.8rem;
+}
+article.productoServicios div.cuerpoContenido div#myTabContentInternas > .tab-pane > .paragraph div.gridContainer div.grid div.gridContenido {
+  border: 1px solid #CDDC4B;
+  border-radius: 0.5rem;
+}
+article.productoServicios div.cuerpoContenido div#myTabContentInternas > .tab-pane > .paragraph div.gridContainer div.grid div.gridContenido div.titulos {
+  background-color: #CDDC4B;
+  color: #296294;
+  cursor: pointer;
+}
+
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  article.productoServicios div.cuerpoContenido div#myTabContentPrincipal {
+    padding: 1rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  article.productoServicios div.cuerpoContenido div#myTabContentPrincipal {
+    padding: 3rem 1rem 3rem 1rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  article.productoServicios div.cuerpoContenido div#myTabContentPrincipal {
+    padding: 3rem 3rem 3rem 3rem;
+  }
+}
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  section.productosServicios .titulo h1 {
+    width: 100%;
+    font-size: 1.5rem;
+  }
+  section.productosServicios .titulo h1::after {
+    background-color: initial;
+  }
+  section.productosServicios .grid-container {
+    overflow-x: scroll;
+  }
+  section.productosServicios .grid-container .grid-item {
+    margin-left: 1.5rem;
+  }
+
+  #modalProductosServicios {
+    height: auto;
+  }
+  #modalProductosServicios .modal-dialog .modal-content .modal-body {
+    top: 0;
+  }
+  #modalProductosServicios .modal-dialog .modal-content .modal-body div.descripcion {
+    max-width: 100%;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  section.productosServicios .titulo h1 {
+    width: 100%;
+    font-size: 1.9rem;
+  }
+  section.productosServicios .titulo h1::after {
+    background-color: initial;
+  }
+  section.productosServicios .grid-container {
+    overflow-x: scroll;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  section.productosServicios .titulo h1 {
+    width: 100%;
+  }
+  section.productosServicios .grid-container {
+    overflow-x: scroll;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  section.productosServicios .grid-container {
+    overflow-x: scroll;
+  }
+}
 /* ===== ===== NOTICIAS Y REDES ===== ===== */
 /* ==============================
 COLORES
@@ -338,7 +772,7 @@ NOTICIAS
 .sliderNoticiaHome div.slick ul li.grid:nth-child(1) img {
   margin-bottom: 1em;
 }
-.sliderNoticiaHome div.slick ul li.grid:nth-child(1) p.resumen {
+.sliderNoticiaHome div.slick ul li.grid:nth-child(1) a {
   font-weight: bold;
   font-size: 1.1rem;
 }
@@ -476,7 +910,146 @@ div.redeSociales div.tab-content {
   border-right: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
 }
+div.redeSociales div.tab-content > div.tab-pane {
+  overflow-x: scroll;
+}
 
+/* ==============================
+INTERNAS Y LISTADO DE NOTICIAS
+============================== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+TODAS LAS NOTICIAS
+============================== */
+/* ===== ===== ENCABEZADO ===== ===== */
+div.encabezadoNoticias figure {
+  position: absolute;
+  z-index: -1;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+div.encabezadoNoticias figure img {
+  height: 100%;
+}
+div.encabezadoNoticias div.encabezado {
+  height: 7rem;
+}
+div.encabezadoNoticias div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  div.encabezadoNoticias div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.encabezadoNoticias div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.encabezadoNoticias div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+
+div.pageNoticias .grid-item {
+  position: relative;
+  overflow: hidden;
+}
+div.pageNoticias .grid-item img {
+  transform: scale(1, 1);
+  transition: 1s all;
+}
+div.pageNoticias .grid-item p.titulo {
+  color: #296294;
+  font-size: 14px;
+  transition: 0.6s all;
+}
+div.pageNoticias .grid-item:hover {
+  border-bottom: 1px solid #112d6a;
+}
+div.pageNoticias .grid-item:hover img {
+  transform: scale(1.1, 1.1);
+  transition: 1s all;
+}
+
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  div.pageNoticias div.view-header h1 {
+    font-size: 1.5rem;
+  }
+
+  article.noticiasInternas h1, article.noticiasInternas h2 {
+    font-size: 1.5rem;
+  }
+  article.noticiasInternas img {
+    max-width: 100%;
+    height: auto;
+  }
+  article.noticiasInternas div.cuerpoArticulo div.IntroContenido {
+    display: initial !important;
+  }
+  article.noticiasInternas div.cuerpoArticulo div.IntroContenido img {
+    width: 100%;
+  }
+  article.noticiasInternas div.infoSocial p {
+    display: block !important;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  article.noticiasInternas div.cuerpoArticulo div.IntroContenido {
+    display: initial !important;
+  }
+  article.noticiasInternas div.cuerpoArticulo div.IntroContenido img {
+    width: 100%;
+  }
+}
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  .sliderNoticiaHome div.encabezado > h1 {
+    font-size: 1.5rem;
+  }
+  .sliderNoticiaHome div.encabezado > h1::after {
+    background-color: initial;
+  }
+  .sliderNoticiaHome div.slick ul li.grid {
+    width: 100%;
+  }
+  .sliderNoticiaHome div.slick ul li.grid div.slide__description a img {
+    width: 100%;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .sliderNoticiaHome div.encabezado > h1::after {
+    background-color: initial;
+  }
+  .sliderNoticiaHome div.slick ul li.grid {
+    width: 100%;
+  }
+  .sliderNoticiaHome div.slick ul li.grid div.slide__description a img {
+    width: 100%;
+  }
+}
 /* ===== ===== FINDETER EN CIFFRAS ===== ===== */
 /* ==============================
 COLORES
@@ -521,6 +1094,42 @@ div.findeterCifras div.grid-container .grid-item div.contenido div.descripcion {
   padding: 0 1rem;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  div.findeterCifras div.titulo > h1, div.findeterCifras h2 {
+    font-size: 1.5rem;
+  }
+  div.findeterCifras div.titulo > h1::after, div.findeterCifras h2::after {
+    background-color: initial;
+  }
+  div.findeterCifras div.grid-container {
+    overflow-x: scroll;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.findeterCifras div.titulo > h1::after {
+    background-color: initial;
+  }
+  div.findeterCifras div.grid-container {
+    overflow-x: scroll;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.findeterCifras div.grid-container {
+    overflow-x: scroll;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  div.findeterCifras div.grid-container {
+    overflow-x: scroll;
+  }
+}
 /* ===== ===== CASOS DE EXITO ===== ===== */
 /* ==============================
 COLORES
@@ -573,6 +1182,7 @@ div.casosExito .slideCasoExito ul.slide__content li div.contenidoSlider p {
   right: 1rem;
   width: 50%;
   font-weight: bold;
+  font-size: 0.9rem;
 }
 div.casosExito .slideCasoExito .slick {
   /* ===== ===== Flechas de navegacion ===== ===== */
@@ -627,6 +1237,44 @@ div.casosExito .slideCasoExito .slick ul.slick-dots li.slick-active::after {
   left: 0;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  div.casosExito div.contenido {
+    width: 100%;
+  }
+  div.casosExito div.contenido div.encabezado > h1 {
+    font-size: 1.5rem;
+  }
+  div.casosExito div.contenido div.encabezado > h1::after {
+    background-color: initial;
+  }
+  div.casosExito div.contenido h1.tituloCaso {
+    font-size: 1.5rem;
+  }
+  div.casosExito .slideCasoExito ul.slide__content li div.contenidoSlider img {
+    display: none;
+  }
+  div.casosExito .slideCasoExito ul.slide__content li div.contenidoSlider p {
+    position: static;
+    width: 100%;
+    color: #CDDC4B;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.casosExito div.contenido {
+    width: 100%;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.casosExito div.contenido {
+    width: 100%;
+  }
+}
 /* ===== ===== CASOS DE EXITO ===== ===== */
 /* ==============================
 COLORES
@@ -652,6 +1300,11 @@ div.contactenos div.titulo h1::after {
 }
 div.contactenos form input[type=submit] {
   width: 100%;
+}
+div.contactenos form input[type=checkbox] {
+  width: 10%;
+  float: left;
+  margin-right: 1rem;
 }
 
 div.suscribirseHome {
@@ -782,6 +1435,37 @@ div.mapaHome .margin-b {
   margin-bottom: 0px;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  div.contactenos div.titulo > h1 {
+    font-size: 1.5rem;
+  }
+  div.contactenos div.titulo > h1::after {
+    background-color: initial;
+  }
+  div.contactenos h2 {
+    font-size: 1.5rem;
+  }
+  div.contactenos h5 {
+    font-size: 1rem;
+  }
+
+  div.suscribirseHome form input[type=email] {
+    height: calc(2em + 0.75rem + 1px);
+  }
+  div.suscribirseHome form input[type=submit] {
+    line-height: 2;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.contactenos div.titulo > h1::after {
+    background-color: initial;
+  }
+}
 /* ===== ===== PIE DE PAGINA ===== ===== */
 /* ==============================
 COLORES
@@ -948,59 +1632,25 @@ COLORES
   margin-right: 1rem;
   content: "" url("../images/iconos/mail.png");
 }
-.footer div.piePagina {
-  color: #CDDC4B;
+.footer div.piePagina, .footer a {
+  color: #CDDC4B !important;
 }
 
 /* ==============================
 MEDIA QUERY
 ============================== */
 /*MOVIL VERTICAL(sm 320px)*/
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  div.field--name-field-ntf-judiciales-footer {
-    margin-bottom: 2rem;
-  }
-  div.field--name-field-ntf-judiciales-footer div.field__label {
-    color: white;
-  }
-  div.field--name-field-ntf-judiciales-footer div.field__items div.field__item {
-    position: relative;
-    color: #CDDC4B;
-    font-size: 13px !important;
-    font-weight: lighter;
-    padding-left: 1.5rem;
-  }
-  div.field--name-field-ntf-judiciales-footer div.field__items div.field__item::before {
-    position: absolute;
-    top: 2px;
-    left: 0px;
-    margin-right: 1rem;
-    content: "" url("../images/iconos/mail.png");
-  }
-
-  div.field--name-field-email-judiciales-footer {
-    margin-bottom: 0;
-  }
-  div.field--name-field-email-judiciales-footer div.field__label {
-    color: white;
-  }
-  div.field--name-field-email-judiciales-footer div.field__items div.field__item {
-    position: relative;
-    color: #CDDC4B;
-    font-size: 12px !important;
-    font-weight: lighter;
-    padding-left: 1.5rem;
-  }
-  div.field--name-field-email-judiciales-footer div.field__items div.field__item::before {
-    position: absolute;
-    top: 2px;
-    left: 0px;
-    margin-right: 1rem;
-    content: "" url("../images/iconos/mail.png");
+@media (max-width: 575.98px) {
+  .footer img.imgCreditoDirecto {
+    width: 25% !important;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
+  .footer img.imgCreditoDirecto {
+    width: 25% !important;
+  }
+
   ul.iconosSocial {
     text-align: center;
   }
@@ -1089,6 +1739,50 @@ MEDIA QUERY
     content: "" url("../images/iconos/mail.png");
   }
 }
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  div.field--name-field-ntf-judiciales-footer {
+    margin-bottom: 2rem;
+  }
+  div.field--name-field-ntf-judiciales-footer div.field__label {
+    color: white;
+  }
+  div.field--name-field-ntf-judiciales-footer div.field__items div.field__item {
+    position: relative;
+    color: #CDDC4B;
+    font-size: 13px !important;
+    font-weight: lighter;
+    padding-left: 1.5rem;
+  }
+  div.field--name-field-ntf-judiciales-footer div.field__items div.field__item::before {
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    margin-right: 1rem;
+    content: "" url("../images/iconos/mail.png");
+  }
+
+  div.field--name-field-email-judiciales-footer {
+    margin-bottom: 0;
+  }
+  div.field--name-field-email-judiciales-footer div.field__label {
+    color: white;
+  }
+  div.field--name-field-email-judiciales-footer div.field__items div.field__item {
+    position: relative;
+    color: #CDDC4B;
+    font-size: 12px !important;
+    font-weight: lighter;
+    padding-left: 1.5rem;
+  }
+  div.field--name-field-email-judiciales-footer div.field__items div.field__item::before {
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    margin-right: 1rem;
+    content: "" url("../images/iconos/mail.png");
+  }
+}
 /* ==============================
 BLOG
 ============================== */
@@ -1147,15 +1841,15 @@ div.encabezadoBlog section.titulos h4 {
   color: white;
   position: relative;
   margin-bottom: 60px;
-}
-div.encabezadoBlog section.titulos h4::after {
-  content: "";
-  position: absolute;
-  width: 14%;
-  height: 2px;
-  background-color: white;
-  top: 2em;
-  left: 36rem;
+  /*&::after{
+      content: "";
+      position: absolute;
+      width: 14%;
+      height: 2px;
+      background-color: white;
+      top: 2em;
+      left: 36rem;
+  }*/
 }
 div.encabezadoBlog section.titulos h1 {
   width: 50%;
@@ -1632,6 +2326,27 @@ MEDIA QUERY
 /* ==============================
 INTERNAS
 ============================== */
+/* ===== ===== MIGAS DE PAN ===== ===== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  nav#breadcrumb ol {
+    display: block !important;
+  }
+  nav#breadcrumb ol li {
+    display: block;
+    padding-left: 0;
+  }
+  nav#breadcrumb ol li::before {
+    content: " ";
+    display: block;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  nav#breadcrumb ol {
+    display: block !important;
+  }
+}
 /* ===== ===== Transparencia ===== ===== */
 /* ===== ===== Encabezado ===== ===== */
 /* ==============================
@@ -1640,7 +2355,6 @@ COLORES
 div.transparenciaAcceso figure.transparenciaAcceso {
   position: absolute;
   z-index: -1;
-  top: 0;
   height: 23rem;
   transform: translate(0, -13rem);
 }
@@ -1657,19 +2371,6 @@ div.transparenciaAcceso div.titulo {
   border-bottom: 1px solid #296294;
   padding-bottom: 20px;
 }
-div.transparenciaAcceso div.titulo h1 {
-  position: relative;
-  width: 76%;
-}
-div.transparenciaAcceso div.titulo h1::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  background-color: #296294;
-  top: 1.6em;
-  left: 0;
-}
 div.transparenciaAcceso div.descripcion {
   border-bottom: 1px solid #e5e5e5;
 }
@@ -1678,6 +2379,44 @@ div.transparenciaAcceso div.descripcion div.decretosLeyes div.field__item {
   text-decoration: underline;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  div.transparenciaAcceso h1.tituloEncabezado {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+  div.transparenciaAcceso div.titulo h1 {
+    font-size: 1.5rem;
+  }
+  div.transparenciaAcceso div.descripcion div.decretosLeyes {
+    display: block !important;
+  }
+  div.transparenciaAcceso div.descripcion div.decretosLeyes div.field__item {
+    display: block !important;
+    padding: 0 !important;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.transparenciaAcceso h1.tituloEncabezado {
+    font-size: 2.8rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.transparenciaAcceso h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  div.transparenciaAcceso h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
 /* ===== ===== Menu ===== ===== */
 /* ==============================
 COLORES
@@ -1750,6 +2489,15 @@ div.menuTransparenciaSidebar ul li a.active {
   font-weight: bold;
 }
 
+/* ==============================
+MEDIA
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem {
+    padding: 1rem 1rem 1rem 1rem;
+  }
+}
 /* ===== ===== Vistas ===== ===== */
 /* ==============================
 COLORES
@@ -1761,6 +2509,24 @@ div.vistaTransparencia div.titulos figure {
   border-right: 1px solid #296294;
 }
 
+/* ==============================
+MEDIA
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  div.vistaTransparencia {
+    border-right: 0;
+  }
+  div.vistaTransparencia h1, div.vistaTransparencia h2, div.vistaTransparencia h3, div.vistaTransparencia h4 {
+    font-size: 1.5rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.vistaTransparencia {
+    border-right: 0;
+  }
+}
 /* ===== ===== Preguntas Frecuentes ===== ===== */
 /* ===== ===== Encabezado ===== ===== */
 /* ==============================
@@ -1820,6 +2586,240 @@ div.preguntasFrecuentes div.view-content ul li div.respuesta {
 div.preguntasFrecuentes div.view-content ul li div.respuesta p {
   padding-left: 1rem;
   border-left: 1px solid #112d6a;
+}
+
+/* ===== ===== Convocatorias ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ===== ===== ENCABEZADO ===== ===== */
+div.encabezadoConvocatorias figure {
+  position: absolute;
+  z-index: -1;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+div.encabezadoConvocatorias figure img {
+  height: 100%;
+}
+div.encabezadoConvocatorias div.encabezado {
+  height: 7rem;
+}
+div.encabezadoConvocatorias div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  div.encabezadoConvocatorias div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.encabezadoConvocatorias div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.encabezadoConvocatorias div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+
+/* ===== ===== Ciudadano ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+VISTA
+============================== */
+div.convocatoriaCiudadano form div.form--inline {
+  padding: 2rem;
+  background-color: #112d6a;
+  color: white;
+}
+div.convocatoriaCiudadano form div.form--inline div.form-item-title, div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-objeto-value {
+  width: 100% !important;
+}
+div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-departamento-target-id {
+  width: 100%;
+}
+div.convocatoriaCiudadano form div.form--inline input[type=submit] {
+  background-color: #00993e !important;
+}
+div.convocatoriaCiudadano table:nth-child(2) thead tr > th:nth-child(1) {
+  width: 200px;
+}
+div.convocatoriaCiudadano table:nth-child(2) tbody tr > td:nth-child(1) a {
+  color: #00993e !important;
+  font-weight: bolder;
+}
+div.convocatoriaCiudadano table:nth-child(2) tbody tr > td:nth-child(1) a:hover {
+  text-decoration: underline;
+}
+
+/* ===== ===== Detalle del proceso ===== ===== */
+article.detalleProcesoConvocatorias div.titulo {
+  border-bottom: 1px solid #296294;
+  padding-bottom: 20px;
+}
+article.detalleProcesoConvocatorias div.titulo h1 {
+  position: relative;
+  width: 80%;
+}
+article.detalleProcesoConvocatorias div.titulo h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #296294;
+  top: 1.6em;
+  left: 0;
+}
+
+/* ===== ===== Prosperity Fund ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+PROSPERITY FUND CONVOCATORIAS
+============================== */
+/* ===== ===== ENCABEZADO ===== ===== */
+div.encabezadoProsperityFund figure {
+  position: absolute;
+  z-index: -1;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+div.encabezadoProsperityFund figure img {
+  height: 100%;
+}
+div.encabezadoProsperityFund div.encabezado {
+  height: 7rem;
+}
+div.encabezadoProsperityFund div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  div.encabezadoProsperityFund div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.encabezadoProsperityFund div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.encabezadoProsperityFund div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+
+div.pageProsperityFund div.view-content div.view-grouping div.view-grouping-header {
+  color: #296294;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+div.pageProsperityFund div.view-content div.view-grouping div.view-grouping-content div.view-grouping div.view-grouping-header {
+  color: black;
+  font-size: 1rem;
+  font-weight: bolder;
+}
+div.pageProsperityFund div.view-content div.view-grouping div.view-grouping-content ul li:hover {
+  border-bottom: 2px solid #00993e;
+  color: #00993e;
+}
+div.pageProsperityFund div.view-content div.view-grouping div.view-grouping-content ul li:hover a:hover {
+  color: #00993e;
+}
+
+/* ==============================
+INTERNA
+============================== */
+article.detalleProsperity div.container > h1.titulo span {
+  font-size: 1rem;
+}
+
+/* ===== ===== Glosario ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+TODAS LAS NOTICIAS
+============================== */
+/* ===== ===== ENCABEZADO ===== ===== */
+div.encabezadoGlosario figure {
+  position: absolute;
+  z-index: -1;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+div.encabezadoGlosario figure img {
+  height: 100%;
+}
+div.encabezadoGlosario div.encabezado {
+  height: 7rem;
+}
+div.encabezadoGlosario div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  div.encabezadoGlosario div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.encabezadoGlosario div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.encabezadoGlosario div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+
+div.pageGlosario div.view-filters {
+  background-color: #112d6a;
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+div.pageGlosario div.view-filters form {
+  color: white;
+}
+div.pageGlosario div.view-filters form input[type=submit] {
+  background-color: #00993e !important;
+}
+div.pageGlosario div.view-content div.view-grouping div.view-grouping-header {
+  color: #296294;
+  font-size: 3rem;
+  font-style: italic;
 }
 
 /*# sourceMappingURL=style.css.map */

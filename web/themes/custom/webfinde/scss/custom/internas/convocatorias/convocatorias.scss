@@ -1,0 +1,10 @@
+@use '../../variables' as var;
+@use '../../../mixins/encabezado' as encabezado;
+
+/* ===== ===== ENCABEZADO ===== ===== */
+@include encabezado.encabezado("div","encabezadoConvocatorias");
+
+/* ===== ===== Ciudadano ===== ===== */
+@import 'partials/ciudadano';
+/* ===== ===== Detalle del proceso ===== ===== */
+@import 'partials/detalleProceso';

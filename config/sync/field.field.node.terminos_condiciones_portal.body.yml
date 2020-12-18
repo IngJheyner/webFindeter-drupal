@@ -1,0 +1,28 @@
+uuid: 80bec94a-c31e-4ff1-8ec2-3abdb4d9d94b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.terminos_condiciones_portal
+  module:
+    - disable_field
+    - text
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.terminos_condiciones_portal.body
+field_name: body
+entity_type: node
+bundle: terminos_condiciones_portal
+label: 'Contenido Terminos'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

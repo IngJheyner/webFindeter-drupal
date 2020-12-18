@@ -27,36 +27,64 @@
 {# ============================================
 MENU PRINCIPAL
 =============================================== #}
-<nav class="navbar navbar-expand-sm px-0 pt-5">
-  
+<nav class="navbar navbar-expand-sm">  
   {{ menus.menu_links(items, attributes, 0) }}
-
-</nav> 
+</nav>
 
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
+
   {% if items %}
+
     {% if menu_level == 0 %}
-<ul{{ attributes.addClass(['navbar-nav mx-auto']) }}>
+
+<ul{{ attributes.addClass(['navbar-nav justify-content-center']) }}>
+
+  {% elseif menu_level == 1 %}
+
+<ul class="submenu">
+
   {% else %}
+
 <ul>
+
   {% endif %}
+
+  {% 
+    set submenuItem = [
+    menu_level == 1 ? 'submenuItems'     
+  ] 
+  %}
+
   {% for item in items %}
+
     {%
       set classes_link = [
       'nav-link text-white',
-      item.is_expanded ? 'dropdown-toggle',
       item.is_collapsed ? 'dropdown-toggle',
-      item.in_active_trail ? 'active',
+      item.in_active_trail ? 'active',      
     ]
+
     %}
-    <li{{ item.attributes.addClass('nav-item') }}>
+
+    <li{{ item.attributes.addClass('nav-item', submenuItem ) }}>      
+      
       {{ link(item.title, item.url, { 'class': classes_link }) }}
+
+       {% if item.below|length > 0 and menu_level == 0 %} <i class="fas fa-caret-up text-white"></i> {% endif %}
+      
       {% if item.below %}
+
         {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+
       {% endif %}
+
     </li>
+
   {% endfor %}
+
 </ul>
   {% endif %}
 {% endmacro %}
+
+

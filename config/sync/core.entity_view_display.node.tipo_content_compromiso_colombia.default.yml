@@ -1,0 +1,30 @@
+uuid: 3f6676f3-42f7-4b25-b286-a3b0a1e6d9b7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_content_compromiso_colombia.body
+    - node.type.tipo_content_compromiso_colombia
+  module:
+    - text
+    - user
+id: node.tipo_content_compromiso_colombia.default
+targetEntityType: node
+bundle: tipo_content_compromiso_colombia
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

@@ -1,0 +1,28 @@
+uuid: 5970e7fd-8713-4d15-ac9c-d0284cfe85a3
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.pie_de_pagina
+    - field.storage.block_content.field_footer_url_credito_directo
+  module:
+    - disable_field
+    - link
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: block_content.pie_de_pagina.field_footer_url_credito_directo
+field_name: field_footer_url_credito_directo
+entity_type: block_content
+bundle: pie_de_pagina
+label: 'Url Credito Directo'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

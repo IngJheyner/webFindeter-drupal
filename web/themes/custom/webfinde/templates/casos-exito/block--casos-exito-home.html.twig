@@ -45,7 +45,7 @@
 
         <h1 class="flex-fill text-white">Caso de éxito</h1>
         <div class="flex-fill pt-3">
-          <a href="#" class="text-white float-right">Todos los casos</a>
+          <!--a href="#" class="text-white float-right">Todos los casos</a-->
         </div>
         
       
@@ -53,12 +53,17 @@
 
       <h1 class="mt-5 tituloCaso"></h1>
       <p class="text-white mt-3 descripcionCaso"></p>
-      <a href="#" class="btn btn-default btn-lg mt-2 enlace"> Ampliar información</a>
+      <!--a href="#" class="btn btn-default btn-lg mt-2 enlace"> Ampliar información</a-->
 
     </div>
 
     {# ===== ===== Vista carrusel ===== ===== #}
+
+    {# ===== ===== Pantalla > 768px ===== ===== #}
     {{ drupal_view('slider', 'casos_exito_home') }}
+
+     {# ===== ===== Pantalla < 576 ===== ===== #}
+    {{ drupal_view('slider', 'casos_exito_movil_home') }}
 
   </div>
 

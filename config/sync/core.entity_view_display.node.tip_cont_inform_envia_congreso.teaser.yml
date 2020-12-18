@@ -1,0 +1,32 @@
+uuid: c53fff87-5bde-4900-8349-ce05b59a2b96
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tip_cont_inform_envia_congreso.body
+    - node.type.tip_cont_inform_envia_congreso
+  module:
+    - text
+    - user
+id: node.tip_cont_inform_envia_congreso.teaser
+targetEntityType: node
+bundle: tip_cont_inform_envia_congreso
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

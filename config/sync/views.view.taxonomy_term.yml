@@ -54,8 +54,8 @@ display:
         options:
           submit_button: Apply
           reset_button: false
-          reset_button_label: Reiniciar
-          exposed_sorts_label: 'Ordenar por'
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
@@ -478,7 +478,16 @@ display:
         operator: AND
         groups:
           1: AND
-      relationships: {  }
+      relationships:
+        field_tipo_de_articulo:
+          id: field_tipo_de_articulo
+          table: node__field_tipo_de_articulo
+          field: field_tipo_de_articulo
+          relationship: none
+          group_type: group
+          admin_label: 'field_tipo_de_articulo: Término de taxonomía'
+          required: false
+          plugin_id: standard
       header:
         entity_taxonomy_term:
           id: entity_taxonomy_term
@@ -868,11 +877,11 @@ display:
           plugin_id: custom
       css_class: 'pageTipoArticulosBlog mt-0 mt-xl-5 container'
       arguments:
-        tid:
-          id: tid
-          table: taxonomy_index
-          field: tid
-          relationship: none
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          relationship: field_tipo_de_articulo
           group_type: group
           admin_label: ''
           default_action: 'not found'
@@ -897,19 +906,25 @@ display:
             format: default_summary
           specify_validation: true
           validate:
-            type: 'entity:taxonomy_term'
+            type: taxonomy_term_name
             fail: 'not found'
           validate_options:
             bundles:
               blog: blog
-            access: true
             operation: view
-            multiple: 0
+            transform: true
+            access: false
+          glossary: false
+          limit: 0
+          case: none
+          path_case: none
+          transform_dash: false
           break_phrase: false
           add_table: false
           require_value: false
-          reduce_duplicates: false
-          plugin_id: taxonomy_index_tid
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: string
     cache_metadata:
       contexts:
         - 'languages:language_content'

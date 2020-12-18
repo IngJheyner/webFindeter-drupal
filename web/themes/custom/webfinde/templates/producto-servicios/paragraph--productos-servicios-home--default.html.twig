@@ -46,7 +46,6 @@
     not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
-{#{ drupal_dump(content.field_enlace_url.0["#url"]['uri']) }#}
 
 {% block paragraph %}
   
@@ -60,13 +59,15 @@
 
             {{ content.	field_titulo.0 }}
 
+            
+
             <button class="btn btn-secondary mt-2"
             data-toggle="modal" data-target="#modalProductosServicios"
             titulo="{{ content.field_titulo.0 }}"
             descripcion="{{ content.field_descripcion.0 }}"
             imagen = "{{ file_url(content.field_fondo_modal[0]['#item'].entity.uri.value) }}"
-            url = "{{ content.field_enlace_url.0["#title"]  }}"
-            tituloUrl = {{ content.field_enlace_url.0["#title"] }}
+            url = "{{ content.field_enlace_url[0]["#url"]  }}"
+            tituloUrl = "{{ content.field_enlace_url[0]["#title"] }}"
             >
 
               {{ content.field_ampliar_informacion.0 }}

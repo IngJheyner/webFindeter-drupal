@@ -1,0 +1,30 @@
+uuid: a082ce15-7e3c-489b-8079-74a9eb8480be
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_content_compromiso.body
+    - node.type.tipo_content_compromiso
+  module:
+    - text
+    - user
+id: node.tipo_content_compromiso.default
+targetEntityType: node
+bundle: tipo_content_compromiso
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

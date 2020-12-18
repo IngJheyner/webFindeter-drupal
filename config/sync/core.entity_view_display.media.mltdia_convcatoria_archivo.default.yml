@@ -3,7 +3,10 @@ langcode: es
 status: true
 dependencies:
   config:
-    - field.field.media.mltdia_convcatoria_archivo.field_convctoria_tipo_documento
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_mltdia_editar
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_muldia_fecha
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_ruta_archivo
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_tipo_adjunto
     - field.field.media.mltdia_convcatoria_archivo.field_media_document
     - media.type.mltdia_convcatoria_archivo
 id: media.mltdia_convcatoria_archivo.default
@@ -14,7 +17,10 @@ content: {  }
 hidden:
   addtoany: true
   created: true
-  field_convctoria_tipo_documento: true
+  field_convcatoria_mltdia_editar: true
+  field_convcatoria_muldia_fecha: true
+  field_convcatoria_ruta_archivo: true
+  field_convcatoria_tipo_adjunto: true
   field_media_document: true
   langcode: true
   name: true

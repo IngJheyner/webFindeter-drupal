@@ -3,11 +3,27 @@ langcode: es
 status: true
 dependencies:
   config:
-    - field.storage.node.field_convcatoria_codigo_proceso
+    - field.storage.node.field_convcatoria_contractual
+    - field.storage.node.field_convcatoria_departamento
+    - field.storage.node.field_convcatoria_estado
+    - field.storage.node.field_convcatoria_objeto
+    - field.storage.node.field_convcatoria_presupuesto
     - node.type.convocatorias
+    - taxonomy.vocabulary.colombia_deparments
+    - taxonomy.vocabulary.convcatoria_tipo_contractuales
+    - taxonomy.vocabulary.modalidad_contratacion
+    - user.role.abogado
+    - user.role.administrator
+    - user.role.anonymous
+    - user.role.authenticated
+    - user.role.secretaria_general
   module:
+    - cshs
     - node
+    - options
+    - taxonomy
     - user
+    - views_bootstrap
 id: convocatorias
 label: Convocatorias
 module: views
@@ -40,9 +56,9 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
-          reset_button: false
-          reset_button_label: Reiniciar
+          submit_button: Aplicar
+          reset_button: true
+          reset_button_label: Limpiar
           exposed_sorts_label: 'Ordenar por'
           expose_sort_order: true
           sort_asc_label: Asc
@@ -50,26 +66,109 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 30
+          items_per_page: 10
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: '‹ Anterior'
+            next: 'Siguiente ›'
+            first: Primera
+            last: Ultima
           expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
+            items_per_page: true
+            items_per_page_label: 'Mostrar registros'
             items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: '‹ anterior'
-            next: 'siguiente ›'
-            first: '« First'
-            last: 'Last »'
           quantity: 9
       style:
         type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: false
+          override: true
+          sticky: true
+          caption: 'Convocatorias Findeter.'
+          summary: ''
+          description: ''
+          columns:
+            title: title
+            counter: counter
+            field_convcatoria_codigo_proceso: field_convcatoria_codigo_proceso
+            field_convcatoria_estado: field_convcatoria_estado
+            field_convcatoria_contractual: field_convcatoria_contractual
+            field_convcatoria_objeto: field_convcatoria_objeto
+            field_convcatoria_departamento: field_convcatoria_departamento
+            field_convcatoria_presupuesto: field_convcatoria_presupuesto
+            field_convcatoria_fecha_apertura: field_convcatoria_fecha_apertura
+          info:
+            title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            counter:
+              sortable: true
+              default_sort_order: desc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_convcatoria_codigo_proceso:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_convcatoria_estado:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_convcatoria_contractual:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_convcatoria_objeto:
+              sortable: true
+              default_sort_order: desc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_convcatoria_departamento:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_convcatoria_presupuesto:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_convcatoria_fecha_apertura:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: field_convcatoria_objeto
+          empty_table: true
       row:
         type: fields
       fields:
@@ -77,27 +176,38 @@ display:
           id: title
           table: node_field_data
           field: title
-          entity_type: node
-          entity_field: title
-          alter:
-            alter_text: false
-            make_link: false
-            absolute: false
-            trim: false
-            word_boundary: false
-            ellipsis: false
-            strip_tags: false
-            html: false
-          hide_empty: false
-          empty_zero: false
-          settings:
-            link_to_entity: true
-          plugin_id: field
           relationship: none
           group_type: group
           admin_label: ''
           label: Título
-          exclude: false
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
           element_type: ''
           element_class: ''
           element_label_type: ''
@@ -107,9 +217,13 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
+          hide_empty: false
+          empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: string
+          settings:
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -120,14 +234,594 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_convcatoria_codigo_proceso:
-          id: field_convcatoria_codigo_proceso
-          table: node__field_convcatoria_codigo_proceso
-          field: field_convcatoria_codigo_proceso
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+        field_convcatoria_estado:
+          id: field_convcatoria_estado
+          table: node__field_convcatoria_estado
+          field: field_convcatoria_estado
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'Estado de la convocatoria'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        operations:
+          id: operations
+          table: node
+          field: operations
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Operaciones
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          destination: false
+          entity_type: node
+          plugin_id: entity_operations
+        changed:
+          id: changed
+          table: node_field_data
+          field: changed
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Fecha de actualización'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: timestamp
+          settings:
+            date_format: long
+            custom_date_format: ''
+            timezone: America/Bogota
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: changed
+          plugin_id: field
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            convocatorias: convocatorias
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+      sorts:
+        changed:
+          id: changed
+          table: node_field_data
+          field: changed
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          entity_type: node
+          entity_field: changed
+          plugin_id: date
+      title: Convocatorias
+      header: {  }
+      footer: {  }
+      empty: {  }
+      relationships:
+        uid:
+          id: uid
+          table: node_field_revision
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: Usuario
+          required: true
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
+      arguments: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_convcatoria_estado'
+  block_convocatoria_ciudadano:
+    display_plugin: block
+    id: block_convocatoria_ciudadano
+    display_title: 'Ciudadano [ Anonimo ]'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: 'Se muestra para usuarios'
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Código
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: No.
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{{ counter }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
+        field_convcatoria_estado:
+          id: field_convcatoria_estado
+          table: node__field_convcatoria_estado
+          field: field_convcatoria_estado
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Estado
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_convcatoria_contractual:
+          id: field_convcatoria_contractual
+          table: node__field_convcatoria_contractual
+          field: field_convcatoria_contractual
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Tipología contractual'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_convcatoria_objeto:
+          id: field_convcatoria_objeto
+          table: node__field_convcatoria_objeto
+          field: field_convcatoria_objeto
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Objeto
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 80
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: true
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: p
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_convcatoria_departamento:
+          id: field_convcatoria_departamento
+          table: node__field_convcatoria_departamento
+          field: field_convcatoria_departamento
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Departamento y Municipio'
           exclude: false
           alter:
             alter_text: false
@@ -168,29 +862,31 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: string
+          click_sort_column: target_id
+          type: cshs_full_hierarchy
           settings:
-            link_to_entity: false
-          group_column: value
+            linked: 0
+            reverse: 0
+            separator: /
+          group_column: target_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
-          multi_type: separator
+          multi_type: ul
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        name:
-          id: name
-          table: users_field_data
-          field: name
-          relationship: uid
+        field_convcatoria_presupuesto:
+          id: field_convcatoria_presupuesto
+          table: node__field_convcatoria_presupuesto
+          field: field_convcatoria_presupuesto
+          relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Cuantía
           exclude: false
           alter:
             alter_text: false
@@ -219,9 +915,9 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: '0'
           element_class: ''
-          element_label_type: ''
+          element_label_type: '0'
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
@@ -232,9 +928,12 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: user_name
+          type: number_decimal
           settings:
-            link_to_entity: true
+            thousand_separator: ','
+            prefix_suffix: true
+            decimal_separator: .
+            scale: 2
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -245,10 +944,679 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: user
-          entity_field: name
           plugin_id: field
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Fecha apertura'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: timestamp
+          settings:
+            date_format: html_date
+            custom_date_format: ''
+            timezone: America/Bogota
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: created
+          plugin_id: field
+      defaults:
+        fields: false
+        access: false
+        style: false
+        row: false
+        use_ajax: false
+        footer: false
+        filters: false
+        filter_groups: false
+        css_class: false
+        header: false
+        relationships: false
+      access:
+        type: role
+        options:
+          role:
+            anonymous: anonymous
+            authenticated: authenticated
+      style:
+        type: views_bootstrap_table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: 1
+          sticky: 1
+          caption: 'Convocatorias Findeter.'
+          summary: ''
+          description: ''
+          columns:
+            title: title
+            nid: nid
+            field_convcatoria_estado: field_convcatoria_estado
+            field_convcatoria_contractual: field_convcatoria_contractual
+            field_convcatoria_objeto: field_convcatoria_objeto
+            field_convcatoria_departamento: field_convcatoria_departamento
+            field_convcatoria_presupuesto: field_convcatoria_presupuesto
+            created: created
+          info:
+            title:
+              sortable: 1
+              default_sort_order: asc
+              align: views-align-center
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            nid:
+              sortable: 1
+              default_sort_order: desc
+              align: views-align-center
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            field_convcatoria_estado:
+              sortable: 1
+              default_sort_order: asc
+              align: views-align-center
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            field_convcatoria_contractual:
+              sortable: 1
+              default_sort_order: asc
+              align: views-align-center
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            field_convcatoria_objeto:
+              sortable: 1
+              default_sort_order: asc
+              align: views-align-center
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            field_convcatoria_departamento:
+              align: views-align-center
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            field_convcatoria_presupuesto:
+              sortable: 1
+              default_sort_order: asc
+              align: views-align-center
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            created:
+              sortable: 1
+              default_sort_order: desc
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+          default: created
+          empty_table: 1
+          responsive: 1
+          bootstrap_styles:
+            hover: hover
+            condensed: condensed
+            striped: 0
+            bordered: 0
+      row:
+        type: fields
+        options: {  }
+      use_ajax: true
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          content: 'Registros @start - @end de @total'
+          plugin_id: result
       filters:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: 'Código de proceso'
+            description: ''
+            use_operator: false
+            operator: title_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: title
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              abogado: '0'
+              secretaria_general: '0'
+              colaborador: '0'
+              c_modificador: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+        field_convcatoria_estado_value:
+          id: field_convcatoria_estado_value
+          table: node__field_convcatoria_estado
+          field: field_convcatoria_estado_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_convcatoria_estado_value_op
+            label: 'Estado de la Convocatoria'
+            description: ''
+            use_operator: false
+            operator: field_convcatoria_estado_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_convcatoria_estado_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              abogado: '0'
+              secretaria_general: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
+        field_convcatoria_contractual_target_id:
+          id: field_convcatoria_contractual_target_id
+          table: node__field_convcatoria_contractual
+          field: field_convcatoria_contractual_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_convcatoria_contractual_target_id_op
+            label: 'Tipologías Contractuales'
+            description: ''
+            use_operator: false
+            operator: field_convcatoria_contractual_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_convcatoria_contractual_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              abogado: '0'
+              secretaria_general: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          type: select
+          limit: true
+          vid: convcatoria_tipo_contractuales
+          hierarchy: false
+          error_message: true
+          parent: 0
+          level_labels: ''
+          force_deepest: false
+          plugin_id: taxonomy_index_tid
+        field_convcatoria_contratacion_target_id:
+          id: field_convcatoria_contratacion_target_id
+          table: node__field_convcatoria_contratacion
+          field: field_convcatoria_contratacion_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_convcatoria_contratacion_target_id_op
+            label: 'Modalidad de Contratación'
+            description: ''
+            use_operator: false
+            operator: field_convcatoria_contratacion_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_convcatoria_contratacion_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              anonymous: '0'
+              authenticated: '0'
+              administrator: '0'
+              abogado: '0'
+              secretaria_general: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          type: select
+          limit: true
+          vid: modalidad_contratacion
+          hierarchy: false
+          error_message: true
+          parent: 0
+          level_labels: ''
+          force_deepest: false
+          plugin_id: taxonomy_index_tid
+        field_convcatoria_presupuesto_value:
+          id: field_convcatoria_presupuesto_value
+          table: node__field_convcatoria_presupuesto
+          field: field_convcatoria_presupuesto_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_convcatoria_presupuesto_value_op
+            label: 'Presupuesto (field_convcatoria_presupuesto)'
+            description: null
+            use_operator: false
+            operator: field_convcatoria_presupuesto_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_convcatoria_presupuesto_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+            min_placeholder: null
+            max_placeholder: null
+          is_grouped: true
+          group_info:
+            label: Presupuesto
+            description: ''
+            identifier: field_convcatoria_presupuesto_value
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple:
+              1: 1
+              2: 2
+            group_items:
+              1:
+                title: '$0 - $100,000,000.00'
+                operator: between
+                value:
+                  value: ''
+                  min: '1'
+                  max: '100000000'
+              2:
+                title: '$100,000,001.00 - $300,000,000.00'
+                operator: between
+                value:
+                  value: ''
+                  min: '100000001'
+                  max: '300000000'
+              3:
+                title: '$300,000,001.00 - $500,000,000.00'
+                operator: between
+                value:
+                  value: ''
+                  min: '300000001'
+                  max: '500000000'
+              4:
+                title: '$500,000,001.00 - $1,000,000,000.00'
+                operator: between
+                value:
+                  value: ''
+                  min: '500000001'
+                  max: '1000000000'
+              5:
+                title: 'Mayores a $1,000,000,000.00'
+                operator: '>'
+                value:
+                  value: '1000000000'
+                  min: ''
+                  max: ''
+          plugin_id: numeric
+        field_convcatoria_objeto_value:
+          id: field_convcatoria_objeto_value
+          table: node__field_convcatoria_objeto
+          field: field_convcatoria_objeto_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_convcatoria_objeto_value_op
+            label: Objeto
+            description: ''
+            use_operator: false
+            operator: field_convcatoria_objeto_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_convcatoria_objeto_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              abogado: '0'
+              secretaria_general: '0'
+              colaborador: '0'
+              c_modificador: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        field_convcatoria_departamento_target_id:
+          id: field_convcatoria_departamento_target_id
+          table: node__field_convcatoria_departamento
+          field: field_convcatoria_departamento_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: null
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_convcatoria_departamento_target_id_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: field_convcatoria_departamento_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_convcatoria_departamento_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              abogado: '0'
+              secretaria_general: '0'
+              colaborador: '0'
+              c_modificador: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: 'Departamento y Municipio (field_convcatoria_departamento)'
+            description: ''
+            identifier: field_convcatoria_departamento_target_id
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: ''
+                operator: or
+                value: null
+              2:
+                title: ''
+                operator: or
+                value: null
+              3:
+                title: ''
+                operator: or
+                value: null
+          reduce_duplicates: false
+          type: cshs
+          limit: true
+          vid: colombia_deparments
+          hierarchy: false
+          error_message: true
+          parent: '0'
+          level_labels: 'Departamento, Municipio'
+          force_deepest: 0
+          plugin_id: taxonomy_index_tid
+        field_convcatoria_fecha_apertura_value:
+          id: field_convcatoria_fecha_apertura_value
+          table: node__field_convcatoria_fecha_apertura
+          field: field_convcatoria_fecha_apertura_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: between
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_convcatoria_fecha_apertura_value_op
+            label: 'Fecha de apertura'
+            description: ''
+            use_operator: false
+            operator: field_convcatoria_fecha_apertura_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_convcatoria_fecha_apertura_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              abogado: '0'
+              secretaria_general: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: datetime
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: between
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: created_op
+            label: 'Fecha de apertura'
+            description: ''
+            use_operator: false
+            operator: created_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: created
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              abogado: '0'
+              secretaria_general: '0'
+              colaborador: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: created
+          plugin_id: date
         status:
           value: '1'
           table: node_field_data
@@ -261,7 +1629,7 @@ display:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
+          group: 2
         type:
           id: type
           table: node_field_data
@@ -274,26 +1642,23 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
-      sorts:
-        created:
-          id: created
-          table: node_field_data
-          field: created
-          order: DESC
-          entity_type: node
-          entity_field: created
-          plugin_id: date
+          group: 2
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+          2: AND
+      css_class: convocatoriaCiudadano
+      header:
+        messages:
+          id: messages
+          table: views
+          field: messages
           relationship: none
           group_type: group
-          admin_label: ''
-          exposed: false
-          expose:
-            label: ''
-          granularity: second
-      title: Convocatorias
-      header: {  }
-      footer: {  }
-      empty: {  }
+          admin_label: Mensajes
+          empty: true
+          plugin_id: messages
       relationships:
         uid:
           id: uid
@@ -306,26 +1671,407 @@ display:
           entity_type: node
           entity_field: uid
           plugin_id: standard
-      arguments: {  }
-      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
-        - 'config:field.storage.node.field_convcatoria_codigo_proceso'
-  block_1:
+        - 'config:field.storage.node.field_convcatoria_contractual'
+        - 'config:field.storage.node.field_convcatoria_departamento'
+        - 'config:field.storage.node.field_convcatoria_estado'
+        - 'config:field.storage.node.field_convcatoria_objeto'
+        - 'config:field.storage.node.field_convcatoria_presupuesto'
+  block_convocatoria_funcionario:
     display_plugin: block
-    id: block_1
-    display_title: 'Conv. Funcionario'
+    id: block_convocatoria_funcionario
+    display_title: Funcionario
     position: 1
     display_options:
       display_extenders: {  }
       display_description: 'Se muestra para usuarios autenticados'
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Título
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+        field_convcatoria_estado:
+          id: field_convcatoria_estado
+          table: node__field_convcatoria_estado
+          field: field_convcatoria_estado
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Estado de la convocatoria'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        changed:
+          id: changed
+          table: node_field_data
+          field: changed
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Fecha de actualización'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: timestamp
+          settings:
+            date_format: long
+            custom_date_format: ''
+            timezone: America/Bogota
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: changed
+          plugin_id: field
+        operations:
+          id: operations
+          table: node
+          field: operations
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Operaciones
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: true
+          empty_zero: false
+          hide_alter_empty: true
+          destination: true
+          entity_type: node
+          plugin_id: entity_operations
+      defaults:
+        fields: false
+        use_ajax: false
+        style: false
+        row: false
+        access: false
+        pager: false
+        footer: false
+        exposed_form: false
+      use_ajax: true
+      style:
+        type: views_bootstrap_table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: 1
+          sticky: 1
+          caption: 'Convocatorias Findeter.'
+          summary: ''
+          description: ''
+          columns:
+            title: title
+            counter: counter
+            field_convcatoria_codigo_proceso: field_convcatoria_codigo_proceso
+            field_convcatoria_estado: field_convcatoria_estado
+            changed: changed
+            operations: operations
+          info:
+            title:
+              sortable: 0
+              default_sort_order: asc
+              align: views-align-center
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            counter:
+              sortable: 0
+              default_sort_order: asc
+              align: views-align-center
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            field_convcatoria_codigo_proceso:
+              sortable: 0
+              default_sort_order: desc
+              align: views-align-center
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            field_convcatoria_estado:
+              sortable: 0
+              default_sort_order: asc
+              align: views-align-center
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            changed:
+              sortable: 1
+              default_sort_order: desc
+              align: views-align-center
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            operations:
+              align: views-align-center
+              separator: ''
+              empty_column: 1
+              responsive: ''
+          default: changed
+          empty_table: 1
+          responsive: 1
+          bootstrap_styles:
+            hover: hover
+            striped: 0
+            bordered: 0
+            condensed: 0
+      row:
+        type: fields
+        options: {  }
+      access:
+        type: role
+        options:
+          role:
+            authenticated: authenticated
+            administrator: administrator
+            abogado: abogado
+            secretaria_general: secretaria_general
+      pager:
+        type: full
+        options:
+          items_per_page: 10
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Anterior'
+            next: 'Siguiente ›'
+            first: '« Primera'
+            last: 'Ultima »'
+          expose:
+            items_per_page: true
+            items_per_page_label: 'Mostrar registros'
+            items_per_page_options: '1, 5, 10, 25, 30, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Registro @start - @end de @total convocatorias.'
+          plugin_id: result
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Aplicar
+          reset_button: false
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      enabled: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -333,6 +2079,6 @@ display:
         - 'languages:language_interface'
         - url.query_args
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
-        - 'config:field.storage.node.field_convcatoria_codigo_proceso'
+        - 'config:field.storage.node.field_convcatoria_estado'

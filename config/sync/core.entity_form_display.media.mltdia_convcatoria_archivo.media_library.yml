@@ -1,34 +1,45 @@
 uuid: f75fd9ff-1c31-417d-a4a1-3a9ef3e062fd
 langcode: es
-status: true
+status: false
 dependencies:
   config:
     - core.entity_form_mode.media.media_library
-    - field.field.media.mltdia_convcatoria_archivo.field_convctoria_tipo_documento
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_mltdia_editar
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_muldia_fecha
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_ruta_archivo
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_tipo_adjunto
     - field.field.media.mltdia_convcatoria_archivo.field_media_document
     - media.type.mltdia_convcatoria_archivo
   module:
+    - datetime
     - file
 id: media.mltdia_convcatoria_archivo.media_library
 targetEntityType: media
 bundle: mltdia_convcatoria_archivo
 mode: media_library
 content:
-  created:
-    type: datetime_timestamp
+  field_convcatoria_mltdia_editar:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_convcatoria_muldia_fecha:
+    type: datetime_default
     weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_convctoria_tipo_documento:
+  field_convcatoria_tipo_adjunto:
     type: options_select
-    weight: 2
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   field_media_document:
     type: file_generic
-    weight: 1
+    weight: 2
     region: content
     settings:
       progress_indicator: throbber
@@ -43,12 +54,14 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 4
+    weight: 5
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
 hidden:
+  created: true
+  field_convcatoria_ruta_archivo: true
   langcode: true
   path: true
   uid: true

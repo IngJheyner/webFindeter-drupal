@@ -1,0 +1,48 @@
+uuid: 357baea5-41e3-4e74-a41e-4d6e58ba35d2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ps_paragra_tabs_internas
+    - node.type.productos_servicios
+    - paragraphs.paragraphs_type.tabs_productos_servicio
+  module:
+    - disable_field
+    - entity_reference_revisions
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.productos_servicios.field_ps_paragra_tabs_internas
+field_name: field_ps_paragra_tabs_internas
+entity_type: node
+bundle: productos_servicios
+label: 'Tabs Internas'
+description: '<b>Importante</b> Recuerde ordenar los <i>Tabs [ Internos ]</i> en el mismo orden que están los <i>Items principales</i> que se diligencio en el apartado anterior.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      tabs_productos_servicio: tabs_productos_servicio
+    target_bundles_drag_drop:
+      findeter_en_cifras_home:
+        weight: 4
+        enabled: false
+      productos_servicios_home:
+        weight: 5
+        enabled: false
+      ps_contenido_items_internos:
+        weight: 8
+        enabled: false
+      ps_grillas_internas:
+        weight: 9
+        enabled: false
+      tabs_productos_servicio:
+        enabled: true
+        weight: 6
+field_type: entity_reference_revisions

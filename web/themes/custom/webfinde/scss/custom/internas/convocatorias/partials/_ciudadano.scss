@@ -1,0 +1,61 @@
+@use '../../../variables' as var;
+
+/* ==============================
+VISTA
+============================== */
+div.convocatoriaCiudadano{
+
+    form{
+
+        div.form--inline{
+
+            padding: 2rem;
+            background-color: var.$color-primario;
+            color: white;
+
+            //Codigo proceso y objeto
+            div.form-item-title, div.form-item-field-convcatoria-objeto-value{
+                width: 100% !important;
+            }
+
+            //Departamento
+            div.form-item-field-convcatoria-departamento-target-id{
+
+                //display: block !important;
+                width: 100%;
+            }
+
+            input[type="submit"]{
+
+                background-color: var.$color-cuaternario !important;
+            }
+        }
+    }
+
+    table:nth-child(2){
+
+        thead{
+
+            tr > th:nth-child(1){
+                width: 200px;
+                
+            }
+        }
+
+        tbody{
+
+            tr > td:nth-child(1){
+
+                a{
+                    color: var.$color-cuaternario !important;
+                    font-weight: bolder;
+
+                    &:hover{
+
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}

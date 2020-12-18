@@ -6,12 +6,17 @@ dependencies:
     - field.storage.node.field_img_noticia_home
     - node.type.noticias_home
   module:
+    - disable_field
     - image
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
 id: node.noticias_home.field_img_noticia_home
 field_name: field_img_noticia_home
 entity_type: node
 bundle: noticias_home
-label: Imagen
+label: 'Imagen de portada'
 description: ''
 required: true
 translatable: false
@@ -20,10 +25,10 @@ default_value_callback: ''
 settings:
   file_directory: webfinde/images/noticias
   file_extensions: 'png gif jpg jpeg'
-  max_filesize: '10 mb'
-  max_resolution: ''
-  min_resolution: ''
-  alt_field: true
+  max_filesize: '2 mb'
+  max_resolution: 355x250
+  min_resolution: 355x246
+  alt_field: false
   alt_field_required: true
   title_field: false
   title_field_required: false

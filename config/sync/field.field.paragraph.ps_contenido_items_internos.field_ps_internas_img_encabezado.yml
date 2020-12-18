@@ -1,0 +1,43 @@
+uuid: 9ca23314-0703-4c58-83cd-aae347f83d7c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ps_internas_img_encabezado
+    - paragraphs.paragraphs_type.ps_contenido_items_internos
+  module:
+    - disable_field
+    - image
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: paragraph.ps_contenido_items_internos.field_ps_internas_img_encabezado
+field_name: field_ps_internas_img_encabezado
+entity_type: paragraph
+bundle: ps_contenido_items_internos
+label: 'Img. Encabezado'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: webfinde/images/productos_servicios_home/internas/tabs-internas
+  file_extensions: 'png jpg jpeg'
+  max_filesize: '2 mb'
+  max_resolution: 1110x200
+  min_resolution: 1107x200
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

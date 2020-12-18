@@ -1,0 +1,34 @@
+uuid: d9a24427-0eb3-4a59-a510-4cb88dc4752d
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tip_cont_estrat_sostenibilidad.body
+    - field.field.node.tip_cont_estrat_sostenibilidad.field_tip_cont_est_sos_imagen
+    - node.type.tip_cont_estrat_sostenibilidad
+  module:
+    - text
+    - user
+id: node.tip_cont_estrat_sostenibilidad.teaser
+targetEntityType: node
+bundle: tip_cont_estrat_sostenibilidad
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  field_tip_cont_est_sos_imagen: true
+  langcode: true

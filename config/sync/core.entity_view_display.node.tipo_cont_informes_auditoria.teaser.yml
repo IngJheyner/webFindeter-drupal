@@ -1,0 +1,32 @@
+uuid: e43b46d8-0783-426b-8748-b95164366903
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tipo_cont_informes_auditoria.body
+    - node.type.tipo_cont_informes_auditoria
+  module:
+    - text
+    - user
+id: node.tipo_cont_informes_auditoria.teaser
+targetEntityType: node
+bundle: tipo_cont_informes_auditoria
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

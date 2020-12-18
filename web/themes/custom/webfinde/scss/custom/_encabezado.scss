@@ -1,4 +1,6 @@
 @use 'variables' as var;
+@use '../mixins/media-query' as media-query;
+
 /* ===== ===== MENUGOVCO ===== ===== */
 .menuGovCo{
     background-color: var.$color-quinario;
@@ -11,8 +13,17 @@
     nav{
         ul{
             li{
-                span{
-                    color: var.$color-primario;
+                $li: (1:"assista.png",2:"crm-findeter.png",3:"office_365.png",4:"intranet.png",5:"en.png",6:"acceso_admin.png");
+
+                @each $num, $icon in $li {
+
+                    &:nth-child(#{$num}){
+
+                        a::before{
+                            content: url('/themes/custom/webfinde/images/iconos/menu-govco/#{$icon}');
+                        }
+                    }
+                    
                 }
             }
         }
@@ -28,16 +39,162 @@ section.menuPrincipal{
      /* ==============================
     MENU ESCRITORIO
     ============================== */
-    nav{           
+    nav{
+        
+        margin: 40px auto;
+
+        > ul{
+
+            width: 100%;
+        }
     
         ul{
 
+            position: relative;
+            margin: 0;
+            padding: 0;
+
             li{                            
 
-                a,span{
-                            
-                    position: relative;                    
+                list-style: none;
+
+                > a,span{                   
                     text-shadow: 1px 1px 2px black; 
+                    display: block;
+                    cursor: pointer;
+                    
+                }
+
+                > svg{
+
+                    position: absolute;
+                    bottom: -10px;
+                    display: none;
+                    margin-left: 2rem;
+                    font-size: 30px;
+                }
+
+                &:hover svg{
+
+                    display: block;
+
+                }
+
+                ul.submenu{
+
+                    background-color: white;
+                    padding: 20px;
+                    position: absolute;
+                    z-index: 1000;
+                    display: none;
+                    border-bottom: 3px solid var.$color-cuaternario;
+
+                    > li.submenuItems{
+
+                        margin: 0 20px;
+
+                        > span{
+                            display: none;
+                        }
+
+                        ul > li > a,span{
+
+                            color: black !important;
+                            text-shadow: none;
+
+                            &:hover{
+
+                                text-decoration: underline;
+                            }
+                        }
+
+                    }
+                }
+
+                &:hover ul.submenu{
+
+                    display: flex;
+                    
+                }
+            }
+        }
+    }
+}
+
+/* ==============================
+MENU MOVIL
+============================== */    
+button#sidebarCollapse, button#sidebarCollapseMd{
+    background-color: var.$color-cuaternario !important;
+}
+
+
+section.menuMovil{
+
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100vh;
+    padding-top: 2rem;
+    background-color: var.$color-primario;
+
+  
+    > div.imgClose{
+
+        width: 300px;
+        position: absolute;
+        display: none;
+        top: 0;
+
+        button{
+            color: white;
+            font-size: 2.5rem;
+        }
+    }
+
+    nav{        
+        min-width: 300px;
+        max-width: 300px;
+        display: none;
+        overflow-y: scroll;
+        flex-flow: column;  
+        transition: all 0.3s; 
+        margin-top: 9rem; 
+        
+
+        > ul{
+            flex-direction: initial !important;
+            display: initial;
+
+            > li{
+
+                //display: flex;
+                margin-bottom: 2rem;
+                border-bottom: 1px solid var.$color-quinario;
+
+                > span{
+                    flex: 1 1 auto;
+                }
+
+                svg{
+                    display: none;
+                }
+                > ul.submenu{
+                    padding: 0;
+                    list-style: none;
+
+                    li.submenuItems{
+                        padding-left: 1rem;
+
+                        ul{
+                            list-style: none;
+                            padding: 0;
+                        }
+                    }
                 }
             }
         }
@@ -53,5 +210,76 @@ div.sliderHome{
     position: absolute;
     top: 0;
     width: 100%;
-   
+}
+
+/* ==============================
+MEDIA QUERY
+============================== */
+@include media-query.media(xs){
+
+    .menuGovCo{
+        
+        nav > ul{
+
+            flex-direction: initial;
+
+            li:last-child{
+                margin: 0 !important;
+            }
+        }
+    }
+
+    section.menuPrincipal{
+
+        background: var.$color-primario;
+    }
+     
+}
+
+@include media-query.media(sm){
+
+    section.menuPrincipal{
+
+        background: var.$color-primario;
+    }
+     
+}
+
+@include media-query.media(lg){
+
+    section.menuPrincipal{ 
+
+        /* ==============================
+        MENU ESCRITORIO
+        ============================== */
+        nav{
+            
+            margin: 0;
+            background-color: var.$color-primario;
+            
+            ul > li > a,span{ 
+                
+                font-size: 14px;                
+            }
+        }
+    }
+     
+}
+
+@include media-query.media(xl){
+
+    section.menuPrincipal{ 
+
+        /* ==============================
+        MENU ESCRITORIO
+        ============================== */
+        nav{
+            
+            ul > li > a,span{ 
+                
+                font-size: 14px;
+            }
+        }
+    }
+     
 }

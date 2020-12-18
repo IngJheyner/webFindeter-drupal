@@ -3,19 +3,18 @@ langcode: es
 status: true
 dependencies: {  }
 id: url_youtube_articulo_blog
-label: 'URL Youtube [ Blog ]'
-description: 'Se publican los vídeos de youtube de los artículos publicados del blog.'
+label: 'URL Youtube'
+description: 'Se publican los vídeos de youtube de los artículos, noticias etc...'
 source: 'oembed:video'
 queue_thumbnail_downloads: false
 new_revision: false
 source_configuration:
-  thumbnails_directory: 'public://webfinde/videos/blog/thumbnails'
+  thumbnails_directory: 'public://webfinde/internas/videos/thumbnails'
   providers:
     - YouTube
   source_field: field_media_oembed_video
 field_map:
-  title: name
   thumbnail_width: name
   thumbnail_height: name
-  width: name
-  height: name
+  width: field_media_oembed_video
+  height: field_media_oembed_video

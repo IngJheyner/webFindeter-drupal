@@ -1,0 +1,32 @@
+uuid: 23c5f53b-4ae5-4286-ad33-dee2bc445ff9
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.6_4_1_seguimiento_plan_estrategi.body
+    - node.type.6_4_1_seguimiento_plan_estrategi
+  module:
+    - text
+    - user
+id: node.6_4_1_seguimiento_plan_estrategi.teaser
+targetEntityType: node
+bundle: 6_4_1_seguimiento_plan_estrategi
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

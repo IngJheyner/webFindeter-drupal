@@ -1,0 +1,68 @@
+uuid: 490c72db-d852-4724-b1f6-579198f775f8
+langcode: es
+status: true
+dependencies:
+  config:
+    - filter.format.html_editor
+  module:
+    - ckeditor
+format: html_editor
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formato
+          items:
+            - Underline
+            - Strike
+            - Bold
+            - Italic
+            - Superscript
+            - Subscript
+            - RemoveFormat
+            - '-'
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyRight
+            - JustifyBlock
+            - '-'
+        -
+          name: Enlaces
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Listas
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Media
+          items:
+            - Blockquote
+            - DrupalImage
+            - DrupalMediaLibrary
+        -
+          name: Herramientas
+          items:
+            - Source
+            - Table
+        -
+          name: HTML
+          items:
+            - Format
+  plugins:
+    language:
+      language_list: un
+    stylescombo:
+      styles: ''
+image_upload:
+  status: true
+  scheme: public
+  directory: webfinde/images/internas
+  max_size: '2 mb'
+  max_dimensions:
+    width: 500
+    height: 500

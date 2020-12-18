@@ -1,4 +1,5 @@
 @use 'variables' as var;
+@use '../mixins/media-query' as media-query;
 
 /* ==============================
 NOTICIAS
@@ -74,7 +75,7 @@ NOTICIAS
                         margin-bottom: 1em;
                     }
 
-                    p.resumen{
+                    a{
 
                         font-weight: bold;
                         font-size: 1.1rem;
@@ -246,6 +247,67 @@ div.redeSociales{
         border-left: 1px solid var.$color-quinario;
         border-right: 1px solid var.$color-quinario;
         border-bottom: 1px solid var.$color-quinario;
+
+        > div.tab-pane{
+            overflow-x: scroll;
+        }
     }
+    
+}
+
+/* ==============================
+INTERNAS Y LISTADO DE NOTICIAS
+============================== */
+@import '../custom/internas/noticias/noticias';
+
+/* ==============================
+MEDIA QUERY
+============================== */
+@include media-query.media(xs){
+
+    .sliderNoticiaHome{
+
+        div.encabezado > h1{
+
+            font-size: 1.5rem;
+        
+            &::after{
+            background-color: initial;
+            }
+        }
+    
+        div.slick ul li.grid{
+
+            width: 100%;
+
+            div.slide__description a img{
+                width: 100%;
+            }
+        }
+    }        
+    
+}
+
+@include media-query.media(sm){
+
+    .sliderNoticiaHome{
+
+        div.encabezado > h1{
+              
+        
+            &::after{
+            background-color: initial;
+            }
+        }
+    
+        div.slick ul li.grid{
+
+            width: 100%;
+
+            div.slide__description a img{
+                width: 100%;
+            }
+        }
+    }        
     
 }

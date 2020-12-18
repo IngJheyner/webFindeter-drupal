@@ -1,0 +1,30 @@
+uuid: 983ebfdc-3e61-495c-b855-355c0516d362
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tip_cont_inform_envia_congreso.body
+    - node.type.tip_cont_inform_envia_congreso
+  module:
+    - text
+    - user
+id: node.tip_cont_inform_envia_congreso.default
+targetEntityType: node
+bundle: tip_cont_inform_envia_congreso
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

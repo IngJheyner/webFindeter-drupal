@@ -1,0 +1,41 @@
+uuid: 07c981d2-78f9-4bcf-b90b-5004158fa36b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_cont_linea_cred_redesc.body
+    - field.field.node.tipo_cont_linea_cred_redesc.field_img_enca_line_cred_redes
+    - node.type.tipo_cont_linea_cred_redesc
+  module:
+    - image
+    - text
+    - user
+id: node.tipo_cont_linea_cred_redesc.default
+targetEntityType: node
+bundle: tipo_cont_linea_cred_redesc
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_img_enca_line_cred_redes:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

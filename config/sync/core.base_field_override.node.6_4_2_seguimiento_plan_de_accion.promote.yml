@@ -1,0 +1,22 @@
+uuid: be9437f5-ac64-4c7d-b83c-553992f9ec19
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.6_4_2_seguimiento_plan_de_accion
+id: node.6_4_2_seguimiento_plan_de_accion.promote
+field_name: promote
+entity_type: node
+bundle: 6_4_2_seguimiento_plan_de_accion
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -5,37 +5,30 @@ dependencies:
   config:
     - field.field.node.slider_home.body
     - field.field.node.slider_home.field_image
+    - field.field.node.slider_home.field_slider_multimedia
+    - field.field.node.slider_home.field_slider_video_html
     - node.type.slider_home
   module:
-    - image
-    - text
     - user
 id: node.slider_home.default
 targetEntityType: node
 bundle: slider_home
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 101
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  field_image:
-    weight: 102
-    label: hidden
+  field_slider_multimedia:
+    weight: 1
+    label: above
     settings:
-      image_style: ''
-      image_link: ''
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
-    type: image
+    type: boolean
     region: content
-  links:
-    weight: 100
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   addtoany: true
+  body: true
+  field_image: true
+  field_slider_video_html: true
   langcode: true
+  links: true

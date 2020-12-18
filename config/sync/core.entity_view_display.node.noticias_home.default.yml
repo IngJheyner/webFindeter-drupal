@@ -5,46 +5,29 @@ dependencies:
   config:
     - field.field.node.noticias_home.body
     - field.field.node.noticias_home.field_img_noticia_home
+    - field.field.node.noticias_home.field_noticias_resumen_redes
+    - field.field.node.noticias_home.field_noticias_resumen_seo
+    - field.field.node.noticias_home.field_noticias_tipo_noticia_seo
+    - field.field.node.noticias_home.field_noticias_titulo_redes
+    - field.field.node.noticias_home.field_noticias_titulo_seo
     - field.field.node.noticias_home.field_tipo_noticia
     - node.type.noticias_home
   module:
-    - image
-    - text
     - user
 id: node.noticias_home.default
 targetEntityType: node
 bundle: noticias_home
 mode: default
-content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 101
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  field_img_noticia_home:
-    weight: 104
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
-  field_tipo_noticia:
-    weight: 103
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
+content: {  }
 hidden:
   addtoany: true
+  body: true
+  field_img_noticia_home: true
+  field_noticias_resumen_redes: true
+  field_noticias_resumen_seo: true
+  field_noticias_tipo_noticia_seo: true
+  field_noticias_titulo_redes: true
+  field_noticias_titulo_seo: true
+  field_tipo_noticia: true
   langcode: true
+  links: true

@@ -1,0 +1,28 @@
+uuid: 2de778cf-3fa8-456c-a8ce-970fdd3aede5
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.tipcont_infor_ninos_ninas_adolec
+  module:
+    - disable_field
+    - text
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.tipcont_infor_ninos_ninas_adolec.body
+field_name: body
+entity_type: node
+bundle: tipcont_infor_ninos_ninas_adolec
+label: 'Contenido informacion'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

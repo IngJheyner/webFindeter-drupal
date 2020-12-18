@@ -1,4 +1,5 @@
 @use '_variables' as var;
+@use '../mixins/media-query' as media-query;
 
 section.productosServicios{
    
@@ -42,6 +43,7 @@ section.productosServicios{
             height: 25em;
             cursor: pointer;
             box-shadow: 1rem 0rem 1rem #C8D0E3!important;
+            border-radius: 0.8rem;
 
            &:last-child{
 
@@ -59,8 +61,8 @@ section.productosServicios{
                 
                 background: var.$color-secundario;
 
-                /*background: repeating-linear-gradient(184deg,
-                transparent 0, transparent 19%,
+                /*background: repeating-linear-gradient(187deg,
+                transparent 0, transparent 15%,
                     var.$color-secundario 0, var.$color-secundario);*/
                 
                 .fondo{
@@ -69,13 +71,13 @@ section.productosServicios{
                     bottom: -16px;
                     left: 0;
                     width: 100%;
-                    height: 109%;
+                    height: 169%;
                     color: #CDDC4B;
                     border-radius: 0 0 0.8em 0.8em;
-                    /*background-image: repeating-linear-gradient(183deg, 
-                    transparent 0, transparent 11%, 
-                    var.$color-primario 0, var.$color-primario);*/
-                    background: var.$color-primario;
+                    background-image: repeating-linear-gradient(188deg, 
+                    transparent 0, transparent 15%, 
+                    var.$color-primario 0, #296294);
+                    /*background: var.$color-primario;*/
 
                     h1{
                         position: absolute;
@@ -146,4 +148,112 @@ VENTANA MODAL PRODUCTOS Y SERVICIOS
         
         
     }
+}
+
+/* ==============================
+INTERNAS
+============================== */
+
+/* ===== ===== INTERNAS ===== ===== */
+@import '../custom/internas/productos-servicios/productos-servicios';
+
+/* ==============================
+MEDIA QUERY
+============================== */
+@include media-query.media(xs){
+
+    section.productosServicios{
+
+        .titulo{
+    
+            h1{               
+                width: 100%;    
+                font-size: 1.5rem;    
+                
+                &::after{
+                    background-color: initial;
+                }
+            }
+        }
+
+        .grid-container{
+
+           overflow-x: scroll;  
+
+           .grid-item{
+
+                margin-left: 1.5rem;
+
+           } 
+        }
+    }
+
+    #modalProductosServicios {
+
+        height: auto;
+
+        .modal-dialog .modal-content .modal-body{
+
+            top: 0;
+                  
+            div.descripcion{        
+                max-width: 100%;
+                
+            }
+        }
+                
+    }
+     
+}
+
+@include media-query.media(sm){
+
+    section.productosServicios{
+
+        .titulo{
+    
+            h1{               
+                width: 100%;    
+                font-size: 1.9rem;   
+                
+                &::after{
+                    background-color: initial;
+                }
+            }
+        }
+
+        .grid-container{
+           overflow-x: scroll;   
+        }
+    }
+     
+}
+
+@include media-query.media(md){
+
+    section.productosServicios{
+
+        .titulo{
+    
+            h1{               
+                width: 100%;                
+            }
+        }
+
+        .grid-container{
+           overflow-x: scroll;   
+        }
+    }
+     
+}
+
+@include media-query.media(lg){
+
+    section.productosServicios{
+
+        .grid-container{
+           overflow-x: scroll;   
+        }
+    }
+     
 }

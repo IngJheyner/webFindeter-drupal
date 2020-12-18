@@ -6,12 +6,13 @@ dependencies:
     - 'block_content:encabezado_home:d46ab930-f240-4a88-8d55-c5edaacc8c85'
   module:
     - block_content
+    - system
   theme:
     - webfinde
 id: encabezado_home
 theme: webfinde
 region: region_A
-weight: -8
+weight: -11
 provider: null
 plugin: 'block_content:d46ab930-f240-4a88-8d55-c5edaacc8c85'
 settings:
@@ -22,4 +23,9 @@ settings:
   status: true
   info: ''
   view_mode: full
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: "/blog\r\n/blog/*"
+    negate: true
+    context_mapping: {  }

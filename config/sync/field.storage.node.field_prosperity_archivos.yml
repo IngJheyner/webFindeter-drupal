@@ -1,0 +1,20 @@
+uuid: ef68674b-2d33-4bbd-9b8e-dea1ac15ed29
+langcode: es
+status: true
+dependencies:
+  module:
+    - media
+    - node
+id: node.field_prosperity_archivos
+field_name: field_prosperity_archivos
+entity_type: node
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

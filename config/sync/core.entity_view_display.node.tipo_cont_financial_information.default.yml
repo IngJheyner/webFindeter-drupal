@@ -1,0 +1,41 @@
+uuid: 4b88c9dc-97fa-46f8-a02d-cb860c55d35a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_cont_financial_information.body
+    - field.field.node.tipo_cont_financial_information.field_img_encab_financi_informat
+    - node.type.tipo_cont_financial_information
+  module:
+    - image
+    - text
+    - user
+id: node.tipo_cont_financial_information.default
+targetEntityType: node
+bundle: tipo_cont_financial_information
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_img_encab_financi_informat:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
