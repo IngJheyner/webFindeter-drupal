@@ -21,6 +21,7 @@ form#search-block-form{
         input[type=search]{
             width: 100%;
             border:none !important;
+            
         }
         
         .menuAccesoRapido{
@@ -85,7 +86,12 @@ MEDIA QUERY
     form#search-block-form{ 
         margin: 1.5rem 0rem 0 0rem;
         
-        div.buscadorAcceso{       
+        div.buscadorAcceso{
+
+            input[type=search]{
+                
+                height: calc(1em + .75rem + 2px);
+            }  
             
             .menuAccesoRapido{
                 overflow-x: scroll;
@@ -104,6 +110,11 @@ MEDIA QUERY
                      }
                 }
             }
+        }
+
+        .btnSearch{   
+            line-height: 2;         
+            width: 44px;
         }
     }
 }
@@ -155,11 +166,11 @@ MEDIA QUERY
     }
 }
 
-/* ===== ===== MEDIA REVISAMOS EN 1520 ===== ===== */
+/* ===== ===== MEDIA REVISAMOS EN 1366 ===== ===== */
 @include media-query.media(xxl){
 
     form#search-block-form{ 
-        margin: 26rem 2rem 0 2rem;
+        margin: 24rem 2rem 0 2rem;
     }
 }
 

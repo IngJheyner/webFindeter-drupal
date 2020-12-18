@@ -1,6 +1,7 @@
 /* ==============================
 COLORES
 ============================== */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 /* ==============================
 COLORES
 ============================== */
@@ -50,6 +51,10 @@ nav#breadcrumb ol {
 /* ==============================
 ESTILOS GLOBALES
 ============================== */
+* {
+  font-family: "Roboto", sans-serif;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: #296294;
   font-weight: 400;
@@ -66,6 +71,7 @@ a:visited, a:link, a:focus, a:hover, a:active {
 
 p {
   margin: 0;
+  word-spacing: 5pt;
 }
 
 /* ===== ===== ToAny Redes Sociales ===== ===== */
@@ -352,6 +358,9 @@ MEDIA QUERY
   form#search-block-form {
     margin: 1.5rem 0rem 0 0rem;
   }
+  form#search-block-form div.buscadorAcceso input[type=search] {
+    height: calc(1em + .75rem + 2px);
+  }
   form#search-block-form div.buscadorAcceso .menuAccesoRapido {
     overflow-x: scroll;
     padding: 2rem 0 2rem 0;
@@ -362,6 +371,10 @@ MEDIA QUERY
   form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li {
     margin: 0 1rem 0 0.5rem;
     text-align: center;
+  }
+  form#search-block-form .btnSearch {
+    line-height: 2;
+    width: 44px;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
@@ -395,11 +408,11 @@ MEDIA QUERY
     margin: 18rem 2rem 0 2rem;
   }
 }
-/* ===== ===== MEDIA REVISAMOS EN 1520 ===== ===== */
+/* ===== ===== MEDIA REVISAMOS EN 1366 ===== ===== */
 /*MOVIL VERTICAL(sm 320px)*/
-@media (min-width: 1520px) and (max-width: 1599.98px) {
+@media (min-width: 1366px) and (max-width: 1599.98px) {
   form#search-block-form {
-    margin: 26rem 2rem 0 2rem;
+    margin: 24rem 2rem 0 2rem;
   }
 }
 /* ===== ===== MEDIA REVISAMOS EN 1600 ===== ===== */
@@ -537,7 +550,6 @@ INTERNAS
 article.productoServicios figure {
   position: absolute;
   z-index: -1;
-  top: 0;
   transform: translate(0, -14rem);
   height: 23rem;
 }
@@ -586,10 +598,6 @@ article.productoServicios div.cuerpoContenido {
   /* ==============================
   TABS CONTENIDO
   ============================== */
-}
-article.productoServicios div.cuerpoContenido div.descripcionContenido, article.productoServicios div.cuerpoContenido div.masInformacion {
-  word-spacing: 5pt;
-  font-size: 20px;
 }
 article.productoServicios div.cuerpoContenido div.row img.imgPortada {
   border-radius: 0.8rem;
@@ -919,7 +927,6 @@ TODAS LAS NOTICIAS
 div.encabezadoNoticias figure {
   position: absolute;
   z-index: -1;
-  top: 0;
   transform: translate(0, -14rem);
   height: 23rem;
 }
@@ -978,6 +985,41 @@ div.pageNoticias .grid-item:hover img {
   transition: 1s all;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  div.pageNoticias div.view-header h1 {
+    font-size: 1.5rem;
+  }
+
+  article.noticiasInternas h1, article.noticiasInternas h2 {
+    font-size: 1.5rem;
+  }
+  article.noticiasInternas img {
+    max-width: 100%;
+    height: auto;
+  }
+  article.noticiasInternas div.cuerpoArticulo div.IntroContenido {
+    display: initial !important;
+  }
+  article.noticiasInternas div.cuerpoArticulo div.IntroContenido img {
+    width: 100%;
+  }
+  article.noticiasInternas div.infoSocial p {
+    display: block !important;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  article.noticiasInternas div.cuerpoArticulo div.IntroContenido {
+    display: initial !important;
+  }
+  article.noticiasInternas div.cuerpoArticulo div.IntroContenido img {
+    width: 100%;
+  }
+}
 /* ==============================
 MEDIA QUERY
 ============================== */
@@ -1218,7 +1260,7 @@ MEDIA QUERY
   div.casosExito .slideCasoExito ul.slide__content li div.contenidoSlider p {
     position: static;
     width: 100%;
-    color: white;
+    color: #CDDC4B;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
@@ -1258,6 +1300,11 @@ div.contactenos div.titulo h1::after {
 }
 div.contactenos form input[type=submit] {
   width: 100%;
+}
+div.contactenos form input[type=checkbox] {
+  width: 10%;
+  float: left;
+  margin-right: 1rem;
 }
 
 div.suscribirseHome {
@@ -1404,6 +1451,13 @@ MEDIA QUERY
   }
   div.contactenos h5 {
     font-size: 1rem;
+  }
+
+  div.suscribirseHome form input[type=email] {
+    height: calc(2em + 0.75rem + 1px);
+  }
+  div.suscribirseHome form input[type=submit] {
+    line-height: 2;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
@@ -1578,8 +1632,8 @@ COLORES
   margin-right: 1rem;
   content: "" url("../images/iconos/mail.png");
 }
-.footer div.piePagina {
-  color: #CDDC4B;
+.footer div.piePagina, .footer a {
+  color: #CDDC4B !important;
 }
 
 /* ==============================
@@ -2463,15 +2517,14 @@ div.preguntasFrecuentes div.view-content ul li div.respuesta p {
 }
 
 /* ===== ===== Convocatorias ===== ===== */
-/* ===== ===== Encabezado ===== ===== */
 /* ==============================
 COLORES
 ============================== */
+/* ===== ===== ENCABEZADO ===== ===== */
 div.encabezadoConvocatorias figure {
   position: absolute;
   z-index: -1;
-  top: 0;
-  transform: translate(0, -13rem);
+  transform: translate(0, -14rem);
   height: 23rem;
 }
 div.encabezadoConvocatorias figure img {
@@ -2485,6 +2538,27 @@ div.encabezadoConvocatorias div.encabezado h1.tituloEncabezado {
   color: white;
   font-size: 3.5rem;
   font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  div.encabezadoConvocatorias div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.encabezadoConvocatorias div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.encabezadoConvocatorias div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
 }
 
 /* ===== ===== Ciudadano ===== ===== */
@@ -2499,8 +2573,8 @@ div.convocatoriaCiudadano form div.form--inline {
   background-color: #112d6a;
   color: white;
 }
-div.convocatoriaCiudadano form div.form--inline div.form-item-title {
-  display: contents !important;
+div.convocatoriaCiudadano form div.form--inline div.form-item-title, div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-objeto-value {
+  width: 100% !important;
 }
 div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-departamento-target-id {
   width: 100%;
@@ -2549,7 +2623,6 @@ PROSPERITY FUND CONVOCATORIAS
 div.encabezadoProsperityFund figure {
   position: absolute;
   z-index: -1;
-  top: 0;
   transform: translate(0, -14rem);
   height: 23rem;
 }
@@ -2623,7 +2696,6 @@ TODAS LAS NOTICIAS
 div.encabezadoGlosario figure {
   position: absolute;
   z-index: -1;
-  top: 0;
   transform: translate(0, -14rem);
   height: 23rem;
 }

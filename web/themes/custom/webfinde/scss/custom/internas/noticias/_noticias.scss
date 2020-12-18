@@ -1,5 +1,6 @@
 @use '../../variables' as var;
 @use '../../../mixins/encabezado' as encabezado;
+@use '../../../mixins/media-query' as media-query;
 
 /* ==============================
 TODAS LAS NOTICIAS
@@ -43,4 +44,54 @@ div.pageNoticias{
         
     }
     
+}
+
+/* ==============================
+MEDIA QUERY
+============================== */
+@include media-query.media(xs){
+
+    div.pageNoticias div.view-header h1{
+
+        font-size: 1.5rem;
+
+    }
+
+    article.noticiasInternas{
+
+        h1,h2{
+            font-size: 1.5rem;
+        }
+
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+    
+        div.cuerpoArticulo div.IntroContenido{
+
+            display: initial !important;
+            
+            img{
+                width: 100%;
+            }
+        }
+
+        div.infoSocial  p{
+
+            display: block !important;
+        }
+    }
+}
+
+@include media-query.media(sm){
+
+    article.noticiasInternas div.cuerpoArticulo div.IntroContenido{
+
+        display: initial !important;
+        
+        img{
+            width: 100%;
+        }
+    }
 }

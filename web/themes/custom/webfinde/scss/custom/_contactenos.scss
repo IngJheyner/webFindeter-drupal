@@ -32,6 +32,13 @@ div.contactenos{
 
             width: 100%;
         }
+
+        input[type="checkbox"]{
+    
+            width: 10%;
+            float: left;
+            margin-right: 1rem;
+        }
     }
 }
 
@@ -214,6 +221,21 @@ MEDIA QUERY
         }
 
     } 
+
+    div.suscribirseHome{
+    
+        form{
+    
+            input[type='email']{
+                height: calc(2em + 0.75rem + 1px);
+            }
+    
+            input[type='submit']{
+    
+                line-height: 2;
+            }
+        }
+    }
      
 }
 
