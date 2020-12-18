@@ -43,6 +43,7 @@
     'field--name-' ~ field_name|clean_class,
     'field--type-' ~ field_type|clean_class,
     'field--label-' ~ label_display,
+    'decretosLeyes mt-4 mt-md-5 field__items d-flex justify-content-center',
     label_display == 'inline' ? 'clearfix',
   ]
 %}
@@ -57,11 +58,11 @@
 
   {% if multiple %}
 
-    <div{{ attributes.addClass(classes, 'decretosLeyes mt-5 field__items d-flex justify-content-center') }}>
+    <div{{ attributes.addClass(classes) }}>
 
       {% for item in items %}
 
-        <div{{ item.attributes.addClass('field__item px-5') }}><b>{{ item.content }}</b></div>
+        <div{{ item.attributes.addClass('field__item px-1 px-md-5') }}><b>{{ item.content }}</b></div>
 
       {% endfor %}
 

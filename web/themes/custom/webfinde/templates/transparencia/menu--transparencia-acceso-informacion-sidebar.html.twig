@@ -24,7 +24,7 @@
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
-<div class="menuTransparenciaSidebar">{{ menus.menu_links(items, attributes, 0) }}</div>
+<div class="menuTransparenciaSidebar d-none d-md-block">{{ menus.menu_links(items, attributes, 0) }}</div>
 
 {% macro menu_links(items, attributes, menu_level) %}
 
