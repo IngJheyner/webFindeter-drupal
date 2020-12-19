@@ -6,9 +6,11 @@ global-scripts:
     - core/jquery
     - core/drupal
 admin_pages:
-  version: 1.x.0
+  version: 1.x.67
   css:
     theme:
       css/admin.css: {}
   js:
     js/admin_node_form.js: {}
+    js/chart/dist/Chart.js: {}
+    js/chart/dist/Chart.min.js: {}

@@ -8,6 +8,7 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\views\Views;
 use Drupal\views\ViewExecutable;
+use Drupal\Core\Render\Markup;
 
 /**
  * Implements hook_help().
@@ -33,107 +34,6 @@ function findeter_pqrsd_help($route_name, RouteMatchInterface $route_match) {
       return $output;
   }
 }
-
-
-/**
- * Implements hook_preprocess_views_view_field()
- */
-function findeter_pqrsd_preprocess_views_view_field(&$variables) {
-
-  $view = $variables['view'];
-  $field = $variables['field'];
-
-  if ($view->storage->id() == 'pqrsd'){
-    if($view->current_display == 'page_1'){
-
-      if($field->field == 'field_pqrsd_respuesta'){
-          if($variables['output'] == ''){
-            $variables['output'] = 'Abierta';
-          }else{
-            $variables['output'] = 'Cerrada por: '.strip_tags($view->field['uid']->original_value);
-          }
-        }
-      }
-
-      if($field->field == 'view_node'){
-        $nid = $view->field['nid']->original_value;
-        
-        $modalOptions = [
-          'class'               => ['use-ajax', 'btn', 'btn-outline-primary', 'button'],
-          'data-dialog-type'    => ['modal'],
-          'data-dialog'         => ['modal'],
-          'data-dialog-options' => ['{"width":800}'],
-        ];
-
-        $htmlOutput = '';
-        $url = Url::fromRoute('entity.node.canonical', ['node' => $nid]);
-        $modalLink = Link::fromTextAndUrl('Ver', $url);
-        $modalLink = $modalLink->toRenderable();
-        $modalLink['#attributes'] = $modalOptions;
-        $htmlOutput .='<br>'.render($modalLink).'<br>';
-
-        if($view->field['field_pqrsd_respuesta']->original_value == ''){ 
-
-          $url = Url::fromRoute('findeter_pqrsd.update_pqrsd_admin', ['nid' => $nid]);
-          $modalLink = Link::fromTextAndUrl('Editar', $url);
-          $modalLink = $modalLink->toRenderable();
-          $modalLink['#attributes'] = ['class' => ['button']];
-          $htmlOutput .=render($modalLink);
-
-
-          $url = Url::fromRoute('findeter_pqrsd.asign_pqrsd',['nid' => $nid]);
-          $modalLink = Link::fromTextAndUrl('Asignar', $url);
-          $modalLink = $modalLink->toRenderable();
-          $modalLink['#attributes'] = $modalOptions;
-          $htmlOutput .= render($modalLink).'<br>';
-
-          $url = Url::fromRoute('findeter_pqrsd.transfer_pqrsd',['nid' => $nid]);
-          $modalLink = Link::fromTextAndUrl('Trasladar', $url);
-          $modalLink = $modalLink->toRenderable();
-          $modalLink['#attributes'] = $modalOptions;
-          $htmlOutput .= render($modalLink).'<br>';
-
-          $url = Url::fromRoute('findeter_pqrsd.answer_pqrsd',['nid' => $nid]);
-          $modalLink = Link::fromTextAndUrl('Responder', $url);
-          $modalLink = $modalLink->toRenderable();
-          $modalLink['#attributes'] = $modalOptions;
-          $htmlOutput .= render($modalLink).'<br>';
-        }
-
-        $url = Url::fromRoute('findeter_pqrsd.create_pdf',['nid' => $nid]);
-        $modalLink = Link::fromTextAndUrl('PDF', $url);
-        $modalLink = $modalLink->toRenderable();
-        $modalLink['#attributes'] = ['class' => ['button']];
-        $htmlOutput .= render($modalLink);
-
-        $variables['output'] = ['#markup' => $htmlOutput];        
-      }
-
-      if($field->field == 'field_pqrsd_fecha_naranja'){
-        $semaphore = '<div class="gray">Gris</div>';
-        $orangeDate = strtotime($variables['field']->getValue($variables['row']));
-        $redDate = strtotime($view->field['field_pqrsd_fecha_roja']->original_value);
-        $timeStamp = strtotime('now');
-        
-        if($timeStamp<$orangeDate){
-          $semaphore = '<div class="green">Verde</div>';
-        }else{
-          if($timeStamp>=$orangeDate && $timeStamp<$redDate){
-            $semaphore = '<div class="orange">Naranja</div>';
-          }else{
-            if($timeStamp>=$redDate){
-              $semaphore = '<div class="red">Rojo</div>';
-            }
-          }
-        }
-
-        $variables['output'] = ['#markup' => $semaphore];
-      }
-
-  }
-
-}
-
 
 /**
 * Create an array with the taxonomy terms
@@ -252,33 +152,11 @@ function _getBussinesDays($addDays){
 
 
 /**
- * Implements hook_preprocess_views_exposed_form()
- */
-function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
-
-  if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-1'){
-
-    // for exposed user request filters, join all inputs in two fieldsets
-    $variables['form']['id_radicado']['#prefix'] = '
-      <details class="seven-details" open="open">
-        <summary class="seven-details__summary">Buscar PQRSD:</summary>';
-    $variables['form']['palabras-clave']['#suffix'] = '</details>';
-
-    $variables['form']['estado']['#prefix'] = '
-      <details class="seven-details" open="open">
-        <summary class="seven-details__summary">Filtrar por:</summary>';
-    $variables['form']['fecha-vencimiento']['#suffix'] = '</details>';
-  }
-  
-}
-
-
-/**
  * Implements hook_form_alter
  */
 function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
-  if($form['#id'] == 'views-exposed-form-pqrsd-page-1' ){
+  if($form['#id'] == 'views-exposed-form-pqrsd-page-1' || $form['#id'] == 'views-exposed-form-pqrsd-page-2'){
     $form['#attached']['library'][] = 'findeter_pqrsd/admin_pages';
   }
   
@@ -324,9 +202,8 @@ function findeter_pqrsd_mail($key, &$message, $params) {
 }
 
 
-
 /**
-* Create a ramdom number
+* Create a random number
 */
 function generarNumeroRadicado(){
 
@@ -428,28 +305,6 @@ function findeter_pqrsd_cron() {
     }
 
   }
-}
-
-
-/**
- * Implements hook_views_pre_view
- */
-function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
-
-  if($view->storage->id()== 'pqrsd' && $display_id == 'page_1'){
-
-    //retrive logued user info
-    $currentUser = \Drupal::currentUser();
-    $rolesUser = $currentUser->getRoles();
-    $args[0] = $currentUser->id();
-
-    // if user is admin, remove argument to show all nodes
-    if(in_array('administrator',$rolesUser)){
-      unset($args[0]);
-    }
-    
-  }
-
 }
 
 
@@ -757,4 +612,216 @@ function sendNotificationAsign($user,$node){
   $send = true;
 
   $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+}
+
+
+/**
+ * Implements hook_preprocess_views_view_field()
+ */
+function findeter_pqrsd_preprocess_views_view_field(&$variables) {
+
+  $view = $variables['view'];
+  $field = $variables['field'];
+
+  if ($view->storage->id() == 'pqrsd'){
+    if($view->current_display == 'page_1'){
+
+      if($field->field == 'field_pqrsd_respuesta'){
+        if($variables['output'] == ''){
+          $variables['output'] = 'Abierta';
+        }else{
+          $variables['output'] = 'Cerrada por: '.strip_tags($view->field['uid']->original_value);
+        }
+      }
+    }
+
+    if($field->field == 'view_node'){
+      $nid = $view->field['nid']->original_value;
+        
+      $modalOptions = [
+        'class'               => ['use-ajax', 'btn', 'btn-outline-primary', 'button'],
+        'data-dialog-type'    => ['modal'],
+        'data-dialog'         => ['modal'],
+        'data-dialog-options' => ['{"width":800}'],
+      ];
+
+      $htmlOutput = '';
+      $url = Url::fromRoute('entity.node.canonical', ['node' => $nid]);
+      $modalLink = Link::fromTextAndUrl('Ver', $url);
+      $modalLink = $modalLink->toRenderable();
+      $modalLink['#attributes'] = $modalOptions;
+      $htmlOutput .='<br>'.render($modalLink).'<br>';
+
+      if($view->field['field_pqrsd_respuesta']->original_value == ''){ 
+
+        $url = Url::fromRoute('findeter_pqrsd.update_pqrsd_admin', ['nid' => $nid]);
+        $modalLink = Link::fromTextAndUrl('Editar', $url);
+        $modalLink = $modalLink->toRenderable();
+        $modalLink['#attributes'] = ['class' => ['button']];
+        $htmlOutput .=render($modalLink);
+
+
+        $url = Url::fromRoute('findeter_pqrsd.asign_pqrsd',['nid' => $nid]);
+        $modalLink = Link::fromTextAndUrl('Asignar', $url);
+        $modalLink = $modalLink->toRenderable();
+        $modalLink['#attributes'] = $modalOptions;
+        $htmlOutput .= render($modalLink).'<br>';
+
+        $url = Url::fromRoute('findeter_pqrsd.transfer_pqrsd',['nid' => $nid]);
+        $modalLink = Link::fromTextAndUrl('Trasladar', $url);
+        $modalLink = $modalLink->toRenderable();
+        $modalLink['#attributes'] = $modalOptions;
+        $htmlOutput .= render($modalLink).'<br>';
+
+        $url = Url::fromRoute('findeter_pqrsd.answer_pqrsd',['nid' => $nid]);
+        $modalLink = Link::fromTextAndUrl('Responder', $url);
+        $modalLink = $modalLink->toRenderable();
+        $modalLink['#attributes'] = $modalOptions;
+        $htmlOutput .= render($modalLink).'<br>';
+      }
+
+      $url = Url::fromRoute('findeter_pqrsd.create_pdf',['nid' => $nid]);
+      $modalLink = Link::fromTextAndUrl('PDF', $url);
+      $modalLink = $modalLink->toRenderable();
+      $modalLink['#attributes'] = ['class' => ['button']];
+      $htmlOutput .= render($modalLink);
+
+      $variables['output'] = ['#markup' => $htmlOutput];        
+    }
+
+    if($field->field == 'field_pqrsd_fecha_naranja'){
+      $semaphore = '<div class="gray">Gris</div>';
+      $orangeDate = strtotime($variables['field']->getValue($variables['row']));
+      $redDate = strtotime($view->field['field_pqrsd_fecha_roja']->original_value);
+      $timeStamp = strtotime('now');
+        
+      if($timeStamp<$orangeDate){
+        $semaphore = '<div class="green">Verde</div>';
+      }else{
+        if($timeStamp>=$orangeDate && $timeStamp<$redDate){
+          $semaphore = '<div class="orange">Naranja</div>';
+        }else{
+          if($timeStamp>=$redDate){
+            $semaphore = '<div class="red">Rojo</div>';
+          }
+        }
+      }
+
+      $variables['output'] = ['#markup' => $semaphore];
+    }
+
+  }
+
+}
+
+
+/**
+ * Implements hook_preprocess_views_exposed_form()
+ */
+function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
+
+  if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-1'){
+
+    // for exposed user request filters, join all inputs in two fieldsets
+    $variables['form']['id_radicado']['#prefix'] = '
+      <details class="seven-details" open="open">
+        <summary class="seven-details__summary">Buscar PQRSD:</summary>';
+    $variables['form']['palabras-clave']['#suffix'] = '</details>';
+
+    $variables['form']['estado']['#prefix'] = '
+      <details class="seven-details" open="open">
+        <summary class="seven-details__summary">Filtrar por:</summary>';
+    $variables['form']['fecha-vencimiento']['#suffix'] = '</details>';
+  }
+
+  if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-2'){
+    $variables['form']['actions']['#suffix'] = Markup::create('
+      <div class="chart-container"><canvas id="time-chart"></canvas></div>
+      <div class="chart-container"><canvas id="tipo-radicado-chart"></canvas></div>
+      <div class="chart-container"><canvas id="tipo-solicitante-chart"></canvas></div>
+      <div class="chart-container"><canvas id="tipo-producto-chart"></canvas></div>
+      <div class="chart-container"><canvas id="canal-recepcion-chart"></canvas></div>
+      <div class="chart-container"><canvas id="forma-recepcion-chart"></canvas></div>');
+  }
+  
+}
+
+
+/**
+ * Implements hook_views_pre_view
+ */
+function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+
+  if($view->storage->id()== 'pqrsd' && $display_id == 'page_1'){
+
+    //retrive logued user info
+    $currentUser = \Drupal::currentUser();
+    $rolesUser = $currentUser->getRoles();
+    $args[0] = $currentUser->id();
+
+    // if user is admin, remove argument to show all nodes
+    if(in_array('administrator',$rolesUser)){
+      unset($args[0]);
+    }
+    
+  }
+
+}
+
+
+function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
+
+  if($view->id() == 'pqrsd' && $view->current_display == 'page_2'){
+
+    $data = [];
+
+    foreach($view->result as $value){
+
+      //define data for general chart
+      $month = date('F',$value->_entity->get('created')->value);
+      if(!isset($data['monthly'][$month])){
+        $data['monthly'][$month] = 0;
+      }
+      $data['monthly'][$month]++;
+
+      //define data for "Tipo radicado" field.
+      $tipoRadicado = $value->_entity->get('field_pqrsd_tipo_radicado')->value;
+      if(!isset($data['tipoRadicado'][$tipoRadicado])){
+        $data['tipoRadicado'][$tipoRadicado] = 0;
+      }
+      $data['tipoRadicado'][$tipoRadicado]++;
+
+      // define data for "Tipo solicitante" field
+      $tipoSolicitante = $value->_entity->get('field_pqrsd_tipo_solicitante')->value;
+      if(!isset($data['tipoSolicitante'][$tipoSolicitante])){
+        $data['tipoSolicitante'][$tipoSolicitante] = 0;
+      }
+      $data['tipoSolicitante'][$tipoSolicitante]++;
+
+      // define data for "Tipo producto" field
+      $tipoProducto = $value->_entity->get('field_pqrsd_nombre_producto')->value;
+      if(!isset($data['tipoProducto'][$tipoProducto])){
+        $data['tipoProducto'][$tipoProducto] = 0;
+      }
+      $data['tipoProducto'][$tipoProducto]++;
+
+      // define data for "Canal recepción" field
+      $canalRecepcion = $value->_entity->get('field_pqrsd_canal_recepcion')->value;
+      if(!isset($data['canalRecepcion'][$canalRecepcion])){
+        $data['canalRecepcion'][$canalRecepcion] = 0;
+      }
+      $data['canalRecepcion'][$canalRecepcion]++;
+
+      // define data for "Forma recepción" field
+      $formaRecepcion = $value->_entity->get('field_pqrsd_forma_recepcion')->value;
+      if(!isset($data['formaRecepcion'][$formaRecepcion])){
+        $data['formaRecepcion'][$formaRecepcion] = 0;
+      }
+      $data['formaRecepcion'][$formaRecepcion]++;
+      
+    }
+
+    $view->element['#attached']['drupalSettings']['pqrsdReports'] = $data;
+    
+  }
 }

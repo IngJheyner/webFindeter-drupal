@@ -282,11 +282,7 @@
              /*===========================================
             CONVOCATORIAS
             =============================================*/           
-            let activarBusqueda = false;                       
-
-            $(document).ajaxStop(function() {                
-                formBusquedaAvanzada();                  
-            }); 
+            let activarBusqueda = false;
 
             function formBusquedaAvanzada() {
 
@@ -318,7 +314,7 @@
 
                 });                
 
-                $(".convocatoriaCiudadano form .form-actions input[type='submit']").after(`
+                $(".convocatoriaCiudadano form .form-actions input[id='edit-submit-convocatorias']").after(`
                     <a href="javascript:void(0)" class="text-white ml-5 busquedaAvz"><i class="fas fa-search-plus"></i> Mostar mas campos de busqueda</a>
                 `);                
 
@@ -330,6 +326,7 @@
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(6)").hide();
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").hide();
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").hide();
+                    $(".convocatoriaCiudadano form .form--inline div:nth-child(9)").hide();
                 }
                
 
@@ -352,17 +349,18 @@
                         $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").slideUp("slow");
                         activarBusqueda = false;
                     }
-                                         
-                    
-                   
                 });
 
                 $(".convocatoriaCiudadano form .form-actions input[type='submit']").on('click', function(){
-                    if(activarBusqueda){ mostrarFiltros = true };
-                    //console.log("🚀 ~ file: global.js ~ line 240 ~ $ ~ mostrarFiltros", mostrarFiltros)
+                    if(activarBusqueda){ activarBusqueda = true };
+                    //console.log("🚀 ~ file: global.js ~ line 240 ~ $ ~ mostrarFiltros", activarBusqueda)
                 });
 
             }
+
+            $(document).ajaxStop(function() {                
+                formBusquedaAvanzada();                  
+            });
 
             formBusquedaAvanzada();
 

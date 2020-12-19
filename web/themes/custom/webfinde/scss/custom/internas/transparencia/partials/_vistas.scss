@@ -1,4 +1,5 @@
 @use '../../../variables' as var;
+@use '../../../../mixins/media-query' as media-query;
 
 div.vistaTransparencia{
 
@@ -10,5 +11,28 @@ div.vistaTransparencia{
 
             border-right:1px solid #296294
         }
+    }
+}
+
+/* ==============================
+MEDIA
+============================== */
+@include media-query.media(xs){
+
+    div.vistaTransparencia {
+
+        border-right: 0;
+
+        h1, h2 , h3, h4{
+
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@include media-query.media(sm){
+
+    div.vistaTransparencia {
+        border-right: 0;
     }
 }
