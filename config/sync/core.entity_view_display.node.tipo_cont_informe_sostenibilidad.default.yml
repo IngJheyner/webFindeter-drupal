@@ -1,0 +1,30 @@
+uuid: b98136db-e3c0-4eec-8511-1c0ab696e718
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_cont_informe_sostenibilidad.body
+    - node.type.tipo_cont_informe_sostenibilidad
+  module:
+    - text
+    - user
+id: node.tipo_cont_informe_sostenibilidad.default
+targetEntityType: node
+bundle: tipo_cont_informe_sostenibilidad
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

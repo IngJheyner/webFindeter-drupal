@@ -148,6 +148,9 @@
 %}
 
 <article{{ attributes.addClass(classes) }}>
+
+  {# ==== Encabezado ==== #}
+
   <figure class="w-100">
     <img src="{{ file_url(node.field_img_enca_releva_inform.entity.fileuri) }}" class="img-fluid w-100">
   </figure>  
@@ -155,7 +158,12 @@
     <h1 class="tituloEncabezado mt-3">{{ label }}</h1>   
   </div>
 
+  {# ==== migas de pan ==== #}
+
   {{ drupal_breadcrumb() }}
+
+
+  {# ==== Contenido ==== #}
 
   <div class="container ">
 

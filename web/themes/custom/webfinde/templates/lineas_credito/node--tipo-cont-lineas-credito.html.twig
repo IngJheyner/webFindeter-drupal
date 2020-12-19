@@ -124,9 +124,6 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
-  .encabezado {
-    margin-bottom: 30px;
-  }
   .encabezado h1{
     display: inline-block;
   }
@@ -148,6 +145,10 @@
 %}
 
 <article{{ attributes.addClass(classes) }}>
+
+
+  {# ==== Encabezado ==== #}
+
   <figure class="w-100">
     <img src="{{ file_url(node.field_img_enca_lineas_credito.entity.fileuri) }}" class="img-fluid w-100">
   </figure>  
@@ -155,7 +156,14 @@
     <h1 class="tituloEncabezado mt-3">{{ label }}</h1>   
   </div>
 
+
+  {# ==== Migas de Pan ==== #}
+
   {{ drupal_breadcrumb() }}
+
+
+
+  {# ==== Contenido ==== #}
 
   <div class="container ">
 

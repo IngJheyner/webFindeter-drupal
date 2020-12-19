@@ -6,6 +6,14 @@ dependencies:
     - filter.format.html_editor
   module:
     - ckeditor
+    - editor_file
+third_party_settings:
+  editor_file:
+    status: true
+    scheme: private
+    directory: internas
+    extensions: 'txt rtf doc docx ppt pptx xls xlsx pdf odf odg odp ods odt fodt fods fodp fodg key numbers pages jpg jpeg png webp'
+    max_size: ''
 format: html_editor
 editor: ckeditor
 settings:
@@ -43,7 +51,7 @@ settings:
           items:
             - Blockquote
             - DrupalImage
-            - DrupalMediaLibrary
+            - DrupalFile
         -
           name: Herramientas
           items:
@@ -62,7 +70,7 @@ image_upload:
   status: true
   scheme: public
   directory: webfinde/images/internas
-  max_size: '2 mb'
+  max_size: '5 mb'
   max_dimensions:
-    width: 500
-    height: 500
+    width: null
+    height: null

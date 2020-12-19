@@ -1,0 +1,30 @@
+uuid: e3abc75d-a1be-494c-bc22-285dbad32595
+langcode: es
+status: true
+dependencies:
+  module:
+    - file
+    - image
+    - paragraphs
+id: paragraph.field_img_icon_tab_inver_rela_en
+field_name: field_img_icon_tab_inver_rela_en
+entity_type: paragraph
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

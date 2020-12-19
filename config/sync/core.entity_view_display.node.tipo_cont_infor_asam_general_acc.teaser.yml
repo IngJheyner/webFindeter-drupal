@@ -1,0 +1,32 @@
+uuid: 1beee0a0-5cca-4fab-8b8e-1d431baaa6db
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tipo_cont_infor_asam_general_acc.body
+    - node.type.tipo_cont_infor_asam_general_acc
+  module:
+    - text
+    - user
+id: node.tipo_cont_infor_asam_general_acc.teaser
+targetEntityType: node
+bundle: tipo_cont_infor_asam_general_acc
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
