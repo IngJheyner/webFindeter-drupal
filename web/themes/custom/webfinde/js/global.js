@@ -382,8 +382,6 @@
                 order: [[ 2, 'desc' ], [ 0, 'asc' ]],
             });
 
-            /* ============= ======= PQRS========== ============= */
-            $("#block-pqrsimagenencabezado").addClass('encabezado');
         /*}
     };*/
 
