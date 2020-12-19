@@ -3,7 +3,7 @@
 
 /* ===== ===== MENUGOVCO ===== ===== */
 .menuGovCo{
-    background-color: var.$color-quinario;
+    background-color: white;
 
     div.govCo{
 
@@ -125,7 +125,8 @@ section.menuPrincipal{
 MENU MOVIL
 ============================== */    
 button#sidebarCollapse, button#sidebarCollapseMd{
-    background-color: var.$color-cuaternario !important;
+    background-color: var.$color-quinario !important;
+    color: black;
 }
 
 
@@ -226,21 +227,35 @@ MEDIA QUERY
             li:last-child{
                 margin: 0 !important;
             }
+
+            li:nth-child(5){
+
+                display: block !important;
+            }
         }
     }
 
     section.menuPrincipal{
 
-        background: var.$color-primario;
+        background: var.$color-quinario;
     }
      
 }
 
 @include media-query.media(sm){
 
+    .menuGovCo nav ul{
+
+        li:nth-child(5){
+
+            display: block !important;
+        }
+           
+    }
+
     section.menuPrincipal{
 
-        background: var.$color-primario;
+        background: var.$color-quinario;
     }
      
 }

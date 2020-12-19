@@ -52,10 +52,13 @@
       
       </div>
 
+      {# ============================================
+      Menu hamburguesa
+      =============================================== #}
       <div class="col-2 d-none d-md-block d-lg-none">
 
         <button type="button" id="sidebarCollapseMd" class="btn btn-primary my-1" >
-          <i class="fas fa-align-left"></i>
+          <i class="fas fa-bars"></i>
         </button>
 
       </div> 
@@ -73,7 +76,7 @@
       {# ===== ===== Pantalla < 576 ===== ===== #}
       <div class="col-7 col-sm-5 col-xl-2 p-0 d-md-none d-xl-block">
 
-        <a href="{{ url('<front>') }}"><img src="{{ file_url(content.field_logo_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
+        <a href="{{ url('<front>') }}"><img src="{{ file_url(content.field_logo_findeter_negro[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
 
       </div>
 
@@ -94,10 +97,13 @@
 
       </div>   
 
-      <div class="col-5 col-sm-7 d-md-none">      
+      {# ============================================
+      MENU HAMBURGUESA
+      =============================================== #}
+      <div class="col-5 col-sm-7 d-md-none text-center">      
 
-        <button type="button" id="sidebarCollapse" class="btn btn-primary my-4 float-right" >
-          <i class="fas fa-align-left"></i>
+        <button type="button" id="sidebarCollapse" class="btn btn-primary my-4" >
+          <i class="fas fa-bars"></i>
         </button>
 
       </div> 

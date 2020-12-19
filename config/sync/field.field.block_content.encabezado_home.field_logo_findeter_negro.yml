@@ -1,10 +1,10 @@
-uuid: a3dfeb02-75ca-42aa-8301-1b5ef92a230f
+uuid: 2b45f048-98f4-482e-a8bd-b42e21158017
 langcode: es
 status: true
 dependencies:
   config:
     - block_content.type.encabezado_home
-    - field.storage.block_content.field_logo_encabezado_home
+    - field.storage.block_content.field_logo_findeter_negro
   module:
     - disable_field
     - filefield_paths
@@ -30,13 +30,13 @@ third_party_settings:
   disable_field:
     add_disable: none
     edit_disable: none
-id: block_content.encabezado_home.field_logo_encabezado_home
-field_name: field_logo_encabezado_home
+id: block_content.encabezado_home.field_logo_findeter_negro
+field_name: field_logo_findeter_negro
 entity_type: block_content
 bundle: encabezado_home
-label: 'Logo Findeter'
+label: 'Logo Findeter [ Negro ]'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

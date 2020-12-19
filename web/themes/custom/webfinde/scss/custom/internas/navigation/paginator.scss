@@ -1,0 +1,26 @@
+@use '../../../mixins/media-query' as media-query;
+
+nav.pager{
+
+    ul{
+
+        padding: 0;
+    }
+}
+
+@include media-query.media(xs){
+
+    nav.pager{
+
+        margin-top: 1rem;
+        text-align: left !important;
+    }
+}
+
+@include media-query.media(sm){
+
+    nav.pager{
+        margin-top: 1rem;
+        text-align: left !important;
+    }
+}

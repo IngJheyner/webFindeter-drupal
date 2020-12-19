@@ -57,7 +57,7 @@ display:
         type: basic
         options:
           submit_button: Aplicar
-          reset_button: true
+          reset_button: false
           reset_button_label: Limpiar
           exposed_sorts_label: 'Ordenar por'
           expose_sort_order: true
@@ -73,8 +73,8 @@ display:
           tags:
             previous: '‹ Anterior'
             next: 'Siguiente ›'
-            first: Primera
-            last: Ultima
+            first: '« Primera'
+            last: 'Ultima »'
           expose:
             items_per_page: true
             items_per_page_label: 'Mostrar registros'
@@ -83,7 +83,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          quantity: 9
+          quantity: 10
       style:
         type: table
         options:
@@ -1029,7 +1029,6 @@ display:
         options:
           role:
             anonymous: anonymous
-            authenticated: authenticated
       style:
         type: views_bootstrap_table
         options:
@@ -1057,7 +1056,7 @@ display:
               align: views-align-center
               separator: ''
               empty_column: 0
-              responsive: ''
+              responsive: priority-low
             nid:
               sortable: 1
               default_sort_order: desc

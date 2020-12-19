@@ -74,6 +74,10 @@ p {
   word-spacing: 3pt;
 }
 
+table {
+  position: relative;
+}
+
 /* ===== ===== ToAny Redes Sociales ===== ===== */
 .a2a_kit {
   line-height: 0 !important;
@@ -87,7 +91,7 @@ COLORES
 ============================== */
 /* ===== ===== MENUGOVCO ===== ===== */
 .menuGovCo {
-  background-color: #e5e5e5;
+  background-color: white;
 }
 .menuGovCo div.govCo {
   background-color: #112d6a;
@@ -175,7 +179,8 @@ section.menuPrincipal nav ul li:hover ul.submenu {
 MENU MOVIL
 ============================== */
 button#sidebarCollapse, button#sidebarCollapseMd {
-  background-color: #00993e !important;
+  background-color: #e5e5e5 !important;
+  color: black;
 }
 
 section.menuMovil {
@@ -256,15 +261,22 @@ MEDIA QUERY
   .menuGovCo nav > ul li:last-child {
     margin: 0 !important;
   }
+  .menuGovCo nav > ul li:nth-child(5) {
+    display: block !important;
+  }
 
   section.menuPrincipal {
-    background: #112d6a;
+    background: #e5e5e5;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
+  .menuGovCo nav ul li:nth-child(5) {
+    display: block !important;
+  }
+
   section.menuPrincipal {
-    background: #112d6a;
+    background: #e5e5e5;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
@@ -2668,6 +2680,17 @@ div.convocatoriaCiudadano table:nth-child(2) tbody tr > td:nth-child(1) a:hover 
   text-decoration: underline;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  div.convocatoriaCiudadano form div.form--inline div#edit-actions a {
+    display: block;
+    margin-top: 1rem;
+    margin-left: 0 !important;
+  }
+}
 /* ===== ===== Detalle del proceso ===== ===== */
 article.detalleProcesoConvocatorias div.titulo {
   border-bottom: 1px solid #296294;
@@ -2676,15 +2699,6 @@ article.detalleProcesoConvocatorias div.titulo {
 article.detalleProcesoConvocatorias div.titulo h1 {
   position: relative;
   width: 80%;
-}
-article.detalleProcesoConvocatorias div.titulo h1::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  background-color: #296294;
-  top: 1.6em;
-  left: 0;
 }
 
 /* ===== ===== Prosperity Fund ===== ===== */
@@ -2823,6 +2837,25 @@ div.pageGlosario div.view-content div.view-grouping div.view-grouping-header {
   color: #296294;
   font-size: 3rem;
   font-style: italic;
+}
+/* ===== ===== PAGINADOR ===== ===== */
+nav.pager ul {
+  padding: 0;
+}
+
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  nav.pager {
+    margin-top: 1rem;
+    text-align: left !important;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  nav.pager {
+    margin-top: 1rem;
+    text-align: left !important;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
