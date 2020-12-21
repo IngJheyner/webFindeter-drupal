@@ -179,7 +179,7 @@ section.menuPrincipal nav ul li:hover ul.submenu {
 MENU MOVIL
 ============================== */
 button#sidebarCollapse, button#sidebarCollapseMd {
-  background-color: #e5e5e5 !important;
+  background-color: white !important;
   color: black;
 }
 
@@ -264,19 +264,11 @@ MEDIA QUERY
   .menuGovCo nav > ul li:nth-child(5) {
     display: block !important;
   }
-
-  section.menuPrincipal {
-    background: #e5e5e5;
-  }
 }
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
   .menuGovCo nav ul li:nth-child(5) {
     display: block !important;
-  }
-
-  section.menuPrincipal {
-    background: #e5e5e5;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
@@ -300,6 +292,9 @@ MEDIA QUERY
     /* ==============================
     MENU ESCRITORIO
     ============================== */
+  }
+  section.menuPrincipal nav {
+    margin: 0;
   }
   section.menuPrincipal nav ul > li > a, section.menuPrincipal nav span {
     font-size: 14px;
@@ -350,6 +345,9 @@ form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(
 }
 form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(5) span.icon::before {
   content: url("/themes/custom/webfinde/images/iconos/Acceso-Directo/ER_properity.png");
+}
+form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(6) span.icon::before {
+  content: url("/themes/custom/webfinde/images/iconos/Acceso-Directo/virtual.png");
 }
 form#search-block-form .btnSearch {
   position: absolute;
@@ -444,7 +442,7 @@ section.productosServicios .titulo {
 }
 section.productosServicios .titulo h1 {
   text-align: center;
-  width: 80%;
+  width: 90%;
   color: #112d6a;
   position: relative;
 }
@@ -533,7 +531,7 @@ VENTANA MODAL PRODUCTOS Y SERVICIOS
   background-color: #112d6a !important;
   border-top: 10px solid #296294;
   top: 12em;
-  padding: 20px 20px 20px 20px;
+  padding: 21px 20px 20px 70px;
 }
 #modalProductosServicios .modal-dialog .modal-content .modal-body h3 {
   margin-bottom: 5px;
@@ -632,6 +630,10 @@ article.productoServicios div.cuerpoContenido ul.tabInternas li > a.active {
   color: white;
   background-color: #112d6a;
   font-weight: bold;
+}
+article.productoServicios div.cuerpoContenido div.masInformacion img {
+  max-width: 100%;
+  height: auto;
 }
 article.productoServicios div.cuerpoContenido div#myTabContentPrincipal {
   padding: 3rem 4rem 3rem 4rem;
@@ -1266,19 +1268,17 @@ MEDIA QUERY
   div.casosExito div.contenido h1.tituloCaso {
     font-size: 1.5rem;
   }
-  div.casosExito .slideCasoExito ul.slide__content li div.contenidoSlider img {
-    display: none;
-  }
   div.casosExito .slideCasoExito ul.slide__content li div.contenidoSlider p {
-    position: static;
-    width: 100%;
-    color: #CDDC4B;
+    right: 3rem;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
   div.casosExito div.contenido {
     width: 100%;
+  }
+  div.casosExito .slideCasoExito ul.slide__content li div.contenidoSlider p {
+    right: 3rem;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/

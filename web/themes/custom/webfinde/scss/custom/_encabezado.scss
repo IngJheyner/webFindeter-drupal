@@ -125,7 +125,7 @@ section.menuPrincipal{
 MENU MOVIL
 ============================== */    
 button#sidebarCollapse, button#sidebarCollapseMd{
-    background-color: var.$color-quinario !important;
+    background-color: white !important;
     color: black;
 }
 
@@ -234,11 +234,6 @@ MEDIA QUERY
             }
         }
     }
-
-    section.menuPrincipal{
-
-        background: var.$color-quinario;
-    }
      
 }
 
@@ -251,11 +246,6 @@ MEDIA QUERY
             display: block !important;
         }
            
-    }
-
-    section.menuPrincipal{
-
-        background: var.$color-quinario;
     }
      
 }
@@ -289,6 +279,8 @@ MEDIA QUERY
         MENU ESCRITORIO
         ============================== */
         nav{
+
+            margin: 0;
             
             ul > li > a,span{ 
                 

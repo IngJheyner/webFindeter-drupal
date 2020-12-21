@@ -169,24 +169,8 @@ MEDIA QUERY
             
         }
 
-        .slideCasoExito ul.slide__content{
-    
-            li{
-
-                div.contenidoSlider{
-                    
-                    img{
-                        display: none;
-                    }
-
-                    p{
-                        position: static;
-                        width: 100%;
-                        color: var.$color-terciario;
-                        
-                    }
-                }
-            }
+        .slideCasoExito ul.slide__content li div.contenidoSlider p{
+           right: 3rem;                  
         }
     }
      
@@ -200,6 +184,10 @@ MEDIA QUERY
                
             width: 100%;
             
+        }
+
+        .slideCasoExito ul.slide__content li  div.contenidoSlider p{
+            right: 3rem; 
         }
     }
      

@@ -10,6 +10,8 @@
     /*Drupal.behaviors.webfinde = {
         attach: function(context, settings) {*/
 
+        $(document).ready(function(){        
+
             /*===========================================
             MENU SIDEBAR MOVIL
             =============================================*/
@@ -381,7 +383,7 @@
                 },
                 order: [[ 2, 'desc' ], [ 0, 'asc' ]],
             });
-
+        });
         /*}
     };*/
 

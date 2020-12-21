@@ -8,6 +8,7 @@ dependencies:
     - field.storage.node.field_img_carrusel_caso_exito
     - field.storage.node.field_img_fondo_caso_exito
     - field.storage.node.field_img_noticia_home
+    - field.storage.node.field_ruta_caso_exito
     - field.storage.node.field_slider_video_html
     - field.storage.node.field_tipo_noticia
     - image.style.noticias_home
@@ -16,6 +17,7 @@ dependencies:
     - node.type.slider_home
   module:
     - image
+    - link
     - node
     - slick_views
     - text
@@ -662,18 +664,85 @@ display:
           absolute: false
           entity_type: node
           plugin_id: entity_link
+        field_ruta_caso_exito:
+          id: field_ruta_caso_exito
+          table: node__field_ruta_caso_exito
+          field: field_ruta_caso_exito
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: uri
+          type: link
+          settings:
+            trim_length: 80
+            url_only: true
+            url_plain: true
+            rel: '0'
+            target: '0'
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         nothing:
           id: nothing
           table: views
           field: nothing
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: Contenido
           label: ''
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"contenidoSlider\">\r\n{{ field_img_carrusel_caso_exito }}\r\n<p\r\ndescripcion=\"{{ body }}\"\r\nimgFondo=\"{{ field_img_fondo_caso_exito }}\"\r\ntitulo=\"{{ title_1 }}\"\r\nenlace=\"{{ view_node }}\">\r\n{{ title }}\r\n</p>\r\n</div>"
+            text: "<div class=\"contenidoSlider\">\r\n{{ field_img_carrusel_caso_exito }}\r\n<p\r\ndescripcion=\"{{ body }}\"\r\nimgFondo=\"{{ field_img_fondo_caso_exito }}\"\r\ntitulo=\"{{ title_1 }}\"\r\nenlace=\"{{ field_ruta_caso_exito }}\">\r\n{{ title }}\r\n</p>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -830,6 +899,7 @@ display:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_img_carrusel_caso_exito'
         - 'config:field.storage.node.field_img_fondo_caso_exito'
+        - 'config:field.storage.node.field_ruta_caso_exito'
   casos_exito_movil_home:
     display_plugin: block
     id: casos_exito_movil_home
@@ -1140,12 +1210,12 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: '0'
           element_class: ''
-          element_label_type: ''
+          element_label_type: '0'
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
+          element_wrapper_type: '0'
           element_wrapper_class: ''
           element_default_classes: false
           empty: ''
@@ -1153,10 +1223,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: image
+          type: image_url
           settings:
             image_style: ''
-            image_link: ''
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -1221,18 +1290,85 @@ display:
           absolute: false
           entity_type: node
           plugin_id: entity_link
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
+        field_ruta_caso_exito:
+          id: field_ruta_caso_exito
+          table: node__field_ruta_caso_exito
+          field: field_ruta_caso_exito
           relationship: none
           group_type: group
           admin_label: ''
           label: ''
           exclude: false
           alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: uri
+          type: link
+          settings:
+            trim_length: 80
+            url_only: true
+            url_plain: true
+            rel: '0'
+            target: '0'
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: Contenido
+          label: ''
+          exclude: false
+          alter:
             alter_text: true
-            text: "<div class=\"contenidoSlider\">\r\n{{ field_img_carrusel_caso_exito }}\r\n<p\r\ndescripcion=\"{{ body }}\"\r\nimgFondo=\"{{ field_img_fondo_caso_exito }}\"\r\ntitulo=\"{{ title_1 }}\"\r\nenlace=\"{{ view_node }}\">\r\n{{ title }}\r\n</p>\r\n</div>"
+            text: "<div class=\"text-center contenidoSlider\">\r\n<img src=\"{{ field_img_carrusel_caso_exito }}\" class=\"mx-auto\">\r\n<p\r\ndescripcion=\"{{ body }}\"\r\nimgFondo=\"{{ field_img_fondo_caso_exito }}\"\r\ntitulo=\"{{ title_1 }}\"\r\nenlace=\"{{ field_ruta_caso_exito }}\">\r\n{{ title }}\r\n</p>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -1351,8 +1487,8 @@ display:
           thumbnail_caption: ''
           grid: 1
           grid_medium: 1
-          grid_small: 2
-          visible_items: 2
+          grid_small: 1
+          visible_items: 1
           preserve_keys: false
           image: ''
           thumbnail: ''
@@ -1389,6 +1525,7 @@ display:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_img_carrusel_caso_exito'
         - 'config:field.storage.node.field_img_fondo_caso_exito'
+        - 'config:field.storage.node.field_ruta_caso_exito'
   noticias_slider_home:
     display_plugin: block
     id: noticias_slider_home

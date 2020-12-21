@@ -18,7 +18,6 @@ dependencies:
     - field.field.block_content.pie_de_pagina.field_logo_ministerio_hacienda_f
     - field.field.block_content.pie_de_pagina.field_logo_superintendencia_foot
     - field.field.block_content.pie_de_pagina.field_mas_logos_footer
-    - field.field.block_content.pie_de_pagina.field_menu_footer
     - field.field.block_content.pie_de_pagina.field_ntf_judiciales_footer
     - field.field.block_content.pie_de_pagina.field_pqr_footer
     - field.field.block_content.pie_de_pagina.field_sede_principal_footer
@@ -31,7 +30,6 @@ dependencies:
     - field.field.block_content.pie_de_pagina.field_youtube_icono_footer
     - image.style.thumbnail
   module:
-    - entity_reference_revisions
     - field_group
     - image
     - link
@@ -190,20 +188,6 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Logos principales'
-    group_menu:
-      children:
-        - field_menu_footer
-      parent_name: group_contenido
-      weight: 26
-      format_type: details
-      region: content
-      format_settings:
-        id: ''
-        classes: ''
-        description: ''
-        open: false
-        required_fields: true
-      label: Menú
     group_informacion_general:
       children:
         - field_sede_principal_footer
@@ -355,16 +339,6 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
-    region: content
-  field_menu_footer:
-    weight: 27
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_revisions_autocomplete
     region: content
   field_ntf_judiciales_footer:
     weight: 31
