@@ -6,11 +6,14 @@ global-scripts:
     - core/jquery
     - core/drupal
 admin_pages:
-  version: 1.x.67
+  version: 1.x.12
   css:
     theme:
       css/admin.css: {}
   js:
     js/admin_node_form.js: {}
-    js/chart/dist/Chart.js: {}
-    js/chart/dist/Chart.min.js: {}
+    js/chart/src/Chart.js: {}
+    js/chart/src/Chart.min.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.ui.datepicker

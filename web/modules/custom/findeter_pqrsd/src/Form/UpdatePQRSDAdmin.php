@@ -78,10 +78,17 @@ class UpdatePQRSDAdmin extends FormBase {
           if(!empty($node->get($id)->getValue())){
             if(isset($node->get($id)->getValue()[0]['value'])){
               $form[$fieldSet ][$id]['#default_value'] = $node->get($id)->getValue()[0]['value'];
-            }else{
-              if(isset($node->get($id)->getValue()[0]['target_id'])){
+            }elseif(isset($node->get($id)->getValue()[0]['target_id'])){
+              if($id == 'field_pqrsd_palabras_clave'){
+                $keyWords = [];
+                foreach($node->get($id)->getValue() as $term){
+                  $keyWords[] = \Drupal\taxonomy\Entity\Term::load($term['target_id']);
+                }
+                $form[$fieldSet ][$id]['#default_value'] = $keyWords;
+              }else{
                 $form[$fieldSet ][$id]['#default_value'] = $node->get($id)->getValue()[0]['target_id'];
               }
+              
             }
 
           }

@@ -4,7 +4,7 @@ findeter_pqrsd.register_pqrsd:
     _form: '\Drupal\findeter_pqrsd\Form\RegisterPQRSD'
     _title: 'Registro de petición de usuarios'
   requirements:
-    _access: 'TRUE'
+    _permission: 'access content'
 
 findeter_pqrsd.asign_pqrsd:
   path: '/pqrsd/pqrsd-ajax-asign/{nid}'
@@ -56,7 +56,7 @@ findeter_pqrsd.register_pqrsd_admin:
     _form: '\Drupal\findeter_pqrsd\Form\RegisterPQRSDAdmin'
     _title: 'Registro de PQRSD'
   requirements:
-    _user_is_logged_in: 'TRUE'
+    _custom_access: '\Drupal\findeter_pqrsd\Controller\UserControl::access'
 
 findeter_pqrsd.update_pqrsd_admin:
   path: '/admin/actualizar-pqrsd/{nid}'
@@ -67,9 +67,17 @@ findeter_pqrsd.update_pqrsd_admin:
     _user_is_logged_in: 'TRUE'
 
 findeter_pqrsd.confirm_register_pqrsd:
-  path: '/admin/confirm-pqrsd/{operation}/{nid}'
+  path: '/registro-pqrsd/{nid}'
   defaults:
     _controller: '\Drupal\findeter_pqrsd\Controller\ConfirmRegisterPQRSD::confirmRegister'
+    _title: 'Registro de PQRSD'
+  requirements:
+    _permission: 'access content'
+
+findeter_pqrsd.confirm_register_pqrsd_admin:
+  path: '/admin/confirm-pqrsd/{operation}/{nid}'
+  defaults:
+    _controller: '\Drupal\findeter_pqrsd\Controller\ConfirmRegisterPQRSDAdmin::confirmRegister'
     _title: 'Registro/Actualización de PQRSD'
   requirements:
     _user_is_logged_in: 'TRUE'
@@ -98,3 +106,11 @@ findeter_pqrsd.status_pqrsd:
     _title: 'Consulta de estado de radicado'
   requirements:
     _permission: 'access content'
+
+findeter_pqrsd.expor_report_pdf:
+  path: '/report-to-pdf/{filter}'
+  defaults:
+    _controller: '\Drupal\findeter_pqrsd\Controller\CreatePDF::reportToPdf'
+    _title: 'Registro/Actualización de PQRSD'
+  requirements:
+    _user_is_logged_in: 'TRUE'

@@ -7,6 +7,8 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
 use Drupal\file\Entity\File;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\Core\Link;
 
 class RegisterPQRSDAdmin extends FormBase {
 
@@ -57,10 +59,10 @@ class RegisterPQRSDAdmin extends FormBase {
 
   /**
    * Validate the title and the checkbox of the form
-   * 
+   *
    * @param array $form
    * @param \Drupal\Core\Form\FormStateInterface $form_state
-   * 
+   *
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     parent::validateForm($form, $form_state);
@@ -98,7 +100,7 @@ class RegisterPQRSDAdmin extends FormBase {
       if($form_state->getValue('field_pqrsd_direccion') == ''){
         $form_state->setErrorByName('field_pqrsd_direccion', 'Debe ingresar la Dirección correspondencia');
       }
-      
+
       if($form_state->getValue('field_pqrsd_departamento') == ''){
         $form_state->setErrorByName('field_pqrsd_departamento', 'Debe seleccionar el Departamento');
       }
@@ -142,7 +144,7 @@ class RegisterPQRSDAdmin extends FormBase {
         }
 
       }
-      
+
     }
 
   }
@@ -158,21 +160,36 @@ class RegisterPQRSDAdmin extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
-    
+
     //define new node of content type
     $newRequest = Node::create(['type' => 'pqrsd']);
 
     $numeroRadicado = generarNumeroRadicado();
-    
+
     // define title of node
     $newRequest->set('title', 'Radicado: '.$numeroRadicado.'.'.date('U'));
 
     // set "# radicado"
     $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);
-    
+
 
     $values = $form_state->getValues();
     foreach($values as $key=>$value){
+
+      if($key == 'field_pqrsd_palabras_clave'){
+        $tag = $form_state->getValue('field_pqrsd_palabras_clave');
+        if (empty($tag)) {
+          drupal_set_message("Tag is empty, nothing to do");
+        }
+        elseif (is_string($tag)) {
+          drupal_set_message("A term selected, tid = $tag");
+        }
+        elseif (isset($tag['entity']) && ($tag['entity'] instanceof Term)) {
+          $entity = $tag['entity'];
+          $entity->save();
+          drupal_set_message("A new term : " . $entity->id() . " : " . $entity->label());
+        }
+      }
 
       if(strpos($key,"field_")!== false){
         if($value!='' && $key!='field_asign'){
@@ -193,7 +210,7 @@ class RegisterPQRSDAdmin extends FormBase {
 
     }
 
-    $usrAsignField = $form_state->getValue('field_asign');    
+    $usrAsignField = $form_state->getValue('field_asign');
     $user = \Drupal::currentUser();
 
     $newRequest->field_pqrsd_asignaciones[] = $user->getUsername().' | '.$user->id().' | '.date('j/m/Y H:i:s');
@@ -209,9 +226,9 @@ class RegisterPQRSDAdmin extends FormBase {
         }
       }
     }
-    
+
     // asign the last user retrived lines up
-    $newRequest->uid = $user->id(); 
+    $newRequest->uid = $user->id();
 
     // define date of answer
     $datesConfigure = defineDatesSemaphore($values);
@@ -220,8 +237,8 @@ class RegisterPQRSDAdmin extends FormBase {
 
     $newRequest->enforceIsNew();
     $newRequest->save();
-    
-    $url = Url::fromRoute('findeter_pqrsd.confirm_register_pqrsd',['operation'=>'create','nid'=>$newRequest->id()]);
+
+    $url = Url::fromRoute('findeter_pqrsd.confirm_register_pqrsd_admin',['operation'=>'create','nid'=>$newRequest->id()]);
     $form_state->setRedirectUrl($url);
 
     if($form_state->getValue('field_pqrsd_email') != ''){
@@ -249,7 +266,7 @@ class RegisterPQRSDAdmin extends FormBase {
 
       $langcode = \Drupal::currentUser()->getPreferredLangcode();
       $send = true;
-    
+
       $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
 
       if($result['result'] !== true){
@@ -257,6 +274,6 @@ class RegisterPQRSDAdmin extends FormBase {
       }
     }
 
-  } 
+  }
 
 }

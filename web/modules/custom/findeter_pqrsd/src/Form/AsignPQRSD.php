@@ -26,6 +26,8 @@ class AsignPQRSD extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, $nid = NULL) {
 
+    $uidLogued = \Drupal::currentUser()->id();
+
     $config = $this->config('findeter_pqrsd.admin');
 
     $form_state->setCached(FALSE);
@@ -47,6 +49,7 @@ class AsignPQRSD extends FormBase {
     $uids = $query
       ->condition('status', '1')
       ->condition('roles', $rolesAllowed,'IN')
+      ->condition('uid',$uidLogued,'<>')
       ->execute();
 
     $users = $userStorage->loadMultiple($uids);
@@ -103,7 +106,7 @@ class AsignPQRSD extends FormBase {
     $node = Node::load($formValues['node_id']);
     $user = \Drupal\user\Entity\User::load($formValues['users']);
     $node->field_pqrsd_asignaciones[] = $user->getUsername().' | '.$user->id().' | '.date('j/m/Y H:i:s');
-    $node->uid = $user->id(); 
+    $node->uid = $user->id();
     $node->save();
 
     if($user->getEmail() !== ''){
@@ -139,7 +142,7 @@ class AsignPQRSD extends FormBase {
 
       $langcode = \Drupal::currentUser()->getPreferredLangcode();
       $send = true;
-    
+
       $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
 
     }

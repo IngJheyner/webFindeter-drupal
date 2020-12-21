@@ -17,62 +17,23 @@ class ConfirmRegisterPQRSD extends ControllerBase {
   /**
    * Handler for autocomplete request.
    */
-  public function confirmRegister($operation, $nid) {
+  public function confirmRegister($nid) {
 
-    $operation = Xss::filter($operation);
     $nid = Xss::filter($nid);
 
     $storage = \Drupal::entityTypeManager()->getStorage('node');
     $node = $storage->load($nid);
 
-    $wordOperation = '';
-    switch($operation){
-      case 'create':
-        $wordOperation = '<b>Registró</b>';
-      break;
-
-      case 'update':
-        $wordOperation = '<b>Actualizó</b>';
-      break;
-
-      default:
-      $wordOperation = '<b>Aplicó la operación </b> a ';
-      break;
-    }
-
-    $newPQRSD = Url::fromRoute('findeter_pqrsd.register_pqrsd_admin');
-    $newPQRSDLink = Link::fromTextAndUrl('Crear una nueva radicatoria', $newPQRSD);
-    $newPQRSDLink = $newPQRSDLink->toRenderable();
-
-    $adminPage = Url::fromRoute('view.pqrsd.page_1');
-    $adminPageLink = Link::fromTextAndUrl('Ir al panel de administración', $adminPage);
-    $adminPageLink = $adminPageLink->toRenderable();
+    $statusPQRSDPage = Url::fromRoute('findeter_pqrsd.status_pqrsd');
+    $statusPQRSDLink = Link::fromTextAndUrl('aquí', $statusPQRSDPage);
+    $statusPQRSDLink = $statusPQRSDLink->toRenderable();
 
     return [
-      '#markup' => '
-        <div class="pqrsd-confirm">
-          <div class="success">
-            <p>Se '.$wordOperation.' la PQRSD satisfactoriamente</p>
-            <div class="row">
-              <span class="text">El número de radicado es:</span>
-              <span class="value">'.$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'].'</span>
-            </div>
-            <div class="row">
-              <span class="text">Asignado a:  </span>
-              <span class="value">'.$node->get('uid')->entity->getUsername().'</span>
-            </div>
-            <div class="row">
-              <span class="text">Fecha de vencimiento:  </span>
-              <span class="value">'.$node->get('field_pqrsd_fecha_roja')->getValue()[0]['value'].'</span>
-            </div>
-          </div>
-          <div class="actions-success">Puede:
-            <div class="link">'.render($newPQRSDLink).'</div>
-            <div class="link">'.render($adminPageLink).'</div>
-          </div>
-        <div>'
+      '#markup' => '<p>Gracias por comunicarse con nosotros, su Petición ha sido radicada satisfactoriamente.</p>
+                    <p>Usted pódra consultar '.render($statusPQRSDLink).' el estado de su petición con el No. de radicado: <b>'.$node->get('field_pqrsd_numero_radicado')->getString().'</b> </p>
+                    <p>Su opinión es muy importante para nosotros. Lo invitamos a diligenciar <a href="#">aquí</a> la siguiente encuesta de satisfacción para conitnuar mejorando nuestro servicio. </p>',
     ];
-    
+
   }
 
 }

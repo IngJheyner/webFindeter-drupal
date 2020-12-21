@@ -28,6 +28,7 @@ dependencies:
     - field.storage.node.field_pqrsd_tipo_solicitante
     - node.type.pqrsd
     - taxonomy.vocabulary.keywords_pqrsd
+    - user.role.administrator
     - user.role.authenticated
   module:
     - datetime
@@ -3911,11 +3912,625 @@ display:
       defaults:
         arguments: false
         access: false
+        filters: false
+        filter_groups: false
       access:
         type: role
         options:
           role:
             authenticated: authenticated
+            administrator: administrator
+      filters:
+        field_pqrsd_numero_radicado_value:
+          id: field_pqrsd_numero_radicado_value
+          table: node__field_pqrsd_numero_radicado
+          field: field_pqrsd_numero_radicado_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_pqrsd_numero_radicado_value_op
+            label: '# Radicado'
+            description: ''
+            use_operator: false
+            operator: field_pqrsd_numero_radicado_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: id_radicado
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              revisol: '0'
+              auditor: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        field_pqrsd_numero_id_value:
+          id: field_pqrsd_numero_id_value
+          table: node__field_pqrsd_numero_id
+          field: field_pqrsd_numero_id_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_pqrsd_numero_id_value_op
+            label: 'Número identificación'
+            description: ''
+            use_operator: false
+            operator: field_pqrsd_numero_id_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: numero-id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              revisol: '0'
+              auditor: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        field_pqrsd_telefono_value:
+          id: field_pqrsd_telefono_value
+          table: node__field_pqrsd_telefono
+          field: field_pqrsd_telefono_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_pqrsd_telefono_value_op
+            label: Teléfono
+            description: ''
+            use_operator: false
+            operator: field_pqrsd_telefono_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: telefono
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              revisol: '0'
+              auditor: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        combine:
+          id: combine
+          table: views
+          field: combine
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: combine_op
+            label: Nombre/Apellido
+            description: ''
+            use_operator: false
+            operator: combine_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: combine
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              revisol: '0'
+              auditor: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          fields:
+            field_pqrsd_primer_apellido: field_pqrsd_primer_apellido
+            field_pqrsd_primer_nombre: field_pqrsd_primer_nombre
+            field_pqrsd_segundo_apellido: field_pqrsd_segundo_apellido
+            field_pqrsd_segundo_nombre: field_pqrsd_segundo_nombre
+          plugin_id: combine
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: between
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: created_op
+            label: 'Fecha creación'
+            description: 'Formato: Día-Mes-Año'
+            use_operator: false
+            operator: created_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: created
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              revisol: '0'
+              auditor: '0'
+            placeholder: ''
+            min_placeholder: Del
+            max_placeholder: Al
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            pqrsd: pqrsd
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        field_pqrsd_email_value:
+          id: field_pqrsd_email_value
+          table: node__field_pqrsd_email
+          field: field_pqrsd_email_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_pqrsd_email_value_op
+            label: 'Correo electrónico'
+            description: ''
+            use_operator: false
+            operator: field_pqrsd_email_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: email
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              revisol: '0'
+              auditor: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        field_pqrsd_palabras_clave_target_id:
+          id: field_pqrsd_palabras_clave_target_id
+          table: node__field_pqrsd_palabras_clave
+          field: field_pqrsd_palabras_clave_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_pqrsd_palabras_clave_target_id_op
+            label: 'Palabras clave'
+            description: ''
+            use_operator: false
+            operator: field_pqrsd_palabras_clave_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: palabras-clave
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              revisol: '0'
+              auditor: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: keywords_pqrsd
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_pqrsd_respuesta_value:
+          id: field_pqrsd_respuesta_value
+          table: node__field_pqrsd_respuesta
+          field: field_pqrsd_respuesta_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_pqrsd_respuesta_value_op
+            label: 'Respuesta (field_pqrsd_respuesta)'
+            description: null
+            use_operator: false
+            operator: field_pqrsd_respuesta_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_pqrsd_respuesta_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: ''
+            description: ''
+            identifier: estado
+            optional: false
+            widget: radios
+            multiple: true
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Abierto
+                operator: empty
+                value: ''
+              2:
+                title: Cerrado
+                operator: 'not empty'
+                value: ''
+              3:
+                title: ''
+                operator: '='
+                value: ''
+          plugin_id: string
+        created_1:
+          id: created_1
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: created_1_op
+            label: Fecha
+            description: null
+            use_operator: false
+            operator: created_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: created_1
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+            min_placeholder: null
+            max_placeholder: null
+          is_grouped: true
+          group_info:
+            label: ''
+            description: ''
+            identifier: created_1
+            optional: true
+            widget: radios
+            multiple: true
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Nuevos
+                operator: '>='
+                value:
+                  type: offset
+                  value: '-1 day'
+                  min: ''
+                  max: ''
+              2:
+                title: ''
+                operator: '='
+                value:
+                  type: date
+                  value: ''
+                  min: ''
+                  max: ''
+              3:
+                title: ''
+                operator: '='
+                value:
+                  type: date
+                  value: ''
+                  min: ''
+                  max: ''
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+        field_pqrsd_fecha_naranja_value:
+          id: field_pqrsd_fecha_naranja_value
+          table: node__field_pqrsd_fecha_naranja
+          field: field_pqrsd_fecha_naranja_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_pqrsd_fecha_naranja_value_op
+            label: 'Fecha naranja (field_pqrsd_fecha_naranja)'
+            description: null
+            use_operator: false
+            operator: field_pqrsd_fecha_naranja_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_pqrsd_fecha_naranja_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+            min_placeholder: null
+            max_placeholder: null
+          is_grouped: true
+          group_info:
+            label: ''
+            description: ''
+            identifier: fecha-notificacion
+            optional: true
+            widget: radios
+            multiple: true
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'A tiempo'
+                operator: '>'
+                value:
+                  type: offset
+                  value: '-1 day'
+                  min: ''
+                  max: ''
+              2:
+                title: 'Por vencer'
+                operator: '<='
+                value:
+                  type: offset
+                  value: '-1 day'
+                  min: ''
+                  max: ''
+              3:
+                title: ''
+                operator: '='
+                value:
+                  type: date
+                  value: ''
+                  min: ''
+                  max: ''
+          plugin_id: datetime
+        field_pqrsd_fecha_roja_value:
+          id: field_pqrsd_fecha_roja_value
+          table: node__field_pqrsd_fecha_roja
+          field: field_pqrsd_fecha_roja_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_pqrsd_fecha_roja_value_op
+            label: 'Fecha vencimiento (field_pqrsd_fecha_roja)'
+            description: null
+            use_operator: false
+            operator: field_pqrsd_fecha_roja_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_pqrsd_fecha_roja_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+            min_placeholder: null
+            max_placeholder: null
+          is_grouped: true
+          group_info:
+            label: ''
+            description: ''
+            identifier: fecha-vencimiento
+            optional: true
+            widget: radios
+            multiple: true
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Vencidos
+                operator: '<='
+                value:
+                  type: offset
+                  value: '-1 day'
+                  min: ''
+                  max: ''
+              2:
+                title: ''
+                operator: '='
+                value:
+                  type: date
+                  value: ''
+                  min: ''
+                  max: ''
+              3:
+                title: ''
+                operator: '='
+                value:
+                  type: date
+                  value: ''
+                  min: ''
+                  max: ''
+          plugin_id: datetime
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
@@ -3971,6 +4586,7 @@ display:
         fields: false
         filters: false
         filter_groups: false
+        access: false
       fields:
         nid:
           id: nid
@@ -5939,13 +6555,13 @@ display:
             min: ''
             max: ''
             value: ''
-            type: offset
+            type: date
           group: 1
           exposed: true
           expose:
             operator_id: created_op
-            label: Fecha
-            description: 'Ej.: 24-10-2020'
+            label: 'Fecha creación'
+            description: 'Formato: Día-Mes-Año'
             use_operator: false
             operator: created_op
             operator_limit_selection: false
@@ -6360,6 +6976,12 @@ display:
         operator: AND
         groups:
           1: AND
+      access:
+        type: role
+        options:
+          role:
+            authenticated: authenticated
+            administrator: administrator
     cache_metadata:
       max-age: -1
       contexts:
@@ -6369,7 +6991,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_pqrsd_canal_recepcion'
         - 'config:field.storage.node.field_pqrsd_departamento'

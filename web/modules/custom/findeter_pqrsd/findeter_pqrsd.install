@@ -28,31 +28,35 @@ function findeter_pqrsd_install() {
       
       // Vocabulary machine name
       $vid = "colombia_deparments";
-      $vocabulary = Vocabulary::create(array(
-        'vid' => $vid,
-        'description' => 'Tax. para PQRSD',
-        'name' => 'Departamentos/municipios de Colombia',
-      ));
-      $vocabulary->save();  
+      $vocabularies = \Drupal\taxonomy\Entity\Vocabulary::loadMultiple();
 
-      //creating each term for departments/municipality vocabulary 
-      $departments = Json::decode($data);
-      foreach ( $departments as $department => $municipalities ) {
-        $parentTerm = Term::create(array(
-          'parent' => [],
-          'name' => $department,
+      if (!isset($vocabularies['colombia_deparments'])) {
+        $vocabulary = Vocabulary::create(array(
           'vid' => $vid,
+          'description' => 'Tax. para PQRSD',
+          'name' => 'Departamentos/municipios de Colombia',
         ));
-        $parentTerm->save();
-    
-        foreach($municipalities as $municipality){
-    
-          Term::create(array(
-            'parent' => $parentTerm->id(),
-            'name' => $municipality,
+        $vocabulary->save();  
+      
+        //creating each term for departments/municipality vocabulary 
+        $departments = Json::decode($data);
+        foreach ( $departments as $department => $municipalities ) {
+          $parentTerm = Term::create(array(
+            'parent' => [],
+            'name' => $department,
             'vid' => $vid,
-          ))->save();
-    
+          ));
+          $parentTerm->save();
+      
+          foreach($municipalities as $municipality){
+      
+            Term::create(array(
+              'parent' => $parentTerm->id(),
+              'name' => $municipality,
+              'vid' => $vid,
+            ))->save();
+      
+          }
         }
       }
 
