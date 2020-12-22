@@ -10,7 +10,14 @@
     /*Drupal.behaviors.webfinde = {
         attach: function(context, settings) {*/
 
-        $(document).ready(function(){        
+        $(document).ready(function(){    
+            
+            /*===========================================
+            ADMIN
+            =============================================*/
+
+            /* ===== ===== Login ===== ===== */
+            $('form#user-login-form').addClass('container my-5');
 
             /*===========================================
             MENU SIDEBAR MOVIL
@@ -93,7 +100,7 @@
                 $("#modalProductosServicios .modal-body .descripcion").html($(this).attr('descripcion'));
                 //$("#modalProductosServicios img").attr("src", $(this).attr('imagen'));
                 $("#modalProductosServicios").css({
-                    "background-image":"linear-gradient(to bottom, transparent 193px,#112d6a 0,#112d6a),url('"+$(this).attr('imagen')+"')"
+                    "background-image":"url('"+$(this).attr('imagen')+"')"
                 });
 
                 if($(this).attr('url') != ""){

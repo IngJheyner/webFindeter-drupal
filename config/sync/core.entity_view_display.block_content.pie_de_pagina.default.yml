@@ -9,8 +9,6 @@ dependencies:
     - field.field.block_content.pie_de_pagina.field_email_contacto_footer
     - field.field.block_content.pie_de_pagina.field_email_judiciales_footer
     - field.field.block_content.pie_de_pagina.field_facebook_icono_footer
-    - field.field.block_content.pie_de_pagina.field_footer_img_credito_directo
-    - field.field.block_content.pie_de_pagina.field_footer_url_credito_directo
     - field.field.block_content.pie_de_pagina.field_horario_de_atencion_footer
     - field.field.block_content.pie_de_pagina.field_instagram_icono_footer
     - field.field.block_content.pie_de_pagina.field_likedin_icono_footer
@@ -66,27 +64,6 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
-    region: content
-  field_footer_img_credito_directo:
-    weight: 21
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
-  field_footer_url_credito_directo:
-    weight: 22
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
     region: content
   field_horario_de_atencion_footer:
     weight: 16

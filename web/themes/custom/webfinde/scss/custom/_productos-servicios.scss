@@ -118,12 +118,13 @@ VENTANA MODAL PRODUCTOS Y SERVICIOS
         .modal-content{
 
             background-color: initial !important;
+            border: 0 !important;
 
             .modal-body{
                
-                background-color: var.$color-primario !important;           
-                border-top: 10px solid var.$color-secundario;
-                top: 12em;
+                //background-color: var.$color-primario !important;           
+                //border-top: 10px solid var.$color-secundario;
+                top: 10em;
                 padding: 21px 20px 20px 70px;
                 
     
@@ -134,7 +135,7 @@ VENTANA MODAL PRODUCTOS Y SERVICIOS
     
                 div.descripcion{
     
-                    max-width: 70%;
+                    max-width: 60%;
                     color: white;
                 }
     
@@ -188,20 +189,21 @@ MEDIA QUERY
         }
     }
 
-    #modalProductosServicios {
+    /* =================================
+    VENTANA MODAL PRODUCTOS Y SERVICIOS
+    ==================================== */
+    #modalProductosServicios{
+        
+        height: inherit;
 
-        height: auto;
+        .modal-dialog .modal-content .modal-body{                
+            top: 8em;
+            padding: 21px 20px 20px 21px;
 
-        .modal-dialog .modal-content .modal-body{
-
-            top: 0;
-                  
-            div.descripcion{        
+            div.descripcion{    
                 max-width: 100%;
-                
             }
         }
-                
     }
      
 }
@@ -226,6 +228,22 @@ MEDIA QUERY
            overflow-x: scroll;   
         }
     }
+
+    /* =================================
+    VENTANA MODAL PRODUCTOS Y SERVICIOS
+    ==================================== */
+    #modalProductosServicios{
+        
+        height: inherit;
+        .modal-dialog .modal-content .modal-body{                
+            top: 8em;
+            padding: 21px 20px 20px 21px;
+
+            div.descripcion{    
+                max-width: 100%;
+            }
+        }
+    }
      
 }
 
@@ -244,6 +262,18 @@ MEDIA QUERY
            overflow-x: scroll;   
         }
     }
+
+    /* =================================
+    VENTANA MODAL PRODUCTOS Y SERVICIOS
+    ==================================== */
+    #modalProductosServicios .modal-dialog .modal-content .modal-body{                
+        top: 8em;
+        padding: 21px 20px 20px 21px;
+
+        div.descripcion{    
+            max-width: 100%;
+        }
+    }
      
 }
 
@@ -254,6 +284,13 @@ MEDIA QUERY
         .grid-container{
            overflow-x: scroll;   
         }
+    }
+
+    /* =================================
+    VENTANA MODAL PRODUCTOS Y SERVICIOS
+    ==================================== */
+    #modalProductosServicios .modal-dialog .modal-content .modal-body{                
+        top: 8em;
     }
      
 }
