@@ -1,0 +1,78 @@
+uuid: 4db91add-9ae2-4537-9bd0-86088a635b40
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.page_convcatorias_ultimas_actualizaciones
+id: page_convcatorias_ultimas_actualizaciones-layout_builder-0
+label: 'Ultimas actualizaciones'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: 63ffb14e-b512-449e-bdd4-8dfb818e3827
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_1col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          main:
+            wrapper: div
+            classes:
+              col-xs-12: col-xs-12
+            add_region_classes: 1
+            attributes: class|my-5
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        f7db4d67-47fd-42c9-bf94-aa2bfa7e206f:
+          uuid: f7db4d67-47fd-42c9-bf94-aa2bfa7e206f
+          region: main
+          configuration:
+            id: 'views_block:convocatorias-ultimas_actualizaciones'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        94ff6c9b-3f10-4dad-b045-f8d1fb0f8177:
+          uuid: 94ff6c9b-3f10-4dad-b045-f8d1fb0f8177
+          region: top
+          configuration:
+            id: 'block_content:6699f94b-8e4f-4c82-b46b-49c63d21f502'
+            label: 'Convocatorias [ Encabezado ]'
+            provider: block_content
+            label_display: '0'
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+      third_party_settings: {  }
+page: page_convcatorias_ultimas_actualizaciones
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }
