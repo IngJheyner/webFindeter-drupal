@@ -457,7 +457,7 @@ SUSCRIBIRSE
 
     <div class="row">
 
-      <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+      <div class="col-12 col-lg-4 mb-3 mb-lg-0">
 
         <h4 class="text-white font-weight-bold">
           {{ 'Boletín informativo'|t }}
@@ -470,7 +470,7 @@ SUSCRIBIRSE
         
       </div>
 
-      <div class="col-12 col-lg-6">
+      <div class="col-12 col-lg-5">
 
         <section id="mc_embed_signup">    
 
@@ -498,9 +498,18 @@ SUSCRIBIRSE
         
       </div>
 
-      <div class="col-12 mt-3">
+      {# ===== ===== Pantalla > 998..98px ===== ===== #}
+      <div class="col-3 d-none d-lg-block text-center pagoCredito">
 
-        <p class="text-white text-center politicas">{{ 'Al suscribirse autoriza el manejo, uso y tratamiento de sus datos personales de acuerdo con las
+        <p class="text-white mb-2">{{ 'Realice pago aquí'|t }}</p>
+
+        <a href=""><img src="themes/custom/webfinde/images/iconos/pie-pagina/btn-pago-directo.png" class="img-fluid mx-auto"></a>
+
+      </div>
+
+      <div class="col-12 col-lg-10 mt-3 terminosPoliticas">
+
+        <p class="text-white politicas">{{ 'Al suscribirse autoriza el manejo, uso y tratamiento de sus datos personales de acuerdo con las
 
           <a href="/transparencia-y-acceso-a-la-informacion-publica/ley-1581-de-2012-proteccion-de-datos-personales"
           class="font-weight-bold">
@@ -511,6 +520,15 @@ SUSCRIBIRSE
         </p>
 
       </div> 
+
+      {# ===== ===== Pantalla < 768..98px ===== ===== #}
+      <div class="col-12 d-lg-none text-center pagoCreditoMovil mt-3">
+
+        <p class="text-white mb-2">{{ 'Realice pago aquí'|t }}</p>
+
+        <a href=""><img src="themes/custom/webfinde/images/iconos/pie-pagina/btn-pago-directo.png" class="img-fluid mx-auto w-25"></a>
+
+      </div>
 
     </div>
   </div>
