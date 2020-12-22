@@ -281,7 +281,7 @@
                                         +'<td>'+ element.documento +'</td>'
                                         +'<td>'+element.fecha.split("T")[0] +'</td>'
                                         +'<td>'+element.nom_archivo +'</td>'
-                                        +'<td> <a href="https://www.findeter.gov.co/loader.php?lServicio=WS&amp;lTipo=erp&amp;lFuncion=descarga&amp;nombre='+element.nom_archivo+'"> Descargar </a></td>'
+                                        +'<td> <a href=http://localhost:9090/sites/default/soapFindeterconsumir/controller/controller.php?nombre='+element.nom_archivo+'"> Descargar </a></td>'
 
                                     +'</tr>';
 
@@ -293,7 +293,7 @@
                                         +'<td>'+ data.Registro.documento +'</td>'
                                         +'<td>'+data.Registro.fecha.split("T")[0] +'</td>'
                                         +'<td>'+data.Registro.nom_archivo +'</td>'
-                                        +'<td> <a href="https://www.findeter.gov.co/loader.php?lServicio=WS&amp;lTipo=erp&amp;lFuncion=descarga&amp;nombre='+data.Registro.nom_archivo+'"> Descargar </a></td>'
+                                        +'<td> <a href="/controller/controller.php?nombre='+data.Registro.nom_archivo+'"> Descargar </a></td>'
                                     +'</tr>';
                             }
                         }

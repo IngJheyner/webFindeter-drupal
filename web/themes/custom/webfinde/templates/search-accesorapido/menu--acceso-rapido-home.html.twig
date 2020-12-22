@@ -59,8 +59,10 @@ LINKS MENU
 
         
         <li{{ item.attributes.addClass('nav-item') }}>
+          <a href="{{ item.url }}">
           <span class="icon"></span>
           {{ link(item.title, item.url, { 'class': classes_link, 'link': iterar }) }}
+          </a>
 
         </li>
 
