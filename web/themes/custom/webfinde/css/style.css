@@ -71,7 +71,6 @@ a:visited, a:link, a:focus, a:hover, a:active {
 
 p {
   margin: 0;
-  word-spacing: 3pt;
 }
 
 table {
@@ -83,6 +82,74 @@ table {
   line-height: 0 !important;
 }
 
+/* ==============================
+ADMIN
+============================== */
+div.login figure {
+  position: absolute;
+  z-index: -1;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+div.login figure img {
+  height: 100%;
+}
+div.login div.encabezado {
+  height: 7rem;
+}
+div.login div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  div.login div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.login div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.login div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+
+form#user-login-form {
+  padding: 0 15rem;
+}
+
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  form#user-login-form {
+    padding: 0 1rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  form#user-login-form {
+    padding: 0 5rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  form#user-login-form {
+    padding: 0 8rem;
+  }
+}
 /* ==============================
 HEADER(ENCABEZADO)
 ============================== */
@@ -405,11 +472,18 @@ MEDIA QUERY
   form#search-block-form {
     margin: 17rem 0rem 0 0rem;
   }
+  form#search-block-form div.buscadorAcceso .menuAccesoRapido {
+    overflow-x: scroll;
+    padding: 2rem 0 2rem 0;
+  }
 }
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
   form#search-block-form {
     margin: 17.5rem 2rem 0 2rem;
+  }
+  form#search-block-form div.buscadorAcceso .menuAccesoRapido {
+    padding: 2rem 0 2rem 0;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
@@ -526,11 +600,10 @@ VENTANA MODAL PRODUCTOS Y SERVICIOS
 }
 #modalProductosServicios .modal-dialog .modal-content {
   background-color: initial !important;
+  border: 0 !important;
 }
 #modalProductosServicios .modal-dialog .modal-content .modal-body {
-  background-color: #112d6a !important;
-  border-top: 10px solid #296294;
-  top: 12em;
+  top: 10em;
   padding: 21px 20px 20px 70px;
 }
 #modalProductosServicios .modal-dialog .modal-content .modal-body h3 {
@@ -538,7 +611,7 @@ VENTANA MODAL PRODUCTOS Y SERVICIOS
   color: #CDDC4B;
 }
 #modalProductosServicios .modal-dialog .modal-content .modal-body div.descripcion {
-  max-width: 70%;
+  max-width: 60%;
   color: white;
 }
 #modalProductosServicios .modal-dialog .modal-content .modal-body button.close {
@@ -693,11 +766,15 @@ MEDIA QUERY
     margin-left: 1.5rem;
   }
 
+  /* =================================
+  VENTANA MODAL PRODUCTOS Y SERVICIOS
+  ==================================== */
   #modalProductosServicios {
-    height: auto;
+    height: inherit;
   }
   #modalProductosServicios .modal-dialog .modal-content .modal-body {
-    top: 0;
+    top: 8em;
+    padding: 21px 20px 20px 21px;
   }
   #modalProductosServicios .modal-dialog .modal-content .modal-body div.descripcion {
     max-width: 100%;
@@ -715,6 +792,20 @@ MEDIA QUERY
   section.productosServicios .grid-container {
     overflow-x: scroll;
   }
+
+  /* =================================
+  VENTANA MODAL PRODUCTOS Y SERVICIOS
+  ==================================== */
+  #modalProductosServicios {
+    height: inherit;
+  }
+  #modalProductosServicios .modal-dialog .modal-content .modal-body {
+    top: 8em;
+    padding: 21px 20px 20px 21px;
+  }
+  #modalProductosServicios .modal-dialog .modal-content .modal-body div.descripcion {
+    max-width: 100%;
+  }
 }
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -724,11 +815,29 @@ MEDIA QUERY
   section.productosServicios .grid-container {
     overflow-x: scroll;
   }
+
+  /* =================================
+  VENTANA MODAL PRODUCTOS Y SERVICIOS
+  ==================================== */
+  #modalProductosServicios .modal-dialog .modal-content .modal-body {
+    top: 8em;
+    padding: 21px 20px 20px 21px;
+  }
+  #modalProductosServicios .modal-dialog .modal-content .modal-body div.descripcion {
+    max-width: 100%;
+  }
 }
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
   section.productosServicios .grid-container {
     overflow-x: scroll;
+  }
+
+  /* =================================
+  VENTANA MODAL PRODUCTOS Y SERVICIOS
+  ==================================== */
+  #modalProductosServicios .modal-dialog .modal-content .modal-body {
+    top: 8em;
   }
 }
 /* ===== ===== NOTICIAS Y REDES ===== ===== */

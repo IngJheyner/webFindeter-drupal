@@ -29,7 +29,7 @@
 MENU GOVCO
 =============================================== #}
 
-<nav class="navbar navbar-expand-sm float-right py-0 px-0 px-md-3">
+<nav class="navbar navbar-expand-sm float-right py-0 px-md-3">
 
   {{ menus.menu_links(items, attributes, 0) }}
 
@@ -55,7 +55,7 @@ LINKS MENU
         ]
         %}
 
-        <li{{ item.attributes.addClass('d-none d-md-block nav-item mr-2 mr-sm-3') }}>
+        <li{{ item.attributes.addClass('d-none d-md-block nav-item mr-2 mr-lg-3') }}>
 
           {{ link(item.title, item.url, { 'class': classes_link }) }}
 
