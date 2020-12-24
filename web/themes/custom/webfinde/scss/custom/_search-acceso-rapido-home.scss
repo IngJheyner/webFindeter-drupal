@@ -91,12 +91,13 @@ MEDIA QUERY
             input[type=search]{
                 
                 height: calc(1em + .75rem + 2px);
+                border: 1px solid var.$color-primario !important;  
             }  
             
             .menuAccesoRapido{
                 overflow-x: scroll;
                 padding: 2rem 0 2rem 0;
-
+                margin-top: 2rem;
                 nav{
                
                     ul{ 
@@ -113,9 +114,11 @@ MEDIA QUERY
         }
 
         .btnSearch{   
-            line-height: 2;         
-            width: 44px;
+            top: -3px;
+            background: url('/themes/custom/webfinde/images/iconos/search-gris.png') no-repeat;
+            background-color: initial !important;
         }
+
     }
 }
 
@@ -124,11 +127,16 @@ MEDIA QUERY
     form#search-block-form{ 
         margin: 1.5rem 0rem 0 0rem;
 
-        div.buscadorAcceso{       
+        div.buscadorAcceso{    
+            
+            input[type=search]{
+                border: 1px solid var.$color-primario !important;                
+            }
             
             .menuAccesoRapido{
                 overflow-x: scroll;
                 padding: 2rem 0 2rem 0;
+                margin-top: 2rem;
 
                 nav{
                
@@ -142,13 +150,19 @@ MEDIA QUERY
                 }
             }
         }
+
+        .btnSearch{   
+            background: url('/themes/custom/webfinde/images/iconos/search-gris.png') no-repeat;
+            background-color: initial !important;
+        }
+
     }
 }
 
 @include media-query.media(md){
 
     form#search-block-form{ 
-        margin: 17rem 0rem 0 0rem;
+        margin: 16rem 0rem 0 0rem;
 
         div.buscadorAcceso{       
             
@@ -163,7 +177,7 @@ MEDIA QUERY
 @include media-query.media(lg){
 
     form#search-block-form{ 
-        margin: 17.5rem 2rem 0 2rem;
+        margin: 22rem 2rem 0 2rem;
 
         div.buscadorAcceso{       
             
@@ -177,7 +191,7 @@ MEDIA QUERY
 @include media-query.media(xl){
 
     form#search-block-form{ 
-        margin: 18rem 2rem 0 2rem;
+        margin: 21rem 2rem 0 2rem;
     }
 }
 

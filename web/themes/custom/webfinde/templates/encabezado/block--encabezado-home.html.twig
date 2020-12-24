@@ -44,32 +44,32 @@
 
     <section class="row m-0 menuGovCo">
 
-      {# ===== ===== Pantalla para > 768px ===== ===== #}
-
-      <div class="col-3 col-md-2 pt-md-1 px-0 text-center govCo">
+      {# ===== ===== Img govco ===== ===== #}
+      <div class="col-3 px-0 text-center d-none d-xl-block govCo">
 
         <img src="{{ file_url(content.field_img_govco_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid mt-2 mt-lg-0" />
       
       </div>
 
-      <div class="col-5 col-md-4 col-lg-5 pt-1 pr-0 d-xl-none text-center">
+      {# ===== ===== Img Logo ===== ===== #}
+      <div class="col-9 col-sm-6 col-md-4 col-lg-3 pt-1 px-0 d-xl-none text-center govCo">
 
-        <a href="{{ url('<front>') }}"><img src="{{ file_url(content.field_logo_findeter_negro[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
+        <a href="{{ url('<front>') }}"><img src="{{ file_url(content.field_logo_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
       
       </div>
 
       {# ============================================
       Menu hamburguesa
       =============================================== #}
-      <div class="col-2 col-sm-1 pr-0 d-lg-none">
+      <div class="col-3 col-sm-6 col-md-3 pr-0 pt-5 pt-md-4 d-lg-none text-center govCo">
 
         <button type="button" id="sidebarCollapseMd" class="btn btn-primary" >
           <i class="fas fa-bars"></i>
         </button>
 
-      </div> 
+      </div>
 
-      <div class="col-2 col-sm-3 col-md-5 col-xl-10 pr-0">
+      <div class="col-2 col-sm-3 col-md-5 col-lg-9 pr-0 d-none d-md-block">
 
         {{ drupal_menu('menu-govco') }}
 

@@ -125,8 +125,8 @@ section.menuPrincipal{
 MENU MOVIL
 ============================== */    
 button#sidebarCollapse, button#sidebarCollapseMd{
-    background-color: white !important;
-    color: black;
+    background-color: var.$color-primario !important;
+    color: white;
 }
 
 
@@ -158,8 +158,8 @@ section.menuMovil{
     }
 
     nav{        
-        min-width: 300px;
-        max-width: 300px;
+        min-width: 600px;
+        max-width: 600px;
         display: none;
         overflow-y: scroll;
         flex-flow: column;  
@@ -250,7 +250,38 @@ MEDIA QUERY
      
 }
 
+@include media-query.media(md){
+
+    div.sliderHome{
+        top: 5rem;
+    }
+
+    section.menuGovCo{
+
+        div.govCo{
+
+            a img{
+                width: 90%;
+            }
+        }
+    }
+}
+
 @include media-query.media(lg){
+
+    div.sliderHome{
+        top: 8rem;
+    }
+
+    section.menuGovCo{
+
+        div.govCo{
+
+            a img{
+                width: 90%;
+            }
+        }
+    }
 
     section.menuPrincipal{ 
 
