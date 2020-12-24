@@ -1,0 +1,28 @@
+uuid: 2e11f032-5d29-4480-8c8f-bdd06bedbc9e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cont_histo_conv
+    - node.type.tip_cont_historial_convocat
+  module:
+    - disable_field
+    - text
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.tip_cont_historial_convocat.field_cont_histo_conv
+field_name: field_cont_histo_conv
+entity_type: node
+bundle: tip_cont_historial_convocat
+label: 'Contenido historial de Convocatorias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary
