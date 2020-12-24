@@ -27,14 +27,10 @@
             $("section.menuMovil nav ul li ul.submenu").addClass('collapse');
 
             //Abrir el menu
-            $("#sidebarCollapse").on('click', function(){
-                $("section.menuMovil div.imgClose").toggle();
-                $("#sidebar").toggle();                
-            });
 
             $("#sidebarCollapseMd").on('click', function(){
-                $("section.menuMovil div.imgClose").toggle();
-                $("#sidebar").toggle();                
+                $("section.menuMovil div.imgClose").toggle('slow');
+                $("#sidebar").toggle('slow');                
             });
 
             $("section.menuMovil nav ul li").on('click', function(){
@@ -42,8 +38,7 @@
                 $(this).children('ul.submenu').toggle('slow');
             });
 
-            $("section.menuMovil div.imgClose button").on('click', function(){
-                
+            $("section.menuMovil div.imgClose button").on('click', function(){                
                 $("#sidebar").hide();
                 $("section.menuMovil div.imgClose").toggle();
             });
