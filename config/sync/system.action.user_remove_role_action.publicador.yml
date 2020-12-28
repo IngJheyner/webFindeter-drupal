@@ -1,0 +1,14 @@
+uuid: e09d9dff-fcb2-4e28-aa46-00bb56a81790
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.publicador
+  module:
+    - user
+id: user_remove_role_action.publicador
+label: 'Elimina el rol Publicador al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: publicador
