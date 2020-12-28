@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.media.full
   module:
     - media
+    - video_embed_wysiwyg
 name: 'HTML Editor'
 format: html_editor
 weight: -10
@@ -64,6 +65,12 @@ filters:
   filter_align:
     id: filter_align
     provider: filter
+    status: true
+    weight: 0
+    settings: {  }
+  video_embed_wysiwyg:
+    id: video_embed_wysiwyg
+    provider: video_embed_wysiwyg
     status: true
     weight: 0
     settings: {  }
