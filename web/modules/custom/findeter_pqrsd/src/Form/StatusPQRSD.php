@@ -146,7 +146,7 @@ class StatusPQRSD extends FormBase {
     ];
 
     //$form['#attached']['library'][] = 'findeter_pqrsd/global-scripts';
-
+    $form['#attributes']['class'][] = 'container my-5';
     return $form;
   }
 
