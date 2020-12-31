@@ -6,7 +6,6 @@ dependencies:
     - block_content.type.encabezado_home
     - field.field.block_content.encabezado_home.field_img_govco_encabezado_home
     - field.field.block_content.encabezado_home.field_logo_encabezado_home
-    - field.field.block_content.encabezado_home.field_logo_findeter_negro
     - image.style.thumbnail
   module:
     - field_group
@@ -61,14 +60,6 @@ content:
     region: content
   field_logo_encabezado_home:
     weight: 3
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    type: image_image
-    region: content
-  field_logo_findeter_negro:
-    weight: 4
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail

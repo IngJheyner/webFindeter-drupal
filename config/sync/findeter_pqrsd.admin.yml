@@ -1,91 +1,91 @@
-asign_user: 1
-view_mode: default
-css_path: ''
-roles: administrator
+asign_user: '1'
+view_mode: full
+css_path: modules/custom/findeter_pqrsd/css/pdf.css
+roles: 'administrator,colaborador'
 semaphore:
   none:
     logic: 'bussines days'
-    orange: 8
-    red: 15
+    orange: '8'
+    red: '15'
     title: 'Quejas, reclamos, sugerencias y denuncias'
     condition:
       - '<b>Tipo de radicado:</b> Quejas o reclamos o sugerencias o denuncias'
   general:
     logic: 'business days'
-    orange: 20
-    red: 30
+    orange: '20'
+    red: '30'
     title: 'Solicitud de interés general'
     condition:
       - '<b>Tipo de radicado:</b> Peticiones'
       - '<b>Tipo de petición:</b> Solicitud de interés general'
   particular:
     logic: 'business days'
-    orange: 20
-    red: 30
+    orange: '20'
+    red: '30'
     title: 'Solicitud de interés particular'
     condition:
       - '<b>Tipo de radicado:</b> Peticiones'
       - '<b>Tipo de petición:</b> Solicitud de interés particular'
   informacion:
     logic: 'business days'
-    orange: 15
-    red: 20
+    orange: '15'
+    red: '20'
     title: 'Solicitud de documentos, copias, información'
     condition:
       - '<b>Tipo de radicado:</b> Peticiones'
       - '<b>Tipo de petición:</b> Solicitud de documentos, copias, información'
   publica:
     logic: 'business days'
-    orange: 15
-    red: 20
+    orange: '15'
+    red: '20'
     title: 'Solicitud de información pública'
     condition:
       - '<b>Tipo de radicado:</b> Peticiones'
       - '<b>Tipo de petición:</b> Solicitud de información pública'
   traslado:
     logic: 'business days'
-    orange: 8
-    red: 10
+    orange: '8'
+    red: '10'
     title: 'Solicitud por traslado de otras entidades'
     condition:
       - '<b>Tipo de radicado:</b> Peticiones'
       - '<b>Tipo de petición:</b> Solicitud por traslado de otras entidades'
   cargo:
     logic: 'business days'
-    orange: 25
-    red: 35
+    orange: '25'
+    red: '35'
     title: 'Solicitud de información relacionada al cargo'
     condition:
       - '<b>Tipo de radicado:</b> Peticiones'
       - '<b>Tipo de petición:</b> Solicitud de información relacionada al cargo'
   camaras:
     logic: 'calendar days'
-    orange: 8
-    red: 10
+    orange: '8'
+    red: '10'
     title: 'Solicitud de información de camaras legislativas'
     condition:
       - '<b>Tipo de radicado:</b> Peticiones'
       - '<b>Tipo de petición:</b> Solicitud de información de camaras legislativas'
   asesoria:
     logic: 'business days'
-    orange: 20
-    red: 30
+    orange: '20'
+    red: '30'
     title: 'Solicitud de asesorias y capacitación'
     condition:
       - '<b>Tipo de radicado:</b> Peticiones'
       - '<b>Tipo de petición:</b> Solicitud de asesorias y capacitación'
   irrespetuosa:
     logic: 'business days'
-    orange: 8
-    red: 10
+    orange: '8'
+    red: '10'
     title: 'Solicitudes irrespetuosas, oscuras o reiterativas'
     condition:
       - '<b>Tipo de radicado:</b> Peticiones'
       - '<b>Tipo de petición:</b> Solicitudes irrespetuosas, oscuras o reiterativas'
   incompleta|1:
     logic: 'business days'
-    orange: 8
-    red: 10
+    orange: '8'
+    red: '10'
     title: 'Solicitud incompleta'
     condition:
       - '<b>Tipo de radicado:</b> Peticiones'
@@ -93,8 +93,8 @@ semaphore:
       - '<b>Opción de extensión:</b> No seleccionada'
   incompleta|2:
     logic: 'business days'
-    orange: 20
-    red: 30
+    orange: '20'
+    red: '30'
     title: 'Solicitud incompleta (extendida)'
     condition:
       - '<b>Tipo de radicado:</b> Peticiones'
@@ -102,8 +102,8 @@ semaphore:
       - '<b>Opción de extensión:</b> Seleccionada'
   all:
     logic: 'calendar days'
-    orange: 3
-    red: 5
+    orange: '3'
+    red: '5'
     title: 'Solicitud de información de los congresistas'
     condition:
       - '<b>Tipo de radicado:</b> Peticiones'
@@ -111,3 +111,4 @@ semaphore:
       - '<b>Atención preferencial:</b> Congresista'
 _core:
   default_config_hash: YLPPgLtCUD5tpdqQqu6cftzPTW8ShlxL_nkxqEg_jo8
+langcode: es

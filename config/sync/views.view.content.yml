@@ -623,19 +623,20 @@ display:
       tags: {  }
   page_2:
     display_options:
-      path: admin/contenido
+      path: admin/contenido-abo
       menu:
-        type: 'default tab'
-        title: Contenido
+        type: tab
+        title: Convocatorias
         description: ''
-        menu_name: admin
+        expanded: false
+        parent: ''
         weight: -10
-        context: ''
+        context: '0'
+        menu_name: admin
       tab_options:
-        type: normal
+        type: tab
         title: Contenido
         description: 'Encuentre y gestione el contenido'
-        menu_name: admin
         weight: -10
       display_extenders: {  }
       display_description: ''

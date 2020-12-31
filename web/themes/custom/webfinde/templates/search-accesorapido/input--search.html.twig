@@ -20,7 +20,9 @@ BUSCADOR
 
     <div class="d-flex">
 
-      <input{{ attributes.addClass('form-control') }} placeholder="Encuentre lo que necesite (Convocatorias, servicios, productos)"/>
+      <input{{ attributes.addClass('form-control d-none d-md-block') }} placeholder="Encuentre lo que necesite (Convocatorias, servicios, productos)"/>
+
+      <input title="Escriba lo que quiere buscar." data-drupal-selector="edit-keys" type="search" id="edit-keys" name="keys" value="" size="15" maxlength="128" class="form-search form-control d-md-none" />
 
     </div>
 

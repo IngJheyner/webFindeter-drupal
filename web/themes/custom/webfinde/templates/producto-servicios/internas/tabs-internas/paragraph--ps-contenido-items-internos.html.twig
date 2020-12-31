@@ -54,7 +54,7 @@
 
       {% if content.field_ps_internas_img_encabezado|render|trim is not empty %}
 
-        <img src="{{ file_url(content.field_ps_internas_img_encabezado[0]['#item'].entity.uri.value|image_style('ps_img_encabezado_tabs_internas')) }}" class="img-fluid w-100">
+        <img src="{{ file_url(content.field_ps_internas_img_encabezado[0]['#item'].entity.uri.value) }}" class="img-fluid w-100">
 
       {% endif %}
       

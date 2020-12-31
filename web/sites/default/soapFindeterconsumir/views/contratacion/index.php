@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>service contratacion</title>
     <link rel="stylesheet" href="../../bootstrap/bootstrap-4/css/bootstrap.min.css">
+    <style>
+        .link{
+            cursor: pointer;
+            color:blue;
+            font-weight:500;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -69,7 +76,9 @@
         <div class="col-md-12" id="vistadocumentos" hidden>
             <div class="row">
                 <div class="col-md-12">
-                    <h2 id="numberproceso"></h2>
+                    <div class="row">
+                    <div class="col-md-9"><h2 id="numberproceso"></h2> </div> <div class="col-md-3"><button class="btn btn-success" onclick="atras()"> Atrás</button></div>
+                    </div>
                     <legend style="border-bottom: 0.5px solid #e5e5e5;">Información del proceso</legend>
                     <div class="form-group"><label class="col-md-3">Fecha de Inicio:</label>
                         <span class="col-md-9" id="fechainicio"></span>
@@ -204,7 +213,7 @@
 
                                     tbodyrep += '<tr class="rowfilt">'
                                         +'<td name="interno" value="'+element.interno+'">'+num+'</td>'
-                                        +'<td name="modalidad" value="'+ element.modalidadCodigo +'">'+ element.modalidad +'</td>'
+                                        +'<td class="link" name="modalidad" value="'+ element.modalidadCodigo +'">'+ element.modalidad +'</td>'
                                         +'<td align="right">'+element.INITDATE.split("T")[0] +'</td>'
                                         +'<td align="right">'+ element.estado+' </td>'
                                         +'<td align="right">'+ element.objeto+' </td>'
@@ -215,7 +224,7 @@
                             }else{
                                 tbodyrep += '<tr class="rowfilt">'
                                     +'<td name="interno" value="'+data.Registro.interno+'">1</td>'
-                                    +'<td name="modalidad" value="'+ data.Registro.modalidadCodigo +'">'+ data.Registro.modalidad +'</td>'
+                                    +'<td class="link" name="modalidad" value="'+ data.Registro.modalidadCodigo +'">'+ data.Registro.modalidad +'</td>'
                                     +'<td align="right">'+data.Registro.INITDATE.split("T")[0] +'</td>'
                                     +'<td align="right">'+ data.Registro.estado+' </td>'
                                     +'<td align="right">'+ data.Registro.objeto+' </td>'
@@ -293,7 +302,7 @@
                                         +'<td>'+ data.Registro.documento +'</td>'
                                         +'<td>'+data.Registro.fecha.split("T")[0] +'</td>'
                                         +'<td>'+data.Registro.nom_archivo +'</td>'
-                                        +'<td> <a href="/controller/controller.php?funcion=descarga&amp;nombre='+data.Registro.nom_archivo+'"> Descargar </a></td>'
+                                        +'<td> <a href="../../controller/controller.php?funcion=descarga&amp;nombre='+data.Registro.nom_archivo+'"> Descargar </a></td>'
                                     +'</tr>';
                             }
                         }
@@ -371,6 +380,11 @@
             });
 
         });
+
+        var atras = function(){
+                $('#vistadocumentos').attr('hidden', true);
+                $('#vistatabla').attr('hidden', false);
+            }
     </script>
 </body>
 </html>

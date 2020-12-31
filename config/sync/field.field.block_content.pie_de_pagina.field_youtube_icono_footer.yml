@@ -6,7 +6,30 @@ dependencies:
     - block_content.type.pie_de_pagina
     - field.storage.block_content.field_youtube_icono_footer
   module:
+    - disable_field
+    - filefield_paths
     - image
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: webfinde/images/footer
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+  disable_field:
+    add_disable: none
+    edit_disable: none
 id: block_content.pie_de_pagina.field_youtube_icono_footer
 field_name: field_youtube_icono_footer
 entity_type: block_content
@@ -19,7 +42,7 @@ default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: webfinde/images/footer
-  file_extensions: 'png gif jpg jpeg'
+  file_extensions: 'png gif jpg jpeg svg'
   max_filesize: '2 mb'
   max_resolution: 24x24
   min_resolution: 24x24

@@ -1666,7 +1666,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: true
-          content: "<div class=\"float-right m-2 text-white\">\r\n<a href=\"/sites/default/soapFindeterconsumir/views/convocatorias/\" class=\"text-white\"><i class=\"fa fa-history\" aria-hidden=\"true\"></i> {{ 'Historial'|t }}</a> |\r\n<a href=\"/convocatorias/ultimas-actualizaciones\" class=\"text-white\"><i class=\"fa fa-refresh\" aria-hidden=\"true\"></i> {{ 'Últimas actualizaciones'|t }}</a>\r\n</div>"
+          content: "<div class=\"float-right m-2 text-white\">\r\n<a href=\"/historial-de-convocatorias\" class=\"text-white\"><i class=\"fa fa-history\" aria-hidden=\"true\"></i> {{ 'Historial'|t }}</a> |\r\n<a href=\"/convocatorias/ultimas-actualizaciones\" class=\"text-white\"><i class=\"fa fa-refresh\" aria-hidden=\"true\"></i> {{ 'Últimas actualizaciones'|t }}</a>\r\n</div>"
           plugin_id: text_custom
       relationships:
         uid:
@@ -2097,6 +2097,7 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       enabled: true
+      display_comment: "Vista que no se utiliza, ya que cambiaron la lógica y funcionalidad en otra.\r\n\r\nEsta se encuentra igual en la vista llamada Contenido > Contenido Convocatoria."
     cache_metadata:
       max-age: -1
       contexts:

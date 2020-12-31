@@ -246,8 +246,8 @@ section.menuPrincipal nav ul li:hover ul.submenu {
 MENU MOVIL
 ============================== */
 button#sidebarCollapse, button#sidebarCollapseMd {
-  background-color: white !important;
-  color: black;
+  background-color: #112d6a !important;
+  color: white;
 }
 
 section.menuMovil {
@@ -273,8 +273,8 @@ section.menuMovil > div.imgClose button {
   font-size: 2.5rem;
 }
 section.menuMovil nav {
-  min-width: 300px;
-  max-width: 300px;
+  min-width: 600px;
+  max-width: 600px;
   display: none;
   overflow-y: scroll;
   flex-flow: column;
@@ -339,7 +339,25 @@ MEDIA QUERY
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.sliderHome {
+    top: 5rem;
+  }
+
+  section.menuGovCo div.govCo a img {
+    width: 90%;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
+  div.sliderHome {
+    top: 8rem;
+  }
+
+  section.menuGovCo div.govCo a img {
+    width: 90%;
+  }
+
   section.menuPrincipal {
     /* ==============================
     MENU ESCRITORIO
@@ -437,10 +455,12 @@ MEDIA QUERY
   }
   form#search-block-form div.buscadorAcceso input[type=search] {
     height: calc(1em + .75rem + 2px);
+    border: 1px solid #112d6a !important;
   }
   form#search-block-form div.buscadorAcceso .menuAccesoRapido {
     overflow-x: scroll;
     padding: 2rem 0 2rem 0;
+    margin-top: 2rem;
   }
   form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul {
     flex-direction: initial;
@@ -450,8 +470,9 @@ MEDIA QUERY
     text-align: center;
   }
   form#search-block-form .btnSearch {
-    line-height: 2;
-    width: 44px;
+    top: -3px;
+    background: url("/themes/custom/webfinde/images/iconos/search-gris.png") no-repeat;
+    background-color: initial !important;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
@@ -459,18 +480,26 @@ MEDIA QUERY
   form#search-block-form {
     margin: 1.5rem 0rem 0 0rem;
   }
+  form#search-block-form div.buscadorAcceso input[type=search] {
+    border: 1px solid #112d6a !important;
+  }
   form#search-block-form div.buscadorAcceso .menuAccesoRapido {
     overflow-x: scroll;
     padding: 2rem 0 2rem 0;
+    margin-top: 2rem;
   }
   form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li {
     margin: 0 1rem 0 2.1rem;
+  }
+  form#search-block-form .btnSearch {
+    background: url("/themes/custom/webfinde/images/iconos/search-gris.png") no-repeat;
+    background-color: initial !important;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 768px) and (max-width: 991.98px) {
   form#search-block-form {
-    margin: 17rem 0rem 0 0rem;
+    margin: 16rem 0rem 0 0rem;
   }
   form#search-block-form div.buscadorAcceso .menuAccesoRapido {
     overflow-x: scroll;
@@ -480,7 +509,7 @@ MEDIA QUERY
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
   form#search-block-form {
-    margin: 17.5rem 2rem 0 2rem;
+    margin: 22rem 2rem 0 2rem;
   }
   form#search-block-form div.buscadorAcceso .menuAccesoRapido {
     padding: 2rem 0 2rem 0;
@@ -489,7 +518,7 @@ MEDIA QUERY
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 1200px) and (max-width: 1365.98px) {
   form#search-block-form {
-    margin: 18rem 2rem 0 2rem;
+    margin: 21rem 2rem 0 2rem;
   }
 }
 /* ===== ===== MEDIA REVISAMOS EN 1366 ===== ===== */
@@ -771,9 +800,10 @@ MEDIA QUERY
   ==================================== */
   #modalProductosServicios {
     height: inherit;
+    background: repeating-linear-gradient(188deg, transparent 0px, transparent 0%, #112d6a 0px, #296294) !important;
   }
   #modalProductosServicios .modal-dialog .modal-content .modal-body {
-    top: 8em;
+    top: 0em;
     padding: 21px 20px 20px 21px;
   }
   #modalProductosServicios .modal-dialog .modal-content .modal-body div.descripcion {
@@ -798,13 +828,14 @@ MEDIA QUERY
   ==================================== */
   #modalProductosServicios {
     height: inherit;
+    background: repeating-linear-gradient(188deg, transparent 0px, transparent 0%, #112d6a 0px, #296294) !important;
   }
   #modalProductosServicios .modal-dialog .modal-content .modal-body {
-    top: 8em;
+    top: 4em;
     padding: 21px 20px 20px 21px;
   }
   #modalProductosServicios .modal-dialog .modal-content .modal-body div.descripcion {
-    max-width: 100%;
+    max-width: 90%;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
@@ -2315,7 +2346,7 @@ MEDIA QUERY
   ============================== */
   div.articuloInternasBlog {
     transform: translate(0, 0);
-    padding: 0;
+    padding: 1em 1em 0 1em;
   }
   div.articuloInternasBlog .tipoArticulo,
 div.articuloInternasBlog .titulo {
@@ -2571,6 +2602,12 @@ div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem div.gridItemTit
   border-right: 1px solid #296294;
 }
 div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem div.gridItemTitulo span.titulo {
+  width: 65%;
+  margin-left: 1rem;
+  color: #296294;
+  font-weight: bold;
+}
+div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem div.gridItemTitulo a.titulo {
   width: 65%;
   margin-left: 1rem;
   color: #296294;
