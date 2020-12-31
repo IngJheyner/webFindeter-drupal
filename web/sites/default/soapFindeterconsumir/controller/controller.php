@@ -2,8 +2,10 @@
 
 function consult(){
     if(!empty($_GET['nombre'])){
-        $fileName = $_GET['nombre'] . '.pdf';
-        $filePath = '../0001-2016_AAD_ACTA DE SELECCION C-FDT-01-2016.pdf';
+        $fileName = $_GET['nombre'];
+        //echo($_GET['nombre']);
+        //$filePath = 'E:/ecosistema/private/contratacion/ws/0001-2016_AAD_ACTA DE SELECCION C-FDT-01-2016.pdf';
+        $filePath = 'E:/ecosistema/private/contratacion/ws/'.$fileName;
         if(!empty($fileName) && file_exists($filePath)){
             // Define headers
             header("Cache-Control: public");
