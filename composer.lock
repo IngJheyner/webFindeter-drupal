@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2b187614b01cbde417400856e52be368",
+    "content-hash": "c8a28df57d6cc9866529648c7e20a0f3",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3441,6 +3441,61 @@
             ],
             "description": "Drupal Console Extend Plugin",
             "time": "2020-08-15T04:57:23+00:00"
+        },
+        {
+            "name": "drupal/content_access",
+            "version": "1.0.0-alpha3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/content_access.git",
+                "reference": "8.x-1.0-alpha3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/content_access-8.x-1.0-alpha3.zip",
+                "reference": "8.x-1.0-alpha3",
+                "shasum": "38715d271d166cbf7ed801acd6cee6010962bc79"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "require-dev": {
+                "drupal/acl": "~1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-alpha3",
+                    "datestamp": "1600327861",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "fago",
+                    "homepage": "https://www.drupal.org/user/16747"
+                },
+                {
+                    "name": "gisle",
+                    "homepage": "https://www.drupal.org/user/409554"
+                },
+                {
+                    "name": "good_man",
+                    "homepage": "https://www.drupal.org/user/265439"
+                }
+            ],
+            "description": "Provides flexible content access control.",
+            "homepage": "https://drupal.org/project/content_access",
+            "support": {
+                "source": "https://git.drupalcode.org/project/content_access"
+            }
         },
         {
             "name": "drupal/content_sync",
@@ -15239,6 +15294,7 @@
     "stability-flags": {
         "drupal/calendar": 15,
         "drupal/conditional_fields": 15,
+        "drupal/content_access": 15,
         "drupal/filefield_paths": 10,
         "drupal/ldap": 10,
         "drupal/masquerade": 10,
