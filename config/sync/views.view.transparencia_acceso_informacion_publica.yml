@@ -15,6 +15,8 @@ dependencies:
     - field.storage.node.field_cont_plan_mejoramiento
     - field.storage.node.field_cont_politi_de_seguridad
     - field.storage.node.field_cont_politicas_lineamiento
+    - field.storage.node.field_cont_trans_mision_vision
+    - field.storage.node.field_cont_trans_plan_docum
     - field.storage.node.field_contdesc_funciones_deberes
     - field.storage.node.field_conten_mecanis_de_particip
     - field.storage.node.field_contenido_defensa_judicial
@@ -37,6 +39,8 @@ dependencies:
     - field.storage.node.field_descripcion_sedes
     - field.storage.node.field_etiqueta_glosario
     - field.storage.node.field_tema_pregunta_frecuentes
+    - field.storage.node.field_trans_cont_inf_asam_gen_as
+    - field.storage.node.field_trans_cont_poli_prot_datos
     - field.storage.node.field_trans_cont_regis_act_infor
     - field.storage.node.field_trans_cont_regis_publi
     - field.storage.node.field_trans_cont_tramit_servic
@@ -84,6 +88,10 @@ dependencies:
     - node.type.tip_con_infor_rendi_de_cuentas
     - node.type.tip_cont_inform_envia_congreso
     - node.type.tip_cont_inform_rendi_cuent_fisc
+    - node.type.tip_cont_trans_inf_asa_gen_ac_do
+    - node.type.tip_cont_trans_mision_vision
+    - node.type.tip_cont_trans_plan_mej_docum
+    - node.type.tip_cont_trans_poli_prot_dat_fin
     - node.type.tip_cont_trans_regist_publica
     - node.type.tip_cont_transp_regis_activ_info
     - node.type.tipcont_infor_ninos_ninas_adolec
@@ -5514,6 +5522,8 @@ display:
         filter_groups: false
         title: false
         fields: false
+        sorts: false
+        header: false
       filter_groups:
         operator: AND
         groups:
@@ -5648,6 +5658,34 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: true
+          content: "<div class=\"titulos mb-4\" id=\"cont\">\r\n\r\n    <div class=\"d-flex\">\r\n\r\n        <figure class=\"icono pr-2\">\r\n            <img src=\"/themes/custom/webfinde/images/iconos/Iconos-transparencia/icono-7.png\">\r\n        </figure>\r\n    \r\n        <h2 class=\"font-weight-bold pl-2\">{{ \"7. Control\"|t }}</h2>\r\n\r\n    </div>  \r\n    \r\n    <h3 class=\"font-weight-bold text-dark\">{{ title }}</h3>\r\n\r\n</div>"
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
@@ -5672,6 +5710,7 @@ display:
         filters: false
         filter_groups: false
         fields: false
+        header: false
       filters:
         status:
           value: '1'
@@ -5860,6 +5899,18 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: true
+          content: "<div class=\"titulos mb-4\" id=\"cont\">\r\n\r\n    <div class=\"d-flex\">\r\n\r\n        <figure class=\"icono pr-2\">\r\n            <img src=\"/themes/custom/webfinde/images/iconos/Iconos-transparencia/icono-7.png\">\r\n        </figure>\r\n    \r\n        <h2 class=\"font-weight-bold pl-2\">{{ \"7. Control\"|t }}</h2>\r\n\r\n    </div>  \r\n    \r\n    <h3 class=\"font-weight-bold text-dark\">{{ title }}</h3>\r\n\r\n</div>"
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
@@ -6548,7 +6599,7 @@ display:
   block_1:
     display_plugin: block
     id: block_1
-    display_title: '1.1 mecanismos de atención al ciudadano'
+    display_title: '1.1 Canales de atención al ciudadano'
     position: 3
     display_options:
       display_extenders: {  }
@@ -8831,6 +8882,495 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
+  block_mision_vision:
+    display_plugin: block
+    id: block_mision_vision
+    display_title: '3.1 Misión y Visión'
+    position: 57
+    display_options:
+      display_extenders: {  }
+      display_description: '3.1 Misión y Visión'
+      title: '3.1 Misión y Visión'
+      defaults:
+        title: false
+        filters: false
+        filter_groups: false
+        fields: false
+        header: false
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            tip_cont_trans_mision_vision: tip_cont_trans_mision_vision
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: h4
+          element_wrapper_class: mb-3
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+        field_cont_trans_mision_vision:
+          id: field_cont_trans_mision_vision
+          table: node__field_cont_trans_mision_vision
+          field: field_cont_trans_mision_vision
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: true
+          content: "<div class=\"titulos mb-4\" id=\"cont\">\r\n\r\n    <div class=\"d-flex\">\r\n\r\n        <figure class=\"icono pr-2\">\r\n            <img src=\"/themes/custom/webfinde/images/iconos/Iconos-transparencia/icono-3.png\">\r\n        </figure>\r\n    \r\n        <h2 class=\"font-weight-bold pl-2\">{{ \"3. Estructura orgánica y talento humano\"|t }}</h2>\r\n\r\n    </div>  \r\n    \r\n    <h3 class=\"font-weight-bold text-dark\">{{ title }}</h3>\r\n\r\n</div>"
+          plugin_id: text_custom
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_cont_trans_mision_vision'
+  block_planes_mejoramiento_documentos:
+    display_plugin: block
+    id: block_planes_mejoramiento_documentos
+    display_title: '7.3.1 Planes mejoramiento documentos'
+    position: 56
+    display_options:
+      display_extenders: {  }
+      display_description: '7.3.1 Planes mejoramiento documentos'
+      title: '7.3.1 Planes mejoramiento documentos'
+      defaults:
+        title: false
+        filters: false
+        filter_groups: false
+        fields: false
+        pager: false
+        header: false
+        sorts: false
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            tip_cont_trans_plan_mej_docum: tip_cont_trans_plan_mej_docum
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: h4
+          element_wrapper_class: mb-3
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+        field_cont_trans_plan_docum:
+          id: field_cont_trans_plan_docum
+          table: node__field_cont_trans_plan_docum
+          field: field_cont_trans_plan_docum
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+      pager:
+        type: full
+        options:
+          items_per_page: 10
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« first'
+            last: 'last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 5
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: true
+          content: "<div class=\"titulos mb-4\" id=\"cont\">\r\n\r\n    <div class=\"d-flex\">\r\n\r\n        <figure class=\"icono pr-2\">\r\n            <img src=\"/themes/custom/webfinde/images/iconos/Iconos-transparencia/icono-7.png\">\r\n        </figure>\r\n    \r\n        <h2 class=\"font-weight-bold pl-2\">{{ \"7. Control\"|t }}</h2>\r\n\r\n    </div>  \r\n    \r\n    <h3 class=\"font-weight-bold text-dark\">{{ title }}</h3>\r\n\r\n</div>"
+          plugin_id: text_custom
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_cont_trans_plan_docum'
   block_programas_proyectos_ejecucion:
     display_plugin: block
     id: block_programas_proyectos_ejecucion
@@ -9731,6 +10271,248 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_trans_cont_tramit_servic'
+  block_trans_inform_as_gen_acc_documentos:
+    display_plugin: block
+    id: block_trans_inform_as_gen_acc_documentos
+    display_title: '7.1.11 Documentos Informes Asamblea General de Accionistas'
+    position: 50
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      title: 'Informes Asamblea General de Accionistas Documentos'
+      defaults:
+        title: false
+        fields: false
+        filters: false
+        filter_groups: false
+        header: false
+        sorts: false
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: h4
+          element_wrapper_class: mb-3
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+        field_trans_cont_inf_asam_gen_as:
+          id: field_trans_cont_inf_asam_gen_as
+          table: node__field_trans_cont_inf_asam_gen_as
+          field: field_trans_cont_inf_asam_gen_as
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            tip_cont_trans_inf_asa_gen_ac_do: tip_cont_trans_inf_asa_gen_ac_do
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: true
+          content: "<div class=\"titulos mb-4\" id=\"cont\">\r\n\r\n    <div class=\"d-flex\">\r\n\r\n        <figure class=\"icono pr-2\">\r\n            <img src=\"/themes/custom/webfinde/images/iconos/Iconos-transparencia/icono-7.png\">\r\n        </figure>\r\n    \r\n        <h2 class=\"font-weight-bold pl-2\">{{ \"7. Control\"|t }}</h2>\r\n\r\n    </div>  \r\n    \r\n    <h3 class=\"font-weight-bold text-dark\">{{ title }}</h3>\r\n\r\n</div>"
+          plugin_id: text_custom
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_trans_cont_inf_asam_gen_as'
   block_trans_informes_rendicion_cuentas:
     display_plugin: block
     id: block_trans_informes_rendicion_cuentas
@@ -9956,6 +10738,231 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
+  block_trans_politicas_proteccion_datos_personales_findeter:
+    display_plugin: block
+    id: block_trans_politicas_proteccion_datos_personales_findeter
+    display_title: '13.1.1 Políticas de protección de datos personales de Findeter'
+    position: 31
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      title: '13.1.1 Políticas de protección de datos personales de Findeter'
+      defaults:
+        title: false
+        filters: false
+        filter_groups: false
+        fields: false
+        header: false
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            tip_cont_trans_poli_prot_dat_fin: tip_cont_trans_poli_prot_dat_fin
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: h4
+          element_wrapper_class: mb-3
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+        field_trans_cont_poli_prot_datos:
+          id: field_trans_cont_poli_prot_datos
+          table: node__field_trans_cont_poli_prot_datos
+          field: field_trans_cont_poli_prot_datos
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: true
+          content: "<div class=\"titulos mb-4\" id=\"cont\">\r\n\r\n    <div class=\"d-flex\">\r\n\r\n        <figure class=\"icono pr-2\">\r\n            <img src=\"/themes/custom/webfinde/images/iconos/Iconos-transparencia/icono-13.png\">\r\n        </figure>\r\n    \r\n        <h2 class=\"font-weight-bold pl-2\">{{ \"13. Protección de Datos Personales\"|t }}</h2>\r\n\r\n    </div>  \r\n    \r\n    <h3 class=\"font-weight-bold text-dark\">{{ title }}</h3>\r\n\r\n</div>"
+          plugin_id: text_custom
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_trans_cont_poli_prot_datos'
   block_trans_registro_activos_informacion:
     display_plugin: block
     id: block_trans_registro_activos_informacion
@@ -11247,7 +12254,7 @@ display:
   page_datos_abiertos:
     display_plugin: block
     id: page_datos_abiertos
-    display_title: '2.1 datos abiertos'
+    display_title: '2.1 Datos Abiertos'
     position: 5
     display_options:
       display_extenders: {  }
@@ -11333,7 +12340,7 @@ display:
           hide_empty: false
           default_field_elements: true
       display_description: ''
-      title: '2.1 datos abiertos'
+      title: '2.1 Datos Abiertos'
       header:
         area_text_custom:
           id: area_text_custom
@@ -12077,12 +13084,12 @@ display:
   transp_page_glosario:
     display_plugin: block
     id: transp_page_glosario
-    display_title: Glosario
+    display_title: '2.5 Glosario'
     position: 2
     display_options:
       display_extenders: {  }
       display_description: ''
-      title: Glosario
+      title: '2.5 Glosario'
       defaults:
         title: false
         css_class: false
@@ -12094,6 +13101,7 @@ display:
         header: false
         use_ajax: false
         pager: false
+        sorts: false
       css_class: 'pr-3 vistaTransparencia transparenciaGlosario'
       style:
         type: views_bootstrap_list_group
@@ -12186,7 +13194,7 @@ display:
           exposed: true
           expose:
             operator_id: field_etiqueta_glosario_target_id_op
-            label: 'Seleccione la etiqueta.'
+            label: 'Seleccione la letra para filtrar'
             description: ''
             use_operator: false
             operator: field_etiqueta_glosario_target_id_op
@@ -12200,6 +13208,11 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+              abogado: '0'
+              secretaria_general: '0'
+              colaborador: '0'
+              c_modificador: '0'
+              publicador: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -12222,6 +13235,9 @@ display:
           parent: 0
           level_labels: ''
           force_deepest: false
+          save_lineage: false
+          hierarchy_depth: 0
+          required_depth: 0
           plugin_id: taxonomy_index_tid
       filter_groups:
         operator: AND
@@ -12453,6 +13469,19 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
+      sorts:
+        field_etiqueta_glosario_target_id:
+          id: field_etiqueta_glosario_target_id
+          table: node__field_etiqueta_glosario
+          field: field_etiqueta_glosario_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:

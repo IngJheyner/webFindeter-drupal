@@ -10,10 +10,7 @@
             <div class="col-md-6">
                 <label>Vigencia</label>
                 <select class="form-control" id="vig">
-                    <option value="0">--Seleccione--</option>
-                    <option value="2020">2020</option>
-                    <option value="2019">2019</option>
-                    <option value="2018">2018</option>
+                    Cargando...
                 </select>
             </div>
             <div class="col-md-6" id="divtipo" hidden>
@@ -59,6 +56,33 @@
         var formatter = new Intl.NumberFormat("es");
 
         var tipoelemen = '<option value="0">--Seleccione--</option> <option value="1">fuentes</option><option value="2">aplicaciones</option>'
+
+        $( document ).ready(function() {
+
+            $.ajax({
+                url: 'controller/controller.php',
+                type: "POST",
+                data : {
+                    'procedimientos' : '82',
+                    'argumentos' : ''
+                },
+                dataType: 'json',
+                success: function(data){
+                    
+                    htmlcampoVig = '<option value="0">--Seleccione--</option>';
+                    data.Registro.forEach(element => {
+                        //console.log(element);
+                        htmlcampoVig += '<option value="'+element.Vig+'">'+element.Vig+'</option>'
+
+                    });
+                    $("#vig").html(htmlcampoVig);
+
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
+        });
 
         $('#vig').on('change', function(){
             var vig = $("#vig").val();

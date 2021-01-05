@@ -1,0 +1,30 @@
+uuid: aec1903c-29a0-4c7a-8467-059f9b3ba254
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tip_cont_trans_poli_prot_dat_fin.field_trans_cont_poli_prot_datos
+    - node.type.tip_cont_trans_poli_prot_dat_fin
+  module:
+    - text
+    - user
+id: node.tip_cont_trans_poli_prot_dat_fin.default
+targetEntityType: node
+bundle: tip_cont_trans_poli_prot_dat_fin
+mode: default
+content:
+  field_trans_cont_poli_prot_datos:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
