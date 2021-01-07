@@ -63,7 +63,7 @@
 
                 $(this).children("figure").children(".fondo").css({
                     "height": "400%", 
-                    "transition" : ".5s all",
+                    "transition" : ".3s all",
                     "background" : "#112d6a",
                     "border-radius" : "0.8em 0.8em 0.8em 0.8em"
                 });
