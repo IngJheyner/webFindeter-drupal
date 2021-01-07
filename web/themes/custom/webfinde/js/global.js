@@ -201,6 +201,54 @@
             });
 
             
+            /* === efecto contador en cifras ===*/
+
+            function contador() {
+                const counters = document.querySelectorAll('.counter');
+                const speed = 450;
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+                        if (count < target) {
+                            if(count < 1 ){
+                                counter.innerText = (count + inc).toFixed(2);
+                            }else{
+                                if(Number.isInteger(target)){
+                                    counter.innerText = Math.round(count + inc);
+                                }else
+                                {
+                                    counter.innerText = (count + inc).toFixed(2);
+                                }
+                            }
+                        setTimeout(updateCount, 2);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+            }
+            if(document.getElementById("#block-findeter-cifras-home")){
+                var alturacifras = $("#block-findeter-cifras-home").offset().top;
+            }else{
+                var alturacifras = '';
+            }
+            
+            $(window).scroll(function(){
+            
+                if($(window).scrollTop() >= alturacifras + 10) {
+            
+                    contador();
+            
+                }
+            
+            });
+
+            /* ========= Fin efecto =========== */
+            
+
 
             /*===========================================
             CASOS DE ÉXITO

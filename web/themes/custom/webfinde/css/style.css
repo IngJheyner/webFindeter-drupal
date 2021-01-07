@@ -803,10 +803,12 @@ MEDIA QUERY
   #modalProductosServicios {
     height: inherit;
     background: repeating-linear-gradient(188deg, transparent 0px, transparent 0%, #112d6a 0px, #296294) !important;
+    position: fixed;
   }
   #modalProductosServicios .modal-dialog .modal-content .modal-body {
     top: 0em;
     padding: 21px 20px 20px 21px;
+    margin-top: 2em;
   }
   #modalProductosServicios .modal-dialog .modal-content .modal-body div.descripcion {
     max-width: 100%;
