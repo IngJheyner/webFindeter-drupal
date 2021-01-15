@@ -1,0 +1,50 @@
+uuid: b685b695-7338-4269-9b2b-b80bcfcaa0d7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_document
+    - media.type.archivos_plan_mejoramiento
+  module:
+    - disable_field
+    - file
+    - filefield_paths
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: plan-mejoramiento
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: media.archivos_plan_mejoramiento.field_media_document
+field_name: field_media_document
+entity_type: media
+bundle: archivos_plan_mejoramiento
+label: Archivo
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: plan-mejoramiento
+  file_extensions: 'txt doc docx pdf'
+  max_filesize: '10 mb'
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file
