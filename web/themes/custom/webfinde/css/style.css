@@ -3017,5 +3017,53 @@ nav.pager ul {
     text-align: left !important;
   }
 }
+/* ===== ===== PQRSD ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ===== ===== ENCABEZADO ===== ===== */
+div.encabezadoPqrsd figure {
+  position: absolute;
+  z-index: -1;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+div.encabezadoPqrsd figure img {
+  height: 100%;
+}
+div.encabezadoPqrsd div.encabezado {
+  height: 7rem;
+}
+div.encabezadoPqrsd div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  div.encabezadoPqrsd div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.encabezadoPqrsd div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.encabezadoPqrsd div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+
+div.encabezadoPqrsd div.encabezado h1.tituloEncabezado {
+  font-size: 2.5rem;
+}
 
 /*# sourceMappingURL=style.css.map */
