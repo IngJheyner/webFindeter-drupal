@@ -186,19 +186,38 @@
             FINDETER CON CIFRAS
             =============================================*/
             
-            $("div.findeterCifras .grid-container .grid-item .contenido").on("mouseover", function(){
+            /*$("div.findeterCifras .grid-container .grid-item .contenido").on("mouseover", function(){
 
                 var imgSecundario = $('img', this).attr('imgSecundario');
-                $('img', this).attr('src', imgSecundario);   
-
+                $('img', this).attr('style', 'content:url("'+imgSecundario+'");'
+                                    +'transition: 1.5s;'
+                                    +'-webkit-transition: 1.5s;'
+                                    +'-moz-transition: 1.5s;'
+                                    +'-ms-transition: 1.5s;'
+                                    +'-o-transition: 1.5s;'
+                                    +'-webkit-transform: rotateY(180deg);'
+                                    +'-moz-transform: rotateY(180deg);'
+                                    +'-o-transform: rotateY(180deg);'
+                                    +'-ms-transform: rotateY(180deg);'
+                                    +'transform: rotateY(180deg);'
+                                );
+                //$('img', this).attr('src', imgSecundario);   
 
             });
 
             $("div.findeterCifras .grid-container .grid-item .contenido").on("mouseout", function(){                
                 var imgPrimario = $('img', this).attr('imgPrincipal');
-                $('img', this).attr('src', imgPrimario);
+                $('img', this).attr('style','content:url("'+imgPrimario+'");'
+                                    +'transition: 1.5s;'
+                                    +'-webkit-transition: 1.5s;'
+                                    +'-moz-transition: 1.5s;'
+                                    +'-ms-transition: 1.5s;'
+                                    +'-o-transition: 1.5s;'
+                                    
+                                );
+                //$('img', this).attr('src', imgPrimario);
                
-            });
+            });*/
 
             
             /* === efecto contador en cifras ===*/
@@ -230,7 +249,7 @@
                     updateCount();
                 });
             }
-            if(document.getElementById("#block-findeter-cifras-home")){
+            if(document.getElementById("block-findeter-cifras-home")){
                 var alturacifras = $("#block-findeter-cifras-home").offset().top;
             }else{
                 var alturacifras = '';
