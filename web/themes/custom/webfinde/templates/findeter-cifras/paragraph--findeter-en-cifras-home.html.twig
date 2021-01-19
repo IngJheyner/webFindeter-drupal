@@ -55,15 +55,42 @@
     {% block content %}
 
       <div class="contenido">
-
-        <img src="{{ file_url(content.field_img_principal_cifras[0]['#item'].entity.uri.value) }}" class="img-fluid mx-auto"
-        imgPrincipal={{ file_url(content.field_img_principal_cifras[0]['#item'].entity.uri.value) }}
-        imgSecundario={{ file_url(content.field_img_secundaria_cifras[0]['#item'].entity.uri.value) }}
-        >
-
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="{{ file_url(content.field_img_principal_cifras[0]['#item'].entity.uri.value) }}" class="img-fluid mx-auto">
+            </div>
+            <div class="flip-card-back">
+              <img src="{{ file_url(content.field_img_secundaria_cifras[0]['#item'].entity.uri.value) }}" class="img-fluid mx-auto">
+            </div>
+          </div>
+        </div>
+          <!--img src="{-{ file_url(content.field_img_principal_cifras[0]['#item'].entity.uri.value) }-}" class="img-fluid mx-auto"
+          imgPrincipal={-{ file_url(content.field_img_principal_cifras[0]['#item'].entity.uri.value) }-}
+          imgSecundario={-{ file_url(content.field_img_secundaria_cifras[0]['#item'].entity.uri.value) }-}
+          -->
         <div class="cifra mt-2">
 
-          <h2>{{ content.field_cifras_findeter_cifras.0 }}</h2>
+        {% for rawTitle in content.field_cifras_findeter_cifras[0] %}
+
+          {% set title = rawTitle.value|split(' ') %}
+          
+          {% if title[0] is not empty%}
+
+            {% if title[0]|first == '$' %}
+
+              <h2>$<span class="counter" data-target="6.5">0</span> {{ title[1] }}</h2>
+
+            {% else %}
+
+              <h2><span class="counter" data-target={{ title[0]|replace(',', '.') }}>0</span> {{ title[1] }}</h2>
+
+            {% endif %}
+          {% endif %}
+
+        {% endfor %}
+        
+          <!--h2>{-{ content.field_cifras_findeter_cifras.0 }-}</h2-->
 
         </div>
 
