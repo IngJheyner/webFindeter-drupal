@@ -34,13 +34,17 @@
     'container-inline',
   ]
 %}
+
+<div class="controlVideoHome d-none d-md-block">
+  <button type="button" class="btn btn-light" estadoVideo="play"><i class="fas fa-pause"></i></button>
+</div>
+
 <div{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {% if label %}
-    <h2{{ title_attributes }}>{{ label }}</h2>
-  {% endif %}
-  {{ title_suffix }}
+
   {% block content %}
+
     {{ content }}
+
   {% endblock %}
+
 </div>
