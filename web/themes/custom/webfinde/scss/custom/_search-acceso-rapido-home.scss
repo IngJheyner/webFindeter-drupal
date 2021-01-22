@@ -1,6 +1,16 @@
 @use 'variables' as var;
 @use '../mixins/media-query' as media-query;
 
+/* =====================================
+CONTROL DE PAUSA PARA EL VIDEO DEL HOME
+======================================== */
+div.controlVideoHome{
+
+    position: absolute;
+    left: 1rem;
+}
+
+
 form#search-block-form{
 
     position: relative; 

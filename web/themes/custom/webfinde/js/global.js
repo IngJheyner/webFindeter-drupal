@@ -52,7 +52,28 @@
            BUSCADOR(HOME)
            =============================================*/
             $("form#search-block-form .btnSearch").attr("value","");
+
+            /*===========================================
+            CONTROL DE PAUSA DEL VIDEO DEL HOME
+            =============================================*/
+            $('.sliderHome #views-bootstrap-slider-slider-home .carousel-item.active .video-embed-field-provider-html-5 video').attr('id', 'videoHome');
+            let videoHome = document.getElementById('videoHome');
             
+            $('div.controlVideoHome button').on('click', function(){
+
+               if($(this).attr('estadoVideo') == 'play'){
+
+                    videoHome.pause();
+                    $(this).attr('estadoVideo', 'pause').children('svg').removeClass('svg-inline--fa fa-pause').addClass('svg-inline--fa fa-play');
+
+               }else{
+
+                    videoHome.play();
+                    $(this).attr('estadoVideo', 'play').children('svg').removeClass('svg-inline--fa fa-play').addClass('svg-inline--fa fa-pause');
+
+               }
+               
+            });            
 
             /*===========================================
             PRODUCTOS Y SERVICIOS

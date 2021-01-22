@@ -1,0 +1,20 @@
+uuid: ef5bbd0c-e089-469a-a456-1626f2a5cdda
+langcode: es
+status: false
+dependencies:
+  module:
+    - text_resize
+  theme:
+    - webfinde
+id: redimensionar_texto
+theme: webfinde
+region: region_B
+weight: 0
+provider: null
+plugin: text_resize_block
+settings:
+  id: text_resize_block
+  label: 'Redimensionar texto'
+  provider: text_resize
+  label_display: visible
+visibility: {  }
