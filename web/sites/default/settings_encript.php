@@ -801,22 +801,37 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+function consult(){
+  try {
+      $url = "http://10.10.3.22:6525/SIAAF_ServiciosWCF/Servicios/SvcCredenciales.svc?WSDL";
+      $client = new SoapClient($url);
+      $result = $client->ConsultarCredencial([ "idCredencial" => "f7f81cd6-5384-4da6-bba0-0d4ca4a321b3"]);
+      $result = $result->ConsultarCredencialResult;
+      
+      return base64_decode($result->Clave);
+  } catch ( SoapFault $e ) {
+      echo $e->getMessage();
+  }
+}
+
+$clave = consult();
+
 global $content_directories;
 $content_directories['sync'] = '../content/sync';
 $settings['file_private_path'] = '../private';
 $settings['config_sync_directory'] = '../config/sync';
 $databases['default']['default'] = array (
-  'database' => 'webfinde',
-  'username' => 'userwebfinde',
-  'password' => 'abc123XYZ*',
-  'prefix' => '',
-  'host' => '10.10.3.73',
-  'port' => '52644',
-  'schema' => 'dbo',
-  'cache_schema' => 0,
-  'namespace' => 'Drupal\\sqlsrv\\Driver\\Database\\sqlsrv',
-  'driver' => 'sqlsrv',
-  'autoload' => 'modules/contrib/sqlsrv/src/Driver/Database/sqlsrv/',
+'database' => 'webfinde',
+'username' => 'CS_ECO_DIG_WM',
+'password' => $clave,
+'prefix' => '',
+'host' => '10.10.3.73\\SQL2016',
+'port' => '52644',
+'schema' => 'dbo',
+'cache_schema' => 0,
+'namespace' => 'Drupal\\sqlsrv\\Driver\\Database\\sqlsrv',
+'driver' => 'sqlsrv',
+'autoload' => 'modules/contrib/sqlsrv/src/Driver/Database/sqlsrv/',
 );
 
 #Wincache
