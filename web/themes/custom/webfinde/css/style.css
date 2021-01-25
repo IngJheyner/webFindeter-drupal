@@ -225,26 +225,32 @@ COLORES
     background-image: url('../images/dropdown-arrows.png');
   }*/
 }
-#block-menu-principal ul.sf-style-none li.sf-depth-1 > span, #block-menu-principal ul.sf-style-none li.sf-depth-1 a {
+#block-menu-principal ul.sf-style-none li.sf-depth-1 > span,
+#block-menu-principal ul.sf-style-none li.sf-depth-1 a {
   color: white;
   padding: 1.2em 1em;
 }
-#block-menu-principal ul.sf-style-none li.sf-depth-1 ul li a, #block-menu-principal ul.sf-style-none li.sf-depth-1 ul li span {
+#block-menu-principal ul.sf-style-none li.sf-depth-1 ul li a,
+#block-menu-principal ul.sf-style-none li.sf-depth-1 ul li span {
   color: black;
   padding: 1.2em 1em;
 }
-#block-menu-principal ul.sf-style-none li.sf-depth-1 ul li a.sf-with-ul, #block-menu-principal ul.sf-style-none li.sf-depth-1 ul li span.sf-with-ul {
+#block-menu-principal ul.sf-style-none li.sf-depth-1 ul li a.sf-with-ul,
+#block-menu-principal ul.sf-style-none li.sf-depth-1 ul li span.sf-with-ul {
   padding-right: 2.25em;
 }
-#block-menu-principal ul.sf-style-none li.sf-depth-1 ul li a:focus, #block-menu-principal ul.sf-style-none li.sf-depth-1 ul li span:focus {
+#block-menu-principal ul.sf-style-none li.sf-depth-1 ul li a:focus,
+#block-menu-principal ul.sf-style-none li.sf-depth-1 ul li span:focus {
   border-bottom: 2px solid #00993e;
   outline: 0;
 }
-#block-menu-principal ul.sf-style-none li.sf-depth-1 ul li a:hover, #block-menu-principal ul.sf-style-none li.sf-depth-1 ul li span:hover {
+#block-menu-principal ul.sf-style-none li.sf-depth-1 ul li a:hover,
+#block-menu-principal ul.sf-style-none li.sf-depth-1 ul li span:hover {
   border-bottom: 2px solid #00993e;
   outline: 0;
 }
-#block-menu-principal ul.sf-style-none li.sf-depth-1 ul li a:active, #block-menu-principal ul.sf-style-none li.sf-depth-1 ul li span:active {
+#block-menu-principal ul.sf-style-none li.sf-depth-1 ul li a:active,
+#block-menu-principal ul.sf-style-none li.sf-depth-1 ul li span:active {
   border-bottom: 2px solid #00993e;
   outline: 0;
 }
@@ -255,7 +261,8 @@ COLORES
   background: white;
   outline: 0;
 }
-#block-menu-principal ul.sf-style-none li:hover span {
+#block-menu-principal ul.sf-style-none li:hover span,
+#block-menu-principal ul.sf-style-none li:hover a {
   color: black;
 }
 #block-menu-principal ul.sf-style-none li:hover > ul {
@@ -383,8 +390,15 @@ MEDIA QUERY
     MENU ESCRITORIO
     ============================== */
   }
-  #block-menu-principal li.sf-depth-1 > span, #block-menu-principal li.sf-depth-1 a {
+  #block-menu-principal ul.sf-style-none {
+    margin: 0px auto;
+    background-color: #112d6a;
+    width: 100%;
+  }
+  #block-menu-principal ul.sf-style-none li.sf-depth-1 > span,
+#block-menu-principal ul.sf-style-none li.sf-depth-1 a {
     font-size: 14px;
+    padding: 1.2em 0.9em;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
@@ -394,7 +408,11 @@ MEDIA QUERY
     MENU ESCRITORIO
     ============================== */
   }
-  #block-menu-principal li.sf-depth-1 > span, #block-menu-principal li.sf-depth-1 a {
+  #block-menu-principal ul.sf-style-none {
+    margin: 18px auto;
+  }
+  #block-menu-principal ul.sf-style-none li.sf-depth-1 > span,
+#block-menu-principal ul.sf-style-none li.sf-depth-1 a {
     font-size: 14px;
   }
 }
