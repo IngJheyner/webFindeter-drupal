@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f57ff3fdd92c2fb712ba4c7f2b43ef17",
+    "content-hash": "1d3a654ddc967c48101d67c8ff8735eb",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5084,6 +5084,59 @@
             "support": {
                 "source": "https://git.drupal.org/project/google_analytics.git",
                 "issues": "https://www.drupal.org/project/issues/google_analytics"
+            }
+        },
+        {
+            "name": "drupal/high_contrast",
+            "version": "1.0.0-beta4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/high_contrast.git",
+                "reference": "8.x-1.0-beta4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/high_contrast-8.x-1.0-beta4.zip",
+                "reference": "8.x-1.0-beta4",
+                "shasum": "5016730ccac61eda48961332a4173162f77e2c4a"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-beta4",
+                    "datestamp": "1586196715",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Neograph734",
+                    "homepage": "https://www.drupal.org/user/2397482"
+                },
+                {
+                    "name": "hkirsman",
+                    "homepage": "https://www.drupal.org/user/1860980"
+                },
+                {
+                    "name": "pifagor",
+                    "homepage": "https://www.drupal.org/user/2375692"
+                }
+            ],
+            "description": "Allows users to switch to a high contrast version of the active theme.",
+            "homepage": "https://drupal.org/project/high_contrast",
+            "support": {
+                "source": "https://git.drupalcode.org/project/high_contrast",
+                "issues": "https://drupal.org/project/issues/high_contrast"
             }
         },
         {
@@ -15738,6 +15791,7 @@
         "drupal/conditional_fields": 15,
         "drupal/content_access": 15,
         "drupal/filefield_paths": 10,
+        "drupal/high_contrast": 10,
         "drupal/ldap": 10,
         "drupal/masquerade": 10,
         "drupal/page_manager": 10,

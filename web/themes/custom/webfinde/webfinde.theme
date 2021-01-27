@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Core\Routing\RouteMatchInterface;
+
 /**
  * @file
  * SUBTHEME theme file.
@@ -17,4 +19,22 @@ function webfinde_page_attachments_alter(&$page){
     );
 
     $page['#attached']['html_head'][] = [$viewport, 'viewport'];
+}
+
+/* ============================================
+TEXT SIZE ( Tamano de la fuente)
+=============================================== */
+function webfinde_preprocess_text_resize_block(&$variables) {
+    $config = \Drupal::config('text_resize.settings');
+    $settings = $config->get();
+    if ($settings['text_resize_reset_button']) {
+        $variables['content'] = [
+        'output' => t('<a href="javascript:;" class="changer" id="text_resize_decrease"><sup>-</sup>adassd</a> <a href="javascript:;" class="changer" id="text_resize_reset">A</a> <a href="javascript:;" class="changer" id="text_resize_increase"><sup>+</sup>A</a><div id="text_resize_clear"></div>'),
+        ];
+    }
+    else {
+        $variables['content'] = [
+        'output' => t('<div class="text-center mb-3"><a href="javascript:;" class="changer text-white" id="text_resize_decrease"><sup>-</sup><i class="fas fa-font"></i></a></div> <div class="text-center mb-3"><a href="javascript:;" class="changer text-white" id="text_resize_increase"><sup>+</sup><i class="fas fa-font"></i></a></div><div id="text_resize_clear"></div>'),
+        ];
+    }
 }

@@ -418,31 +418,53 @@ MEDIA QUERY
 }
 /* ===== ===== MENUGOVCO ===== ===== */
 .menuGovCo {
+  position: relative;
+  z-index: 5;
   background-color: white;
 }
 .menuGovCo div.govCo {
   background-color: #112d6a;
 }
-.menuGovCo nav ul li:nth-child(1) a::before {
+.menuGovCo nav ul li:nth-child(1) a {
   content: url("/themes/custom/webfinde/images/iconos/menu-govco/assista.png");
+  outline: none;
+  text-indent: -9000px;
+  background-color: white !important;
 }
-.menuGovCo nav ul li:nth-child(2) a::before {
+.menuGovCo nav ul li:nth-child(2) a {
   content: url("/themes/custom/webfinde/images/iconos/menu-govco/crm-findeter.png");
+  outline: none;
+  text-indent: -9000px;
+  background-color: white !important;
 }
-.menuGovCo nav ul li:nth-child(3) a::before {
+.menuGovCo nav ul li:nth-child(3) a {
   content: url("/themes/custom/webfinde/images/iconos/menu-govco/office_365.png");
+  outline: none;
+  text-indent: -9000px;
+  background-color: white !important;
 }
-.menuGovCo nav ul li:nth-child(4) a::before {
+.menuGovCo nav ul li:nth-child(4) a {
   content: url("/themes/custom/webfinde/images/iconos/menu-govco/intranet.png");
+  outline: none;
+  text-indent: -9000px;
+  background-color: white !important;
 }
-.menuGovCo nav ul li:nth-child(5) a::before {
+.menuGovCo nav ul li:nth-child(5) a {
   content: url("/themes/custom/webfinde/images/iconos/menu-govco/en.png");
+  outline: none;
+  text-indent: -9000px;
+  background-color: white !important;
 }
-.menuGovCo nav ul li:nth-child(6) a::before {
+.menuGovCo nav ul li:nth-child(6) a {
   content: url("/themes/custom/webfinde/images/iconos/menu-govco/acceso_admin.png");
+  outline: none;
+  text-indent: -9000px;
+  background-color: white !important;
 }
 
 section.menuPrincipal {
+  position: relative;
+  z-index: 5;
   background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.4) 25%);
   /* ==============================
   MENU ESCRITORIO
@@ -462,7 +484,8 @@ section.menuPrincipal nav ul {
 section.menuPrincipal nav ul li {
   list-style: none;
 }
-section.menuPrincipal nav ul li > a, section.menuPrincipal nav ul li span {
+section.menuPrincipal nav ul li > a,
+section.menuPrincipal nav ul li span {
   text-shadow: 1px 1px 2px black;
   display: block;
   cursor: pointer;
@@ -491,11 +514,13 @@ section.menuPrincipal nav ul li ul.submenu > li.submenuItems {
 section.menuPrincipal nav ul li ul.submenu > li.submenuItems > span {
   display: none;
 }
-section.menuPrincipal nav ul li ul.submenu > li.submenuItems ul > li > a, section.menuPrincipal nav ul li ul.submenu > li.submenuItems span {
+section.menuPrincipal nav ul li ul.submenu > li.submenuItems ul > li > a,
+section.menuPrincipal nav ul li ul.submenu > li.submenuItems span {
   color: black !important;
   text-shadow: none;
 }
-section.menuPrincipal nav ul li ul.submenu > li.submenuItems ul > li > a:hover, section.menuPrincipal nav ul li ul.submenu > li.submenuItems span:hover {
+section.menuPrincipal nav ul li ul.submenu > li.submenuItems ul > li > a:hover,
+section.menuPrincipal nav ul li ul.submenu > li.submenuItems span:hover {
   text-decoration: underline;
 }
 section.menuPrincipal nav ul li:hover ul.submenu {
@@ -505,7 +530,8 @@ section.menuPrincipal nav ul li:hover ul.submenu {
 /* ==============================
 MENU MOVIL
 ============================== */
-button#sidebarCollapse, button#sidebarCollapseMd {
+button#sidebarCollapse,
+button#sidebarCollapseMd {
   background-color: #112d6a !important;
   color: white;
 }
@@ -571,7 +597,6 @@ section.menuMovil nav > ul > li > ul.submenu li.submenuItems ul {
 SLIDER HOME
 ============================== */
 div.sliderHome {
-  z-index: -1;
   position: absolute;
   top: 0;
   width: 100%;
@@ -627,7 +652,8 @@ MEDIA QUERY
     margin: 0;
     background-color: #112d6a;
   }
-  section.menuPrincipal nav ul > li > a, section.menuPrincipal nav span {
+  section.menuPrincipal nav ul > li > a,
+section.menuPrincipal nav span {
     font-size: 14px;
   }
 }
@@ -641,7 +667,8 @@ MEDIA QUERY
   section.menuPrincipal nav {
     margin: 0;
   }
-  section.menuPrincipal nav ul > li > a, section.menuPrincipal nav span {
+  section.menuPrincipal nav ul > li > a,
+section.menuPrincipal nav span {
     font-size: 14px;
   }
 }
@@ -657,6 +684,9 @@ div.controlVideoHome {
   left: 1rem;
 }
 
+/* ==============================
+FORMULARIO DEL BUSCADOR
+============================== */
 form#search-block-form {
   position: relative;
   margin: 36.5rem 2rem 0 2rem;
@@ -680,7 +710,8 @@ form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li {
   margin: 0 1rem 0 1rem;
   text-align: center;
 }
-form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li a, form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li span {
+form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li a,
+form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li span {
   color: black;
   display: block;
 }
@@ -1966,6 +1997,52 @@ MEDIA QUERY
 /* ==============================
 COLORES
 ============================== */
+/* $Id $ */
+a#text_resize_increase {
+  background: none;
+  display: initial;
+  float: initial;
+  width: 28px;
+  height: 27px;
+  margin: initial;
+  outline: initial;
+  text-indent: initial;
+}
+
+a#text_resize_decrease {
+  background: none;
+  display: initial;
+  float: initial;
+  width: 23px;
+  height: 21px;
+  margin: initial;
+  outline: initial;
+  text-indent: initial;
+}
+
+a#text_resize_reset {
+  background: url(../images/a_reset.gif) no-repeat 0 0;
+  display: block;
+  float: right;
+  width: 25px;
+  height: 24px;
+  margin: 9px 0 0 3px;
+  outline: none;
+  text-indent: -9000px;
+  cursor: pointer;
+}
+
+/*#text_resize_clear {
+    clear: both;
+}*/
+/*.block-text-resize .contextual {
+    right: -20px;
+    /* LTR 
+}
+
+.block-text-resize [dir="rtl"] .contextual {
+    left: -20px;
+}*/
 .footer {
   background-color: #112d6a;
   background: linear-gradient(90deg, #122f6d 0%, #3d63ab 50%, #3d63ab 50%, #122f6d 100%);
@@ -2129,8 +2206,21 @@ COLORES
   margin-right: 1rem;
   content: "" url("../images/iconos/mail.png");
 }
-.footer div.piePagina, .footer a {
+.footer div.piePagina,
+.footer a {
   color: #CDDC4B !important;
+}
+
+/* ==============================
+BARRA LATERAL - FONT SIZE CONTRASTE
+============================== */
+div.barraLateral {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translate(0, 50%);
+  background: #00993e;
+  padding: 1em;
 }
 
 /* ==============================

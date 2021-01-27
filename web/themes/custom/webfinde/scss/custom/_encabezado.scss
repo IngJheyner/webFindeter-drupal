@@ -1,138 +1,112 @@
-@use 'variables' as var;
+@use '../custom/variables' as var;
 @use '../mixins/media-query' as media-query;
-@import '../custom/superfish/navigationFirst.scss';
+@import '../custom/layout/superfish/navigationFirst.scss';
 
 /* ===== ===== MENUGOVCO ===== ===== */
-.menuGovCo{
+
+.menuGovCo {
+    position: relative;
+    z-index: 5;
     background-color: white;
-
-    div.govCo{
-
+    div.govCo {
         background-color: var.$color-primario;
     }
-    
-    nav{
-        ul{
-            li{
-                $li: (1:"assista.png",2:"crm-findeter.png",3:"office_365.png",4:"intranet.png",5:"en.png",6:"acceso_admin.png");
-
-                @each $num, $icon in $li {
-
-                    &:nth-child(#{$num}){
-
-                        a::before{
+    nav {
+        ul {
+            li {
+                $li: (1: "assista.png", 2: "crm-findeter.png", 3: "office_365.png", 4: "intranet.png", 5: "en.png", 6: "acceso_admin.png");
+                @each $num,
+                $icon in $li {
+                    &:nth-child(#{$num}) {
+                        a {
                             content: url('/themes/custom/webfinde/images/iconos/menu-govco/#{$icon}');
+                            outline: none;
+                            text-indent: -9000px;
+                            background-color: white !important;
                         }
                     }
-                    
                 }
             }
         }
     }
-    
-    
 }
 
-section.menuPrincipal{
-
+section.menuPrincipal {
+    position: relative;
+    z-index: 5;
     background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.4) 25%);
-
-     /* ==============================
+    /* ==============================
     MENU ESCRITORIO
     ============================== */
-    nav{
-        
+    nav {
         margin: 40px auto;
-
-        > ul{
-
+        >ul {
             width: 100%;
         }
-    
-        ul{
-
+        ul {
             position: relative;
             margin: 0;
             padding: 0;
-
-            li{                            
-
+            li {
                 list-style: none;
-
-                > a,span{                   
-                    text-shadow: 1px 1px 2px black; 
+                >a,
+                span {
+                    text-shadow: 1px 1px 2px black;
                     display: block;
                     cursor: pointer;
-                    
                 }
-
-                > svg{
-
+                >svg {
                     position: absolute;
                     bottom: -10px;
                     display: none;
                     margin-left: 2rem;
                     font-size: 30px;
                 }
-
-                &:hover svg{
-
+                &:hover svg {
                     display: block;
-
                 }
-
-                ul.submenu{
-
+                ul.submenu {
                     background-color: white;
                     padding: 20px;
                     position: absolute;
                     z-index: 1000;
                     display: none;
                     border-bottom: 3px solid var.$color-cuaternario;
-
-                    > li.submenuItems{
-
+                    >li.submenuItems {
                         margin: 0 20px;
-
-                        > span{
+                        >span {
                             display: none;
                         }
-
-                        ul > li > a,span{
-
+                        ul>li>a,
+                        span {
                             color: black !important;
                             text-shadow: none;
-
-                            &:hover{
-
+                            &:hover {
                                 text-decoration: underline;
                             }
                         }
-
                     }
                 }
-
-                &:hover ul.submenu{
-
+                &:hover ul.submenu {
                     display: flex;
-                    
                 }
             }
         }
     }
 }
 
+
 /* ==============================
 MENU MOVIL
-============================== */    
-button#sidebarCollapse, button#sidebarCollapseMd{
+============================== */
+
+button#sidebarCollapse,
+button#sidebarCollapseMd {
     background-color: var.$color-primario !important;
     color: white;
 }
 
-
-section.menuMovil{
-
+section.menuMovil {
     display: flex;
     text-decoration: none;
     transition: all 0.3s;
@@ -143,56 +117,43 @@ section.menuMovil{
     height: 100vh;
     padding-top: 2rem;
     background-color: var.$color-primario;
-
-  
-    > div.imgClose{
-
+    >div.imgClose {
         width: 300px;
         position: absolute;
         display: none;
         top: 0;
-
-        button{
+        button {
             color: white;
             font-size: 2.5rem;
         }
     }
-
-    nav{        
+    nav {
         min-width: 600px;
         max-width: 600px;
         display: none;
         overflow-y: scroll;
-        flex-flow: column;  
-        transition: all 0.3s; 
-        margin-top: 9rem; 
-        
-
-        > ul{
+        flex-flow: column;
+        transition: all 0.3s;
+        margin-top: 9rem;
+        >ul {
             flex-direction: initial !important;
             display: initial;
-
-            > li{
-
+            >li {
                 //display: flex;
                 margin-bottom: 2rem;
                 border-bottom: 1px solid var.$color-quinario;
-
-                > span{
+                >span {
                     flex: 1 1 auto;
                 }
-
-                svg{
+                svg {
                     display: none;
                 }
-                > ul.submenu{
+                >ul.submenu {
                     padding: 0;
                     list-style: none;
-
-                    li.submenuItems{
+                    li.submenuItems {
                         padding-left: 1rem;
-
-                        ul{
+                        ul {
                             list-style: none;
                             padding: 0;
                         }
@@ -203,122 +164,95 @@ section.menuMovil{
     }
 }
 
+
 /* ==============================
 SLIDER HOME
 ============================== */
-div.sliderHome{
 
-    z-index: -1;
+div.sliderHome {
+    //z-index: -1;
     position: absolute;
     top: 0;
     width: 100%;
 }
 
+
 /* ==============================
 MEDIA QUERY
 ============================== */
-@include media-query.media(xs){
 
-    .menuGovCo{
-        
-        nav > ul{
-
+@include media-query.media(xs) {
+    .menuGovCo {
+        nav>ul {
             flex-direction: initial;
-
-            li:last-child{
+            li:last-child {
                 margin: 0 !important;
             }
-
-            li:nth-child(5){
-
+            li:nth-child(5) {
                 display: block !important;
             }
         }
     }
-     
 }
 
-@include media-query.media(sm){
-
-    .menuGovCo nav ul{
-
-        li:nth-child(5){
-
+@include media-query.media(sm) {
+    .menuGovCo nav ul {
+        li:nth-child(5) {
             display: block !important;
         }
-           
     }
-     
 }
 
-@include media-query.media(md){
-
-    div.sliderHome{
+@include media-query.media(md) {
+    div.sliderHome {
         top: 5rem;
     }
-
-    section.menuGovCo{
-
-        div.govCo{
-
-            a img{
+    section.menuGovCo {
+        div.govCo {
+            a img {
                 width: 90%;
             }
         }
     }
 }
 
-@include media-query.media(lg){
-
-    div.sliderHome{
+@include media-query.media(lg) {
+    div.sliderHome {
         top: 8rem;
     }
-
-    section.menuGovCo{
-
-        div.govCo{
-
-            a img{
+    section.menuGovCo {
+        div.govCo {
+            a img {
                 width: 90%;
             }
         }
     }
-
-    section.menuPrincipal{ 
-
+    section.menuPrincipal {
         /* ==============================
         MENU ESCRITORIO
         ============================== */
-        nav{
-            
+        nav {
             margin: 0;
             background-color: var.$color-primario;
-            
-            ul > li > a,span{ 
-                
-                font-size: 14px;                
-            }
-        }
-    }
-     
-}
-
-@include media-query.media(xl){
-
-    section.menuPrincipal{ 
-
-        /* ==============================
-        MENU ESCRITORIO
-        ============================== */
-        nav{
-
-            margin: 0;
-            
-            ul > li > a,span{ 
-                
+            ul>li>a,
+            span {
                 font-size: 14px;
             }
         }
     }
-     
+}
+
+@include media-query.media(xl) {
+    section.menuPrincipal {
+        /* ==============================
+        MENU ESCRITORIO
+        ============================== */
+        nav {
+            margin: 0;
+            ul>li>a,
+            span {
+                font-size: 14px;
+            }
+        }
+    }
 }
