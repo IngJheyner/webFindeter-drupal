@@ -1,15 +1,15 @@
-uuid: 02b6e86d-6d91-47fd-a183-18de38cc5aa6
+uuid: dd0801b0-0639-4788-aed2-c6f4a1d7e30f
 langcode: es
 status: true
 dependencies:
   config:
-    - page_manager.page.page_transp_regist_public
-id: page_transp_regist_public-layout_builder-0
-label: '10.9 Registro de publicaciones'
+    - page_manager.page.page_trans_mision_y_vision
+id: page_trans_mision_y_vision-layout_builder-0
+label: 'Misión y Visión'
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: b6092932-53df-47ee-83b3-f2f5889350d7
+  uuid: 27763ad8-dcf4-411d-9fee-13a363753d9d
   label: null
   weight: 0
   sections:
@@ -49,8 +49,8 @@ variant_settings:
             add_region_classes: 1
             attributes: ''
       components:
-        dfa51ef0-e7c8-44b9-baa6-b36146a615ec:
-          uuid: dfa51ef0-e7c8-44b9-baa6-b36146a615ec
+        999e5b19-14e5-4490-8849-0cf82b844047:
+          uuid: 999e5b19-14e5-4490-8849-0cf82b844047
           region: top
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
@@ -63,21 +63,21 @@ variant_settings:
             context_mapping: {  }
           additional: {  }
           weight: 0
-        f3e19691-b2cb-495f-8b74-c19d386e2762:
-          uuid: f3e19691-b2cb-495f-8b74-c19d386e2762
+        5c5b2a65-a68e-4569-8ad9-a2524e610c37:
+          uuid: 5c5b2a65-a68e-4569-8ad9-a2524e610c37
           region: left
           configuration:
-            id: 'views_block:transparencia_acceso_informacion_publica-block_trans_registro_publicaciones'
+            id: 'views_block:transparencia_acceso_informacion_publica-block_mision_vision'
             label: ''
             provider: views
             label_display: '0'
             views_label: ''
-            items_per_page: none
+            items_per_page: '1'
             context_mapping: {  }
           additional: {  }
           weight: 0
-        06812864-bef0-4bf8-936c-576a699fef87:
-          uuid: 06812864-bef0-4bf8-936c-576a699fef87
+        4a695fd9-0f52-4bbd-88f0-e4c0980d481b:
+          uuid: 4a695fd9-0f52-4bbd-88f0-e4c0980d481b
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
@@ -89,13 +89,13 @@ variant_settings:
             level: 1
             depth: 1
             expand: false
-            parent: 'transparencia-acceso-informacion:menu_link_content:691db354-e5f9-4666-b987-80fb2c5299ca'
+            parent: 'transparencia-acceso-informacion:menu_link_content:d5ee5ec6-3346-4402-a12c-cf492f96edc0'
             suggestion: transparencia_acceso_informacion_sidebar
             context_mapping: {  }
           additional: {  }
           weight: 0
       third_party_settings: {  }
-page: page_transp_regist_public
+page: page_trans_mision_y_vision
 weight: 0
 selection_criteria: {  }
 selection_logic: and

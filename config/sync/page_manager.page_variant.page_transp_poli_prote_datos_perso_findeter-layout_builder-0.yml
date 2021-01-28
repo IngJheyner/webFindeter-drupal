@@ -1,15 +1,15 @@
-uuid: 02b6e86d-6d91-47fd-a183-18de38cc5aa6
+uuid: 06313563-6e0f-4552-a1cf-ddb9b0ed1f61
 langcode: es
 status: true
 dependencies:
   config:
-    - page_manager.page.page_transp_regist_public
-id: page_transp_regist_public-layout_builder-0
-label: '10.9 Registro de publicaciones'
+    - page_manager.page.page_transp_poli_prote_datos_perso_findeter
+id: page_transp_poli_prote_datos_perso_findeter-layout_builder-0
+label: 'Politicas de proteccion de datos personales de findeter'
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: b6092932-53df-47ee-83b3-f2f5889350d7
+  uuid: 8847bb7a-e201-46bb-a833-b27361762911
   label: null
   weight: 0
   sections:
@@ -49,8 +49,8 @@ variant_settings:
             add_region_classes: 1
             attributes: ''
       components:
-        dfa51ef0-e7c8-44b9-baa6-b36146a615ec:
-          uuid: dfa51ef0-e7c8-44b9-baa6-b36146a615ec
+        bf70139d-d30c-42f0-a46e-b394425d0473:
+          uuid: bf70139d-d30c-42f0-a46e-b394425d0473
           region: top
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
@@ -63,21 +63,21 @@ variant_settings:
             context_mapping: {  }
           additional: {  }
           weight: 0
-        f3e19691-b2cb-495f-8b74-c19d386e2762:
-          uuid: f3e19691-b2cb-495f-8b74-c19d386e2762
+        aa068241-5cf1-41d5-a27e-b9d7490ae568:
+          uuid: aa068241-5cf1-41d5-a27e-b9d7490ae568
           region: left
           configuration:
-            id: 'views_block:transparencia_acceso_informacion_publica-block_trans_registro_publicaciones'
+            id: 'views_block:transparencia_acceso_informacion_publica-block_trans_politicas_proteccion_datos_personales_findeter'
             label: ''
             provider: views
             label_display: '0'
             views_label: ''
-            items_per_page: none
+            items_per_page: '1'
             context_mapping: {  }
           additional: {  }
           weight: 0
-        06812864-bef0-4bf8-936c-576a699fef87:
-          uuid: 06812864-bef0-4bf8-936c-576a699fef87
+        1846a484-a554-4f86-a2a9-b7616e038811:
+          uuid: 1846a484-a554-4f86-a2a9-b7616e038811
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
@@ -89,13 +89,13 @@ variant_settings:
             level: 1
             depth: 1
             expand: false
-            parent: 'transparencia-acceso-informacion:menu_link_content:691db354-e5f9-4666-b987-80fb2c5299ca'
+            parent: 'transparencia-acceso-informacion:menu_link_content:b8fd924b-1a63-4843-ba24-a37b83ede164'
             suggestion: transparencia_acceso_informacion_sidebar
             context_mapping: {  }
           additional: {  }
           weight: 0
       third_party_settings: {  }
-page: page_transp_regist_public
+page: page_transp_poli_prote_datos_perso_findeter
 weight: 0
 selection_criteria: {  }
 selection_logic: and
