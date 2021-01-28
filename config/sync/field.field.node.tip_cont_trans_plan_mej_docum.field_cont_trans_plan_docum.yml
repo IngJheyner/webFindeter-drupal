@@ -1,0 +1,23 @@
+uuid: 9533fef4-3c37-4ddc-a78e-f995df44e376
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cont_trans_plan_docum
+    - node.type.tip_cont_trans_plan_mej_docum
+  module:
+    - text
+id: node.tip_cont_trans_plan_mej_docum.field_cont_trans_plan_docum
+field_name: field_cont_trans_plan_docum
+entity_type: node
+bundle: tip_cont_trans_plan_mej_docum
+label: 'Contenido planes de mejoramiento'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

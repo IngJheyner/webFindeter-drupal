@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.storage.node.body
     - field.storage.node.field_imagen
-    - image.style.articulo_blog_
     - node.type.articulo_blog
     - taxonomy.vocabulary.blog
   module:
@@ -566,7 +565,7 @@ display:
           click_sort_column: target_id
           type: image_url
           settings:
-            image_style: articulo_blog_
+            image_style: ''
           group_column: ''
           group_columns: {  }
           group_rows: true

@@ -389,8 +389,8 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          date_format: medium
-          custom_date_format: ''
+          date_format: custom
+          custom_date_format: 'Y-m-d H:i:s'
           timezone: America/Bogota
           plugin_id: date
         message:
@@ -640,6 +640,52 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: in_operator
+        message:
+          id: message
+          table: watchdog
+          field: message
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: message_op
+            label: Mensaje
+            description: ''
+            use_operator: false
+            operator: message_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: message
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              abogado: '0'
+              secretaria_general: '0'
+              colaborador: '0'
+              c_modificador: '0'
+              publicador: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
       sorts:
         wid:
           id: wid
