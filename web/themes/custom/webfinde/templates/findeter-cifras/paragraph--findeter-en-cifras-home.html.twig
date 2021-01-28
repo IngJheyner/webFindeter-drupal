@@ -62,8 +62,15 @@
         >
 
         <div class="cifra mt-2">
+        
+          {% set arrcifras = content.field_cifras_findeter_cifras.0.value %}
 
-          <h2>{{ content.field_cifras_findeter_cifras.0 }}</h2>
+          <!--h2>{-{ content.field_cifras_findeter_cifras.0 }-}</h2-->
+
+          
+          {{ drupal_dump(arrcifras)}}
+
+
 
         </div>
 
