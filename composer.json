@@ -51,6 +51,7 @@
         "drupal/fontawesome": "^2.17",
         "drupal/fontyourface": "^3.3",
         "drupal/google_analytics": "^3.1",
+        "drupal/high_contrast": "^1.0@beta",
         "drupal/ldap": "^3.0@beta",
         "drupal/mailchimp": "^1.11",
         "drupal/masquerade": "^2.0@beta",
@@ -73,10 +74,12 @@
         "drupal/smtp": "^1.0",
         "drupal/sqlsrv": "3.1.3",
         "drupal/structure_sync": "^2.0",
+        "drupal/superfish": "^1.4",
         "drupal/svg_image": "^1.14",
         "drupal/taxonomy_manager": "2.0.3",
         "drupal/taxonomy_menu": "^3.4",
         "drupal/taxonomy_unique": "^2.3",
+        "drupal/text_resize": "^1.1",
         "drupal/twig_tweak": "^2.8",
         "drupal/video_embed_field": "^2.4",
         "drupal/video_embed_html5": "^1.2",
@@ -148,11 +151,17 @@
             ]
         },
         "patches":{
+            "drupal/text_resize": {
+                "Falta la dependencia jquery-cookie": "https://www.drupal.org/files/issues/2020-06-30/cookie_is_not_a_function-3155864-002.patch"
+            },
+            "drupal/conditional_fields": {
+                "conditional_fields error dependencias": "https://www.drupal.org/files/issues/2021-01-21/3191984-3-notice-trying-to-access-offset-on-value-of-type-null.patch"
+            },
             "drupal/core": {
                 "Notice: Undefined index: value in Drupal\\views\\Plugin\\views\\filter\\NumericFilter->acceptExposedInput()":"https://www.drupal.org/files/issues/2020-06-04/2825860-exposed-filter-notice-38.patch",
                 "Multiple usages of FieldPluginBase::getEntity do not check for NULL, leading to WSOD": "https://www.drupal.org/files/issues/2020-09-03/3007424-108.patch",
                 "AssertionError: Tokens need to be valid Twig variables. in assert":"https://www.drupal.org/files/issues/2019-05-22/views-ignore_invalid_tokens_in_replace-3056489-1-D8.6.16.patch",
-		"Exposed date filter leads to a notice" : "https://www.drupal.org/files/issues/2020-11-12/2811887-53.patch"
+                "Exposed date filter leads to a notice" : "https://www.drupal.org/files/issues/2020-11-12/2811887-53.patch"                
             }
         }
     }

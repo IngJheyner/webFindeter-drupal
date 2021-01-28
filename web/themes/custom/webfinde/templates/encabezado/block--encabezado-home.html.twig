@@ -33,8 +33,6 @@
   ]
 %}
 
-
-
 <div{{ attributes.addClass(classes) }}>  
 
   {# ============================================
@@ -85,18 +83,12 @@
 
       </div>
 
-      {# ===== ===== Pantalla laptop o mediana 992 hasta 1998.98pxpx ===== ===== #}
-      <div class="d-none d-lg-block d-xl-none col-12 p-0">
+      {# ===== ===== Pantalla laptop o mediana 992px ===== ===== #}
+      <div class="d-none d-lg-block  col-auto p-0">
 
-        {{ drupal_menu('menu-principal') }}
+        {#{ drupal_menu('menu-principal') }#}
 
-      </div>
-
-      {# ===== ===== Pantalla Grande > 1200px ===== ===== #}
-      <div class="d-none d-xl-block col-10 p-0">
-
-        {{ drupal_menu('menu-principal') }}
-
+        {{ drupal_entity('block', 'menu_principal', check_access=false) }}
 
       </div>
 
