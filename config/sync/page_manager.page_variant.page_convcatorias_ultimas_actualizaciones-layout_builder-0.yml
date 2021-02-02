@@ -43,19 +43,6 @@ variant_settings:
             add_region_classes: 1
             attributes: ''
       components:
-        f7db4d67-47fd-42c9-bf94-aa2bfa7e206f:
-          uuid: f7db4d67-47fd-42c9-bf94-aa2bfa7e206f
-          region: main
-          configuration:
-            id: 'views_block:convocatorias-ultimas_actualizaciones'
-            label: ''
-            provider: views
-            label_display: '0'
-            views_label: ''
-            items_per_page: none
-            context_mapping: {  }
-          additional: {  }
-          weight: 0
         94ff6c9b-3f10-4dad-b045-f8d1fb0f8177:
           uuid: 94ff6c9b-3f10-4dad-b045-f8d1fb0f8177
           region: top
@@ -69,7 +56,20 @@ variant_settings:
             view_mode: full
             context_mapping: {  }
           additional: {  }
-          weight: 0
+          weight: 1
+        3d905b6b-c300-4aa9-a59f-5fa71d3a4185:
+          uuid: 3d905b6b-c300-4aa9-a59f-5fa71d3a4185
+          region: main
+          configuration:
+            id: 'views_block:revisiones_convocatorias-ultimas_actualizaciones'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 1
       third_party_settings: {  }
 page: page_convcatorias_ultimas_actualizaciones
 weight: 0

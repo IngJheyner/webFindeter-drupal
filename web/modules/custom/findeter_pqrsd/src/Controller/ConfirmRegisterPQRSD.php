@@ -29,9 +29,15 @@ class ConfirmRegisterPQRSD extends ControllerBase {
     $statusPQRSDLink = $statusPQRSDLink->toRenderable();
 
     return [
-      '#markup' => '<p>Gracias por comunicarse con nosotros, su Petición ha sido radicada satisfactoriamente.</p>
-                    <p>Usted pódra consultar '.render($statusPQRSDLink).' el estado de su petición con el No. de radicado: <b>'.$node->get('field_pqrsd_numero_radicado')->getString().'</b> </p>
-                    <p>Su opinión es muy importante para nosotros. Lo invitamos a diligenciar <a href="#">aquí</a> la siguiente encuesta de satisfacción para conitnuar mejorando nuestro servicio. </p>',
+      '#markup' => '<div class="container">
+                    <div class="row my-5">
+                    <div class="col-12">
+                    <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading mb-2"><i class="fas fa-check-square"></i> Radicado registrado.</h4>
+                    <p>Gracias por comunicarse con nosotros, su Petición ha sido radicada satisfactoriamente.</p>
+                    <p>Usted pódra consultar '.render($statusPQRSDLink).' el estado de su petición con el No. de radicado: <b>'.$node->get('field_pqrsd_numero_radicado')->getString().'</b> </p><hr>
+                    <p>Su opinión es muy importante para nosotros. Lo invitamos a diligenciar <a href="#">aquí</a> la siguiente encuesta de satisfacción para conitnuar mejorando nuestro servicio. </p>
+                    </div></div></div></div>',
     ];
 
   }

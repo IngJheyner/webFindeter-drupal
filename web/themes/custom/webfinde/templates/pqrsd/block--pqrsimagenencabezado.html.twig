@@ -70,90 +70,30 @@
  *   in different view modes.
  */
 #}
-{%
-  set classes = [
-    'node',
-    'node--type-' ~ node.bundle|clean_class,
-    node.isPromoted() ? 'node--promoted',
-    node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-  ]
-%}
-
-<style>
-  .nav.nav-pills .nav-item{
-    width:140px;
-    height:80px;
-    margin:10px;
-    border:1px solid;
-    border-radius: 6px;
-    border-color: #dbdbdc;
-    -webkit-box-shadow: 16px 10px 11px 0px rgba(0,0,0,0.05);
-    -moz-box-shadow: 16px 10px 11px 0px rgba(0,0,0,0.05);
-    box-shadow: 16px 10px 11px 0px rgba(0,0,0,0.05);
-
-  }
-  .nav-item .nav-link {
-    width: 100%;
-    height: 100%;
-  }
-  .nav-item .nav-link.active{
-    background-color: #112d6a;
-  }
-  .w-100p {
-    width: 100%;
-  }
-  .breadcrumbs{
-    background-color: #f7f7f7;
-    color:#000;
-  }
-  .h-60px{
-    height: 60px;
-  }
-  .background-gr {
-    background-color: #f3f4f6;
-  }
-  .ptb-115px{
-    padding: 115px 0px;
-  }
-  .pb-115px{
-    padding-bottom: 115px;
-  }
-  .m-tb-2rem{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-  .encabezado {
-    margin-bottom: 30px;
-  }
-  .encabezado h1{
-    display: inline-block;
-  }
-  .encabezado h1{
-    padding-bottom: 12px;
-  }
-</style>
 
 {%
   set classes = [
-    'node',
-    'productoServicios',
-    'node--type-' ~ node.bundle|clean_class,
-    node.isPromoted() ? 'node--promoted',
-    node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'block',
+    'encabezadoPqrsd',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
   ]
 %}
 
-<article{{ attributes.addClass(classes) }}>
+<div{{ attributes.addClass(classes) }}>
+
   <figure class="w-100">
+
     <img src="{{ file_url(content.field_block_pqrs_img_encabezado[0]['#item'].entity.uri.value) }}" class="img-fluid w-100">
+
   </figure>  
+
   <div class="encabezado container">
-    <h1 class="tituloEncabezado mt-3">{{ label }}</h1>   
+
+    <h1 class="tituloEncabezado mt-3">{{ content.field_pqrsd_titulo_defecto.0 }}</h1>   
+
   </div>
+  
   {{ drupal_breadcrumb() }}
 
-</article>
+</div>

@@ -17,6 +17,7 @@ third_party_settings:
     group_grupo:
       children:
         - field_convcatoria_ruta_archivo
+        - name
         - field_media_document
         - field_convcatoria_tipo_adjunto
         - created
@@ -63,6 +64,14 @@ content:
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 27
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
     weight: 31
@@ -74,6 +83,5 @@ hidden:
   field_convcatoria_mltdia_editar: true
   field_convcatoria_muldia_fecha: true
   langcode: true
-  name: true
   path: true
   uid: true

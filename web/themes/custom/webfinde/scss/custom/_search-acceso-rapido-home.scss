@@ -1,172 +1,142 @@
 @use 'variables' as var;
 @use '../mixins/media-query' as media-query;
 
-form#search-block-form{
+/* =====================================
+CONTROL DE PAUSA PARA EL VIDEO DEL HOME
+======================================== */
 
-    position: relative; 
+div.controlVideoHome {
+    position: absolute;
+    left: 1rem;
+}
+
+
+/* ==============================
+FORMULARIO DEL BUSCADOR
+============================== */
+
+form#search-block-form {
+    position: relative;
     margin: 36.5rem 2rem 0 2rem;
-
-    div.form-item{
-        margin: 0;        
+    div.form-item {
+        margin: 0;
     }
-
     /*div.container-inline,div{
         display: grid;
     }*/
-
-
-    div.buscadorAcceso{     
-        
-       
-        input[type=search]{
+    div.buscadorAcceso {
+        input[type=search] {
             width: 100%;
-            border:none !important;
-            
+            border: none !important;
         }
-        
-        .menuAccesoRapido{
-
+        .menuAccesoRapido {
             background: var.$color-quinario;
             padding: 2rem;
             border-radius: 0 0 0.8rem 0.8rem;
-
-            nav{
-               
-                ul{                    
-                   
-                    li{                       
-                       
+            nav {
+                ul {
+                    li {
                         margin: 0 1rem 0 1rem;
                         text-align: center;
-        
-                        a,span{                    
+                        a,
+                        span {
                             color: black;
                             display: block;
                         }
-
-                        $li: (1:"ER_convocatorias.png",2:"ER_leytransparencia.png",3:"ER_contratacion.png",4:"ER_inversionistas.png",5:"ER_properity.png", 6:"virtual.png");
-
-                        @each $num, $icon in $li {
-
-                            &:nth-child(#{$num}){
-
-                                span.icon::before{
+                        $li: (1:"ER_convocatorias.png", 2:"ER_leytransparencia.png", 3:"ER_contratacion.png", 4:"ER_inversionistas.png", 5:"ER_properity.png", 6:"virtual.png");
+                        @each $num,
+                        $icon in $li {
+                            &:nth-child(#{$num}) {
+                                span.icon::before {
                                     content: url('/themes/custom/webfinde/images/iconos/Acceso-Directo/#{$icon}');
                                 }
                             }
-                            
                         }
-                       
                     }
                 }
-               
             }
         }
-        
     }
-
-    .btnSearch{
+    .btnSearch {
         position: absolute;
         top: 0;
         right: 0;
         border-radius: 0 .25rem 0 0;
         line-height: 2.5;
         background: url('/themes/custom/webfinde/images/iconos/buscador.png') no-repeat;
-        background-position:center top;
+        background-position: center top;
         width: 53px;
     }
-
 }
+
 
 /* ==============================
 MEDIA QUERY
 ============================== */
-@include media-query.media(xs){
 
-    form#search-block-form{ 
+@include media-query.media(xs) {
+    form#search-block-form {
         margin: 1.5rem 0rem 0 0rem;
-        
-        div.buscadorAcceso{
-
-            input[type=search]{
-                
+        div.buscadorAcceso {
+            input[type=search] {
                 height: calc(1em + .75rem + 2px);
-                border: 1px solid var.$color-primario !important;  
-            }  
-            
-            .menuAccesoRapido{
+                border: 1px solid var.$color-primario !important;
+            }
+            .menuAccesoRapido {
                 overflow-x: scroll;
                 padding: 2rem 0 2rem 0;
                 margin-top: 2rem;
-                nav{
-               
-                    ul{ 
+                nav {
+                    ul {
                         flex-direction: initial;
-
-                        li{                       
-                       
+                        li {
                             margin: 0 1rem 0 0.5rem;
                             text-align: center;
                         }
-                     }
+                    }
                 }
             }
         }
-
-        .btnSearch{   
+        .btnSearch {
             top: -3px;
             background: url('/themes/custom/webfinde/images/iconos/search-gris.png') no-repeat;
             background-color: initial !important;
         }
-
     }
 }
 
-@include media-query.media(sm){
-
-    form#search-block-form{ 
+@include media-query.media(sm) {
+    form#search-block-form {
         margin: 1.5rem 0rem 0 0rem;
-
-        div.buscadorAcceso{    
-            
-            input[type=search]{
-                border: 1px solid var.$color-primario !important;                
+        div.buscadorAcceso {
+            input[type=search] {
+                border: 1px solid var.$color-primario !important;
             }
-            
-            .menuAccesoRapido{
+            .menuAccesoRapido {
                 overflow-x: scroll;
                 padding: 2rem 0 2rem 0;
                 margin-top: 2rem;
-
-                nav{
-               
-                    ul{  
-
-                        li{                       
-                           
+                nav {
+                    ul {
+                        li {
                             margin: 0 1rem 0 2.1rem;
                         }
                     }
                 }
             }
         }
-
-        .btnSearch{   
+        .btnSearch {
             background: url('/themes/custom/webfinde/images/iconos/search-gris.png') no-repeat;
             background-color: initial !important;
         }
-
     }
 }
 
-@include media-query.media(md){
-
-    form#search-block-form{ 
+@include media-query.media(md) {
+    form#search-block-form {
         margin: 16rem 0rem 0 0rem;
-
-        div.buscadorAcceso{       
-            
-            .menuAccesoRapido{
+        div.buscadorAcceso {
+            .menuAccesoRapido {
                 overflow-x: scroll;
                 padding: 2rem 0 2rem 0;
             }
@@ -174,39 +144,37 @@ MEDIA QUERY
     }
 }
 
-@include media-query.media(lg){
-
-    form#search-block-form{ 
+@include media-query.media(lg) {
+    form#search-block-form {
         margin: 22rem 2rem 0 2rem;
-
-        div.buscadorAcceso{       
-            
-            .menuAccesoRapido{
+        div.buscadorAcceso {
+            .menuAccesoRapido {
                 padding: 2rem 0 2rem 0;
             }
         }
     }
 }
 
-@include media-query.media(xl){
-
-    form#search-block-form{ 
+@include media-query.media(xl) {
+    form#search-block-form {
         margin: 21rem 2rem 0 2rem;
     }
 }
 
-/* ===== ===== MEDIA REVISAMOS EN 1366 ===== ===== */
-@include media-query.media(xxl){
 
-    form#search-block-form{ 
+/* ===== ===== MEDIA REVISAMOS EN 1366 ===== ===== */
+
+@include media-query.media(xxl) {
+    form#search-block-form {
         margin: 24rem 2rem 0 2rem;
     }
 }
 
+
 /* ===== ===== MEDIA REVISAMOS EN 1600 ===== ===== */
-@include media-query.media(yl){
-    
-    form#search-block-form{ 
+
+@include media-query.media(yl) {
+    form#search-block-form {
         margin: 28.5rem 2rem 0 2rem;
     }
 }
