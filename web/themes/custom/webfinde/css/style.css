@@ -2208,7 +2208,7 @@ a#text_resize_reset {
 }
 .footer div.piePagina,
 .footer a {
-  color: #CDDC4B !important;
+  color: #CDDC4B;
 }
 
 /* ==============================
@@ -2217,10 +2217,28 @@ BARRA LATERAL - FONT SIZE CONTRASTE
 div.barraLateral {
   position: fixed;
   right: 0;
-  top: 50%;
-  transform: translate(0, 50%);
-  background: #00993e;
+  top: 30%;
+  transform: translate(0, 30%);
+  background: #296294;
   padding: 1em;
+}
+div.barraLateral #block-contraste {
+  border-bottom: 2px solid white;
+  padding: 0 0 0.5em 0;
+  margin-bottom: 1rem;
+}
+div.barraLateral #block-contraste > form > #edit-toggle-link {
+  outline: none;
+  text-indent: -9000px;
+  display: block;
+  background: url("../images/iconos/contraste.svg") no-repeat;
+  background-position: 50% 0;
+  width: 45px;
+  height: 55px;
+}
+div.barraLateral #block-redimensionar-texto .content div:nth-child(1) {
+  border-bottom: 2px solid white;
+  padding: 0 0 0.5em 0;
 }
 
 /* ==============================

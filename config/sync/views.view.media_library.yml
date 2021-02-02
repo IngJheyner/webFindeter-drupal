@@ -9,9 +9,9 @@ dependencies:
     module:
       - media_library
   module:
-    - image
     - media
     - media_library
+    - svg_image
     - user
 _core:
   default_config_hash: dHOSWSHbMJNke0ZBGh1O5KrnwynSOCOpQycITW-pwfs
@@ -482,21 +482,26 @@ display:
         - user
         - user.permissions
       tags:
+        - 'config:core.entity_view_display.media.archivos_plan_mejoramiento.default'
+        - 'config:core.entity_view_display.media.archivos_plan_mejoramiento.media_library'
         - 'config:core.entity_view_display.media.audio.default'
         - 'config:core.entity_view_display.media.audio.media_library'
         - 'config:core.entity_view_display.media.document.default'
         - 'config:core.entity_view_display.media.document.media_library'
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.media_library'
-        - 'config:core.entity_view_display.media.img_articu_blog.default'
-        - 'config:core.entity_view_display.media.img_articu_blog.media_library'
         - 'config:core.entity_view_display.media.mltdia_convcatoria_archivo.convocatorias_archivos'
         - 'config:core.entity_view_display.media.mltdia_convcatoria_archivo.default'
         - 'config:core.entity_view_display.media.mltdia_convcatoria_archivo.media_library'
+        - 'config:core.entity_view_display.media.prosperity_archivos.convocatorias_archivos'
+        - 'config:core.entity_view_display.media.prosperity_archivos.default'
+        - 'config:core.entity_view_display.media.prosperity_archivos.media_library'
         - 'config:core.entity_view_display.media.remote_video.default'
         - 'config:core.entity_view_display.media.remote_video.media_library'
         - 'config:core.entity_view_display.media.url_youtube_articulo_blog.default'
+        - 'config:core.entity_view_display.media.url_youtube_articulo_blog.full'
         - 'config:core.entity_view_display.media.url_youtube_articulo_blog.media_library'
+        - 'config:core.entity_view_display.media.url_youtube_articulo_blog.url_youtube_slider_home'
         - 'config:core.entity_view_display.media.video.default'
         - 'config:core.entity_view_display.media.video.media_library'
   page:
@@ -788,6 +793,7 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
@@ -795,21 +801,26 @@ display:
         - user
         - user.permissions
       tags:
+        - 'config:core.entity_view_display.media.archivos_plan_mejoramiento.default'
+        - 'config:core.entity_view_display.media.archivos_plan_mejoramiento.media_library'
         - 'config:core.entity_view_display.media.audio.default'
         - 'config:core.entity_view_display.media.audio.media_library'
         - 'config:core.entity_view_display.media.document.default'
         - 'config:core.entity_view_display.media.document.media_library'
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.media_library'
-        - 'config:core.entity_view_display.media.img_articu_blog.default'
-        - 'config:core.entity_view_display.media.img_articu_blog.media_library'
         - 'config:core.entity_view_display.media.mltdia_convcatoria_archivo.convocatorias_archivos'
         - 'config:core.entity_view_display.media.mltdia_convcatoria_archivo.default'
         - 'config:core.entity_view_display.media.mltdia_convcatoria_archivo.media_library'
+        - 'config:core.entity_view_display.media.prosperity_archivos.convocatorias_archivos'
+        - 'config:core.entity_view_display.media.prosperity_archivos.default'
+        - 'config:core.entity_view_display.media.prosperity_archivos.media_library'
         - 'config:core.entity_view_display.media.remote_video.default'
         - 'config:core.entity_view_display.media.remote_video.media_library'
         - 'config:core.entity_view_display.media.url_youtube_articulo_blog.default'
+        - 'config:core.entity_view_display.media.url_youtube_articulo_blog.full'
         - 'config:core.entity_view_display.media.url_youtube_articulo_blog.media_library'
+        - 'config:core.entity_view_display.media.url_youtube_articulo_blog.url_youtube_slider_home'
         - 'config:core.entity_view_display.media.video.default'
         - 'config:core.entity_view_display.media.video.media_library'
   widget:
@@ -1121,6 +1132,19 @@ display:
           label: Tabla
           plugin_id: display_link
           empty: true
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: '<h4><b style="color:blue;">Información:</b> Subir archivos sin caracteres especiales, tildes y en minúscula</h4>'
+            format: html_editor
+          plugin_id: text
       css_class: ''
       rendering_language: '***LANGUAGE_language_interface***'
     cache_metadata:
@@ -1132,21 +1156,26 @@ display:
         - 'url.query_args:sort_by'
         - user.permissions
       tags:
+        - 'config:core.entity_view_display.media.archivos_plan_mejoramiento.default'
+        - 'config:core.entity_view_display.media.archivos_plan_mejoramiento.media_library'
         - 'config:core.entity_view_display.media.audio.default'
         - 'config:core.entity_view_display.media.audio.media_library'
         - 'config:core.entity_view_display.media.document.default'
         - 'config:core.entity_view_display.media.document.media_library'
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.media_library'
-        - 'config:core.entity_view_display.media.img_articu_blog.default'
-        - 'config:core.entity_view_display.media.img_articu_blog.media_library'
         - 'config:core.entity_view_display.media.mltdia_convcatoria_archivo.convocatorias_archivos'
         - 'config:core.entity_view_display.media.mltdia_convcatoria_archivo.default'
         - 'config:core.entity_view_display.media.mltdia_convcatoria_archivo.media_library'
+        - 'config:core.entity_view_display.media.prosperity_archivos.convocatorias_archivos'
+        - 'config:core.entity_view_display.media.prosperity_archivos.default'
+        - 'config:core.entity_view_display.media.prosperity_archivos.media_library'
         - 'config:core.entity_view_display.media.remote_video.default'
         - 'config:core.entity_view_display.media.remote_video.media_library'
         - 'config:core.entity_view_display.media.url_youtube_articulo_blog.default'
+        - 'config:core.entity_view_display.media.url_youtube_articulo_blog.full'
         - 'config:core.entity_view_display.media.url_youtube_articulo_blog.media_library'
+        - 'config:core.entity_view_display.media.url_youtube_articulo_blog.url_youtube_slider_home'
         - 'config:core.entity_view_display.media.video.default'
         - 'config:core.entity_view_display.media.video.media_library'
   widget_table:

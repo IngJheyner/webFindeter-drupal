@@ -58,7 +58,7 @@
     @include infoGeneral("field--name-field-email-judiciales-footer", var.$color-terciario, 0, 14px, '../images/iconos/mail.png');
     div.piePagina,
     a {
-        color: var.$color-terciario !important;
+        color: var.$color-terciario;
     }
 }
 
@@ -70,10 +70,28 @@ BARRA LATERAL - FONT SIZE CONTRASTE
 div.barraLateral {
     position: fixed;
     right: 0;
-    top: 50%;
-    transform: translate(0, 50%);
-    background: var.$color-cuaternario;
+    top: 30%;
+    transform: translate(0, 30%);
+    background: var.$color-secundario;
     padding: 1em;
+    #block-contraste {
+        border-bottom: 2px solid white;
+        padding: 0 0 0.5em 0;
+        >form>#edit-toggle-link {
+            outline: none;
+            text-indent: -9000px;
+            display: block;
+            background: url('../images/iconos/contraste.svg') no-repeat;
+            background-position: 50% 0;
+            width: 45px;
+            height: 55px;
+        }
+        margin-bottom: 1rem;
+    }
+    #block-redimensionar-texto .content div:nth-child(1) {
+        border-bottom: 2px solid white;
+        padding: 0 0 0.5em 0;
+    }
 }
 
 
@@ -98,13 +116,37 @@ MEDIA QUERY
     ul.iconosSocial {
         text-align: center;
     }
-    @include infoGeneral("field--name-field-ntf-judiciales-footer", var.$color-terciario, 2rem, 15px !important, '../images/iconos/mail.png');
-    @include infoGeneral("field--name-field-email-contacto-footer", var.$color-terciario, 0, 15px !important, '../images/iconos/mail.png');
-    @include infoGeneral("field--name-field-correo-institucional-foote", var.$color-terciario, 2rem, 15px !important, '../images/iconos/mail.png');
-    @include infoGeneral("field--name-field-email-judiciales-footer", var.$color-terciario, 0, 15px !important, '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-ntf-judiciales-footer",
+    var.$color-terciario,
+    2rem,
+    15px !important,
+    '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-email-contacto-footer",
+    var.$color-terciario,
+    0,
+    15px !important,
+    '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-correo-institucional-foote",
+    var.$color-terciario,
+    2rem,
+    15px !important,
+    '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-email-judiciales-footer",
+    var.$color-terciario,
+    0,
+    15px !important,
+    '../images/iconos/mail.png');
 }
 
 @include media-query.media(lg) {
-    @include infoGeneral("field--name-field-ntf-judiciales-footer", var.$color-terciario, 2rem, 13px !important, '../images/iconos/mail.png');
-    @include infoGeneral("field--name-field-email-judiciales-footer", var.$color-terciario, 0, 12px !important, '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-ntf-judiciales-footer",
+    var.$color-terciario,
+    2rem,
+    13px !important,
+    '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-email-judiciales-footer",
+    var.$color-terciario,
+    0,
+    12px !important,
+    '../images/iconos/mail.png');
 }
