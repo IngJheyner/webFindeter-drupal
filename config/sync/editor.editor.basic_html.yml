@@ -12,7 +12,7 @@ third_party_settings:
     status: true
     scheme: public
     directory: internas
-    extensions: 'txt rtf doc docx ppt pptx xls xlsx pdf odf odg odp ods odt fodt fods fodp fodg key numbers pages'
+    extensions: 'txt rtf doc docx ppt pptx xls xlsx xlsm pdf odf odg odp ods odt fodt fods fodp fodg key numbers pages'
     max_size: ''
 _core:
   default_config_hash: AqlPmO16LvJI4D0Ih6u4GFQIzqr5OnLgAUSjcUGWk2g
@@ -64,6 +64,13 @@ settings:
       language_list: un
     stylescombo:
       styles: ''
+    video_embed:
+      defaults:
+        children:
+          autoplay: true
+          responsive: true
+          width: '854'
+          height: '480'
 image_upload:
   status: true
   scheme: public

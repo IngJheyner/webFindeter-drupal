@@ -57,6 +57,7 @@
             /*===========================================
             PRODUCTOS Y SERVICIOS
             =============================================*/
+
             $(".productosServicios .grid-container .grid-item figure button").hide();
 
             $(".productosServicios .grid-container .grid-item").on('mouseover', function(){
@@ -186,7 +187,7 @@
             FINDETER CON CIFRAS
             =============================================*/
             
-            $("div.findeterCifras .grid-container .grid-item .contenido").on("mouseover", function(){
+            /*$("div.findeterCifras .grid-container .grid-item .contenido").on("mouseover", function(){
 
                 var imgSecundario = $('img', this).attr('imgSecundario');
                 $('img', this).attr('src', imgSecundario);   
@@ -198,8 +199,66 @@
                 var imgPrimario = $('img', this).attr('imgPrincipal');
                 $('img', this).attr('src', imgPrimario);
                
+            });*/
+
+            
+            /* === efecto contador en cifras ===*/
+
+            function contador() {
+                const counters = document.querySelectorAll('.counter');
+                const speed = 450;
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+                        if (count < target) {
+                            if(count < 1 ){
+                                counter.innerText = (count + inc).toFixed(2);
+                            }else{
+                                if(Number.isInteger(target)){
+                                    counter.innerText = Math.round(count + inc);
+                                }else
+                                {
+                                    counter.innerText = (count + inc).toFixed(2);
+                                }
+                            }
+                        setTimeout(updateCount, 10);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+            }
+
+            if(document.getElementById("block-findeter-cifras-home")){
+                var alturacifras = $("#block-findeter-cifras-home").offset().top;
+            }else{
+                var alturacifras = '';
+            }
+            
+            //console.log('ALTURA '+alturacifras);
+            
+            if(alturacifras != '')
+            {
+                if($(window).scrollTop()+500 >= alturacifras)
+                {
+                    contador();
+                }
+            }
+
+            $(window).scroll(function(){
+                //console.log($(window).scrollTop());
+                if($(window).scrollTop()+400 >= alturacifras) {
+                    
+                    contador();
+            
+                }
+            
             });
 
+            /* ========= Fin efecto =========== */
             
 
             /*===========================================

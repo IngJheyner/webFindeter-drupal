@@ -5,8 +5,7 @@ dependencies:
   config:
     - node.type.convocatorias
     - user.role.abogado
-    - user.role.c_modificador
-    - user.role.secretaria_general
+    - user.role.authenticated
   module:
     - node
     - user
@@ -644,9 +643,8 @@ display:
         type: role
         options:
           role:
+            authenticated: authenticated
             abogado: abogado
-            secretaria_general: secretaria_general
-            c_modificador: c_modificador
       defaults:
         access: false
         fields: false

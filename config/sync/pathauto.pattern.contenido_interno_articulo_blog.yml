@@ -7,16 +7,16 @@ dependencies:
 id: contenido_interno_articulo_blog
 label: 'Articulo Contenido Interno [ Blog ]'
 type: 'canonical_entities:node'
-pattern: 'blog/[node:field_tipo_de_articulo:entity:name]/[node:nid]'
+pattern: 'blog/[node:field_tipo_de_articulo:entity:name]/[node:title]'
 selection_criteria:
-  1c100740-2b6b-4d63-b78f-cf572c8ba658:
+  98e65ab9-9b88-4555-bb1b-d5bfdd959f54:
     id: node_type
     bundles:
       articulo_blog: articulo_blog
     negate: false
     context_mapping:
       node: node
-    uuid: 1c100740-2b6b-4d63-b78f-cf572c8ba658
+    uuid: 98e65ab9-9b88-4555-bb1b-d5bfdd959f54
 selection_logic: and
 weight: -5
 relationships: {  }

@@ -42,7 +42,6 @@ dependencies:
     - field.storage.node.field_trans_cont_inf_asam_gen_as
     - field.storage.node.field_trans_cont_poli_prot_datos
     - field.storage.node.field_trans_cont_regis_act_infor
-    - field.storage.node.field_trans_cont_regis_publi
     - field.storage.node.field_trans_cont_tramit_servic
     - node.type.10_10_costos_de_reproduccion
     - node.type.10_12_informe_de_peticiones_quej
@@ -75,19 +74,37 @@ dependencies:
     - node.type.7_2_reportes_de_control_interno
     - node.type.7_3_planes_de_mejoramiento
     - node.type.7_4_entes_de_control_y_mecanismo
+    - node.type.7_5_informacion_para_poblacion_v
     - node.type.7_6_defensa_judicial
     - node.type.8_3_invitaciones_a_cotizar
     - node.type.8_6_plan_anual_de_adquisiciones
+    - node.type.articulo_blog
+    - node.type.casos_de_exito_home
+    - node.type.convocatorias
+    - node.type.en
+    - node.type.english
     - node.type.escala_salarial
     - node.type.evaluacion_ejercicio_de_rendicio
+    - node.type.evento
     - node.type.glosario
     - node.type.informes_de_gestion_y_sostenibil
     - node.type.noticias_home
+    - node.type.politica_de_accion_responsable
+    - node.type.pqrsd
     - node.type.preguntas_frecuentes
+    - node.type.productos_servicios
+    - node.type.prosperity_fund
+    - node.type.slider_home
+    - node.type.sobre_findeter
     - node.type.terminos_condiciones_portal
     - node.type.tip_con_infor_rendi_de_cuentas
+    - node.type.tip_cont_agua_saneamiento_basico
+    - node.type.tip_cont_direct_entidades
+    - node.type.tip_cont_estrat_sostenibilidad
+    - node.type.tip_cont_historial_convocat
     - node.type.tip_cont_inform_envia_congreso
     - node.type.tip_cont_inform_rendi_cuent_fisc
+    - node.type.tip_cont_relacion_inversionistas
     - node.type.tip_cont_trans_inf_asa_gen_ac_do
     - node.type.tip_cont_trans_mision_vision
     - node.type.tip_cont_trans_plan_mej_docum
@@ -96,12 +113,34 @@ dependencies:
     - node.type.tip_cont_transp_regis_activ_info
     - node.type.tipcont_infor_ninos_ninas_adolec
     - node.type.tipcont_polit_obj_sist_gest_int
+    - node.type.tipcont_polit_objt_sist_gest_in
     - node.type.tipcont_progr_proye_ejecu_invers
+    - node.type.tipo__cont_credit_rating
+    - node.type.tipo_cont_compro_educa_superior
+    - node.type.tipo_cont_compro_react_tramo
+    - node.type.tipo_cont_contratacion
+    - node.type.tipo_cont_corporate_governance
     - node.type.tipo_cont_estados_financieros
+    - node.type.tipo_cont_financial_information
+    - node.type.tipo_cont_general_information
     - node.type.tipo_cont_infor_asam_general_acc
+    - node.type.tipo_cont_infor_segui_plan_mejor
     - node.type.tipo_cont_informe_sostenibilidad
     - node.type.tipo_cont_informes_auditoria
+    - node.type.tipo_cont_infraestructura_social
+    - node.type.tipo_cont_investor_relations
+    - node.type.tipo_cont_issuances
+    - node.type.tipo_cont_linea_cred_redesc
+    - node.type.tipo_cont_lineas_credito
+    - node.type.tipo_cont_pqrs_terminos_respues
+    - node.type.tipo_cont_pspd_agua
+    - node.type.tipo_cont_relevant_information
+    - node.type.tipo_cont_trans_asi_tec_gest_pro
+    - node.type.tipo_content_compromiso
+    - node.type.tipo_content_compromiso_colombia
+    - node.type.tipo_content_compromiso_salud
     - node.type.trans_tipo_cont_tramit_servicios
+    - node.type.webform
     - taxonomy.vocabulary.glosario
   module:
     - node
@@ -176,10 +215,13 @@ display:
       row:
         type: fields
         options:
-          inline: {  }
+          default_field_elements: true
+          inline:
+            title: title
+            created: created
+            changed: changed
           separator: ''
           hide_empty: false
-          default_field_elements: true
       fields:
         title:
           id: title
@@ -580,12 +622,12 @@ display:
   10_12_informe_de_peticiones_quejas_reclamos_y_denuncias_pqrsd:
     display_plugin: block
     id: 10_12_informe_de_peticiones_quejas_reclamos_y_denuncias_pqrsd
-    display_title: '10.12 Informe de Peticiones, Quejas, Reclamos y Denuncias- PQRSD'
+    display_title: '10.11 Informe de Peticiones, Quejas, Reclamos y Denuncias- PQRSD'
     position: 30
     display_options:
       display_extenders: {  }
       display_description: ''
-      title: '10.12 Informe de Peticiones, Quejas, Reclamos y Denuncias- PQRSD'
+      title: '10.11 Informe de Peticiones, Quejas, Reclamos y Denuncias- PQRSD'
       defaults:
         title: false
         filters: false
@@ -10726,7 +10768,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: true
-          content: "<div class=\"titulos mb-4\" id=\"cont\">\r\n\r\n    <div class=\"d-flex\">\r\n\r\n        <figure class=\"icono pr-2\">\r\n            <img src=\"/themes/custom/webfinde/images/iconos/Iconos-transparencia/icono-6.png\">\r\n        </figure>\r\n    \r\n        <h2 class=\"font-weight-bold pl-2\">{{ \"6. Planeación\"|t }}</h2>\r\n\r\n    </div>  \r\n    \r\n    <h3 class=\"font-weight-bold text-dark\">{{ title }}</h3>\r\n\r\n</div>"
+          content: "<div class=\"titulos mb-4\" id=\"cont\">\r\n\r\n    <div class=\"d-flex\">\r\n\r\n        <figure class=\"icono pr-2\">\r\n            <img src=\"/themes/custom/webfinde/images/iconos/Iconos-transparencia/icono-7.png\">\r\n        </figure>\r\n    \r\n        <h2 class=\"font-weight-bold pl-2\">{{ \"7. Control\"|t }}</h2>\r\n\r\n    </div>  \r\n    \r\n    <h3 class=\"font-weight-bold text-dark\">{{ title }}</h3>\r\n\r\n</div>"
           plugin_id: text_custom
     cache_metadata:
       max-age: -1
@@ -11143,7 +11185,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: true
-          content: "<div class=\"titulos mb-4\" id=\"cont\">\r\n\r\n    <div class=\"d-flex\">\r\n\r\n        <figure class=\"icono pr-2\">\r\n            <img src=\"/themes/custom/webfinde/images/iconos/Iconos-transparencia/icono-10.png\">\r\n        </figure>\r\n    \r\n        <h2 class=\"font-weight-bold pl-2\">{{ \"10. Instrumentos de Gestión de Información Pública\"|t }}</h2>\r\n\r\n    </div>  \r\n    \r\n    <h3 class=\"font-weight-bold text-dark\">{{ title }}</h3>\r\n\r\n</div>"
+          content: "<div class=\"titulos mb-4\" id=\"cont\">\r\n\r\n    <div class=\"d-flex\">\r\n\r\n        <figure class=\"icono pr-2\">\r\n            <img src=\"/themes/custom/webfinde/images/iconos/Iconos-transparencia/icono-10.png\">\r\n        </figure>\r\n    \r\n        <h2 class=\"font-weight-bold pl-2\">{{ \"10. Instrumentos de Gestión de Información Pública\"|t }}</h2>\r\n\r\n    </div>  \r\n    \r\n    <h3 class=\"font-weight-bold text-dark\">{{ \"10.8 Registro de publicaciones\" |t }}</h3>\r\n\r\n</div>"
           plugin_id: text_custom
       defaults:
         header: false
@@ -11151,8 +11193,11 @@ display:
         fields: false
         filters: false
         filter_groups: false
+        style: false
+        row: false
+        pager: false
       display_description: ''
-      title: '10.9 Registro de publicaciones'
+      title: '10.8 Registro de publicaciones'
       fields:
         title:
           id: title
@@ -11162,7 +11207,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -11219,10 +11264,10 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: field
-        field_trans_cont_regis_publi:
-          id: field_trans_cont_regis_publi
-          table: node__field_trans_cont_regis_publi
-          field: field_trans_cont_regis_publi
+        created:
+          id: created
+          table: node_field_data
+          field: created
           relationship: none
           group_type: group
           admin_label: ''
@@ -11268,8 +11313,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: text_default
-          settings: {  }
+          type: timestamp
+          settings:
+            date_format: short
+            custom_date_format: ''
+            timezone: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -11280,6 +11328,142 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: node
+          entity_field: created
+          plugin_id: field
+        created_1:
+          id: created_1
+          table: node_field_revision
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: timestamp
+          settings:
+            date_format: medium
+            custom_date_format: ''
+            timezone: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: created
+          plugin_id: field
+        changed:
+          id: changed
+          table: node_field_revision
+          field: changed
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: timestamp
+          settings:
+            date_format: short
+            custom_date_format: ''
+            timezone: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: changed
           plugin_id: field
       filters:
         status:
@@ -11304,7 +11488,105 @@ display:
           admin_label: ''
           operator: in
           value:
+            all: all
+            1_1_canales_atencion_ciudadano: 1_1_canales_atencion_ciudadano
+            1_2_sedes: 1_2_sedes
+            1_3_politicas_seguridad_informac: 1_3_politicas_seguridad_informac
+            terminos_condiciones_portal: terminos_condiciones_portal
+            tip_cont_transp_regis_activ_info: tip_cont_transp_regis_activ_info
+            10_10_costos_de_reproduccion: 10_10_costos_de_reproduccion
+            10_12_informe_de_peticiones_quej: 10_12_informe_de_peticiones_quej
             tip_cont_trans_regist_publica: tip_cont_trans_regist_publica
+            13_1_politica_de_seguridad_de_la: 13_1_politica_de_seguridad_de_la
+            tip_cont_trans_poli_prot_dat_fin: tip_cont_trans_poli_prot_dat_fin
+            13_2_ley_1581_de_2012_proteccion: 13_2_ley_1581_de_2012_proteccion
+            2_1_datos_abiertos: 2_1_datos_abiertos
+            glosario: glosario
+            tipcont_infor_ninos_ninas_adolec: tipcont_infor_ninos_ninas_adolec
+            tip_cont_trans_mision_vision: tip_cont_trans_mision_vision
+            3_2_funciones_y_deberes: 3_2_funciones_y_deberes
+            3_3_procesos_y_procedimientos: 3_3_procesos_y_procedimientos
+            3_4_organigrama: 3_4_organigrama
+            3_5_direct_infor_servi_publ_cont: 3_5_direct_infor_servi_publ_cont
+            escala_salarial: escala_salarial
+            tip_cont_direct_entidades: tip_cont_direct_entidades
+            3_8_directorio_de_agremiaciones_: 3_8_directorio_de_agremiaciones_
+            3_9_ofertas_de_empleo: 3_9_ofertas_de_empleo
+            4_3_sistema_unico_de_informacion: 4_3_sistema_unico_de_informacion
+            4_2_consulta_normatividad_de_la_: 4_2_consulta_normatividad_de_la_
+            5_1_presupuesto_general_asignado: 5_1_presupuesto_general_asignado
+            5_2_ejecucion_presupuestal_histo: 5_2_ejecucion_presupuestal_histo
+            tipo_cont_estados_financieros: tipo_cont_estados_financieros
+            6_1_politicas_lineamientos_y_man: 6_1_politicas_lineamientos_y_man
+            tipcont_polit_objt_sist_gest_in: tipcont_polit_objt_sist_gest_in
+            6_2_planes_estrategicos_sectoria: 6_2_planes_estrategicos_sectoria
+            tipcont_progr_proye_ejecu_invers: tipcont_progr_proye_ejecu_invers
+            6_4_metas_objetivos_e_indicadore: 6_4_metas_objetivos_e_indicadore
+            6_4_1_seguimiento_plan_estrategi: 6_4_1_seguimiento_plan_estrategi
+            6_4_2_seguimiento_plan_de_accion: 6_4_2_seguimiento_plan_de_accion
+            6_5_mecanismos_de_participacion_: 6_5_mecanismos_de_participacion_
+            6_5_1_mecanismos_o_procedimiento: 6_5_1_mecanismos_o_procedimiento
+            6_6_informes_de_empalme: 6_6_informes_de_empalme
+            7_1_informes_de_gestion_evaluaci: 7_1_informes_de_gestion_evaluaci
+            7_1_1informes_de_gestion: 7_1_1informes_de_gestion
+            tip_cont_inform_envia_congreso: tip_cont_inform_envia_congreso
+            tip_cont_inform_rendi_cuent_fisc: tip_cont_inform_rendi_cuent_fisc
+            tipo_cont_informes_auditoria: tipo_cont_informes_auditoria
+            tipo_cont_infor_segui_plan_mejor: tipo_cont_infor_segui_plan_mejor
+            7_2_reportes_de_control_interno: 7_2_reportes_de_control_interno
+            7_3_planes_de_mejoramiento: 7_3_planes_de_mejoramiento
+            tip_cont_trans_plan_mej_docum: tip_cont_trans_plan_mej_docum
+            7_4_entes_de_control_y_mecanismo: 7_4_entes_de_control_y_mecanismo
+            7_5_informacion_para_poblacion_v: 7_5_informacion_para_poblacion_v
+            7_6_defensa_judicial: 7_6_defensa_judicial
+            8_3_invitaciones_a_cotizar: 8_3_invitaciones_a_cotizar
+            8_6_plan_anual_de_adquisiciones: 8_6_plan_anual_de_adquisiciones
+            trans_tipo_cont_tramit_servicios: trans_tipo_cont_tramit_servicios
+            tip_cont_agua_saneamiento_basico: tip_cont_agua_saneamiento_basico
+            articulo_blog: articulo_blog
+            tipo_cont_trans_asi_tec_gest_pro: tipo_cont_trans_asi_tec_gest_pro
+            casos_de_exito_home: casos_de_exito_home
+            tipo_content_compromiso_colombia: tipo_content_compromiso_colombia
+            tipo_cont_compro_educa_superior: tipo_cont_compro_educa_superior
+            tipo_cont_compro_react_tramo: tipo_cont_compro_react_tramo
+            tipo_content_compromiso_salud: tipo_content_compromiso_salud
+            tipo_content_compromiso: tipo_content_compromiso
+            tipo_cont_issuances: tipo_cont_issuances
+            prosperity_fund: prosperity_fund
+            convocatorias: convocatorias
+            tipo_cont_corporate_governance: tipo_cont_corporate_governance
+            tipo__cont_credit_rating: tipo__cont_credit_rating
+            en: en
+            english: english
+            tip_cont_estrat_sostenibilidad: tip_cont_estrat_sostenibilidad
+            evaluacion_ejercicio_de_rendicio: evaluacion_ejercicio_de_rendicio
+            evento: evento
+            tipo_cont_financial_information: tipo_cont_financial_information
+            tipo_cont_general_information: tipo_cont_general_information
+            tipo_cont_infor_asam_general_acc: tipo_cont_infor_asam_general_acc
+            tip_cont_trans_inf_asa_gen_ac_do: tip_cont_trans_inf_asa_gen_ac_do
+            tipo_cont_informe_sostenibilidad: tipo_cont_informe_sostenibilidad
+            informes_de_gestion_y_sostenibil: informes_de_gestion_y_sostenibil
+            tip_con_infor_rendi_de_cuentas: tip_con_infor_rendi_de_cuentas
+            tipo_cont_infraestructura_social: tipo_cont_infraestructura_social
+            tipo_cont_investor_relations: tipo_cont_investor_relations
+            tipo_cont_lineas_credito: tipo_cont_lineas_credito
+            tipo_cont_linea_cred_redesc: tipo_cont_linea_cred_redesc
+            noticias_home: noticias_home
+            tipo_cont_pqrs_terminos_respues: tipo_cont_pqrs_terminos_respues
+            tipo_cont_pspd_agua: tipo_cont_pspd_agua
+            politica_de_accion_responsable: politica_de_accion_responsable
+            tipcont_polit_obj_sist_gest_int: tipcont_polit_obj_sist_gest_int
+            preguntas_frecuentes: preguntas_frecuentes
+            productos_servicios: productos_servicios
+            pqrsd: pqrsd
+            tip_cont_relacion_inversionistas: tip_cont_relacion_inversionistas
+            tipo_cont_relevant_information: tipo_cont_relevant_information
+            slider_home: slider_home
+            sobre_findeter: sobre_findeter
+            webform: webform
+            tipo_cont_contratacion: tipo_cont_contratacion
+            tip_cont_historial_convocat: tip_cont_historial_convocat
           group: 1
           exposed: false
           expose:
@@ -11341,6 +11623,90 @@ display:
         operator: AND
         groups:
           1: AND
+      style:
+        type: views_bootstrap_table
+        options:
+          grouping: {  }
+          row_class: mb-3
+          default_row_class: true
+          override: 1
+          sticky: 0
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            title: title
+            created: created
+            created_1: created_1
+            changed: changed
+          info:
+            title:
+              sortable: 0
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            created:
+              sortable: 0
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            created_1:
+              sortable: 0
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: 1
+              responsive: ''
+            changed:
+              sortable: 0
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+          default: '-1'
+          empty_table: 0
+          responsive: 0
+          bootstrap_styles:
+            striped: 0
+            bordered: 0
+            hover: 0
+            condensed: 0
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline:
+            title: title
+            created: created
+            changed: changed
+          separator: ''
+          hide_empty: false
+      pager:
+        type: full
+        options:
+          items_per_page: 10
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« Primera'
+            last: 'Última »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'item por página'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
     cache_metadata:
       max-age: -1
       contexts:
@@ -11349,8 +11715,7 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      tags:
-        - 'config:field.storage.node.field_trans_cont_regis_publi'
+      tags: {  }
   block_transp_politicas_objetivos_sistema_gestion_integrado:
     display_plugin: block
     id: block_transp_politicas_objetivos_sistema_gestion_integrado
