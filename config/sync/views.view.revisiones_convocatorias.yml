@@ -7,7 +7,6 @@ dependencies:
     - node.type.convocatorias
   module:
     - node
-    - user
     - views_bootstrap
 id: revisiones_convocatorias
 label: 'Revisión de historial convocatorias'
@@ -24,9 +23,8 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
-        options:
-          perm: 'view all revisions'
+        type: none
+        options: {  }
       cache:
         type: tag
         options: {  }
@@ -131,6 +129,59 @@ display:
           separator: ''
           hide_empty: false
       fields:
+        view_node:
+          id: view_node
+          table: node
+          field: view_node
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          label: 'Enlace a Contenido'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: view
+          output_url_as_text: true
+          absolute: false
+          entity_type: node
+          plugin_id: entity_link
         title:
           id: title
           table: node_field_revision
@@ -141,8 +192,8 @@ display:
           label: 'Código Proceso'
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<a href="{{ view_node }}">{{ title }}</a>'
             make_link: false
             path: ''
             absolute: false
@@ -167,14 +218,14 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: '0'
           element_class: ''
-          element_label_type: ''
+          element_label_type: '0'
           element_label_class: ''
           element_label_colon: true
-          element_wrapper_type: ''
+          element_wrapper_type: '0'
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -182,7 +233,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -458,7 +509,6 @@ display:
         - 'languages:language_interface'
         - url.query_args
         - 'user.node_grants:view'
-        - user.permissions
       tags:
         - 'config:field.storage.node.field_convcatoria_objeto'
   ultimas_actualizaciones:
@@ -476,6 +526,5 @@ display:
         - 'languages:language_interface'
         - url.query_args
         - 'user.node_grants:view'
-        - user.permissions
       tags:
         - 'config:field.storage.node.field_convcatoria_objeto'
