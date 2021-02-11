@@ -3,18 +3,14 @@
     "description": "Project template for Drupal 8 projects with composer",
     "type": "project",
     "license": "GPL-2.0-or-later",
-    "authors": [
-        {
-            "name": "",
-            "role": ""
-        }
-    ],
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://packages.drupal.org/8"
-        }
-    ],
+    "authors": [{
+        "name": "",
+        "role": ""
+    }],
+    "repositories": [{
+        "type": "composer",
+        "url": "https://packages.drupal.org/8"
+    }],
     "require": {
         "php": ">=7.0.8",
         "composer/installers": "^1.2",
@@ -31,7 +27,7 @@
         "drupal/config_split": "^1.5",
         "drupal/console": "^1.0.2",
         "drupal/content_access": "^1.0@alpha",
-        "drupal/content_sync": "^2.1",
+        "drupal/content_sync": "2.x-dev@dev",
         "drupal/core": "^8.8.0",
         "drupal/core-composer-scaffold": "^8.8.0",
         "drupal/cshs": "^1.2",
@@ -150,7 +146,7 @@
                 "web/modules/contrib/webform/composer.libraries.json"
             ]
         },
-        "patches":{
+        "patches": {
             "drupal/text_resize": {
                 "Falta la dependencia jquery-cookie": "https://www.drupal.org/files/issues/2020-06-30/cookie_is_not_a_function-3155864-002.patch"
             },
@@ -158,12 +154,12 @@
                 "conditional_fields error dependencias": "https://www.drupal.org/files/issues/2021-01-21/3191984-3-notice-trying-to-access-offset-on-value-of-type-null.patch"
             },
             "drupal/core": {
-                "Notice: Undefined index: value in Drupal\\views\\Plugin\\views\\filter\\NumericFilter->acceptExposedInput()":"https://www.drupal.org/files/issues/2020-06-04/2825860-exposed-filter-notice-38.patch",
+                "Notice: Undefined index: value in Drupal\\views\\Plugin\\views\\filter\\NumericFilter->acceptExposedInput()": "https://www.drupal.org/files/issues/2020-06-04/2825860-exposed-filter-notice-38.patch",
                 "Multiple usages of FieldPluginBase::getEntity do not check for NULL, leading to WSOD": "https://www.drupal.org/files/issues/2020-09-03/3007424-108.patch",
-                "AssertionError: Tokens need to be valid Twig variables. in assert":"https://www.drupal.org/files/issues/2019-05-22/views-ignore_invalid_tokens_in_replace-3056489-1-D8.6.16.patch",
-                "Exposed date filter leads to a notice" : "https://www.drupal.org/files/issues/2020-11-12/2811887-53.patch"                
+                "AssertionError: Tokens need to be valid Twig variables. in assert": "https://www.drupal.org/files/issues/2019-05-22/views-ignore_invalid_tokens_in_replace-3056489-1-D8.6.16.patch",
+                "Exposed date filter leads to a notice": "https://www.drupal.org/files/issues/2020-11-12/2811887-53.patch"
             }
         }
     }
-    
+
 }

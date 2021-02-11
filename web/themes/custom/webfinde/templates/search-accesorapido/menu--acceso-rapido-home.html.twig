@@ -55,12 +55,10 @@ LINKS MENU
           set classes_link = [      
           item.in_active_trail ? 'active',
         ]
-        %}
-
-        
+        %}        
         <li{{ item.attributes.addClass('nav-item') }}>
           
-          <span class="icon"></span>
+          <a href="{{ item.url }}"><span class="icon"></span></a>
           {{ link(item.title, item.url, { 'class': classes_link, 'link': iterar }) }}
           
 
