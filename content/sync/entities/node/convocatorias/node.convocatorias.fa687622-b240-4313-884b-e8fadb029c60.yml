@@ -1,0 +1,108 @@
+uuid:
+  -
+    value: fa687622-b240-4313-884b-e8fadb029c60
+langcode:
+  -
+    value: es
+type:
+  -
+    target_id: convocatorias
+    target_type: node_type
+    target_uuid: d8cbcf2c-573c-4bc0-8273-6fafbb6894d5
+revision_timestamp:
+  -
+    value: '2020-12-15T16:46:47+00:00'
+    format: 'Y-m-d\TH:i:sP'
+revision_uid:
+  -
+    target_type: user
+    target_uuid: 49780fea-54cd-4d2b-ba85-5e57c3f03676
+revision_log: {  }
+status:
+  -
+    value: true
+uid:
+  -
+    target_type: user
+    target_uuid: 49780fea-54cd-4d2b-ba85-5e57c3f03676
+title:
+  -
+    value: 'PROCESO 123456'
+created:
+  -
+    value: '2020-12-15T16:45:51+00:00'
+    format: 'Y-m-d\TH:i:sP'
+changed:
+  -
+    value: '2020-12-15T16:47:18+00:00'
+    format: 'Y-m-d\TH:i:sP'
+promote:
+  -
+    value: false
+sticky:
+  -
+    value: false
+default_langcode:
+  -
+    value: true
+revision_translation_affected:
+  -
+    value: true
+path:
+  -
+    alias: /convocatorias/proceso-123456
+body: {  }
+field_convcatoria_archivos:
+  - {  }
+field_convcatoria_contractual:
+  -
+    target_type: taxonomy_term
+    target_uuid: 68af85c1-6701-457f-88d9-34839c6155e5
+field_convcatoria_contratacion:
+  -
+    target_type: taxonomy_term
+    target_uuid: 9a58afb3-c725-49df-983d-d673196aa0c9
+field_convcatoria_departamento:
+  -
+    target_type: taxonomy_term
+    target_uuid: 843c1a22-169b-4c50-a2d5-8549878bb020
+field_convcatoria_email_proceso:
+  -
+    value: convocatoriascolegiosjornadaunica@findeter.gov.co
+field_convcatoria_estado:
+  -
+    value: '2'
+field_convcatoria_forma_pago:
+  -
+    target_type: taxonomy_term
+    target_uuid: 73888683-b77d-488d-8e77-80dfcc65dacb
+  -
+    target_type: taxonomy_term
+    target_uuid: 24d1b432-6ac3-4fae-804e-47f53b7a04e1
+field_convcatoria_moneda:
+  -
+    target_type: taxonomy_term
+    target_uuid: 28fa78ab-488c-4aa1-a2cb-56b7e6432663
+field_convcatoria_objeto:
+  -
+    value: ASDASDA
+field_convcatoria_presupuesto:
+  -
+    value: '5000000000'
+field_convcatoria_programa:
+  -
+    target_type: taxonomy_term
+    target_uuid: e82b369f-c66b-4b1d-bd4f-d3014ed36f18
+_content_sync:
+  entity_type: node
+  entity_dependencies:
+    user:
+      - user.user.49780fea-54cd-4d2b-ba85-5e57c3f03676
+    taxonomy_term:
+      - taxonomy_term.convcatoria_tipo_contractuales.68af85c1-6701-457f-88d9-34839c6155e5
+      - taxonomy_term.modalidad_contratacion.9a58afb3-c725-49df-983d-d673196aa0c9
+      - taxonomy_term.colombia_deparments.843c1a22-169b-4c50-a2d5-8549878bb020
+      - taxonomy_term.convcatoria_tipo_forma_pago.73888683-b77d-488d-8e77-80dfcc65dacb
+      - taxonomy_term.convcatoria_tipo_forma_pago.24d1b432-6ac3-4fae-804e-47f53b7a04e1
+      - taxonomy_term.moneda.28fa78ab-488c-4aa1-a2cb-56b7e6432663
+      - taxonomy_term.programa.e82b369f-c66b-4b1d-bd4f-d3014ed36f18
