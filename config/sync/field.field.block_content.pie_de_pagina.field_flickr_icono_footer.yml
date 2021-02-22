@@ -1,19 +1,19 @@
-uuid: 0b2ce812-9425-4779-93c4-ffd586328d86
+uuid: 891493f4-8d2f-4ac1-a40f-8de15f7847ea
 langcode: es
 status: true
 dependencies:
   config:
     - block_content.type.pie_de_pagina
-    - field.storage.block_content.field_instagram_icono_footer
+    - field.storage.block_content.field_flickr_icono_footer
   module:
     - disable_field
     - filefield_paths
     - image
 third_party_settings:
   filefield_paths:
-    enabled: true
+    enabled: false
     file_path:
-      value: webfinde/images/footer
+      value: '[date:custom:Y]-[date:custom:m]'
       options:
         slashes: false
         pathauto: false
@@ -30,22 +30,22 @@ third_party_settings:
   disable_field:
     add_disable: none
     edit_disable: none
-id: block_content.pie_de_pagina.field_instagram_icono_footer
-field_name: field_instagram_icono_footer
+id: block_content.pie_de_pagina.field_flickr_icono_footer
+field_name: field_flickr_icono_footer
 entity_type: block_content
 bundle: pie_de_pagina
-label: Instagram
+label: Flickr
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: webfinde/images/footer
-  file_extensions: 'png gif jpg jpeg svg'
+  file_extensions: 'png jpg jpeg svg'
   max_filesize: '2 mb'
-  max_resolution: 24x24
-  min_resolution: 24x24
+  max_resolution: ''
+  min_resolution: ''
   alt_field: true
   alt_field_required: true
   title_field: false
