@@ -9,6 +9,7 @@ dependencies:
     - field.field.block_content.pie_de_pagina.field_email_contacto_footer
     - field.field.block_content.pie_de_pagina.field_email_judiciales_footer
     - field.field.block_content.pie_de_pagina.field_facebook_icono_footer
+    - field.field.block_content.pie_de_pagina.field_flickr_icono_footer
     - field.field.block_content.pie_de_pagina.field_horario_de_atencion_footer
     - field.field.block_content.pie_de_pagina.field_instagram_icono_footer
     - field.field.block_content.pie_de_pagina.field_likedin_icono_footer
@@ -21,6 +22,7 @@ dependencies:
     - field.field.block_content.pie_de_pagina.field_sede_principal_footer
     - field.field.block_content.pie_de_pagina.field_twitter_icono_footer
     - field.field.block_content.pie_de_pagina.field_url_facebook_footer
+    - field.field.block_content.pie_de_pagina.field_url_flicker_footer
     - field.field.block_content.pie_de_pagina.field_url_instagram_footer
     - field.field.block_content.pie_de_pagina.field_url_likedin_footer
     - field.field.block_content.pie_de_pagina.field_url_twitter_footer
@@ -29,18 +31,17 @@ dependencies:
     - image.style.thumbnail
   module:
     - field_group
-    - image
     - link
+    - svg_image
 third_party_settings:
   field_group:
     group_contenido:
       children:
         - group_logos
         - group_iconos
-        - group_menu
         - group_informacion_general
       parent_name: ''
-      weight: 3
+      weight: 1
       format_type: details_sidebar
       region: content
       format_settings:
@@ -58,6 +59,7 @@ third_party_settings:
         - group_youtube
         - group_instagram
         - group_likedin
+        - group_flickr
         - group_credito_directo
       parent_name: group_contenido
       weight: 10
@@ -208,9 +210,21 @@ third_party_settings:
         open: false
       label: 'Información General'
     group_credito_directo:
+      children: {  }
+      parent_name: group_iconos
+      weight: 17
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Credito Directo'
+    group_flickr:
       children:
-        - field_footer_url_credito_directo
-        - field_footer_img_credito_directo
+        - field_url_flicker_footer
+        - field_flickr_icono_footer
       parent_name: group_iconos
       weight: 16
       format_type: fieldset
@@ -220,7 +234,7 @@ third_party_settings:
         classes: ''
         description: ''
         required_fields: true
-      label: 'Credito Directo'
+      label: Flickr
 id: block_content.pie_de_pagina.default
 targetEntityType: block_content
 bundle: pie_de_pagina
@@ -260,6 +274,14 @@ content:
     region: content
   field_facebook_icono_footer:
     weight: 13
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_flickr_icono_footer:
+    weight: 38
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -356,6 +378,14 @@ content:
     region: content
   field_url_facebook_footer:
     weight: 12
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_url_flicker_footer:
+    weight: 37
     settings:
       placeholder_url: ''
       placeholder_title: ''

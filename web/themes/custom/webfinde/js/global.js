@@ -73,35 +73,46 @@
         /*===========================================
         PRODUCTOS Y SERVICIOS
         =============================================*/
-        $(".productosServicios .grid-container .grid-item figure button").hide();
+        const fondoUp = {
+            "height": "400%",
+            "transition": ".3s all",
+            "background": "#112d6a",
+            "border-radius": "0.8em 0.8em 0.8em 0.8em"
+        }
 
+        const fondoDown = {
+            "height": "169%",
+            "transition": ".5s all",
+            "background": "none",
+            "background": "repeating-linear-gradient(188deg, transparent 0, transparent 15%, rgb(17, 45, 106) 0, #296294)",
+            "border-radius": "0 0 0.8em 0.8em"
+        }
+
+        /* ===== ===== FOCUS ===== ===== */
+        $(".productosServicios .grid-container .grid-item .fondo a").on("focus", function() {
+            $(this).parent(".fondo").css(fondoUp);
+            $(this).css({ "bottom": "8rem" });
+            $(this).children("button").show();
+        });
+
+        $(".productosServicios .grid-container .grid-item .fondo a button").on("blur", function() {
+            $(this).parent().parent(".fondo").css(fondoDown);
+            $(this).parent().css({ "bottom": "4rem" });
+            $(this).hide();
+        });
+
+        /* ===== ===== MOUSE ===== ===== */
         $(".productosServicios .grid-container .grid-item").on('mouseover', function() {
-
-            $(this).children("figure").children(".fondo").css({
-                "height": "400%",
-                "transition": ".3s all",
-                "background": "#112d6a",
-                "border-radius": "0.8em 0.8em 0.8em 0.8em",
-            });
-
-            $(this).children("figure").children(".fondo").children("h1").children("button").show();
-
+            $(this).children("figure").children(".fondo").css(fondoUp);
+            $(this).children("figure").children(".fondo").children("a").css({ "bottom": "8rem" });
+            $(this).children("figure").children(".fondo").children("a").children("button").show();
         });
 
         $(".productosServicios .grid-container .grid-item").on('mouseout', function() {
 
-            $(this).children("figure").children(".fondo").css({
-                "height": "169%",
-                "transition": ".5s all",
-                "background": "none",
-                "background": "repeating-linear-gradient(188deg, transparent 0, transparent 15%, rgb(17, 45, 106) 0, #296294)",
-                //"background": "linear-gradient(70deg, black, white)",
-                //"background" : "rgba(17, 45, 106, 0.1 )",
-                //"background-image": "-webkit-linear-gradient(85deg, rgb(17, 45, 106) 45%, rgba(17, 45, 106, 0.1 )30%)",
-                "border-radius": "0 0 0.8em 0.8em",
-            });
-
-            $(this).children("figure").children(".fondo").children("h1").children("button").hide();
+            $(this).children("figure").children(".fondo").css(fondoDown);
+            $(this).children("figure").children(".fondo").children("a").css({ "bottom": "4rem" });
+            $(this).children("figure").children(".fondo").children("a").children("button").hide();
 
         });
 
@@ -296,23 +307,37 @@
         $("div.casosExito div.contenido p.descripcionCaso").html($(gridDefecto).attr('descripcion'));
         $("div.casosExito div.contenido a.enlace").attr("href", $(gridDefecto).attr('enlace'));
 
-        /* ===== ===== Cambiar contenido de casos dinamico ===== ===== */
-        $("div.casosExito div.slideCasoExito div.contenidoSlider").on("click", function() {
+        //Mostrar imagen
+        const mostrarImgCasoExito = (etiqueta) => {
 
-            var imgFondo = $('p', this).attr('imgFondo');
-            var titulo = $('p', this).attr('titulo');
-            var descripcion = $('p', this).attr('descripcion');
-            var enlace = $('p', this).attr('enlace');
+            /*let imgFondo = $('a', etiqueta).attr('imgFondo');
+            let titulo = $('a', etiqueta).attr('titulo');
+            let descripcion = $('a', etiqueta).attr('descripcion');
+            let enlace = $('a', etiqueta).attr('enlace');*/
 
-
+            let imgFondo = $(etiqueta).attr('imgFondo');
+            let titulo = $(etiqueta).attr('titulo');
+            let descripcion = $(etiqueta).attr('descripcion');
+            let enlace = $(etiqueta).attr('enlace');
             $("div.casosExito").css({
                 'background': 'url("' + imgFondo + '")'
             });
-
             $("div.casosExito div.contenido h1.tituloCaso").html(titulo);
             $("div.casosExito div.contenido p.descripcionCaso").html(descripcion);
             $("div.casosExito div.contenido a.enlace").attr("href", enlace);
 
+        }
+
+        /* ===== ===== Cambiar contenido de casos dinamico ===== ===== */
+        $("div.casosExito div.slideCasoExito div.contenidoSlider").on("click", function() {
+            mostrarImgCasoExito($(this).children('a'));
+        });
+
+        $("div.casosExito div.slideCasoExito div.contenidoSlider a").on("keypress", function(e) {
+            let code = (e.keyCode ? e.keyCode : e.which);
+            if (code == 13) {
+                mostrarImgCasoExito($(this));
+            }
         });
 
 

@@ -4,25 +4,18 @@
 /* ==============================
 CASOS DE EXITO
 ============================== */
-div.casosExito{
 
+div.casosExito {
     background-size: cover !important;
-
-    div.contenido{
-
+    div.contenido {
         width: 50%;
         padding-top: 4rem;
-
-        div.encabezado{
-
+        div.encabezado {
             border-bottom: 1px solid white;
             padding-bottom: 20px;
-
-            h1{
-
+            h1 {
                 position: relative;
-
-                &::after{
+                &::after {
                     content: "";
                     position: absolute;
                     width: 70%;
@@ -33,30 +26,21 @@ div.casosExito{
                 }
             }
         }
-
-        h1.tituloCaso{
-
+        h1.tituloCaso {
             color: var.$color-terciario !important;
         }
     }
-
     /* ==============================
     SLIDER DE CONTENIDO
     ============================== */
-    .slideCasoExito{
-
-        ul.slide__content{
-
-            li{
-
+    .slideCasoExito {
+        ul.slide__content {
+            li {
                 padding: 0 0.625rem 0.5rem;
-
-                div.contenidoSlider{
-
+                div.contenidoSlider {
                     position: relative;
                     cursor: pointer;
-
-                    p{
+                    a {
                         position: absolute;
                         top: 2rem;
                         right: 1rem;
@@ -67,62 +51,47 @@ div.casosExito{
                 }
             }
         }
-
         /* ===== ===== Botones de navegacion ===== ===== */
-        .slick{
-
+        .slick {
             /* ===== ===== Flechas de navegacion ===== ===== */
-            nav.slick__arrow{
-
+            nav.slick__arrow {
                 top: initial;
                 bottom: 1.2rem;
-
-                button.slick-arrow::before{
-
+                button.slick-arrow::before {
                     color: white !important;
                 }
-
-                .slick-prev:before, .slick-next:before{
+                .slick-prev:before,
+                .slick-next:before {
                     font-family: initial;
                 }
             }
-
             /* ===== ===== puntos de navegacion page===== ===== */
-            ul.slick-dots{
-
+            ul.slick-dots {
                 position: initial;
                 display: flex;
-                bottom: 0;    
-                margin-bottom: 1rem;    
-                padding: 0 3rem;        
-
-                li{
+                bottom: 0;
+                margin-bottom: 1rem;
+                padding: 0 3rem;
+                li {
                     background-color: white;
                     opacity: 0.5;
                     margin: 0;
                     flex: 1 1 auto;
                     height: 4px;
-
-                    button{
-
+                    button {
                         height: 0;
                         width: 0;
-                        padding: 0;                      
-                    
-                        &::before{
-
+                        padding: 0;
+                        &::before {
                             font-family: initial;
                             content: '';
                         }
                     }
                 }
-
-                li.slick-active{
-
-                    position: relative;   
-                    opacity: 1;         
-
-                    &::after{
+                li.slick-active {
+                    position: relative;
+                    opacity: 1;
+                    &::after {
                         content: "";
                         position: absolute;
                         width: 100%;
@@ -133,75 +102,52 @@ div.casosExito{
                         top: -1px;
                         left: 0;
                     }
-                                       
                 }
             }
         }
     }
-
 }
+
 
 /* ==============================
 MEDIA QUERY
 ============================== */
-@include media-query.media(xs){
 
-    div.casosExito{
-    
-        div.contenido{ 
-               
+@include media-query.media(xs) {
+    div.casosExito {
+        div.contenido {
             width: 100%;
-
-            div.encabezado > h1{
-
+            div.encabezado>h1 {
                 font-size: 1.5rem;
-
-                &::after{
-
+                &::after {
                     background-color: initial;
                 }
             }
-
-            h1.tituloCaso{
-
+            h1.tituloCaso {
                 font-size: 1.5rem;
             }
-            
         }
-
-        .slideCasoExito ul.slide__content li div.contenidoSlider p{
-           right: 3rem;                  
+        .slideCasoExito ul.slide__content li div.contenidoSlider p {
+            right: 3rem;
         }
     }
-     
 }
 
-@include media-query.media(sm){
-
-    div.casosExito{
-    
-        div.contenido{ 
-               
+@include media-query.media(sm) {
+    div.casosExito {
+        div.contenido {
             width: 100%;
-            
         }
-
-        .slideCasoExito ul.slide__content li  div.contenidoSlider p{
-            right: 3rem; 
+        .slideCasoExito ul.slide__content li div.contenidoSlider p {
+            right: 3rem;
         }
     }
-     
 }
 
-@include media-query.media(md){
-
-    div.casosExito{
-    
-        div.contenido{ 
-               
+@include media-query.media(md) {
+    div.casosExito {
+        div.contenido {
             width: 100%;
-            
         }
     }
-     
 }
