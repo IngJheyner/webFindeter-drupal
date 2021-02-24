@@ -1,8 +1,9 @@
-uuid: 80be2655-af0c-4e31-b06a-3b9bd7cf5671
+uuid: a99bf38a-26f1-43dd-876c-2e41520387c8
 langcode: es
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.search_index
     - field.field.node.noticias_home.body
     - field.field.node.noticias_home.field_img_noticia_home
     - field.field.node.noticias_home.field_noticias_resumen_redes
@@ -13,18 +14,23 @@ dependencies:
     - field.field.node.noticias_home.field_tipo_noticia
     - node.type.noticias_home
   module:
+    - layout_builder
     - text
     - user
-id: node.noticias_home.default
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.noticias_home.search_index
 targetEntityType: node
 bundle: noticias_home
-mode: default
+mode: search_index
 content:
   body:
     type: text_default
     weight: 0
     region: content
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
 hidden:

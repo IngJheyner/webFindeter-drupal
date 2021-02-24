@@ -63,7 +63,25 @@ HEADER(ENCABEZADO)
 
   <header class="container-fluid p-0">
 
-    {{ page.region_A }}  
+    {{ page.region_A }}
+
+    <div class="encabezadoBusqueda">
+
+      <figure class="w-100">
+
+        <img src="{{ url('<front>') }}themes/custom/webfinde/images/iconos/fondo_cabezote.png" class="img-fluid w-100">
+
+      </figure>  
+
+      <div class="encabezado container">
+
+        <h1 class="tituloEncabezado mt-3">{{ "Buscar contenido"|t }}</h1>   
+
+      </div>
+  
+      {{ drupal_breadcrumb() }}
+
+    </div>  
 
   </header>
 
@@ -78,8 +96,10 @@ HEADER(ENCABEZADO)
 
     <section class="container-fluid p-0">
 
-      <div class="container">
+      <div class="container busqueda">
+
         {{ page.region_B }}
+
       </div>      
 
     </section>

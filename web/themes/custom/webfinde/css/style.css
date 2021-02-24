@@ -55,7 +55,12 @@ ESTILOS GLOBALES
   font-family: "Roboto", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #296294;
   font-weight: 400;
   margin: 0;
@@ -736,6 +741,63 @@ form#search-block-form .btnSearch {
   background: url("/themes/custom/webfinde/images/iconos/buscador.png") no-repeat;
   background-position: center top;
   width: 53px;
+}
+
+div.encabezadoBusqueda figure {
+  position: absolute;
+  z-index: -1;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+div.encabezadoBusqueda figure img {
+  height: 100%;
+}
+div.encabezadoBusqueda div.encabezado {
+  height: 7rem;
+}
+div.encabezadoBusqueda div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  div.encabezadoBusqueda div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.encabezadoBusqueda div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.encabezadoBusqueda div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+
+div.busqueda form.search-form {
+  padding: 2rem;
+  background-color: #112d6a;
+  color: white;
+  margin-bottom: 1rem;
+}
+div.busqueda form.search-form a {
+  color: white !important;
+}
+div.busqueda form.search-form input[type=submit] {
+  background-color: #00993e !important;
+  margin: 1rem 0;
+}
+div.busqueda div.resultadoBusqueda ol li h4 a:hover {
+  color: #00993e !important;
 }
 
 /* ==============================

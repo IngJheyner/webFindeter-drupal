@@ -1,5 +1,6 @@
 @use 'variables' as var;
 @use '../mixins/media-query' as media-query;
+@use '../mixins/encabezado' as encabezado;
 
 /* =====================================
 CONTROL DE PAUSA PARA EL VIDEO DEL HOME
@@ -66,6 +67,32 @@ form#search-block-form {
         background: url('/themes/custom/webfinde/images/iconos/buscador.png') no-repeat;
         background-position: center top;
         width: 53px;
+    }
+}
+
+//INTERNAS
+@include encabezado.encabezado("div",
+"encabezadoBusqueda");
+div.busqueda {
+    form.search-form {
+        padding: 2rem;
+        background-color: var.$color-primario;
+        color: white;
+        margin-bottom: 1rem;
+        a {
+            color: white !important;
+        }
+        input[type="submit"] {
+            background-color: var.$color-cuaternario !important;
+            margin: 1rem 0;
+        }
+    }
+    div.resultadoBusqueda {
+        ol li {
+            h4 a:hover {
+                color: var.$color-cuaternario !important;
+            }
+        }
     }
 }
 
