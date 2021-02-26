@@ -6,13 +6,21 @@ function consult(){
         //echo($_GET['nombre']);
         //$filePath = 'E:/ecosistema/private/contratacion/ws/0001-2016_AAD_ACTA DE SELECCION C-FDT-01-2016.pdf';
         $filePath = 'E:/ecosistema/private/contratacion/ws/'.$fileName;
+        $ext =explode(".", $fileName)[1];
         if(!empty($fileName) && file_exists($filePath)){
             // Define headers
             header("Cache-Control: public");
             header("Content-Description: File Transfer");
             header("Content-Disposition: attachment; filename=$fileName");
-            header("Content-Type: application/zip");
+            header("Content-type: application/".$ext);
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            //header('Content-Length: ' . filesize($file_example));
+            ob_clean();
+            flush();
             header("Content-Transfer-Encoding: binary");
+            
             
             // Read the file
             readfile($filePath);

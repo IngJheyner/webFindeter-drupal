@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.convocatorias.field_convcatoria_objeto
     - field.field.node.convocatorias.field_convcatoria_presupuesto
     - field.field.node.convocatorias.field_convcatoria_programa
+    - field.field.node.convocatorias.field_convcatoria_tipo_compra
     - node.type.convocatorias
   module:
     - cshs
@@ -155,5 +156,6 @@ content:
     third_party_settings: {  }
 hidden:
   addtoany: true
+  field_convcatoria_tipo_compra: true
   langcode: true
   search_api_excerpt: true

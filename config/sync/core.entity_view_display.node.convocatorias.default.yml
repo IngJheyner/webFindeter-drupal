@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.convocatorias.field_convcatoria_objeto
     - field.field.node.convocatorias.field_convcatoria_presupuesto
     - field.field.node.convocatorias.field_convcatoria_programa
+    - field.field.node.convocatorias.field_convcatoria_tipo_compra
     - node.type.convocatorias
   module:
     - user
@@ -22,7 +23,15 @@ id: node.convocatorias.default
 targetEntityType: node
 bundle: convocatorias
 mode: default
-content: {  }
+content:
+  field_convcatoria_tipo_compra:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
 hidden:
   addtoany: true
   body: true

@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.convocatorias.field_convcatoria_objeto
     - field.field.node.convocatorias.field_convcatoria_presupuesto
     - field.field.node.convocatorias.field_convcatoria_programa
+    - field.field.node.convocatorias.field_convcatoria_tipo_compra
     - node.type.convocatorias
   module:
     - conditional_fields
@@ -90,6 +91,7 @@ third_party_settings:
       label: Multimedia
     group_lista_de_elementos_de_la_c:
       children:
+        - field_convcatoria_tipo_compra
         - field_convcatoria_programa
         - field_convcatoria_contratacion
         - field_convcatoria_contractual
@@ -152,13 +154,13 @@ content:
       conditional_fields: {  }
     region: content
   field_convcatoria_contractual:
-    weight: 6
+    weight: 29
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_convcatoria_contratacion:
-    weight: 5
+    weight: 28
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -191,7 +193,7 @@ content:
     type: options_select
     region: content
   field_convcatoria_forma_pago:
-    weight: 7
+    weight: 30
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
@@ -218,7 +220,7 @@ content:
     type: number
     region: content
   field_convcatoria_programa:
-    weight: 4
+    weight: 27
     settings:
       force_deepest: true
       parent: '0'
@@ -228,6 +230,12 @@ content:
       required_depth: 0
     third_party_settings: {  }
     type: cshs
+    region: content
+  field_convcatoria_tipo_compra:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   langcode:
     type: language_select
