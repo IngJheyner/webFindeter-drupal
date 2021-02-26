@@ -1692,12 +1692,12 @@ display:
             trim: true
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: '0'
           element_class: ''
-          element_label_type: ''
+          element_label_type: '0'
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
+          element_wrapper_type: '0'
           element_wrapper_class: ''
           element_default_classes: false
           empty: ''
@@ -1857,7 +1857,7 @@ display:
           label: ''
           exclude: true
           alter:
-            alter_text: true
+            alter_text: false
             text: ''
             make_link: false
             path: ''
@@ -1888,14 +1888,14 @@ display:
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
+          element_wrapper_type: div
           element_wrapper_class: ''
           element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
+          click_sort_column: summary
           type: text_summary_or_trimmed
           settings:
             trim_length: 200
@@ -2041,7 +2041,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ view_node }}\"><img src=\"{{ field_img_noticia_home }}\" class=\"img-fluid\"></a>\r\n<a href=\"#\">{{ field_tipo_noticia }}</a>\r\n<a href=\"{{ view_node }}\" class=\"text-dark\"><p class=\"resumen\">{{ body }}</p></a>\r\n<p class=\"fecha\"><small class=\"text-muted\">{{ created }}</small></p>"
+            text: "<a href=\"{{ view_node }}\"><img src=\"{{ field_img_noticia_home }}\" class=\"img-fluid\"></a>\r\n<a href=\"#\">{{ field_tipo_noticia }}</a><br>\r\n<a href=\"{{ view_node }}\" class=\"text-dark\">{{ title }}</a>\r\n<p class=\"resumen\">{{ body }}</p>\r\n<p class=\"fecha\"><small class=\"text-muted\">{{ created }}</small></p>"
             make_link: false
             path: ''
             absolute: false
@@ -2617,7 +2617,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ view_node }}\"><img src=\"{{ field_img_noticia_home }}\" class=\"img-fluid\"></a>\r\n<a href=\"#\">{{ field_tipo_noticia }}</a>\r\n<a href=\"{{ view_node }}\" class=\"text-dark\"><p class=\"resumen\">{{ body }}</p></a>\r\n<p class=\"fecha\"><small class=\"text-muted\">{{ created }}</small></p>"
+            text: "<a href=\"{{ view_node }}\"><img src=\"{{ field_img_noticia_home }}\" class=\"img-fluid\"></a>\r\n<a href=\"#\">{{ field_tipo_noticia }}</a><br>\r\n<a href=\"{{ view_node }}\" class=\"text-dark\">{{ title }}</a>\r\n<p class=\"resumen\">{{ body }}</p>\r\n<p class=\"fecha\"><small class=\"text-muted\">{{ created }}</small></p>"
             make_link: false
             path: ''
             absolute: false

@@ -7,6 +7,7 @@ dependencies:
     - field.field.media.url_youtube_articulo_blog.field_media_oembed_video
     - media.type.url_youtube_articulo_blog
   module:
+    - field_formatter_class
     - media
 id: media.url_youtube_articulo_blog.media_library
 targetEntityType: media
@@ -20,8 +21,10 @@ content:
     label: hidden
     settings:
       max_width: 0
-      max_height: 0
-    third_party_settings: {  }
+      max_height: 200
+    third_party_settings:
+      field_formatter_class:
+        class: ''
 hidden:
   addtoany: true
   created: true
