@@ -1415,6 +1415,467 @@ menus:
     weight: '0'
     langcode: es
     uuid: 2a433eed-435d-4cd2-a7ee-a6a424e45147
+blocks:
+  -
+    info: 'Blog [ Encabezado ]'
+    langcode: es
+    uuid: 4e8f6f29-947e-424d-9fc7-3ee09cd6367f
+    bundle: encabezado_blog
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_buscador:
+        -
+          target_id: '5'
+          alt: ''
+          title: ''
+          width: '31'
+          height: '31'
+      field_facebook:
+        -
+          target_id: '3'
+          alt: ''
+          title: ''
+          width: '31'
+          height: '31'
+      field_facebook_url:
+        -
+          uri: 'https://www.facebook.com/findetercol/'
+          title: ''
+          options: {  }
+      field_fondo:
+        -
+          target_id: '2'
+          alt: ''
+          title: ''
+          width: '1920'
+          height: '1060'
+      field_logo:
+        -
+          target_id: '1'
+          alt: ''
+          title: ''
+          width: '300'
+          height: '130'
+      field_menu:
+        -
+          uri: 'internal:/blog/tipo-articulo/planear-el-territorio'
+          title: 'PLANEAR EL TERRITORIO'
+          options: {  }
+        -
+          uri: 'internal:/blog/estructurar-y-financiar-para-el-desarrollo'
+          title: 'ESTRUCTURA Y FINANCIAR EL DESARROLLO'
+          options: {  }
+        -
+          uri: 'internal:/blog/ejecutar-para-el-exito'
+          title: 'EJECUTAR PARA EL ÉXITO'
+          options: {  }
+      field_subtitulo:
+        -
+          value: 'Aquí encontrara información y herramientas claves para impulsar el desarrollo sostenible de los territorios'
+      field_titulo:
+        -
+          value: 'BIENVENIDO A NUESTRO BLOG'
+      field_twitter:
+        -
+          target_id: '4'
+          alt: ''
+          title: ''
+          width: '31'
+          height: '31'
+      field_twitter_url:
+        -
+          uri: 'https://twitter.com/Findeter'
+          title: ''
+          options: {  }
+  -
+    info: 'Pie de pagina [ Home ]'
+    langcode: es
+    uuid: 43c978dc-be17-45fb-a80f-17183ac4c654
+    bundle: pie_de_pagina
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_conmutador:
+        -
+          value: '(+57) 623 0311 / (+571) 623 03 88'
+        -
+          value: 'Fax: (571) 623 02 60'
+      field_correo_institucional_foote:
+        -
+          value: findeter@findeter.gov.co
+      field_email_contacto_footer:
+        -
+          value: findeter@findeter.gov.co
+      field_email_judiciales_footer:
+        -
+          value: notificacionesjudiciales@findeter.gov.co
+      field_facebook_icono_footer:
+        -
+          target_id: '226'
+          alt: imagen
+          title: ''
+          width: '64'
+          height: '64'
+      field_flickr_icono_footer:
+        -
+          target_id: '253'
+          alt: imagen
+          title: ''
+          width: '64'
+          height: '64'
+      field_horario_de_atencion_footer:
+        -
+          value: 'Lunes a Jueves: 8:00am - 5:00 pm'
+        -
+          value: 'Viernes 7:00 a.m. - 3:00 p.m'
+      field_instagram_icono_footer:
+        -
+          target_id: '34'
+          alt: imagen
+          title: ''
+          width: '24'
+          height: '24'
+      field_likedin_icono_footer:
+        -
+          target_id: '35'
+          alt: imagen
+          title: ''
+          width: '24'
+          height: '24'
+      field_logo_footer:
+        -
+          target_id: '220'
+          alt: 'logo findeter'
+          title: ''
+          width: '64'
+          height: '64'
+      field_logo_ministerio_hacienda_f:
+        -
+          target_id: '222'
+          alt: imagen
+          title: ''
+          width: '64'
+          height: '64'
+      field_logo_superintendencia_foot:
+        -
+          target_id: '252'
+          alt: imagen
+          title: ''
+          width: '64'
+          height: '64'
+      field_mas_logos_footer:
+        -
+          target_id: '251'
+          alt: 'logo saving'
+          title: ''
+          width: '64'
+          height: '64'
+      field_ntf_judiciales_footer:
+        -
+          value: notificacionesjudiciales@findeter.gov.co
+      field_pqr_footer:
+        -
+          value: 'Linea nacional gratuita: 01-8000-116622'
+      field_sede_principal_footer:
+        -
+          value: 'Calle 103 No. 19-20 Bogotá, Colombia'
+        -
+          value: 'Código Postal 110111'
+      field_twitter_icono_footer:
+        -
+          target_id: '32'
+          alt: imagen
+          title: ''
+          width: '24'
+          height: '24'
+      field_url_facebook_footer: {  }
+      field_url_flicker_footer: {  }
+      field_url_instagram_footer: {  }
+      field_url_likedin_footer: {  }
+      field_url_twitter_footer: {  }
+      field_url_youtube_footer: {  }
+      field_youtube_icono_footer:
+        -
+          target_id: '33'
+          alt: imagen
+          title: ''
+          width: '24'
+          height: '24'
+  -
+    info: 'Home [ Encabezado ]'
+    langcode: es
+    uuid: d46ab930-f240-4a88-8d55-c5edaacc8c85
+    bundle: encabezado_home
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_img_govco_encabezado_home:
+        -
+          target_id: '56'
+          alt: ''
+          title: ''
+          width: '190'
+          height: '35'
+      field_logo_encabezado_home:
+        -
+          target_id: '221'
+          alt: ''
+          title: ''
+          width: '64'
+          height: '64'
+  -
+    info: 'Producto y Servicios [ Home ]'
+    langcode: es
+    uuid: 81876647-a1d4-46af-8cf3-b1bedbdb31c5
+    bundle: productos_y_servicios_home_
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_nombre_de_la_seccion:
+        -
+          value: 'Conozca toda la oferta de productos y servicios que Findeter tiene para usted'
+      field_seccion_bloque:
+        -
+          target_id: '1'
+          target_revision_id: '1'
+        -
+          target_id: '2'
+          target_revision_id: '2'
+        -
+          target_id: '3'
+          target_revision_id: '3'
+        -
+          target_id: '4'
+          target_revision_id: '4'
+        -
+          target_id: '5'
+          target_revision_id: '5'
+  -
+    info: 'Noticias y Redes Sociales [ Home ]'
+    langcode: es
+    uuid: ac6a1f7d-9c89-428e-bb3f-3ec5dbf21125
+    bundle: noticias_redes_sociales_home
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body: {  }
+  -
+    info: 'Findeter en Cifras [ Home ]'
+    langcode: es
+    uuid: 20d0813c-5b6f-4dcd-8151-da78b1639aef
+    bundle: findeter_en_cifras_home
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_seccion_bloque_cifras:
+        -
+          target_id: '6'
+          target_revision_id: '6'
+        -
+          target_id: '7'
+          target_revision_id: '7'
+        -
+          target_id: '8'
+          target_revision_id: '8'
+        -
+          target_id: '9'
+          target_revision_id: '9'
+        -
+          target_id: '10'
+          target_revision_id: '10'
+      field_titulo_cifras:
+        -
+          value: 'Findeter en Cifras'
+  -
+    info: 'Casos de éxito [ Home ]'
+    langcode: es
+    uuid: d0a600db-44c3-4fc5-8ee1-93d9299a7276
+    bundle: casos_de_exito
+    revision_id: null
+    rev_id_current: null
+  -
+    info: 'Transparencia y acceso a la información publica [ Encabezado ]'
+    langcode: es
+    uuid: 2fc5ffea-d6cd-48f9-b30c-759489bd3d96
+    bundle: transparencia_acceso_informacion
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p>Lo invitamos a ver los contenidos que hemos dispuesto para usted en esta sección, con el fin de permitirle acceder a información pública que genera la entidad, de acuerdo con lo establecido en la siguiente normatividad.</p>\r\n"
+          summary: ''
+          format: basic_html
+      field_img_fondo_transparencia:
+        -
+          target_id: '75'
+          alt: ''
+          title: ''
+          width: '1440'
+          height: '320'
+      field_leyes_transparencia:
+        -
+          value: 'Ley 1712 de 2014'
+        -
+          value: 'Decreto 103 de 2014'
+        -
+          value: 'Resolucion 3564 de 2015'
+        -
+          value: 'Directiva 026 de 2020'
+  -
+    info: 'Preguntas Frecuentes [ Encabezado ]'
+    langcode: es
+    uuid: b96fe7bd-33c9-4b7d-849a-7515c598cadb
+    bundle: preguntas_frecuentes
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body: {  }
+      field_img_fondo_preg_frecuentes:
+        -
+          target_id: '77'
+          alt: ''
+          title: ''
+          width: '1440'
+          height: '320'
+      field_titulo_preg_frecuentes:
+        -
+          value: 'Preguntas Frecuentes'
+  -
+    info: 'Convocatorias [ Encabezado ]'
+    langcode: es
+    uuid: 6699f94b-8e4f-4c82-b46b-49c63d21f502
+    bundle: convocatorias_encabezado
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body: {  }
+      field_convocatoria_img_fondo:
+        -
+          target_id: '91'
+          alt: ''
+          title: ''
+          width: '1440'
+          height: '320'
+      field_convocatoria_titulo:
+        -
+          value: Convocatorias
+  -
+    info: 'Noticias [ Encabezado ]'
+    langcode: es
+    uuid: a712eac5-4839-4f13-bf57-92cb1e5aee81
+    bundle: noticias_encabezado
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body: {  }
+      field_noticias_img_fondo:
+        -
+          target_id: '115'
+          alt: ''
+          title: ''
+          width: '1440'
+          height: '320'
+      field_noticias_titulo:
+        -
+          value: Noticias
+  -
+    info: 'Prosperity Fund [ Encabezado ]'
+    langcode: es
+    uuid: 992ef26e-7538-4427-bf44-b6ad1415ca6e
+    bundle: prosperity_fund_encabezado
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body: {  }
+      field_prosperity_img_fondo:
+        -
+          target_id: '125'
+          alt: ''
+          title: ''
+          width: '1440'
+          height: '320'
+      field_prosperity_titulo_defecto:
+        -
+          value: 'Convocatorias Prosperity Fund'
+  -
+    info: 'Glosario [ Encabezado ]'
+    langcode: es
+    uuid: 19d4a30e-d7f1-4cb1-bf30-204a35adc84b
+    bundle: glosario_encabezado
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body: {  }
+      field_glosario_img_fondo:
+        -
+          target_id: '138'
+          alt: ''
+          title: ''
+          width: '1440'
+          height: '320'
+      field_glosario_titulo_defecto:
+        -
+          value: Glosario
+  -
+    info: 'PQRSD [ Encabezado ]'
+    langcode: es
+    uuid: c2355d94-c32c-4d3f-9e76-0160b99f0a68
+    bundle: block_pqrs_encabezado
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_block_pqrs_img_encabezado:
+        -
+          target_id: '205'
+          alt: ''
+          title: ''
+          width: '1440'
+          height: '320'
+      field_pqrsd_titulo_defecto:
+        -
+          value: 'Peticiones, Quejas, Reclamos, Sugerencias y Denuncias'
+  -
+    info: 'Login [ Encabezado ]'
+    langcode: es
+    uuid: 1eec4e50-2846-420f-82f4-b3ae1574ee90
+    bundle: login_encabezado
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p class=\"h4 text-center\">Datos ingreso al sistema de administración.</p>\r\n"
+          summary: ''
+          format: basic_html
+      field_login_img_fondo:
+        -
+          target_id: '215'
+          alt: ''
+          title: ''
+          width: '1440'
+          height: '320'
+      field_login_titulo_defecto:
+        -
+          value: Login
+  -
+    info: 'Seccion de video [ Blog ]'
+    langcode: es
+    uuid: cd6d77e1-840c-4150-b058-fafc5fa97c88
+    bundle: seccion_de_video_blog_
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_titulo_frase:
+        -
+          value: 'Somos el aliado del Gobierno Nacional y de los Entes Territoriales para sacar adelante proyectos que generen bienestar'
+      field_url_youtube:
+        -
+          target_id: '1'
+      field_url_youtube_video_blog:
+        -
+          value: 'https://www.youtube.com/watch?v=yxbCzsGB9Go&ab_channel=Findeter'
 taxonomies:
   blog:
     -
@@ -1732,7 +2193,7 @@ taxonomies:
       vid: colombia_deparments
       tid: '1321'
       langcode: es
-      name: Amazonas
+      name: 'Amazonas - example'
       description__value: null
       description__format: null
       weight: '0'
@@ -12118,6 +12579,16 @@ taxonomies:
       weight: '0'
       parent: '1320'
       uuid: 5f70e8ae-745f-49e3-ad39-10cfeee84d73
+    -
+      vid: colombia_deparments
+      tid: '2509'
+      langcode: es
+      name: Miraflores
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '1323'
+      uuid: bd5103a7-32c2-4e00-8e19-e65a0a74ea60
   convcatoria_tipo_contractuales:
     -
       vid: convcatoria_tipo_contractuales
@@ -12974,7 +13445,7 @@ taxonomies:
       name: 'Mantenimiento Canal Navegable Rio Grande De La Magdalena Sectores Canal Acceso Puerto Barranquilla Barrancabermeja Pinillos 2020'
       description__value: null
       description__format: null
-      weight: '20'
+      weight: '21'
       parent: '0'
       uuid: 2a4b43db-58dd-4ed2-baa6-7b55213ec020
     -
@@ -12984,7 +13455,7 @@ taxonomies:
       name: 'Mantenimiento Del Canal Navegable En El Rio Grande De La Magdalena'
       description__value: null
       description__format: null
-      weight: '21'
+      weight: '22'
       parent: '0'
       uuid: be4ef914-ed56-4b3d-88c5-9a0d745f8a7d
     -
@@ -12994,7 +13465,7 @@ taxonomies:
       name: 'Más Y Mejores Espacios'
       description__value: null
       description__format: null
-      weight: '22'
+      weight: '23'
       parent: '0'
       uuid: 9cdfe856-8e42-452f-a04a-c5b3a004fd9e
     -
@@ -13004,7 +13475,7 @@ taxonomies:
       name: 'Mejoramiento Sedes Educativas Comunidades Indígenas Y Narp'
       description__value: null
       description__format: null
-      weight: '23'
+      weight: '24'
       parent: '0'
       uuid: e5ec5333-7c36-47e3-a6b4-dd64ee1a3732
     -
@@ -13014,7 +13485,7 @@ taxonomies:
       name: 'Mejoramiento Sedes Educativas Rurales Y De Frontera'
       description__value: null
       description__format: null
-      weight: '24'
+      weight: '25'
       parent: '0'
       uuid: 8c8b24ec-5e7a-440f-9c42-662b9cc997f6
     -
@@ -13024,7 +13495,7 @@ taxonomies:
       name: 'Mentorías Para Equipos Emprendedores En Gobierno En Línea'
       description__value: null
       description__format: null
-      weight: '25'
+      weight: '26'
       parent: '0'
       uuid: 4225a654-39d2-46d0-80d2-ba7b1e1b7d80
     -
@@ -13034,7 +13505,7 @@ taxonomies:
       name: 'Mintic Tiendas Virtuales Y Vende En Línea'
       description__value: null
       description__format: null
-      weight: '26'
+      weight: '27'
       parent: '0'
       uuid: 3720deff-b99f-4351-be0d-be59f8656543
     -
@@ -13044,7 +13515,7 @@ taxonomies:
       name: 'Museos Y Bibliotecas - Restauraciones, Rehabilitaciones Y Reforzamiento Estructural'
       description__value: null
       description__format: null
-      weight: '27'
+      weight: '28'
       parent: '0'
       uuid: a473226c-4fa3-455f-a509-9063e26ef185
     -
@@ -13054,7 +13525,7 @@ taxonomies:
       name: 'Parques Recreo Deportivos'
       description__value: null
       description__format: null
-      weight: '28'
+      weight: '29'
       parent: '0'
       uuid: 19bfda5e-338a-4268-b172-13baf110f884
     -
@@ -13064,7 +13535,7 @@ taxonomies:
       name: 'Plataforma Educativa Integral'
       description__value: null
       description__format: null
-      weight: '29'
+      weight: '30'
       parent: '0'
       uuid: cd909dba-4cdf-47f0-a328-f866a8a209c7
     -
@@ -13074,7 +13545,7 @@ taxonomies:
       name: 'Programa De Apoyo Al Desarrollo Sostenible Del Departamento De San Andrés, Providencia Y Santa Catalina'
       description__value: null
       description__format: null
-      weight: '30'
+      weight: '31'
       parent: '0'
       uuid: e36b849f-88d6-42d5-a77d-3ef78c55ef86
     -
@@ -13084,7 +13555,7 @@ taxonomies:
       name: 'Programa De Mejoramiento Integral De Barrios'
       description__value: null
       description__format: null
-      weight: '31'
+      weight: '32'
       parent: '0'
       uuid: 60eb22ae-d548-4bfe-bc86-cd01bfa872ba
     -
@@ -13094,7 +13565,7 @@ taxonomies:
       name: 'Programa Espacios De Seguridad, Convivencia Y Justicia'
       description__value: null
       description__format: null
-      weight: '32'
+      weight: '33'
       parent: '0'
       uuid: 5083de67-d521-44ba-9789-6f66a597fbc4
     -
@@ -13104,7 +13575,7 @@ taxonomies:
       name: 'Proyectos De Infraestructura Para La Primera Infancia–De Cero A Siempre'
       description__value: null
       description__format: null
-      weight: '33'
+      weight: '34'
       parent: '0'
       uuid: 0f77a06e-6933-4d22-869c-461a3666e5c1
     -
@@ -13114,7 +13585,7 @@ taxonomies:
       name: 'Proyectos Estratégicos Departamento De San Andrés Y Providencia'
       description__value: null
       description__format: null
-      weight: '34'
+      weight: '35'
       parent: '0'
       uuid: 22edb0cc-46cc-4964-986e-b969d5ec4365
     -
@@ -13124,7 +13595,7 @@ taxonomies:
       name: 'Reforzamientos Estructurales En Las Sedes Priorizadas Por El Sena'
       description__value: null
       description__format: null
-      weight: '35'
+      weight: '36'
       parent: '0'
       uuid: 7c390ed3-87aa-4603-bc74-da08d926cc0e
     -
@@ -13134,7 +13605,7 @@ taxonomies:
       name: 'SGR OCAD Región Caribe - Tren Regional Caribe'
       description__value: null
       description__format: null
-      weight: '36'
+      weight: '37'
       parent: '0'
       uuid: f20d8c0b-21eb-4dcc-bd57-9cf8138bed7d
     -
@@ -13361,7 +13832,7 @@ taxonomies:
       vid: programa
       tid: '2504'
       langcode: es
-      name: 'KFW - PROGRAMA DE PROTECCION AMBIENTAL'
+      name: 'KFW - Programa De Protección Ambiental'
       description__value: null
       description__format: null
       weight: '19'
@@ -13377,6 +13848,36 @@ taxonomies:
       weight: '0'
       parent: '2504'
       uuid: d2cf0f2c-4744-4d1f-ac48-15a69a66d8eb
+    -
+      vid: programa
+      tid: '2507'
+      langcode: es
+      name: 'Mantenimiento Canal navegable Río Grande de la Magdalena: Canal de Acceso al Puerto Barranquilla, Barrancabermeja - Pinillos y Canal de Dique 2021'
+      description__value: null
+      description__format: null
+      weight: '20'
+      parent: '0'
+      uuid: 805d722d-42d0-4c38-9d8e-74ce4b7d4219
+    -
+      vid: programa
+      tid: '2508'
+      langcode: es
+      name: 0-254-2020
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '2507'
+      uuid: 4b3cc4e1-fe91-4bfe-9023-c8df0099b459
+    -
+      vid: programa
+      tid: '2510'
+      langcode: es
+      name: SC-0333-19
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '1179'
+      uuid: 9e4728ca-71d3-4eec-866c-da16093e0d0d
   tags: {  }
   tipo_de_convocatoria:
     -
@@ -13389,464 +13890,3 @@ taxonomies:
       weight: '0'
       parent: '0'
       uuid: 723086fd-9ee9-40ef-82b4-ee718c9b2db5
-blocks:
-  -
-    info: 'Blog [ Encabezado ]'
-    langcode: es
-    uuid: 4e8f6f29-947e-424d-9fc7-3ee09cd6367f
-    bundle: encabezado_blog
-    revision_id: null
-    rev_id_current: null
-    fields:
-      field_buscador:
-        -
-          target_id: '5'
-          alt: ''
-          title: ''
-          width: '31'
-          height: '31'
-      field_facebook:
-        -
-          target_id: '3'
-          alt: ''
-          title: ''
-          width: '31'
-          height: '31'
-      field_facebook_url:
-        -
-          uri: 'https://www.facebook.com/findetercol/'
-          title: ''
-          options: {  }
-      field_fondo:
-        -
-          target_id: '2'
-          alt: ''
-          title: ''
-          width: '1920'
-          height: '1060'
-      field_logo:
-        -
-          target_id: '1'
-          alt: ''
-          title: ''
-          width: '300'
-          height: '130'
-      field_menu:
-        -
-          uri: 'internal:/blog/tipo-articulo/planear-el-territorio'
-          title: 'PLANEAR EL TERRITORIO'
-          options: {  }
-        -
-          uri: 'internal:/blog/estructurar-y-financiar-para-el-desarrollo'
-          title: 'ESTRUCTURA Y FINANCIAR EL DESARROLLO'
-          options: {  }
-        -
-          uri: 'internal:/blog/ejecutar-para-el-exito'
-          title: 'EJECUTAR PARA EL ÉXITO'
-          options: {  }
-      field_subtitulo:
-        -
-          value: 'Aquí encontrara información y herramientas claves para impulsar el desarrollo sostenible de los territorios'
-      field_titulo:
-        -
-          value: 'BIENVENIDO A NUESTRO BLOG'
-      field_twitter:
-        -
-          target_id: '4'
-          alt: ''
-          title: ''
-          width: '31'
-          height: '31'
-      field_twitter_url:
-        -
-          uri: 'https://twitter.com/Findeter'
-          title: ''
-          options: {  }
-  -
-    info: 'Pie de pagina [ Home ]'
-    langcode: es
-    uuid: 43c978dc-be17-45fb-a80f-17183ac4c654
-    bundle: pie_de_pagina
-    revision_id: null
-    rev_id_current: null
-    fields:
-      field_conmutador:
-        -
-          value: '(+57) 623 0311 / (+571) 623 03 88'
-        -
-          value: 'Fax: (571) 623 02 60'
-      field_correo_institucional_foote:
-        -
-          value: findeter@findeter.gov.co
-      field_email_contacto_footer:
-        -
-          value: findeter@findeter.gov.co
-      field_email_judiciales_footer:
-        -
-          value: notificacionesjudiciales@findeter.gov.co
-      field_facebook_icono_footer:
-        -
-          target_id: '226'
-          alt: imagen
-          title: ''
-          width: '64'
-          height: '64'
-      field_flickr_icono_footer:
-        -
-          target_id: '253'
-          alt: imagen
-          title: ''
-          width: '64'
-          height: '64'
-      field_horario_de_atencion_footer:
-        -
-          value: 'Lunes a Jueves: 8:00am - 5:00 pm'
-        -
-          value: 'Viernes 7:00 a.m. - 3:00 p.m'
-      field_instagram_icono_footer:
-        -
-          target_id: '34'
-          alt: imagen
-          title: ''
-          width: '24'
-          height: '24'
-      field_likedin_icono_footer:
-        -
-          target_id: '35'
-          alt: imagen
-          title: ''
-          width: '24'
-          height: '24'
-      field_logo_footer:
-        -
-          target_id: '220'
-          alt: 'logo findeter'
-          title: ''
-          width: '64'
-          height: '64'
-      field_logo_ministerio_hacienda_f:
-        -
-          target_id: '222'
-          alt: imagen
-          title: ''
-          width: '64'
-          height: '64'
-      field_logo_superintendencia_foot:
-        -
-          target_id: '252'
-          alt: imagen
-          title: ''
-          width: '64'
-          height: '64'
-      field_mas_logos_footer:
-        -
-          target_id: '251'
-          alt: 'logo saving'
-          title: ''
-          width: '64'
-          height: '64'
-      field_ntf_judiciales_footer:
-        -
-          value: notificacionesjudiciales@findeter.gov.co
-      field_pqr_footer:
-        -
-          value: 'Linea nacional gratuita: 01-8000-116622'
-      field_sede_principal_footer:
-        -
-          value: 'Calle 103 No. 19-20 Bogotá, Colombia'
-        -
-          value: 'Código Postal 110111'
-      field_twitter_icono_footer:
-        -
-          target_id: '32'
-          alt: imagen
-          title: ''
-          width: '24'
-          height: '24'
-      field_url_facebook_footer: {  }
-      field_url_flicker_footer: {  }
-      field_url_instagram_footer: {  }
-      field_url_likedin_footer: {  }
-      field_url_twitter_footer: {  }
-      field_url_youtube_footer: {  }
-      field_youtube_icono_footer:
-        -
-          target_id: '33'
-          alt: imagen
-          title: ''
-          width: '24'
-          height: '24'
-  -
-    info: 'Home [ Encabezado ]'
-    langcode: es
-    uuid: d46ab930-f240-4a88-8d55-c5edaacc8c85
-    bundle: encabezado_home
-    revision_id: null
-    rev_id_current: null
-    fields:
-      field_img_govco_encabezado_home:
-        -
-          target_id: '56'
-          alt: ''
-          title: ''
-          width: '190'
-          height: '35'
-      field_logo_encabezado_home:
-        -
-          target_id: '221'
-          alt: ''
-          title: ''
-          width: '64'
-          height: '64'
-  -
-    info: 'Producto y Servicios [ Home ]'
-    langcode: es
-    uuid: 81876647-a1d4-46af-8cf3-b1bedbdb31c5
-    bundle: productos_y_servicios_home_
-    revision_id: null
-    rev_id_current: null
-    fields:
-      field_nombre_de_la_seccion:
-        -
-          value: 'Conozca toda la oferta de productos y servicios que Findeter tiene para usted'
-      field_seccion_bloque:
-        -
-          target_id: '1'
-          target_revision_id: '1'
-        -
-          target_id: '2'
-          target_revision_id: '2'
-        -
-          target_id: '3'
-          target_revision_id: '3'
-        -
-          target_id: '4'
-          target_revision_id: '4'
-        -
-          target_id: '5'
-          target_revision_id: '5'
-  -
-    info: 'Noticias y Redes Sociales [ Home ]'
-    langcode: es
-    uuid: ac6a1f7d-9c89-428e-bb3f-3ec5dbf21125
-    bundle: noticias_redes_sociales_home
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body: {  }
-  -
-    info: 'Findeter en Cifras [ Home ]'
-    langcode: es
-    uuid: 20d0813c-5b6f-4dcd-8151-da78b1639aef
-    bundle: findeter_en_cifras_home
-    revision_id: null
-    rev_id_current: null
-    fields:
-      field_seccion_bloque_cifras:
-        -
-          target_id: '6'
-          target_revision_id: '6'
-        -
-          target_id: '7'
-          target_revision_id: '7'
-        -
-          target_id: '8'
-          target_revision_id: '8'
-        -
-          target_id: '9'
-          target_revision_id: '9'
-        -
-          target_id: '10'
-          target_revision_id: '10'
-      field_titulo_cifras:
-        -
-          value: 'Findeter en Cifras'
-  -
-    info: 'Casos de éxito [ Home ]'
-    langcode: es
-    uuid: d0a600db-44c3-4fc5-8ee1-93d9299a7276
-    bundle: casos_de_exito
-    revision_id: null
-    rev_id_current: null
-  -
-    info: 'Transparencia y acceso a la información publica [ Encabezado ]'
-    langcode: es
-    uuid: 2fc5ffea-d6cd-48f9-b30c-759489bd3d96
-    bundle: transparencia_acceso_informacion
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<p>Lo invitamos a ver los contenidos que hemos dispuesto para usted en esta sección, con el fin de permitirle acceder a información pública que genera la entidad, de acuerdo con lo establecido en la siguiente normatividad.</p>\r\n"
-          summary: ''
-          format: basic_html
-      field_img_fondo_transparencia:
-        -
-          target_id: '75'
-          alt: ''
-          title: ''
-          width: '1440'
-          height: '320'
-      field_leyes_transparencia:
-        -
-          value: 'Ley 1712 de 2014'
-        -
-          value: 'Decreto 103 de 2014'
-        -
-          value: 'Resolucion 3564 de 2015'
-        -
-          value: 'Directiva 026 de 2020'
-  -
-    info: 'Preguntas Frecuentes [ Encabezado ]'
-    langcode: es
-    uuid: b96fe7bd-33c9-4b7d-849a-7515c598cadb
-    bundle: preguntas_frecuentes
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body: {  }
-      field_img_fondo_preg_frecuentes:
-        -
-          target_id: '77'
-          alt: ''
-          title: ''
-          width: '1440'
-          height: '320'
-      field_titulo_preg_frecuentes:
-        -
-          value: 'Preguntas Frecuentes'
-  -
-    info: 'Convocatorias [ Encabezado ]'
-    langcode: es
-    uuid: 6699f94b-8e4f-4c82-b46b-49c63d21f502
-    bundle: convocatorias_encabezado
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body: {  }
-      field_convocatoria_img_fondo:
-        -
-          target_id: '91'
-          alt: ''
-          title: ''
-          width: '1440'
-          height: '320'
-      field_convocatoria_titulo:
-        -
-          value: Convocatorias
-  -
-    info: 'Noticias [ Encabezado ]'
-    langcode: es
-    uuid: a712eac5-4839-4f13-bf57-92cb1e5aee81
-    bundle: noticias_encabezado
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body: {  }
-      field_noticias_img_fondo:
-        -
-          target_id: '115'
-          alt: ''
-          title: ''
-          width: '1440'
-          height: '320'
-      field_noticias_titulo:
-        -
-          value: Noticias
-  -
-    info: 'Prosperity Fund [ Encabezado ]'
-    langcode: es
-    uuid: 992ef26e-7538-4427-bf44-b6ad1415ca6e
-    bundle: prosperity_fund_encabezado
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body: {  }
-      field_prosperity_img_fondo:
-        -
-          target_id: '125'
-          alt: ''
-          title: ''
-          width: '1440'
-          height: '320'
-      field_prosperity_titulo_defecto:
-        -
-          value: 'Convocatorias Prosperity Fund'
-  -
-    info: 'Glosario [ Encabezado ]'
-    langcode: es
-    uuid: 19d4a30e-d7f1-4cb1-bf30-204a35adc84b
-    bundle: glosario_encabezado
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body: {  }
-      field_glosario_img_fondo:
-        -
-          target_id: '138'
-          alt: ''
-          title: ''
-          width: '1440'
-          height: '320'
-      field_glosario_titulo_defecto:
-        -
-          value: Glosario
-  -
-    info: 'PQRSD [ Encabezado ]'
-    langcode: es
-    uuid: c2355d94-c32c-4d3f-9e76-0160b99f0a68
-    bundle: block_pqrs_encabezado
-    revision_id: null
-    rev_id_current: null
-    fields:
-      field_block_pqrs_img_encabezado:
-        -
-          target_id: '205'
-          alt: ''
-          title: ''
-          width: '1440'
-          height: '320'
-      field_pqrsd_titulo_defecto:
-        -
-          value: 'Peticiones, Quejas, Reclamos, Sugerencias y Denuncias'
-  -
-    info: 'Login [ Encabezado ]'
-    langcode: es
-    uuid: 1eec4e50-2846-420f-82f4-b3ae1574ee90
-    bundle: login_encabezado
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<p class=\"h4 text-center\">Datos ingreso al sistema de administración.</p>\r\n"
-          summary: ''
-          format: basic_html
-      field_login_img_fondo:
-        -
-          target_id: '215'
-          alt: ''
-          title: ''
-          width: '1440'
-          height: '320'
-      field_login_titulo_defecto:
-        -
-          value: Login
-  -
-    info: 'Seccion de video [ Blog ]'
-    langcode: es
-    uuid: cd6d77e1-840c-4150-b058-fafc5fa97c88
-    bundle: seccion_de_video_blog_
-    revision_id: null
-    rev_id_current: null
-    fields:
-      field_titulo_frase:
-        -
-          value: 'Somos el aliado del Gobierno Nacional y de los Entes Territoriales para sacar adelante proyectos que generen bienestar'
-      field_url_youtube:
-        -
-          target_id: '1'
-      field_url_youtube_video_blog:
-        -
-          value: 'https://www.youtube.com/watch?v=yxbCzsGB9Go&ab_channel=Findeter'
