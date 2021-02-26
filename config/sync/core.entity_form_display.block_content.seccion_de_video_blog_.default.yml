@@ -6,16 +6,16 @@ dependencies:
     - block_content.type.seccion_de_video_blog_
     - field.field.block_content.seccion_de_video_blog_.field_titulo_frase
     - field.field.block_content.seccion_de_video_blog_.field_url_youtube
+    - field.field.block_content.seccion_de_video_blog_.field_url_youtube_video_blog
   module:
     - field_group
-    - media_library
+    - video_embed_field
 third_party_settings:
   field_group:
     group_contenido_video_blog:
       children:
         - field_titulo_frase
-        - field_url_youtube_
-        - field_url_youtube
+        - field_url_youtube_video_blog
       parent_name: ''
       weight: 2
       format_type: details_sidebar
@@ -41,12 +41,11 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_url_youtube:
-    type: media_library_widget
-    weight: 4
-    settings:
-      media_types: {  }
+  field_url_youtube_video_blog:
+    weight: 5
+    settings: {  }
     third_party_settings: {  }
+    type: video_embed_field_textfield
     region: content
   info:
     type: string_textfield
@@ -63,4 +62,5 @@ content:
     settings:
       include_locked: true
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_url_youtube: true

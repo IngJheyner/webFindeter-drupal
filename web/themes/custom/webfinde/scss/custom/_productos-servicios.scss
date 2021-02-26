@@ -139,7 +139,7 @@ MEDIA QUERY
 @include media-query.media(xs) {
     section.productosServicios {
         .titulo {
-            a {
+            h1 {
                 width: 100%;
                 font-size: 1.5rem;
                 &::after {
@@ -208,6 +208,7 @@ MEDIA QUERY
         .titulo {
             h1 {
                 width: 100%;
+                font-size: 1.9rem;
             }
         }
         .grid-container {

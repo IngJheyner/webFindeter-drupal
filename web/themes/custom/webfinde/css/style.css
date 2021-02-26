@@ -1142,11 +1142,11 @@ MEDIA QUERY
 ============================== */
 /*MOVIL VERTICAL(sm 320px)*/
 @media (max-width: 575.98px) {
-  section.productosServicios .titulo a {
+  section.productosServicios .titulo h1 {
     width: 100%;
     font-size: 1.5rem;
   }
-  section.productosServicios .titulo a::after {
+  section.productosServicios .titulo h1::after {
     background-color: initial;
   }
   section.productosServicios .grid-container {
@@ -1205,6 +1205,7 @@ MEDIA QUERY
 @media (min-width: 768px) and (max-width: 991.98px) {
   section.productosServicios .titulo h1 {
     width: 100%;
+    font-size: 1.9rem;
   }
   section.productosServicios .grid-container {
     overflow-x: scroll;
@@ -1270,13 +1271,17 @@ NOTICIAS
 .sliderNoticiaHome div.slick ul li.grid h2 {
   font-size: 1rem;
 }
-.sliderNoticiaHome div.slick ul li.grid p.fecha {
+.sliderNoticiaHome div.slick ul li.grid a {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.sliderNoticiaHome div.slick ul li.grid .fecha {
   position: relative;
 }
-.sliderNoticiaHome div.slick ul li.grid p.fecha small {
+.sliderNoticiaHome div.slick ul li.grid .fecha small {
   margin-left: 1.5rem;
 }
-.sliderNoticiaHome div.slick ul li.grid p.fecha::before {
+.sliderNoticiaHome div.slick ul li.grid .fecha::before {
   position: absolute;
   content: "";
   background: url("/themes/custom/webfinde/images/iconos/iconoFecha.png") no-repeat;
@@ -1289,12 +1294,11 @@ NOTICIAS
 .sliderNoticiaHome div.slick ul li.grid:nth-child(1) img {
   margin-bottom: 1em;
 }
-.sliderNoticiaHome div.slick ul li.grid:nth-child(1) a {
-  font-weight: bold;
-  font-size: 1.1rem;
-}
 .sliderNoticiaHome div.slick ul li:nth-child(n+2).grid .grid__content .slide__caption {
   padding: 0;
+}
+.sliderNoticiaHome div.slick ul li:nth-child(n+2).grid .grid__content .slide__caption p.resumen {
+  font-size: 0.8rem;
 }
 .sliderNoticiaHome div.slick ul li:nth-child(n+2) img {
   display: none;
@@ -1302,17 +1306,26 @@ NOTICIAS
 .sliderNoticiaHome div.slick ul li:nth-child(n+2).grid .grid__content .slide__caption {
   padding: 0;
 }
-.sliderNoticiaHome div.slick ul li:nth-child(n+2) img {
-  display: none;
-}
-.sliderNoticiaHome div.slick ul li:nth-child(n+2).grid .grid__content .slide__caption {
-  padding: 0;
+.sliderNoticiaHome div.slick ul li:nth-child(n+2).grid .grid__content .slide__caption p.resumen {
+  font-size: 0.8rem;
 }
 .sliderNoticiaHome div.slick ul li:nth-child(n+2) img {
   display: none;
 }
 .sliderNoticiaHome div.slick ul li:nth-child(n+2).grid .grid__content .slide__caption {
   padding: 0;
+}
+.sliderNoticiaHome div.slick ul li:nth-child(n+2).grid .grid__content .slide__caption p.resumen {
+  font-size: 0.8rem;
+}
+.sliderNoticiaHome div.slick ul li:nth-child(n+2) img {
+  display: none;
+}
+.sliderNoticiaHome div.slick ul li:nth-child(n+2).grid .grid__content .slide__caption {
+  padding: 0;
+}
+.sliderNoticiaHome div.slick ul li:nth-child(n+2).grid .grid__content .slide__caption p.resumen {
+  font-size: 0.8rem;
 }
 .sliderNoticiaHome div.slick ul li:nth-child(n+2) img {
   display: none;
@@ -1338,7 +1351,8 @@ NOTICIAS
   height: 48px;
   width: 48px;
 }
-.sliderNoticiaHome div.slick nav.slick__arrow .slick-prev:before, .sliderNoticiaHome div.slick nav.slick__arrow .slick-next:before {
+.sliderNoticiaHome div.slick nav.slick__arrow .slick-prev:before,
+.sliderNoticiaHome div.slick nav.slick__arrow .slick-next:before {
   font-family: initial !important;
 }
 .sliderNoticiaHome div.slick nav.slick__arrow .slick-prev:before {
@@ -1835,7 +1849,12 @@ MEDIA QUERY
     font-size: 1.5rem;
   }
   div.casosExito .slideCasoExito ul.slide__content li div.contenidoSlider p {
+    position: absolute;
+    top: 2rem;
     right: 3rem;
+    width: 50%;
+    font-weight: bold;
+    font-size: 1.1rem;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
@@ -1844,7 +1863,12 @@ MEDIA QUERY
     width: 100%;
   }
   div.casosExito .slideCasoExito ul.slide__content li div.contenidoSlider p {
+    position: absolute;
+    top: 2rem;
     right: 3rem;
+    width: 50%;
+    font-weight: bold;
+    font-size: 1.1rem;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/

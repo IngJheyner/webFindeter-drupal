@@ -6,8 +6,10 @@ dependencies:
     - block_content.type.seccion_de_video_blog_
     - field.field.block_content.seccion_de_video_blog_.field_titulo_frase
     - field.field.block_content.seccion_de_video_blog_.field_url_youtube
+    - field.field.block_content.seccion_de_video_blog_.field_url_youtube_video_blog
   module:
     - field_formatter_class
+    - video_embed_field
 id: block_content.seccion_de_video_blog_.default
 targetEntityType: block_content
 bundle: seccion_de_video_blog_
@@ -31,6 +33,19 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
+    region: content
+  field_url_youtube_video_blog:
+    weight: 4
+    label: hidden
+    settings:
+      responsive: true
+      width: 854
+      height: 480
+      autoplay: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: video_embed_field_video
     region: content
 hidden:
   langcode: true

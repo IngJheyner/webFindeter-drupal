@@ -1,21 +1,20 @@
-uuid: b1a8f00e-26e9-4d90-949f-89ccbd8af5c6
+uuid: 9778a4c9-4ac2-4d3b-9190-26ccd670da61
 langcode: es
 status: true
 dependencies:
   module:
     - block_content
     - field_permissions
-    - media
+    - video_embed_field
 third_party_settings:
   field_permissions:
     permission_type: public
-id: block_content.field_url_youtube
-field_name: field_url_youtube
+id: block_content.field_url_youtube_video_blog
+field_name: field_url_youtube_video_blog
 entity_type: block_content
-type: entity_reference
-settings:
-  target_type: media
-module: core
+type: video_embed_field
+settings: {  }
+module: video_embed_field
 locked: false
 cardinality: 1
 translatable: true
