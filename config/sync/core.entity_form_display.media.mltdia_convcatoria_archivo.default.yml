@@ -3,6 +3,7 @@ langcode: es
 status: true
 dependencies:
   config:
+    - field.field.media.mltdia_convcatoria_archivo.feeds_item
     - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_mltdia_editar
     - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_muldia_fecha
     - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_ruta_archivo
@@ -80,6 +81,7 @@ content:
       display_label: true
     third_party_settings: {  }
 hidden:
+  feeds_item: true
   field_convcatoria_mltdia_editar: true
   field_convcatoria_muldia_fecha: true
   langcode: true
