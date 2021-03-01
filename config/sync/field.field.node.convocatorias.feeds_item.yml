@@ -1,0 +1,23 @@
+uuid: ace6d703-c54c-45be-9a39-c0480527ae57
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.convocatorias
+  module:
+    - feeds
+id: node.convocatorias.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: convocatorias
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.convocatorias_archivos
+    - field.field.media.mltdia_convcatoria_archivo.feeds_item
     - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_mltdia_editar
     - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_muldia_fecha
     - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_ruta_archivo
@@ -54,6 +55,7 @@ content:
     third_party_settings: {  }
 hidden:
   addtoany: true
+  feeds_item: true
   field_convcatoria_mltdia_editar: true
   field_convcatoria_muldia_fecha: true
   field_convcatoria_ruta_archivo: true
