@@ -41,7 +41,9 @@
         {
             $convocatoria = explode("@", end(explode("/", $file)))[0];
             //var_dump($path);
-            $name_file = explode("@", $file)[1]; 
+            //$name_file = explode("@", $file)[1]; 
+            $name_file = end(explode("/", $file));
+            //var_dump($name_file);exit();
             $origen = $file;
             $destino = $path.$convocatoria;
 
@@ -50,7 +52,7 @@
 
     }    
 
-    $archivos_pdf = cantidad_archivos($ruta, 'xlsx');
+    $archivos_pdf = cantidad_archivos($ruta, 'pdf');
 
     echo traslation_files($archivos_pdf, $ruta);
 

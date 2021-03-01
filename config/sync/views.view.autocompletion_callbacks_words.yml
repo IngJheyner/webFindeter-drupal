@@ -396,7 +396,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if body != \"\" %} <div class=\"body\">{{ body }}</div> {% endif %}\r\n{% if field_convcatoria_objeto != \"\" %} <div class=\"objeto\">{{ field_convcatoria_objeto }}</div> {% endif %}\r\n<div class=\"fecha\"><i class=\"fas fa-calendar\"></i> {{ created }}</div>"
+            text: "{% if body != \"\" %} <div class=\"body w-75\">{{ body }}</div> {% endif %}\r\n{% if field_convcatoria_objeto != \"\" %} <div class=\"objeto w-75\">{{ field_convcatoria_objeto }}</div> {% endif %}\r\n<div class=\"fecha\"><i class=\"fas fa-calendar\"></i> {{ created }}</div>"
             make_link: false
             path: ''
             absolute: false
