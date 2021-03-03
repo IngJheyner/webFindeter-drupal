@@ -54,32 +54,7 @@ div.findeterCifras{
 
                     padding:  0 1rem;
                 }
-                
-                div.flip{
-                    position: relative;
-                    transition: all 1.5s ease;
-                    -webkit-transition: 1.5s;
-                    -moz-transition: 1.5s;
-                    -ms-transition: 1.5s;
-                    -o-transition: 1.5s;
-                    transform: perspective(600px);
-                    transform-origin: 100% 50%;
-                    transform-style: preserve-3d;
-                }
 
-                
-                /*div.flip:hover{
-                    transform: perspective(600px) rotateY(-180deg) translateX(100%);
-                }
-
-                .flip .flip-1,
-                .flip .flip-2{
-                    position: absolute;
-                    backface-visibility: hidden;
-                }
-                .flip .flip-2{
-                    transform: rotateY(-180deg);
-                }*/
 
                 .flip-card {
                     background-color: transparent;
@@ -123,8 +98,6 @@ div.findeterCifras{
                     color: white;
                     transform: rotateY(180deg);
                   }
-
-                
                
             }
         }

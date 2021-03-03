@@ -52,7 +52,7 @@
 
     }    
 
-    $archivos_pdf = cantidad_archivos($ruta, 'pdf');
+    $archivos_pdf = cantidad_archivos($ruta, 'Dwg');
 
     echo traslation_files($archivos_pdf, $ruta);
 
