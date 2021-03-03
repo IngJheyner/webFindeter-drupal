@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.convocatorias.field_convcatoria_contratacion
     - field.field.node.convocatorias.field_convcatoria_departamento
     - field.field.node.convocatorias.field_convcatoria_email_proceso
+    - field.field.node.convocatorias.field_convcatoria_estado
     - field.field.node.convocatorias.field_convcatoria_forma_pago
     - field.field.node.convocatorias.field_convcatoria_moneda
     - field.field.node.convocatorias.field_convcatoria_objeto
@@ -23,7 +24,7 @@ third_party_settings:
   feeds_tamper:
     tampers:
       a83757e6-3312-4d65-9f57-582cf7e13300:
-        separator: ','
+        separator: '~'
         limit: null
         plugin: explode
         source: field_convcatoria_archivos
@@ -31,7 +32,7 @@ third_party_settings:
         label: Explode
         uuid: a83757e6-3312-4d65-9f57-582cf7e13300
       fe2d06bc-9f2f-4a8e-963a-1f753cc4129e:
-        separator: ','
+        separator: '-'
         limit: null
         plugin: explode
         source: field_convcatoria_departamento
@@ -121,6 +122,10 @@ custom_sources:
     label: field_convcatoria_departamento
     value: field_convcatoria_departamento
     machine_name: field_convcatoria_departamento
+  field_convcatoria_estado:
+    label: field_convcatoria_estado
+    value: field_convcatoria_estado
+    machine_name: field_convcatoria_estado
 mappings:
   -
     target: title
@@ -223,3 +228,9 @@ mappings:
       language: null
       reference_by: name
       autocreate: false
+  -
+    target: field_convcatoria_estado
+    map:
+      value: field_convcatoria_estado
+    settings:
+      language: null
