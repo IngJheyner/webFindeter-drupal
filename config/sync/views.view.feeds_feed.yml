@@ -1,5 +1,5 @@
-uuid: 452d3887-8d08-4b34-8cbd-7dfde8cfef4c
-langcode: es
+uuid: e9c67127-d868-4c3b-b715-0b5008f6a6b9
+langcode: en
 status: true
 dependencies:
   config:
@@ -10,7 +10,7 @@ dependencies:
 _core:
   default_config_hash: qEFCGJZmfPO8q5G05QiqwLQcMxrQ7PaLQMmF3nt3iMY
 id: feeds_feed
-label: 'Canales de noticias'
+label: Feeds
 module: views
 description: ''
 tag: ''
@@ -672,7 +672,7 @@ display:
           entity_type: feeds_feed
           entity_field: changed
           plugin_id: date
-      title: 'Canales de noticias'
+      title: Feeds
       header: {  }
       footer: {  }
       empty:
@@ -723,7 +723,7 @@ display:
       path: admin/content/feed
       menu:
         type: normal
-        title: 'Canales de noticias'
+        title: Feeds
         description: ''
         expanded: false
         parent: system.admin_content

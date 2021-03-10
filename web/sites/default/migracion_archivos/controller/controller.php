@@ -39,10 +39,11 @@
     {
         foreach($files as $file)
         {
-            $convocatoria = explode("@", end(explode("/", $file)))[0];
+            $exp = explode("/", $file);
+            $convocatoria = explode("@", end($exp))[0];
             //var_dump($path);
-            //$name_file = explode("@", $file)[1]; 
-            $name_file = end(explode("/", $file));
+            $name_file = explode("/", $file); 
+            $name_file = end($name_file);
             //var_dump($name_file);exit();
             $origen = $file;
             $destino = $path.$convocatoria;
@@ -52,7 +53,7 @@
 
     }    
 
-    $archivos_pdf = cantidad_archivos($ruta, 'pdf');
+    $archivos_pdf = cantidad_archivos($ruta, 'pptx');
 
     echo traslation_files($archivos_pdf, $ruta);
 
