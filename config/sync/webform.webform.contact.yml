@@ -117,13 +117,16 @@ settings:
   draft_loaded_message: ''
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
-  confirmation_type: url_message
-  confirmation_title: ''
-  confirmation_message: 'Your message has been sent.'
+  confirmation_type: inline
+  confirmation_title: Mensaje.
+  confirmation_message: "<span style=\"font-size:11pt\"><span style=\"line-height:107%\"><span style=\"font-family:Calibri,sans-serif\">Gracias por comentar en nuestra p&aacute;gina web, tu inquietud o mensaje ser&aacute; respondido en los pr&oacute;ximos d&iacute;as.</span></span></span><br />\r\n&nbsp;"
   confirmation_url: '<front>'
-  confirmation_attributes: {  }
+  confirmation_attributes:
+    class:
+      - 'messages messages--status'
+      - mt-4
   confirmation_back: true
-  confirmation_back_label: ''
+  confirmation_back_label: 'Enviar otro comentario.'
   confirmation_back_attributes: {  }
   confirmation_exclude_query: false
   confirmation_exclude_token: false
@@ -229,7 +232,7 @@ handlers:
       twig: false
       theme_name: ''
       parameters: {  }
-      debug: true
+      debug: false
       reply_to: ''
       return_path: ''
       sender_mail: ''
@@ -266,7 +269,7 @@ handlers:
       twig: false
       theme_name: ''
       parameters: {  }
-      debug: true
+      debug: false
       reply_to: ''
       return_path: ''
       sender_mail: ''
