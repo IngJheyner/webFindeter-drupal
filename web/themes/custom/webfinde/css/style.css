@@ -1617,18 +1617,6 @@ div.findeterCifras div.grid-container .grid-item div.contenido {
       transform: rotateY(180deg);
       transform-style: preserve-3d;
   }*/
-  /*div.flip:hover{
-      transform: perspective(600px) rotateY(-180deg) translateX(100%);
-  }
-
-  .flip .flip-1,
-  .flip .flip-2{
-      position: absolute;
-      backface-visibility: hidden;
-  }
-  .flip .flip-2{
-      transform: rotateY(-180deg);
-  }*/
   /* This container is needed to position the front and back side */
   /* Do an horizontal flip when you move the mouse over the flip box container */
   /* Position the front and back side */
@@ -1640,17 +1628,6 @@ div.findeterCifras div.grid-container .grid-item div.contenido div.cifra {
 }
 div.findeterCifras div.grid-container .grid-item div.contenido div.descripcion {
   padding: 0 1rem;
-}
-div.findeterCifras div.grid-container .grid-item div.contenido div.flip {
-  position: relative;
-  transition: all 1.5s ease;
-  -webkit-transition: 1.5s;
-  -moz-transition: 1.5s;
-  -ms-transition: 1.5s;
-  -o-transition: 1.5s;
-  transform: perspective(600px);
-  transform-origin: 100% 50%;
-  transform-style: preserve-3d;
 }
 div.findeterCifras div.grid-container .grid-item div.contenido .flip-card {
   background-color: transparent;
