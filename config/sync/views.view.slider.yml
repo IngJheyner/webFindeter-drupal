@@ -1554,10 +1554,10 @@ display:
           skin_thumbnail: ''
           thumbnail_position: ''
           thumbnail_caption: ''
-          grid: 4
-          grid_medium: 4
-          grid_small: 4
-          visible_items: 4
+          grid: 3
+          grid_medium: 3
+          grid_small: 3
+          visible_items: 3
           preserve_keys: false
           image: ''
           thumbnail: ''
@@ -2041,7 +2041,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ view_node }}\"><img src=\"{{ field_img_noticia_home }}\" class=\"img-fluid\"></a>\r\n<a href=\"#\">{{ field_tipo_noticia }}</a><br>\r\n<a href=\"{{ view_node }}\" class=\"text-dark\">{{ title }}</a>\r\n<p class=\"resumen\">{{ body }}</p>\r\n<p class=\"fecha\"><small class=\"text-muted\">{{ created }}</small></p>"
+            text: "<a href=\"{{ view_node }}\"><img src=\"{{ field_img_noticia_home }}\" class=\"img-fluid\"></a>\r\n{#<a href=\"#\">{{ field_tipo_noticia }}</a><br>#}\r\n<a href=\"{{ view_node }}\" class=\"text-dark\">{{ title }}</a>\r\n<p class=\"resumen\">{{ body }}</p>\r\n<p class=\"fecha\"><small class=\"text-muted\">{{ created }}</small></p>"
             make_link: false
             path: ''
             absolute: false

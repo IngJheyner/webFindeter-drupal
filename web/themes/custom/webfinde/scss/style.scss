@@ -22,35 +22,40 @@ ESTILOS GLOBALES
     font-family: 'Roboto', sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: var.$color-secundario;
-    font-weight: 400;
-    margin: 0;
-}
-
-a {
-    color: var.$color-secundario;
-    &:visited,
-    &:link,
-    &:focus,
-    &:hover,
-    &:active {
-        list-style: none;
-        text-decoration: none;
+main {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var.$color-secundario;
+        font-weight: 400;
+        margin: 0;
     }
-}
-
-p {
-    margin: 0;
-}
-
-table {
-    position: relative;
+    a {
+        font-size: 1.34rem;
+        color: var.$color-secundario;
+        &:visited,
+        &:link,
+        &:focus,
+        &:hover,
+        &:active {
+            list-style: none;
+            text-decoration: none;
+        }
+    }
+    p {
+        margin: 0;
+        font-size: 1.34rem;
+    }
+    em,
+    ul {
+        font-size: 1.34rem;
+    }
+    table {
+        position: relative;
+    }
 }
 
 
