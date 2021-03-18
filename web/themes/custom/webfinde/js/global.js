@@ -531,11 +531,8 @@
 
             const body = document.querySelector("body");
             body.appendChild(divmodal);
-            document.querySelector("#botonmodalcon").click();
-
+            /*document.querySelector("#botonmodalcon").click();*/
         }
-
-        //windows
 
         /** Fin modal */
     });
