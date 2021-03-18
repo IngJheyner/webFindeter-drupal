@@ -806,16 +806,16 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
+            strip_tags: true
             trim: true
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: '0'
           element_class: ''
-          element_label_type: ''
+          element_label_type: '0'
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
+          element_wrapper_type: '0'
           element_wrapper_class: ''
           element_default_classes: false
           empty: ''
@@ -1031,7 +1031,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ view_node }}\"><img src=\"{{ field_imagen }}\" class=\"img-fluid\"></a>\r\n\r\n<p class=\"text-center mx-auto my-3 font-weight-bold titulo\">{{ title  }}</p>\r\n\r\n<a href=\"{{ view_node }}\" class=\"text-dark font-weight-bold\">{{ body }}</a>\r\n\r\n<div class=\"text-center mx-auto my-3\">\r\n<p class=\"text-muted d-inline-block\">{{ created }}</p>\r\n\r\n</div>\r\n"
+            text: "<a href=\"{{ view_node }}\"><img src=\"{{ field_imagen }}\" class=\"img-fluid\"></a>\r\n\r\n<p class=\"text-center mx-auto my-3 font-weight-bold titulo\">{{ title  }}</p>\r\n\r\n<a href=\"{{ view_node }}\" class=\"text-dark font-weight-bold\">{{ body }}</a>\r\n\r\n<div class=\"text-center mx-auto my-3\">\r\n<small class=\"text-muted d-inline-block\">{{ created }}</small>\r\n\r\n</div>\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -1341,16 +1341,16 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
+            strip_tags: true
             trim: true
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: '0'
           element_class: ''
-          element_label_type: ''
+          element_label_type: '0'
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
+          element_wrapper_type: '0'
           element_wrapper_class: ''
           element_default_classes: false
           empty: ''
@@ -1566,7 +1566,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ view_node }}\"><img src=\"{{ field_imagen }}\" class=\"img-fluid\"></a>\r\n\r\n<p class=\"text-center mx-auto my-3 font-weight-bold titulo\">{{ title  }}</p>\r\n\r\n<a href=\"{{ view_node }}\" class=\"text-dark font-weight-bold\">{{ body }}</a>\r\n\r\n<div class=\"text-center mx-auto my-3\">\r\n<p class=\"text-muted d-inline-block\">{{ created }}</p>\r\n</div>"
+            text: "<a href=\"{{ view_node }}\"><img src=\"{{ field_imagen }}\" class=\"img-fluid\"></a>\r\n\r\n<p class=\"text-center mx-auto my-3 font-weight-bold titulo\">{{ title  }}</p>\r\n\r\n<a href=\"{{ view_node }}\" class=\"text-dark font-weight-bold\">{{ body }}</a>\r\n\r\n<div class=\"text-center mx-auto my-3\">\r\n<small class=\"text-muted d-inline-block\">{{ created }}</small>\r\n</div>"
             make_link: false
             path: ''
             absolute: false

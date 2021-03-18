@@ -55,6 +55,14 @@ ESTILOS GLOBALES
   font-family: "Roboto", sans-serif;
 }
 
+a {
+  color: #296294;
+}
+a:visited, a:link, a:focus, a:hover, a:active {
+  list-style: none;
+  text-decoration: none;
+}
+
 main h1,
 main h2,
 main h3,
@@ -65,21 +73,14 @@ main h6 {
   font-weight: 400;
   margin: 0;
 }
-main a {
-  font-size: 1.34rem;
-  color: #296294;
-}
-main a:visited, main a:link, main a:focus, main a:hover, main a:active {
-  list-style: none;
-  text-decoration: none;
-}
 main p {
   margin: 0;
   font-size: 1.34rem;
 }
-main em,
-main ul {
-  font-size: 1.34rem;
+main ul,
+main ol,
+main em {
+  word-spacing: 0.7rem;
 }
 main table {
   position: relative;
@@ -237,6 +238,8 @@ COLORES
 #block-menu-principal ul.sf-style-none li.sf-depth-1 a {
   color: white;
   padding: 1.2em 1em;
+  text-decoration: none;
+  list-style: none;
 }
 #block-menu-principal ul.sf-style-none li.sf-depth-1 ul li a,
 #block-menu-principal ul.sf-style-none li.sf-depth-1 ul li span {
@@ -716,6 +719,7 @@ form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li a,
 form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li span {
   color: black;
   display: block;
+  font-size: 1rem;
 }
 form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(1) span.icon::before {
   content: url("/themes/custom/webfinde/images/iconos/Acceso-Directo/ER_convocatorias.png");
@@ -1007,6 +1011,9 @@ VENTANA MODAL PRODUCTOS Y SERVICIOS
   max-width: 60%;
   color: white;
 }
+#modalProductosServicios .modal-dialog .modal-content .modal-body div.descripcion p {
+  font-size: 1rem;
+}
 #modalProductosServicios .modal-dialog .modal-content .modal-body button.close {
   color: white;
   font-size: 2.5rem;
@@ -1271,6 +1278,9 @@ NOTICIAS
 .sliderNoticiaHome div.slick ul li.grid .grid__content .slide__caption {
   padding: 0;
 }
+.sliderNoticiaHome div.slick ul li.grid .grid__content .slide__caption p {
+  font-size: 1rem;
+}
 .sliderNoticiaHome div.slick ul li.grid h2 {
   font-size: 1rem;
 }
@@ -1392,6 +1402,7 @@ div.redeSociales ul.nav-tabs li {
 div.redeSociales ul.nav-tabs li a.nav-link {
   border: 1px solid #e5e5e5;
   padding-left: 2rem;
+  font-size: 1rem;
 }
 div.redeSociales ul.nav-tabs li a.nav-link.active {
   border-color: #112d6a #dee2e6 #fff !important;
@@ -1621,6 +1632,9 @@ div.findeterCifras div.grid-container .grid-item div.contenido div.cifra {
 div.findeterCifras div.grid-container .grid-item div.contenido div.descripcion {
   padding: 0 1rem;
 }
+div.findeterCifras div.grid-container .grid-item div.contenido div.descripcion p {
+  font-size: 1rem;
+}
 div.findeterCifras div.grid-container .grid-item div.contenido .flip-card {
   background-color: transparent;
   height: 100px;
@@ -1638,7 +1652,8 @@ div.findeterCifras div.grid-container .grid-item div.contenido .flip-card-inner 
 div.findeterCifras div.grid-container .grid-item div.contenido .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
-div.findeterCifras div.grid-container .grid-item div.contenido .flip-card-front, div.findeterCifras div.grid-container .grid-item div.contenido .flip-card-back {
+div.findeterCifras div.grid-container .grid-item div.contenido .flip-card-front,
+div.findeterCifras div.grid-container .grid-item div.contenido .flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -1661,10 +1676,12 @@ MEDIA QUERY
 ============================== */
 /*MOVIL VERTICAL(sm 320px)*/
 @media (max-width: 575.98px) {
-  div.findeterCifras div.titulo > h1, div.findeterCifras h2 {
+  div.findeterCifras div.titulo > h1,
+div.findeterCifras h2 {
     font-size: 1.5rem;
   }
-  div.findeterCifras div.titulo > h1::after, div.findeterCifras h2::after {
+  div.findeterCifras div.titulo > h1::after,
+div.findeterCifras h2::after {
     background-color: initial;
   }
   div.findeterCifras div.grid-container {

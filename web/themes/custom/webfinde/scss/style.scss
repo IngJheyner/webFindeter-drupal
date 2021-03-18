@@ -22,6 +22,19 @@ ESTILOS GLOBALES
     font-family: 'Roboto', sans-serif;
 }
 
+a {
+    //font-size: 1.34rem;
+    color: var.$color-secundario;
+    &:visited,
+    &:link,
+    &:focus,
+    &:hover,
+    &:active {
+        list-style: none;
+        text-decoration: none;
+    }
+}
+
 main {
     h1,
     h2,
@@ -33,25 +46,14 @@ main {
         font-weight: 400;
         margin: 0;
     }
-    a {
-        font-size: 1.34rem;
-        color: var.$color-secundario;
-        &:visited,
-        &:link,
-        &:focus,
-        &:hover,
-        &:active {
-            list-style: none;
-            text-decoration: none;
-        }
-    }
     p {
         margin: 0;
         font-size: 1.34rem;
     }
-    em,
-    ul {
-        font-size: 1.34rem;
+    ul,
+    ol,
+    em {
+        word-spacing: 0.7rem;
     }
     table {
         position: relative;
