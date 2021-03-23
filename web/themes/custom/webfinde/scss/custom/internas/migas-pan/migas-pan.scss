@@ -1,18 +1,17 @@
 @use '../../../mixins/media-query' as media-query;
+nav#breadcrumb ol {
+    font-size: 1rem;
+}
 
-@include media-query.media(xs){
-
-    nav#breadcrumb{
-
-        ol{
+@include media-query.media(xs) {
+    nav#breadcrumb {
+        ol {
             display: block !important;
-
-            li{
+            font-size: 1rem;
+            li {
                 display: block;
                 padding-left: 0;
-
-                &::before{
-
+                &::before {
                     content: ' ';
                     display: block;
                 }
@@ -21,11 +20,9 @@
     }
 }
 
-@include media-query.media(sm){
-
-    nav#breadcrumb{
-
-        ol{
+@include media-query.media(sm) {
+    nav#breadcrumb {
+        ol {
             display: block !important;
         }
     }

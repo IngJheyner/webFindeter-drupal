@@ -6,9 +6,59 @@ dependencies:
     - block_content.type.basic
     - field.field.block_content.basic.body
     - field.field.block_content.basic.field_enlace_block
+    - field.field.block_content.basic.field_imagen_basico
+    - image.style.thumbnail
   module:
+    - field_group
     - link
+    - svg_image
     - text
+third_party_settings:
+  field_group:
+    group_grupo:
+      children:
+        - group_inform
+        - group_contenido
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      region: content
+      format_settings:
+        direction: vertical
+        id: ''
+        classes: ''
+      label: Grupo
+    group_inform:
+      children:
+        - info
+        - langcode
+      parent_name: group_grupo
+      weight: 20
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Información
+    group_contenido:
+      children:
+        - body
+        - field_enlace_block
+        - field_imagen_basico
+      parent_name: group_grupo
+      weight: 21
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Contenido
 _core:
   default_config_hash: jAps3FCxvKecABS_tgExbhCZrBLQB3bNPWw18WjE3ss
 id: block_content.basic.default
@@ -18,7 +68,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: -4
+    weight: 2
     region: content
     settings:
       rows: 9
@@ -27,16 +77,24 @@ content:
       show_summary: false
     third_party_settings: {  }
   field_enlace_block:
-    weight: 26
+    weight: 3
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
     region: content
+  field_imagen_basico:
+    weight: 4
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
   info:
     type: string_textfield
-    weight: -5
+    weight: 1
     region: content
     settings:
       size: 60

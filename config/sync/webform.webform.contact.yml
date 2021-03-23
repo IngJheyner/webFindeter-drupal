@@ -15,7 +15,7 @@ template: false
 archive: false
 id: contact
 title: 'Formulario de Contacto'
-description: 'Basic email contact webform.'
+description: '<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Formulario web b&aacute;sico de contacto por correo electr&oacute;nico.</font></font>'
 category: ''
 elements: "titulo_parrafo:\n  '#type': webform_markup\n  '#markup': |\n    <h4>Su opini&oacute;n es importante para nosotros</h4>\n    &nbsp;\n    \n    <p>Perm&iacute;tanos conocer sus comentarios acerca de cualquier tema relacionado con nuestra organizaci&oacute;n.</p>\n    \nemail:\n  '#type': email\n  '#title': 'Correo electrónico'\n  '#title_display': before\n  '#placeholder': mail@dominio.com\n  '#required': true\n  '#default_value': '[current-user:mail]'\n  '#label_attributes':\n    class:\n      - font-weight-bold\nsubject:\n  '#type': textfield\n  '#title': Asunto\n  '#title_display': before\n  '#placeholder': Asunto\n  '#required': true\n  '#label_attributes':\n    class:\n      - font-weight-bold\n  '#test': 'Testing contact webform from [site:name]'\nmessage:\n  '#type': textarea\n  '#title': Mensaje\n  '#title_display': before\n  '#placeholder': Mensaje\n  '#required': true\n  '#label_attributes':\n    class:\n      - font-weight-bold\n  '#test': 'Please ignore this email.'\ncheck_contactenos_form_acepta_terminos_y_condiciones:\n  '#type': checkbox\n  '#title': 'Acepto términos y condiciones'\n  '#required': true\n  '#required_error': 'Debe aceptar los términos y condiciones'\n  '#attributes':\n    style: 'font-size:5px'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': Enviar\n  '#submit__attributes':\n    style: 'background-color: #2d549d !important;'"
 css: ''
@@ -26,10 +26,10 @@ settings:
   ajax_progress_type: ''
   ajax_effect: ''
   ajax_speed: null
-  page: true
+  page: false
   page_submit_path: ''
   page_confirm_path: ''
-  page_theme_name: webfinde
+  page_theme_name: ''
   form_title: source_entity_webform
   form_submit_once: false
   form_exception_message: ''

@@ -79,8 +79,9 @@ main p {
 }
 main ul,
 main ol,
-main em {
-  word-spacing: 0.7rem;
+main em,
+main strong {
+  font-size: 1.34rem;
 }
 main table {
   position: relative;
@@ -1886,6 +1887,9 @@ div.contactenos div.titulo h1::after {
   top: 1.6em;
   left: 0;
 }
+div.contactenos form p {
+  font-size: 1rem;
+}
 div.contactenos form input[type=submit] {
   width: 100%;
 }
@@ -1909,6 +1913,9 @@ div.suscribirseHome form input[type=submit] {
 }
 div.suscribirseHome div.terminosPoliticas > p > a {
   color: #CDDC4B;
+}
+div.suscribirseHome p {
+  font-size: 1rem;
 }
 
 /* ==============================
@@ -3003,10 +3010,15 @@ MEDIA QUERY
 INTERNAS
 ============================== */
 /* ===== ===== MIGAS DE PAN ===== ===== */
+nav#breadcrumb ol {
+  font-size: 1rem;
+}
+
 /*MOVIL VERTICAL(sm 320px)*/
 @media (max-width: 575.98px) {
   nav#breadcrumb ol {
     display: block !important;
+    font-size: 1rem;
   }
   nav#breadcrumb ol li {
     display: block;
