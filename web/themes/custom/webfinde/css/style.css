@@ -3340,7 +3340,8 @@ div.convocatoriaCiudadano form div.form--inline {
   background-color: #112d6a;
   color: white;
 }
-div.convocatoriaCiudadano form div.form--inline div.form-item-title, div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-objeto-value {
+div.convocatoriaCiudadano form div.form--inline div.form-item-title,
+div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-objeto-value {
   width: 100% !important;
 }
 div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-departamento-target-id {
@@ -3358,6 +3359,9 @@ div.convocatoriaCiudadano table:nth-child(2) tbody tr > td:nth-child(1) a {
 }
 div.convocatoriaCiudadano table:nth-child(2) tbody tr > td:nth-child(1) a:hover {
   text-decoration: underline;
+}
+div.convocatoriaCiudadano table:nth-child(2) tbody tr td div.item-list ul {
+  font-size: 1rem;
 }
 
 div.convocatoriaUltimasActualizaciones table:nth-child(2) tbody tr > td:nth-child(1) a {
@@ -3588,6 +3592,39 @@ div.encabezadoPqrsd div.encabezado h1.tituloEncabezado {
 
 div.encabezadoPqrsd div.encabezado h1.tituloEncabezado {
   font-size: 2.5rem;
+}
+
+/* ===== ===== WEBFORM ===== ===== */
+div.form-lading-page > button {
+  position: fixed;
+  right: 0;
+  top: 28%;
+  transform: translate(0, 30%);
+  background: #296294;
+  padding: 1em;
+  width: 4.8em;
+}
+div.form-lading-page form {
+  /* ===== ===== Contaores de caracteres nombre, apellido ===== ===== */
+  /* ===== ===== Celular ===== ===== */
+  /* ===== ===== Depto plugin select2 ===== ===== */
+}
+div.form-lading-page form div.text-count-wrapper {
+  display: none !important;
+}
+div.form-lading-page form div.iti {
+  display: block;
+}
+div.form-lading-page form span.select2 > span.selection > span.select2-selection--single {
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #112d6a !important;
+  font-weight: 400;
+  line-height: 1.5;
+  background-clip: padding-box;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 /*# sourceMappingURL=style.css.map */

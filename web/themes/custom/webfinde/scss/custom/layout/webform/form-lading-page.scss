@@ -1,0 +1,33 @@
+div.form-lading-page {
+    >button {
+        position: fixed;
+        right: 0;
+        top: 28%;
+        transform: translate(0, 30%);
+        background: #296294;
+        padding: 1em;
+        width: 4.8em;
+    }
+    form {
+        /* ===== ===== Contaores de caracteres nombre, apellido ===== ===== */
+        div.text-count-wrapper {
+            display: none !important;
+        }
+        /* ===== ===== Celular ===== ===== */
+        div.iti {
+            display: block;
+        }
+        /* ===== ===== Depto plugin select2 ===== ===== */
+        span.select2>span.selection>span.select2-selection--single {
+            width: 100%;
+            height: calc(1.5em + .75rem + 2px);
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            border: 1px solid #112d6a !important;
+            font-weight: 400;
+            line-height: 1.5;
+            background-clip: padding-box;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+    }
+}
