@@ -2,18 +2,14 @@
 @use 'custom/variables' as var;
 // Include bootstrap variables definitions overrides.
 @import 'overrides/variables';
-
 //Fuente de google fonts
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
 // Include parent theme with all things Bootstrap for full override.
 // Relative path to this styles.scss file.
 // Example: @import "../../../../../themes/contrib/bootstrap4/scss/style";
 //@import "[DOCROOT]/themes/contrib/bootstrap4/scss/style";
-
 // OR test new Bootstrap 4.5.0
 //@import "[DOCROOT]/themes/contrib/bootstrap4/scss/style-4-5-0";
-
 // Include custom sub theme.
 //@import 'custom/mixins/misc';
 //@import 'custom/misc';
@@ -21,96 +17,137 @@
 /* ==============================
 ESTILOS GLOBALES
 ============================== */
-*{
+
+* {
     font-family: 'Roboto', sans-serif;
 }
 
-h1,h2,h3,h4,h5,h6{
-
+a {
+    //font-size: 1.34rem;
     color: var.$color-secundario;
-    font-weight: 400;
-    margin: 0;    
-}
-
-a{
-    color: var.$color-secundario;
-
-    &:visited, &:link, &:focus, &:hover, &:active{
+    &:visited,
+    &:link,
+    &:focus,
+    &:hover,
+    &:active {
         list-style: none;
         text-decoration: none;
     }
-
 }
 
-p{
-    margin: 0; 
+main {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var.$color-secundario;
+        font-weight: 400;
+        margin: 0;
+    }
+    p {
+        margin: 0;
+        font-size: 1.34rem;
+    }
+    ul,
+    ol,
+    em,
+    strong {
+        font-size: 1.34rem;
+    }
+    table {
+        position: relative;
+    }
 }
 
-table{
-    position: relative;
-}
 
 /* ===== ===== ToAny Redes Sociales ===== ===== */
-.a2a_kit{
+
+.a2a_kit {
     line-height: 0 !important;
 }
+
 
 /* ==============================
 ADMIN
 ============================== */
+
 @import 'custom/login';
 
 /* ==============================
 HEADER(ENCABEZADO)
 ============================== */
+
 @import 'custom/encabezado';
 
 /* ===== ===== BUSCADOR Y ACCESO RAPIDO ===== ===== */
+
 @import 'custom/search-acceso-rapido-home';
 
 /* ===== ===== PRODUCTOS Y SERVICIOS ===== ===== */
+
 @import 'custom/productos-servicios';
 
 /* ===== ===== NOTICIAS Y REDES ===== ===== */
+
 @import 'custom/noticias-redes';
 
 /* ===== ===== FINDETER EN CIFFRAS ===== ===== */
+
 @import 'custom/findeter-cifras';
 
 /* ===== ===== CASOS DE EXITO ===== ===== */
+
 @import 'custom/casos-exito';
 
 /* ===== ===== CASOS DE EXITO ===== ===== */
+
 @import 'custom/contactenos';
 
 /* ===== ===== PIE DE PAGINA ===== ===== */
+
 @import 'custom/footer';
 
 /* ==============================
 BLOG
 ============================== */
+
 @import 'custom/blog/blog';
 
 /* ==============================
 INTERNAS
 ============================== */
+
+
 /* ===== ===== MIGAS DE PAN ===== ===== */
+
 @import 'custom/internas/migas-pan/migas-pan.scss';
 
 /* ===== ===== Transparencia ===== ===== */
+
 @import 'custom/internas/transparencia/transparencia';
 
 /* ===== ===== Preguntas Frecuentes ===== ===== */
+
 @import 'custom/internas/preguntas-frecuentes/preguntas-frecuentes';
 
 /* ===== ===== Convocatorias ===== ===== */
+
 @import 'custom/internas/convocatorias/convocatorias';
 
 /* ===== ===== Prosperity Fund ===== ===== */
+
 @import 'custom/internas/prosperity-fund/prosperity-fund.scss';
 
 /* ===== ===== Glosario ===== ===== */
+
 @import 'custom/internas/glosario/glosario.scss';
 
 /* ===== ===== PAGINADOR ===== ===== */
+
 @import 'custom/internas/navigation/paginator.scss';
+
+/* ===== ===== PQRSD ===== ===== */
+
+@import 'custom/internas/pqrsd/pqrsd.scss';

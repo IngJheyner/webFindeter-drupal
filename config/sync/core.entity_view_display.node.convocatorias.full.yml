@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.convocatorias.body
+    - field.field.node.convocatorias.feeds_item
     - field.field.node.convocatorias.field_convcatoria_archivos
     - field.field.node.convocatorias.field_convcatoria_contractual
     - field.field.node.convocatorias.field_convcatoria_contratacion
@@ -16,6 +17,7 @@ dependencies:
     - field.field.node.convocatorias.field_convcatoria_objeto
     - field.field.node.convocatorias.field_convcatoria_presupuesto
     - field.field.node.convocatorias.field_convcatoria_programa
+    - field.field.node.convocatorias.field_convcatoria_tipo_compra
     - node.type.convocatorias
   module:
     - cshs
@@ -155,5 +157,7 @@ content:
     third_party_settings: {  }
 hidden:
   addtoany: true
+  feeds_item: true
+  field_convcatoria_tipo_compra: true
   langcode: true
   search_api_excerpt: true

@@ -1,0 +1,52 @@
+uuid: 4fc455cb-d2d2-4e3b-9bd7-c7827edb2f0e
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.productos_servicios.body
+    - field.field.node.productos_servicios.field_ps_descripcion
+    - field.field.node.productos_servicios.field_ps_imagen_portada
+    - field.field.node.productos_servicios.field_ps_img_encabezado
+    - field.field.node.productos_servicios.field_ps_items
+    - field.field.node.productos_servicios.field_ps_paragra_tabs_internas
+    - field.field.node.productos_servicios.field_ps_titulo_encabezado
+    - field.field.node.productos_servicios.field_ps_titulo_tabs_opc1
+    - node.type.productos_servicios
+  module:
+    - layout_builder
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.productos_servicios.search_result
+targetEntityType: node
+bundle: productos_servicios
+mode: search_result
+content:
+  body:
+    type: text_default
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_ps_descripcion:
+    type: basic_string
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  field_ps_imagen_portada: true
+  field_ps_img_encabezado: true
+  field_ps_items: true
+  field_ps_paragra_tabs_internas: true
+  field_ps_titulo_encabezado: true
+  field_ps_titulo_tabs_opc1: true
+  langcode: true
+  links: true

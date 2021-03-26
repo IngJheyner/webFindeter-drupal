@@ -13,15 +13,22 @@ dependencies:
     - field.field.node.noticias_home.field_tipo_noticia
     - node.type.noticias_home
   module:
+    - text
     - user
 id: node.noticias_home.default
 targetEntityType: node
 bundle: noticias_home
 mode: default
-content: {  }
+content:
+  body:
+    type: text_default
+    weight: 0
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   addtoany: true
-  body: true
   field_img_noticia_home: true
   field_noticias_resumen_redes: true
   field_noticias_resumen_seo: true

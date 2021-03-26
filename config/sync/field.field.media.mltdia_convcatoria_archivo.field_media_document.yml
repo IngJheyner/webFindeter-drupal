@@ -35,14 +35,14 @@ field_name: field_media_document
 entity_type: media
 bundle: mltdia_convcatoria_archivo
 label: Archivo
-description: ''
-required: false
+description: '<b>Información:</b> Subir archivos sin caracteres especiales, tildes y en minúscula'
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: ''
-  file_extensions: 'doc docx pdf xls xlsx zip rar dwg 7z'
+  file_extensions: 'doc docx pdf xls xlsx zip rar dwg 7z png jpg pptx'
   max_filesize: '50 MB'
   description_field: false
   handler: 'default:file'

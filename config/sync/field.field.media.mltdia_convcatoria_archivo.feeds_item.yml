@@ -1,0 +1,23 @@
+uuid: 4f679e27-a86d-4db3-9857-344e7917293d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.media.feeds_item
+    - media.type.mltdia_convcatoria_archivo
+  module:
+    - feeds
+id: media.mltdia_convcatoria_archivo.feeds_item
+field_name: feeds_item
+entity_type: media
+bundle: mltdia_convcatoria_archivo
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

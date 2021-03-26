@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.convocatorias.body
+    - field.field.node.convocatorias.feeds_item
     - field.field.node.convocatorias.field_convcatoria_archivos
     - field.field.node.convocatorias.field_convcatoria_contractual
     - field.field.node.convocatorias.field_convcatoria_contratacion
@@ -15,6 +16,7 @@ dependencies:
     - field.field.node.convocatorias.field_convcatoria_objeto
     - field.field.node.convocatorias.field_convcatoria_presupuesto
     - field.field.node.convocatorias.field_convcatoria_programa
+    - field.field.node.convocatorias.field_convcatoria_tipo_compra
     - node.type.convocatorias
   module:
     - user
@@ -22,10 +24,19 @@ id: node.convocatorias.default
 targetEntityType: node
 bundle: convocatorias
 mode: default
-content: {  }
+content:
+  field_convcatoria_tipo_compra:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
 hidden:
   addtoany: true
   body: true
+  feeds_item: true
   field_convcatoria_archivos: true
   field_convcatoria_contractual: true
   field_convcatoria_contratacion: true

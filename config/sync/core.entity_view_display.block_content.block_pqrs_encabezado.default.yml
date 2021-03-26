@@ -5,21 +5,13 @@ dependencies:
   config:
     - block_content.type.block_pqrs_encabezado
     - field.field.block_content.block_pqrs_encabezado.field_block_pqrs_img_encabezado
-  module:
-    - image
+    - field.field.block_content.block_pqrs_encabezado.field_pqrsd_titulo_defecto
 id: block_content.block_pqrs_encabezado.default
 targetEntityType: block_content
 bundle: block_pqrs_encabezado
 mode: default
-content:
-  field_block_pqrs_img_encabezado:
-    weight: 0
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
+content: {  }
 hidden:
+  field_block_pqrs_img_encabezado: true
+  field_pqrsd_titulo_defecto: true
   langcode: true

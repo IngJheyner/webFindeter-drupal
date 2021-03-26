@@ -5,8 +5,7 @@ dependencies:
   config:
     - node.type.convocatorias
     - user.role.abogado
-    - user.role.c_modificador
-    - user.role.secretaria_general
+    - user.role.authenticated
   module:
     - node
     - user
@@ -165,7 +164,7 @@ display:
           id: title
           table: node_field_data
           field: title
-          label: Título
+          label: Title
           exclude: false
           alter:
             alter_text: false
@@ -251,7 +250,7 @@ display:
           table: users_field_data
           field: name
           relationship: uid
-          label: Autor
+          label: Author
           exclude: false
           alter:
             alter_text: false
@@ -373,7 +372,7 @@ display:
           exposed: true
           expose:
             operator_id: title_op
-            label: Título
+            label: Title
             description: ''
             use_operator: false
             operator: title_op
@@ -607,7 +606,7 @@ display:
       display_extenders: {  }
       display_description: ''
     display_plugin: page
-    display_title: Contenido
+    display_title: Page
     id: page_1
     position: 1
     cache_metadata:
@@ -644,9 +643,8 @@ display:
         type: role
         options:
           role:
+            authenticated: authenticated
             abogado: abogado
-            secretaria_general: secretaria_general
-            c_modificador: c_modificador
       defaults:
         access: false
         fields: false

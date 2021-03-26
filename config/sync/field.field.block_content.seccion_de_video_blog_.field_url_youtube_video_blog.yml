@@ -1,0 +1,31 @@
+uuid: 2dae7d5a-0e2b-4c48-9f2c-0d9ddecac453
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.seccion_de_video_blog_
+    - field.storage.block_content.field_url_youtube_video_blog
+  module:
+    - disable_field
+    - video_embed_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: block_content.seccion_de_video_blog_.field_url_youtube_video_blog
+field_name: field_url_youtube_video_blog
+entity_type: block_content
+bundle: seccion_de_video_blog_
+label: 'URL Youtube'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    youtube: youtube
+    vimeo: '0'
+    youtube_playlist: '0'
+    html_5: '0'
+field_type: video_embed_field

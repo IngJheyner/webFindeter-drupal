@@ -62,7 +62,7 @@
           <div class="col-12 col-md-6 col-lg-3 mb-3 md-lg-0">
 
             {# ===== ===== Logo superitendencia ===== ===== #}
-            <img src="{{ file_url(content.field_logo_superintendencia_foot[0]['#item'].entity.uri.value) }}" class="img-fluid logoSuper">
+            <img src="{{ file_url(content.field_logo_superintendencia_foot[0]['#item'].entity.uri.value) }}" class="img-fluid logoSuper" width="10%">
 
             {# ===== ===== Logo findeter ===== ===== #}
             <img src="{{ file_url(content.field_logo_footer[0]['#item'].entity.uri.value) }}" class="img-fluid">
@@ -115,11 +115,22 @@
               </li>
 
               {# ===== ===== Icono likedin ===== ===== #}
-              <li class="list-inline-item">
+              <li class="list-inline-item mt-2">
                 
                 <a href="{{ content.field_url_likedin_footer.0["#title"] }}" target="_blank">
 
                   <img src="{{ file_url(content.field_likedin_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
+
+                </a>
+
+              </li>
+
+              {# ===== ===== Icono Flickr ===== ===== #}
+              <li class="list-inline-item mt-2">
+                
+                <a href="{{ content.field_url_flickr_footer.0["#title"] }}" target="_blank">
+
+                  <img src="{{ file_url(content.field_flickr_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
 
                 </a>
 
@@ -134,7 +145,7 @@
           </div>
 
           {# ===== ===== MENU ===== ===== #}
-          <div class="col-12 col-md-6 col-lg-3 mb-3">
+          <div class="col-12 col-md-6 col-lg-3 mb-3 width="24" height="24"">
             {{ drupal_menu('menu-footer') }}
           </div>
 
@@ -202,3 +213,14 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+
+
+{# ============================================
+BTNES DE BARRA DE ACCESIBILIDAD - FONT SIZE, CONTRASTE
+=============================================== #}
+<div class="barraLateral d-none d-md-block">
+
+  {{ drupal_entity('block', 'contraste', check_access=false) }}
+  {{ drupal_entity('block', 'redimensionar_texto', check_access=false) }} 
+  
+</div>

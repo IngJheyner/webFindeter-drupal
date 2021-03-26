@@ -6,7 +6,30 @@ dependencies:
     - field.storage.paragraph.field_fondo_modal
     - paragraphs.paragraphs_type.productos_servicios_home
   module:
+    - disable_field
+    - filefield_paths
     - image
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: webfinde/images/productos_servicios_home/fondo_modal
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+  disable_field:
+    add_disable: none
+    edit_disable: none
 id: paragraph.productos_servicios_home.field_fondo_modal
 field_name: field_fondo_modal
 entity_type: paragraph
@@ -23,7 +46,7 @@ settings:
   max_filesize: '2 mb'
   max_resolution: 1220x500
   min_resolution: 1140x400
-  alt_field: false
+  alt_field: true
   alt_field_required: true
   title_field: false
   title_field_required: false

@@ -127,8 +127,9 @@
       <div class="col-12 col-lg-6">
 
         {% if content.field_ps_imagen_portada[0]|render|trim is not empty %}
-            
-          <img src="{{ file_url(content.field_ps_imagen_portada[0]['#item'].entity.uri.value|image_style('ps_img_portada_interna')) }}" class="img-fluid w-100 imgPortada">
+          <img src="{{ file_url(content.field_ps_imagen_portada[0]['#item'].entity.uri.value|image_style('ps_img_portada_interna')) }}"
+            alt={{content.field_ps_imagen_portada[0]['#item'].alt}}
+            class="img-fluid w-100 imgPortada">
 
         {% endif %}
 

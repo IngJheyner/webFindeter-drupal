@@ -4,17 +4,14 @@
 /* ==============================
 CONTACTENOS
 ============================== */
-div.contactenos{
 
-    div.titulo{
-
+div.contactenos {
+    div.titulo {
         border-bottom: 1px solid var.$color-secundario;
         padding-bottom: 20px;
-
-        h1{
+        h1 {
             position: relative;
-
-            &::after{
+            &::after {
                 content: "";
                 position: absolute;
                 width: 20%;
@@ -25,16 +22,14 @@ div.contactenos{
             }
         }
     }
-
-    form{
-
-        input[type="submit"]{
-
+    form {
+        p {
+            font-size: 1rem;
+        }
+        input[type="submit"] {
             width: 100%;
         }
-
-        input[type="checkbox"]{
-    
+        input[type="checkbox"] {
             width: 10%;
             float: left;
             margin-right: 1rem;
@@ -42,130 +37,110 @@ div.contactenos{
     }
 }
 
-div.suscribirseHome{
-
+div.suscribirseHome {
     background-color: var.$color-primario;
-    background: linear-gradient(90deg, rgba(18,47,109,1) 0%, rgba(61,99,171,1) 50%, rgba(61,99,171,1) 50%, rgba(18,47,109,1) 100%);
+    background: linear-gradient(90deg, rgba(18, 47, 109, 1) 0%, rgba(61, 99, 171, 1) 50%, rgba(61, 99, 171, 1) 50%, rgba(18, 47, 109, 1) 100%);
     border-bottom: 1px solid var.$color-quinario;
-
-    form{
-
-        input[type='email']{
+    form {
+        input[type='email'] {
             height: calc(2.5em + 0.75rem + 1px);
             border-radius: 0;
         }
-
-        input[type='submit']{
-
+        input[type='submit'] {
             line-height: 2.6;
         }
     }
-
-    div.terminosPoliticas > p >a{
-
+    div.terminosPoliticas>p>a {
         color: var.$color-terciario;
-         
     }
-
+    p {
+        font-size: 1rem;
+    }
 }
+
 
 /* ==============================
 Estilos de mapa
 ============================== */
-div.mapaHome{
 
+div.mapaHome {
     .title-regi {
         color: #1c336e;
     }
-    .stlRCtroIn{
-        fill : "#cfd8e0";
-    } 
-    .stlRPIn{
-        fill : "#d2e4eb";
+    .stlRCtroIn {
+        fill: "#cfd8e0";
     }
-    
-    .stlRECIn{
-        fill : "#ebf1f9";
+    .stlRPIn {
+        fill: "#d2e4eb";
     }
-    
-    .stlRNorIn{ /*Nororiental*/
+    .stlRECIn {
+        fill: "#ebf1f9";
+    }
+    .stlRNorIn {
+        /*Nororiental*/
         fill: "#ccdbe9";
     }
-    
-    .stlRNocIn{
+    .stlRNocIn {
         fill: "#d3d7e1";
     }
-    
-    .stlRCarIn{
+    .stlRCarIn {
         fill: "#ccecf9";
     }
-    
     /*Act*/
-    .stlRCtroAc{
-        fill : "#0d3e66";
+    .stlRCtroAc {
+        fill: "#0d3e66";
     }
-    .stlRPAc{
-        fill : "#1f7a9a";
+    .stlRPAc {
+        fill: "#1f7a9a";
     }
-    
-    .stlRECAc{
-        fill : "#9db9e2";
+    .stlRECAc {
+        fill: "#9db9e2";
     }
-    
-    .stlRNorAc{
+    .stlRNorAc {
         fill: "#00498f";
     }
-    
-    .stlRNocAc{
+    .stlRNocAc {
         fill: "#233568";
     }
-    
-    .stlRCarAc{
+    .stlRCarAc {
         fill: "#009fe3";
     }
-    /**/    
-    
-    .convstlRCtroAc{
-        background-color : #0d3e66;
+    /**/
+    .convstlRCtroAc {
+        background-color: #0d3e66;
     }
-    .convstlRPAc{
-        background-color : #1f7a9a;
+    .convstlRPAc {
+        background-color: #1f7a9a;
     }
-    
-    .convstlRECAc{
-        background-color : #9db9e2;
+    .convstlRECAc {
+        background-color: #9db9e2;
     }
-    
-    .convstlRNorAc{
+    .convstlRNorAc {
         background-color: #00498f;
     }
-    
-    .convstlRNocAc{
+    .convstlRNocAc {
         background-color: #233568;
     }
-    
-    .convstlRCarAc{
+    .convstlRCarAc {
         background-color: #009fe3;
     }
     /**/
-    
     .titulo-convenciones {
         color: #fff;
         background-color: #1c336e;
-        background: linear-gradient(90deg,#1c336e 0,#4087c7);
+        background: linear-gradient(90deg, #1c336e 0, #4087c7);
         border-radius: 10px 0 10px 0;
     }
-    .pdl-1{
+    .pdl-1 {
         padding-left: 1.5rem!important;
     }
-    .pdb-1rem{
+    .pdb-1rem {
         padding-bottom: .5rem;
         padding-top: .5rem;
     }
-    .margin-top05{
+    .margin-top05 {
         margin-top: .5rem;
     }
-    
     .punto-convencion {
         padding: 13px;
         border-radius: 50%;
@@ -173,8 +148,7 @@ div.mapaHome{
         height: -moz-fit-content;
         height: fit-content;
     }
-    
-    .margin15{
+    .margin15 {
         margin: 15px;
     }
     .align-items-lg-center {
@@ -192,11 +166,11 @@ div.mapaHome{
     .text-center {
         text-align: center!important;
     }
-    .margin-b{
+    .margin-b {
         margin-bottom: 0px;
     }
-    path{
-        cursor:pointer;
+    path {
+        cursor: pointer;
     }
     /*.col-11 {
         -ms-flex: 0 0 91.66667%;
@@ -205,68 +179,47 @@ div.mapaHome{
     }*/
 }
 
+
 /* ==============================
 MEDIA QUERY
 ============================== */
-@include media-query.media(xs){
 
+@include media-query.media(xs) {
     div.contactenos {
-
-        div.titulo >  h1{
-
+        div.titulo>h1 {
             font-size: 1.5rem;
-            
-            &::after{
+            &::after {
                 background-color: initial;
-            
             }
-          
         }
-
-        h2{
+        h2 {
             font-size: 1.5rem;
         }
-
-        h5{
+        h5 {
             font-size: 1rem;
         }
-
-    } 
-
-    div.suscribirseHome{
-    
-        form{
-    
-            input[type='email']{
+    }
+    div.suscribirseHome {
+        form {
+            input[type='email'] {
                 height: calc(2em + 0.75rem + 1px);
             }
-    
-            input[type='submit']{
-    
+            input[type='submit'] {
                 line-height: 2;
             }
         }
-
-        div.pagoCreditoMovil{
-
-            img{
+        div.pagoCreditoMovil {
+            img {
                 width: 70% !important;
             }
         }
     }
-     
 }
 
-@include media-query.media(sm){
-
+@include media-query.media(sm) {
     div.contactenos {
-
-        div.titulo > h1::after{
-
+        div.titulo>h1::after {
             background-color: initial;
-
         }
-
-    } 
-     
+    }
 }

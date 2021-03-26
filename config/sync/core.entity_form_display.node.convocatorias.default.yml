@@ -3,7 +3,9 @@ langcode: es
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.media.media_library
     - field.field.node.convocatorias.body
+    - field.field.node.convocatorias.feeds_item
     - field.field.node.convocatorias.field_convcatoria_archivos
     - field.field.node.convocatorias.field_convcatoria_contractual
     - field.field.node.convocatorias.field_convcatoria_contratacion
@@ -15,12 +17,12 @@ dependencies:
     - field.field.node.convocatorias.field_convcatoria_objeto
     - field.field.node.convocatorias.field_convcatoria_presupuesto
     - field.field.node.convocatorias.field_convcatoria_programa
+    - field.field.node.convocatorias.field_convcatoria_tipo_compra
     - node.type.convocatorias
   module:
-    - conditional_fields
     - cshs
     - field_group
-    - media_library
+    - inline_entity_form
     - path
 third_party_settings:
   field_group:
@@ -44,6 +46,7 @@ third_party_settings:
         - created
         - field_convcatoria_estado
         - langcode
+        - status
       parent_name: group_gr
       weight: 3
       format_type: tab
@@ -89,6 +92,7 @@ third_party_settings:
       label: Multimedia
     group_lista_de_elementos_de_la_c:
       children:
+        - field_convcatoria_tipo_compra
         - field_convcatoria_programa
         - field_convcatoria_contratacion
         - field_convcatoria_contractual
@@ -143,21 +147,30 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_convcatoria_archivos:
-    type: media_library_widget
+    type: inline_entity_form_complex
     weight: 14
     settings:
-      media_types: {  }
-    third_party_settings:
-      conditional_fields: {  }
+      form_mode: media_library
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      match_operator: CONTAINS
+      revision: false
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_existing: false
+      allow_duplicate: false
+    third_party_settings: {  }
     region: content
   field_convcatoria_contractual:
-    weight: 13
+    weight: 29
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_convcatoria_contratacion:
-    weight: 11
+    weight: 28
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -168,6 +181,9 @@ content:
       force_deepest: true
       parent: '0'
       level_labels: 'Departamento, Ciudad y/o Municipio'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
     third_party_settings: {  }
     type: cshs
     region: content
@@ -187,7 +203,7 @@ content:
     type: options_select
     region: content
   field_convcatoria_forma_pago:
-    weight: 14
+    weight: 30
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
@@ -214,13 +230,22 @@ content:
     type: number
     region: content
   field_convcatoria_programa:
-    weight: 10
+    weight: 27
     settings:
       force_deepest: true
       parent: '0'
       level_labels: '--, No. Convenio'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
     third_party_settings: {  }
     type: cshs
+    region: content
+  field_convcatoria_tipo_compra:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   langcode:
     type: language_select
@@ -235,6 +260,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 4
@@ -243,14 +275,10 @@ content:
       size: 60
       placeholder: 'Nombre de la convocatoria. Ej: Proceso Numero PAF-SENA-I-059-2020'
     third_party_settings: {  }
-  url_redirects:
-    weight: 50
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   body: true
+  feeds_item: true
   promote: true
-  status: true
   sticky: true
   uid: true
+  url_redirects: true

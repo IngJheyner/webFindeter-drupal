@@ -64,7 +64,7 @@
 
       {% for item in items %}
 	  	   
-		<div{{ item.attributes.addClass('fechaArchivo') }}>{{ item.content }}</div>
+		    <td{{ item.attributes.addClass('fechaArchivo') }}>{{ item.content }}</td>
 
       {% endfor %}
 
@@ -74,7 +74,7 @@
 
     {% for item in items %}
 
-      <td{{ attributes.addClass(classes, 'fechaArchivo') }}>{{ item.content }}</td>
+      <td{{ attributes.addClass(classes, 'fechaArchivo') }} width="20">{{ item.content }}</td>
 
     {% endfor %}
 

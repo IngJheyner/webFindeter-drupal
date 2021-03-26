@@ -59,25 +59,15 @@
   {% if multiple %}
 
     <div{{ attributes.addClass(classes) }}>
-
       {% set itera = 0 %}  
-
       {% for item in items %}
-
         {% if itera == 0 %}
-
           <div{{ item.attributes.addClass('field__item px-1 px-md-5') }}><a href="/transparencia-y-acceso-a-la-informacion-publica/consulta-normatividad-de-la-entidad#cont"><b>{{ item.content }}</b></a></div>
-
         {% elseif itera == 1 %}
-
           <div{{ item.attributes.addClass('field__item px-1 px-md-5') }}><a href="/transparencia-y-acceso-a-la-informacion-publica/consulta-normatividad-de-la-entidad#cont"><b>{{ item.content }}</b></a></div>
-
         {% elseif itera == 2 %}
-
           <div{{ item.attributes.addClass('field__item px-1 px-md-5') }}><a href="https://www.senado.gov.co/images/DIRECTIVA_026_ITA_2020.pdf"><b>{{ item.content }}</b></a></div>
-
         {% endif %}
-
         {% set itera = itera + 1 %}
 
       {% endfor %}

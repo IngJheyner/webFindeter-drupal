@@ -6,144 +6,108 @@
 INTERNAS
 ============================== */
 
+
 /* ===== ===== ENCABEZADO ===== ===== */
-@include encabezado.encabezado("article","productoServicios");
+
+@include encabezado.encabezado("article", "productoServicios");
 
 /* ===== ===== CONTENIDO ===== ===== */
+
 article.productoServicios {
-
     position: relative;
-    
-    div.cuerpoContenido{
-
-        div.row{
-
-            img.imgPortada{
+    div.cuerpoContenido {
+        >div.row {
+            img.imgPortada {
                 border-radius: 0.8rem;
             }
         }
-
-        h4.tituloTabs{
-
+        h4.tituloTabs {
             background-color: var.$color-primario;
             padding: 0.5rem;
         }
-
         /* ==============================
         TABS
         ============================== */
-        ul.tabPrincipal{
-
-            li > a{
-
+        ul.tabPrincipal {
+            li>a {
                 color: rgb(168, 168, 168);
-
-                &.active{
-
+                &.active {
                     color: var.$color-primario;
                     font-weight: bold;
                 }
             }
         }
-
-        ul.tabInternas{
-
-            li > a{
-
+        ul.tabInternas {
+            li>a {
                 color: rgb(168, 168, 168);
-
-                &.active{
+                &.active {
                     color: white;
                     background-color: var.$color-primario;
                     font-weight: bold;
                 }
             }
         }
-
-        div.masInformacion{
-            img{
+        div.masInformacion {
+            img {
                 max-width: 100%;
                 height: auto;
             }
         }
-
         /* ==============================
         TABS CONTENIDO
         ============================== */
-        div#myTabContentPrincipal{
-
+        div#myTabContentPrincipal {
             padding: 3rem 4rem 3rem 4rem;
             border: 1px solid var.$color-quinario;
             border-top: none;
         }
-
-        div#myTabContentInternas > .tab-pane > .paragraph{
-
-            img{
-
+        div#myTabContentInternas>.tab-pane>.paragraph {
+            img {
                 border-radius: 0.8rem;
             }
-        
-            div.gridContainer div.grid div.gridContenido{
-
+            div.gridContainer div.grid div.gridContenido {
                 border: 1px solid var.$color-terciario;
                 border-radius: 0.5rem;
-
-                div.titulos{
-
+                div.titulos {
                     background-color: var.$color-terciario;
                     color: var.$color-secundario;
                     cursor: pointer;
                 }
             }
-
         }
     }
 }
+
 
 /* ==============================
 MEDIA QUERY
 ============================== */
-@include media-query.media(xs){
 
+@include media-query.media(xs) {
     article.productoServicios {
-        
-        div.cuerpoContenido{
-
-            div#myTabContentPrincipal{
-
+        div.cuerpoContenido {
+            div#myTabContentPrincipal {
                 padding: 1rem;
-                
             }
         }
     }
 }
 
-@include media-query.media(sm){
-
+@include media-query.media(sm) {
     article.productoServicios {
-        
-        div.cuerpoContenido{
-
-            div#myTabContentPrincipal{
-
+        div.cuerpoContenido {
+            div#myTabContentPrincipal {
                 padding: 3rem 1rem 3rem 1rem;
-                
             }
         }
     }
 }
 
-@include media-query.media(md){
-
+@include media-query.media(md) {
     article.productoServicios {
-        
-        div.cuerpoContenido{
-
-            div#myTabContentPrincipal{
-
+        div.cuerpoContenido {
+            div#myTabContentPrincipal {
                 padding: 3rem 3rem 3rem 3rem;
-                
             }
         }
     }

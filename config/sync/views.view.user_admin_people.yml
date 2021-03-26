@@ -148,7 +148,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Actualización masiva'
+          label: 'Bulk update'
           exclude: false
           alter:
             alter_text: false
@@ -295,7 +295,7 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_true: Activo
+            format_custom_true: activo
             format_custom_false: Bloqueado
           entity_type: user
           entity_field: status
@@ -661,7 +661,7 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: Activo
+                title: activo
                 operator: '='
                 value: '1'
               2:
@@ -894,7 +894,7 @@ display:
   page_1:
     display_plugin: page
     id: page_1
-    display_title: Contenido
+    display_title: Page
     position: 1
     display_options:
       path: admin/people/list
