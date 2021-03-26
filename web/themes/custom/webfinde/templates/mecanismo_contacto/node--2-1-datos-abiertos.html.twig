@@ -124,19 +124,7 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
-  .encabezado{
-    border-bottom: 1px solid #296294;
-  }
-  .encabezado {
-    margin-bottom: 30px;
-  }
-  .encabezado h1{
-    display: inline-block;
-  }
-  .encabezado h1{
-    border-bottom: 4px solid #296294;
-    padding-bottom: 12px;
-  }
+  
   ul.lista {
   list-style: none; /* Quitamos los marcadores */
   padding: 0; /* Quitamos el padding por defecto de la lista */
@@ -163,6 +151,23 @@
   }
 </style>
 <article{{ attributes.addClass(classes) }}>
+  {# ==== Encabezado ==== #}
+
+  <figure class="w-100">
+    <img src="/sites/default/files/webfinde/images/block_pqrs_encabezado/fondocabezotecolor.png" class="img-fluid w-100">
+  </figure>  
+  <div class="encabezado container">
+    <h1 class="tituloEncabezado mt-3">{{ label }}</h1>   
+  </div>
+  
+
+  {# ==== Migas de Pan ==== #}
+
+    {{ drupal_breadcrumb() }}
+
+
+  {# ==== Contenido ==== #}
+
   <div class="container">
     <div class="encabezado"> <h1> {{label}} </h1></div>
     <div class="container ">
