@@ -3527,8 +3527,20 @@ div.pageGlosario div.view-content div.view-grouping div.view-grouping-header {
   font-style: italic;
 }
 /* ===== ===== PAGINADOR ===== ===== */
+/* ==============================
+COLORES
+============================== */
 nav.pager ul {
   padding: 0;
+}
+
+div.dataTables_paginate ul.pagination {
+  font-size: 1rem !important;
+}
+div.dataTables_paginate ul.pagination li.page-item.active a.page-link {
+  background-color: #e5e5e5;
+  color: #112d6a;
+  border-color: #e5e5e5;
 }
 
 /*MOVIL VERTICAL(sm 320px)*/
