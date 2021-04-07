@@ -12,6 +12,7 @@ dependencies:
     - field.field.media.mltdia_convcatoria_archivo.field_media_document
     - media.type.mltdia_convcatoria_archivo
   module:
+    - datetime
     - field_formatter_class
     - file
     - layout_builder
@@ -25,15 +26,14 @@ targetEntityType: media
 bundle: mltdia_convcatoria_archivo
 mode: convocatorias_archivos
 content:
-  created:
-    type: timestamp
+  field_convcatoria_muldia_fecha:
+    type: datetime_default
     weight: 2
     region: content
     label: hidden
     settings:
-      date_format: html_date
-      custom_date_format: ''
-      timezone: ''
+      timezone_override: America/Bogota
+      format_type: html_date
     third_party_settings:
       field_formatter_class:
         class: ''
@@ -55,9 +55,9 @@ content:
     third_party_settings: {  }
 hidden:
   addtoany: true
+  created: true
   feeds_item: true
   field_convcatoria_mltdia_editar: true
-  field_convcatoria_muldia_fecha: true
   field_convcatoria_ruta_archivo: true
   langcode: true
   name: true
