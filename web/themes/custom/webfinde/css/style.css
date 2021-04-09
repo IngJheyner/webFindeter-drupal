@@ -804,8 +804,52 @@ div.busqueda form.search-form input[type=submit] {
   background-color: #00993e !important;
   margin: 1rem 0;
 }
-div.busqueda div.resultadoBusqueda ol li h4 a:hover {
+div.busqueda div.item-list ol {
+  margin: 0 0 2rem 0;
+  padding: 0;
+  list-style: none;
+}
+div.busqueda div.item-list ol li {
+  margin-bottom: 1rem;
+}
+div.busqueda div.item-list ol li h3 a:hover {
   color: #00993e !important;
+}
+div.busqueda div.item-list ol li div.search-snippet-info p.search-info {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: #fff;
+  background-color: #343a40;
+}
+div.busqueda h2 {
+  text-align: center;
+  border-bottom: 2px solid #e5e5e5;
+  margin-bottom: 2rem;
+}
+
+/* ===== ===== BUSCADOR INTERNAS BLOG ===== ===== */
+div.busquedaBlogInterna div.buscador form#custom-search-block-form {
+  padding: 2rem 2rem 0 2rem;
+  background-color: #112d6a;
+  color: white;
+  margin-bottom: 0;
+}
+div.busquedaBlogInterna div.buscador form#custom-search-block-form div.form-type-select {
+  display: none;
+}
+div.busquedaBlogInterna div.buscador form#custom-search-block-form div#edit-actions {
+  margin-bottom: 0;
+}
+div.busquedaBlogInterna div.buscador form#custom-search-block-form div#edit-actions input[type=submit] {
+  width: auto;
 }
 
 /* ==============================
@@ -2470,6 +2514,9 @@ MEDIA QUERY
 BLOG
 ============================== */
 /* ===== ===== Encabezado ===== ===== */
+/* ==============================
+COLORES
+============================== */
 div.encabezadoBlog {
   position: relative;
   background-position: center -61px;
@@ -2486,13 +2533,16 @@ div.encabezadoBlog section.encabezado {
   MENU TABLET
   ============================== */
 }
-div.encabezadoBlog section.encabezado .menu nav {
+div.encabezadoBlog section.encabezado div.menu {
+  /* ===== ===== BUSCADOR BLOG ===== ===== */
+}
+div.encabezadoBlog section.encabezado div.menu nav {
   margin: 40px 0;
 }
-div.encabezadoBlog section.encabezado .menu nav ul li {
+div.encabezadoBlog section.encabezado div.menu nav ul li {
   margin: 0 10px 0 10px;
 }
-div.encabezadoBlog section.encabezado .menu nav ul li a {
+div.encabezadoBlog section.encabezado div.menu nav ul li a {
   color: white;
   font-size: 14px;
   padding: 12px 0px;
@@ -2500,7 +2550,7 @@ div.encabezadoBlog section.encabezado .menu nav ul li a {
   font-weight: bold;
   text-shadow: 1px 1px 2px black;
 }
-div.encabezadoBlog section.encabezado .menu nav ul li a:hover::after {
+div.encabezadoBlog section.encabezado div.menu nav ul li a:hover::after {
   content: "";
   position: absolute;
   width: 105%;
@@ -2508,6 +2558,60 @@ div.encabezadoBlog section.encabezado .menu nav ul li a:hover::after {
   background-color: white;
   top: 3em;
   left: -5px;
+}
+div.encabezadoBlog section.encabezado div.menu div.buscador {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  margin: 18px 0;
+  z-index: 1060;
+  background-color: white;
+  padding: 0rem 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #112d6a;
+}
+div.encabezadoBlog section.encabezado div.menu div.buscador form div.form-item,
+div.encabezadoBlog section.encabezado div.menu div.buscador form div.form-actions {
+  margin: 0;
+}
+div.encabezadoBlog section.encabezado div.menu div.buscador form div.form-type-select {
+  display: none;
+}
+div.encabezadoBlog section.encabezado div.menu div.buscador form div.buscadorAcceso {
+  width: 70%;
+}
+div.encabezadoBlog section.encabezado div.menu div.buscador form div.buscadorAcceso input[type=search] {
+  border: transparent !important;
+  font-size: 1.5rem;
+  line-height: 30px;
+}
+div.encabezadoBlog section.encabezado div.menu div.buscador form div.buscadorAcceso input[type=search]:focus {
+  box-shadow: none;
+}
+div.encabezadoBlog section.encabezado div.menu div.buscador form div#edit-actions {
+  position: absolute;
+  z-index: 1;
+  transform: translate(0, 18%);
+  right: 0;
+  top: 0;
+}
+div.encabezadoBlog section.encabezado div.menu div.buscador form div#edit-actions input[type=image] {
+  width: auto;
+  height: calc(1.5em + 0.75rem + 10px);
+  padding: 0;
+  border: transparent !important;
+}
+div.encabezadoBlog section.encabezado div.menu div#backBuscador {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0.5;
 }
 div.encabezadoBlog section.encabezado .menuMovil nav a.navbar-brand {
   color: white;

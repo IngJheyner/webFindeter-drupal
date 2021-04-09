@@ -88,10 +88,57 @@ div.busqueda {
             margin: 1rem 0;
         }
     }
-    div.resultadoBusqueda {
-        ol li {
-            h4 a:hover {
-                color: var.$color-cuaternario !important;
+    div.item-list {
+        ol {
+            margin: 0 0 2rem 0;
+            padding: 0;
+            list-style: none;
+            li {
+                margin-bottom: 1rem;
+                h3 a:hover {
+                    color: var.$color-cuaternario !important;
+                }
+                div.search-snippet-info p.search-info {
+                    display: inline-block;
+                    padding: .25em .4em;
+                    font-size: 75%;
+                    font-weight: 700;
+                    line-height: 1;
+                    text-align: center;
+                    white-space: nowrap;
+                    vertical-align: baseline;
+                    border-radius: .25rem;
+                    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+                    color: #fff;
+                    background-color: #343a40;
+                }
+            }
+        }
+    }
+    h2 {
+        text-align: center;
+        border-bottom: 2px solid var.$color-quinario;
+        margin-bottom: 2rem;
+    }
+}
+
+
+/* ===== ===== BUSCADOR INTERNAS BLOG ===== ===== */
+
+div.busquedaBlogInterna {
+    div.buscador form#custom-search-block-form {
+        padding: 2rem 2rem 0 2rem;
+        background-color: var.$color-primario;
+        color: white;
+        margin-bottom: 0;
+        div.form-type-select {
+            display: none;
+        }
+        div#edit-actions {
+            margin-bottom: 0;
+            input[type="submit"] {
+                width: auto;
+                //padding: 0;
             }
         }
     }

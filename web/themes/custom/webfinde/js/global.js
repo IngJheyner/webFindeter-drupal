@@ -351,6 +351,23 @@
         BLOG
         =============================================*/
 
+        /* ===== ===== BUSCADOR ===== ===== */
+        $(".encabezadoBlog .encabezado .iconos a#iconBuscador").on('click', function() {
+            $(".encabezadoBlog .encabezado .menu div#backBuscador").removeClass('d-none').addClass('show');
+            $(".encabezadoBlog .encabezado .menu div.buscador").slideDown(1000);
+        });
+
+        $(".encabezadoBlog .encabezado .menu div#backBuscador").on('click', function() {
+
+            $(".encabezadoBlog .encabezado .menu div.buscador").slideUp(1000);
+            setTimeout(function() {
+                $(".encabezadoBlog .encabezado .menu div#backBuscador").removeClass('show').addClass('d-none');
+            }, 1100);
+        });
+
+        /* ===== ===== BUSCADOR INTERNAS ===== ===== */
+        $('div.busquedaBlogInterna div.buscador form#custom-search-block-form div#edit-actions input[type="image"]').attr({ 'type': 'submit', 'value': 'Buscar' }).addClass('btn btn-secondary');
+
         /* ===== ===== Articulo internos ===== ===== */
         var imgEncabezadoArticulo = $(".articuloInternasBlog").attr("imgFondoEncabezado");
 
@@ -375,6 +392,8 @@
         $(".menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem").on("click", function() {
 
             if ($(this).attr("mostrar") == "true") {
+                console.log("🚀 ~ file: global.js ~ line 383 ~ $ ~ $(this).parent()", $(this).parent())
+                console.log("🚀 ~ file: global.js ~ line 383 ~ $ ~ $(this).parent()", $(this).parent())
 
                 $(this).children('ul').children('li').fadeIn(1000, function() {
 
@@ -396,8 +415,8 @@
         });
 
         /*===========================================
-            CONVOCATORIAS
-            =============================================*/
+        CONVOCATORIAS
+        =============================================*/
         let activarBusqueda = false;
 
         function formBusquedaAvanzada() {
