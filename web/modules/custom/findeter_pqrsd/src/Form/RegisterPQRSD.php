@@ -361,14 +361,6 @@ class RegisterPQRSD extends FormBase {
     $newRequest = Node::create(['type' => 'pqrsd']);
     $newRequest->set('title', 'User request - '.date('U'));
 
-    $numeroRadicado = generarNumeroRadicado();
-
-    // define title of node
-    $newRequest->set('title', 'Radicado: '.$numeroRadicado.'.'.date('U'));
-
-    // set "# radicado"
-    $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);
-
     //to retrive all values at one single array
     $values = [];
     foreach($steps as $step){
@@ -406,6 +398,14 @@ class RegisterPQRSD extends FormBase {
 
       }
     }
+
+    $numeroRadicado = generarNumeroRadicado($values['field_pqrsd_tipo_radicado']);
+
+    // define title of node
+    $newRequest->set('title', 'Radicado: '.$numeroRadicado.'.'.date('U'));
+
+    // set "# radicado"
+    $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);
 
     $config = $this->config('findeter_pqrsd.admin');
 

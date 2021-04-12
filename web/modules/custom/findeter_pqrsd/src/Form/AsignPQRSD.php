@@ -24,7 +24,7 @@ class AsignPQRSD extends FormBase {
    * Building all elements in the form
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $nid = NULL) {
+  public function buildForm(array $form, FormStateInterface $form_state, $nid = NULL,$usr='') {
 
     $uidLogued = \Drupal::currentUser()->id();
 
@@ -39,7 +39,7 @@ class AsignPQRSD extends FormBase {
     );
 
     $form['text'] = [
-      '#markup' => 'Seleccione el usuario a quien se reasignará el pedido'
+      '#markup' => 'Seleccione el usuario a quien se reasignará el pedido.<br>Actualmente está asignado a: <b>'.$usr.'</b><br><br>'
     ];
 
     $rolesAllowed = explode(',',$config->get('roles'));
@@ -121,13 +121,13 @@ class AsignPQRSD extends FormBase {
         $userName = $node->get('field_pqrsd_primer_nombre')->getValue()[0]['value'].' ';
       }
       if(isset($node->get('field_pqrsd_primer_apellido')->getValue()[0]['value'])){
-        $userName = $node->get('field_pqrsd_primer_apellido')->getValue()[0]['value'];
+        $userName .= $node->get('field_pqrsd_primer_apellido')->getValue()[0]['value'];
       }
 
       $mailBody[] = 'Hola '.$user->getUsername();
       $mailBody[] = 'Le informamos que se le asignó una PQRSD para que le dé respuesta:';
       $mailBody[] = '<div class="numero-radicado">
-                      <b>#Radicatoria: </b>'.$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'].'
+                      <b>Radicado: </b>'.$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'].'
                       <b>Cliente: </b>'.$userName.'
                       <b>Fecha registro: </b>'.date('d/m/Y H:m:i',$node->getCreatedTime()).'
                       <b>Fecha vencimiento respuesta: </b>'.$node->get('field_pqrsd_fecha_roja')->getValue()[0]['value'].'
