@@ -134,12 +134,12 @@ class AdminModule extends ConfigFormBase {
 
     $form['semaphore']['tabla'] = array(
       '#type' => 'table',
-      '#header' => ['Tipo','Tiempo alerta (naranja)','Tiempo caducidad (rojo)','Condición'],
+      '#header' => ['Tipo','Tiempo alerta (naranja)','Tiempo caducidad (rojo)','Condición','Tipos de dias'],
 
     );
 
     foreach ($config->get('semaphore') as $id => $semaphoreItem) {
-      
+
       $form['semaphore']['tabla'][$id]['type'] = array(
         '#markup' => $semaphoreItem['title'],
       );
@@ -162,6 +162,14 @@ class AdminModule extends ConfigFormBase {
       $form['semaphore']['tabla'][$id]['contition'] = array(
         '#markup' => implode('<br>',$semaphoreItem['condition']),
       );
+
+      $typeDays = 'Días hábiles';
+      if($semaphoreItem['logic']=='calendar days'){
+        $typeDays = 'Días calendario';
+      }
+      $form['semaphore']['tabla'][$id]['type-days'] = array(
+        '#markup' => $typeDays,
+      );
     }
 
     return parent::buildForm($form, $form_state);
@@ -171,12 +179,12 @@ class AdminModule extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    
+
     parent::submitForm($form, $form_state);
 
     // Get the value stored in the config.
     $config = $this->config('findeter_pqrsd.admin');
-    
+
     // collect selected roles
     $roles = [];
     foreach($form_state->getValue('roles') as $rolAllowed){
@@ -191,7 +199,7 @@ class AdminModule extends ConfigFormBase {
       $matrixSemaphore[$id]['orange'] = $item['orange'];
       $matrixSemaphore[$id]['red'] = $item['red'];
     }
-    
+
     $this->config('findeter_pqrsd.admin')
       ->set('asign_user', trim($form_state->getValue('asign_user')))
       ->set('view_mode', trim($form_state->getValue('view_mode')))

@@ -109,8 +109,8 @@
 }
 
 /*Table styles*/
-.views-view-table .green{
-  background-image: url('images/green.png');
+.views-view-table .blue{
+  background-image: url('images/blue.png');
 }
 .views-view-table .orange{
   background-image: url('images/orange.png');
@@ -118,9 +118,13 @@
 .views-view-table .red{
   background-image: url('images/red.png');
 }
+.views-view-table .green{
+  background-image: url('images/green.png');
+}
 .views-view-table .green,
 .views-view-table .orange,
-.views-view-table .red{
+.views-view-table .red,
+.views-view-table .blue{
   width: 40px;
   height: 40px;
   margin: 0 auto;
@@ -128,6 +132,9 @@
   text-indent: 10000px;
   display: block;
   overflow: hidden;
+}
+.views-view-table .days-left{
+  text-align: center;
 }
 
 /*Report styles*/

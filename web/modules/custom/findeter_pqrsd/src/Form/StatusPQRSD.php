@@ -166,7 +166,7 @@ class StatusPQRSD extends FormBase {
 
     $response = new AjaxResponse();
     $messages = $this->messenger->all();
-    
+
     if (!empty($messages)) {
       // Form did not validate, get messages and render them.
       $messages = [
@@ -210,14 +210,29 @@ class StatusPQRSD extends FormBase {
 
       $responseHtml[] = '<b>Nombre radicador: </b> '.$radicatorName;
       $responseHtml[] = '<b>Fecha registro: </b> '.date('d/m/Y H:i',$render_view['#rows'][0]['#rows'][0]->_entity->get('created')->getValue()[0]['value']);
-      $responseHtml[] = '<b>Fecha máxima de respuesta: </b> '.date('d/m/Y',$render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_fecha_roja')->getValue()[0]['value']);
+      $responseHtml[] = '<b>Fecha máxima de respuesta: </b> '.date('d/m/Y',strtotime($render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_fecha_roja')->getValue()[0]['value']));
       $responseHtml[] = '<b>Asunto: </b> '.$render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_descripcion')->getValue()[0]['value'];
 
       $responseHtml[] = '<div class="status-answer"><b>Estado de su radicatoria:</b>';
 
       if(isset($render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_respuesta')->getValue()[0]['value'])){
+
+        $filesList = [];
+        foreach ($render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_respuesta_archivos')->getValue() as $fileItem){
+          $file_id = $fileItem['target_id'];
+          $file = \Drupal\file\Entity\File::load($file_id);
+          $uri = $file->uri->value;
+          $filesList[] = file_create_url($uri);
+        }
+
         $responseHtml[] = 'Respondida';
         $responseHtml[] = '<b>Respuesta: </b> '.$render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_respuesta')->getValue()[0]['value'];
+        $responseHtml[] = '<ul>';
+        foreach($filesList as $fil){
+          $responseHtml[] = '<li><b><a href="'.$fil.'">Archivo de la respuesta</a></b></li>';
+        }
+        $responseHtml[] = '</ul>';
+
         $responseHtml[] = '</div>';
       }else{
         $responseHtml[] = 'Pendiente de respuesta</div>';

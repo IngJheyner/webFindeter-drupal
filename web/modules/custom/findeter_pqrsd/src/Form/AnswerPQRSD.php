@@ -41,11 +41,12 @@ class AnswerPQRSD extends FormBase {
       '#type'  => 'textarea',
       '#title' => 'Escriba la respuesta al requerimiento',
     ];
-    
+
     $fileSettings = $definitions['field_pqrsd_respuesta_archivos']->getSettings();
     $form['field_pqrsd_respuesta_archivos'] = [
       '#type'            => 'managed_file',
       '#cardinality'     => 3,
+      '#description'     => 'Puede registrar hasta 4 archivos',
       //'#upload_location' => 'public://'.$fileSettings['file_directory'],
       '#multiple'        => TRUE,
       '#title'           => $definitions['field_pqrsd_respuesta_archivos']->getLabel(),
@@ -113,15 +114,15 @@ class AnswerPQRSD extends FormBase {
       $file->setPermanent();
       $file->save();
     }
-            
+
     $node->save();
 
-    if(isset($node->get('field_pqrsd_email')->getValue()[0]['value']) && 
+    if(isset($node->get('field_pqrsd_email')->getValue()[0]['value']) &&
         $node->get('field_pqrsd_medio_respuesta')->getValue()[0]['value'] == 'email'){
 
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'findeter_pqrsd';
-      $key = 'registered_pqrsd';
+      $key = 'answer_pqrsd';
       $to = $form_state->getValue('field_pqrsd_email');
 
       $mailBody[] = 'Reciba un cordial saludo de parte de Findeter';
@@ -129,7 +130,7 @@ class AnswerPQRSD extends FormBase {
       $mailBody[] = '<div class="numero-radicado">Estimado usuario: <br><br>
       '.$node->get('field_pqrsd_respuesta')->getValue()[0]['value'] .'
       </div>';
-      
+
       $mailBody[] = '';
       $mailBody[] = 'Cordialmente,';
       $mailBody[] = 'Vicepresidencia comercial - Servicio al cliente';
@@ -139,7 +140,29 @@ class AnswerPQRSD extends FormBase {
 
       $langcode = \Drupal::currentUser()->getPreferredLangcode();
       $send = true;
-    
+
+      $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+
+      if($result['result'] !== true){
+        \Drupal::messenger()->addError('Ocurrió un problema al enviar el correo.');
+      }
+
+
+      // send email to admin user
+      $user = \Drupal\user\Entity\User::load(1);
+      $to = $user->getEmail();
+
+      $mailBody[] = 'PQRSD Respondida:';
+      $mailBody[] = 'Se dió respuesta a la PQRSD con número: <b>'.$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'].'</b>';
+      $mailBody[] = '<div class="numero-radicado">Texto de respuesta: <br><br>
+      '.$node->get('field_pqrsd_respuesta')->getValue()[0]['value'] .'
+      </div>';
+
+      $params['message'] = implode('<br>',$mailBody);
+
+      $langcode = \Drupal::currentUser()->getPreferredLangcode();
+      $send = true;
+
       $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
 
       if($result['result'] !== true){

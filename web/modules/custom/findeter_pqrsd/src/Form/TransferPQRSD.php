@@ -45,6 +45,12 @@ class TransferPQRSD extends FormBase {
       '#required'   => true
     ];
 
+    $form['comment'] = [
+      '#type'     => 'textarea',
+      '#title'    => 'Comentario',
+      '#required' => true
+    ];
+
     // Submit with ajax event that after the operation, close the modal
     $form['submit'] = [
       '#type'  => 'submit',
@@ -90,8 +96,7 @@ class TransferPQRSD extends FormBase {
 
     $response = new AjaxResponse();
 
-    $mailBody[] = 'Reciba un cordial saludo de parte de Findeter';
-    $mailBody[] = 'Le hacemos entrega de la información del siguiente radicado:';
+    $mailBody[] = 'Reciba un cordial saludo de parte de Findeter.';
 
     $formValues = $form_state->getValues();
 
@@ -101,50 +106,37 @@ class TransferPQRSD extends FormBase {
     $module = 'findeter_pqrsd';
     $key = 'transfer_pqrsd';
     $to = $formValues['email'];
-    
+
     $nameRadicador[] = $node->get('field_pqrsd_primer_nombre')->getString();
     $nameRadicador[] = $node->get('field_pqrsd_segundo_nombre')->getString();
     $nameRadicador[] = $node->get('field_pqrsd_segundo_apellido')->getString();
 
-    $mailBody[] = '<b>#Radicado: </b> '.$formValues['node_id'];
-    $mailBody[] = '<b>Peticionario: </b>'.implode(' ',$nameRadicador);
-    $mailBody[] = '<b>Email: </b>'.$node->get('field_pqrsd_email')->getString();
-    $mailBody[] = '<b>Teléfono: </b>'.$node->get('field_pqrsd_telefono')->getString();
-    $mailBody[] = '<b>Dirección: </b>'.$node->get('field_pqrsd_direccion')->getString();
-
-    $tidDepartment = $node->get('field_pqrsd_departamento')->getString();
-    $nameDepartment = \Drupal\taxonomy\Entity\Term::load($tidDepartment)->get('name')->value;
-
-    $tidMunicipality = $node->get('field_pqrsd_municipio')->getString();
-    $nameMunicipality = \Drupal\taxonomy\Entity\Term::load($tidMunicipality)->get('name')->value;
-
-    $mailBody[] = '<b>Departamento/municipio: </b>'.$nameDepartment.' - '.$nameMunicipality;
-    $mailBody[] = '<b>Rango de edad: </b>'.$node->get('field_pqrsd_rango_edad')->getString();
-    $mailBody[] = '<b>Fecha de registro: </b>'.$node->getCreatedTime();
-    $mailBody[] = '<b>Producto: </b>'.$node->get('field_pqrsd_nombre_producto')->getString();
-    $mailBody[] = '<b>Canal de recepción: </b>'.$node->get('field_pqrsd_canal_recepcion')->getString();
-    $mailBody[] = '<b>Forma de recepción: </b>'.$node->get('field_pqrsd_forma_recepcion')->getString();
-    $mailBody[] = '<b>Medio de respuesta: </b>'.$node->get('field_pqrsd_medio_respuesta')->getString();
+    $mailBody[] = 'De conformidad con lo establecido en la ley 1755 de 2015, de manera atenta damos traslado por competencia a la PQRSD radicada en Findeter con el número:'.$formValues['node_id'];
+    $mailBody[] = 'Agradecemos su acostumbrada colaboración, para dar continuidad al trámite correspondiente.';
+    $mailBody[] = '';
+    $mailBody[] = 'Cordialmente,';
+    $mailBody[] = 'Vicepresidencia comercial - Servicio al cliente Findeter';
 
     $params['message'] = implode('<br>',$mailBody);
 
     $langcode = \Drupal::currentUser()->getPreferredLangcode();
     $send = true;
-   
+
     $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
 
     if($result['result'] == true){
       $node = Node::load($formValues['node_id']);
       $node->field_pqrsd_respuesta[] = 'PQRSD Trasladada a: '.$formValues['email'];
-      $node->uid = 0; 
+      $node->field_pqrsd_comentario_traslado[] = $formValues['comment'];
+      //$node->uid = 0;
       $node->save();
-  
+
       $response->addCommand(new InvokeCommand(NULL, 'afterAsignCallback', ['Reloading page!']));
     }else{
       \Drupal::messenger()->addError('Ocurrió un problema al enviar el correo.');
       $response->addCommand(new CloseModalDialogCommand());
     }
-    
+
     return $response;
 
   }

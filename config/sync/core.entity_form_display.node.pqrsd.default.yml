@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.pqrsd.field_pqrsd_asignaciones
     - field.field.node.pqrsd.field_pqrsd_autorizacion
     - field.field.node.pqrsd.field_pqrsd_canal_recepcion
+    - field.field.node.pqrsd.field_pqrsd_comentario_traslado
     - field.field.node.pqrsd.field_pqrsd_departamento
     - field.field.node.pqrsd.field_pqrsd_descripcion
     - field.field.node.pqrsd.field_pqrsd_direccion
@@ -86,6 +87,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_pqrsd_comentario_traslado:
+    weight: 47
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_pqrsd_departamento:
     weight: 14
