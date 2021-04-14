@@ -3903,20 +3903,13 @@ display:
         access: false
         filters: false
         filter_groups: false
-<<<<<<< HEAD
-=======
         header: false
         fields: false
->>>>>>> 8006c466744580035aa211ac533ffd15efc37130
       access:
         type: role
         options:
           role:
             authenticated: authenticated
-<<<<<<< HEAD
-            administrator: administrator
-=======
->>>>>>> 8006c466744580035aa211ac533ffd15efc37130
       filters:
         field_pqrsd_numero_radicado_value:
           id: field_pqrsd_numero_radicado_value
@@ -4393,143 +4386,6 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-<<<<<<< HEAD
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_pqrsd_fecha_naranja_value_op
-            label: 'Fecha naranja (field_pqrsd_fecha_naranja)'
-            description: null
-            use_operator: false
-            operator: field_pqrsd_fecha_naranja_value_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_pqrsd_fecha_naranja_value
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: null
-            min_placeholder: null
-            max_placeholder: null
-          is_grouped: true
-          group_info:
-            label: ''
-            description: ''
-            identifier: fecha-notificacion
-            optional: true
-            widget: radios
-            multiple: true
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              1:
-                title: 'A tiempo'
-                operator: '>'
-                value:
-                  type: offset
-                  value: '-1 day'
-                  min: ''
-                  max: ''
-              2:
-                title: 'Por vencer'
-                operator: '<='
-                value:
-                  type: offset
-                  value: '-1 day'
-                  min: ''
-                  max: ''
-              3:
-                title: ''
-                operator: '='
-                value:
-                  type: date
-                  value: ''
-                  min: ''
-                  max: ''
-          plugin_id: datetime
-        field_pqrsd_fecha_roja_value:
-          id: field_pqrsd_fecha_roja_value
-          table: node__field_pqrsd_fecha_roja
-          field: field_pqrsd_fecha_roja_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_pqrsd_fecha_roja_value_op
-            label: 'Fecha vencimiento (field_pqrsd_fecha_roja)'
-            description: null
-            use_operator: false
-            operator: field_pqrsd_fecha_roja_value_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_pqrsd_fecha_roja_value
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: null
-            min_placeholder: null
-            max_placeholder: null
-          is_grouped: true
-          group_info:
-            label: ''
-            description: ''
-            identifier: fecha-vencimiento
-            optional: true
-            widget: radios
-            multiple: true
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              1:
-                title: Vencidos
-                operator: '<='
-                value:
-                  type: offset
-                  value: '-1 day'
-                  min: ''
-                  max: ''
-              2:
-                title: ''
-                operator: '='
-                value:
-                  type: date
-                  value: ''
-                  min: ''
-                  max: ''
-              3:
-                title: ''
-                operator: '='
-                value:
-                  type: date
-                  value: ''
-                  min: ''
-                  max: ''
-          plugin_id: datetime
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-=======
           operator: '='
           value:
             min: ''
@@ -6406,7 +6262,6 @@ display:
           absolute: false
           entity_type: node
           plugin_id: entity_link
->>>>>>> 8006c466744580035aa211ac533ffd15efc37130
     cache_metadata:
       max-age: -1
       contexts:
@@ -6462,10 +6317,6 @@ display:
         fields: false
         filters: false
         filter_groups: false
-<<<<<<< HEAD
-        access: false
-=======
->>>>>>> 8006c466744580035aa211ac533ffd15efc37130
       fields:
         nid:
           id: nid
@@ -8855,15 +8706,6 @@ display:
         operator: AND
         groups:
           1: AND
-<<<<<<< HEAD
-      access:
-        type: role
-        options:
-          role:
-            authenticated: authenticated
-            administrator: administrator
-=======
->>>>>>> 8006c466744580035aa211ac533ffd15efc37130
     cache_metadata:
       max-age: -1
       contexts:
@@ -8873,11 +8715,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-<<<<<<< HEAD
-        - user.roles
-=======
         - user.permissions
->>>>>>> 8006c466744580035aa211ac533ffd15efc37130
       tags:
         - 'config:field.storage.node.field_pqrsd_canal_recepcion'
         - 'config:field.storage.node.field_pqrsd_departamento'
