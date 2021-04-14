@@ -7,7 +7,7 @@ findeter_pqrsd.register_pqrsd:
     _permission: 'access content'
 
 findeter_pqrsd.asign_pqrsd:
-  path: '/pqrsd/pqrsd-ajax-asign/{nid}'
+  path: '/pqrsd/pqrsd-ajax-asign/{nid}/{usr}'
   defaults:
     _form: '\Drupal\findeter_pqrsd\Form\AsignPQRSD'
     _title: 'Asignar requerimiento'
@@ -18,7 +18,7 @@ findeter_pqrsd.transfer_pqrsd:
   path: '/pqrsd/transfer-pqrsd/{nid}'
   defaults:
     _form: '\Drupal\findeter_pqrsd\Form\TransferPQRSD'
-    _title: 'Asignar requerimiento'
+    _title: 'Transferir requerimiento'
   requirements:
     _user_is_logged_in: 'TRUE'
 

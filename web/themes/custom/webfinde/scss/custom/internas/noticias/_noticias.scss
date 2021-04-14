@@ -18,10 +18,15 @@ div.pageNoticias {
             transform: scale(1, 1);
             transition: 1s all;
         }
-        p.titulo {
-            color: var.$color-secundario;
+        h6.titulo {
             font-size: 14px;
             transition: .6s all;
+        }
+        a.body {
+            color: black;
+            &:visited {
+                color: var.$color-cuaternario;
+            }
         }
         &:hover {
             img {

@@ -453,7 +453,7 @@
                     <a href="javascript:void(0)" class="text-white ml-5 busquedaAvz"><i class="fas fa-search-plus"></i> Mostar mas campos de busqueda</a>
                 `);
 
-            if (activarBusqueda === false) {
+            /*if (activarBusqueda === false) {
 
                 $(".convocatoriaCiudadano form .form--inline div:nth-child(3)").hide();
                 $(".convocatoriaCiudadano form .form--inline div:nth-child(4)").hide();
@@ -462,7 +462,7 @@
                 $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").hide();
                 $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").hide();
                 $(".convocatoriaCiudadano form .form--inline div:nth-child(9)").hide();
-            }
+            }*/
 
 
             $(".convocatoriaCiudadano form .form-actions a").on('click', function() {

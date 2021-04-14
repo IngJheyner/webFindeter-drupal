@@ -6,6 +6,7 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
+use Drupal\Core\Ajax\InvokeCommand;
 use Drupal\views\Views;
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Render\Markup;
@@ -75,6 +76,8 @@ function callBackDeparment(array &$form, FormStateInterface $form_state) {
 
   $response = new AjaxResponse();
 
+
+  $response->addCommand(new InvokeCommand(NULL, 'afterLocation', ['Reloading page!']));
   $response->addCommand(new ReplaceCommand('#output-municipalities', $renderedField));
 
   return $response;
@@ -91,17 +94,19 @@ function defineDatesSemaphore($values){
   $config = \Drupal::config('findeter_pqrsd.admin');
   $peticion = $config->get('semaphore');
 
-  if($values['field_pqrsd_tipo_radicado'] == 'Peticiones'){
-    $typeRequest = $values['field_pqrsd_tipo_peticion'];
-    if(isset($peticion[$typeRequest])){
-      $addDays = $peticion[$typeRequest];
-    }else{
-      if(isset($values['field_pqrsd_preferencial']) && $values['field_pqrsd_preferencial'] == 'congresista'){
-        $addDays = $peticion['all'];
-      }
-    }
+  if(isset($values['field_pqrsd_preferencial']) && $values['field_pqrsd_preferencial'] == 'congresista'){
+    $addDays = $peticion['all'];
   }else{
-    $addDays = $peticion['none'];
+    if($values['field_pqrsd_tipo_radicado'] == 'Peticiones'){
+      $typeRequest = $values['field_pqrsd_tipo_peticion'];
+      if(isset($peticion[$typeRequest])){
+        $addDays = $peticion[$typeRequest];
+      }else{
+        $addDays = $peticion['none'];
+      }
+    }else{
+      $addDays = $peticion['none'];
+    }
   }
 
   //correct number of days
@@ -112,12 +117,13 @@ function defineDatesSemaphore($values){
   if($addDays['logic'] == 'calendar days'){
     $dateOrange = date($dateFormat,strtotime('tomorrow +'.$addDays['orange'].' days'));
     $dateRed = date($dateFormat,strtotime('tomorrow +'.$addDays['red'].' days'));
-    $answer = ['orange'=>$dateOrange,'red'=>$dateRed];
+    $answer = ['orange'=>$dateOrange,'red'=>$dateRed,'number-red'=>$addDays['red']];
   }else{
     $dateOrange = date($dateFormat,_getBussinesDays($addDays['orange']));
     $dateRed = date($dateFormat,_getBussinesDays($addDays['red']));
-    $answer = ['orange'=>$dateOrange,'red'=>$dateRed];
+    $answer = ['orange'=>$dateOrange,'red'=>$dateRed,'number-red'=>$addDays['red']];
   }
+
   return $answer;
 }
 
@@ -171,33 +177,39 @@ function findeter_pqrsd_mail($key, &$message, $params) {
   switch ($key) {
     case 'transfer_pqrsd':
       $message['from'] = \Drupal::config('system.site')->get('mail');
-      $message['subject'] = 'Se realizó el traslado de una PQRSD';
+      $message['subject'] = 'Traslado PQRSD por competencia';
       $message['body'][] = $params['message'];
-    break;
+      break;
 
     case 'registered_pqrsd':
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = 'Registro de PQRSD';
       $message['body'][] = $params['message'];
-    break;
+      break;
+
+    case 'answer_pqrsd':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = 'Respuesta de PQRSD';
+      $message['body'][] = $params['message'];
+      break;
 
     case 'asigned_pqrsd':
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = 'Nueva asignación de PQRSD';
       $message['body'][] = $params['message'];
-    break;
+      break;
 
     case 'notification_orange':
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = 'Pronto vencimiento para respuesta de PQRSD';
       $message['body'][] = $params['message'];
-    break;
+      break;
 
     case 'notification_red':
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = 'Tiempo execido para  respuesta de PQRSD';
       $message['body'][] = $params['message'];
-    break;
+      break;
   }
 }
 
@@ -205,10 +217,22 @@ function findeter_pqrsd_mail($key, &$message, $params) {
 /**
 * Create a random number
 */
-function generarNumeroRadicado(){
+function generarNumeroRadicado($type){
 
-  $numeroRadicado = '';
-  for($i=0;$i<=4;$i++){
+  $config = \Drupal::service('config.factory')->getEditable('findeter_pqrsd.settings');
+  $secuencialNumber = $config->get('number_settled',1);
+  if(!$secuencialNumber){
+    $secuencialNumber = 1;
+  }
+
+  $numeroRadicado = date('Ymd',\Drupal::time()->getCurrentTime());
+  $numeroRadicado .= $type[0].$secuencialNumber;
+
+  $secuencialNumber++;
+
+  $config->set('number_settled', $secuencialNumber)->save();
+
+  /*for($i=0;$i<=4;$i++){
     $numeroRadicado .= rand (0, 9) ;
   }
 
@@ -216,7 +240,7 @@ function generarNumeroRadicado(){
   for($i=0;$i<2;$i++){
     $rand = rand (0, 25) ;
     $numeroRadicado .= $arrayAbc[$rand] ;
-  }
+  }*/
 
   return $numeroRadicado;
 
@@ -638,93 +662,142 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
   $view = $variables['view'];
   $field = $variables['field'];
+  $row = $variables['row'];
 
   if ($view->storage->id() == 'pqrsd'){
     if($view->current_display == 'page_1' || $view->current_display == 'page_2'){
 
       if($field->field == 'field_pqrsd_respuesta'){
         if($variables['output'] == ''){
-          $variables['output'] = 'Abierta';
+          $variables['output'] = 'Abierta asignada a: '.strip_tags($view->field['uid']->original_value);
         }else{
           $variables['output'] = 'Cerrada por: '.strip_tags($view->field['uid']->original_value);
         }
       }
-    }
 
-    if($field->field == 'view_node'){
-      $nid = $view->field['nid']->original_value;
+      if($field->field == 'view_node'){
+        $nid = $view->field['nid']->original_value;
+        $author = $view->field['uid']->original_value;
 
-      $modalOptions = [
-        'class'               => ['use-ajax', 'btn', 'btn-outline-primary', 'button'],
-        'data-dialog-type'    => ['modal'],
-        'data-dialog'         => ['modal'],
-        'data-dialog-options' => ['{"width":800}'],
-      ];
+        $modalOptions = [
+          'class'               => ['use-ajax', 'btn', 'btn-outline-primary', 'button'],
+          'data-dialog-type'    => ['modal'],
+          'data-dialog'         => ['modal'],
+          'data-dialog-options' => ['{"width":800}'],
+        ];
 
-      $htmlOutput = '';
-      $url = Url::fromRoute('entity.node.canonical', ['node' => $nid]);
-      $modalLink = Link::fromTextAndUrl('Ver', $url);
-      $modalLink = $modalLink->toRenderable();
-      $modalLink['#attributes'] = $modalOptions;
-      $htmlOutput .='<br>'.render($modalLink).'<br>';
+        $htmlOutput = '';
+        $url = Url::fromRoute('entity.node.canonical', ['node' => $nid]);
+        $modalLink = Link::fromTextAndUrl('Ver', $url);
+        $modalLink = $modalLink->toRenderable();
+        $modalLink['#attributes'] = $modalOptions;
+        $htmlOutput .='<br>'.render($modalLink).'<br>';
 
-      if($view->field['field_pqrsd_respuesta']->original_value == ''){
+        if($view->field['field_pqrsd_respuesta']->original_value == ''){
 
-        $url = Url::fromRoute('findeter_pqrsd.update_pqrsd_admin', ['nid' => $nid]);
-        $modalLink = Link::fromTextAndUrl('Editar', $url);
+          $url = Url::fromRoute('findeter_pqrsd.update_pqrsd_admin', ['nid' => $nid]);
+          $modalLink = Link::fromTextAndUrl('Editar', $url);
+          $modalLink = $modalLink->toRenderable();
+          $modalLink['#attributes'] = ['class' => ['button']];
+          $htmlOutput .=render($modalLink);
+
+
+          $url = Url::fromRoute('findeter_pqrsd.asign_pqrsd',['nid' => $nid,'usr' => $author]);
+          $modalLink = Link::fromTextAndUrl('Asignar', $url);
+          $modalLink = $modalLink->toRenderable();
+          $modalLink['#attributes'] = $modalOptions;
+          $htmlOutput .= render($modalLink).'<br>';
+
+          $url = Url::fromRoute('findeter_pqrsd.transfer_pqrsd',['nid' => $nid]);
+          $modalLink = Link::fromTextAndUrl('Trasladar', $url);
+          $modalLink = $modalLink->toRenderable();
+          $modalLink['#attributes'] = $modalOptions;
+          $htmlOutput .= render($modalLink).'<br>';
+
+          $url = Url::fromRoute('findeter_pqrsd.answer_pqrsd',['nid' => $nid]);
+          $modalLink = Link::fromTextAndUrl('Responder', $url);
+          $modalLink = $modalLink->toRenderable();
+          $modalLink['#attributes'] = $modalOptions;
+          $htmlOutput .= render($modalLink).'<br>';
+        }
+
+        $url = Url::fromRoute('findeter_pqrsd.create_pdf',['nid' => $nid]);
+        $modalLink = Link::fromTextAndUrl('PDF', $url);
         $modalLink = $modalLink->toRenderable();
         $modalLink['#attributes'] = ['class' => ['button']];
-        $htmlOutput .=render($modalLink);
+        $htmlOutput .= render($modalLink);
 
-
-        $url = Url::fromRoute('findeter_pqrsd.asign_pqrsd',['nid' => $nid]);
-        $modalLink = Link::fromTextAndUrl('Asignar', $url);
-        $modalLink = $modalLink->toRenderable();
-        $modalLink['#attributes'] = $modalOptions;
-        $htmlOutput .= render($modalLink).'<br>';
-
-        $url = Url::fromRoute('findeter_pqrsd.transfer_pqrsd',['nid' => $nid]);
-        $modalLink = Link::fromTextAndUrl('Trasladar', $url);
-        $modalLink = $modalLink->toRenderable();
-        $modalLink['#attributes'] = $modalOptions;
-        $htmlOutput .= render($modalLink).'<br>';
-
-        $url = Url::fromRoute('findeter_pqrsd.answer_pqrsd',['nid' => $nid]);
-        $modalLink = Link::fromTextAndUrl('Responder', $url);
-        $modalLink = $modalLink->toRenderable();
-        $modalLink['#attributes'] = $modalOptions;
-        $htmlOutput .= render($modalLink).'<br>';
+        $variables['output'] = ['#markup' => $htmlOutput];
       }
 
-      $url = Url::fromRoute('findeter_pqrsd.create_pdf',['nid' => $nid]);
-      $modalLink = Link::fromTextAndUrl('PDF', $url);
-      $modalLink = $modalLink->toRenderable();
-      $modalLink['#attributes'] = ['class' => ['button']];
-      $htmlOutput .= render($modalLink);
+      if($field->field == 'field_pqrsd_fecha_naranja'){
+        $semaphore = '<div class="gray">Gris</div>';
 
-      $variables['output'] = ['#markup' => $htmlOutput];
-    }
+        $preferencial = '';
+        if(isset($row->_entity->getFields()['field_pqrsd_preferencial'][0])){
+          $preferencial = $row->_entity->getFields()['field_pqrsd_preferencial'][0]->getValue()['value'];
+        }
 
-    if($field->field == 'field_pqrsd_fecha_naranja'){
-      $semaphore = '<div class="gray">Gris</div>';
-      $orangeDate = strtotime($variables['field']->getValue($variables['row']));
-      $redDate = strtotime($view->field['field_pqrsd_fecha_roja']->original_value);
-      $timeStamp = strtotime('now');
+        $tipoRadicado = '';
+        if(isset($row->_entity->getFields()['field_pqrsd_tipo_radicado'][0])){
+          $tipoRadicado = $row->_entity->getFields()['field_pqrsd_tipo_radicado'][0]->getValue()['value'];
+        }
 
-      if($timeStamp<$orangeDate){
-        $semaphore = '<div class="green">Verde</div>';
-      }else{
-        if($timeStamp>=$orangeDate && $timeStamp<$redDate){
-          $semaphore = '<div class="orange">Naranja</div>';
+        $tipoPeticion = '';
+        if(isset($row->_entity->getFields()['field_pqrsd_tipo_peticion'][0])){
+          $tipoPeticion = $row->_entity->getFields()['field_pqrsd_tipo_peticion'][0]->getValue()['value'];
+        }
+
+        $registerDate = $row->_entity->getFields()['created'][0]->getValue()['value'];
+        $orangeDate = strtotime($row->_entity->getFields()['field_pqrsd_fecha_naranja'][0]->getValue()['value']);
+        $redDate = strtotime($row->_entity->getFields()['field_pqrsd_fecha_roja'][0]->getValue()['value']);
+        $timeStamp = strtotime('now');
+
+        $datesConfigure = defineDatesSemaphore([
+          'field_pqrsd_preferencial'  => $preferencial,
+          'field_pqrsd_tipo_radicado' => $tipoRadicado,
+          'field_pqrsd_tipo_peticion' => $tipoPeticion
+        ]);
+
+        $daysleft = $datesConfigure['number-red'] - round(((($timeStamp-$registerDate)/24)/60)/60) +1;
+
+        $closed = false;
+        if(isset($row->_entity->getFields()['field_pqrsd_respuesta'][0])){
+          $closed = $row->_entity->getFields()['field_pqrsd_respuesta'][0]->getValue()['value'];
+        }
+
+        if($closed){
+          $semaphore = '
+            <div class="blue">Azul</div>
+        ';
         }else{
-          if($timeStamp>=$redDate){
-            $semaphore = '<div class="red">Rojo</div>';
+          if($timeStamp<$orangeDate){
+            $semaphore = '
+            <div class="green">Verde</div>
+            <div class="days-left">Quedan:<br> '.$daysleft.' dias</div>';
+
+          }else{
+
+            if($timeStamp>=$orangeDate && $timeStamp<$redDate){
+
+              $semaphore = '
+                <div class="orange">Naranja</div>
+                <div class="days-left">Quedan:<br> '.$daysleft.' dias</div>';
+
+            }else{
+              if($timeStamp>=$redDate){
+                $semaphore = '<div class="red">Rojo</div>';
+              }
+            }
           }
         }
+
+        $variables['output'] = ['#markup' => $semaphore];
       }
 
-      $variables['output'] = ['#markup' => $semaphore];
     }
+
+
 
   }
 
