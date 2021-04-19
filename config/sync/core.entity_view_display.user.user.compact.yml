@@ -4,10 +4,13 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.field.user.user.field_apellidos_usuario
+    - field.field.user.user.field_dependencia_usuarios
+    - field.field.user.user.field_nombre_usuario
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
-    - image
+    - svg_image
     - user
 _core:
   default_config_hash: '-cLsS3M3JycipXQt9rEb81_HxKneReoGuRh8ijcOPXs'
@@ -26,5 +29,8 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
+  field_apellidos_usuario: true
+  field_dependencia_usuarios: true
+  field_nombre_usuario: true
   langcode: true
   member_for: true
