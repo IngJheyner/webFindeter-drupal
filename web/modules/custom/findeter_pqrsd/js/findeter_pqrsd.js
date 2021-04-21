@@ -2,7 +2,7 @@
   //'use strict';
   Drupal.behaviors.findeterUserFormRequest = {
     attach: function (context, settings) {
-      
+
       if($('#edit-field-request-description').length){
         $("#edit-field-request-description").keyup(function() {
           var sizeText = $('#edit-field-request-description').val().length;
@@ -40,6 +40,10 @@
         console.log('afterAsignCallback is called.');
         location.reload();
       };
+
+      $(document, context).once('findeterUserFormRequest ').each( function() {
+        $.fn.afterLocation = function(argument) {};
+      });
 
     }
   };
