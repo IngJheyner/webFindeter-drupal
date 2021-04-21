@@ -81,14 +81,16 @@ class StepTwo extends BaseStep {
       $formStep['field_pqrsd_nit'] = [
         '#type'       => 'textfield',
         '#title'      => '<span class"required">*</span>'.$definitions['field_pqrsd_nit']->getLabel(),
-        '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_nit']->getLabel())],
+        //'#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_nit']->getLabel())],
+        '#attributes' => ['placeholder'=>'Ej: 2321133'],
         '#prefix'     => '<div class="col">'
       ];
 
       $formStep['field_pqrsd_razon_social'] = [
         '#type'       => 'textfield',
         '#title'      => '<span class"required">*</span>'.$definitions['field_pqrsd_razon_social']->getLabel(),
-        '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_razon_social']->getLabel())]
+        //'#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_razon_social']->getLabel())]
+        '#attributes' => ['placeholder'=>'Ej: Empresa S.A.S'],
       ];
 
       $formStep['field_pqrsd_tipo_empresa'] = [
@@ -105,7 +107,8 @@ class StepTwo extends BaseStep {
       $formStep['field_pqrsd_numero_id'] = [
         '#type'       => 'textfield',
         '#title'      => '<span class"required">*</span>'.$definitions['field_pqrsd_numero_id']->getLabel(),
-        '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_numero_id']->getLabel())],
+        //'#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_numero_id']->getLabel())],
+        '#attributes' => ['placeholder'=>'Ej: 2321133'],
         '#prefix'     => '<div class="col">'
       ];
 
@@ -120,26 +123,26 @@ class StepTwo extends BaseStep {
     $formStep['field_pqrsd_primer_nombre'] = [
       '#type'       => 'textfield',
       '#title'      => '<span class"required">*</span>'.$definitions['field_pqrsd_primer_nombre']->getLabel(),
-      '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_primer_nombre']->getLabel())]
+      '#attributes' => ['placeholder'=>'Ej: Juan']
     ];
 
     $formStep['field_pqrsd_segundo_nombre'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_pqrsd_segundo_nombre']->getLabel(),
-      '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_segundo_nombre']->getLabel())]
+      '#attributes' => ['placeholder'=>'Ej: Carlos']
     ];
 
     $formStep['field_pqrsd_primer_apellido'] = [
       '#type'       => 'textfield',
       '#title'      => '<span class"required">*</span>'.$definitions['field_pqrsd_primer_apellido']->getLabel(),
-      '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_primer_apellido']->getLabel())]
+      '#attributes' => ['placeholder'=>'Ej: Pedraza']
     ];
 
     // end col 1
     $formStep['field_pqrsd_segundo_apellido'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_pqrsd_segundo_apellido']->getLabel(),
-      '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_segundo_apellido']->getLabel())],
+      '#attributes' => ['placeholder'=>'Ej: Ortega'],
       '#suffix'       => '</div>'
     ];
 
@@ -154,7 +157,7 @@ class StepTwo extends BaseStep {
     $formStep['field_pqrsd_direccion'] = [
       '#type'       => 'textfield',
       '#title'      => '<span class"required">*</span>'.$definitions['field_pqrsd_direccion']->getLabel(),
-      '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_direccion']->getLabel())],
+      '#attributes' => ['placeholder'=>'Ej: carrera 2 No 32 - 15'],
       '#prefix'     => '<div class="col">'
     ];
 
@@ -169,7 +172,7 @@ class StepTwo extends BaseStep {
         'callback'  => 'callBackDeparment', 
         'event'     => 'change',
         'progress'  => [
-          'message' => 'Recupersando municipios...',
+          'message' => 'Recuperando municipios...',
         ],
       ],
       '#empty_option'   => '-Seleccione una opción-',
@@ -197,20 +200,20 @@ class StepTwo extends BaseStep {
     $formStep['field_pqrsd_telefono'] = [
       '#type'       => 'textfield',
       '#title'      => '<span class"required">*</span>'.$definitions['field_pqrsd_telefono']->getLabel(),
-      '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_telefono']->getLabel())]
+      '#attributes' => ['placeholder'=>'Ej: 5435455']
     ];
 
     $formStep['field_pqrsd_fax'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_pqrsd_fax']->getLabel(),
-      '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_fax']->getLabel())]
+      '#attributes' => ['placeholder'=>'Ej: 4354555']
     ];
     
     // end col 2
     $formStep['field_pqrsd_email'] = [
       '#type'       => 'email',
       '#title'      => '<span class"required">*</span>'.$definitions['field_pqrsd_email']->getLabel(),
-      '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_email']->getLabel())],
+      '#attributes' => ['placeholder'=>'Ej: correo@gmail.com'],
       '#suffix'     => '</div>'
     ];
     

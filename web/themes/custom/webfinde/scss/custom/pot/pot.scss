@@ -1,0 +1,14 @@
+@use '../../mixins/custom-etiquetas' as custom-etiquetas;
+div.pot {
+    @include custom-etiquetas.titulo('cajaTitulo', 'titulo');
+    section.beneficios {
+        div.contenido {
+            ul {
+                list-style-image: url('../images/iconos/punto-azul.png');
+                li {
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+}

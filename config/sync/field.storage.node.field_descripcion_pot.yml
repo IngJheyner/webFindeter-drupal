@@ -1,25 +1,23 @@
-uuid: 321ab674-d338-4361-bb4d-20dfde43fc38
+uuid: c7de0013-3cde-4046-a1f1-c20aa1191ce1
 langcode: es
 status: true
 dependencies:
   module:
     - field_permissions
     - node
-    - text
 third_party_settings:
   field_permissions:
     permission_type: public
-_core:
-  default_config_hash: EBUo7qOWqaiZaQ_RC9sLY5IoDKphS34v77VIHSACmVY
-id: node.body
-field_name: body
+id: node.field_descripcion_pot
+field_name: field_descripcion_pot
 entity_type: node
-type: text_with_summary
-settings: {  }
-module: text
+type: string_long
+settings:
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true
 indexes: {  }
-persist_with_no_fields: true
+persist_with_no_fields: false
 custom_storage: false

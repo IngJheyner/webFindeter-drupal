@@ -1,0 +1,202 @@
+uuid: 9d28665f-50a1-47c7-83bf-bf0d71690621
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.pot.body
+    - field.field.node.pot.field_descripcion_pot
+    - field.field.node.pot.field_img_beneficios_pot
+    - field.field.node.pot.field_img_galeria_pot
+    - field.field.node.pot.field_img_slider_pot
+    - field.field.node.pot.field_titulo_beneficio_pot
+    - field.field.node.pot.field_titulo_pregunta_pot
+    - image.style.thumbnail
+    - node.type.pot
+  module:
+    - field_group
+    - path
+    - svg_image
+    - text
+third_party_settings:
+  field_group:
+    group_grupo_tabs:
+      children:
+        - group_informacion
+        - group_encabezado_slider
+        - group__que_es_el_pot_
+        - group_beneficios
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: 'Grupo Tabs'
+    group_informacion:
+      children:
+        - title
+        - langcode
+        - created
+        - path
+        - status
+      parent_name: group_grupo_tabs
+      weight: 20
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Información
+    group_encabezado_slider:
+      children:
+        - field_img_slider_pot
+      parent_name: group_grupo_tabs
+      weight: 21
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Encabezado Slider'
+    group__que_es_el_pot_:
+      children:
+        - field_titulo_pregunta_pot
+        - field_img_galeria_pot
+        - field_descripcion_pot
+      parent_name: group_grupo_tabs
+      weight: 22
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: '¿Qué es el POT?'
+    group_beneficios:
+      children:
+        - field_titulo_beneficio_pot
+        - body
+        - field_img_beneficios_pot
+      parent_name: group_grupo_tabs
+      weight: 23
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Beneficios
+id: node.pot.default
+targetEntityType: node
+bundle: pot
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 3
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_descripcion_pot:
+    weight: 30
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_img_beneficios_pot:
+    weight: 4
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_img_galeria_pot:
+    weight: 29
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_img_slider_pot:
+    weight: 1
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_titulo_beneficio_pot:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_titulo_pregunta_pot:
+    weight: 28
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  promote: true
+  sticky: true
+  uid: true
+  url_redirects: true

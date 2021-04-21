@@ -75,24 +75,28 @@
 
     </section>
 
-    <section class="row m-0 menuPrincipal">
+    {% if path('<current>') != '/plan-de-ordenamiento-territorial' %}
 
-      <div class="col-7 col-sm-5 col-xl-2 p-0 d-none d-xl-block">
+      <section class="row m-0 menuPrincipal">
 
-        <a href="{{ url('<front>') }}"><img src="{{ file_url(content.field_logo_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
+        <div class="col-7 col-sm-5 col-xl-2 p-0 d-none d-xl-block">
 
-      </div>
+          <a href="{{ url('<front>') }}"><img src="{{ file_url(content.field_logo_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
 
-      {# ===== ===== Pantalla laptop o mediana 992px ===== ===== #}
-      <div class="d-none d-lg-block  col-auto p-0">
+        </div>
 
-        {#{ drupal_menu('menu-principal') }#}
+        {# ===== ===== Pantalla laptop o mediana 992px ===== ===== #}
+        <div class="d-none d-lg-block  col-auto p-0">
 
-        {{ drupal_entity('block', 'menu_principal', check_access=false) }}
+          {#{ drupal_menu('menu-principal') }#}
 
-      </div>
+          {{ drupal_entity('block', 'menu_principal', check_access=false) }}
 
-    </section>   
+        </div>
+
+      </section>   
+      
+    {% endif %}
     
     {# ============================================
     Movil y Tablet < 768.98px
