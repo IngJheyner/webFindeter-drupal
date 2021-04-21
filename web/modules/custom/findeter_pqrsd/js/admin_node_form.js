@@ -6,19 +6,21 @@
       $(document, context).once('findeterUserFormRequest ').each( function() {
 
         $.fn.afterLocation = function(argument) {
-          console.log('inside location');
-          var typeForm = $( "#edit-field-pqrsd-tipo-solicitante option:selected" ).val();
-          console.log(typeForm,'option selected');
-          if(typeForm == 'juridica'){
-            console.log('if');
-            $('.form-item-field-pqrsd-nit').fadeIn();
-            $('.form-item-field-pqrsd-razon-social').fadeIn();
-            $('.form-item-field-pqrsd-tipo-empresa').fadeIn();
-          }else{
-            console.log('else');
-            $('.form-item-field-pqrsd-nit').fadeOut();
-            $('.form-item-field-pqrsd-razon-social').fadeOut();
-            $('.form-item-field-pqrsd-tipo-empresa').fadeOut();
+          if($('#register-pqrsd-admin').length){
+            console.log('inside location');
+            var typeForm = $('#edit-field-pqrsd-tipo-solicitante option:selected').val();
+            console.log(typeForm,'option selected');
+            if(typeForm == 'juridica'){
+              console.log('if');
+              $('.form-item-field-pqrsd-nit').fadeIn();
+              $('.form-item-field-pqrsd-razon-social').fadeIn();
+              $('.form-item-field-pqrsd-tipo-empresa').fadeIn();
+            }else{
+              console.log('else');
+              $('.form-item-field-pqrsd-nit').fadeOut();
+              $('.form-item-field-pqrsd-razon-social').fadeOut();
+              $('.form-item-field-pqrsd-tipo-empresa').fadeOut();
+            }
           }
         };
 
