@@ -1,0 +1,23 @@
+uuid: 83fa126c-baa2-4bf4-a8a9-713b1d7e3bba
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_descripcion_servicio_pot
+field_name: field_descripcion_servicio_pot
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

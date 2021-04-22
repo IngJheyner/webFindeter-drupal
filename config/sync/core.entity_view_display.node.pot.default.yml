@@ -5,11 +5,14 @@ dependencies:
   config:
     - field.field.node.pot.body
     - field.field.node.pot.field_descripcion_pot
+    - field.field.node.pot.field_descripcion_servicio_pot
     - field.field.node.pot.field_img_beneficios_pot
     - field.field.node.pot.field_img_galeria_pot
     - field.field.node.pot.field_img_slider_pot
+    - field.field.node.pot.field_servicios_pot
     - field.field.node.pot.field_titulo_beneficio_pot
     - field.field.node.pot.field_titulo_pregunta_pot
+    - field.field.node.pot.field_titulo_servicios_pot
     - node.type.pot
   module:
     - user
@@ -22,10 +25,13 @@ hidden:
   addtoany: true
   body: true
   field_descripcion_pot: true
+  field_descripcion_servicio_pot: true
   field_img_beneficios_pot: true
   field_img_galeria_pot: true
   field_img_slider_pot: true
+  field_servicios_pot: true
   field_titulo_beneficio_pot: true
   field_titulo_pregunta_pot: true
+  field_titulo_servicios_pot: true
   langcode: true
   links: true
