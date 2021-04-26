@@ -62,6 +62,27 @@ CUSTOM TITULOS
                 top: 1.5em;
                 left: 0;
             }
+            /* ==============================
+            MEDIA QUERY
+            ============================== */
+            @include media-query.media(xs) {
+                font-size: 2.5rem;
+                &::after {
+                    position: initial;
+                }
+            }
+            @include media-query.media(sm) {
+                font-size: 3rem;
+                &::after {
+                    position: initial;
+                }
+            }
+            @include media-query.media(md) {
+                font-size: 3rem;
+            }
+            @include media-query.media(lg) {
+                font-size: 3rem;
+            }
         }
     }
 }
