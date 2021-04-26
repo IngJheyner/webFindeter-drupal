@@ -1,0 +1,93 @@
+uuid: 95986979-e64f-49bf-ba80-f965f855fb05
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cifras_porque_findeter_pot.field_cifra_pot
+    - field.field.paragraph.cifras_porque_findeter_pot.field_otros_conceptos_pot
+    - field.field.paragraph.cifras_porque_findeter_pot.field_prefijo_cifra_pot
+    - field.field.paragraph.cifras_porque_findeter_pot.field_sufijo_cifra_pot
+    - field.field.paragraph.cifras_porque_findeter_pot.field_titulo_cifra_pot
+    - paragraphs.paragraphs_type.cifras_porque_findeter_pot
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_grupo_tabs:
+      children:
+        - group_cifra
+      parent_name: ''
+      weight: 0
+      format_type: accordion
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        effect: none
+      label: 'Grupo Tabs'
+    group_cifra:
+      children:
+        - field_titulo_cifra_pot
+        - field_sufijo_cifra_pot
+        - field_cifra_pot
+        - field_prefijo_cifra_pot
+        - field_otros_conceptos_pot
+      parent_name: group_grupo_tabs
+      weight: 4
+      format_type: accordion_item
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Cifra
+id: paragraph.cifras_porque_findeter_pot.default
+targetEntityType: paragraph
+bundle: cifras_porque_findeter_pot
+mode: default
+content:
+  field_cifra_pot:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_otros_conceptos_pot:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_prefijo_cifra_pot:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_sufijo_cifra_pot:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_titulo_cifra_pot:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
