@@ -305,7 +305,7 @@
         /*===========================================
         CASOS DE ÉXITO
         =============================================*/
-        var gridDefecto = $("div.casosExito div.slideCasoExito .slick .slide--0 ul li.grid--0").children().children().children().children().children().children('.contenidoSlider').children('p');
+        var gridDefecto = $("div.casosExito div.slideCasoExito .slick .slide--0 ul li.grid--0").children().children().children().children().children().children('.contenidoSlider').children('a');
 
         $("div.casosExito").css({ 'background': 'url("' + $(gridDefecto).attr('imgFondo') + '")' });
 

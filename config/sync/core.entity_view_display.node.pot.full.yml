@@ -5,15 +5,26 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.pot.body
+    - field.field.node.pot.field_cifras_pot
+    - field.field.node.pot.field_descripcion_equipo_pot
+    - field.field.node.pot.field_descripcion_porque_pot
     - field.field.node.pot.field_descripcion_pot
     - field.field.node.pot.field_descripcion_servicio_pot
+    - field.field.node.pot.field_descripcion_trayectora_pot
     - field.field.node.pot.field_img_beneficios_pot
+    - field.field.node.pot.field_img_equipo_pot
     - field.field.node.pot.field_img_galeria_pot
     - field.field.node.pot.field_img_slider_pot
+    - field.field.node.pot.field_informacion_contacteno_pot
     - field.field.node.pot.field_servicios_pot
     - field.field.node.pot.field_titulo_beneficio_pot
+    - field.field.node.pot.field_titulo_contactenos_pot
+    - field.field.node.pot.field_titulo_nuestro_equipo_pot
+    - field.field.node.pot.field_titulo_porque_findeter_pot
     - field.field.node.pot.field_titulo_pregunta_pot
     - field.field.node.pot.field_titulo_servicios_pot
+    - field.field.node.pot.field_titulo_trayectoria_pot
+    - field.field.node.pot.field_trayectoria_pot
     - node.type.pot
     - responsive_image.styles.narrow
   module:
@@ -22,6 +33,7 @@ dependencies:
     - field_formatter_class
     - layout_builder
     - slick
+    - svg_image
     - text
     - user
 third_party_settings:
@@ -40,6 +52,29 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  field_cifras_pot:
+    type: entity_reference_revisions_entity_view
+    weight: 11
+    region: content
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_descripcion_equipo_pot:
+    type: basic_string
+    weight: 16
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_descripcion_porque_pot:
+    type: basic_string
+    weight: 10
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_descripcion_pot:
     type: basic_string
     weight: 2
@@ -50,6 +85,13 @@ content:
   field_descripcion_servicio_pot:
     type: basic_string
     weight: 7
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_descripcion_trayectora_pot:
+    type: basic_string
+    weight: 13
     region: content
     label: hidden
     settings: {  }
@@ -91,6 +133,19 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
+  field_img_equipo_pot:
+    type: image
+    weight: 17
+    region: content
+    label: hidden
+    settings:
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
   field_img_galeria_pot:
     type: slick_image
     weight: 1
@@ -148,6 +203,13 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
+  field_informacion_contacteno_pot:
+    type: text_default
+    weight: 19
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_servicios_pot:
     type: entity_reference_revisions_entity_view
     weight: 8
@@ -160,6 +222,30 @@ content:
   field_titulo_beneficio_pot:
     type: string
     weight: 3
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_titulo_contactenos_pot:
+    type: string
+    weight: 18
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_titulo_nuestro_equipo_pot:
+    type: string
+    weight: 15
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_titulo_porque_findeter_pot:
+    type: string
+    weight: 9
     region: content
     label: hidden
     settings:
@@ -181,6 +267,25 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+  field_titulo_trayectoria_pot:
+    type: string
+    weight: 12
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_trayectoria_pot:
+    type: entity_reference_entity_view
+    weight: 14
+    region: content
+    label: hidden
+    settings:
+      view_mode: full
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
 hidden:
   addtoany: true
   field_img_slider_pot: true

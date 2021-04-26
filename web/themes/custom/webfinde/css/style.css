@@ -1843,14 +1843,14 @@ div.casosExito div.contenido h1.tituloCaso {
 div.casosExito .slideCasoExito {
   /* ===== ===== Botones de navegacion ===== ===== */
 }
-div.casosExito .slideCasoExito ul.slide__content li {
+div.casosExito .slideCasoExito ul li {
   padding: 0 0.625rem 0.5rem;
 }
-div.casosExito .slideCasoExito ul.slide__content li div.contenidoSlider {
+div.casosExito .slideCasoExito ul li div.contenidoSlider {
   position: relative;
   cursor: pointer;
 }
-div.casosExito .slideCasoExito ul.slide__content li div.contenidoSlider a {
+div.casosExito .slideCasoExito ul li div.contenidoSlider a {
   position: absolute;
   top: 2rem;
   right: 1rem;
@@ -3201,21 +3201,36 @@ div.pot div.cajaTitulo .titulo::after {
   top: 1.5em;
   left: 0;
 }
+div.pot blockquote {
+  line-height: 1.8rem;
+}
+div.pot section.queEsPot div.galeriaPot div.slick div.slick-slider {
+  /* ===== ===== Botones ===== ===== */
+}
+div.pot section.queEsPot div.galeriaPot div.slick div.slick-slider ul.slick-dots li.slick-active button::before {
+  color: #00993e;
+}
+div.pot section.queEsPot div.galeriaPot div.slick nav button::before {
+  color: #00993e;
+}
 div.pot section.beneficios div.contenido ul {
   list-style-image: url("../images/iconos/punto-azul.png");
 }
 div.pot section.beneficios div.contenido ul li {
   margin-bottom: 1rem;
 }
-div.pot section.servicios div.encabezado > div.titulo {
+div.pot section.servicios div.encabezadoCaja {
+  width: 80%;
+}
+div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo {
   border-bottom: 1px solid #112d6a;
   padding-bottom: 20px;
 }
-div.pot section.servicios div.encabezado > div.titulo h1 {
+div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1 {
   position: relative;
   width: 80%;
 }
-div.pot section.servicios div.encabezado > div.titulo h1::after {
+div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -3223,6 +3238,59 @@ div.pot section.servicios div.encabezado > div.titulo h1::after {
   background-color: #296294;
   top: 1.5em;
   left: 0;
+}
+div.pot section.servicios div.encabezadoCaja h1 {
+  color: #0a9bd8;
+}
+div.pot section.servicios div.row > div[class*=col] ul li {
+  margin-bottom: 0.5rem;
+}
+div.pot section.porqueFindeter div.cifras h1,
+div.pot section.porqueFindeter div.cifras h3 {
+  color: #112d6a;
+}
+div.pot section.porqueFindeter div.cifras h5 {
+  font-size: larger;
+}
+div.pot section.porqueFindeter div.cifras h1.display-4 {
+  color: #CDDC4B;
+}
+div.pot section.contactenos div.encabezadoCaja {
+  width: 50%;
+}
+div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo {
+  border-bottom: 1px solid #112d6a;
+  padding-bottom: 20px;
+}
+div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1 {
+  position: relative;
+  width: 80%;
+}
+div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.3rem;
+  background-color: #296294;
+  top: 1.5em;
+  left: 0;
+}
+div.pot section.contactenos div.encabezadoCaja h1 {
+  color: #0a9bd8;
+}
+div.pot section.contactenos > div.row {
+  margin: 0 8rem 0 8rem;
+}
+div.pot section.contactenos > div.row > div.tablaInfo {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+div.pot section.contactenos > div.row > div.tablaInfo table h4 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+div.pot section.contactenos table {
+  border: 0 transparent;
 }
 
 /* ==============================

@@ -1,0 +1,26 @@
+uuid: ebf8b2f5-c9d1-421f-9683-85fc8a1c94ee
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_informacion_contacteno_pot
+    - node.type.pot
+  module:
+    - disable_field
+    - text
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.pot.field_informacion_contacteno_pot
+field_name: field_informacion_contacteno_pot
+entity_type: node
+bundle: pot
+label: 'Información Contáctenos'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
