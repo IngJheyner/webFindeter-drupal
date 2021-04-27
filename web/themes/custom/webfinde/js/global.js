@@ -311,7 +311,12 @@
 
         $("div.casosExito div.contenido h1.tituloCaso").html($(gridDefecto).attr('titulo'));
         $("div.casosExito div.contenido p.descripcionCaso").html($(gridDefecto).attr('descripcion'));
-        $("div.casosExito div.contenido a.enlace").attr("href", $(gridDefecto).attr('enlace'));
+        //$("div.casosExito div.contenido a.enlace").attr("href", $(gridDefecto).attr('enlace'));
+        console.log($(gridDefecto).attr('titulo'));
+        if ($(gridDefecto).attr('contenido') != "") {
+            $("div.casosExito div.contenido div#modalTrayectoria h5").html($(gridDefecto).attr('titulo'));
+            $("div.casosExito div.contenido div#modalTrayectoria div.modal-body").html($(gridDefecto).attr('contenido'));
+        }
 
         //Mostrar imagen
         const mostrarImgCasoExito = (etiqueta) => {
@@ -324,6 +329,7 @@
             let imgFondo = $(etiqueta).attr('imgFondo');
             let titulo = $(etiqueta).attr('titulo');
             let descripcion = $(etiqueta).attr('descripcion');
+            let contenido = $(etiqueta).attr('contenido');
             let enlace = $(etiqueta).attr('enlace');
             $("div.casosExito").css({
                 'background': 'url("' + imgFondo + '")'
@@ -331,6 +337,10 @@
             $("div.casosExito div.contenido h1.tituloCaso").html(titulo);
             $("div.casosExito div.contenido p.descripcionCaso").html(descripcion);
             $("div.casosExito div.contenido a.enlace").attr("href", enlace);
+            if (contenido != "") {
+                $("div.casosExito div.contenido div#modalTrayectoria h5").html(titulo);
+                $("div.casosExito div.contenido div#modalTrayectoria div.modal-body").html(contenido);
+            }
 
         }
 
