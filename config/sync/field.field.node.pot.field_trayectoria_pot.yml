@@ -1,0 +1,34 @@
+uuid: 913fe84e-5164-4e63-95d4-8f5fd901ae63
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_trayectoria_pot
+    - node.type.casos_de_exito_home
+    - node.type.pot
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.pot.field_trayectoria_pot
+field_name: field_trayectoria_pot
+entity_type: node
+bundle: pot
+label: Trayectoria
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      casos_de_exito_home: casos_de_exito_home
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

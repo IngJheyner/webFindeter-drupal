@@ -1,0 +1,25 @@
+uuid: 34819548-d4e1-48d9-ab90-9c29da97a7f4
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_descripcion_servicio_pot
+    - node.type.pot
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.pot.field_descripcion_servicio_pot
+field_name: field_descripcion_servicio_pot
+entity_type: node
+bundle: pot
+label: 'Descripcion del Servicio'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -34,7 +34,7 @@ div.casosExito {
     SLIDER DE CONTENIDO
     ============================== */
     .slideCasoExito {
-        ul.slide__content {
+        ul {
             li {
                 padding: 0 0.625rem 0.5rem;
                 div.contenidoSlider {
@@ -158,6 +158,9 @@ MEDIA QUERY
     div.casosExito {
         div.contenido {
             width: 100%;
+        }
+        .slideCasoExito ul li div.contenidoSlider a {
+            top: 1rem;
         }
     }
 }

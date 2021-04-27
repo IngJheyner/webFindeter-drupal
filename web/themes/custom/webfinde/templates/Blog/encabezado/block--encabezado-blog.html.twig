@@ -84,6 +84,9 @@
     <div class="d-none d-lg-block col-lg-7 p-0 menu">    
 
       {{ content.field_menu }}
+
+      <div class="buscador">{{ drupal_entity('block', 'search_blog', check_access=false) }}</div>
+      <div id="backBuscador" class="fade d-none"></div>
         
     </div>
     
@@ -92,7 +95,7 @@
 
       <div class="float-right">
 
-        {#<a href="" class="mr-2 mr-xl-4"><img src="{{ file_url(content.field_buscador[0]['#item'].entity.uri.value) }}"></a>#}
+        <a href="javascript:void(0);" class="mr-2 mr-xl-4" id="iconBuscador"><img src="{{ file_url(content.field_buscador[0]['#item'].entity.uri.value) }}"></a>
 
         <a href="{{ content.field_facebook_url.0["#title"] }}" target="_blank" class="mr-2 mr-xl-4"><img src="{{ file_url(content.field_facebook[0]['#item'].entity.uri.value) }}"></a>
 

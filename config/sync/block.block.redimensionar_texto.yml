@@ -3,6 +3,7 @@ langcode: es
 status: false
 dependencies:
   module:
+    - system
     - text_resize
   theme:
     - webfinde
@@ -17,4 +18,9 @@ settings:
   label: 'Redimensionar texto'
   provider: text_resize
   label_display: '0'
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

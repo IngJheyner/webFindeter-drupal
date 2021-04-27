@@ -160,11 +160,12 @@ class RegisterPQRSDAdmin extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
+    $mailManager = \Drupal::service('plugin.manager.mail');
 
     //define new node of content type
     $newRequest = Node::create(['type' => 'pqrsd']);
 
-    $numeroRadicado = generarNumeroRadicado();
+    $numeroRadicado = generarNumeroRadicado($form_state->getValue('field_pqrsd_tipo_radicado'));
 
     // define title of node
     $newRequest->set('title', 'Radicado: '.$numeroRadicado.'.'.date('U'));
@@ -215,6 +216,11 @@ class RegisterPQRSDAdmin extends FormBase {
 
     $newRequest->field_pqrsd_asignaciones[] = $user->getUsername().' | '.$user->id().' | '.date('j/m/Y H:i:s');
 
+    // define date of answer
+    $datesConfigure = defineDatesSemaphore($values);
+    $newRequest->set('field_pqrsd_fecha_roja', $datesConfigure['red']);
+    $newRequest->set('field_pqrsd_fecha_naranja', $datesConfigure['orange']);
+
     // retrive user id from text form field
     if($usrAsignField != ''){
       $pattern = "/\((.*)\)/";
@@ -224,16 +230,47 @@ class RegisterPQRSDAdmin extends FormBase {
           $user = $userAsign;
           $newRequest->field_pqrsd_asignaciones[] = $user->getUsername().' | '.$user->id().' | '.date('j/m/Y H:i:s');
         }
+
+        $module = 'findeter_pqrsd';
+        $key = 'asigned_pqrsd';
+        $to = $user->getEmail();
+
+        $userName = '';
+        $form_state->getValue('field_pqrsd_primer_nombre');
+        if($form_state->getValue('field_pqrsd_primer_nombre')){
+          $userName = $form_state->getValue('field_pqrsd_primer_nombre').' ';
+        }
+
+        if($form_state->getValue('field_pqrsd_primer_apellido')){
+          $userName = $form_state->getValue('field_pqrsd_primer_apellido');
+        }
+
+        $mailBody[] = 'Hola '.$user->getUsername();
+        $mailBody[] = 'Le informamos que se le asignó una PQRSD para que le dé respuesta:';
+        $mailBody[] = '<div class="numero-radicado">
+                      <b>#Radicatoria: </b>'.$numeroRadicado.'
+                      <b>Cliente: </b>'.$userName.'
+                      <b>Fecha registro: </b>'.date('d/m/Y H:m:i').'
+                      <b>Fecha vencimiento respuesta: </b>'.$datesConfigure['red'].'
+                    </div>';
+        $mailBody[] = 'Le invitamos a gestionar esta PQRSD, iniciando sesión en la página administrativa del sistema';
+        $mailBody[] = '';
+        $mailBody[] = 'Cordialmente,';
+        $mailBody[] = 'Vicepresidencia comercial - Servicio al cliente';
+        $mailBody[] = 'Findeter';
+
+        $params['message'] = implode('<br>',$mailBody);
+
+        $langcode = \Drupal::currentUser()->getPreferredLangcode();
+        $send = true;
+
+        $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+
       }
     }
 
     // asign the last user retrived lines up
     $newRequest->uid = $user->id();
-
-    // define date of answer
-    $datesConfigure = defineDatesSemaphore($values);
-    $newRequest->set('field_pqrsd_fecha_roja', $datesConfigure['red']);
-    $newRequest->set('field_pqrsd_fecha_naranja', $datesConfigure['orange']);
 
     $newRequest->enforceIsNew();
     $newRequest->save();

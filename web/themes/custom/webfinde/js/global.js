@@ -305,13 +305,18 @@
         /*===========================================
         CASOS DE ÉXITO
         =============================================*/
-        var gridDefecto = $("div.casosExito div.slideCasoExito .slick .slide--0 ul li.grid--0").children().children().children().children().children().children('.contenidoSlider').children('p');
+        var gridDefecto = $("div.casosExito div.slideCasoExito .slick .slide--0 ul li.grid--0").children().children().children().children().children().children('.contenidoSlider').children('a');
 
         $("div.casosExito").css({ 'background': 'url("' + $(gridDefecto).attr('imgFondo') + '")' });
 
         $("div.casosExito div.contenido h1.tituloCaso").html($(gridDefecto).attr('titulo'));
         $("div.casosExito div.contenido p.descripcionCaso").html($(gridDefecto).attr('descripcion'));
-        $("div.casosExito div.contenido a.enlace").attr("href", $(gridDefecto).attr('enlace'));
+        //$("div.casosExito div.contenido a.enlace").attr("href", $(gridDefecto).attr('enlace'));
+        console.log($(gridDefecto).attr('titulo'));
+        if ($(gridDefecto).attr('contenido') != "") {
+            $("div.casosExito div.contenido div#modalTrayectoria h5").html($(gridDefecto).attr('titulo'));
+            $("div.casosExito div.contenido div#modalTrayectoria div.modal-body").html($(gridDefecto).attr('contenido'));
+        }
 
         //Mostrar imagen
         const mostrarImgCasoExito = (etiqueta) => {
@@ -324,6 +329,7 @@
             let imgFondo = $(etiqueta).attr('imgFondo');
             let titulo = $(etiqueta).attr('titulo');
             let descripcion = $(etiqueta).attr('descripcion');
+            let contenido = $(etiqueta).attr('contenido');
             let enlace = $(etiqueta).attr('enlace');
             $("div.casosExito").css({
                 'background': 'url("' + imgFondo + '")'
@@ -331,6 +337,10 @@
             $("div.casosExito div.contenido h1.tituloCaso").html(titulo);
             $("div.casosExito div.contenido p.descripcionCaso").html(descripcion);
             $("div.casosExito div.contenido a.enlace").attr("href", enlace);
+            if (contenido != "") {
+                $("div.casosExito div.contenido div#modalTrayectoria h5").html(titulo);
+                $("div.casosExito div.contenido div#modalTrayectoria div.modal-body").html(contenido);
+            }
 
         }
 
@@ -350,6 +360,23 @@
         /*===========================================
         BLOG
         =============================================*/
+
+        /* ===== ===== BUSCADOR ===== ===== */
+        $(".encabezadoBlog .encabezado .iconos a#iconBuscador").on('click', function() {
+            $(".encabezadoBlog .encabezado .menu div#backBuscador").removeClass('d-none').addClass('show');
+            $(".encabezadoBlog .encabezado .menu div.buscador").slideDown(1000);
+        });
+
+        $(".encabezadoBlog .encabezado .menu div#backBuscador").on('click', function() {
+
+            $(".encabezadoBlog .encabezado .menu div.buscador").slideUp(1000);
+            setTimeout(function() {
+                $(".encabezadoBlog .encabezado .menu div#backBuscador").removeClass('show').addClass('d-none');
+            }, 1100);
+        });
+
+        /* ===== ===== BUSCADOR INTERNAS ===== ===== */
+        $('div.busquedaBlogInterna div.buscador form#custom-search-block-form div#edit-actions input[type="image"]').attr({ 'type': 'submit', 'value': 'Buscar' }).addClass('btn btn-secondary');
 
         /* ===== ===== Articulo internos ===== ===== */
         var imgEncabezadoArticulo = $(".articuloInternasBlog").attr("imgFondoEncabezado");
@@ -375,6 +402,8 @@
         $(".menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem").on("click", function() {
 
             if ($(this).attr("mostrar") == "true") {
+                console.log("🚀 ~ file: global.js ~ line 383 ~ $ ~ $(this).parent()", $(this).parent())
+                console.log("🚀 ~ file: global.js ~ line 383 ~ $ ~ $(this).parent()", $(this).parent())
 
                 $(this).children('ul').children('li').fadeIn(1000, function() {
 
@@ -396,8 +425,8 @@
         });
 
         /*===========================================
-            CONVOCATORIAS
-            =============================================*/
+        CONVOCATORIAS
+        =============================================*/
         let activarBusqueda = false;
 
         function formBusquedaAvanzada() {
@@ -434,7 +463,7 @@
                     <a href="javascript:void(0)" class="text-white ml-5 busquedaAvz"><i class="fas fa-search-plus"></i> Mostar mas campos de busqueda</a>
                 `);
 
-            if (activarBusqueda === false) {
+            /*if (activarBusqueda === false) {
 
                 $(".convocatoriaCiudadano form .form--inline div:nth-child(3)").hide();
                 $(".convocatoriaCiudadano form .form--inline div:nth-child(4)").hide();
@@ -443,7 +472,7 @@
                 $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").hide();
                 $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").hide();
                 $(".convocatoriaCiudadano form .form--inline div:nth-child(9)").hide();
-            }
+            }*/
 
 
             $(".convocatoriaCiudadano form .form-actions a").on('click', function() {

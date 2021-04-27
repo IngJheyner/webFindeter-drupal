@@ -12,24 +12,18 @@ absolute_paths: false
 hide_single_home_item: false
 title_from_page_when_available: false
 capitalizator_mode: ucforce
-capitalizator_ignored_words: ''
-capitalizator_forced_words_first_letter: 1
-capitalizator_forced_words_case_sensitivity: 1
-add_structured_data_jsonld: false
+capitalizator_ignored_words: {  }
+capitalizator_forced_words_first_letter: true
+capitalizator_forced_words_case_sensitivity: true
 use_site_title: false
-dependencies:
-  module:
-    - easy_breadcrumb
-  enforced:
-    module:
-      - easy_breadcrumb
 _core:
   default_config_hash: ey8bRwK17YbAVEX7GEm09YR5UneOQ_Nqzh6a3V-rIP0
 langcode: es
 include_invalid_paths: true
-add_structured_data_json_ld: 0
+add_structured_data_json_ld: false
 excluded_paths: /11
 replaced_titles: ''
 custom_paths: ''
 title_segment_as_link: false
-capitalizator_forced_words: ''
+capitalizator_forced_words: {  }
+follow_redirects: true

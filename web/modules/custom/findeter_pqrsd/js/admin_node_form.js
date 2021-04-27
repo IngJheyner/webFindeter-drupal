@@ -5,6 +5,25 @@
 
       $(document, context).once('findeterUserFormRequest ').each( function() {
 
+        $.fn.afterLocation = function(argument) {
+          if($('#register-pqrsd-admin').length){
+            console.log('inside location');
+            var typeForm = $('#edit-field-pqrsd-tipo-solicitante option:selected').val();
+            console.log(typeForm,'option selected');
+            if(typeForm == 'juridica'){
+              console.log('if');
+              $('.form-item-field-pqrsd-nit').fadeIn();
+              $('.form-item-field-pqrsd-razon-social').fadeIn();
+              $('.form-item-field-pqrsd-tipo-empresa').fadeIn();
+            }else{
+              console.log('else');
+              $('.form-item-field-pqrsd-nit').fadeOut();
+              $('.form-item-field-pqrsd-razon-social').fadeOut();
+              $('.form-item-field-pqrsd-tipo-empresa').fadeOut();
+            }
+          }
+        };
+
         $('#edit-created-min').before('<label class="custom-label">Del:</label><input id="datepicker-min" type="text" placeholder="F. Inicio"/>');
         $('#edit-created-max').before('<label class="custom-label">Al:</label><input id="datepicker-max" type="text" placeholder="F. Fin"/>');
 
@@ -193,7 +212,6 @@
       }
 
       var requester = $( "#edit-field-pqrsd-tipo-solicitante option:selected" ).text();
-      console.log(requester);
       if(requester !== 'Anónimo' && requester !== '-Seleccione una opción-'){
         $('#edit-info-person').show();
       }else{

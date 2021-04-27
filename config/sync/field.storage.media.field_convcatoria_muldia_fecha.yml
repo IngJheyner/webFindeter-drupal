@@ -4,7 +4,11 @@ status: true
 dependencies:
   module:
     - datetime
+    - field_permissions
     - media
+third_party_settings:
+  field_permissions:
+    permission_type: custom
 id: media.field_convcatoria_muldia_fecha
 field_name: field_convcatoria_muldia_fecha
 entity_type: media

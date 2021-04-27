@@ -1,0 +1,270 @@
+@use '../../mixins/custom-etiquetas' as custom-etiquetas;
+@use '../variables' as var;
+@use '../../mixins/media-query' as media-query;
+@mixin customEncabezado($width) {
+    width: #{$width};
+    @include media-query.media(xs) {
+        width: 100%;
+    }
+    @include media-query.media(sm) {
+        width: 100%;
+    }
+    @include media-query.media(md) {
+        width: 100%;
+    }
+    div.encabezado>div.titulo {
+        border-bottom: 1px solid var.$color-primario;
+        padding-bottom: 20px;
+        h1 {
+            position: relative;
+            width: 80%;
+            &::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 0.3rem;
+                background-color: #296294;
+                top: 1.5em;
+                left: 0;
+            }
+            @include media-query.media(xs) {
+                font-size: 2.53rem;
+                width: 100%;
+                &::after {
+                    position: initial;
+                }
+            }
+            @include media-query.media(sm) {
+                font-size: 2.53rem;
+                width: 100%;
+                &::after {
+                    position: initial;
+                }
+            }
+            @include media-query.media(md) {
+                font-size: 2.53rem;
+                width: 100%;
+                &::after {
+                    position: initial;
+                }
+            }
+            @include media-query.media(lg) {
+                font-size: 3rem;
+            }
+        }
+    }
+}
+
+div.pot {
+    @include custom-etiquetas.titulo('cajaTitulo', 'titulo');
+    blockquote {
+        line-height: 1.8rem;
+    }
+    section.slider {
+        position: relative;
+        div.logo {
+            position: absolute;
+            z-index: 999;
+            top: 0;
+            a>img {
+                width: 50%;
+            }
+        }
+    }
+    section.queEsPot {
+        div.galeriaPot div.slick {
+            div.slick-slider {
+                /* ===== ===== Botones ===== ===== */
+                ul.slick-dots li.slick-active button::before {
+                    color: var.$color-cuaternario;
+                }
+            }
+            nav button::before {
+                color: var.$color-cuaternario;
+            }
+        }
+    }
+    section.beneficios {
+        div.contenido {
+            ul {
+                list-style-image: url('../images/iconos/punto-azul.png');
+                li {
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+    section.servicios {
+        div.encabezadoCaja {
+            @include customEncabezado('80%');
+            h1 {
+                color: var.$color-senario;
+            }
+        }
+        div.row>div[class*="col"] {
+            ul li {
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+    section.porqueFindeter {
+        div.cifras {
+            h1,
+            h3 {
+                color: var.$color-primario;
+            }
+            h5 {
+                font-size: larger;
+            }
+            h1.display-4 {
+                color: var.$color-terciario;
+            }
+        }
+    }
+    section.contactenos {
+        div.encabezadoCaja {
+            @include customEncabezado('50%');
+            h1 {
+                color: var.$color-senario;
+            }
+        }
+        >div.row {
+            margin: 0 8rem 0 8rem;
+            >div.tablaInfo {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+                table {
+                    h4 {
+                        font-weight: bold;
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+        }
+        table {
+            border: 0 transparent;
+        }
+    }
+}
+
+
+/* ==============================
+MEDIA QUERY
+============================== */
+
+@include media-query.media(xs) {
+    section.beneficios {
+        div.images div.imagesGaleria {
+            div[class*="col"] {
+                padding-left: 0 !important;
+            }
+        }
+    }
+    section.porqueFindeter {
+        blockquote {
+            width: 100% !important;
+        }
+        div.cifras {
+            h1 {
+                font-size: 2rem;
+            }
+            div.row>div[class*="col"] {
+                border-bottom: 2px solid var.$color-quinario;
+            }
+        }
+    }
+    section.trayectoria {
+        blockquote {
+            width: 100% !important;
+        }
+    }
+    section.nuestroEquipo {
+        div.imagen {
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
+    section.contactenos {
+        >div.row {
+            margin: 0 !important;
+            >div.tablaInfo {
+                padding-top: 0rem !important;
+                padding-bottom: 0rem !important;
+            }
+        }
+    }
+}
+
+@include media-query.media(sm) {
+    section.porqueFindeter {
+        blockquote {
+            width: 100% !important;
+        }
+        div.cifras {
+            h1 {
+                font-size: 2rem;
+            }
+            div.row>div[class*="col"] {
+                border-bottom: 2px solid var.$color-quinario;
+            }
+        }
+    }
+    section.trayectoria {
+        blockquote {
+            width: 100% !important;
+        }
+    }
+    section.contactenos {
+        >div.row {
+            margin: 0 !important;
+            >div.tablaInfo {
+                padding-top: 0rem !important;
+                padding-bottom: 0rem !important;
+            }
+        }
+    }
+}
+
+@include media-query.media(md) {
+    section.porqueFindeter {
+        blockquote {
+            width: 100% !important;
+        }
+        div.cifras {
+            h1 {
+                font-size: 2rem;
+            }
+            div.row>div[class*="col"] {
+                border-bottom: 2px solid var.$color-quinario;
+            }
+        }
+    }
+    section.contactenos {
+        >div.row {
+            margin: 0 !important;
+            >div.tablaInfo {
+                padding-top: 0rem !important;
+                padding-bottom: 0rem !important;
+            }
+        }
+    }
+}
+
+@include media-query.media(lg) {
+    section.porqueFindeter {
+        div.cifras {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    }
+    div.pot section.contactenos>div.row {
+        margin: 0;
+    }
+}
+
+@include media-query.media(xl) {
+    div.pot section.contactenos>div.row {
+        margin: 0;
+    }
+}

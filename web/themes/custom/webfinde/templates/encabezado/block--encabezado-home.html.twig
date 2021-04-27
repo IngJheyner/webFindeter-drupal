@@ -59,13 +59,15 @@
       {# ============================================
       Menu hamburguesa
       =============================================== #}
-      <div class="col-3 col-sm-6 col-md-3 pr-0 pt-5 pt-md-4 d-lg-none text-center govCo">
+      {% if path('<current>') != '/plan-de-ordenamiento-territorial' %}
+        <div class="col-3 col-sm-6 col-md-3 pr-0 pt-5 pt-md-4 d-lg-none text-center govCo">
 
-        <button type="button" id="sidebarCollapseMd" class="btn btn-primary" >
-          <i class="fas fa-bars"></i>
-        </button>
+          <button type="button" id="sidebarCollapseMd" class="btn btn-primary" >
+            <i class="fas fa-bars"></i>
+          </button>
 
-      </div>
+        </div>
+      {% endif %}
 
       <div class="col-2 col-sm-3 col-md-5 col-lg-9 pr-0 d-none d-md-block">
 
@@ -75,24 +77,28 @@
 
     </section>
 
-    <section class="row m-0 menuPrincipal">
+    {% if path('<current>') != '/plan-de-ordenamiento-territorial' %}
 
-      <div class="col-7 col-sm-5 col-xl-2 p-0 d-none d-xl-block">
+      <section class="row m-0 menuPrincipal">
 
-        <a href="{{ url('<front>') }}"><img src="{{ file_url(content.field_logo_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
+        <div class="col-7 col-sm-5 col-xl-2 p-0 d-none d-xl-block">
 
-      </div>
+          <a href="{{ url('<front>') }}"><img src="{{ file_url(content.field_logo_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
 
-      {# ===== ===== Pantalla laptop o mediana 992px ===== ===== #}
-      <div class="d-none d-lg-block  col-auto p-0">
+        </div>
 
-        {#{ drupal_menu('menu-principal') }#}
+        {# ===== ===== Pantalla laptop o mediana 992px ===== ===== #}
+        <div class="d-none d-lg-block  col-auto p-0">
 
-        {{ drupal_entity('block', 'menu_principal', check_access=false) }}
+          {#{ drupal_menu('menu-principal') }#}
 
-      </div>
+          {{ drupal_entity('block', 'menu_principal', check_access=false) }}
 
-    </section>   
+        </div>
+
+      </section>   
+      
+    {% endif %}
     
     {# ============================================
     Movil y Tablet < 768.98px
@@ -111,7 +117,7 @@
 
       </div>
 
-      {{ drupal_menu('menu-principal') }}
+      {% if path('<current>') != '/plan-de-ordenamiento-territorial' %}{{ drupal_menu('menu-principal') }}{% endif %}
 
     </section>
 

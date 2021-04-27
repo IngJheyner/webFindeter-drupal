@@ -48,6 +48,13 @@ nav#breadcrumb ol {
   background-color: initial;
 }
 
+/* ============================================
+INFORMACION PARA LECUTRA DE INFO. ACCESIBILIDAD
+=============================================== */
+.font-accesibilidad {
+  font-size: 1.34rem;
+}
+
 /* ==============================
 ESTILOS GLOBALES
 ============================== */
@@ -58,11 +65,19 @@ ESTILOS GLOBALES
 a {
   color: #296294;
 }
-a:visited, a:link, a:focus, a:hover, a:active {
+a:visited, a:link, a:focus, a:active {
   list-style: none;
   text-decoration: none;
 }
 
+main {
+  /*ul,
+  ol,
+  em,
+  strong {
+      font-size: 1.34rem;
+  }*/
+}
 main h1,
 main h2,
 main h3,
@@ -75,16 +90,15 @@ main h6 {
 }
 main p {
   margin: 0;
-  font-size: 1.34rem;
-}
-main ul,
-main ol,
-main em,
-main strong {
-  font-size: 1.34rem;
 }
 main table {
   position: relative;
+}
+main a:visited {
+  color: #00993e;
+}
+main a:hover {
+  text-decoration: underline;
 }
 
 /* ===== ===== ToAny Redes Sociales ===== ===== */
@@ -94,6 +108,15 @@ main table {
 
 /* ==============================
 ADMIN
+============================== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+ENCABEZADO
+============================== */
+/* ==============================
+CUSTOM TITULOS
 ============================== */
 div.login figure {
   position: absolute;
@@ -682,6 +705,12 @@ section.menuPrincipal nav span {
 /* ==============================
 COLORES
 ============================== */
+/* ==============================
+ENCABEZADO
+============================== */
+/* ==============================
+CUSTOM TITULOS
+============================== */
 /* =====================================
 CONTROL DE PAUSA PARA EL VIDEO DEL HOME
 ======================================== */
@@ -721,6 +750,10 @@ form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li span {
   color: black;
   display: block;
   font-size: 1rem;
+}
+form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li a:visited,
+form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li span:visited {
+  color: #00993e;
 }
 form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(1) span.icon::before {
   content: url("/themes/custom/webfinde/images/iconos/Acceso-Directo/ER_convocatorias.png");
@@ -804,8 +837,52 @@ div.busqueda form.search-form input[type=submit] {
   background-color: #00993e !important;
   margin: 1rem 0;
 }
-div.busqueda div.resultadoBusqueda ol li h4 a:hover {
+div.busqueda div.item-list ol {
+  margin: 0 0 2rem 0;
+  padding: 0;
+  list-style: none;
+}
+div.busqueda div.item-list ol li {
+  margin-bottom: 1rem;
+}
+div.busqueda div.item-list ol li h3 a:hover {
   color: #00993e !important;
+}
+div.busqueda div.item-list ol li div.search-snippet-info p.search-info {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: #fff;
+  background-color: #343a40;
+}
+div.busqueda h2 {
+  text-align: center;
+  border-bottom: 2px solid #e5e5e5;
+  margin-bottom: 2rem;
+}
+
+/* ===== ===== BUSCADOR INTERNAS BLOG ===== ===== */
+div.busquedaBlogInterna div.buscador form#custom-search-block-form {
+  padding: 2rem 2rem 0 2rem;
+  background-color: #112d6a;
+  color: white;
+  margin-bottom: 0;
+}
+div.busquedaBlogInterna div.buscador form#custom-search-block-form div.form-type-select {
+  display: none;
+}
+div.busquedaBlogInterna div.buscador form#custom-search-block-form div#edit-actions {
+  margin-bottom: 0;
+}
+div.busquedaBlogInterna div.buscador form#custom-search-block-form div#edit-actions input[type=submit] {
+  width: auto;
 }
 
 /* ==============================
@@ -1026,6 +1103,12 @@ INTERNAS
 /* ===== ===== INTERNAS ===== ===== */
 /* ==============================
 COLORES
+============================== */
+/* ==============================
+ENCABEZADO
+============================== */
+/* ==============================
+CUSTOM TITULOS
 ============================== */
 /* ==============================
 INTERNAS
@@ -1455,6 +1538,12 @@ INTERNAS Y LISTADO DE NOTICIAS
 COLORES
 ============================== */
 /* ==============================
+ENCABEZADO
+============================== */
+/* ==============================
+CUSTOM TITULOS
+============================== */
+/* ==============================
 TODAS LAS NOTICIAS
 ============================== */
 /* ===== ===== ENCABEZADO ===== ===== */
@@ -1506,10 +1595,15 @@ div.pageNoticias .grid-item img {
   transform: scale(1, 1);
   transition: 1s all;
 }
-div.pageNoticias .grid-item p.titulo {
-  color: #296294;
+div.pageNoticias .grid-item h6.titulo {
   font-size: 14px;
   transition: 0.6s all;
+}
+div.pageNoticias .grid-item a.body {
+  color: black;
+}
+div.pageNoticias .grid-item a.body:visited {
+  color: #00993e;
 }
 div.pageNoticias .grid-item:hover {
   border-bottom: 1px solid #112d6a;
@@ -1749,14 +1843,14 @@ div.casosExito div.contenido h1.tituloCaso {
 div.casosExito .slideCasoExito {
   /* ===== ===== Botones de navegacion ===== ===== */
 }
-div.casosExito .slideCasoExito ul.slide__content li {
+div.casosExito .slideCasoExito ul li {
   padding: 0 0.625rem 0.5rem;
 }
-div.casosExito .slideCasoExito ul.slide__content li div.contenidoSlider {
+div.casosExito .slideCasoExito ul li div.contenidoSlider {
   position: relative;
   cursor: pointer;
 }
-div.casosExito .slideCasoExito ul.slide__content li div.contenidoSlider a {
+div.casosExito .slideCasoExito ul li div.contenidoSlider a {
   position: absolute;
   top: 2rem;
   right: 1rem;
@@ -1862,6 +1956,9 @@ MEDIA QUERY
 @media (min-width: 768px) and (max-width: 991.98px) {
   div.casosExito div.contenido {
     width: 100%;
+  }
+  div.casosExito .slideCasoExito ul li div.contenidoSlider a {
+    top: 1rem;
   }
 }
 /* ===== ===== CASOS DE EXITO ===== ===== */
@@ -2470,6 +2567,9 @@ MEDIA QUERY
 BLOG
 ============================== */
 /* ===== ===== Encabezado ===== ===== */
+/* ==============================
+COLORES
+============================== */
 div.encabezadoBlog {
   position: relative;
   background-position: center -61px;
@@ -2486,13 +2586,16 @@ div.encabezadoBlog section.encabezado {
   MENU TABLET
   ============================== */
 }
-div.encabezadoBlog section.encabezado .menu nav {
+div.encabezadoBlog section.encabezado div.menu {
+  /* ===== ===== BUSCADOR BLOG ===== ===== */
+}
+div.encabezadoBlog section.encabezado div.menu nav {
   margin: 40px 0;
 }
-div.encabezadoBlog section.encabezado .menu nav ul li {
+div.encabezadoBlog section.encabezado div.menu nav ul li {
   margin: 0 10px 0 10px;
 }
-div.encabezadoBlog section.encabezado .menu nav ul li a {
+div.encabezadoBlog section.encabezado div.menu nav ul li a {
   color: white;
   font-size: 14px;
   padding: 12px 0px;
@@ -2500,7 +2603,7 @@ div.encabezadoBlog section.encabezado .menu nav ul li a {
   font-weight: bold;
   text-shadow: 1px 1px 2px black;
 }
-div.encabezadoBlog section.encabezado .menu nav ul li a:hover::after {
+div.encabezadoBlog section.encabezado div.menu nav ul li a:hover::after {
   content: "";
   position: absolute;
   width: 105%;
@@ -2508,6 +2611,60 @@ div.encabezadoBlog section.encabezado .menu nav ul li a:hover::after {
   background-color: white;
   top: 3em;
   left: -5px;
+}
+div.encabezadoBlog section.encabezado div.menu div.buscador {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  margin: 18px 0;
+  z-index: 1060;
+  background-color: white;
+  padding: 0rem 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #112d6a;
+}
+div.encabezadoBlog section.encabezado div.menu div.buscador form div.form-item,
+div.encabezadoBlog section.encabezado div.menu div.buscador form div.form-actions {
+  margin: 0;
+}
+div.encabezadoBlog section.encabezado div.menu div.buscador form div.form-type-select {
+  display: none;
+}
+div.encabezadoBlog section.encabezado div.menu div.buscador form div.buscadorAcceso {
+  width: 70%;
+}
+div.encabezadoBlog section.encabezado div.menu div.buscador form div.buscadorAcceso input[type=search] {
+  border: transparent !important;
+  font-size: 1.5rem;
+  line-height: 30px;
+}
+div.encabezadoBlog section.encabezado div.menu div.buscador form div.buscadorAcceso input[type=search]:focus {
+  box-shadow: none;
+}
+div.encabezadoBlog section.encabezado div.menu div.buscador form div#edit-actions {
+  position: absolute;
+  z-index: 1;
+  transform: translate(0, 18%);
+  right: 0;
+  top: 0;
+}
+div.encabezadoBlog section.encabezado div.menu div.buscador form div#edit-actions input[type=image] {
+  width: auto;
+  height: calc(1.5em + 0.75rem + 10px);
+  padding: 0;
+  border: transparent !important;
+}
+div.encabezadoBlog section.encabezado div.menu div#backBuscador {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0.5;
 }
 div.encabezadoBlog section.encabezado .menuMovil nav a.navbar-brand {
   color: white;
@@ -2682,10 +2839,15 @@ div.articuloBlog .grid .grid-item img {
   transform: scale(1, 1);
   transition: 1s all;
 }
-div.articuloBlog .grid .grid-item p.titulo {
-  color: #296294;
+div.articuloBlog .grid .grid-item h6.titulo {
   font-size: 14px;
   transition: 0.6s all;
+}
+div.articuloBlog .grid .grid-item a.body {
+  color: black;
+}
+div.articuloBlog .grid .grid-item a.body:visited {
+  color: #00993e;
 }
 div.articuloBlog .grid .grid-item:hover {
   border-bottom: 1px solid #112d6a;
@@ -2707,10 +2869,15 @@ div.articuloBlogDos .grid .grid-item img {
   transform: scale(1, 1);
   transition: 1s all;
 }
-div.articuloBlogDos .grid .grid-item p.titulo {
-  color: #296294;
+div.articuloBlogDos .grid .grid-item h6.titulo {
   font-size: 14px;
   transition: 0.6s all;
+}
+div.articuloBlogDos .grid .grid-item a.body {
+  color: black;
+}
+div.articuloBlogDos .grid .grid-item a.body:visited {
+  color: #00993e;
 }
 div.articuloBlogDos .grid .grid-item:hover {
   border-bottom: 1px solid #112d6a;
@@ -2761,9 +2928,6 @@ div.articuloInternasBlog div.infoSocial {
 }
 div.articuloInternasBlog div.infoSocial p {
   font-size: 18px;
-}
-div.articuloInternasBlog div.cuerpoArticulo p {
-  word-spacing: 4pt;
 }
 div.articuloInternasBlog div.cuerpoArticulo img {
   max-width: 100%;
@@ -2816,10 +2980,15 @@ MEDIA QUERY
     transform: scale(1, 1);
     transition: 1s all;
   }
-  div.articuloBlogDos .grid .grid-item p.titulo {
-    color: #296294;
+  div.articuloBlogDos .grid .grid-item h6.titulo {
     font-size: 14px;
     transition: 0.6s all;
+  }
+  div.articuloBlogDos .grid .grid-item a.body {
+    color: black;
+  }
+  div.articuloBlogDos .grid .grid-item a.body:visited {
+    color: #00993e;
   }
   div.articuloBlogDos .grid .grid-item:hover {
     border-bottom: 1px solid #112d6a;
@@ -3007,6 +3176,375 @@ MEDIA QUERY
   }
 }
 /* ==============================
+POT
+============================== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+ENCABEZADO
+============================== */
+/* ==============================
+CUSTOM TITULOS
+============================== */
+div.pot div.cajaTitulo {
+  display: flex;
+  border-bottom: 1px solid #112d6a;
+  padding-bottom: 20px;
+}
+div.pot div.cajaTitulo .titulo {
+  position: relative;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+div.pot div.cajaTitulo .titulo::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.3rem;
+  background-color: #296294;
+  top: 1.5em;
+  left: 0;
+}
+@media (max-width: 575.98px) {
+  div.pot div.cajaTitulo .titulo {
+    font-size: 2.5rem;
+  }
+  div.pot div.cajaTitulo .titulo::after {
+    position: initial;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.pot div.cajaTitulo .titulo {
+    font-size: 3rem;
+  }
+  div.pot div.cajaTitulo .titulo::after {
+    position: initial;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.pot div.cajaTitulo .titulo {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  div.pot div.cajaTitulo .titulo {
+    font-size: 3rem;
+  }
+}
+div.pot blockquote {
+  line-height: 1.8rem;
+}
+div.pot section.slider {
+  position: relative;
+}
+div.pot section.slider div.logo {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+}
+div.pot section.slider div.logo a > img {
+  width: 50%;
+}
+div.pot section.queEsPot div.galeriaPot div.slick div.slick-slider {
+  /* ===== ===== Botones ===== ===== */
+}
+div.pot section.queEsPot div.galeriaPot div.slick div.slick-slider ul.slick-dots li.slick-active button::before {
+  color: #00993e;
+}
+div.pot section.queEsPot div.galeriaPot div.slick nav button::before {
+  color: #00993e;
+}
+div.pot section.beneficios div.contenido ul {
+  list-style-image: url("../images/iconos/punto-azul.png");
+}
+div.pot section.beneficios div.contenido ul li {
+  margin-bottom: 1rem;
+}
+div.pot section.servicios div.encabezadoCaja {
+  width: 80%;
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  div.pot section.servicios div.encabezadoCaja {
+    width: 100%;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.pot section.servicios div.encabezadoCaja {
+    width: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.pot section.servicios div.encabezadoCaja {
+    width: 100%;
+  }
+}
+div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo {
+  border-bottom: 1px solid #112d6a;
+  padding-bottom: 20px;
+}
+div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1 {
+  position: relative;
+  width: 80%;
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.3rem;
+  background-color: #296294;
+  top: 1.5em;
+  left: 0;
+}
+@media (max-width: 575.98px) {
+  div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1 {
+    font-size: 2.53rem;
+    width: 100%;
+  }
+  div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1::after {
+    position: initial;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1 {
+    font-size: 2.53rem;
+    width: 100%;
+  }
+  div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1::after {
+    position: initial;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1 {
+    font-size: 2.53rem;
+    width: 100%;
+  }
+  div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1::after {
+    position: initial;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1 {
+    font-size: 3rem;
+  }
+}
+div.pot section.servicios div.encabezadoCaja h1 {
+  color: #0a9bd8;
+}
+div.pot section.servicios div.row > div[class*=col] ul li {
+  margin-bottom: 0.5rem;
+}
+div.pot section.porqueFindeter div.cifras h1,
+div.pot section.porqueFindeter div.cifras h3 {
+  color: #112d6a;
+}
+div.pot section.porqueFindeter div.cifras h5 {
+  font-size: larger;
+}
+div.pot section.porqueFindeter div.cifras h1.display-4 {
+  color: #CDDC4B;
+}
+div.pot section.contactenos div.encabezadoCaja {
+  width: 50%;
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  div.pot section.contactenos div.encabezadoCaja {
+    width: 100%;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.pot section.contactenos div.encabezadoCaja {
+    width: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.pot section.contactenos div.encabezadoCaja {
+    width: 100%;
+  }
+}
+div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo {
+  border-bottom: 1px solid #112d6a;
+  padding-bottom: 20px;
+}
+div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1 {
+  position: relative;
+  width: 80%;
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.3rem;
+  background-color: #296294;
+  top: 1.5em;
+  left: 0;
+}
+@media (max-width: 575.98px) {
+  div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1 {
+    font-size: 2.53rem;
+    width: 100%;
+  }
+  div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1::after {
+    position: initial;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1 {
+    font-size: 2.53rem;
+    width: 100%;
+  }
+  div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1::after {
+    position: initial;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1 {
+    font-size: 2.53rem;
+    width: 100%;
+  }
+  div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1::after {
+    position: initial;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1 {
+    font-size: 3rem;
+  }
+}
+div.pot section.contactenos div.encabezadoCaja h1 {
+  color: #0a9bd8;
+}
+div.pot section.contactenos > div.row {
+  margin: 0 8rem 0 8rem;
+}
+div.pot section.contactenos > div.row > div.tablaInfo {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+div.pot section.contactenos > div.row > div.tablaInfo table h4 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+div.pot section.contactenos table {
+  border: 0 transparent;
+}
+
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  section.beneficios div.images div.imagesGaleria div[class*=col] {
+    padding-left: 0 !important;
+  }
+
+  section.porqueFindeter blockquote {
+    width: 100% !important;
+  }
+  section.porqueFindeter div.cifras h1 {
+    font-size: 2rem;
+  }
+  section.porqueFindeter div.cifras div.row > div[class*=col] {
+    border-bottom: 2px solid #e5e5e5;
+  }
+
+  section.trayectoria blockquote {
+    width: 100% !important;
+  }
+
+  section.nuestroEquipo div.imagen {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  section.contactenos > div.row {
+    margin: 0 !important;
+  }
+  section.contactenos > div.row > div.tablaInfo {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  section.porqueFindeter blockquote {
+    width: 100% !important;
+  }
+  section.porqueFindeter div.cifras h1 {
+    font-size: 2rem;
+  }
+  section.porqueFindeter div.cifras div.row > div[class*=col] {
+    border-bottom: 2px solid #e5e5e5;
+  }
+
+  section.trayectoria blockquote {
+    width: 100% !important;
+  }
+
+  section.contactenos > div.row {
+    margin: 0 !important;
+  }
+  section.contactenos > div.row > div.tablaInfo {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  section.porqueFindeter blockquote {
+    width: 100% !important;
+  }
+  section.porqueFindeter div.cifras h1 {
+    font-size: 2rem;
+  }
+  section.porqueFindeter div.cifras div.row > div[class*=col] {
+    border-bottom: 2px solid #e5e5e5;
+  }
+
+  section.contactenos > div.row {
+    margin: 0 !important;
+  }
+  section.contactenos > div.row > div.tablaInfo {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  section.porqueFindeter div.cifras h1 {
+    font-size: 2rem;
+  }
+
+  div.pot section.contactenos > div.row {
+    margin: 0;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 1200px) and (max-width: 1365.98px) {
+  div.pot section.contactenos > div.row {
+    margin: 0;
+  }
+}
+/* ==============================
 INTERNAS
 ============================== */
 /* ===== ===== MIGAS DE PAN ===== ===== */
@@ -3040,13 +3578,13 @@ nav#breadcrumb ol {
 /* ==============================
 COLORES
 ============================== */
-div.transparenciaAcceso figure.transparenciaAcceso {
+div.transparenciaAcceso figure {
   position: absolute;
   z-index: -1;
   height: 23rem;
   transform: translate(0, -13rem);
 }
-div.transparenciaAcceso figure.transparenciaAcceso img {
+div.transparenciaAcceso figure img {
   height: 100%;
 }
 div.transparenciaAcceso h1.tituloEncabezado {
@@ -3287,6 +3825,12 @@ div.preguntasFrecuentes div.view-content ul li div.respuesta p {
 /* ==============================
 COLORES
 ============================== */
+/* ==============================
+ENCABEZADO
+============================== */
+/* ==============================
+CUSTOM TITULOS
+============================== */
 /* ===== ===== ENCABEZADO ===== ===== */
 div.encabezadoConvocatorias figure {
   position: absolute;
@@ -3340,7 +3884,8 @@ div.convocatoriaCiudadano form div.form--inline {
   background-color: #112d6a;
   color: white;
 }
-div.convocatoriaCiudadano form div.form--inline div.form-item-title, div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-objeto-value {
+div.convocatoriaCiudadano form div.form--inline div.form-item-title,
+div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-objeto-value {
   width: 100% !important;
 }
 div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-departamento-target-id {
@@ -3349,15 +3894,40 @@ div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-
 div.convocatoriaCiudadano form div.form--inline input[type=submit] {
   background-color: #00993e !important;
 }
-div.convocatoriaCiudadano table:nth-child(2) thead tr > th:nth-child(1) {
+div.convocatoriaCiudadano form div.form--inline div:nth-child(3) {
+  display: none;
+}
+div.convocatoriaCiudadano form div.form--inline div:nth-child(4) {
+  display: none;
+}
+div.convocatoriaCiudadano form div.form--inline div:nth-child(5) {
+  display: none;
+}
+div.convocatoriaCiudadano form div.form--inline div:nth-child(6) {
+  display: none;
+}
+div.convocatoriaCiudadano form div.form--inline div:nth-child(7) {
+  display: none;
+}
+div.convocatoriaCiudadano form div.form--inline div:nth-child(8) {
+  display: none;
+}
+div.convocatoriaCiudadano form div.form--inline div:nth-child(9) {
+  display: none;
+}
+
+table:nth-child(2) thead tr > th:nth-child(1) {
   width: 200px;
 }
-div.convocatoriaCiudadano table:nth-child(2) tbody tr > td:nth-child(1) a {
+table:nth-child(2) tbody tr > td:nth-child(1) a {
   color: #00993e !important;
   font-weight: bolder;
 }
-div.convocatoriaCiudadano table:nth-child(2) tbody tr > td:nth-child(1) a:hover {
+table:nth-child(2) tbody tr > td:nth-child(1) a:hover {
   text-decoration: underline;
+}
+table:nth-child(2) tbody tr td div.item-list ul {
+  font-size: 1rem;
 }
 
 div.convocatoriaUltimasActualizaciones table:nth-child(2) tbody tr > td:nth-child(1) a {
@@ -3388,6 +3958,12 @@ article.detalleProcesoConvocatorias div.titulo h1 {
 /* ===== ===== Prosperity Fund ===== ===== */
 /* ==============================
 COLORES
+============================== */
+/* ==============================
+ENCABEZADO
+============================== */
+/* ==============================
+CUSTOM TITULOS
 ============================== */
 /* ==============================
 PROSPERITY FUND CONVOCATORIAS
@@ -3463,6 +4039,12 @@ article.detalleProsperity div.container > h1.titulo span {
 COLORES
 ============================== */
 /* ==============================
+ENCABEZADO
+============================== */
+/* ==============================
+CUSTOM TITULOS
+============================== */
+/* ==============================
 TODAS LAS NOTICIAS
 ============================== */
 /* ===== ===== ENCABEZADO ===== ===== */
@@ -3523,8 +4105,20 @@ div.pageGlosario div.view-content div.view-grouping div.view-grouping-header {
   font-style: italic;
 }
 /* ===== ===== PAGINADOR ===== ===== */
+/* ==============================
+COLORES
+============================== */
 nav.pager ul {
   padding: 0;
+}
+
+div.dataTables_paginate ul.pagination {
+  font-size: 1rem !important;
+}
+div.dataTables_paginate ul.pagination li.page-item.active a.page-link {
+  background-color: #e5e5e5;
+  color: #112d6a;
+  border-color: #e5e5e5;
 }
 
 /*MOVIL VERTICAL(sm 320px)*/
@@ -3544,6 +4138,12 @@ nav.pager ul {
 /* ===== ===== PQRSD ===== ===== */
 /* ==============================
 COLORES
+============================== */
+/* ==============================
+ENCABEZADO
+============================== */
+/* ==============================
+CUSTOM TITULOS
 ============================== */
 /* ===== ===== ENCABEZADO ===== ===== */
 div.encabezadoPqrsd figure {
@@ -3588,6 +4188,40 @@ div.encabezadoPqrsd div.encabezado h1.tituloEncabezado {
 
 div.encabezadoPqrsd div.encabezado h1.tituloEncabezado {
   font-size: 2.5rem;
+}
+
+/* ===== ===== WEBFORM ===== ===== */
+div.form-lading-page > button {
+  position: fixed;
+  z-index: 900;
+  right: 0;
+  top: 28%;
+  transform: translate(0, 30%);
+  background: #296294;
+  padding: 1em;
+  width: 4.8em;
+}
+div.form-lading-page form {
+  /* ===== ===== Contaores de caracteres nombre, apellido ===== ===== */
+  /* ===== ===== Celular ===== ===== */
+  /* ===== ===== Depto plugin select2 ===== ===== */
+}
+div.form-lading-page form div.text-count-wrapper {
+  display: none !important;
+}
+div.form-lading-page form div.iti {
+  display: block;
+}
+div.form-lading-page form span.select2 > span.selection > span.select2-selection--single {
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #112d6a !important;
+  font-weight: 400;
+  line-height: 1.5;
+  background-clip: padding-box;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 /*# sourceMappingURL=style.css.map */

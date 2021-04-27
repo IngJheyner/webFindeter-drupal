@@ -1,0 +1,47 @@
+uuid: 6405bfc8-b17a-4f5c-a63e-8197c0c7424f
+langcode: es
+status: true
+dependencies:
+  config:
+    - media.type.mltdia_convcatoria_archivo
+  module:
+    - dropzonejs_eb_widget
+    - media
+name: entity_browser_archivos_convocatorias
+label: 'Archivos [ Convocatorias ]'
+display: modal
+display_configuration:
+  width: '800'
+  height: '500'
+  link_text: 'Seleccione los archivos.'
+  auto_open: false
+selection_display: multi_step_display
+selection_display_configuration:
+  entity_type: media
+  display: rendered_entity
+  display_settings:
+    view_mode: full
+  select_text: 'Guardar Archivos'
+  selection_hidden: false
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  9eaa4759-3f53-4183-b86d-6cd37f930b49:
+    settings:
+      form_mode: default
+      media_type: mltdia_convcatoria_archivo
+      upload_location: 'public://[date:custom:Y]-[date:custom:m]'
+      dropzone_description: 'Suelta los archivos aquí para subirlos'
+      max_filesize: 2048M
+      extensions: 'jpg jpeg gif png txt doc xls pdf ppt pps odt ods odp'
+      clientside_resize: false
+      resize_width: null
+      resize_height: null
+      resize_quality: !!float 1
+      resize_method: contain
+      thumbnail_method: contain
+      submit_text: 'Subir Archivos'
+    uuid: 9eaa4759-3f53-4183-b86d-6cd37f930b49
+    weight: 1
+    label: 'Biblioteca de Archivos Convocatorias'
+    id: dropzonejs_media_entity_inline_entity_form

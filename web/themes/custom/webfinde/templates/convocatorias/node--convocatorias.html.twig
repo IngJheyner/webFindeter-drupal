@@ -252,28 +252,27 @@
 
       <div class="table-responsive">
 
-      <table id="tableDetalleConvocatorias" class="table">
-      
-        <thead>
+        <table id="tableDetalleConvocatorias" class="table">
         
-        <tr>
-          <th>{{ "Tipo de documento"|t }}</th>
-          <th>{{ "Archivo"|t }}</th>
-          <th>{{ "Fecha de publicación"|t }}</th>
-        </tr>
+          <thead>
+          
+          <tr>
+            <th>{{ "Tipo de documento"|t }}</th>
+            <th>{{ "Archivo"|t }}</th>
+            <th>{{ "Fecha de publicación"|t }}</th>
+          </tr>
+          
+          </thead>
+          
+          <tbody>
+          
+            {{ content.field_convcatoria_archivos }}
+          
+          </tbody>
         
-        </thead>
-        
-        <tbody>
-        
-          {{ content.field_convcatoria_archivos }}
-        
-        </tbody>
-      
-      </table>
+        </table>
 
       </div>  
-
     </div>
 
   </div>  

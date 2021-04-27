@@ -10,7 +10,7 @@ dependencies:
     - node.type.articulo_blog
   module:
     - field_formatter_class
-    - image
+    - svg_image
     - text
     - user
 id: node.articulo_blog.default
@@ -38,6 +38,10 @@ content:
     settings:
       image_style: ''
       image_link: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
     third_party_settings: {  }
   field_imagen_fondo_articulo:
     type: image
@@ -47,6 +51,10 @@ content:
     settings:
       image_style: ''
       image_link: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
     third_party_settings: {  }
   field_tipo_de_articulo:
     weight: 0

@@ -28,7 +28,6 @@ a {
     &:visited,
     &:link,
     &:focus,
-    &:hover,
     &:active {
         list-style: none;
         text-decoration: none;
@@ -48,16 +47,22 @@ main {
     }
     p {
         margin: 0;
-        font-size: 1.34rem;
+        //font-size: 1.34rem;
     }
-    ul,
+    /*ul,
     ol,
     em,
     strong {
         font-size: 1.34rem;
-    }
+    }*/
     table {
         position: relative;
+    }
+    a:visited {
+        color: var.$color-cuaternario;
+    }
+    a:hover {
+        text-decoration: underline;
     }
 }
 
@@ -116,6 +121,12 @@ BLOG
 @import 'custom/blog/blog';
 
 /* ==============================
+POT
+============================== */
+
+@import 'custom/pot/pot.scss';
+
+/* ==============================
 INTERNAS
 ============================== */
 
@@ -151,3 +162,7 @@ INTERNAS
 /* ===== ===== PQRSD ===== ===== */
 
 @import 'custom/internas/pqrsd/pqrsd.scss';
+
+/* ===== ===== WEBFORM ===== ===== */
+
+@import 'custom/layout/webform/form-lading-page.scss';

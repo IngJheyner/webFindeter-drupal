@@ -1,15 +1,13 @@
 @use '../../variables' as var;
-@use '../../../mixins/encabezado' as encabezado;
+@use '../../../mixins/custom-etiquetas' as encabezado;
 @use '../../../mixins/media-query' as media-query;
 
 /* ===== ===== ENCABEZADO ===== ===== */
-@include encabezado.encabezado("div","encabezadoPqrsd");
 
-div.encabezadoPqrsd{
-
-    div.encabezado{
-
-        h1.tituloEncabezado{
+@include encabezado.encabezado("div", "encabezadoPqrsd");
+div.encabezadoPqrsd {
+    div.encabezado {
+        h1.tituloEncabezado {
             font-size: 2.5rem;
         }
     }

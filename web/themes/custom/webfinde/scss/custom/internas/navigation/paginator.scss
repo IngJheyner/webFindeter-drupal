@@ -1,25 +1,31 @@
 @use '../../../mixins/media-query' as media-query;
-
-nav.pager{
-
-    ul{
-
+@use '../../variables' as var;
+nav.pager {
+    ul {
         padding: 0;
     }
 }
 
-@include media-query.media(xs){
+div.dataTables_paginate {
+    ul.pagination {
+        font-size: 1rem !important;
+        li.page-item.active a.page-link {
+            background-color: var.$color-quinario;
+            color: var.$color-primario;
+            border-color: var.$color-quinario;
+        }
+    }
+}
 
-    nav.pager{
-
+@include media-query.media(xs) {
+    nav.pager {
         margin-top: 1rem;
         text-align: left !important;
     }
 }
 
-@include media-query.media(sm){
-
-    nav.pager{
+@include media-query.media(sm) {
+    nav.pager {
         margin-top: 1rem;
         text-align: left !important;
     }

@@ -2,52 +2,66 @@
 // Override bootstrap framework variables.
 // Full list of variables in [path to themes/contrib]/bootstrap4/dist/bootstrap/4.4.1/scss/_variables.scss
 // or [path to themes/contrib]/bootstrap4/scss/_theme_variables.scss.
-
 //@import '../../../../contrib/bootstrap4/dist/bootstrap/4.5.0/scss/_variables.scss';
 
 /* ==============================
 VENTANA MODAL
 ============================== */
+
 //$modal-backdrop-bg:  transparent;
+
 /*.modal-backdrop{
     background-color: transparent;
 }*/
 
+
 /* ==============================
 BOTONES
 ============================== */
-.btn-primary{    
+
+.btn-primary {
     background-color: var.$color-secundario !important;
     border: 0 !important;
 }
 
-.btn-secondary{    
+.btn-secondary {
     background-color: var.$color-cuaternario !important;
     border: 0 !important;
     border-radius: 0 !important;
 }
 
-.btn-default{    
+.btn-default {
     background-color: var.$color-terciario !important;
     border: 0 !important;
     border-radius: 0 !important;
 }
 
+
 /* ==============================
 INPUTS
 ============================== */
-.form-control{
+
+.form-control {
     border: 1px solid var.$color-primario !important;
 }
+
 
 /* ==============================
 BREADCRUMB(MIGAS DE PAN)
 ============================== */
-nav#breadcrumb{
 
+nav#breadcrumb {
     background-color: var.$color-quinario;
-
-    ol{
+    ol {
         background-color: initial;
     }
+}
+
+
+/* ============================================
+INFORMACION PARA LECUTRA DE INFO. ACCESIBILIDAD
+=============================================== */
+
+.font-accesibilidad {
+    font-size: 1.34rem; //18px
 }

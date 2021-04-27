@@ -3,7 +3,7 @@ langcode: es
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.media.media_library
+    - entity_browser.browser.entity_browser_archivos_convocatorias
     - field.field.node.convocatorias.body
     - field.field.node.convocatorias.feeds_item
     - field.field.node.convocatorias.field_convcatoria_archivos
@@ -21,9 +21,8 @@ dependencies:
     - node.type.convocatorias
   module:
     - cshs
+    - entity_browser
     - field_group
-    - inline_entity_form
-    - path
 third_party_settings:
   field_group:
     group_gr:
@@ -147,22 +146,20 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_convcatoria_archivos:
-    type: inline_entity_form_complex
-    weight: 14
-    settings:
-      form_mode: media_library
-      label_singular: ''
-      label_plural: ''
-      allow_new: true
-      match_operator: CONTAINS
-      revision: false
-      override_labels: false
-      collapsible: false
-      collapsed: false
-      allow_existing: false
-      allow_duplicate: false
-    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    weight: 0
     region: content
+    settings:
+      entity_browser: entity_browser_archivos_convocatorias
+      field_widget_display: rendered_entity
+      field_widget_display_settings:
+        view_mode: full
+      field_widget_edit: true
+      selection_mode: selection_prepend
+      field_widget_remove: false
+      field_widget_replace: false
+      open: false
+    third_party_settings: {  }
   field_convcatoria_contractual:
     weight: 29
     settings: {  }
@@ -254,12 +251,6 @@ content:
     settings:
       include_locked: true
     third_party_settings: {  }
-  path:
-    type: path
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   status:
     type: boolean_checkbox
     weight: 8
@@ -278,6 +269,7 @@ content:
 hidden:
   body: true
   feeds_item: true
+  path: true
   promote: true
   sticky: true
   uid: true

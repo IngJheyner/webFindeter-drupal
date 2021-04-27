@@ -1,44 +1,30 @@
 @use '../../../variables' as var;
 @use '../../../../mixins/media-query' as media-query;
-
-div.transparenciaAcceso{
-
-    figure.transparenciaAcceso{
-
+div.transparenciaAcceso {
+    figure {
         position: absolute;
         z-index: -1;
         //top: 0;
         height: 23rem;
         transform: translate(0, -13rem);
-    
-        img{
-    
+        img {
             height: 100%;
         }
     }
-
-    h1.tituloEncabezado{
+    h1.tituloEncabezado {
         text-shadow: 1px 1px 2px black;
         color: white;
         font-size: 3.5rem;
-        font-weight: 600;       
+        font-weight: 600;
     }
-
-    div.titulo{   
-        
+    div.titulo {
         border-bottom: 1px solid var.$color-secundario;
-        padding-bottom: 20px;      
-    
+        padding-bottom: 20px;
     }
-
-    div.descripcion{
-
+    div.descripcion {
         border-bottom: 1px solid var.$color-quinario;
-
-        div.decretosLeyes{
-
-            div.field__item{
-
+        div.decretosLeyes {
+            div.field__item {
                 color: var.$color-secundario;
                 text-decoration: underline;
             }
@@ -46,68 +32,50 @@ div.transparenciaAcceso{
     }
 }
 
+
 /* ==============================
 MEDIA QUERY
 ============================== */
-@include media-query.media(xs){
 
-    div.transparenciaAcceso{
-    
-        h1.tituloEncabezado{
+@include media-query.media(xs) {
+    div.transparenciaAcceso {
+        h1.tituloEncabezado {
             font-size: 1.5rem;
             margin-top: 1rem;
-                 
         }
-
-        div.titulo h1{
-            
+        div.titulo h1 {
             font-size: 1.5rem;
-        
         }
-
-        div.descripcion div.decretosLeyes{
-
+        div.descripcion div.decretosLeyes {
             display: block !important;
-
-            div.field__item{    
-
+            div.field__item {
                 display: block !important;
                 padding: 0 !important;
             }
-            
         }
     }
 }
 
-@include media-query.media(sm){
-
-    div.transparenciaAcceso{
-    
-        h1.tituloEncabezado{
+@include media-query.media(sm) {
+    div.transparenciaAcceso {
+        h1.tituloEncabezado {
             font-size: 2.8rem;
-                 
         }
     }
 }
 
-@include media-query.media(md){
-
-    div.transparenciaAcceso{
-    
-        h1.tituloEncabezado{
+@include media-query.media(md) {
+    div.transparenciaAcceso {
+        h1.tituloEncabezado {
             font-size: 3rem;
-                 
         }
     }
 }
 
-@include media-query.media(lg){
-
-    div.transparenciaAcceso{
-    
-        h1.tituloEncabezado{
+@include media-query.media(lg) {
+    div.transparenciaAcceso {
+        h1.tituloEncabezado {
             font-size: 3rem;
-                 
         }
     }
 }

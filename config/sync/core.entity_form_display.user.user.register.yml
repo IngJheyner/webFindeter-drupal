@@ -1,0 +1,88 @@
+uuid: 6dcb2f00-a6b4-40ae-aead-e2233494106f
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.user.register
+    - field.field.user.user.field_apellidos_usuario
+    - field.field.user.user.field_dependencia_usuarios
+    - field.field.user.user.field_nombre_usuario
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - field_group
+    - svg_image
+    - user
+third_party_settings:
+  field_group:
+    group_registro_de_usuarios_para_:
+      children:
+        - field_nombre_usuario
+        - field_apellidos_usuario
+        - field_dependencia_usuarios
+        - account
+        - user_picture
+        - contact
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Registro de usuarios para el Sitio Findeter'
+_core:
+  default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
+id: user.user.register
+targetEntityType: user
+bundle: user
+mode: register
+content:
+  account:
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  contact:
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_apellidos_usuario:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dependencia_usuarios:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_nombre_usuario:
+    type: string_textfield
+    weight: 8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_picture:
+    type: image_image
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    weight: 12
+    region: content
+hidden:
+  google_analytics: true
+  langcode: true
+  language: true
+  path: true
+  timezone: true
