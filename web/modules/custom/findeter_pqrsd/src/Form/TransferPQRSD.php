@@ -111,7 +111,7 @@ class TransferPQRSD extends FormBase {
     $nameRadicador[] = $node->get('field_pqrsd_segundo_nombre')->getString();
     $nameRadicador[] = $node->get('field_pqrsd_segundo_apellido')->getString();
 
-    $mailBody[] = 'De conformidad con lo establecido en la ley 1755 de 2015, de manera atenta damos traslado por competencia a la PQRSD radicada en Findeter con el número:'.$formValues['node_id'];
+    $mailBody[] = 'De conformidad con lo establecido en la ley 1755 de 2015, de manera atenta damos traslado por competencia a la PQRSD radicada en Findeter con el número:'.$node->get('field_pqrsd_numero_radicado')->getString();
     $mailBody[] = 'Agradecemos su acostumbrada colaboración, para dar continuidad al trámite correspondiente.';
     $mailBody[] = '';
     $mailBody[] = 'Cordialmente,';
