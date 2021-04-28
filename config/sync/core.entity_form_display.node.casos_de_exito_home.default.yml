@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.casos_de_exito_home.body
+    - field.field.node.casos_de_exito_home.field_enviar_home_caso_exito
     - field.field.node.casos_de_exito_home.field_img_carrusel_caso_exito
     - field.field.node.casos_de_exito_home.field_img_fondo_caso_exito
     - field.field.node.casos_de_exito_home.field_ruta_caso_exito
@@ -11,8 +12,8 @@ dependencies:
     - node.type.casos_de_exito_home
   module:
     - field_group
-    - image
     - link
+    - svg_image
     - text
 third_party_settings:
   field_group:
@@ -33,6 +34,7 @@ third_party_settings:
     group_informacion:
       children:
         - title
+        - field_enviar_home_caso_exito
         - created
         - uid
         - status
@@ -95,10 +97,17 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_enviar_home_caso_exito:
+    weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_img_carrusel_caso_exito:
     weight: 12
     settings:
@@ -125,7 +134,7 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 9
+    weight: 7
     region: content
     settings:
       include_locked: true
@@ -134,7 +143,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 6
     region: content
     third_party_settings: {  }
   title:
@@ -147,7 +156,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 5
     settings:
       match_operator: CONTAINS
       size: 60

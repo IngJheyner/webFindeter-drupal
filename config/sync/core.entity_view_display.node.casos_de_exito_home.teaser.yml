@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.casos_de_exito_home.body
+    - field.field.node.casos_de_exito_home.field_enviar_home_caso_exito
     - field.field.node.casos_de_exito_home.field_img_carrusel_caso_exito
     - field.field.node.casos_de_exito_home.field_img_fondo_caso_exito
     - field.field.node.casos_de_exito_home.field_ruta_caso_exito
@@ -32,6 +33,7 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_enviar_home_caso_exito: true
   field_img_carrusel_caso_exito: true
   field_img_fondo_caso_exito: true
   field_ruta_caso_exito: true

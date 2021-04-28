@@ -12,6 +12,7 @@ dependencies:
     - field.storage.node.field_ruta_caso_exito
     - field.storage.node.field_slider_video_html
     - field.storage.node.field_tipo_noticia
+    - field.storage.node.field_trayectoria_pot
     - image.style.noticias_home
     - node.type.casos_de_exito_home
     - node.type.noticias_home
@@ -300,6 +301,8 @@ display:
         css_class: false
         relationships: false
         arguments: false
+        access: false
+        group_by: false
       display_description: ''
       fields:
         body:
@@ -611,6 +614,10 @@ display:
           settings:
             image_style: ''
             image_link: ''
+            svg_render_as_image: true
+            svg_attributes:
+              width: null
+              height: null
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -847,18 +854,15 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        field_trayectoria_pot_target_id:
-          id: field_trayectoria_pot_target_id
-          table: node__field_trayectoria_pot
-          field: field_trayectoria_pot_target_id
+        field_enviar_home_caso_exito_value:
+          id: field_enviar_home_caso_exito_value
+          table: node__field_enviar_home_caso_exito
+          field: field_enviar_home_caso_exito_value
           relationship: none
           group_type: group
           admin_label: ''
-          operator: empty
-          value:
-            min: ''
-            max: ''
-            value: ''
+          operator: '='
+          value: '1'
           group: 1
           exposed: false
           expose:
@@ -875,9 +879,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -890,7 +891,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: numeric
+          plugin_id: boolean
       filter_groups:
         operator: AND
         groups:
@@ -904,6 +905,7 @@ display:
           layout: below
           caption:
             nothing: nothing
+            field_trayectoria_pot: field_trayectoria_pot
             body: '0'
             field_img_fondo_caso_exito: '0'
             title: '0'
@@ -942,20 +944,19 @@ display:
           thumbnail_effect: ''
       row:
         type: fields
-        options: {  }
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
       css_class: 'd-none d-md-block mt-5 slideCasoExito'
-      relationships:
-        reverse__node__field_trayectoria_pot:
-          id: reverse__node__field_trayectoria_pot
-          table: node_field_data
-          field: reverse__node__field_trayectoria_pot
-          relationship: none
-          group_type: group
-          admin_label: field_trayectoria_pot
-          required: false
-          entity_type: node
-          plugin_id: entity_reverse
+      relationships: {  }
       arguments: {  }
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      group_by: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -984,6 +985,8 @@ display:
         style: false
         row: false
         css_class: false
+        arguments: false
+        relationships: false
       display_description: ''
       fields:
         body:
@@ -1425,6 +1428,69 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_trayectoria_pot:
+          id: field_trayectoria_pot
+          table: node__field_trayectoria_pot
+          field: field_trayectoria_pot
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: false
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         nothing:
           id: nothing
           table: views
@@ -1436,7 +1502,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"text-center contenidoSlider\">\r\n<img src=\"{{ field_img_carrusel_caso_exito }}\" class=\"mx-auto\">\r\n<p\r\ndescripcion=\"{{ body }}\"\r\nimgFondo=\"{{ field_img_fondo_caso_exito }}\"\r\ntitulo=\"{{ title_1 }}\"\r\nenlace=\"{{ field_ruta_caso_exito }}\">\r\n{{ title }}\r\n</p>\r\n</div>"
+            text: "<div class=\"text-center contenidoSlider\">\r\n<img src=\"{{ field_img_carrusel_caso_exito }}\" class=\"mx-auto\">\r\n<a\r\ndescripcion=\"{{ body }}\"\r\nimgFondo=\"{{ field_img_fondo_caso_exito }}\"\r\ntitulo=\"{{ title_1 }}\"\r\nenlace=\"{{ field_ruta_caso_exito }}\">\r\n{{ title }}<br>\r\n{{ field_trayectoria_pot }}\r\n</a>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -1530,6 +1596,44 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+        field_enviar_home_caso_exito_value:
+          id: field_enviar_home_caso_exito_value
+          table: node__field_enviar_home_caso_exito
+          field: field_enviar_home_caso_exito_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: boolean
       filter_groups:
         operator: AND
         groups:
@@ -1582,12 +1686,13 @@ display:
         type: fields
         options: {  }
       css_class: 'd-md-none mt-5 slideCasoExito'
+      arguments: {  }
+      relationships: {  }
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -1595,6 +1700,7 @@ display:
         - 'config:field.storage.node.field_img_carrusel_caso_exito'
         - 'config:field.storage.node.field_img_fondo_caso_exito'
         - 'config:field.storage.node.field_ruta_caso_exito'
+        - 'config:field.storage.node.field_trayectoria_pot'
   noticias_slider_home:
     display_plugin: block
     id: noticias_slider_home
