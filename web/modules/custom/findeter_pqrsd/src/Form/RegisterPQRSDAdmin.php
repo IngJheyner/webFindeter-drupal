@@ -238,11 +238,11 @@ class RegisterPQRSDAdmin extends FormBase {
         $userName = '';
         $form_state->getValue('field_pqrsd_primer_nombre');
         if($form_state->getValue('field_pqrsd_primer_nombre')){
-          $userName = $form_state->getValue('field_pqrsd_primer_nombre').' ';
+          $userName .= $form_state->getValue('field_pqrsd_primer_nombre').' ';
         }
 
         if($form_state->getValue('field_pqrsd_primer_apellido')){
-          $userName = $form_state->getValue('field_pqrsd_primer_apellido');
+          $userName .= $form_state->getValue('field_pqrsd_primer_apellido');
         }
 
         $mailBody[] = 'Hola '.$user->getUsername();

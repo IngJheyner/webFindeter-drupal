@@ -118,7 +118,7 @@ class AsignPQRSD extends FormBase {
 
       $userName = '';
       if(isset($node->get('field_pqrsd_primer_nombre')->getValue()[0]['value'])){
-        $userName = $node->get('field_pqrsd_primer_nombre')->getValue()[0]['value'].' ';
+        $userName .= $node->get('field_pqrsd_primer_nombre')->getValue()[0]['value'].' ';
       }
       if(isset($node->get('field_pqrsd_primer_apellido')->getValue()[0]['value'])){
         $userName .= $node->get('field_pqrsd_primer_apellido')->getValue()[0]['value'];
