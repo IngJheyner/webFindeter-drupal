@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.casos_de_exito_home.body
+    - field.field.node.casos_de_exito_home.field_enviar_home_caso_exito
     - field.field.node.casos_de_exito_home.field_img_carrusel_caso_exito
     - field.field.node.casos_de_exito_home.field_img_fondo_caso_exito
     - field.field.node.casos_de_exito_home.field_ruta_caso_exito
@@ -14,7 +15,17 @@ id: node.casos_de_exito_home.default
 targetEntityType: node
 bundle: casos_de_exito_home
 mode: default
-content: {  }
+content:
+  field_enviar_home_caso_exito:
+    weight: 1
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
 hidden:
   addtoany: true
   body: true
