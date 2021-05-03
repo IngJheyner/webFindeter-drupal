@@ -1,17 +1,14 @@
-uuid: 9ae87745-ae39-459c-bdb1-9b0430bca477
+uuid: f946a79d-e6b4-407b-a3c0-b4fb8adafe67
 langcode: es
 status: true
 dependencies:
   config:
-    - field.storage.media.field_media_document
-    - media.type.document
-  enforced:
-    module:
-      - media
+    - block_content.type.convocatorias_encabezado
+    - field.storage.block_content.field_banner_convcatorias
   module:
     - disable_field
-    - file
     - filefield_paths
+    - image
 third_party_settings:
   filefield_paths:
     enabled: false
@@ -33,23 +30,32 @@ third_party_settings:
   disable_field:
     add_disable: none
     edit_disable: none
-_core:
-  default_config_hash: 52m0CtJVAoE3Qvh2AiciSkV8odAgQeRo4yNDGgUA7dc
-id: media.document.field_media_document
-field_name: field_media_document
-entity_type: media
-bundle: document
-label: Document
+id: block_content.convocatorias_encabezado.field_banner_convcatorias
+field_name: field_banner_convcatorias
+entity_type: block_content
+bundle: convocatorias_encabezado
+label: Banner
 description: ''
-required: true
-translatable: true
+required: false
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: internas
-  file_extensions: 'txt rtf doc docx ppt pptx xls xlsx pdf odf odg odp ods odt fodt fods fodp fodg key numbers pages'
-  max_filesize: ''
-  description_field: false
+  file_directory: webfinde/images/convocatorias
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '5 mb'
+  max_resolution: ''
+  min_resolution: 1000x500
+  alt_field: true
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
   handler: 'default:file'
   handler_settings: {  }
-field_type: file
+field_type: image

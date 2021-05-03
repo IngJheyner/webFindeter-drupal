@@ -195,7 +195,9 @@ class StatusPQRSD extends FormBase {
     $view->setArguments([$numberRadicado]);
     $render_view = $view->render();
 
-    $responseHtml = [];
+    return $response->addCommand(new HtmlCommand('#messages-wrapper', $view->render()));
+
+    exit();
 
     if(isset($render_view['#rows'][0]['#rows'][0])){
 

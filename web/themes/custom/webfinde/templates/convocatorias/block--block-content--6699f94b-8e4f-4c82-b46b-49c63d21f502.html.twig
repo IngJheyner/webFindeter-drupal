@@ -36,7 +36,7 @@
 
 <div{{ attributes.addClass(classes) }}>
 
-  <figure class="w-100">
+  <figure class="w-100 m-0">
 
     <img src="{{ file_url(content.field_convocatoria_img_fondo[0]['#item'].entity.uri.value) }}" class="img-fluid w-100">
 
@@ -48,10 +48,22 @@
 
       <h1 class="tituloEncabezado mt-3">{{ content.field_convocatoria_titulo[0] }}</h1>   
 
-    </div>
+    </div>   
 
     {# ===== ===== Migas de pan ===== ===== #}
     {{ drupal_breadcrumb() }}
+
+    {% if content.field_banner_convcatorias[0]|render|trim is not empty and path('<current>') == '/convocatorias'%}
+
+      <div class="banner w-100">
+
+        <a href="{{ content.field_enlace_banner_convocatoria[0]['#url'].uri }}">
+          <img src="{{ file_url(content.field_banner_convcatorias[0]['#item'].entity.uri.value) }}" class="img-fluid w-100">
+        </a>
+        
+      </div>
+
+    {% endif %}
 
   {% endblock %}
   
@@ -60,4 +72,4 @@
 {# ============================================
 RENDERIZAR FORMULARIO LADING PAGE
 =============================================== #}
-{{ drupal_entity('webform', 'formulario_lading_page' )}}
+{#{ drupal_entity('webform', 'formulario_lading_page' )}#}

@@ -3872,6 +3872,10 @@ div.encabezadoConvocatorias div.encabezado h1.tituloEncabezado {
   }
 }
 
+div.encabezadoConvocatorias div.banner {
+  margin-top: -1rem;
+}
+
 /* ===== ===== Ciudadano ===== ===== */
 /* ==============================
 COLORES
@@ -3955,6 +3959,15 @@ article.detalleProcesoConvocatorias div.titulo h1 {
   width: 80%;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  div.encabezadoConvocatorias div.banner img {
+    height: 6rem;
+  }
+}
 /* ===== ===== Prosperity Fund ===== ===== */
 /* ==============================
 COLORES

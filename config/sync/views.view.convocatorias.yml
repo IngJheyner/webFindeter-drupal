@@ -18,6 +18,7 @@ dependencies:
     - user.role.abogado
     - user.role.administrator
     - user.role.authenticated
+    - user.role.c_modificador
     - user.role.secretaria_general
   module:
     - cshs
@@ -2140,7 +2141,8 @@ display:
         type: role
         options:
           role:
-            authenticated: authenticated
+            secretaria_general: secretaria_general
+            c_modificador: c_modificador
       defaults:
         access: false
         filters: false
@@ -3597,15 +3599,18 @@ display:
         title: 'Exportar Convocatorias'
         description: ''
         expanded: false
-        parent: system.admin_content
+        parent: 'menu_link_content:da7b81d7-8573-4a1c-8ae8-3e4096b9735c'
         weight: 0
         context: '0'
         menu_name: admin
+        enabled: true
       access:
         type: role
         options:
           role:
-            authenticated: authenticated
+            administrator: administrator
+            secretaria_general: secretaria_general
+            c_modificador: c_modificador
       footer:
         area:
           id: area
