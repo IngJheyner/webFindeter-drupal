@@ -195,10 +195,6 @@ class StatusPQRSD extends FormBase {
     $view->setArguments([$numberRadicado]);
     $render_view = $view->render();
 
-    return $response->addCommand(new HtmlCommand('#messages-wrapper', $view->render()));
-
-    exit();
-
     if(isset($render_view['#rows'][0]['#rows'][0])){
 
       if(isset($render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_primer_nombre')->getValue()[0]['value'])){
