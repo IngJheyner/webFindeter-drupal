@@ -7,16 +7,16 @@ dependencies:
 id: noticias_contenido_interno
 label: 'Noticias [ Contenido Interno ]'
 type: 'canonical_entities:node'
-pattern: '/noticias/[node:field_tipo_noticia:entity:name]/[node:nid]'
+pattern: '/noticias/[node:field_tipo_noticia:entity:name]/[node:title]'
 selection_criteria:
-  523564dd-3ad2-423d-8ed5-e7f56e9f7293:
+  c310225f-4d54-4017-9a7c-455074d2765d:
     id: node_type
     bundles:
       noticias_home: noticias_home
     negate: false
     context_mapping:
       node: node
-    uuid: 523564dd-3ad2-423d-8ed5-e7f56e9f7293
+    uuid: c310225f-4d54-4017-9a7c-455074d2765d
 selection_logic: and
 weight: -5
 relationships: {  }
