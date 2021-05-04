@@ -56,7 +56,7 @@ MEDIA QUERY
             max-width: 100%;
             height: auto;
         }
-        div.cuerpoArticulo div.IntroContenido {
+        div.IntroContenido {
             display: initial !important;
             img {
                 width: 100%;
@@ -69,7 +69,7 @@ MEDIA QUERY
 }
 
 @include media-query.media(sm) {
-    article.noticiasInternas div.cuerpoArticulo div.IntroContenido {
+    article.noticiasInternas div.IntroContenido {
         display: initial !important;
         img {
             width: 100%;
