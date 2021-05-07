@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "11daf27eed819da1ff0dd0c9adc4e6ca",
+    "content-hash": "66928d4da3d893dbd3d8ddcac409cbc0",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -6970,6 +6970,55 @@
             }
         },
         {
+            "name": "drupal/module_filter",
+            "version": "3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/module_filter.git",
+                "reference": "8.x-3.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/module_filter-8.x-3.2.zip",
+                "reference": "8.x-3.2",
+                "shasum": "b5c1a5141da392340232a1ad0934b921b862e1f4"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-3.2",
+                    "datestamp": "1614918371",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "andrey.troeglazov",
+                    "homepage": "https://www.drupal.org/user/3145389"
+                },
+                {
+                    "name": "greenSkin",
+                    "homepage": "https://www.drupal.org/user/173855"
+                }
+            ],
+            "description": "Filter the modules list.",
+            "homepage": "http://drupal.org/project/module_filter",
+            "support": {
+                "source": "https://git.drupalcode.org/project/module_filter",
+                "issues": "https://www.drupal.org/project/issues/module_filter"
+            }
+        },
+        {
             "name": "drupal/page_manager",
             "version": "4.0.0-beta6",
             "source": {
@@ -7332,6 +7381,62 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/quick_node_clone",
                 "issues": "https://www.drupal.org/project/issues/quick_node_clone"
+            }
+        },
+        {
+            "name": "drupal/readonlymode",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/readonlymode.git",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/readonlymode-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "c81bd71c143b14d759611d7d105146f786e442e0"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1603541730",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "BarisW",
+                    "homepage": "https://www.drupal.org/user/107229"
+                },
+                {
+                    "name": "Sharique",
+                    "homepage": "https://www.drupal.org/user/73545"
+                },
+                {
+                    "name": "bircher",
+                    "homepage": "https://www.drupal.org/user/1344166"
+                },
+                {
+                    "name": "petew",
+                    "homepage": "https://www.drupal.org/user/1009366"
+                }
+            ],
+            "description": "This module will lock your site for any form postings.",
+            "homepage": "https://www.drupal.org/project/readonlymode",
+            "support": {
+                "source": "https://git.drupalcode.org/project/readonlymode"
             }
         },
         {
@@ -17804,5 +17909,5 @@
         "php": ">=7.0.8"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

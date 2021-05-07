@@ -3,10 +3,9 @@ langcode: es
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.full
+    - core.entity_view_mode.media.media_library
   module:
     - media
-    - video_embed_wysiwyg
 name: 'HTML Editor'
 format: html_editor
 weight: -10
@@ -20,10 +19,10 @@ filters:
   filter_html:
     id: filter_html
     provider: filter
-    status: false
+    status: true
     weight: -10
     settings:
-      allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id align> <h3 id align> <h4 id align> <h5 id align> <h6 id align> <p align> <br> <span> <img src alt height width data-entity-type data-entity-uuid data-align data-caption> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <u> <s><drupal-media data-entity-type data-entity-uuid><div>'
+      allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id align> <h3 id align> <h4 id align> <h5 id align> <h6 id align> <p align> <br> <span> <img src alt height width data-entity-type data-entity-uuid data-align data-caption> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <u> <s><drupal-media data-entity-type data-entity-uuid><div><video><iframe>'
       filter_html_help: true
       filter_html_nofollow: true
   filter_htmlcorrector:
@@ -42,14 +41,15 @@ filters:
   media_embed:
     id: media_embed
     provider: media
-    status: false
+    status: true
     weight: 100
     settings:
-      default_view_mode: full
+      default_view_mode: media_library
       allowed_media_types:
         url_youtube_articulo_blog: url_youtube_articulo_blog
+        video: video
       allowed_view_modes:
-        default: default
+        media_library: media_library
   filter_html_image_secure:
     id: filter_html_image_secure
     provider: filter
@@ -65,12 +65,6 @@ filters:
   filter_align:
     id: filter_align
     provider: filter
-    status: true
-    weight: 0
-    settings: {  }
-  video_embed_wysiwyg:
-    id: video_embed_wysiwyg
-    provider: video_embed_wysiwyg
     status: true
     weight: 0
     settings: {  }

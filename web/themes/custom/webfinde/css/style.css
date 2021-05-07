@@ -107,83 +107,6 @@ main a:hover {
 }
 
 /* ==============================
-ADMIN
-============================== */
-/* ==============================
-COLORES
-============================== */
-/* ==============================
-ENCABEZADO
-============================== */
-/* ==============================
-CUSTOM TITULOS
-============================== */
-div.login figure {
-  position: absolute;
-  z-index: -1;
-  transform: translate(0, -14rem);
-  height: 23rem;
-}
-div.login figure img {
-  height: 100%;
-}
-div.login div.encabezado {
-  height: 7rem;
-}
-div.login div.encabezado h1.tituloEncabezado {
-  text-shadow: 1px 1px 2px black;
-  color: white;
-  font-size: 3.5rem;
-  font-weight: 600;
-  /* ==============================
-  MEDIA QUERY
-  ============================== */
-  /*MOVIL VERTICAL(sm 320px)*/
-  /*MOVIL VERTICAL(sm 320px)*/
-  /*MOVIL VERTICAL(sm 320px)*/
-}
-@media (max-width: 575.98px) {
-  div.login div.encabezado h1.tituloEncabezado {
-    font-size: 2.5rem;
-  }
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  div.login div.encabezado h1.tituloEncabezado {
-    font-size: 3rem;
-  }
-}
-@media (min-width: 768px) and (max-width: 991.98px) {
-  div.login div.encabezado h1.tituloEncabezado {
-    font-size: 3rem;
-  }
-}
-
-form#user-login-form {
-  padding: 0 15rem;
-}
-
-/* ==============================
-MEDIA QUERY
-============================== */
-/*MOVIL VERTICAL(sm 320px)*/
-@media (max-width: 575.98px) {
-  form#user-login-form {
-    padding: 0 1rem;
-  }
-}
-/*MOVIL VERTICAL(sm 320px)*/
-@media (min-width: 576px) and (max-width: 767.98px) {
-  form#user-login-form {
-    padding: 0 5rem;
-  }
-}
-/*MOVIL VERTICAL(sm 320px)*/
-@media (min-width: 768px) and (max-width: 991.98px) {
-  form#user-login-form {
-    padding: 0 8rem;
-  }
-}
-/* ==============================
 HEADER(ENCABEZADO)
 ============================== */
 /* ==============================
@@ -3547,32 +3470,6 @@ MEDIA QUERY
 /* ==============================
 INTERNAS
 ============================== */
-/* ===== ===== MIGAS DE PAN ===== ===== */
-nav#breadcrumb ol {
-  font-size: 1rem;
-}
-
-/*MOVIL VERTICAL(sm 320px)*/
-@media (max-width: 575.98px) {
-  nav#breadcrumb ol {
-    display: block !important;
-    font-size: 1rem;
-  }
-  nav#breadcrumb ol li {
-    display: block;
-    padding-left: 0;
-  }
-  nav#breadcrumb ol li::before {
-    content: " ";
-    display: block;
-  }
-}
-/*MOVIL VERTICAL(sm 320px)*/
-@media (min-width: 576px) and (max-width: 767.98px) {
-  nav#breadcrumb ol {
-    display: block !important;
-  }
-}
 /* ===== ===== Transparencia ===== ===== */
 /* ===== ===== Encabezado ===== ===== */
 /* ==============================
@@ -4203,7 +4100,34 @@ div.encabezadoPqrsd div.encabezado h1.tituloEncabezado {
   font-size: 2.5rem;
 }
 
-/* ===== ===== WEBFORM ===== ===== */
+/* ===== ===== LAYOUT ===== ===== */
+/* ===== ===== CALENDARIO ===== ===== */
+nav#breadcrumb ol {
+  font-size: 1rem;
+}
+
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  nav#breadcrumb ol {
+    display: block !important;
+    font-size: 1rem;
+  }
+  nav#breadcrumb ol li {
+    display: block;
+    padding-left: 0;
+  }
+  nav#breadcrumb ol li::before {
+    content: " ";
+    display: block;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  nav#breadcrumb ol {
+    display: block !important;
+  }
+}
+/* ===== ===== WEB FORM ===== ===== */
 div.form-lading-page > button {
   position: fixed;
   z-index: 900;
@@ -4282,6 +4206,182 @@ div.form-encuesta-pqrsd div.encabezado h1.tituloEncabezado {
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   div.form-encuesta-pqrsd div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+
+/* ===== ===== LOGIN ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+ENCABEZADO
+============================== */
+/* ==============================
+CUSTOM TITULOS
+============================== */
+div.login figure {
+  position: absolute;
+  z-index: -1;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+div.login figure img {
+  height: 100%;
+}
+div.login div.encabezado {
+  height: 7rem;
+}
+div.login div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  div.login div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.login div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.login div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+
+form#user-login-form {
+  padding: 0 15rem;
+}
+
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  form#user-login-form {
+    padding: 0 1rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  form#user-login-form {
+    padding: 0 5rem;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  form#user-login-form {
+    padding: 0 8rem;
+  }
+}
+/* ===== ===== CALENDARIO ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+ENCABEZADO
+============================== */
+/* ==============================
+CUSTOM TITULOS
+============================== */
+header.headerCalendario figure {
+  position: absolute;
+  z-index: -1;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+header.headerCalendario figure img {
+  height: 100%;
+}
+header.headerCalendario div.encabezado {
+  height: 7rem;
+}
+header.headerCalendario div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  header.headerCalendario div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  header.headerCalendario div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  header.headerCalendario div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+
+/* ===== ===== MECANISMO CONTACTO ===== ===== */
+/* ===== ===== DATOS ABIERTOS ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+ENCABEZADO
+============================== */
+/* ==============================
+CUSTOM TITULOS
+============================== */
+article.datosAbiertos figure {
+  position: absolute;
+  z-index: -1;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+article.datosAbiertos figure img {
+  height: 100%;
+}
+article.datosAbiertos div.encabezado {
+  height: 7rem;
+}
+article.datosAbiertos div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  article.datosAbiertos div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  article.datosAbiertos div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  article.datosAbiertos div.encabezado h1.tituloEncabezado {
     font-size: 3rem;
   }
 }

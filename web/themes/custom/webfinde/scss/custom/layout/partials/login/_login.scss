@@ -1,5 +1,5 @@
-@use '../mixins/custom-etiquetas' as encabezado;
-@use '../mixins/media-query' as media-query;
+@use '../../../../mixins/custom-etiquetas' as encabezado;
+@use '../../../../mixins/media-query' as media-query;
 @include encabezado.encabezado('div', 'login');
 form#user-login-form {
     padding: 0 15rem;
