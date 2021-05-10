@@ -123,7 +123,7 @@ class StatusPQRSD extends FormBase {
       '#value' => 'Consultar',
       '#ajax' => [
         'callback' => '::consultStatus',
-        'wrapper'  => 'form-wrapper',
+        //'wrapper'  => 'form-wrapper',
         'effect'   => 'fade',
       ],
     ];
@@ -190,35 +190,34 @@ class StatusPQRSD extends FormBase {
 
     $numberRadicado = Xss::filter($form_state->getValue('radicado_number'));
 
-    $view = Views::getView('pqrsd');
-    $view->setDisplay('block_2');
-    $view->setArguments([$numberRadicado]);
-    $render_view = $view->render();
+    $query = \Drupal::entityQuery('node')
+      ->condition('type', 'pqrsd')
+      ->condition('field_pqrsd_numero_radicado', $numberRadicado);
+    $nid = array_pop($query->execute());
 
     $responseHtml = [];
+    if($node = \Drupal\node\Entity\Node::load($nid)){
 
-    if(isset($render_view['#rows'][0]['#rows'][0])){
-
-      if(isset($render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_primer_nombre')->getValue()[0]['value'])){
-        $radicatorName = $render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_primer_nombre')->getValue()[0]['value'];
-        $radicatorName .= $render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_segundo_nombre')->getValue()[0]['value']?:' ';
-        $radicatorName .= $render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_primer_apellido')->getValue()[0]['value']?:' ';
-        $radicatorName .= $render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_segundo_apellido')->getValue()[0]['value']?:' ';
+      if($node->get('field_pqrsd_primer_nombre')->value != ''){
+        $radicatorName = $node->get('field_pqrsd_primer_nombre')->value;
+        $radicatorName .= $node->get('field_pqrsd_segundo_nombre')->value;
+        $radicatorName .= $node->get('field_pqrsd_primer_apellido')->value;
+        $radicatorName .= $node->get('field_pqrsd_segundo_apellido')->value;
       }else{
         $radicatorName = 'Anónimo';
       }
 
       $responseHtml[] = '<b>Nombre radicador: </b> '.$radicatorName;
-      $responseHtml[] = '<b>Fecha registro: </b> '.date('d/m/Y H:i',$render_view['#rows'][0]['#rows'][0]->_entity->get('created')->getValue()[0]['value']);
-      $responseHtml[] = '<b>Fecha máxima de respuesta: </b> '.date('d/m/Y',strtotime($render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_fecha_roja')->getValue()[0]['value']));
-      $responseHtml[] = '<b>Asunto: </b> '.$render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_descripcion')->getValue()[0]['value'];
+      $responseHtml[] = '<b>Fecha registro: </b> '.date('d/m/Y H:i',$node->get('created')->value);
+      $responseHtml[] = '<b>Fecha máxima de respuesta: </b> '.date('d/m/Y',strtotime($node->get('field_pqrsd_fecha_roja')->value));
+      $responseHtml[] = '<b>Asunto: </b> '.$node->get('field_pqrsd_descripcion')->value;
 
       $responseHtml[] = '<div class="status-answer"><b>Estado de su radicatoria:</b>';
 
-      if(isset($render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_respuesta')->getValue()[0]['value'])){
+      if($node->get('field_pqrsd_respuesta_archivos')->getValue() != ''){
 
         $filesList = [];
-        foreach ($render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_respuesta_archivos')->getValue() as $fileItem){
+        foreach ($node->get('field_pqrsd_respuesta_archivos')->getValue() as $fileItem){
           $file_id = $fileItem['target_id'];
           $file = \Drupal\file\Entity\File::load($file_id);
           $uri = $file->uri->value;
@@ -226,7 +225,7 @@ class StatusPQRSD extends FormBase {
         }
 
         $responseHtml[] = 'Respondida';
-        $responseHtml[] = '<b>Respuesta: </b> '.$render_view['#rows'][0]['#rows'][0]->_entity->get('field_pqrsd_respuesta')->getValue()[0]['value'];
+        $responseHtml[] = '<b>Respuesta: </b> '.$node->get('field_pqrsd_respuesta')->value;
         $responseHtml[] = '<ul>';
         foreach($filesList as $fil){
           $responseHtml[] = '<li><b><a href="'.$fil.'">Archivo de la respuesta</a></b></li>';
