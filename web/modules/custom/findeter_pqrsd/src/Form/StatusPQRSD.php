@@ -188,57 +188,63 @@ class StatusPQRSD extends FormBase {
       $response->addCommand(new HtmlCommand('#messages-wrapper', ''));
     }
 
+    $responseHtml = [];
+
+
     $numberRadicado = Xss::filter($form_state->getValue('radicado_number'));
 
-    $query = \Drupal::entityQuery('node')
-      ->condition('type', 'pqrsd')
-      ->condition('field_pqrsd_numero_radicado', $numberRadicado);
-    $nid = array_pop($query->execute());
+    if($numberRadicado!='') {
+      $query = \Drupal::entityQuery('node')
+        ->condition('type', 'pqrsd')
+        ->condition('field_pqrsd_numero_radicado', $numberRadicado);
+      $nid = array_pop($query->execute());
 
-    $responseHtml = [];
-    if($node = \Drupal\node\Entity\Node::load($nid)){
 
-      if($node->get('field_pqrsd_primer_nombre')->value != ''){
-        $radicatorName = $node->get('field_pqrsd_primer_nombre')->value;
-        $radicatorName .= $node->get('field_pqrsd_segundo_nombre')->value;
-        $radicatorName .= $node->get('field_pqrsd_primer_apellido')->value;
-        $radicatorName .= $node->get('field_pqrsd_segundo_apellido')->value;
-      }else{
-        $radicatorName = 'Anónimo';
-      }
+      if($node = \Drupal\node\Entity\Node::load($nid)){
 
-      $responseHtml[] = '<b>Nombre radicador: </b> '.$radicatorName;
-      $responseHtml[] = '<b>Fecha registro: </b> '.date('d/m/Y H:i',$node->get('created')->value);
-      $responseHtml[] = '<b>Fecha máxima de respuesta: </b> '.date('d/m/Y',strtotime($node->get('field_pqrsd_fecha_roja')->value));
-      $responseHtml[] = '<b>Asunto: </b> '.$node->get('field_pqrsd_descripcion')->value;
-
-      $responseHtml[] = '<div class="status-answer"><b>Estado de su radicatoria:</b>';
-
-      if($node->get('field_pqrsd_respuesta_archivos')->getValue() != ''){
-
-        $filesList = [];
-        foreach ($node->get('field_pqrsd_respuesta_archivos')->getValue() as $fileItem){
-          $file_id = $fileItem['target_id'];
-          $file = \Drupal\file\Entity\File::load($file_id);
-          $uri = $file->uri->value;
-          $filesList[] = file_create_url($uri);
+        if($node->get('field_pqrsd_primer_nombre')->value != ''){
+          $radicatorName = $node->get('field_pqrsd_primer_nombre')->value;
+          $radicatorName .= $node->get('field_pqrsd_segundo_nombre')->value;
+          $radicatorName .= $node->get('field_pqrsd_primer_apellido')->value;
+          $radicatorName .= $node->get('field_pqrsd_segundo_apellido')->value;
+        }else{
+          $radicatorName = 'Anónimo';
         }
 
-        $responseHtml[] = 'Respondida';
-        $responseHtml[] = '<b>Respuesta: </b> '.$node->get('field_pqrsd_respuesta')->value;
-        $responseHtml[] = '<ul>';
-        foreach($filesList as $fil){
-          $responseHtml[] = '<li><b><a href="'.$fil.'">Archivo de la respuesta</a></b></li>';
-        }
-        $responseHtml[] = '</ul>';
+        $responseHtml[] = '<b>Nombre radicador: </b> '.$radicatorName;
+        $responseHtml[] = '<b>Fecha registro: </b> '.date('d/m/Y H:i',$node->get('created')->value);
+        $responseHtml[] = '<b>Fecha máxima de respuesta: </b> '.date('d/m/Y',strtotime($node->get('field_pqrsd_fecha_roja')->value));
+        $responseHtml[] = '<b>Asunto: </b> '.$node->get('field_pqrsd_descripcion')->value;
 
-        $responseHtml[] = '</div>';
+        $responseHtml[] = '<div class="status-answer"><b>Estado de su radicatoria:</b>';
+
+        if($node->get('field_pqrsd_respuesta_archivos')->getValue() != ''){
+
+          $filesList = [];
+          foreach ($node->get('field_pqrsd_respuesta_archivos')->getValue() as $fileItem){
+            $file_id = $fileItem['target_id'];
+            $file = \Drupal\file\Entity\File::load($file_id);
+            $uri = $file->uri->value;
+            $filesList[] = file_create_url($uri);
+          }
+
+          $responseHtml[] = 'Respondida';
+          $responseHtml[] = '<b>Respuesta: </b> '.$node->get('field_pqrsd_respuesta')->value;
+          $responseHtml[] = '<ul>';
+          foreach($filesList as $fil){
+            $responseHtml[] = '<li><b><a href="'.$fil.'">Archivo de la respuesta</a></b></li>';
+          }
+          $responseHtml[] = '</ul>';
+
+          $responseHtml[] = '</div>';
+        }else{
+          $responseHtml[] = 'Pendiente de respuesta</div>';
+        }
+
       }else{
-        $responseHtml[] = 'Pendiente de respuesta</div>';
+        $responseHtml[] = '<p>No hemos encontrado un radicado con el número que indica.</p>';
       }
 
-    }else{
-      $responseHtml[] = '<p>No hemos encontrado un radicado con el número que indica.</p>';
     }
 
     $responseText = [
