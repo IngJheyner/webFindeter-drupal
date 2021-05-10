@@ -191,7 +191,7 @@ class StatusPQRSD extends FormBase {
     $responseHtml = [];
 
 
-    $numberRadicado = Xss::filter($form_state->getValue('radicado_number'));
+    $numberRadicado = $form_state->getValue('radicado_number');
 
     if($numberRadicado!='') {
       $query = \Drupal::entityQuery('node')
