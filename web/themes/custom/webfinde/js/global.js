@@ -13,13 +13,6 @@
     $(document).ready(function() {
 
         /*===========================================
-        ADMIN
-        =============================================*/
-
-        /* ===== ===== Login ===== ===== */
-        $('form#user-login-form').addClass('container my-5');
-
-        /*===========================================
         MENU SIDEBAR MOVIL
         =============================================*/
         $("section.menuMovil nav").attr("id", "sidebar");
@@ -312,7 +305,7 @@
         $("div.casosExito div.contenido h1.tituloCaso").html($(gridDefecto).attr('titulo'));
         $("div.casosExito div.contenido p.descripcionCaso").html($(gridDefecto).attr('descripcion'));
         //$("div.casosExito div.contenido a.enlace").attr("href", $(gridDefecto).attr('enlace'));
-        console.log($(gridDefecto).attr('titulo'));
+
         if ($(gridDefecto).attr('contenido') != "") {
             $("div.casosExito div.contenido div#modalTrayectoria h5").html($(gridDefecto).attr('titulo'));
             $("div.casosExito div.contenido div#modalTrayectoria div.modal-body").html($(gridDefecto).attr('contenido'));
@@ -532,9 +525,9 @@
 
         /* ===== ==== modal contratacion ===== ==== */
 
-        var pathname = window.location.pathname;
-        //alert(pathname);
-        //if(pathname == 'contratacion'){
+        //var pathname = window.location.pathname;
+        /*alert(pathname);
+        if(pathname == 'contratacion'){
         if (pathname == '/contrataci%C3%B3n') {
             const divmodal = document.createElement("div");
             divmodal.innerHTML = "<!-- Button trigger modal -->" +
@@ -566,10 +559,8 @@
 
             const body = document.querySelector("body");
             body.appendChild(divmodal);
-            /*document.querySelector("#botonmodalcon").click();*/
-        }
-
-        /** Fin modal */
+            document.querySelector("#botonmodalcon").click();
+        }*/
     });
     /*}
     };*/
