@@ -6,7 +6,12 @@ dependencies:
     - field.storage.node.body
     - node.type.articulo_blog
   module:
+    - disable_field
     - text
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
 id: node.articulo_blog.body
 field_name: body
 entity_type: node
@@ -19,7 +24,7 @@ default_value:
   -
     summary: 'Se debe insertar un resumen de entrada del articulo, la cual se visualizara en la parte de los bloques públicos de contenido del home.'
     value: ''
-    format: basic_html
+    format: html_editor
 default_value_callback: ''
 settings:
   display_summary: true

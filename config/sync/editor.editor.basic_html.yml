@@ -25,40 +25,7 @@ settings:
         -
           name: Formatting
           items:
-            - Bold
-            - Underline
-            - Strike
-            - Italic
-        -
-          name: Linking
-          items:
-            - DrupalLink
-            - DrupalUnlink
-        -
-          name: Lists
-          items:
-            - BulletedList
-            - NumberedList
-        -
-          name: Media
-          items:
-            - Blockquote
-            - DrupalFile
-        -
-          name: 'Block Formatting'
-          items:
-            - Format
-        -
-          name: Tools
-          items:
             - Source
-        -
-          name: Lineal
-          items:
-            - JustifyLeft
-            - JustifyCenter
-            - JustifyRight
-            - JustifyBlock
   plugins:
     language:
       language_list: un
@@ -74,8 +41,8 @@ settings:
 image_upload:
   status: true
   scheme: public
-  directory: inline-images
-  max_size: '2 mb'
+  directory: webfinde/images/internas
+  max_size: '5 GB'
   max_dimensions:
     width: null
     height: null

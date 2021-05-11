@@ -3320,6 +3320,7 @@ display:
         query: false
         fields: false
         arguments: false
+        access: false
       filter_groups:
         operator: AND
         groups:
@@ -3841,6 +3842,9 @@ display:
           transform_dash: false
           break_phrase: false
           plugin_id: string
+      access:
+        type: none
+        options: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -3849,7 +3853,6 @@ display:
         - url
         - url.query_args
         - 'user.node_grants:view'
-        - user.permissions
       tags:
         - 'config:field.storage.node.field_pqrsd_descripcion'
         - 'config:field.storage.node.field_pqrsd_fecha_naranja'
