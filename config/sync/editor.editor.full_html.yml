@@ -10,7 +10,7 @@ dependencies:
 third_party_settings:
   editor_file:
     status: true
-    scheme: public
+    scheme: private
     directory: internas
     extensions: 'txt rtf doc docx ppt pptx xls xlsx xlsm pdf odf odg odp ods odt fodt fods fodp fodg key numbers pages'
     max_size: ''
@@ -20,46 +20,7 @@ format: full_html
 editor: ckeditor
 settings:
   toolbar:
-    rows:
-      -
-        -
-          name: Formatting
-          items:
-            - Bold
-            - Italic
-            - Strike
-            - Superscript
-            - Subscript
-            - '-'
-            - RemoveFormat
-        -
-          name: Linking
-          items:
-            - DrupalLink
-            - DrupalUnlink
-        -
-          name: Lists
-          items:
-            - BulletedList
-            - NumberedList
-        -
-          name: Media
-          items:
-            - Blockquote
-            - DrupalImage
-            - Table
-            - video_embed
-            - DrupalFile
-            - HorizontalRule
-        -
-          name: 'Block Formatting'
-          items:
-            - Format
-        -
-          name: Tools
-          items:
-            - ShowBlocks
-            - Source
+    rows: {  }
   plugins:
     language:
       language_list: un

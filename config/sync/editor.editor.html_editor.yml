@@ -23,10 +23,13 @@ settings:
         -
           name: Formato
           items:
+            - Format
             - Underline
             - Strike
             - Bold
             - Italic
+            - Blockquote
+            - Table
             - Superscript
             - Subscript
             - RemoveFormat
@@ -49,19 +52,13 @@ settings:
         -
           name: Media
           items:
-            - Blockquote
-            - DrupalImage
-            - video_embed
             - DrupalFile
-        -
-          name: Herramientas
-          items:
-            - Source
-            - Table
+            - DrupalImage
+            - DrupalMediaLibrary
         -
           name: HTML
           items:
-            - Format
+            - Source
   plugins:
     language:
       language_list: un

@@ -3,10 +3,9 @@ langcode: es
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.full
+    - core.entity_view_mode.media.media_library
   module:
     - media
-    - video_embed_wysiwyg
 name: 'HTML Editor'
 format: html_editor
 weight: -10
@@ -42,14 +41,16 @@ filters:
   media_embed:
     id: media_embed
     provider: media
-    status: false
+    status: true
     weight: 100
     settings:
-      default_view_mode: full
+      default_view_mode: media_library
       allowed_media_types:
-        url_youtube_articulo_blog: url_youtube_articulo_blog
+        audio: audio
+        remote_video: remote_video
+        video: video
       allowed_view_modes:
-        default: default
+        media_library: media_library
   filter_html_image_secure:
     id: filter_html_image_secure
     provider: filter
@@ -65,12 +66,6 @@ filters:
   filter_align:
     id: filter_align
     provider: filter
-    status: true
-    weight: 0
-    settings: {  }
-  video_embed_wysiwyg:
-    id: video_embed_wysiwyg
-    provider: video_embed_wysiwyg
     status: true
     weight: 0
     settings: {  }
