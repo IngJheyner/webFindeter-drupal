@@ -664,7 +664,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
   $field = $variables['field'];
   $row = $variables['row'];
 
-  if ($view->storage->id() == 'pqrsd'){
+  if ($view->storage->id() == 'pqrsd'){  //llamado de vista
     if($view->current_display == 'page_1' || $view->current_display == 'page_2'){
 
       if($field->field == 'field_pqrsd_respuesta'){
@@ -797,8 +797,6 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
     }
 
-
-
   }
 
 }
@@ -826,6 +824,7 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
   if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-2'){
 
     $url = Url::fromRoute('findeter_pqrsd.expor_report_pdf',['filter'=>'filter']);
+    $urlReporteXlsx = Url::fromRoute('findeter_pqrsd.expor_report_excel');
     $link_options = array(
       'attributes' => array(
         'class' => array(
@@ -834,8 +833,13 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
       ),
     );
     $url->setOptions($link_options);
+    $urlReporteXlsx->setOptions($link_options);
+
     $exportPdf = Link::fromTextAndUrl('Exportar datos PDF', $url);
+    $urlReporteXlsx = Link::fromTextAndUrl('Exportar datos Excel', $urlReporteXlsx);
+
     $exportPdf = $exportPdf->toRenderable();
+    $urlReporteXlsx = $urlReporteXlsx->toRenderable();
 
     $variables['form']['actions']['#suffix'] = Markup::create('
         <div class="list-charts">
@@ -845,7 +849,7 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
       <div class="chart-container"><canvas id="tipo-producto-chart"></canvas></div>
       <div class="chart-container"><canvas id="canal-recepcion-chart"></canvas></div>
       <div class="chart-container"><canvas id="forma-recepcion-chart"></canvas></div>
-        </div>'.render($exportPdf));
+        </div>'.render($exportPdf).render($urlReporteXlsx));
   }
 
 }
