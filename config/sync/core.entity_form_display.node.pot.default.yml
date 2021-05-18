@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.pot.field_descripcion_pot
     - field.field.node.pot.field_descripcion_servicio_pot
     - field.field.node.pot.field_descripcion_trayectora_pot
+    - field.field.node.pot.field_formulario_contactenos_pot
     - field.field.node.pot.field_img_beneficios_pot
     - field.field.node.pot.field_img_equipo_pot
     - field.field.node.pot.field_img_galeria_pot
@@ -190,8 +191,7 @@ third_party_settings:
     group_contactenos:
       children:
         - field_titulo_contactenos_pot
-        - field_informacion_contacteno_pot
-        - field_informacion_movil_pot
+        - group_grupo_tabs_contactenos
       parent_name: group_grupo_tabs
       weight: 28
       format_type: tab
@@ -203,6 +203,48 @@ third_party_settings:
         formatter: closed
         required_fields: true
       label: Contáctenos
+    group_grupo_tabs_contactenos:
+      children:
+        - group_informacion_contactenos
+        - group_formulario
+      parent_name: group_contactenos
+      weight: 44
+      format_type: tabs
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+      label: 'Grupo Tabs Contactenos'
+    group_informacion_contactenos:
+      children:
+        - field_informacion_contacteno_pot
+        - field_informacion_movil_pot
+      parent_name: group_grupo_tabs_contactenos
+      weight: 20
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Información
+    group_formulario:
+      children:
+        - field_formulario_contactenos_pot
+      parent_name: group_grupo_tabs_contactenos
+      weight: 21
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Formulario
 id: node.pot.default
 targetEntityType: node
 bundle: pot
@@ -275,6 +317,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+    region: content
+  field_formulario_contactenos_pot:
+    weight: 46
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
     region: content
   field_img_beneficios_pot:
     weight: 5
