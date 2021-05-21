@@ -168,7 +168,6 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
 
 }
 
-
 /**
 * Implements hook_mail().
 */
@@ -664,7 +663,8 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
   $field = $variables['field'];
   $row = $variables['row'];
 
-  if ($view->storage->id() == 'pqrsd'){  //llamado de vista
+  if ($view->storage->id() == 'pqrsd'){  
+    
     if($view->current_display == 'page_1' || $view->current_display == 'page_2'){
 
       if($field->field == 'field_pqrsd_respuesta'){
@@ -797,6 +797,23 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
     }
 
+    /* ============================================
+    PAGE ESTADOS PQRSD
+    =============================================== */
+    if($view->current_display == 'page_3'){
+      if($field->field == 'field_pqrsd_respuesta'){
+        if($variables['output'] == ''){
+          $variables['output'] = ['#markup' => '<span class="badge badge-info">Pendiente por responder</span>'];
+        }
+      }
+
+      if($field->field == 'field_pqrsd_respuesta_archivos'){
+        if($variables['output'] == ''){
+          $variables['output'] = ['#markup' => '<span class="badge badge-light">-- N/A --</span>'];
+        }
+      }
+    }
+
   }
 
 }
@@ -850,6 +867,26 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
       <div class="chart-container"><canvas id="canal-recepcion-chart"></canvas></div>
       <div class="chart-container"><canvas id="forma-recepcion-chart"></canvas></div>
         </div>'.render($exportPdf).render($urlReporteXlsx));
+  }
+
+  /* ============================================
+  PAGE ESTADOS DE PQRSD FILTER
+  =============================================== */
+
+  if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-3'){
+
+    // for exposed user request filters, join all inputs in two fieldsets
+    $variables['form']['id_radicado']['#prefix'] = '
+      <div class="alert alert-info">
+        <h3 class="text-dark mb-2 font-weight-bold">Buscar Estado del Radicado</h3>
+        <p>Ingrese el número de su radicado en el formulario, este número se le presenta al finalizar el registro de un radicado, como por ejemplo:
+        <strong>5692TD</strong></p>
+        <hr>
+        <p><i class="fas fa-info-circle"></i> También puede revisar el email enviado a su correo electrónico.</p>
+      </div>';
+
+    //dump($variables);
+
   }
 
 }
@@ -1043,5 +1080,14 @@ function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
     $view->element['#attached']['drupalSettings']['pqrsdReports'] = $data;
     $view->element['mResume'] = $buildTable;
 
+  }
+
+  /* ============================================
+  RENDERIZADO DE ESTADO DE RADICADO
+  =============================================== */
+  if($view->id() == 'pqrsd' && $view->current_display == 'page_3'){
+    if(empty($view->filter['field_pqrsd_numero_radicado_value']->value)){
+      $view->result = [];
+    }
   }
 }
