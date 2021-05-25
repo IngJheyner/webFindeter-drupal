@@ -1,0 +1,29 @@
+<?php
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\user\Entity\User;
+/**
+ * Implements hook_form_alter
+ */
+function findeter_webfinde_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  
+
+  if($form['#id'] == 'node-convocatorias-form' || $form['#id'] == 'node-convocatorias-edit-form'){
+
+    $form['#attached']['library'][] = 'findeter_webfinde/global-scripts';
+
+    $rolesUser = \Drupal::currentUser()->getRoles();
+
+    $rol = "";
+
+    if(in_array('abogado',$rolesUser)){
+
+      $rol = 'abogado';      
+      
+      $form['#attributes'] = array(
+        'rol' => $rol,
+      );
+
+    }
+    
+  }
+}
