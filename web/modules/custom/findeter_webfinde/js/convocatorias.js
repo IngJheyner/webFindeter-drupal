@@ -15,8 +15,8 @@
                 let codigoProceso = '';
 
                 $("form#node-convocatorias-form input[id='edit-field-convcatoria-archivos-entity-browser-entity-browser-open-modal'], form#node-convocatorias-edit-form input[id='edit-field-convcatoria-archivos-entity-browser-entity-browser-open-modal'] ").on('click', function() {
-                    codigoProceso = $("form#node-convocatorias-form input[id='edit-title-0-value']").val();
 
+                    codigoProceso = $("form#node-convocatorias-form input[id='edit-title-0-value'],form#node-convocatorias-edit-form input[id='edit-title-0-value']").val();
 
                     $(document, context).ajaxStop(function() {
 
