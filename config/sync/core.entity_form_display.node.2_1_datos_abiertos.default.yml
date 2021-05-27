@@ -12,6 +12,7 @@ dependencies:
     - node.type.2_1_datos_abiertos
   module:
     - field_group
+    - svg_image
     - text
 third_party_settings:
   field_group:
@@ -88,6 +89,7 @@ third_party_settings:
     group_contenido:
       children:
         - field_descripcion_principal
+        - field_img_encabezado_datos
       parent_name: group_contenido_tab
       weight: 14
       format_type: tab
@@ -118,6 +120,14 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
+  field_img_encabezado_datos:
+    type: image_image
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
@@ -140,7 +150,6 @@ content:
     third_party_settings: {  }
 hidden:
   field_contenido_periodo_datos_ab: true
-  field_img_encabezado_datos: true
   field_periodos: true
   field_titulo_periodo_datos_abier: true
   langcode: true
