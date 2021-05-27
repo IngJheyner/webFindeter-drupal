@@ -10,10 +10,9 @@ dependencies:
     - image.style.thumbnail
     - node.type.slider_home
   module:
-    - conditional_fields
     - field_group
-    - image
     - path
+    - svg_image
     - text
     - video_embed_field
 third_party_settings:
@@ -107,25 +106,7 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings:
-      conditional_fields:
-        6100de79-5009-4a26-b68e-f9778e5b23d5:
-          dependee: field_slider_multimedia
-          settings:
-            state: visible
-            condition: value
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              -
-                value: '1'
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: slider_home
+    third_party_settings: {  }
     type: image_image
     region: content
   field_slider_multimedia:
@@ -137,25 +118,7 @@ content:
   field_slider_video_html:
     weight: 6
     settings: {  }
-    third_party_settings:
-      conditional_fields:
-        f3351e89-26ba-4e42-9b7f-17298ec25f92:
-          dependee: field_slider_multimedia
-          settings:
-            state: visible
-            condition: value
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              -
-                value: '0'
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: slider_home
+    third_party_settings: {  }
     type: video_embed_field_textfield
     region: content
   langcode:
