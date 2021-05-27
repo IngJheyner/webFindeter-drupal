@@ -21,9 +21,10 @@ function webfinde_page_attachments_alter(&$page){
     $page['#attached']['html_head'][] = [$viewport, 'viewport'];
 }
 
-/* ============================================
-TEXT SIZE ( Tamano de la fuente)
-=============================================== */
+/**
+ * Implements webfinde_preprocess_text_resize_block
+ */
+
 function webfinde_preprocess_text_resize_block(&$variables) {
     $config = \Drupal::config('text_resize.settings');
     $settings = $config->get();
@@ -38,3 +39,4 @@ function webfinde_preprocess_text_resize_block(&$variables) {
         ];
     }
 }
+
