@@ -25,22 +25,27 @@ class StepZeroNextButton extends BaseButton {
     return[[
       '#type' => 'submit',
       '#value' => 'Peticiones',
-      '#goto_step' => StepsEnum::STEP_ONE,
+      '#attributes' => ['class'=>['col-xs-6', 'col-md-2', 'mb-3', 'mb-md-0', 'mx-3']],
+      '#goto_step' => StepsEnum::STEP_ONE,      
     ],[
       '#type' => 'submit',
       '#value' => 'Quejas',
+      '#attributes' => ['class'=>['col-xs-6', 'col-md-2', 'mb-3', 'mb-md-0', 'mx-3']],
       '#goto_step' => StepsEnum::STEP_ONE,
     ],[
       '#type' => 'submit',
       '#value' => 'Reclamos',
+      '#attributes' => ['class'=>['col-xs-6', 'col-md-2', 'mb-3', 'mb-md-0', 'mx-3']],
       '#goto_step' => StepsEnum::STEP_ONE,
     ],[
       '#type' => 'submit',
       '#value' => 'Sugerencias',
+      '#attributes' => ['class'=>['col-xs-6', 'col-md-2', 'mb-3', 'mb-md-0', 'mx-3']],
       '#goto_step' => StepsEnum::STEP_ONE,
     ],[
       '#type' => 'submit',
       '#value' => 'Denuncias',
+      '#attributes' => ['class'=>['col-xs-6', 'col-md-2', 'mb-3', 'mb-md-0', 'mx-3']],
       '#goto_step' => StepsEnum::STEP_ONE,
     ]];
   }

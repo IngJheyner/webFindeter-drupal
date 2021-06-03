@@ -452,39 +452,30 @@
 
             });
 
-            $(".convocatoriaCiudadano form .form-actions input[id='edit-submit-convocatorias']").after(`
+            /*$(".convocatoriaCiudadano form .form-actions input[id='edit-submit-convocatorias']").after(`
                     <a href="javascript:void(0)" class="text-white ml-5 busquedaAvz"><i class="fas fa-search-plus"></i> Mostar mas campos de busqueda</a>
-                `);
-
-            /*if (activarBusqueda === false) {
-
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(3)").hide();
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(4)").hide();
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(5)").hide();
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(6)").hide();
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").hide();
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").hide();
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(9)").hide();
-            }*/
+                `);*/
 
 
             $(".convocatoriaCiudadano form .form-actions a").on('click', function() {
 
                 if (activarBusqueda === false) {
-                    $(".convocatoriaCiudadano form .form--inline div:nth-child(3)").slideDown("slow");
+                    //$(".convocatoriaCiudadano form .form--inline div:nth-child(3)").slideDown("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(4)").slideDown("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(5)").slideDown("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(6)").slideDown("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").slideDown("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").slideDown("slow");
+                    $(".convocatoriaCiudadano form .form--inline div:nth-child(9)").slideDown("slow");
                     activarBusqueda = true;
                 } else {
-                    $(".convocatoriaCiudadano form .form--inline div:nth-child(3)").slideUp("slow");
+                    //$(".convocatoriaCiudadano form .form--inline div:nth-child(3)").slideUp("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(4)").slideUp("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(5)").slideUp("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(6)").slideUp("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").slideUp("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").slideUp("slow");
+                    $(".convocatoriaCiudadano form .form--inline div:nth-child(9)").slideUp("slow");
                     activarBusqueda = false;
                 }
             });

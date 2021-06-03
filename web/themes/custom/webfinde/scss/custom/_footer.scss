@@ -48,6 +48,10 @@
     ul.masLogos {
         margin-top: 5rem;
     }
+    div.piePagina,
+    a {
+        color: var.$color-terciario;
+    }
     @include infoGeneral("field--name-field-sede-principal-footer", white);
     @include infoGeneral("field--name-field-horario-de-atencion-footer", white);
     @include infoGeneral("field--name-field-ntf-judiciales-footer", var.$color-terciario, 2rem, 14px, '../images/iconos/mail.png');
@@ -55,11 +59,8 @@
     @include infoGeneral("field--name-field-conmutador", white, 2rem, 15px, '../images/iconos/telefono.png');
     @include infoGeneral("field--name-field-pqr-footer", white, 2rem, 15px, '../images/iconos/telefono.png');
     @include infoGeneral("field--name-field-correo-institucional-foote", var.$color-terciario, 2rem, 14px, '../images/iconos/mail.png');
-    @include infoGeneral("field--name-field-email-judiciales-footer", var.$color-terciario, 0, 14px, '../images/iconos/mail.png');
-    div.piePagina,
-    a {
-        color: var.$color-terciario;
-    }
+    @include infoGeneral("field--name-field-email-judiciales-footer", var.$color-terciario, 2rem, 14px, '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-correo-denuncias-footer", var.$color-terciario, 0, 14px, '../images/iconos/mail.png');
 }
 
 

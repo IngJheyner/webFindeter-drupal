@@ -6,6 +6,7 @@ use Drupal\Core\Ajax\InvokeCommand;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\AlertCommand;
 use Drupal\node\Entity\Node;
 use Drupal\file\Entity\File;
 
@@ -100,9 +101,10 @@ class AnswerPQRSD extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {}
 
   public function ajaxCloseModal(array &$form, FormStateInterface $form_state) {
-    $formValues = $form_state->getValues();
+    $formValues = $form_state->getValues();    
 
     $node = Node::load($formValues['node_id']);
+
     $node->field_pqrsd_respuesta[] = $formValues['field_pqrsd_respuesta'];
     $node->field_pqrsd_respuesta_a_favor[] = $formValues['field_pqrsd_respuesta_a_favor'];
     $node->field_pqrsd_fecha_respuesta[] = date('Y-m-d\TH:i:s',strtotime('now'));
@@ -123,7 +125,8 @@ class AnswerPQRSD extends FormBase {
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'findeter_pqrsd';
       $key = 'answer_pqrsd';
-      $to = $form_state->getValue('field_pqrsd_email');
+      //$to = $form_state->getValue('field_pqrsd_email');
+      $to = $node->get('field_pqrsd_email')->getValue()[0]['value'];
 
       $mailBody[] = 'Reciba un cordial saludo de parte de Findeter';
       $mailBody[] = 'Le informamos que hemos dado respuesta la PQRSD con número: <b>'.$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'].'</b>';
@@ -172,7 +175,6 @@ class AnswerPQRSD extends FormBase {
 
     $response = new AjaxResponse();
     $response->addCommand(new InvokeCommand(NULL, 'afterAsignCallback', ['Reloading page!']));
-
     return $response;
 
   }

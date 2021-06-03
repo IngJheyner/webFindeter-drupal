@@ -721,11 +721,11 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
           $htmlOutput .= render($modalLink).'<br>';
         }
 
-        $url = Url::fromRoute('findeter_pqrsd.create_pdf',['nid' => $nid]);
+        /*$url = Url::fromRoute('findeter_pqrsd.create_pdf',['nid' => $nid]);
         $modalLink = Link::fromTextAndUrl('PDF', $url);
         $modalLink = $modalLink->toRenderable();
         $modalLink['#attributes'] = ['class' => ['button']];
-        $htmlOutput .= render($modalLink);
+        $htmlOutput .= render($modalLink);*/
 
         $variables['output'] = ['#markup' => $htmlOutput];
       }
