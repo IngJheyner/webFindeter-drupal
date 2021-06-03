@@ -12,3 +12,30 @@ div.encabezadoPqrsd {
         }
     }
 }
+
+
+/* ==============================
+MEDIA QUERY
+============================== */
+
+@include media-query.media(xs) {
+    div.encabezadoPqrsd div.encabezado h1 {
+        visibility: hidden;
+        &::before {
+            content: 'PQRSD';
+            visibility: visible;
+            float: left;
+        }
+    }
+}
+
+@include media-query.media(sm) {
+    div.encabezadoPqrsd div.encabezado h1 {
+        visibility: hidden;
+        &::before {
+            content: 'PQRSD';
+            visibility: visible;
+            float: left;
+        }
+    }
+}

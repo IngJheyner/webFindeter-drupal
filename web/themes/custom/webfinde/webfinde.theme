@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Render\Markup;
 
 /**
  * @file
@@ -37,6 +38,17 @@ function webfinde_preprocess_text_resize_block(&$variables) {
         $variables['content'] = [
         'output' => t('<div class="text-center mb-3"><a href="javascript:;" class="changer text-white" id="text_resize_decrease"><sup>-</sup><i class="fas fa-font"></i></a></div> <div class="text-center mb-3"><a href="javascript:;" class="changer text-white" id="text_resize_increase"><sup>+</sup><i class="fas fa-font"></i></a></div><div id="text_resize_clear"></div>'),
         ];
+    }
+}
+
+/**
+ * Implements hook_preprocess_views_exposed_form()
+ */
+function webfinde_preprocess_views_exposed_form(&$variables) {
+    $form =& $variables['form'];
+    if($form["#id"] == "views-exposed-form-convocatorias-block-convocatoria-ciudadano"){
+        $form["field_convcatoria_departamento_target_id"]["#attributes"]["class"][] = "form-control";
+        $form['actions']['submit']['#suffix'] = Markup::create('<a href="javascript:void(0)" class="text-white ml-5 busquedaAvz"><i class="fas fa-search-plus"></i> Mostar mas campos de busqueda</a>');
     }
 }
 

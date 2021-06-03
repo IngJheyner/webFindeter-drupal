@@ -2161,6 +2161,10 @@ a#text_resize_reset {
 .footer ul.masLogos {
   margin-top: 5rem;
 }
+.footer div.piePagina,
+.footer a {
+  color: #CDDC4B;
+}
 .footer div.field--name-field-sede-principal-footer {
   margin-bottom: 2rem;
 }
@@ -2286,7 +2290,7 @@ a#text_resize_reset {
   content: "" url("../images/iconos/mail.png");
 }
 .footer div.field--name-field-email-judiciales-footer {
-  margin-bottom: 0;
+  margin-bottom: 2rem;
 }
 .footer div.field--name-field-email-judiciales-footer div.field__label {
   color: white;
@@ -2305,9 +2309,25 @@ a#text_resize_reset {
   margin-right: 1rem;
   content: "" url("../images/iconos/mail.png");
 }
-.footer div.piePagina,
-.footer a {
+.footer div.field--name-field-correo-denuncias-footer {
+  margin-bottom: 0;
+}
+.footer div.field--name-field-correo-denuncias-footer div.field__label {
+  color: white;
+}
+.footer div.field--name-field-correo-denuncias-footer div.field__items div.field__item {
+  position: relative;
   color: #CDDC4B;
+  font-size: 14px;
+  font-weight: lighter;
+  padding-left: 1.5rem;
+}
+.footer div.field--name-field-correo-denuncias-footer div.field__items div.field__item::before {
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  margin-right: 1rem;
+  content: "" url("../images/iconos/mail.png");
 }
 
 /* ==============================
@@ -3796,9 +3816,6 @@ div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-
 div.convocatoriaCiudadano form div.form--inline input[type=submit] {
   background-color: #00993e !important;
 }
-div.convocatoriaCiudadano form div.form--inline div:nth-child(3) {
-  display: none;
-}
 div.convocatoriaCiudadano form div.form--inline div:nth-child(4) {
   display: none;
 }
@@ -4101,6 +4118,31 @@ div.encabezadoPqrsd div.encabezado h1.tituloEncabezado {
   font-size: 2.5rem;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  div.encabezadoPqrsd div.encabezado h1 {
+    visibility: hidden;
+  }
+  div.encabezadoPqrsd div.encabezado h1::before {
+    content: "PQRSD";
+    visibility: visible;
+    float: left;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.encabezadoPqrsd div.encabezado h1 {
+    visibility: hidden;
+  }
+  div.encabezadoPqrsd div.encabezado h1::before {
+    content: "PQRSD";
+    visibility: visible;
+    float: left;
+  }
+}
 /* ===== ===== LAYOUT ===== ===== */
 /* ===== ===== CALENDARIO ===== ===== */
 nav#breadcrumb ol {

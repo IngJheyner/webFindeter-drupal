@@ -69,10 +69,14 @@ class StepZero extends BaseStep {
     
     $formStep['title']['#markup'] = '
       <h2 class="text-center col-12">Registro de Formularios</h2><br><br>
-      <p>"Gracias por ingresar al sistema atención al usuario del portal, su opinión es muy importante para nosotros. </p>
-      <p>Lo invitamos a que consulte nuestras políticas y condiciones del servicio de atención. También puede contactar directamente a la entidad a través de nuestra línea telefónica gratuita de atención al cliente, Peticiones, Quejas, Reclamos y Denuncias 01-8000-116622.</p>
-      <p>Si usted considera que su identidad debe mantenerse reservada al encontrarse en alguna de las circunstancias establecidas en el parágrafo del articulo 4  de la ley 1712/2014,deberá radicar  petición en este <a href="https://www.procuraduria.gov.co/portal/solicitud_informacion_identificacion_reservada.page">enlace</a>; de lo contrario lo invitamos a seleccionar el tipo de solicitud que desea presentar.</p>
-      <p>Por favor tenga en cuenta las siguientes definiciones para establecer el tipo de solicitud a presentar y los <a href="/terminos-de-respuesta">términos de respuesta</a> a tener en cuenta:</p>
+      <div class="card">
+      <div class="card-body">
+      <p>Gracias por ingresar al sistema atención al usuario del portal, su opinión es muy importante para nosotros.<br>
+      Lo invitamos a que consulte nuestras políticas y condiciones del servicio de atención. También puede contactar directamente a la entidad a través de nuestra línea telefónica gratuita de atención al cliente, Peticiones, Quejas, Reclamos y Denuncias 01-8000-116622.<br>
+      Si usted considera que su identidad debe mantenerse reservada al encontrarse en alguna de las circunstancias establecidas en el parágrafo del articulo 4  de la ley 1712/2014,deberá radicar  petición en este <a href="https://www.procuraduria.gov.co/portal/solicitud_informacion_identificacion_reservada.page">enlace</a>; de lo contrario lo invitamos a seleccionar el tipo de solicitud que desea presentar.<br><br>
+      Por favor tenga en cuenta las siguientes definiciones para establecer el tipo de solicitud a presentar y los <a href="/terminos-de-respuesta">términos de respuesta</a> a tener en cuenta:</p>
+      </div>
+      </div>
     ';
 
     return $formStep;
