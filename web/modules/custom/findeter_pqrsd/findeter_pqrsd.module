@@ -11,6 +11,8 @@ use Drupal\views\Views;
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Render\Markup;
 
+use Drupal\findeter_pqrsd\Holidays\holidaysPQRSD;
+
 /**
  * Implements hook_help().
  */
@@ -90,7 +92,7 @@ function callBackDeparment(array &$form, FormStateInterface $form_state) {
 function defineDatesSemaphore($values){
 
   $answer = [];
-
+ 
   $config = \Drupal::config('findeter_pqrsd.admin');
   $peticion = $config->get('semaphore');
 
@@ -133,7 +135,7 @@ function defineDatesSemaphore($values){
  */
 function _getBussinesDays($addDays){
 
-  $timeStamp = strtotime("tomorrow");
+  $timeStamp = strtotime("tomorrow");  
 
   // loop for X days
   for($i=0; $i<$addDays; $i++){
@@ -143,14 +145,21 @@ function _getBussinesDays($addDays){
 
       // get what day it is next day
       $nextDay = date('w', ($timeStamp+$addDay));
+      $day = date('d', $timeStamp);
+      $mounth = date('m', $timeStamp);
+
+      $holiDays = new holidaysPQRSD(date('Y', $timeStamp));
+      //$feriado = $holiDays->isHoliDays('22', '03'); //Validar fecha de un dia feriado.
+      $feriado = $holiDays->isHoliDays($day, $mounth); //Validar fecha de un dia feriado.
 
       // if it's Saturday or Sunday get $i-1
-      if($nextDay == 0 || $nextDay == 6) {
+      if(($nextDay == 0 || $nextDay == 6) || $feriado) {
           $i--;
       }
 
       // modify timestamp, add 1 day
       $timeStamp = $timeStamp+$addDay;
+      
   }
 
   return $timeStamp;
