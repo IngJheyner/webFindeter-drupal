@@ -48,7 +48,7 @@ function webfinde_preprocess_views_exposed_form(&$variables) {
     $form =& $variables['form'];
     if($form["#id"] == "views-exposed-form-convocatorias-block-convocatoria-ciudadano"){
         $form["field_convcatoria_departamento_target_id"]["#attributes"]["class"][] = "form-control";
-        $form['actions']['submit']['#suffix'] = Markup::create('<a href="javascript:void(0)" class="text-white ml-5 busquedaAvz"><i class="fas fa-search-plus"></i> Mostar mas campos de busqueda</a>');
+        $form['actions']['submit']['#suffix'] = Markup::create('<a href="javascript:void(0)" class="btn btn-primary text-white ml-0 mt-3 mt-md-0 ml-md-5 busquedaAvz"><i class="fas fa-search-plus"></i> Mostrar más campos.</a>');
     }
 }
 
