@@ -830,6 +830,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
 /**
  * Implements hook_preprocess_views_exposed_form()
+ * 
  */
 function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
 
@@ -850,7 +851,7 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
   if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-2'){
 
     $url = Url::fromRoute('findeter_pqrsd.expor_report_pdf',['filter'=>'filter']);
-    $urlReporteXlsx = Url::fromRoute('findeter_pqrsd.expor_report_excel');
+    $urlReporteXlsx = Url::fromRoute('findeter_pqrsd.expor_report_excel',['filter'=>'filter']);
     $link_options = array(
       'attributes' => array(
         'class' => array(
@@ -877,11 +878,9 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
       <div class="chart-container"><canvas id="forma-recepcion-chart"></canvas></div>
         </div>'.render($urlReporteXlsx));
   }
-
   /* ============================================
   PAGE ESTADOS DE PQRSD FILTER
   =============================================== */
-
   if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-3'){
 
     // for exposed user request filters, join all inputs in two fieldsets
@@ -905,6 +904,7 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
  * Implements hook_views_pre_view
  */
 function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+ 
 
   if($view->storage->id()== 'pqrsd' && $display_id == 'page_1'){
 
@@ -920,8 +920,43 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
 
   }
 
-}
+  /* ============================================
+  FILTRAR VALORES POR FECHA E IMPORTAR DATOS AL EXCEL
+  SI EXISTEN EL PARAMETRO CREATED VIA GET
+  =============================================== */
 
+  if($view->storage->id()== 'pqrsd' && $display_id == 'reporte_excel_pqrsd'){
+
+    if($args[0] != 'filter'){
+
+      $argus = explode("&", $args[0]);
+      $param = [];
+
+      foreach($argus as $key => $valor){
+        $sep = explode('=', $valor);
+        array_push($param, $sep[1]);
+      }
+
+      if(!empty($param[6]) && !empty($param[7])){
+
+        $fechaMin = date('Y-m-d', strtotime($param[6]));
+        $fechaMax = date('Y-m-d', strtotime($param[7]));
+
+        $view->display_handler->options['filters']['created']['value']['min'] = $fechaMin;
+        $view->display_handler->options['filters']['created']['value']['max'] = $fechaMax;
+
+      }else{
+        $view->display_handler->options['filters']['created']['value']['max'] = date('Y-m-d');
+      };
+
+    }else{
+      $view->display_handler->options['filters']['created']['value']['max'] = date('Y-m-d');
+    }
+
+    //dump($view->display_handler->getOption('filters'));
+  }
+
+}
 
 /**
  * Implements hook_views_pre_render

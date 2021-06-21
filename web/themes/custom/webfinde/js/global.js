@@ -452,11 +452,6 @@
 
             });
 
-            /*$(".convocatoriaCiudadano form .form-actions input[id='edit-submit-convocatorias']").after(`
-                    <a href="javascript:void(0)" class="text-white ml-5 busquedaAvz"><i class="fas fa-search-plus"></i> Mostar mas campos de busqueda</a>
-                `);*/
-
-
             $(".convocatoriaCiudadano form .form-actions a").on('click', function() {
 
                 if (activarBusqueda === false) {
