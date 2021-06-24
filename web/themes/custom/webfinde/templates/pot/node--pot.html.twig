@@ -203,108 +203,111 @@
   {# ============================================
   TRAYECTORIA
   =============================================== #}
-  <div class="container mt-3 mt-sm-5">
+  {% if node.field_trayectoria_pot.value %}
+    <div class="container mt-3 mt-sm-5">
 
-    <section class="trayectoria">
+      <section class="trayectoria">
 
-      <div class="cajaTitulo">
-      
-        <h1 class="font-weight-bold display-4 titulo">{{ content.field_titulo_trayectoria_pot.0 }}</h1>
-
-      </div>
-
-      <blockquote class="mt-2 w-75">
-
-        {{ content.field_descripcion_trayectora_pot.0 }}
-
-      </blockquote>
-
-    </section>
-
-  </div>
-
-  {# ===== ===== SLIDER ( Copia de casos de exito) ===== ===== #}
-  <div class="container-fluid casosExito mt-5">
-
-    <div class="container">
-
-      <div class="contenido">
-
-        <div class="encabezado d-flex">
-
-          <h1 class="flex-fill text-white">{{ 'Experiencia'|t }}</h1>
-          <div class="flex-fill pt-3">
-            <!--a href="#" class="text-white float-right">Todos los casos</a-->
-          </div>        
+        <div class="cajaTitulo">
         
+          <h1 class="font-weight-bold display-4 titulo">{{ content.field_titulo_trayectoria_pot.0 }}</h1>
+
         </div>
 
-        <h1 class="mt-5 tituloCaso"></h1>
-        <p class="text-white mt-3 descripcionCaso"></p>
-        <button class="btn btn-default btn-lg mt-2 enlace text-dark" tabindex="1" 
-        data-toggle="modal" 
-        data-target="#modalTrayectoria">
-        {{ 'Ampliar información'|t }}</button> 
+        <blockquote class="mt-2 w-75">
 
-        {# ============================================
-        VENTAN MODAL ( VER CONTENIDO DE TRAYECTORIA)
-        =============================================== #}
-        <!-- Modal -->
-        <div class="modal fade" id="modalTrayectoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                
+          {{ content.field_descripcion_trayectora_pot.0 }}
+
+        </blockquote>
+
+      </section>
+
+    </div>
+
+    {# ===== ===== SLIDER ( Copia de casos de exito) ===== ===== #}
+    <div class="container-fluid casosExito mt-5">
+
+      <div class="container">
+
+        <div class="contenido">
+
+          <div class="encabezado d-flex">
+
+            <h1 class="flex-fill text-white">{{ 'Experiencia'|t }}</h1>
+            <div class="flex-fill pt-3">
+              <!--a href="#" class="text-white float-right">Todos los casos</a-->
+            </div>        
+          
+          </div>
+
+          <h1 class="mt-5 tituloCaso"></h1>
+          <p class="text-white mt-3 descripcionCaso"></p>
+          <button class="btn btn-default btn-lg mt-2 enlace text-dark" tabindex="1" 
+          data-toggle="modal" 
+          data-target="#modalTrayectoria">
+          {{ 'Ampliar información'|t }}</button> 
+
+          {# ============================================
+          VENTAN MODAL ( VER CONTENIDO DE TRAYECTORIA)
+          =============================================== #}
+          <!-- Modal -->
+          <div class="modal fade" id="modalTrayectoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        {# ===== ===== Vista Carrusel ===== ===== #}
+        {# ===== ===== Pantalla > 768px ===== ===== #}
+        {{ drupal_view('slider', 'trayectoria_pot') }}
+        {# ===== ===== Pantalla < 576px ===== ===== #}
+        {{ drupal_view('slider', 'trayectoria_movil_pot') }}
+
       </div>
 
-      {# ===== ===== Vista Carrusel ===== ===== #}
-      {# ===== ===== Pantalla > 768px ===== ===== #}
-      {{ drupal_view('slider', 'trayectoria_pot') }}
-      {# ===== ===== Pantalla < 576px ===== ===== #}
-      {{ drupal_view('slider', 'trayectoria_movil_pot') }}
-
     </div>
-
-  </div>
-
+  {% endif %}
   {# ============================================
   NUESTRO EQUIPO
   =============================================== #}
-  <div class="container mt-5">
+  {% if node.field_titulo_nuestro_equipo_pot.value %}
+    <div class="container mt-5">
 
-    <section class="nuestroEquipo">
+      <section class="nuestroEquipo">
 
-      <div class="cajaTitulo">
-        
-        <h1 class="font-weight-bold display-4 titulo">{{ content.field_titulo_nuestro_equipo_pot.0 }}</h1>
+        <div class="cajaTitulo">
+          
+          <h1 class="font-weight-bold display-4 titulo">{{ content.field_titulo_nuestro_equipo_pot.0 }}</h1>
 
-      </div>
-
-      <div class="row mt-4">
-
-        <div class="col-12 col-md-6 mb-2 mb-md-0">
-           <blockquote class="my-0 my-lg-5">{{content.field_descripcion_equipo_pot.0}}</blockquote>
         </div>
 
-        <div class="col-12 col-md-6 imagen">
-          <img src="{{ file_url(content.field_img_equipo_pot[0]['#item'].entity.uri.value) }}" class="img-fluid">
+        <div class="row mt-4">
+
+          <div class="col-12 col-md-6 mb-2 mb-md-0">
+            <blockquote class="my-0 my-lg-5">{{content.field_descripcion_equipo_pot.0}}</blockquote>
+          </div>
+
+          <div class="col-12 col-md-6 imagen">
+            <img src="{{ file_url(content.field_img_equipo_pot[0]['#item'].entity.uri.value) }}" class="img-fluid">
+          </div>
+
         </div>
 
-      </div>
+      </section>   
 
-    </section>   
-
-  </div>
+    </div>
+  {% endif %}
 
   {# ============================================
   CONTACTENOS
@@ -351,6 +354,10 @@
                 
                     <div class="col-12"><label for="mce-EMAIL">Correo electrónico <span class="asterisk">*</span></label> <input class="required email form-control" id="mce-EMAIL" name="EMAIL" type="email" value="" /></div>
 
+
+				            <div class="col-12"><label for="mce-TELEFONO">Teléfono o Celular <span class="asterisk">*</span></label><input class="required form-control" id="mce-TELEFONO" name="TELEFONO" type="number" value="" /></div>
+
+
                     <div class="col-12 col-md-6"><label for="mce-ORGANIZA">Organización <span class="asterisk">*</span></label> <input class="required form-control" id="mce-ORGANIZA" name="ORGANIZA" type="text" value="" /></div>
 
                     <div class="col-12 col-md-6"><label for="mce-CITY">Ciudad <span class="asterisk">*</span></label> <input class="required form-control" id="mce-CITY" name="CITY" type="text" value="" /></div>
@@ -387,6 +394,7 @@
       </div>
 
     </section>
+
   </div>
 
 </div>
