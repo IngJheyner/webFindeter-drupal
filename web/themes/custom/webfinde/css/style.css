@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ==============================
 COLORES
 ============================== */
@@ -106,83 +107,6 @@ main a:hover {
   line-height: 0 !important;
 }
 
-/* ==============================
-ADMIN
-============================== */
-/* ==============================
-COLORES
-============================== */
-/* ==============================
-ENCABEZADO
-============================== */
-/* ==============================
-CUSTOM TITULOS
-============================== */
-div.login figure {
-  position: absolute;
-  z-index: -1;
-  transform: translate(0, -14rem);
-  height: 23rem;
-}
-div.login figure img {
-  height: 100%;
-}
-div.login div.encabezado {
-  height: 7rem;
-}
-div.login div.encabezado h1.tituloEncabezado {
-  text-shadow: 1px 1px 2px black;
-  color: white;
-  font-size: 3.5rem;
-  font-weight: 600;
-  /* ==============================
-  MEDIA QUERY
-  ============================== */
-  /*MOVIL VERTICAL(sm 320px)*/
-  /*MOVIL VERTICAL(sm 320px)*/
-  /*MOVIL VERTICAL(sm 320px)*/
-}
-@media (max-width: 575.98px) {
-  div.login div.encabezado h1.tituloEncabezado {
-    font-size: 2.5rem;
-  }
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  div.login div.encabezado h1.tituloEncabezado {
-    font-size: 3rem;
-  }
-}
-@media (min-width: 768px) and (max-width: 991.98px) {
-  div.login div.encabezado h1.tituloEncabezado {
-    font-size: 3rem;
-  }
-}
-
-form#user-login-form {
-  padding: 0 15rem;
-}
-
-/* ==============================
-MEDIA QUERY
-============================== */
-/*MOVIL VERTICAL(sm 320px)*/
-@media (max-width: 575.98px) {
-  form#user-login-form {
-    padding: 0 1rem;
-  }
-}
-/*MOVIL VERTICAL(sm 320px)*/
-@media (min-width: 576px) and (max-width: 767.98px) {
-  form#user-login-form {
-    padding: 0 5rem;
-  }
-}
-/*MOVIL VERTICAL(sm 320px)*/
-@media (min-width: 768px) and (max-width: 991.98px) {
-  form#user-login-form {
-    padding: 0 8rem;
-  }
-}
 /* ==============================
 HEADER(ENCABEZADO)
 ============================== */
@@ -1630,10 +1554,10 @@ article.noticiasInternas h2 {
     max-width: 100%;
     height: auto;
   }
-  article.noticiasInternas div.cuerpoArticulo div.IntroContenido {
+  article.noticiasInternas div.IntroContenido {
     display: initial !important;
   }
-  article.noticiasInternas div.cuerpoArticulo div.IntroContenido img {
+  article.noticiasInternas div.IntroContenido img {
     width: 100%;
   }
   article.noticiasInternas div.infoSocial p {
@@ -1642,10 +1566,10 @@ article.noticiasInternas h2 {
 }
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
-  article.noticiasInternas div.cuerpoArticulo div.IntroContenido {
+  article.noticiasInternas div.IntroContenido {
     display: initial !important;
   }
-  article.noticiasInternas div.cuerpoArticulo div.IntroContenido img {
+  article.noticiasInternas div.IntroContenido img {
     width: 100%;
   }
 }
@@ -2237,6 +2161,10 @@ a#text_resize_reset {
 .footer ul.masLogos {
   margin-top: 5rem;
 }
+.footer div.piePagina,
+.footer a {
+  color: #CDDC4B;
+}
 .footer div.field--name-field-sede-principal-footer {
   margin-bottom: 2rem;
 }
@@ -2362,7 +2290,7 @@ a#text_resize_reset {
   content: "" url("../images/iconos/mail.png");
 }
 .footer div.field--name-field-email-judiciales-footer {
-  margin-bottom: 0;
+  margin-bottom: 2rem;
 }
 .footer div.field--name-field-email-judiciales-footer div.field__label {
   color: white;
@@ -2381,9 +2309,25 @@ a#text_resize_reset {
   margin-right: 1rem;
   content: "" url("../images/iconos/mail.png");
 }
-.footer div.piePagina,
-.footer a {
+.footer div.field--name-field-correo-denuncias-footer {
+  margin-bottom: 0;
+}
+.footer div.field--name-field-correo-denuncias-footer div.field__label {
+  color: white;
+}
+.footer div.field--name-field-correo-denuncias-footer div.field__items div.field__item {
+  position: relative;
   color: #CDDC4B;
+  font-size: 14px;
+  font-weight: lighter;
+  padding-left: 1.5rem;
+}
+.footer div.field--name-field-correo-denuncias-footer div.field__items div.field__item::before {
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  margin-right: 1rem;
+  content: "" url("../images/iconos/mail.png");
 }
 
 /* ==============================
@@ -3547,32 +3491,6 @@ MEDIA QUERY
 /* ==============================
 INTERNAS
 ============================== */
-/* ===== ===== MIGAS DE PAN ===== ===== */
-nav#breadcrumb ol {
-  font-size: 1rem;
-}
-
-/*MOVIL VERTICAL(sm 320px)*/
-@media (max-width: 575.98px) {
-  nav#breadcrumb ol {
-    display: block !important;
-    font-size: 1rem;
-  }
-  nav#breadcrumb ol li {
-    display: block;
-    padding-left: 0;
-  }
-  nav#breadcrumb ol li::before {
-    content: " ";
-    display: block;
-  }
-}
-/*MOVIL VERTICAL(sm 320px)*/
-@media (min-width: 576px) and (max-width: 767.98px) {
-  nav#breadcrumb ol {
-    display: block !important;
-  }
-}
 /* ===== ===== Transparencia ===== ===== */
 /* ===== ===== Encabezado ===== ===== */
 /* ==============================
@@ -3872,6 +3790,10 @@ div.encabezadoConvocatorias div.encabezado h1.tituloEncabezado {
   }
 }
 
+div.encabezadoConvocatorias div.banner {
+  margin-top: -1rem;
+}
+
 /* ===== ===== Ciudadano ===== ===== */
 /* ==============================
 COLORES
@@ -3891,11 +3813,9 @@ div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-
 div.convocatoriaCiudadano form div.form--inline div.form-item-field-convcatoria-departamento-target-id {
   width: 100%;
 }
-div.convocatoriaCiudadano form div.form--inline input[type=submit] {
+div.convocatoriaCiudadano form div.form--inline input[type=submit],
+div.convocatoriaCiudadano form div.form--inline a.busquedaAvz {
   background-color: #00993e !important;
-}
-div.convocatoriaCiudadano form div.form--inline div:nth-child(3) {
-  display: none;
 }
 div.convocatoriaCiudadano form div.form--inline div:nth-child(4) {
   display: none;
@@ -3955,6 +3875,15 @@ article.detalleProcesoConvocatorias div.titulo h1 {
   width: 80%;
 }
 
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  div.encabezadoConvocatorias div.banner img {
+    height: 6rem;
+  }
+}
 /* ===== ===== Prosperity Fund ===== ===== */
 /* ==============================
 COLORES
@@ -4190,7 +4119,59 @@ div.encabezadoPqrsd div.encabezado h1.tituloEncabezado {
   font-size: 2.5rem;
 }
 
-/* ===== ===== WEBFORM ===== ===== */
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  div.encabezadoPqrsd div.encabezado h1 {
+    visibility: hidden;
+  }
+  div.encabezadoPqrsd div.encabezado h1::before {
+    content: "PQRSD";
+    visibility: visible;
+    float: left;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.encabezadoPqrsd div.encabezado h1 {
+    visibility: hidden;
+  }
+  div.encabezadoPqrsd div.encabezado h1::before {
+    content: "PQRSD";
+    visibility: visible;
+    float: left;
+  }
+}
+/* ===== ===== LAYOUT ===== ===== */
+/* ===== ===== CALENDARIO ===== ===== */
+nav#breadcrumb ol {
+  font-size: 1rem;
+}
+
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  nav#breadcrumb ol {
+    display: block !important;
+    font-size: 1rem;
+  }
+  nav#breadcrumb ol li {
+    display: block;
+    padding-left: 0;
+  }
+  nav#breadcrumb ol li::before {
+    content: " ";
+    display: block;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  nav#breadcrumb ol {
+    display: block !important;
+  }
+}
+/* ===== ===== WEB FORM ===== ===== */
 div.form-lading-page > button {
   position: fixed;
   z-index: 900;
@@ -4270,6 +4251,223 @@ div.form-encuesta-pqrsd div.encabezado h1.tituloEncabezado {
 @media (min-width: 768px) and (max-width: 991.98px) {
   div.form-encuesta-pqrsd div.encabezado h1.tituloEncabezado {
     font-size: 3rem;
+  }
+}
+
+/* ===== ===== LOGIN ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+ENCABEZADO
+============================== */
+/* ==============================
+CUSTOM TITULOS
+============================== */
+div.login figure {
+  position: absolute;
+  z-index: -1;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+div.login figure img {
+  height: 100%;
+}
+div.login div.encabezado {
+  height: 7rem;
+}
+div.login div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  div.login div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.login div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.login div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+
+/* ===== ===== CALENDARIO ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+ENCABEZADO
+============================== */
+/* ==============================
+CUSTOM TITULOS
+============================== */
+header.headerCalendario figure {
+  position: absolute;
+  z-index: -1;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+header.headerCalendario figure img {
+  height: 100%;
+}
+header.headerCalendario div.encabezado {
+  height: 7rem;
+}
+header.headerCalendario div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  header.headerCalendario div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  header.headerCalendario div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  header.headerCalendario div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+
+/* ===== ===== MECANISMO CONTACTO ===== ===== */
+/* ===== ===== DATOS ABIERTOS ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+ENCABEZADO
+============================== */
+/* ==============================
+CUSTOM TITULOS
+============================== */
+article.datosAbiertos figure {
+  position: absolute;
+  z-index: -1;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+article.datosAbiertos figure img {
+  height: 100%;
+}
+article.datosAbiertos div.encabezado {
+  height: 7rem;
+}
+article.datosAbiertos div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  article.datosAbiertos div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  article.datosAbiertos div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  article.datosAbiertos div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+
+/* ===== ===== LINEAS DE CREDITO REDESCUENTO ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+ENCABEZADO
+============================== */
+/* ==============================
+CUSTOM TITULOS
+============================== */
+/* ===== ===== ENCABEZADO ===== ===== */
+article.lineasCreditoRedescuento figure {
+  position: absolute;
+  z-index: -1;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+article.lineasCreditoRedescuento figure img {
+  height: 100%;
+}
+article.lineasCreditoRedescuento div.encabezado {
+  height: 7rem;
+}
+article.lineasCreditoRedescuento div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  article.lineasCreditoRedescuento div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  article.lineasCreditoRedescuento div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  article.lineasCreditoRedescuento div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  article.lineasCreditoRedescuento div.encabezado h1 span {
+    visibility: hidden;
+  }
+  article.lineasCreditoRedescuento div.encabezado h1 span::before {
+    content: "Líneas Crédito Redescuento";
+    visibility: visible;
+    float: left;
   }
 }
 

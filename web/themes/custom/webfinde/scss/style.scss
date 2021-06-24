@@ -75,12 +75,6 @@ main {
 
 
 /* ==============================
-ADMIN
-============================== */
-
-@import 'custom/login';
-
-/* ==============================
 HEADER(ENCABEZADO)
 ============================== */
 
@@ -131,10 +125,6 @@ INTERNAS
 ============================== */
 
 
-/* ===== ===== MIGAS DE PAN ===== ===== */
-
-@import 'custom/internas/migas-pan/migas-pan.scss';
-
 /* ===== ===== Transparencia ===== ===== */
 
 @import 'custom/internas/transparencia/transparencia';
@@ -149,7 +139,7 @@ INTERNAS
 
 /* ===== ===== Prosperity Fund ===== ===== */
 
-@import 'custom/internas/prosperity-fund/prosperity-fund.scss';
+@import 'custom/internas/prosperity_fund/prosperity-fund.scss';
 
 /* ===== ===== Glosario ===== ===== */
 
@@ -163,6 +153,14 @@ INTERNAS
 
 @import 'custom/internas/pqrsd/pqrsd.scss';
 
-/* ===== ===== WEBFORM ===== ===== */
+/* ===== ===== LAYOUT ===== ===== */
 
-@import 'custom/layout/webform/form.scss';
+@import 'custom/layout/layout.scss';
+
+/* ===== ===== MECANISMO CONTACTO ===== ===== */
+
+@import 'custom/internas/mecanismo_contacto/mecanismo_abierto.scss';
+
+/* ===== ===== LINEAS DE CREDITO REDESCUENTO ===== ===== */
+
+@import 'custom/internas/lineas_credito_redescuento/lineas-credito-redescuento.scss';

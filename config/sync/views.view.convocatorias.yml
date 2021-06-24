@@ -18,6 +18,7 @@ dependencies:
     - user.role.abogado
     - user.role.administrator
     - user.role.authenticated
+    - user.role.c_modificador
     - user.role.secretaria_general
   module:
     - cshs
@@ -2122,159 +2123,19 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.node.field_convcatoria_estado'
-  data_export_convocatorias:
-    display_plugin: data_export
-    id: data_export_convocatorias
-    display_title: 'Exportación de datos'
-    position: 5
+  excel_export_1:
+    display_plugin: excel_export
+    id: excel_export_1
+    display_title: 'Excel export'
+    position: 6
     display_options:
       display_extenders: {  }
-      path: csv-convocatorias
+      path: excel-convocatorias
       filename: convocatorias.xlsx
-      automatic_download: true
-      store_in_public_file_directory: false
-      redirect_to_display: page_exportar_convocatorias
-      custom_redirect_path: false
-      include_query_params: false
-      access:
-        type: role
-        options:
-          role:
-            authenticated: authenticated
+      sorts: {  }
       defaults:
-        access: false
-        filters: false
-        filter_groups: false
         sorts: false
         fields: false
-      auth:
-        - cookie
-      filters:
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value:
-            convocatorias: convocatorias
-          group: 1
-          exposed: true
-          expose:
-            operator_id: type_op
-            label: 'Seleccione la opción para descargar el archivo.'
-            description: ''
-            use_operator: true
-            operator: type_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: type
-            required: true
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              abogado: '0'
-              secretaria_general: '0'
-              colaborador: '0'
-              c_modificador: '0'
-              publicador: '0'
-              pqrsd_administrador: '0'
-            reduce: true
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-        created:
-          id: created
-          table: node_field_data
-          field: created
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: between
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
-          group: 1
-          exposed: true
-          expose:
-            operator_id: created_op
-            label: Fecha
-            description: ''
-            use_operator: false
-            operator: created_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: created
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              abogado: '0'
-              secretaria_general: '0'
-              colaborador: '0'
-              c_modificador: '0'
-              publicador: '0'
-              pqrsd_administrador: '0'
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: created
-          plugin_id: date
-      filter_groups:
-        operator: AND
-        groups:
-          1: OR
-      sorts:
-        created:
-          id: created
-          table: node_field_data
-          field: created
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: false
-          expose:
-            label: ''
-          granularity: second
-          entity_type: node
-          entity_field: created
-          plugin_id: date
       fields:
         title:
           id: title
@@ -2284,50 +2145,50 @@ display:
           group_type: group
           admin_label: ''
           label: 'Código del proceso'
-          exclude: false
+          exclude: 0
           alter:
-            alter_text: false
+            alter_text: 0
             text: ''
-            make_link: false
+            make_link: 0
             path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
+            absolute: 0
+            external: 0
+            replace_spaces: 0
             path_case: none
-            trim_whitespace: false
+            trim_whitespace: 0
             alt: ''
             rel: ''
             link_class: ''
             prefix: ''
             suffix: ''
             target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: false
-            ellipsis: false
-            more_link: false
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 0
+            ellipsis: 0
+            more_link: 0
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
-            trim: false
+            strip_tags: 0
+            trim: 0
             preserve_tags: ''
-            html: false
+            html: 0
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: 1
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: false
+          element_default_classes: 1
           empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: false
+            link_to_entity: 1
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -2337,18 +2198,18 @@ display:
           delta_first_last: false
           multi_type: separator
           separator: ', '
-          field_api_classes: false
+          field_api_classes: 0
           entity_type: node
           entity_field: title
           plugin_id: field
-        field_convcatoria_programa:
-          id: field_convcatoria_programa
-          table: node__field_convcatoria_programa
-          field: field_convcatoria_programa
+        field_convcatoria_estado:
+          id: field_convcatoria_estado
+          table: node__field_convcatoria_estado
+          field: field_convcatoria_estado
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Programa y Convenio'
+          label: 'Estado de la convocatoria'
           exclude: false
           alter:
             alter_text: false
@@ -2382,74 +2243,9 @@ display:
           element_label_type: '0'
           element_label_class: ''
           element_label_colon: true
-          element_wrapper_type: '0'
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: cshs_full_hierarchy
-          settings:
-            linked: 0
-            reverse: 0
-            separator: ','
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_convcatoria_estado:
-          id: field_convcatoria_estado
-          table: node__field_convcatoria_estado
-          field: field_convcatoria_estado
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Estado
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -2468,58 +2264,58 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_convcatoria_contractual:
-          id: field_convcatoria_contractual
-          table: node__field_convcatoria_contractual
-          field: field_convcatoria_contractual
+        field_convcatoria_programa:
+          id: field_convcatoria_programa
+          table: node__field_convcatoria_programa
+          field: field_convcatoria_programa
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Tipologías contractuales'
-          exclude: false
+          label: 'Programa y Convenio'
+          exclude: 0
           alter:
-            alter_text: false
+            alter_text: 0
             text: ''
-            make_link: false
+            make_link: 0
             path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
+            absolute: 0
+            external: 0
+            replace_spaces: 0
             path_case: none
-            trim_whitespace: false
+            trim_whitespace: 0
             alt: ''
             rel: ''
             link_class: ''
             prefix: ''
             suffix: ''
             target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
-            trim: false
+            strip_tags: 0
+            trim: 0
             preserve_tags: ''
-            html: false
+            html: 0
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: 1
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: 1
           empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
           click_sort_column: target_id
           type: entity_reference_label
           settings:
-            link: true
+            link: 1
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -2529,7 +2325,7 @@ display:
           delta_first_last: false
           multi_type: separator
           separator: ', '
-          field_api_classes: false
+          field_api_classes: 0
           plugin_id: field
         field_convcatoria_objeto:
           id: field_convcatoria_objeto
@@ -2538,47 +2334,47 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Objeto de la convocatoria'
-          exclude: false
+          label: 'Objeto de la Convocatoria'
+          exclude: 0
           alter:
-            alter_text: false
+            alter_text: 0
             text: ''
-            make_link: false
+            make_link: 0
             path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
+            absolute: 0
+            external: 0
+            replace_spaces: 0
             path_case: none
-            trim_whitespace: false
+            trim_whitespace: 0
             alt: ''
             rel: ''
             link_class: ''
             prefix: ''
             suffix: ''
             target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
-            trim: false
+            strip_tags: 0
+            trim: 0
             preserve_tags: ''
-            html: false
+            html: 0
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: 1
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: 1
           empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
           click_sort_column: value
           type: basic_string
           settings: {  }
@@ -2591,7 +2387,7 @@ display:
           delta_first_last: false
           multi_type: separator
           separator: ', '
-          field_api_classes: false
+          field_api_classes: 0
           plugin_id: field
         field_convcatoria_departamento:
           id: field_convcatoria_departamento
@@ -2601,62 +2397,60 @@ display:
           group_type: group
           admin_label: ''
           label: 'Departamento y Municipio'
-          exclude: false
+          exclude: 0
           alter:
-            alter_text: false
+            alter_text: 0
             text: ''
-            make_link: false
+            make_link: 0
             path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
+            absolute: 0
+            external: 0
+            replace_spaces: 0
             path_case: none
-            trim_whitespace: false
+            trim_whitespace: 0
             alt: ''
             rel: ''
             link_class: ''
             prefix: ''
             suffix: ''
             target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
-            trim: false
+            strip_tags: 0
+            trim: 0
             preserve_tags: ''
-            html: false
+            html: 0
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: 1
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: 1
           empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
           click_sort_column: target_id
-          type: cshs_full_hierarchy
+          type: entity_reference_label
           settings:
-            linked: 0
-            reverse: 0
-            separator: ','
+            link: 1
           group_column: target_id
           group_columns: {  }
-          group_rows: false
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
+          group_rows: 1
+          delta_limit: '0'
+          delta_offset: '0'
+          delta_reversed: 0
+          delta_first_last: 0
           multi_type: separator
           separator: ', '
-          field_api_classes: false
+          field_api_classes: 0
           plugin_id: field
         field_convcatoria_contratacion:
           id: field_convcatoria_contratacion
@@ -2665,51 +2459,51 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Modalidad de contratación'
-          exclude: false
+          label: 'Modalidad de Contratación'
+          exclude: 0
           alter:
-            alter_text: false
+            alter_text: 0
             text: ''
-            make_link: false
+            make_link: 0
             path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
+            absolute: 0
+            external: 0
+            replace_spaces: 0
             path_case: none
-            trim_whitespace: false
+            trim_whitespace: 0
             alt: ''
             rel: ''
             link_class: ''
             prefix: ''
             suffix: ''
             target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
-            trim: false
+            strip_tags: 0
+            trim: 0
             preserve_tags: ''
-            html: false
+            html: 0
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: 1
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: 1
           empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
           click_sort_column: target_id
           type: entity_reference_label
           settings:
-            link: true
+            link: 1
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -2719,7 +2513,70 @@ display:
           delta_first_last: false
           multi_type: separator
           separator: ', '
-          field_api_classes: false
+          field_api_classes: 0
+          plugin_id: field
+        field_convcatoria_contractual:
+          id: field_convcatoria_contractual
+          table: node__field_convcatoria_contractual
+          field: field_convcatoria_contractual
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Tipologías Contractuales'
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: 1
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: 1
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: 0
           plugin_id: field
         field_convcatoria_presupuesto:
           id: field_convcatoria_presupuesto
@@ -2729,53 +2586,53 @@ display:
           group_type: group
           admin_label: ''
           label: Presupuesto
-          exclude: false
+          exclude: 0
           alter:
-            alter_text: false
+            alter_text: 0
             text: ''
-            make_link: false
+            make_link: 0
             path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
+            absolute: 0
+            external: 0
+            replace_spaces: 0
             path_case: none
-            trim_whitespace: false
+            trim_whitespace: 0
             alt: ''
             rel: ''
             link_class: ''
             prefix: ''
             suffix: ''
             target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
-            trim: false
+            strip_tags: 0
+            trim: 0
             preserve_tags: ''
-            html: false
+            html: 0
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: 1
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: 1
           empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
           click_sort_column: value
           type: number_decimal
           settings:
-            thousand_separator: .
-            prefix_suffix: true
-            decimal_separator: ','
-            scale: 2
+            thousand_separator: ''
+            prefix_suffix: 1
+            decimal_separator: .
+            scale: '2'
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -2785,7 +2642,7 @@ display:
           delta_first_last: false
           multi_type: separator
           separator: ', '
-          field_api_classes: false
+          field_api_classes: 0
           plugin_id: field
         created:
           id: created
@@ -2795,52 +2652,52 @@ display:
           group_type: group
           admin_label: ''
           label: Fecha
-          exclude: false
+          exclude: 0
           alter:
-            alter_text: false
+            alter_text: 0
             text: ''
-            make_link: false
+            make_link: 0
             path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
+            absolute: 0
+            external: 0
+            replace_spaces: 0
             path_case: none
-            trim_whitespace: false
+            trim_whitespace: 0
             alt: ''
             rel: ''
             link_class: ''
             prefix: ''
             suffix: ''
             target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
-            trim: false
+            strip_tags: 0
+            trim: 0
             preserve_tags: ''
-            html: false
+            html: 0
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: 1
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: 1
           empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: html_date
+            date_format: medium
             custom_date_format: ''
-            timezone: America/Bogota
+            timezone: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -2850,7 +2707,7 @@ display:
           delta_first_last: false
           multi_type: separator
           separator: ', '
-          field_api_classes: false
+          field_api_classes: 0
           entity_type: node
           entity_field: created
           plugin_id: field
@@ -2861,51 +2718,51 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Usuario
-          exclude: false
+          label: 'Escrito por'
+          exclude: 0
           alter:
-            alter_text: false
+            alter_text: 0
             text: ''
-            make_link: false
+            make_link: 0
             path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
+            absolute: 0
+            external: 0
+            replace_spaces: 0
             path_case: none
-            trim_whitespace: false
+            trim_whitespace: 0
             alt: ''
             rel: ''
             link_class: ''
             prefix: ''
             suffix: ''
             target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
-            trim: false
+            strip_tags: 0
+            trim: 0
             preserve_tags: ''
-            html: false
+            html: 0
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: 1
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: 1
           empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
           click_sort_column: target_id
           type: entity_reference_label
           settings:
-            link: false
+            link: 1
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -2915,24 +2772,15 @@ display:
           delta_first_last: false
           multi_type: separator
           separator: ', '
-          field_api_classes: false
+          field_api_classes: 0
           entity_type: node
           entity_field: uid
           plugin_id: field
       style:
-        type: data_export
+        type: excel_export
         options:
           formats:
             xlsx: xlsx
-          csv_settings:
-            delimiter: ','
-            enclosure: '"'
-            escape_char: \
-            strip_tags: true
-            trim: true
-            encoding: utf8
-            utf8_bom: '1'
-            use_serializer_encode_only: false
           xls_settings:
             xls_format: Excel2007
             metadata:
@@ -2945,60 +2793,14 @@ display:
               category: ''
               manager: ''
               company: ''
-      displays:
-        default: '0'
-        block_convocatoria_ciudadano: '0'
-        block_convocatoria_funcionario: '0'
-      row:
-        type: data_field
-        options:
-          field_options:
-            title:
-              alias: ''
-              raw_output: false
-            field_convcatoria_programa:
-              alias: ''
-              raw_output: false
-            field_convcatoria_estado:
-              alias: ''
-              raw_output: false
-            field_convcatoria_contractual:
-              alias: ''
-              raw_output: false
-            field_convcatoria_objeto:
-              alias: ''
-              raw_output: false
-            field_convcatoria_departamento:
-              alias: ''
-              raw_output: false
-            field_convcatoria_contratacion:
-              alias: ''
-              raw_output: false
-            field_convcatoria_presupuesto:
-              alias: ''
-              raw_output: false
-            created:
-              alias: ''
-              raw_output: false
-            uid:
-              alias: ''
-              raw_output: false
-      pager:
-        type: some
-        options:
-          items_per_page: 0
-          offset: 0
-      export_method: standard
-      export_batch_size: 1000
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
-        - url
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_convcatoria_contractual'
         - 'config:field.storage.node.field_convcatoria_contratacion'
@@ -3363,7 +3165,7 @@ display:
   page_exportar_convocatorias:
     display_plugin: page
     id: page_exportar_convocatorias
-    display_title: 'Page Exportación CSV'
+    display_title: 'Page Exportación'
     position: 4
     display_options:
       display_extenders: {  }
@@ -3597,15 +3399,18 @@ display:
         title: 'Exportar Convocatorias'
         description: ''
         expanded: false
-        parent: system.admin_content
+        parent: 'menu_link_content:da7b81d7-8573-4a1c-8ae8-3e4096b9735c'
         weight: 0
         context: '0'
         menu_name: admin
+        enabled: true
       access:
         type: role
         options:
           role:
-            authenticated: authenticated
+            administrator: administrator
+            secretaria_general: secretaria_general
+            c_modificador: c_modificador
       footer:
         area:
           id: area
@@ -3617,7 +3422,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: '<button type="button" class="button button--primary" onclick="window.location.href=''/csv-convocatorias''" dowload>Descargar Excel</button>'
+            value: '<button type="button" class="button button--primary" onclick="window.location.href=''/excel-convocatorias''" dowload>Descargar Excel</button>'
             format: html_editor
           plugin_id: text
       use_ajax: true

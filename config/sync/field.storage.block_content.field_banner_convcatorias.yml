@@ -1,13 +1,17 @@
-uuid: e61d829d-926e-4fc4-9640-38fd39dbdc7b
+uuid: 1de92faa-27e2-45d1-9faf-5f082a03712f
 langcode: es
 status: true
 dependencies:
   module:
     - block_content
+    - field_permissions
     - file
     - image
-id: block_content.field_mas_logos_footer
-field_name: field_mas_logos_footer
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: block_content.field_banner_convcatorias
+field_name: field_banner_convcatorias
 entity_type: block_content
 type: image
 settings:
@@ -23,7 +27,7 @@ settings:
   display_default: false
 module: image
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

@@ -1,19 +1,19 @@
-uuid: 297d571b-e71c-4d80-bc49-75822b43ac05
+uuid: 6bd58f10-3e0c-4ced-a688-a48b54f434ec
 langcode: es
 status: true
 dependencies:
   config:
     - block_content.type.pie_de_pagina
-    - field.storage.block_content.field_mas_logos_footer
+    - field.storage.block_content.field_img_saving_amazong_footer
   module:
     - disable_field
     - filefield_paths
     - image
 third_party_settings:
   filefield_paths:
-    enabled: true
+    enabled: false
     file_path:
-      value: webfinde/images/footer
+      value: '[date:custom:Y]-[date:custom:m]'
       options:
         slashes: false
         pathauto: false
@@ -30,11 +30,11 @@ third_party_settings:
   disable_field:
     add_disable: none
     edit_disable: none
-id: block_content.pie_de_pagina.field_mas_logos_footer
-field_name: field_mas_logos_footer
+id: block_content.pie_de_pagina.field_img_saving_amazong_footer
+field_name: field_img_saving_amazong_footer
 entity_type: block_content
 bundle: pie_de_pagina
-label: 'Más Logos'
+label: 'Img. Saving The Amazong'
 description: ''
 required: false
 translatable: false
@@ -47,7 +47,7 @@ settings:
   max_resolution: ''
   min_resolution: ''
   alt_field: true
-  alt_field_required: true
+  alt_field_required: false
   title_field: false
   title_field_required: false
   default_image:

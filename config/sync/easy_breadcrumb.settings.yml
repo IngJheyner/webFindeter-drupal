@@ -20,7 +20,7 @@ _core:
   default_config_hash: ey8bRwK17YbAVEX7GEm09YR5UneOQ_Nqzh6a3V-rIP0
 langcode: es
 include_invalid_paths: true
-add_structured_data_json_ld: false
+add_structured_data_json_ld: true
 excluded_paths: form
 replaced_titles: ''
 custom_paths: ''
@@ -28,8 +28,8 @@ title_segment_as_link: false
 capitalizator_forced_words: {  }
 follow_redirects: true
 alternative_title_field: ''
-limit_segment_display: false
+limit_segment_display: true
 segment_display_limit: ''
-truncator_mode: false
-truncator_length: ''
-truncator_dots: false
+truncator_mode: true
+truncator_length: '100'
+truncator_dots: true

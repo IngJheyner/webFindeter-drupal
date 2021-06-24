@@ -21,10 +21,11 @@ div.convocatoriaCiudadano {
                 //display: block !important;
                 width: 100%;
             }
-            input[type="submit"] {
+            input[type="submit"],
+            a.busquedaAvz {
                 background-color: var.$color-cuaternario !important;
             }
-            @for $i from 3 through 9 {
+            @for $i from 4 through 9 {
                 div:nth-child(#{$i}) {
                     display: none;
                 }

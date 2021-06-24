@@ -5,18 +5,19 @@ dependencies:
   config:
     - block_content.type.pie_de_pagina
     - field.field.block_content.pie_de_pagina.field_conmutador
+    - field.field.block_content.pie_de_pagina.field_correo_denuncias_footer
     - field.field.block_content.pie_de_pagina.field_correo_institucional_foote
     - field.field.block_content.pie_de_pagina.field_email_contacto_footer
     - field.field.block_content.pie_de_pagina.field_email_judiciales_footer
     - field.field.block_content.pie_de_pagina.field_facebook_icono_footer
     - field.field.block_content.pie_de_pagina.field_flickr_icono_footer
     - field.field.block_content.pie_de_pagina.field_horario_de_atencion_footer
+    - field.field.block_content.pie_de_pagina.field_img_saving_amazong_footer
     - field.field.block_content.pie_de_pagina.field_instagram_icono_footer
     - field.field.block_content.pie_de_pagina.field_likedin_icono_footer
     - field.field.block_content.pie_de_pagina.field_logo_footer
     - field.field.block_content.pie_de_pagina.field_logo_ministerio_hacienda_f
     - field.field.block_content.pie_de_pagina.field_logo_superintendencia_foot
-    - field.field.block_content.pie_de_pagina.field_mas_logos_footer
     - field.field.block_content.pie_de_pagina.field_ntf_judiciales_footer
     - field.field.block_content.pie_de_pagina.field_pqr_footer
     - field.field.block_content.pie_de_pagina.field_sede_principal_footer
@@ -25,6 +26,7 @@ dependencies:
     - field.field.block_content.pie_de_pagina.field_url_flicker_footer
     - field.field.block_content.pie_de_pagina.field_url_instagram_footer
     - field.field.block_content.pie_de_pagina.field_url_likedin_footer
+    - field.field.block_content.pie_de_pagina.field_url_saving_amazong_footer
     - field.field.block_content.pie_de_pagina.field_url_twitter_footer
     - field.field.block_content.pie_de_pagina.field_url_youtube_footer
     - field.field.block_content.pie_de_pagina.field_youtube_icono_footer
@@ -77,7 +79,7 @@ third_party_settings:
         - field_url_facebook_footer
         - field_facebook_icono_footer
       parent_name: group_iconos
-      weight: 11
+      weight: 15
       format_type: fieldset
       region: content
       format_settings:
@@ -91,7 +93,7 @@ third_party_settings:
         - field_url_twitter_footer
         - field_twitter_icono_footer
       parent_name: group_iconos
-      weight: 12
+      weight: 16
       format_type: fieldset
       region: content
       format_settings:
@@ -105,7 +107,7 @@ third_party_settings:
         - field_url_youtube_footer
         - field_youtube_icono_footer
       parent_name: group_iconos
-      weight: 13
+      weight: 17
       format_type: fieldset
       region: content
       format_settings:
@@ -119,7 +121,7 @@ third_party_settings:
         - field_url_instagram_footer
         - field_instagram_icono_footer
       parent_name: group_iconos
-      weight: 14
+      weight: 18
       format_type: fieldset
       region: content
       format_settings:
@@ -133,7 +135,7 @@ third_party_settings:
         - field_url_likedin_footer
         - field_likedin_icono_footer
       parent_name: group_iconos
-      weight: 15
+      weight: 19
       format_type: fieldset
       region: content
       format_settings:
@@ -161,6 +163,7 @@ third_party_settings:
     group_logos:
       children:
         - group_logos_group
+        - group_mas_logos
         - field_mas_logos_footer
       parent_name: group_contenido
       weight: 4
@@ -198,6 +201,7 @@ third_party_settings:
         - field_pqr_footer
         - field_correo_institucional_foote
         - field_email_judiciales_footer
+        - field_correo_denuncias_footer
       parent_name: group_contenido
       weight: 28
       format_type: details
@@ -212,7 +216,7 @@ third_party_settings:
     group_credito_directo:
       children: {  }
       parent_name: group_iconos
-      weight: 17
+      weight: 21
       format_type: fieldset
       region: content
       format_settings:
@@ -226,7 +230,7 @@ third_party_settings:
         - field_url_flicker_footer
         - field_flickr_icono_footer
       parent_name: group_iconos
-      weight: 16
+      weight: 20
       format_type: fieldset
       region: content
       format_settings:
@@ -235,6 +239,20 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Flickr
+    group_mas_logos:
+      children:
+        - field_url_saving_amazong_footer
+        - field_img_saving_amazong_footer
+      parent_name: group_logos
+      weight: 6
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Mas Logos'
 id: block_content.pie_de_pagina.default
 targetEntityType: block_content
 bundle: pie_de_pagina
@@ -247,6 +265,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_correo_denuncias_footer:
+    weight: 37
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
     region: content
   field_correo_institucional_foote:
     weight: 35
@@ -281,7 +307,7 @@ content:
     type: image_image
     region: content
   field_flickr_icono_footer:
-    weight: 38
+    weight: 39
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -295,6 +321,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_img_saving_amazong_footer:
+    weight: 8
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
     region: content
   field_instagram_icono_footer:
     weight: 22
@@ -336,14 +370,6 @@ content:
     third_party_settings: {  }
     type: image_image
     region: content
-  field_mas_logos_footer:
-    weight: 9
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    type: image_image
-    region: content
   field_ntf_judiciales_footer:
     weight: 31
     settings:
@@ -369,7 +395,7 @@ content:
     type: string_textfield
     region: content
   field_twitter_icono_footer:
-    weight: 16
+    weight: 17
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -408,6 +434,14 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  field_url_saving_amazong_footer:
+    weight: 7
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
   field_url_twitter_footer:
     weight: 15
     settings:
@@ -425,7 +459,7 @@ content:
     type: link_default
     region: content
   field_youtube_icono_footer:
-    weight: 19
+    weight: 20
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail

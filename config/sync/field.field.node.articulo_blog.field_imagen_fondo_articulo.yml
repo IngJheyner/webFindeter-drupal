@@ -6,7 +6,30 @@ dependencies:
     - field.storage.node.field_imagen_fondo_articulo
     - node.type.articulo_blog
   module:
+    - disable_field
+    - filefield_paths
     - image
+third_party_settings:
+  filefield_paths:
+    enabled: false
+    file_path:
+      value: webfinde/images/blog/articulo
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+  disable_field:
+    add_disable: none
+    edit_disable: none
 id: node.articulo_blog.field_imagen_fondo_articulo
 field_name: field_imagen_fondo_articulo
 entity_type: node

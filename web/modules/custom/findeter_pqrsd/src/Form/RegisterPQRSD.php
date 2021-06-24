@@ -147,10 +147,10 @@ class RegisterPQRSD extends FormBase {
 
     // Attach buttons.
     $form['wrapper']['actions']['#type'] = 'actions';
-    $form['wrapper']['actions']['#attributes'] = ['class'=>['col-12','d-flex','justify-content-center']];
+    $form['wrapper']['actions']['#attributes'] = ['class'=>['row','justify-content-center', 'my-5']];
 
     $buttons = $this->step->getButtons();
-
+    
     foreach ($buttons as $button) {
 
       $form['wrapper']['actions'][$button->getKey()] = $button->build();

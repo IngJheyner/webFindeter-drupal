@@ -72,7 +72,7 @@ function consult(){
             
         }
         $argumentos = $_POST['argumentos'];
-        $url = "http://w2sdg022:8084/sp_ws.asmx?WSDL";
+        $url = "http://10.10.3.22:8084/sp_ws.asmx?WSDL"; // http://w2sdg022:8084/sp_ws.asmx?WSDL
         $client = new SoapClient($url);
         $result = $client->resultado_xml([ "procedimiento" => $procedimiento, "argumentos" => $argumentos]);
         $arr = $result->resultado_xmlResult->any;

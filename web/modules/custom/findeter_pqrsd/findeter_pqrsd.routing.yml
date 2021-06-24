@@ -114,3 +114,8 @@ findeter_pqrsd.expor_report_pdf:
     _title: 'Registro/Actualización de PQRSD'
   requirements:
     _user_is_logged_in: 'TRUE'
+
+findeter_pqrsd.expor_report_excel:
+  path: '/reporte-excel-pqrsd/{filter}'
+  requirements:
+    _user_is_logged_in: 'TRUE'

@@ -13,13 +13,6 @@
     $(document).ready(function() {
 
         /*===========================================
-        ADMIN
-        =============================================*/
-
-        /* ===== ===== Login ===== ===== */
-        $('form#user-login-form').addClass('container my-5');
-
-        /*===========================================
         MENU SIDEBAR MOVIL
         =============================================*/
         $("section.menuMovil nav").attr("id", "sidebar");
@@ -312,7 +305,7 @@
         $("div.casosExito div.contenido h1.tituloCaso").html($(gridDefecto).attr('titulo'));
         $("div.casosExito div.contenido p.descripcionCaso").html($(gridDefecto).attr('descripcion'));
         //$("div.casosExito div.contenido a.enlace").attr("href", $(gridDefecto).attr('enlace'));
-        console.log($(gridDefecto).attr('titulo'));
+
         if ($(gridDefecto).attr('contenido') != "") {
             $("div.casosExito div.contenido div#modalTrayectoria h5").html($(gridDefecto).attr('titulo'));
             $("div.casosExito div.contenido div#modalTrayectoria div.modal-body").html($(gridDefecto).attr('contenido'));
@@ -459,39 +452,25 @@
 
             });
 
-            $(".convocatoriaCiudadano form .form-actions input[id='edit-submit-convocatorias']").after(`
-                    <a href="javascript:void(0)" class="text-white ml-5 busquedaAvz"><i class="fas fa-search-plus"></i> Mostar mas campos de busqueda</a>
-                `);
-
-            /*if (activarBusqueda === false) {
-
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(3)").hide();
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(4)").hide();
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(5)").hide();
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(6)").hide();
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").hide();
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").hide();
-                $(".convocatoriaCiudadano form .form--inline div:nth-child(9)").hide();
-            }*/
-
-
             $(".convocatoriaCiudadano form .form-actions a").on('click', function() {
 
                 if (activarBusqueda === false) {
-                    $(".convocatoriaCiudadano form .form--inline div:nth-child(3)").slideDown("slow");
+                    //$(".convocatoriaCiudadano form .form--inline div:nth-child(3)").slideDown("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(4)").slideDown("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(5)").slideDown("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(6)").slideDown("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").slideDown("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").slideDown("slow");
+                    $(".convocatoriaCiudadano form .form--inline div:nth-child(9)").slideDown("slow");
                     activarBusqueda = true;
                 } else {
-                    $(".convocatoriaCiudadano form .form--inline div:nth-child(3)").slideUp("slow");
+                    //$(".convocatoriaCiudadano form .form--inline div:nth-child(3)").slideUp("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(4)").slideUp("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(5)").slideUp("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(6)").slideUp("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").slideUp("slow");
                     $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").slideUp("slow");
+                    $(".convocatoriaCiudadano form .form--inline div:nth-child(9)").slideUp("slow");
                     activarBusqueda = false;
                 }
             });
@@ -532,9 +511,9 @@
 
         /* ===== ==== modal contratacion ===== ==== */
 
-        var pathname = window.location.pathname;
-        //alert(pathname);
-        //if(pathname == 'contratacion'){
+        //var pathname = window.location.pathname;
+        /*alert(pathname);
+        if(pathname == 'contratacion'){
         if (pathname == '/contrataci%C3%B3n') {
             const divmodal = document.createElement("div");
             divmodal.innerHTML = "<!-- Button trigger modal -->" +
@@ -566,10 +545,8 @@
 
             const body = document.querySelector("body");
             body.appendChild(divmodal);
-            /*document.querySelector("#botonmodalcon").click();*/
-        }
-
-        /** Fin modal */
+            document.querySelector("#botonmodalcon").click();
+        }*/
     });
     /*}
     };*/

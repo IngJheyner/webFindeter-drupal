@@ -68,7 +68,7 @@
             <img src="{{ file_url(content.field_logo_footer[0]['#item'].entity.uri.value) }}" class="img-fluid">
 
             {# ===== ===== iconos ===== ===== #}
-            <ul class="list-inline iconosSocial">
+            <ul class="list-inline iconosSocial mb-5">
 
               {# ===== ===== Icono twitter ===== ===== #}
               <li class="list-inline-item">
@@ -128,7 +128,7 @@
               {# ===== ===== Icono Flickr ===== ===== #}
               <li class="list-inline-item mt-2">
                 
-                <a href="{{ content.field_url_flickr_footer.0["#title"] }}" target="_blank">
+                <a href="{{ content.field_url_flicker_footer.0["#title"] }}" target="_blank">
 
                   <img src="{{ file_url(content.field_flickr_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
 
@@ -139,13 +139,20 @@
             </ul>
 
             {# ===== ===== Más logos ===== ===== #}
-            {{ content.field_mas_logos_footer }}
+            <div class="masLogos mt-5">
 
+              <a href="{{ content.field_url_saving_amazong_footer.0["#title"] }}" target="_blank">
+
+                <img src="{{ file_url(content.field_img_saving_amazong_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="127" height="24">
+
+              </a>
+
+            </div>
 
           </div>
 
           {# ===== ===== MENU ===== ===== #}
-          <div class="col-12 col-md-6 col-lg-3 mb-3 width="24" height="24"">
+          <div class="col-12 col-md-6 col-lg-3 mb-3" width="24" height="24">
             {{ drupal_menu('menu-footer') }}
           </div>
 
@@ -158,7 +165,7 @@
 
             {{ content.field_ntf_judiciales_footer }}
 
-            {{ content.field_email_contacto_footer }}
+            {{ content.field_email_contacto_footer }}            
 
           </div>          
           <div class="col-12 col-md-6 col-lg-3">
@@ -170,6 +177,8 @@
              {{ content.field_correo_institucional_foote }}
 
              {{ content.field_email_judiciales_footer }}
+
+             {{ content.field_correo_denuncias_footer }}
 
           </div>
 

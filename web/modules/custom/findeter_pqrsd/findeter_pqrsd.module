@@ -11,6 +11,8 @@ use Drupal\views\Views;
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Render\Markup;
 
+use Drupal\findeter_pqrsd\Holidays\holidaysPQRSD;
+
 /**
  * Implements hook_help().
  */
@@ -90,7 +92,7 @@ function callBackDeparment(array &$form, FormStateInterface $form_state) {
 function defineDatesSemaphore($values){
 
   $answer = [];
-
+ 
   $config = \Drupal::config('findeter_pqrsd.admin');
   $peticion = $config->get('semaphore');
 
@@ -133,7 +135,7 @@ function defineDatesSemaphore($values){
  */
 function _getBussinesDays($addDays){
 
-  $timeStamp = strtotime("tomorrow");
+  $timeStamp = strtotime("tomorrow");  
 
   // loop for X days
   for($i=0; $i<$addDays; $i++){
@@ -143,14 +145,21 @@ function _getBussinesDays($addDays){
 
       // get what day it is next day
       $nextDay = date('w', ($timeStamp+$addDay));
+      $day = date('d', $timeStamp);
+      $mounth = date('m', $timeStamp);
+
+      $holiDays = new holidaysPQRSD(date('Y', $timeStamp));
+      //$feriado = $holiDays->isHoliDays('22', '03'); //Validar fecha de un dia feriado.
+      $feriado = $holiDays->isHoliDays($day, $mounth); //Validar fecha de un dia feriado.
 
       // if it's Saturday or Sunday get $i-1
-      if($nextDay == 0 || $nextDay == 6) {
+      if(($nextDay == 0 || $nextDay == 6) || $feriado) {
           $i--;
       }
 
       // modify timestamp, add 1 day
       $timeStamp = $timeStamp+$addDay;
+      
   }
 
   return $timeStamp;
@@ -167,7 +176,6 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
   }
 
 }
-
 
 /**
 * Implements hook_mail().
@@ -664,7 +672,8 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
   $field = $variables['field'];
   $row = $variables['row'];
 
-  if ($view->storage->id() == 'pqrsd'){
+  if ($view->storage->id() == 'pqrsd'){  
+    
     if($view->current_display == 'page_1' || $view->current_display == 'page_2'){
 
       if($field->field == 'field_pqrsd_respuesta'){
@@ -721,11 +730,11 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
           $htmlOutput .= render($modalLink).'<br>';
         }
 
-        $url = Url::fromRoute('findeter_pqrsd.create_pdf',['nid' => $nid]);
+        /*$url = Url::fromRoute('findeter_pqrsd.create_pdf',['nid' => $nid]);
         $modalLink = Link::fromTextAndUrl('PDF', $url);
         $modalLink = $modalLink->toRenderable();
         $modalLink['#attributes'] = ['class' => ['button']];
-        $htmlOutput .= render($modalLink);
+        $htmlOutput .= render($modalLink);*/
 
         $variables['output'] = ['#markup' => $htmlOutput];
       }
@@ -797,7 +806,22 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
     }
 
+    /* ============================================
+    PAGE ESTADOS PQRSD
+    =============================================== */
+    if($view->current_display == 'page_3'){
+      if($field->field == 'field_pqrsd_respuesta'){
+        if($variables['output'] == ''){
+          $variables['output'] = ['#markup' => '<span class="badge badge-info">Pendiente por responder</span>'];
+        }
+      }
 
+      if($field->field == 'field_pqrsd_respuesta_archivos'){
+        if($variables['output'] == ''){
+          $variables['output'] = ['#markup' => '<span class="badge badge-light">-- N/A --</span>'];
+        }
+      }
+    }
 
   }
 
@@ -806,6 +830,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
 /**
  * Implements hook_preprocess_views_exposed_form()
+ * 
  */
 function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
 
@@ -826,6 +851,7 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
   if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-2'){
 
     $url = Url::fromRoute('findeter_pqrsd.expor_report_pdf',['filter'=>'filter']);
+    $urlReporteXlsx = Url::fromRoute('findeter_pqrsd.expor_report_excel',['filter'=>'filter']);
     $link_options = array(
       'attributes' => array(
         'class' => array(
@@ -834,8 +860,13 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
       ),
     );
     $url->setOptions($link_options);
+    $urlReporteXlsx->setOptions($link_options);
+
     $exportPdf = Link::fromTextAndUrl('Exportar datos PDF', $url);
+    $urlReporteXlsx = Link::fromTextAndUrl('Exportar datos Excel', $urlReporteXlsx);
+
     $exportPdf = $exportPdf->toRenderable();
+    $urlReporteXlsx = $urlReporteXlsx->toRenderable();
 
     $variables['form']['actions']['#suffix'] = Markup::create('
         <div class="list-charts">
@@ -845,7 +876,25 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
       <div class="chart-container"><canvas id="tipo-producto-chart"></canvas></div>
       <div class="chart-container"><canvas id="canal-recepcion-chart"></canvas></div>
       <div class="chart-container"><canvas id="forma-recepcion-chart"></canvas></div>
-        </div>'.render($exportPdf));
+        </div>'.render($urlReporteXlsx));
+  }
+  /* ============================================
+  PAGE ESTADOS DE PQRSD FILTER
+  =============================================== */
+  if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-3'){
+
+    // for exposed user request filters, join all inputs in two fieldsets
+    $variables['form']['id_radicado']['#prefix'] = '
+      <div class="alert alert-info">
+        <h3 class="text-dark mb-2 font-weight-bold">Buscar Estado del Radicado</h3>
+        <p>Ingrese el número de su radicado en el formulario, este número se le presenta al finalizar el registro de un radicado, como por ejemplo:
+        <strong>5692TD</strong></p>
+        <hr>
+        <p><i class="fas fa-info-circle"></i> También puede revisar el email enviado a su correo electrónico.</p>
+      </div>';
+
+    //dump($variables);
+
   }
 
 }
@@ -855,6 +904,7 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
  * Implements hook_views_pre_view
  */
 function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+ 
 
   if($view->storage->id()== 'pqrsd' && $display_id == 'page_1'){
 
@@ -870,8 +920,43 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
 
   }
 
-}
+  /* ============================================
+  FILTRAR VALORES POR FECHA E IMPORTAR DATOS AL EXCEL
+  SI EXISTEN EL PARAMETRO CREATED VIA GET
+  =============================================== */
 
+  if($view->storage->id()== 'pqrsd' && $display_id == 'reporte_excel_pqrsd'){
+
+    if($args[0] != 'filter'){
+
+      $argus = explode("&", $args[0]);
+      $param = [];
+
+      foreach($argus as $key => $valor){
+        $sep = explode('=', $valor);
+        array_push($param, $sep[1]);
+      }
+
+      if(!empty($param[6]) && !empty($param[7])){
+
+        $fechaMin = date('Y-m-d', strtotime($param[6]));
+        $fechaMax = date('Y-m-d', strtotime($param[7]));
+
+        $view->display_handler->options['filters']['created']['value']['min'] = $fechaMin;
+        $view->display_handler->options['filters']['created']['value']['max'] = $fechaMax;
+
+      }else{
+        $view->display_handler->options['filters']['created']['value']['max'] = date('Y-m-d');
+      };
+
+    }else{
+      $view->display_handler->options['filters']['created']['value']['max'] = date('Y-m-d');
+    }
+
+    //dump($view->display_handler->getOption('filters'));
+  }
+
+}
 
 /**
  * Implements hook_views_pre_render
@@ -1039,5 +1124,14 @@ function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
     $view->element['#attached']['drupalSettings']['pqrsdReports'] = $data;
     $view->element['mResume'] = $buildTable;
 
+  }
+
+  /* ============================================
+  RENDERIZADO DE ESTADO DE RADICADO
+  =============================================== */
+  if($view->id() == 'pqrsd' && $view->current_display == 'page_3'){
+    if(empty($view->filter['field_pqrsd_numero_radicado_value']->value)){
+      $view->result = [];
+    }
   }
 }

@@ -72,7 +72,7 @@
 #}
 {%
   set classes = [
-    'node',
+    'node datosAbiertos',
     'node--type-' ~ node.bundle|clean_class,
     node.isPromoted() ? 'node--promoted',
     node.isSticky() ? 'node--sticky',
@@ -85,14 +85,19 @@
   {# ==== Encabezado ==== #}
 
   <figure class="w-100">
-    <img src="/sites/default/files/webfinde/images/block_pqrs_encabezado/fondocabezotecolor.png" class="img-fluid w-100">
+
+    <img src="{{ file_url(content.field_img_encabezado_datos[0]['#item'].entity.uri.value) }}" class="img-fluid w-100">
+
   </figure>  
+
   <div class="encabezado container">
+
     <h1 class="tituloEncabezado mt-3">{{ label }}</h1>   
+
   </div>
   
 
-  {# ==== Migas de Pan ==== #}
+  {# ==== Migas de Pan ==== #} 
 
     {{ drupal_breadcrumb() }}
 

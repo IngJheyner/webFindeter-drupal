@@ -85,7 +85,7 @@
 {%
   set classes = [
     'node',
-    'productoServicios',
+    'lineasCreditoRedescuento',
     'node--type-' ~ node.bundle|clean_class,
     node.isPromoted() ? 'node--promoted',
     node.isSticky() ? 'node--sticky',
@@ -100,16 +100,16 @@
   {# ==== Encabezado ==== #}
 
   <figure class="w-100">
-    <img src="{{ file_url(node.field_img_enca_line_cred_redes.entity.fileuri) }}" class="img-fluid w-100">
-  </figure>  
-  <div class="encabezado container">
-    {% if users|length > 32 %}
-      <h1 class="tituloEncabezado mt-3">{{ label }}</h1>   
-    {% else %}
-      <h2 class="tituloEncabezado mt-3" style="font-size:48px; color:white;">{{ label }}</h2>   
-    {% endif %}
-  </div>
 
+    <img src="{{ file_url(node.field_img_enca_line_cred_redes.entity.fileuri) }}" class="img-fluid w-100">
+
+  </figure>  
+
+  <div class="encabezado container">
+
+    <h1 class="tituloEncabezado mt-3">{{ label }}</h1> 
+
+  </div>
 
   {# ==== Migas de Pan ==== #}
 
@@ -121,6 +121,8 @@
   <div class="container ">
 
     {{ content.body.0 }}
+
+    {{ title }}
 
   </div>
 

@@ -1,19 +1,19 @@
 global:
   js:
-    ../../contrib/bootstrap4/dist/bootstrap/4.5.0/dist/js/bootstrap.bundle.min.js: {minified: true}
+    ../../contrib/bootstrap4/dist/bootstrap/4.6.0/dist/js/bootstrap.bundle.min.js: {minified: true}
     js/plugins/easing.example.js: {}
-    js/plugins/datepicker/bootstrap-datepicker.min.js: {}    
-    js/plugins/datepicker/bootstrap-datepicker.es.min.js: {}
-    js/plugins/dataTable/jquery.dataTables.min.js: {}
-    js/plugins/dataTable/dataTables.bootstrap4.min.js: {}
+    js/plugins/datepicker/bootstrap-datepicker.min.js: {minified: true}    
+    js/plugins/datepicker/bootstrap-datepicker.es.min.js: {minified: true}
+    js/plugins/dataTable/jquery.dataTables.min.js: {minified: true}
+    js/plugins/dataTable/dataTables.bootstrap4.min.js: {minified: true}
     js/global.js: {}
   dependencies:
     - core/jquery
   css:
     theme:
-      ../../contrib/bootstrap4/dist/bootstrap/4.5.0/dist/css/bootstrap.min.css: {minified: true}
-      css/plugins/bootstrap-datepicker.standalone.min.css: {} 
-      css/plugins/dataTable/dataTables.bootstrap4.min.css: {}
+      ../../contrib/bootstrap4/dist/bootstrap/4.6.0/dist/css/bootstrap.min.css: {minified: true}
+      css/plugins/bootstrap-datepicker.standalone.min.css: {minified: true} 
+      css/plugins/dataTable/dataTables.bootstrap4.min.css: {minified: true}
       css/plugins/colorbox/colorbox_webfinde.css: {} 
       css/style.css: {}
 

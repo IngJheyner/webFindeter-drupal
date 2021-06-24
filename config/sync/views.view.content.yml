@@ -5,14 +5,16 @@ dependencies:
   config:
     - node.type.convocatorias
     - user.role.abogado
-    - user.role.authenticated
+    - user.role.administrator
+    - user.role.c_modificador
+    - user.role.secretaria_general
   module:
     - node
     - user
 _core:
   default_config_hash: P7F4DFe8BL31DRVqsvS-ix9KZZqvvaPjZ7zEvGo9yNM
 id: content
-label: Contenido
+label: contenido
 module: node
 description: 'Encontrar y administrar contenido.'
 tag: default
@@ -548,7 +550,7 @@ display:
             operator_limit_selection: false
             operator_list: {  }
       sorts: {  }
-      title: Contenido
+      title: contenido
       empty:
         area_text_custom:
           id: area_text_custom
@@ -557,6 +559,11 @@ display:
           empty: true
           content: 'No hay contenido disponible.'
           plugin_id: text_custom
+        area:
+          id: area
+          table: views
+          field: area
+          plugin_id: text
       arguments: {  }
       relationships:
         uid:
@@ -592,19 +599,22 @@ display:
       path: admin/content/node
       menu:
         type: 'default tab'
-        title: Contenido
+        title: contenido
         description: ''
         menu_name: admin
         weight: -10
         context: ''
       tab_options:
         type: normal
-        title: Contenido
+        title: contenido
         description: 'Encuentre y gestione el contenido'
         menu_name: admin
         weight: -10
       display_extenders: {  }
       display_description: ''
+      empty: {  }
+      defaults:
+        empty: false
     display_plugin: page
     display_title: Page
     id: page_1
@@ -622,9 +632,9 @@ display:
       tags: {  }
   page_2:
     display_options:
-      path: admin/contenido-abo
+      path: admin/convocatorias
       menu:
-        type: tab
+        type: none
         title: Convocatorias
         description: ''
         expanded: false
@@ -643,13 +653,17 @@ display:
         type: role
         options:
           role:
-            authenticated: authenticated
+            administrator: administrator
             abogado: abogado
+            secretaria_general: secretaria_general
+            c_modificador: c_modificador
       defaults:
         access: false
         fields: false
         filters: false
         filter_groups: false
+        header: false
+        empty: false
       fields:
         title:
           id: title
@@ -885,6 +899,19 @@ display:
         operator: AND
         groups:
           1: AND
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: '<a href="/node/add/convocatorias" class="button button--primary">Agregar Convocatoria</a>'
+          plugin_id: text_custom
+      empty: {  }
     display_plugin: page
     display_title: 'Contenido Convocatoria'
     id: page_2
