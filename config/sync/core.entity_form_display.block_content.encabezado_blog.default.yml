@@ -9,7 +9,6 @@ dependencies:
     - field.field.block_content.encabezado_blog.field_facebook_url
     - field.field.block_content.encabezado_blog.field_fondo
     - field.field.block_content.encabezado_blog.field_logo
-    - field.field.block_content.encabezado_blog.field_menu
     - field.field.block_content.encabezado_blog.field_subtitulo
     - field.field.block_content.encabezado_blog.field_titulo
     - field.field.block_content.encabezado_blog.field_twitter
@@ -17,8 +16,8 @@ dependencies:
     - image.style.thumbnail
   module:
     - field_group
-    - image
     - link
+    - svg_image
 third_party_settings:
   field_group:
     group_informacion:
@@ -92,20 +91,6 @@ third_party_settings:
         effect: none
         open: false
       label: Iconos
-    group_menus_group:
-      children:
-        - field_menu
-      parent_name: group_contenido
-      weight: 20
-      format_type: details
-      region: content
-      format_settings:
-        id: ''
-        classes: ''
-        description: ''
-        open: false
-        required_fields: true
-      label: Menú
     group_titulos:
       children:
         - field_titulo
@@ -164,14 +149,6 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
-    region: content
-  field_menu:
-    weight: 21
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
     region: content
   field_subtitulo:
     weight: 5

@@ -9,14 +9,13 @@ dependencies:
     - field.field.block_content.encabezado_blog.field_facebook_url
     - field.field.block_content.encabezado_blog.field_fondo
     - field.field.block_content.encabezado_blog.field_logo
-    - field.field.block_content.encabezado_blog.field_menu
     - field.field.block_content.encabezado_blog.field_subtitulo
     - field.field.block_content.encabezado_blog.field_titulo
     - field.field.block_content.encabezado_blog.field_twitter
     - field.field.block_content.encabezado_blog.field_twitter_url
   module:
-    - image
     - link
+    - svg_image
 id: block_content.encabezado_blog.default
 targetEntityType: block_content
 bundle: encabezado_blog
@@ -69,18 +68,6 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
-    region: content
-  field_menu:
-    weight: 6
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
     region: content
   field_subtitulo:
     weight: 5

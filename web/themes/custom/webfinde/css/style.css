@@ -2831,6 +2831,32 @@ div.articuloBlogDos .grid .grid-item:hover img {
   transition: 1s all;
 }
 
+div.pageTipoArticulosBlog .grid .grid-item {
+  position: relative;
+  overflow: hidden;
+}
+div.pageTipoArticulosBlog .grid .grid-item img {
+  transform: scale(1, 1);
+  transition: 1s all;
+}
+div.pageTipoArticulosBlog .grid .grid-item h6.titulo {
+  font-size: 14px;
+  transition: 0.6s all;
+}
+div.pageTipoArticulosBlog .grid .grid-item a.body {
+  color: black;
+}
+div.pageTipoArticulosBlog .grid .grid-item a.body:visited {
+  color: #00993e;
+}
+div.pageTipoArticulosBlog .grid .grid-item:hover {
+  border-bottom: 1px solid #112d6a;
+}
+div.pageTipoArticulosBlog .grid .grid-item:hover img {
+  transform: scale(1.1, 1.1);
+  transition: 1s all;
+}
+
 div.masArticulosInterno {
   border-top: 2px solid #e5e5e5;
 }
