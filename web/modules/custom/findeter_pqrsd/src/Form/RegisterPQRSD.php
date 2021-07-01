@@ -118,21 +118,26 @@ class RegisterPQRSD extends FormBase {
     $htmlStep = '';
     foreach($textSteps as $nStep=>$textStep){
       $class = '';
+      $classNumber = '';
 
       // set as active the previous and current step
       if($nStep <= $this->stepId){
-        $class = 'class="active"';
+        $class = 'class="flex-fill text-success font-weight-bold active"';
+        $classNumber = 'class="number badge badge-success"';
+      }else{
+        $class = 'class="flex-fill"';
+        $classNumber = 'class="number badge badge-secondary"';
       }
 
       $htmlStep .= '
         <li '.$class.'>
-          <span class="number">'.($nStep+1).'</span>
+          <span '.$classNumber.'>'.($nStep+1).'</span>
           <span class="text">'.$textStep.'</span>
         </li>';
     }
 
     $form['wrapper']['wrapper-step'] = array(
-      '#markup' => '<ul class="steps-counter">'.$htmlStep.'</ul>',
+      '#markup' => '<ul class="steps-counter list-unstyled d-lg-flex mt-3 mb-5">'.$htmlStep.'</ul>',
     );
 
     $form['wrapper']['content-fields'] = [
