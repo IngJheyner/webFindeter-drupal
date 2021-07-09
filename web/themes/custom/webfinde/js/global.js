@@ -15,7 +15,7 @@
         /*===========================================
         MENU SIDEBAR MOVIL
         =============================================*/
-        $("section.menuMovil nav").attr("id", "sidebar");
+        //$("section.menuMovil nav").attr("id", "sidebar");
         $("section.menuMovil nav ul li ul.submenu li.submenuItems > span").addClass('d-none');
         $("section.menuMovil nav ul li ul.submenu").addClass('collapse');
 
