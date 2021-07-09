@@ -91,11 +91,11 @@
 
     <img src="{{ file_url(content.field_ps_img_encabezado[0]['#item'].entity.uri.value) }}" class="img-fluid w-100">
 
-  </figure>  
+  </figure>
 
   <div class="encabezado container">
 
-    <h1 class="tituloEncabezado mt-3">{{ content.field_ps_titulo_encabezado[0] }}</h1>   
+    <h1 class="tituloEncabezado mt-3">{{ content.field_ps_titulo_encabezado[0] }}</h1>
 
   </div>
 
@@ -107,20 +107,20 @@
     Titulo y descripcion
     =============================================== #}
     <div class="row">
-      
+
       <div class="col-12 col-lg-6 mb-3 mb-lg-0">
-      
+
         <div class="titulo">
 
-          <h1>{{ label }}</h1>                 
+          <h1>{{ label }}</h1>
 
         </div>
 
         <div class="descripcionContenido mt-4">
 
           <p>{{ content.field_ps_descripcion.0 }}</p>
-          
-        </div>  
+
+        </div>
 
       </div>
 
@@ -128,8 +128,7 @@
 
         {% if content.field_ps_imagen_portada[0]|render|trim is not empty %}
           <img src="{{ file_url(content.field_ps_imagen_portada[0]['#item'].entity.uri.value|image_style('ps_img_portada_interna')) }}"
-            alt={{content.field_ps_imagen_portada[0]['#item'].alt}}
-            class="img-fluid w-100 imgPortada">
+            alt="{{ content.field_ps_imagen_portada[0]['#item'].alt }}" class="img-fluid w-100 imgPortada">
 
         {% endif %}
 
@@ -140,10 +139,10 @@
         <div class="masInformacion mt-4">
 
           <p>{{ content.body.0 }}</p>
-          
-        </div> 
 
-      </div> 
+        </div>
+
+      </div>
 
     </div>
 
@@ -152,15 +151,15 @@
     =============================================== #}
      <h4 class="mt-4 tituloTabs text-center text-white">{{ content.field_ps_titulo_tabs_opc1[0] }}</h4>
 
-     <ul class="nav nav-tabs d-flex tabPrincipal" id="myTab" role="tablist">                  
+     <ul class="nav nav-tabs d-flex tabPrincipal" id="myTab" role="tablist">
 
-          {{ content.field_ps_items }}  
+          {{ content.field_ps_items }}
 
       </ul>
 
       <div class="tab-content" id="myTabContentPrincipal">
 
-        {{ content.field_ps_paragra_tabs_internas }}       
+        {{ content.field_ps_paragra_tabs_internas }}
 
       </div>
 
@@ -184,36 +183,14 @@
           <p class="text-white">
             {{ 'Mantegase informado con las ultimas, convocatorias y las noticias más recientes del sector'|t }}
           </p>
-        
-          
+
+
         </div>
 
         <div class="col-12 col-md-6">
 
-          <section id="mc_embed_signup">    
+         <div class="text-center mb-3"><a name="subscribir" href="https://2ca8668f816c437da20dc49f7a1f6bf5.svc.dynamics.com/t/formsandbox/s84kWP9d3Knc4eEIkkZ86Wp-Fc0pAndjxtDVLJcjNuQ/ccf61fde-acd9-eb11-bacb-002248376338?ad=" class="btn btn-secondary btn-lg text-white" target="_blank">Suscribirme</a></div>
 
-            <form action="https://findeter.us4.list-manage.com/subscribe/post?u=f0e12d23cbb25da9f26e4d54a&amp;id=c7ba2f26d7" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-
-              <div id="mc_embed_signup_scroll" class="form-group mx-auto d-sm-flex">        
-            
-                <input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="Email" required>
-              
-                <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                  
-                  <input type="text" name="b_f0e12d23cbb25da9f26e4d54a_c7ba2f26d7" tabindex="-1" value=""></div>
-
-                  <div class="clear">
-
-                    <input type="submit" value="Suscribirme" name="subscribir" id="mc-embedded-subscribe" class="btn btn-secondary">
-                    
-                  </div>
-
-              </div>
-
-            </form>
-
-          </section>
-          
         </div>
 
       </div>

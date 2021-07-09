@@ -124,7 +124,14 @@
 
       </div>
 
-      {% if path('<current>') != '/plan-de-ordenamiento-territorial' %}{{ drupal_menu('menu-principal') }}{% endif %}
+      {% if path('<current>') not in pathUrl %}
+
+        <div id="sidebar">
+          {{ drupal_menu('menu-principal') }}
+          <section class="menuGovCo">{{ drupal_menu('menu-govco') }}</div>
+        </div>
+
+      {% endif %}
 
     </section>
 
