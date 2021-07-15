@@ -36,16 +36,17 @@
 {%
   set pathUrl = [
     '/plan-de-ordenamiento-territorial',
-    '/catastro-multiproposito'
+    '/catastro-multiproposito',
+    '/plan-de-movilidad-sostenible-y-segura'
   ]
 %}
 
-<div{{ attributes.addClass(classes) }}>  
+<div{{ attributes.addClass(classes) }}>
 
   {# ============================================
   ENCABEZADO HOME
   =============================================== #}
-  {% block content %}  
+  {% block content %}
 
     <section class="row m-0 menuGovCo">
 
@@ -53,14 +54,14 @@
       <div class="col-3 px-0 text-center d-none d-xl-block govCo">
 
         <img src="{{ file_url(content.field_img_govco_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid mt-2 mt-lg-0" />
-      
+
       </div>
 
       {# ===== ===== Img Logo ===== ===== #}
       <div class="col-9 col-sm-6 col-md-4 col-lg-3 pt-1 px-0 d-xl-none text-center govCo">
 
         <a href="{{ url('<front>') }}"><img src="{{ file_url(content.field_logo_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
-      
+
       </div>
 
       {# ============================================
@@ -80,7 +81,7 @@
 
         {{ drupal_menu('menu-govco') }}
 
-      </div>  
+      </div>
 
     </section>
 
@@ -103,23 +104,23 @@
 
         </div>
 
-      </section>   
-      
+      </section>
+
     {% endif %}
-    
+
     {# ============================================
     Movil y Tablet < 768.98px
     =============================================== #}
     <section class="menuMovil d-lg-none">
 
       <div class="imgClose">
-      
+
         <a href="{{ url('<front>') }}"><img src="{{ file_url(content.field_logo_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
-      
+
         <button type="button" class="close mr-3">
-        
+
           <span aria-hidden="true">×</span>
-        
+
         </button>
 
       </div>
@@ -137,7 +138,7 @@
 
     {# ============================================
     SLIDER
-    =============================================== #}    
+    =============================================== #}
     {% if path('<current>') == '/inicio' %}
 
       {{ drupal_view('slider', 'slider_home') }}
