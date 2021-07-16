@@ -37,11 +37,6 @@
         });
 
         /*===========================================
-           BUSCADOR(HOME)
-           =============================================*/
-        $("form#search-block-form .btnSearch").attr("value", "");
-
-        /*===========================================
         CONTROL DE PAUSA DEL VIDEO DEL HOME
         =============================================*/
         $('.sliderHome #views-bootstrap-slider-slider-home .carousel-item.active .video-embed-field-provider-html-5 video').attr('id', 'videoHome');
@@ -228,11 +223,11 @@
                                 +'-ms-transform: rotateY(180deg);'
                                 +'transform: rotateY(180deg);'
                             );
-            //$('img', this).attr('src', imgSecundario);   
+            //$('img', this).attr('src', imgSecundario);
 
         });
 
-        $("div.findeterCifras .grid-container .grid-item .contenido").on("mouseout", function(){                
+        $("div.findeterCifras .grid-container .grid-item .contenido").on("mouseout", function(){
             var imgPrimario = $('img', this).attr('imgPrincipal');
             $('img', this).attr('style','content:url("'+imgPrimario+'");'
                                 +'transition: 1.5s;'
@@ -240,10 +235,10 @@
                                 +'-moz-transition: 1.5s;'
                                 +'-ms-transition: 1.5s;'
                                 +'-o-transition: 1.5s;'
-                                
+
                             );
             //$('img', this).attr('src', imgPrimario);
-           
+
         });*/
 
 
