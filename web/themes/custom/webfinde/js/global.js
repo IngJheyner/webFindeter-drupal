@@ -280,17 +280,19 @@
         } else {
             var alturacifras = '';
         }
+        if (document.getElementById("block-findeter-cifras-home")) {
 
-        $(window).scroll(function() {
+            $(window).scroll(function() {
 
-            if ($(window).scrollTop() >= alturacifras - 200) {
-                console.log(alturacifras-200);
-                contador();
+                if ($(window).scrollTop() >= alturacifras - 200) {
+                    console.log(alturacifras-200);
+                    contador();
 
-            }
+                }
 
-        });
-
+            });
+        }
+        
         /* ========= Fin efecto =========== */
 
 
