@@ -1,5 +1,5 @@
 <?php
-
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Render\Markup;
 
@@ -51,4 +51,19 @@ function webfinde_preprocess_views_exposed_form(&$variables) {
         $form['actions']['submit']['#suffix'] = Markup::create('<a href="javascript:void(0)" class="btn btn-primary text-white ml-0 mt-3 mt-md-0 ml-md-5 busquedaAvz"><i class="fas fa-search-plus"></i> Mostrar más campos.</a>');
     }
 }
+
+/**
+ * Implements hook_form_alter
+ */
+function webfinde_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+    if($form['#id'] == 'search-block-form'){
+       $form['actions']['submit']['#value'] = "";
+    }
+    if($form_id == 'search_form'){
+      hide($form['help_link']);
+    }
+
+}
+
 
