@@ -72,7 +72,7 @@
 
               {# ===== ===== Icono twitter ===== ===== #}
               <li class="list-inline-item">
-                
+
                 <a href="{{ content.field_url_twitter_footer.0["#title"] }}" target="_blank">
 
                   <img src="{{ file_url(content.field_twitter_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
@@ -83,7 +83,7 @@
 
               {# ===== ===== Icono facebook ===== ===== #}
               <li class="list-inline-item">
-                
+
                 <a href="{{ content.field_url_facebook_footer.0["#title"] }}" target="_blank">
 
                   <img src="{{ file_url(content.field_facebook_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
@@ -94,7 +94,7 @@
 
               {# ===== ===== Icono youtube ===== ===== #}
               <li class="list-inline-item">
-                
+
                 <a href="{{ content.field_url_youtube_footer.0["#title"] }}" target="_blank">
 
                   <img src="{{ file_url(content.field_youtube_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
@@ -105,7 +105,7 @@
 
               {# ===== ===== Icono instagram ===== ===== #}
               <li class="list-inline-item">
-                
+
                 <a href="{{ content.field_url_instagram_footer.0["#title"] }}" target="_blank">
 
                   <img src="{{ file_url(content.field_instagram_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
@@ -116,7 +116,7 @@
 
               {# ===== ===== Icono likedin ===== ===== #}
               <li class="list-inline-item mt-2">
-                
+
                 <a href="{{ content.field_url_likedin_footer.0["#title"] }}" target="_blank">
 
                   <img src="{{ file_url(content.field_likedin_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
@@ -127,7 +127,7 @@
 
               {# ===== ===== Icono Flickr ===== ===== #}
               <li class="list-inline-item mt-2">
-                
+
                 <a href="{{ content.field_url_flicker_footer.0["#title"] }}" target="_blank">
 
                   <img src="{{ file_url(content.field_flickr_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
@@ -165,9 +165,9 @@
 
             {{ content.field_ntf_judiciales_footer }}
 
-            {{ content.field_email_contacto_footer }}            
+            {{ content.field_email_contacto_footer }}
 
-          </div>          
+          </div>
           <div class="col-12 col-md-6 col-lg-3">
 
              {{ content.field_conmutador }}
@@ -187,7 +187,7 @@
 
             <a href="/transparencia-y-acceso-a-la-informacion-publica/politicas-de-seguridad-de-la-informacion/terminos-y-condiciones-de-uso-del-portal">Políticas de uso</a>
             <p class="text-white"> Copyright &#9400; | {{ "now"|date("Y") }}</p>
-            
+
           </div>
 
           <div class="col-12 col-md-6 mt-5">
@@ -228,9 +228,16 @@ s0.parentNode.insertBefore(s1,s0);
 BTNES DE BARRA DE ACCESIBILIDAD - FONT SIZE, CONTRASTE
 =============================================== #}
 
-<div class="barraLateral d-none d-lg-block"> 
+<div class="barraLateral d-none d-lg-block">
 
   {{ drupal_entity('block', 'contraste', check_access=false) }}
-  {{ drupal_entity('block', 'redimensionar_texto', check_access=false) }} 
-  
+  {#{ drupal_entity('block', 'redimensionar_texto', check_access=false) }#}
+  <div class="text-center mb-3">
+    <a href="javascript:;" class="changer text-white" operador="suma" id="text_resize_increase"><sup>+</sup><i class="fas fa-font"></i></a>
+  </div>
+  <div class="text-center mb-3">
+    <a href="javascript:;" class="changer text-white" operador="resta" id="text_resize_decrease"><sup>-</sup><i class="fas fa-font"></i></a>
+  </div>
+
+
 </div>

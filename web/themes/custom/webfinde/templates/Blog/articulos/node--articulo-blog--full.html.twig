@@ -74,24 +74,25 @@
 {#{ drupal_dump( content ) }#}
 {#{ attach_library('classy/node') }#}
 
-{% 
-    
-  set tipoArticulo = content.field_tipo_de_articulo[0]["#plain_text"]|lower|replace({'á':'a','é':'e','í':'i','ó':'o','ú':'u'})
-    
-%}
+{#
 
-<article{{ attributes.addClass(classes) }}>
+  set tipoArticulo = content.field_tipo_de_articulo[0]["#plain_text"]|lower|replace({'á':'a','é':'e','í':'i','ó':'o','ú':'u'})
+
+#}
+
+<article class="text-rize">
 
   <div class="articuloInternasBlog container" imgFondoEncabezado="{{ file_url(content.field_imagen_fondo_articulo[0]['#item'].entity.uri.value) }}">
 
-    <a {{ create_attribute({'href': ['/blog/tipo-articulo/'~tipoArticulo]}) }}>
+    <!--<a {#{ create_attribute({'href': ['/blog/tipo-articulo/'~tipoArticulo]}) }#}>-->
+    <a href="/blog/tipo-articulo/{{ content.field_tipo_de_articulo[0]["#plain_text"]|lower|replace(' ', '-') }}">
 
       <h5 class="text-center tipoArticulo">{{ content.field_tipo_de_articulo[0]["#plain_text"] }}<h5>
-      
+
     </a>
 
     <h1 class="text-center titulo font-weight-bold">{{ node.label }}</h1>
-    
+
     <div class="w-100 text-center infoSocial">
 
       <p class="text-muted d-inline-block mb-3 mb-sm-0 mr-sm-5">{{ node.created.value|format_date('custom', 'd \\d\\e F \\d\\e Y') }}</p>
@@ -99,21 +100,21 @@
       <a href="javascript:history.back();"><img src="{{ url('<front>') }}themes/custom/webfinde/images/iconos/atras.png" width="30" class="d-inline-block mr-3 mr-sm-5"></a>
 
       {# ===== ===== COMPARTIR REDES SOCIALES ===== ===== #}
-      {{ content.addtoany }}      
-    
-    </div>    
-
-    <div class="cuerpoArticulo font-accesibilidad">
-      
-
-      {{ content.body }}     
+      {{ content.addtoany }}
 
     </div>
-    
+
+    <div class="cuerpoArticulo font-accesibilidad">
+
+
+      {{ content.body }}
+
+    </div>
+
   </div>
 
   {# ============================================
-  Mostrar mas 
+  Mostrar mas
   =============================================== #}
   {{ drupal_view('articulo_blog', 'mas_articulos_contenido_interno') }}
 
