@@ -254,7 +254,12 @@
                     const inc = target / speed;
                     if (count < target) {
                         if (count < 1) {
-                            counter.innerText = (count + inc).toFixed(2);
+                            if(count < 0.001){
+                                counter.innerText = (count + inc).toFixed(5);
+                            }else{
+                                counter.innerText = (count + inc).toFixed(2);
+                            }
+
                         } else {
                             if (Number.isInteger(target)) {
                                 counter.innerText = Math.round(count + inc);
