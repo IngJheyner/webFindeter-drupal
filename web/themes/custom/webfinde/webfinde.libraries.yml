@@ -8,7 +8,10 @@ global:
     js/plugins/dataTable/dataTables.bootstrap4.min.js: {minified: true}
     js/global.js: {}
   dependencies:
+    - core/drupal
+    - core/drupalSettings
     - core/jquery
+    - core/jquery.once
   css:
     theme:
       ../../contrib/bootstrap4/dist/bootstrap/4.6.0/dist/css/bootstrap.min.css: {minified: true}
@@ -20,7 +23,5 @@ global:
 mapaHome:
   js:
     js/mapaHome.js: {}
-  dependencies:
-    - core/jquery
 
 
