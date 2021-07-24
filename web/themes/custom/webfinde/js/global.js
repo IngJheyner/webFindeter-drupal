@@ -12,7 +12,7 @@
 
       attach: function (context, settings) {
 
-            $(document, context).once('webfinde').each( function() {
+            //$(document, context).once('webfinde').each( function() {
 
                 /*===========================================
                 MENU SIDEBAR MOVIL
@@ -216,12 +216,16 @@
                             const inc = target / speed;
                             if (count < target) {
                                 if (count < 1) {
-                                    counter.innerText = (count + inc).toFixed(2);
+                                    if(count < 0.001){
+                                        counter.innerText = (count + inc).toFixed(6);
+                                    }else{
+                                        counter.innerText = (count + inc).toFixed(3);
+                                    }
                                 } else {
                                     if (Number.isInteger(target)) {
                                         counter.innerText = Math.round(count + inc);
                                     } else {
-                                        counter.innerText = (count + inc).toFixed(2);
+                                        counter.innerText = (count + inc).toFixed(3);
                                     }
                                 }
                                 setTimeout(updateCount, 2);
@@ -239,36 +243,30 @@
                     var alturacifras = '';
                 }
 
-                $(window).scroll(function() {
+                if (document.getElementById("block-findeter-cifras-home")) {
 
-                    if ($(window).scrollTop() >= alturacifras + 10) {
+                    $(window).scroll(function() {
+    
+                        if ($(window).scrollTop() >= alturacifras - 200) {
+                            console.log(alturacifras-200);
+                            contador();
+    
+                        }
+    
+                    });
+                }          
+            
 
-                        contador();
+            
+                /* ========= Fin efecto =========== */
 
-                    }
-                };
-                updateCount();
-            });
-        }
-        if (document.getElementById("block-findeter-cifras-home")) {
-            var alturacifras = $("#block-findeter-cifras-home").offset().top;
-        } else {
-            var alturacifras = '';
-        }
-        if (document.getElementById("block-findeter-cifras-home")) {
-
-            $(window).scroll(function() {
-
-                if ($(window).scrollTop() >= alturacifras - 200) {
-                    console.log(alturacifras-200);
-                    contador();
-
-                }
-
-            });
-        }
-        
-        /* ========= Fin efecto =========== */
+                /*===========================================
+                CASOS DE ÉXITO
+                =============================================*/
+                var gridDefecto = $("div.casosExito div.slideCasoExito .slick .slide--0 ul li.grid--0").children().children().children().children().children().children('.contenidoSlider').children('a');
+                
+                console.log("fondo", $(gridDefecto).attr('imgFondo'));
+                $("div.casosExito").css({ 'background': 'url("' + $(gridDefecto).attr('imgFondo') + '")' });
 
                 $("div.casosExito div.contenido h1.tituloCaso").html($(gridDefecto).attr('titulo'));
                 $("div.casosExito div.contenido p.descripcionCaso").html($(gridDefecto).attr('descripcion'));
@@ -519,7 +517,7 @@
                 });
 
 
-            });
+            //});
 
         }
     };

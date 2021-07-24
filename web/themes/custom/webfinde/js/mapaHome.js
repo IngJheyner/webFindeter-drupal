@@ -11,8 +11,6 @@
 
         attach: function(context, settings) {
 
-            $(document, context).once('webfinde').each( function() {
-
                 var Rcar = document.getElementsByClassName('stlRCarIn');
                 var Rcentro = document.getElementsByClassName('stlRCtroIn');
                 var Rpaci = document.getElementsByClassName('stlRPIn');
@@ -210,7 +208,6 @@
                     });
                 }
                 
-            });
         }
     };
 
