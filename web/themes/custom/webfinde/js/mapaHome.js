@@ -7,9 +7,11 @@
 
     'use strict';
 
-    Drupal.behaviors.webfinde = {
+    Drupal.behaviors.mapaHome = {
 
         attach: function(context, settings) {
+
+            //$(document, context).once('mapaHome').each( function() {
 
                 var Rcar = document.getElementsByClassName('stlRCarIn');
                 var Rcentro = document.getElementsByClassName('stlRCtroIn');
@@ -180,6 +182,7 @@
 
                 for (var i = 0; i<Rcar.length; i++){
                     Rcar[i].addEventListener("click",function(){
+
                         for (var j = 0; j<Rcar.length; j++){
                             Rcar[j].style.fill = '#009fe3';
                         }
@@ -207,7 +210,8 @@
                         stlRNocIn.setAttribute('hidden', true);
                     });
                 }
-                
+
+            //});
         }
     };
 

@@ -8,11 +8,11 @@
 
     'use strict';
 
-    Drupal.behaviors.webfinde = {
+    Drupal.behaviors.global = {
 
-      attach: function (context, settings) {
+        attach: function (context, settings) {
 
-            //$(document, context).once('webfinde').each( function() {
+            $(document, context).once('webfinde').each( function() {
 
                 /*===========================================
                 MENU SIDEBAR MOVIL
@@ -261,62 +261,6 @@
                 /* ========= Fin efecto =========== */
 
                 /*===========================================
-                CASOS DE ÉXITO
-                =============================================*/
-                var gridDefecto = $("div.casosExito div.slideCasoExito .slick .slide--0 ul li.grid--0").children().children().children().children().children().children('.contenidoSlider').children('a');
-                
-                console.log("fondo", $(gridDefecto).attr('imgFondo'));
-                $("div.casosExito").css({ 'background': 'url("' + $(gridDefecto).attr('imgFondo') + '")' });
-
-                $("div.casosExito div.contenido h1.tituloCaso").html($(gridDefecto).attr('titulo'));
-                $("div.casosExito div.contenido p.descripcionCaso").html($(gridDefecto).attr('descripcion'));
-                //$("div.casosExito div.contenido a.enlace").attr("href", $(gridDefecto).attr('enlace'));
-
-                if ($(gridDefecto).attr('contenido') != "") {
-                    $("div.casosExito div.contenido div#modalTrayectoria h5").html($(gridDefecto).attr('titulo'));
-                    $("div.casosExito div.contenido div#modalTrayectoria div.modal-body").html($(gridDefecto).attr('contenido'));
-                }
-
-                //Mostrar imagen
-                const mostrarImgCasoExito = (etiqueta) => {
-
-                    /*let imgFondo = $('a', etiqueta).attr('imgFondo');
-                    let titulo = $('a', etiqueta).attr('titulo');
-                    let descripcion = $('a', etiqueta).attr('descripcion');
-                    let enlace = $('a', etiqueta).attr('enlace');*/
-
-                    let imgFondo = $(etiqueta).attr('imgFondo');
-                    let titulo = $(etiqueta).attr('titulo');
-                    let descripcion = $(etiqueta).attr('descripcion');
-                    let contenido = $(etiqueta).attr('contenido');
-                    let enlace = $(etiqueta).attr('enlace');
-                    $("div.casosExito").css({
-                        'background': 'url("' + imgFondo + '")'
-                    });
-                    $("div.casosExito div.contenido h1.tituloCaso").html(titulo);
-                    $("div.casosExito div.contenido p.descripcionCaso").html(descripcion);
-                    $("div.casosExito div.contenido a.enlace").attr("href", enlace);
-                    if (contenido != "") {
-                        $("div.casosExito div.contenido div#modalTrayectoria h5").html(titulo);
-                        $("div.casosExito div.contenido div#modalTrayectoria div.modal-body").html(contenido);
-                    }
-
-                }
-
-                /* ===== ===== Cambiar contenido de casos dinamico ===== ===== */
-                $("div.casosExito div.slideCasoExito div.contenidoSlider").on("click", function() {
-                    mostrarImgCasoExito($(this).children('a'));
-                });
-
-                $("div.casosExito div.slideCasoExito div.contenidoSlider a").on("keypress", function(e) {
-                    let code = (e.keyCode ? e.keyCode : e.which);
-                    if (code == 13) {
-                        mostrarImgCasoExito($(this));
-                    }
-                });
-
-
-                /*===========================================
                 BLOG
                 =============================================*/
 
@@ -488,28 +432,32 @@
 
                     let text_rize = document.querySelector('.text-rize');
 
-                    for(let i =0; i < etiquetas_text_rize.length; i++){
+                    if(text_rize != null){
 
-                        let nodeList = text_rize.querySelectorAll(etiquetas_text_rize[i]);
-                        let nodeArray = Array.apply(null, nodeList);
-                        array_etiqueta_text_rize.push(nodeArray);//2.5rem
+                        for(let i =0; i < etiquetas_text_rize.length; i++){
 
-                        array_etiqueta_text_rize.forEach(element => {
+                            let nodeList = text_rize.querySelectorAll(etiquetas_text_rize[i]);
+                            let nodeArray = Array.apply(null, nodeList);
+                            array_etiqueta_text_rize.push(nodeArray);//2.5rem
 
-                            for(let e = 0; e < element.length; e++){
+                            array_etiqueta_text_rize.forEach(element => {
 
-                                let font_size = $(element[e]).css('font-size');
+                                for(let e = 0; e < element.length; e++){
 
-                                font_size = font_size.replace("px", '');
+                                    let font_size = $(element[e]).css('font-size');
 
-                                const font_size_text = (operador == "suma") ? parseInt(incrementar_text_rize) + parseInt(font_size) : parseInt(font_size) - parseInt(incrementar_text_rize);
-                                $(element[e]).css("font-size", font_size_text+"px");
-                            }
+                                    font_size = font_size.replace("px", '');
 
-                        });
+                                    const font_size_text = (operador == "suma") ? parseInt(incrementar_text_rize) + parseInt(font_size) : parseInt(font_size) - parseInt(incrementar_text_rize);
+                                    $(element[e]).css("font-size", font_size_text+"px");
+                                }
 
-                        array_etiqueta_text_rize = [];
+                            });
+
+                            array_etiqueta_text_rize = [];
+                        }
                     }
+
                 }
 
                 $("#text_resize_decrease, #text_resize_increase").on('click', function(){
@@ -517,8 +465,65 @@
                 });
 
 
-            //});
+            });//each context
 
+            $(document, context).ready(function() {
+
+                /*===========================================
+                CASOS DE ÉXITO
+                =============================================*/
+                let gridDefecto = $("div.casosExito div.slideCasoExito .slick .slide--0 ul li.grid--0").children().children().children().children().children().children('.contenidoSlider').children('a');
+
+                $("div.casosExito").css({ 'background': 'url("' + $(gridDefecto).attr('imgFondo') + '")' });
+
+                $("div.casosExito div.contenido h1.tituloCaso").html($(gridDefecto).attr('titulo'));
+                $("div.casosExito div.contenido p.descripcionCaso").html($(gridDefecto).attr('descripcion'));
+                //$("div.casosExito div.contenido a.enlace").attr("href", $(gridDefecto).attr('enlace'));
+
+                if ($(gridDefecto).attr('contenido') != "") {
+                    $("div.casosExito div.contenido div#modalTrayectoria h5").html($(gridDefecto).attr('titulo'));
+                    $("div.casosExito div.contenido div#modalTrayectoria div.modal-body").html($(gridDefecto).attr('contenido'));
+                }
+
+                //Mostrar imagen
+                const mostrarImgCasoExito = (etiqueta) => {
+
+                    /*let imgFondo = $('a', etiqueta).attr('imgFondo');
+                    let titulo = $('a', etiqueta).attr('titulo');
+                    let descripcion = $('a', etiqueta).attr('descripcion');
+                    let enlace = $('a', etiqueta).attr('enlace');*/
+
+                    let imgFondo = $(etiqueta).attr('imgFondo');
+                    let titulo = $(etiqueta).attr('titulo');
+                    let descripcion = $(etiqueta).attr('descripcion');
+                    let contenido = $(etiqueta).attr('contenido');
+                    let enlace = $(etiqueta).attr('enlace');
+                    $("div.casosExito").css({
+                        'background': 'url("' + imgFondo + '")'
+                    });
+                    $("div.casosExito div.contenido h1.tituloCaso").html(titulo);
+                    $("div.casosExito div.contenido p.descripcionCaso").html(descripcion);
+                    $("div.casosExito div.contenido a.enlace").attr("href", enlace);
+                    if (contenido != "") {
+                        $("div.casosExito div.contenido div#modalTrayectoria h5").html(titulo);
+                        $("div.casosExito div.contenido div#modalTrayectoria div.modal-body").html(contenido);
+                    }
+
+                }
+
+
+                /* ===== ===== Cambiar contenido de casos dinamico ===== ===== */
+                $("div.casosExito div.slideCasoExito div.contenidoSlider").on("click", function() {
+                    mostrarImgCasoExito($(this).children('a'));
+                });
+
+                $("div.casosExito div.slideCasoExito div.contenidoSlider a").on("keypress", function(e) {
+                    let code = (e.keyCode ? e.keyCode : e.which);
+                    if (code == 13) {
+                        mostrarImgCasoExito($(this));
+                    }
+                });
+            });
         }
     };
 })(jQuery, Drupal);
