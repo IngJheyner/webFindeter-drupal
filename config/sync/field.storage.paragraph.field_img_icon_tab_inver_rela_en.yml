@@ -3,9 +3,13 @@ langcode: es
 status: true
 dependencies:
   module:
+    - field_permissions
     - file
     - image
     - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
 id: paragraph.field_img_icon_tab_inver_rela_en
 field_name: field_img_icon_tab_inver_rela_en
 entity_type: paragraph
