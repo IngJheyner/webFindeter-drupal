@@ -127,7 +127,7 @@ section.menuMovil {
             font-size: 2.5rem;
         }
     }
-    nav {
+    div#sidebar {
         min-width: 600px;
         max-width: 600px;
         display: none;
@@ -135,27 +135,32 @@ section.menuMovil {
         flex-flow: column;
         transition: all 0.3s;
         margin-top: 9rem;
-        >ul {
-            flex-direction: initial !important;
-            display: initial;
-            >li {
-                //display: flex;
-                margin-bottom: 2rem;
-                border-bottom: 1px solid var.$color-quinario;
-                >span {
-                    flex: 1 1 auto;
-                }
-                svg {
-                    display: none;
-                }
-                >ul.submenu {
-                    padding: 0;
-                    list-style: none;
-                    li.submenuItems {
-                        padding-left: 1rem;
-                        ul {
-                            list-style: none;
-                            padding: 0;
+        nav.navMenuPrincipal {
+            //background: red;
+            >ul {
+                //background: blue;
+                width: 100%;
+                flex-direction: initial !important;
+                display: initial;
+                >li {
+                    //display: flex;
+                    margin-bottom: 2rem;
+                    border-bottom: 1px solid var.$color-quinario;
+                    >span {
+                        flex: 1 1 auto;
+                    }
+                    svg {
+                        display: none;
+                    }
+                    >ul.submenu {
+                        padding: 0;
+                        list-style: none;
+                        li.submenuItems {
+                            padding-left: 1rem;
+                            ul {
+                                list-style: none;
+                                padding: 0;
+                            }
                         }
                     }
                 }
@@ -183,13 +188,20 @@ MEDIA QUERY
 
 @include media-query.media(xs) {
     .menuGovCo {
-        nav>ul {
-            flex-direction: initial;
-            li:last-child {
-                margin: 0 !important;
-            }
-            li:nth-child(5) {
-                display: block !important;
+        //background: var.$color-primario;
+        nav {
+            float: initial !important;
+            >ul {
+                flex-direction: initial;
+                li:last-child {
+                    margin: 0 !important;
+                }
+                li:nth-child(5) {
+                    display: block !important;
+                }
+                li:not(:nth-child(5)) {
+                    display: none;
+                }
             }
         }
     }

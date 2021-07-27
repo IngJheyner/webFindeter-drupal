@@ -3,6 +3,7 @@ langcode: es
 status: true
 dependencies:
   config:
+    - field.storage.node.field_convcatoria_archivos
     - field.storage.node.field_convcatoria_contractual
     - field.storage.node.field_convcatoria_contratacion
     - field.storage.node.field_convcatoria_departamento
@@ -2135,6 +2136,7 @@ display:
       defaults:
         sorts: false
         fields: false
+        relationships: false
       fields:
         title:
           id: title
@@ -2710,6 +2712,69 @@ display:
           entity_type: node
           entity_field: created
           plugin_id: field
+        field_convcatoria_archivos:
+          id: field_convcatoria_archivos
+          table: node__field_convcatoria_archivos
+          field: field_convcatoria_archivos
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Archivos
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: '=HIPERVINCULO("http://example.microsoft.com/informe/informe presupuestario.xlsx"; "Haga clic para ver el informe")'
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: 1
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: 1
+          group_column: target_id
+          group_columns: {  }
+          group_rows: 1
+          delta_limit: '0'
+          delta_offset: '0'
+          delta_reversed: 0
+          delta_first_last: 0
+          multi_type: separator
+          separator: ', '
+          field_api_classes: 0
+          plugin_id: field
         uid:
           id: uid
           table: node_field_data
@@ -2792,6 +2857,22 @@ display:
               category: ''
               manager: ''
               company: ''
+      pager:
+        type: none
+        options:
+          offset: '0'
+      relationships:
+        uid:
+          id: uid
+          table: node_field_revision
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: Usuario
+          required: true
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
@@ -2801,6 +2882,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:field.storage.node.field_convcatoria_archivos'
         - 'config:field.storage.node.field_convcatoria_contractual'
         - 'config:field.storage.node.field_convcatoria_contratacion'
         - 'config:field.storage.node.field_convcatoria_departamento'
@@ -3372,6 +3454,8 @@ display:
         footer: false
         use_ajax: false
         sorts: false
+        header: false
+        pager: false
       path: admin/exportar-convocatorias
       title: 'Exportar Convocatorias'
       display_description: ''
@@ -3410,20 +3494,7 @@ display:
             administrator: administrator
             secretaria_general: secretaria_general
             c_modificador: c_modificador
-      footer:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content:
-            value: '<button type="button" class="button button--primary" onclick="window.location.href=''/excel-convocatorias''" dowload>Descargar Excel</button>'
-            format: html_editor
-          plugin_id: text
+      footer: {  }
       use_ajax: true
       sorts:
         created:
@@ -3441,6 +3512,41 @@ display:
           entity_type: node
           entity_field: created
           plugin_id: date
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: '<button type="button" class="button button--primary" onclick="window.location.href=''/excel-convocatorias''" dowload>Descargar Excel</button>'
+            format: html_editor
+          plugin_id: text
+      pager:
+        type: full
+        options:
+          items_per_page: 10
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Anterior'
+            next: 'Siguiente ›'
+            first: '« Primera'
+            last: 'Ultima »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
     cache_metadata:
       max-age: -1
       contexts:

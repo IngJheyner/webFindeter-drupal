@@ -1,7 +1,9 @@
 <?php
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Render\Markup;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * @file
@@ -23,25 +25,6 @@ function webfinde_page_attachments_alter(&$page){
 }
 
 /**
- * Implements webfinde_preprocess_text_resize_block
- */
-
-function webfinde_preprocess_text_resize_block(&$variables) {
-    $config = \Drupal::config('text_resize.settings');
-    $settings = $config->get();
-    if ($settings['text_resize_reset_button']) {
-        $variables['content'] = [
-        'output' => t('<a href="javascript:;" class="changer" id="text_resize_decrease"><sup>-</sup>adassd</a> <a href="javascript:;" class="changer" id="text_resize_reset">A</a> <a href="javascript:;" class="changer" id="text_resize_increase"><sup>+</sup>A</a><div id="text_resize_clear"></div>'),
-        ];
-    }
-    else {
-        $variables['content'] = [
-        'output' => t('<div class="text-center mb-3"><a href="javascript:;" class="changer text-white" id="text_resize_decrease"><sup>-</sup><i class="fas fa-font"></i></a></div> <div class="text-center mb-3"><a href="javascript:;" class="changer text-white" id="text_resize_increase"><sup>+</sup><i class="fas fa-font"></i></a></div><div id="text_resize_clear"></div>'),
-        ];
-    }
-}
-
-/**
  * Implements hook_preprocess_views_exposed_form()
  */
 function webfinde_preprocess_views_exposed_form(&$variables) {
@@ -51,4 +34,53 @@ function webfinde_preprocess_views_exposed_form(&$variables) {
         $form['actions']['submit']['#suffix'] = Markup::create('<a href="javascript:void(0)" class="btn btn-primary text-white ml-0 mt-3 mt-md-0 ml-md-5 busquedaAvz"><i class="fas fa-search-plus"></i> Mostrar más campos.</a>');
     }
 }
+
+/**
+ *hook_preprocess_node
+*/
+
+function webfinde_preprocess_node(&$variables) {
+    global $base_url;
+    $currentUser = \Drupal::currentUser();
+    $rolesUser = $currentUser->getRoles();
+
+    /* ===== ===== No se muestra el contenido PQRSD para usuarios anonimos ===== ===== */
+    if($variables['node']->getType() == 'pqrsd'){
+
+        if(in_array('anonymous', $rolesUser)){
+            $response = new RedirectResponse($base_url);
+            $response->send();
+            return;
+        }
+    }
+}
+
+/**
+ * hook_preprocess_search_result
+ */
+function webfinde_preprocess_search_result(&$variables){
+    global $base_url;
+
+    //No se consultan contenido de tipo PQRSD en el buscador del home o cualquier otro.
+    if($variables['result']['node']->getType() == 'pqrsd'){
+        $response = new RedirectResponse($base_url);
+        $response->send();
+        return;
+    }
+}
+
+/**
+ * Implements hook_form_alter
+ */
+function webfinde_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+    if($form['#id'] == 'search-block-form'){
+       $form['actions']['submit']['#value'] = "";
+    }
+    if($form_id == 'search_form'){
+      hide($form['help_link']);
+    }
+
+}
+
 

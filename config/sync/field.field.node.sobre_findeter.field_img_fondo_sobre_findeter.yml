@@ -6,7 +6,30 @@ dependencies:
     - field.storage.node.field_img_fondo_sobre_findeter
     - node.type.sobre_findeter
   module:
+    - disable_field
+    - filefield_paths
     - image
+third_party_settings:
+  filefield_paths:
+    enabled: false
+    file_path:
+      value: webfinder/images/sobre_findeter
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+  disable_field:
+    add_disable: none
+    edit_disable: none
 id: node.sobre_findeter.field_img_fondo_sobre_findeter
 field_name: field_img_fondo_sobre_findeter
 entity_type: node
@@ -18,7 +41,7 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: webfinder/images/sobre_findeter
+  file_directory: webfinde/images/sobre_findeter
   file_extensions: 'png jpg jpeg'
   max_filesize: 2MB
   max_resolution: ''

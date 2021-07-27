@@ -10,10 +10,10 @@
                 transition: 1s all;
             }
             h6.titulo {
-                font-size: 14px;
                 transition: .6s all;
             }
             a.body {
+                font-size: 14px;
                 color: black;
                 &:visited {
                     color: var.$color-cuaternario;
@@ -39,6 +39,10 @@ div.articuloBlogDos {
     @include articulo;
     border-bottom: 2px solid var.$color-quinario;
     padding-bottom: 3rem;
+}
+
+div.pageTipoArticulosBlog {
+    @include articulo;
 }
 
 div.masArticulosInterno {

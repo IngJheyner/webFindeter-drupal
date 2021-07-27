@@ -1,0 +1,114 @@
+uuid: aeb20c29-4aa3-4899-95cb-fa831ee702a5
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.pqrsd.field_pqrsd_archivo
+    - field.field.node.pqrsd.field_pqrsd_asignaciones
+    - field.field.node.pqrsd.field_pqrsd_autorizacion
+    - field.field.node.pqrsd.field_pqrsd_canal_recepcion
+    - field.field.node.pqrsd.field_pqrsd_comentario_traslado
+    - field.field.node.pqrsd.field_pqrsd_departamento
+    - field.field.node.pqrsd.field_pqrsd_descripcion
+    - field.field.node.pqrsd.field_pqrsd_direccion
+    - field.field.node.pqrsd.field_pqrsd_email
+    - field.field.node.pqrsd.field_pqrsd_fax
+    - field.field.node.pqrsd.field_pqrsd_fecha_naranja
+    - field.field.node.pqrsd.field_pqrsd_fecha_respuesta
+    - field.field.node.pqrsd.field_pqrsd_fecha_roja
+    - field.field.node.pqrsd.field_pqrsd_forma_recepcion
+    - field.field.node.pqrsd.field_pqrsd_grupo_etnico
+    - field.field.node.pqrsd.field_pqrsd_marketing
+    - field.field.node.pqrsd.field_pqrsd_medio_respuesta
+    - field.field.node.pqrsd.field_pqrsd_motivo
+    - field.field.node.pqrsd.field_pqrsd_municipio
+    - field.field.node.pqrsd.field_pqrsd_nit
+    - field.field.node.pqrsd.field_pqrsd_nombre_producto
+    - field.field.node.pqrsd.field_pqrsd_numero_id
+    - field.field.node.pqrsd.field_pqrsd_numero_radicado
+    - field.field.node.pqrsd.field_pqrsd_otros
+    - field.field.node.pqrsd.field_pqrsd_palabras_clave
+    - field.field.node.pqrsd.field_pqrsd_preferencial
+    - field.field.node.pqrsd.field_pqrsd_primer_apellido
+    - field.field.node.pqrsd.field_pqrsd_primer_nombre
+    - field.field.node.pqrsd.field_pqrsd_rango_edad
+    - field.field.node.pqrsd.field_pqrsd_razon_social
+    - field.field.node.pqrsd.field_pqrsd_respuesta
+    - field.field.node.pqrsd.field_pqrsd_respuesta_a_favor
+    - field.field.node.pqrsd.field_pqrsd_respuesta_archivos
+    - field.field.node.pqrsd.field_pqrsd_segundo_apellido
+    - field.field.node.pqrsd.field_pqrsd_segundo_nombre
+    - field.field.node.pqrsd.field_pqrsd_telefono
+    - field.field.node.pqrsd.field_pqrsd_tipo_discapacidad
+    - field.field.node.pqrsd.field_pqrsd_tipo_documento
+    - field.field.node.pqrsd.field_pqrsd_tipo_empresa
+    - field.field.node.pqrsd.field_pqrsd_tipo_peticion
+    - field.field.node.pqrsd.field_pqrsd_tipo_radicado
+    - field.field.node.pqrsd.field_pqrsd_tipo_solicitante
+    - node.type.pqrsd
+  module:
+    - layout_builder
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.pqrsd.search_result
+targetEntityType: node
+bundle: pqrsd
+mode: search_result
+content:
+  field_pqrsd_numero_radicado:
+    weight: 140
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  addtoany: true
+  field_pqrsd_archivo: true
+  field_pqrsd_asignaciones: true
+  field_pqrsd_autorizacion: true
+  field_pqrsd_canal_recepcion: true
+  field_pqrsd_comentario_traslado: true
+  field_pqrsd_departamento: true
+  field_pqrsd_descripcion: true
+  field_pqrsd_direccion: true
+  field_pqrsd_email: true
+  field_pqrsd_fax: true
+  field_pqrsd_fecha_naranja: true
+  field_pqrsd_fecha_respuesta: true
+  field_pqrsd_fecha_roja: true
+  field_pqrsd_forma_recepcion: true
+  field_pqrsd_grupo_etnico: true
+  field_pqrsd_marketing: true
+  field_pqrsd_medio_respuesta: true
+  field_pqrsd_motivo: true
+  field_pqrsd_municipio: true
+  field_pqrsd_nit: true
+  field_pqrsd_nombre_producto: true
+  field_pqrsd_numero_id: true
+  field_pqrsd_otros: true
+  field_pqrsd_palabras_clave: true
+  field_pqrsd_preferencial: true
+  field_pqrsd_primer_apellido: true
+  field_pqrsd_primer_nombre: true
+  field_pqrsd_rango_edad: true
+  field_pqrsd_razon_social: true
+  field_pqrsd_respuesta: true
+  field_pqrsd_respuesta_a_favor: true
+  field_pqrsd_respuesta_archivos: true
+  field_pqrsd_segundo_apellido: true
+  field_pqrsd_segundo_nombre: true
+  field_pqrsd_telefono: true
+  field_pqrsd_tipo_discapacidad: true
+  field_pqrsd_tipo_documento: true
+  field_pqrsd_tipo_empresa: true
+  field_pqrsd_tipo_peticion: true
+  field_pqrsd_tipo_radicado: true
+  field_pqrsd_tipo_solicitante: true
+  langcode: true
+  links: true

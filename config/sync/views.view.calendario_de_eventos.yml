@@ -450,7 +450,12 @@ display:
         arguments: false
         header: false
         css_class: false
-      css_class: container-fluid
+        pager: false
+      css_class: 'container my-5'
+      pager:
+        type: calendar
+        options:
+          exclude_display: 0
     cache_metadata:
       max-age: 0
       contexts:
