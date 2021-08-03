@@ -84,16 +84,16 @@
 
 {% if node.isPublished() %}
 
-<article{{ attributes.addClass(classes) }}>  
+<article{{ attributes.addClass(classes) }}>
 
   {# ===== ===== Encabezado ===== ===== #}
   {{ drupal_block('block_content:6699f94b-8e4f-4c82-b46b-49c63d21f502') }}
-  
+
   <div class="container my-5">
 
-    <div{{ content_attributes.addClass('node__content') }}> 
+    <div{{ content_attributes.addClass('node__content') }}>
 
-      {# ===== ===== Titulo ===== ===== #} 
+      {# ===== ===== Titulo ===== ===== #}
       <div class="titulo mb-4">
 
         <h1>{{ ""|t }} {{ label }}</h1>
@@ -104,9 +104,9 @@
       <div class="table-responsive">
 
         <table class="table table-condensed">
-        
+
           <tbody>
-          
+
             <tr class="bg-dark">
 
               <td colspan="2" scope="col">
@@ -116,91 +116,91 @@
               </td>
 
             <tr>
-            
+
             {# ===== ===== Programa ===== ===== #}
             <tr>
-            
+
               <td>
                 <b> {{ "Programa:"|t }} </b><br>
                 <b> {{ "Convenio:"|t }} </b><br>
               </td>
-            
+
               <td>{{ content.field_convcatoria_programa.0 }}</td>
-            
+
             <tr>
-            
+
             {# ===== ===== Codigo del proceso ===== ===== #}
             <!--<tr>
-            
+
             <td><b> {#{ "Código del proceso:"|t }#} </b></td>
-            
+
             <td>{#{ label }#}</td>
-            
+
             <tr>-->
-            
+
             {# ===== ===== Tipologías contractuales ===== ===== #}
             <tr>
-          
+
               <td><b> {{ "Tipología contractual:"|t }} </b></td>
-            
+
               <td>{{ content.field_convcatoria_contractual.0 }}</td>
-            
+
             <tr>
-            
+
             {# ===== ===== Estado del proceso ===== ===== #}
             <tr>
-            
+
               <td><b> {{ "Estado del proceso:"|t }} </b></td>
-            
+
               <td>{{ content.field_convcatoria_estado.0 }}</td>
-            
+
             <tr>
-            
+
             {# ===== ===== Tipo Forma de Pago ===== ===== #}
             <tr>
-          
+
               <td><b> {{ "Tipo forma de pago:"|t }} </b></td>
-              
+
               <td>{{ content.field_convcatoria_forma_pago.0 }}</td>
-            
+
             <tr>
-            
+
             {# ===== ===== Objeto de la convocatoria ===== ===== #}
             <tr>
-            
+
               <td width="200"><b> {{ "Objeto de la convocatoria:"|t }} </b></td>
-            
+
             <td>{{ content.field_convcatoria_objeto.0 }}</td>
-            
+
             <tr>
-          
+
             {# ===== ===== Cuantia a contratar ===== ===== #}
             <tr>
-            
+
               <td><b> {{ "Cuantia a contratar:"|t }} </b></td>
-            
+
               <td>{{ content.field_convcatoria_presupuesto.0 }} {{ content.field_convcatoria_moneda.0 }} </td>
-            
+
             <tr>
-            
+
             {# ===== ===== Modalidad ===== ===== #}
             <tr>
-          
+
               <td><b> {{ "Modalidad de contratación:"|t }} </b></td>
-            
+
             <td>{{ content.field_convcatoria_contratacion.0 }}</td>
-            
+
             <tr>
-          
+
             {# ===== ===== Ultima fecha de actualizacion ===== ===== #}
             <tr>
-            
+
               <td><b> {{ "Ultima fecha de actualización:"|t }} </b></td>
-            
+
               <td><i class="far fa-calendar-alt"></i> {{ node.published_at.value|date('Y-m-d') }}</td>
-            
+
             <tr>
-          
+
             {# ============================================
             Ubicacion Geografica
             =============================================== #}
@@ -209,16 +209,16 @@
               <h5 class="text-white">2. {{ "Ubicación geográfica del proceso"|t }}</h5>
               </td>
             <tr>
-          
+
             {# ===== ===== Departamento y Municipio ===== ===== #}
             <tr>
-            
+
               <td><b> {{ "Departamento y Municipio:"|t }} </b></td>
-            
+
               <td>{{ content.field_convcatoria_departamento }}</td>
-            
+
             <tr>
-            
+
             {# ============================================
             3.	Datos de contacto del proceso
             =============================================== #}
@@ -227,16 +227,16 @@
                 <h5 class="text-white">3. Datos de contacto del proceso</h5>
               </td>
             <tr>
-            
+
             {# ===== ===== DCorreo electrónico de contacto del proceso ===== ===== #}
             <tr>
-            
+
               <td><b> {{ "Correo electrónico:"|t }} </b></td>
-            
+
               <td><a href="mailto:{{ content.field_convcatoria_email_proceso.0 }}">{{ content.field_convcatoria_email_proceso.0 }}</a></td>
-            
+
             <tr>
-          
+
             {# ============================================
             4. Documentos del proceso
             =============================================== #}
@@ -245,37 +245,37 @@
                 <h5 class="text-white">4. Documentos del proceso</h5>
               </td>
             <tr>
-        
-          </tbody>        
+
+          </tbody>
         </table>
       </div>
 
       <div class="table-responsive">
 
         <table id="tableDetalleConvocatorias" class="table">
-        
+
           <thead>
-          
+
           <tr>
             <th>{{ "Tipo de documento"|t }}</th>
             <th>{{ "Archivo"|t }}</th>
             <th>{{ "Fecha de publicación"|t }}</th>
           </tr>
-          
+
           </thead>
-          
+
           <tbody>
-          
+
             {{ content.field_convcatoria_archivos }}
-          
+
           </tbody>
-        
+
         </table>
 
-      </div>  
+      </div>
     </div>
 
-  </div>  
+  </div>
 
 </article>
 

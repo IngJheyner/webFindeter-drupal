@@ -43,17 +43,21 @@
  */
 #}
 {%
-set nav_classes = 'navbar navbar-expand-lg' ~ 
+set nav_classes = 'navbar navbar-expand-lg' ~
   (b4_navbar_schema != 'none' ? " navbar-#{b4_navbar_schema}" : ' ') ~
   (b4_navbar_schema != 'none' ? (b4_navbar_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
   (b4_navbar_bg_schema != 'none' ? " bg-#{b4_navbar_bg_schema}" : ' ')
 %}
 
 {%
-set footer_classes = ' ' ~ 
+set footer_classes = ' ' ~
   (b4_footer_schema != 'none' ? " footer-#{b4_footer_schema}" : ' ') ~
   (b4_footer_schema != 'none' ? (b4_footer_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
   (b4_footer_bg_schema != 'none' ? " bg-#{b4_footer_bg_schema}" : ' ')
+%}
+
+{%
+  set text_rize = is_front == false ? "text-rize" : ''
 %}
 
 {# ============================================
@@ -63,13 +67,13 @@ HEADER(ENCABEZADO)
 
   <header class="container-fluid p-0">
 
-    {{ page.region_A }}  
+    {{ page.region_A }}
 
   </header>
 
 {% endif %}
 
-<main role="main">
+<main role="main" {{ attributes.addClass(text_rize) }}>
 
 {# ============================================
 RENDERIZAR FORMULARIO LADING PAGE
@@ -87,7 +91,7 @@ RENDERIZAR FORMULARIO LADING PAGE
 
     </section>
 
-  {% endif %}  
+  {% endif %}
 
 </main>
 
