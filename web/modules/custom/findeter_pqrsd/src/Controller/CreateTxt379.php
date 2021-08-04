@@ -4,10 +4,13 @@ namespace Drupal\findeter_pqrsd\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
+use Exception;
 use PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Month;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Class CreateTxt379Controller.
@@ -19,21 +22,35 @@ class CreateTxt379 extends ControllerBase {
    */
   public function reportFormat379(Request $request){
 
+
     $fecha_inicio = strtotime($request->query->get('trimestre-inicio'));
     $fecha_final = strtotime($request->query->get('trimestre-fin'));
-    $fecha = strtotime(new DrupalDateTime());
-    $fecha_periodo = date('dmY', $fecha_final);
 
-    if(date('n',$fecha_inicio)>= 1 && date('n',$fecha_final) <= 3){
+    if(!empty($fecha_inicio) && !empty($fecha_final)){
+
+      $fecha = strtotime(new DrupalDateTime());
+      $fecha_periodo = date('dmY', $fecha_final);
+
+    }else{
+      $this->messenger()->addWarning('Seleccione una fecha de  creación trimestral para el fomato 379.');
+      $url = Url::fromRoute('view.pqrsd.page_2');
+      $response = new RedirectResponse($url->toString(), 302);
+      return $response->send();
+    }
+    if(date('n',$fecha_inicio)>= 1 && date('n',$fecha_final) <= 3 && date('n',$fecha_inicio) !== date('n',$fecha_final)){
       $periodo = 1;
-    }elseif(date('n',$fecha_inicio)>= 4 && date('n',$fecha_final) <= 6){
+    }elseif(date('n',$fecha_inicio)>= 4 && date('n',$fecha_final) <= 6 && date('n',$fecha_inicio) !== date('n',$fecha_final)){
       $periodo = 2;
-    }elseif(date('n',$fecha_inicio)>= 7 && date('n',$fecha_final) <= 9){
+    }elseif((date('n',$fecha_inicio)>= 7 && date('n',$fecha_final) <= 9) && date('n',$fecha_inicio) !== date('n',$fecha_final)){
       $periodo = 3;
-    }elseif(date('n',$fecha_inicio)>= 10 && date('n',$fecha_final) <= 12){
+    }elseif(date('n',$fecha_inicio)>= 10 && date('n',$fecha_final) <= 12 && date('n',$fecha_inicio) !== date('n',$fecha_final)){
       $periodo = 4;
-    }else
-      $periodo = 'NA';
+    }else{
+      $this->messenger()->addWarning('La fecha seleccionada no corresponde a un periodo trimestral.');
+      $url = Url::fromRoute('view.pqrsd.page_2');
+      $response = new RedirectResponse($url->toString(), 302);
+      return $response->send();
+    }
 
 
     $query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
@@ -69,7 +86,6 @@ class CreateTxt379 extends ControllerBase {
       'Content-Description' => 'File Download',
       'Content-Disposition' => 'attachment; filename=formato379.txt'
     ];
-
     return new BinaryFileResponse($uri, 200, $headers, true );
   }
 
