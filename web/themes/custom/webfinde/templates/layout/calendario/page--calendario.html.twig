@@ -42,34 +42,29 @@
  * @see html.html.twig
  */
 #}
-{%
-set nav_classes = 'navbar navbar-expand-lg' ~ 
-  (b4_navbar_schema != 'none' ? " navbar-#{b4_navbar_schema}" : ' ') ~
-  (b4_navbar_schema != 'none' ? (b4_navbar_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
-  (b4_navbar_bg_schema != 'none' ? " bg-#{b4_navbar_bg_schema}" : ' ')
-%}
-
-{%
-set footer_classes = ' ' ~ 
-  (b4_footer_schema != 'none' ? " footer-#{b4_footer_schema}" : ' ') ~
-  (b4_footer_schema != 'none' ? (b4_footer_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
-  (b4_footer_bg_schema != 'none' ? " bg-#{b4_footer_bg_schema}" : ' ')
-%}
 
 {# ============================================
 HEADER(ENCABEZADO)
 =============================================== #}
-{% if page.region_A %}
+<header class="container-fluid p-0">
 
-  <header class="container-fluid p-0 headerCalendario">
+  {% if page.region_A %}
 
-    {{ page.region_A }} 
+    {{ page.region_A }}
+
+  {% endif %}
+
+</header>
+
+<main role="main">
+
+  <section class="headerCalendario">
 
     <figure class="w-100">
 
       <img src="../themes/custom/webfinde/images/iconos/fondo_cabezote.png" class="img-fluid w-100">
 
-    </figure>  
+    </figure>
 
     <div class="encabezado container">
 
@@ -77,16 +72,7 @@ HEADER(ENCABEZADO)
 
     </div>
 
-  </header>
-
-{% endif %}
-
-<main role="main">
-
-{# ============================================
-RENDERIZAR FORMULARIO LADING PAGE
-=============================================== #}
-{#{ drupal_entity('webform', 'formulario_lading_page' )}#}
+  </section>
 
   {# ============================================
   REGION B
@@ -99,7 +85,7 @@ RENDERIZAR FORMULARIO LADING PAGE
 
     </section>
 
-  {% endif %}  
+  {% endif %}
 
 </main>
 
