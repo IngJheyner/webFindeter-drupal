@@ -4,8 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.node.6_1_politicas_lineamientos_y_man.field_cont_politicas_lineamiento
+    - field.field.node.6_1_politicas_lineamientos_y_man.field_tr_6_1_docu_tipo_doc
+    - field.field.node.6_1_politicas_lineamientos_y_man.field_tr_taxo_tipo_de_documento
     - node.type.6_1_politicas_lineamientos_y_man
   module:
+    - file
     - text
     - user
 id: node.6_1_politicas_lineamientos_y_man.default
@@ -19,6 +22,22 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_tr_6_1_docu_tipo_doc:
+    weight: 102
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_tr_taxo_tipo_de_documento:
+    weight: 103
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   links:
     weight: 100

@@ -1,0 +1,35 @@
+uuid: 13e63db2-cb8a-47cc-9862-6ebee3694c28
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tr_taxo_tipo_de_documento
+    - node.type.6_1_politicas_lineamientos_y_man
+    - taxonomy.vocabulary.tipo_documentos_o_link_transpare
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.6_1_politicas_lineamientos_y_man.field_tr_taxo_tipo_de_documento
+field_name: field_tr_taxo_tipo_de_documento
+entity_type: node
+bundle: 6_1_politicas_lineamientos_y_man
+label: 'Tipo de documento'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tipo_documentos_o_link_transpare: tipo_documentos_o_link_transpare
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

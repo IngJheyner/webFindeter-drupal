@@ -1,0 +1,50 @@
+uuid: 477f20ee-4520-4494-96e8-136c7aace5cc
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tr_6_1_docu_tipo_doc
+    - node.type.6_1_politicas_lineamientos_y_man
+  module:
+    - disable_field
+    - file
+    - filefield_paths
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: webfinde/transparencia/6_1_politicas_lineamientos
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.6_1_politicas_lineamientos_y_man.field_tr_6_1_docu_tipo_doc
+field_name: field_tr_6_1_docu_tipo_doc
+entity_type: node
+bundle: 6_1_politicas_lineamientos_y_man
+label: 'Archivo:'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt xlsx xls doc pdf docx'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

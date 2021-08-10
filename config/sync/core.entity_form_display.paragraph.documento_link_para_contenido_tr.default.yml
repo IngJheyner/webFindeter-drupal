@@ -1,0 +1,23 @@
+uuid: 0e648f40-5103-4dd5-b471-da0b569ecdd8
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.documento_link_para_contenido_tr.field_tr_para_nomb_doc_link
+    - paragraphs.paragraphs_type.documento_link_para_contenido_tr
+id: paragraph.documento_link_para_contenido_tr.default
+targetEntityType: paragraph
+bundle: documento_link_para_contenido_tr
+mode: default
+content:
+  field_tr_para_nomb_doc_link:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.6_1_politicas_lineamientos_y_man.field_cont_politicas_lineamiento
+    - field.field.node.6_1_politicas_lineamientos_y_man.field_tr_6_1_docu_tipo_doc
+    - field.field.node.6_1_politicas_lineamientos_y_man.field_tr_taxo_tipo_de_documento
     - node.type.6_1_politicas_lineamientos_y_man
   module:
     - user
@@ -21,5 +23,7 @@ content:
 hidden:
   addtoany: true
   field_cont_politicas_lineamiento: true
+  field_tr_6_1_docu_tipo_doc: true
+  field_tr_taxo_tipo_de_documento: true
   langcode: true
   search_api_excerpt: true
