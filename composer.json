@@ -74,6 +74,7 @@
         "drupal/readonlymode": "^1.1",
         "drupal/recaptcha": "^3.0",
         "drupal/redirect": "^1.6",
+        "drupal/redis": "^1.5",
         "drupal/search_api": "^1.17",
         "drupal/search_autocomplete": "^2.0",
         "drupal/search_kint": "^1.0",
@@ -176,6 +177,9 @@
                 "Multiple usages of FieldPluginBase::getEntity do not check for NULL, leading to WSOD": "https://www.drupal.org/files/issues/2020-09-03/3007424-108.patch",
                 "AssertionError: Tokens need to be valid Twig variables. in assert": "https://www.drupal.org/files/issues/2019-05-22/views-ignore_invalid_tokens_in_replace-3056489-1-D8.6.16.patch",
                 "Exposed date filter leads to a notice": "https://www.drupal.org/files/issues/2020-11-12/2811887-53.patch"
+            },
+            "drupal/redis": {
+                "Default lifetime for permanent TTL": "https://www.drupal.org/files/issues/2020-09-23/redis-default_permanent_ttl-2944938.patch"
             }
         }
     }

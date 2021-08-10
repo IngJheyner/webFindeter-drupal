@@ -75,11 +75,6 @@ HEADER(ENCABEZADO)
 
 <main role="main" {{ attributes.addClass(text_rize) }}>
 
-{# ============================================
-RENDERIZAR FORMULARIO LADING PAGE
-=============================================== #}
-{#{ drupal_entity('webform', 'formulario_lading_page' )}#}
-
   {# ============================================
   REGION B
   =============================================== #}
@@ -88,6 +83,19 @@ RENDERIZAR FORMULARIO LADING PAGE
     <section class="container-fluid p-0">
 
       {{ page.region_B }}
+
+    </section>
+
+  {% endif %}
+
+  {# ============================================
+  REGION C
+  =============================================== #}
+  {% if page.region_C %}
+
+    <section class="container-fluid p-0">
+
+      {{ page.region_C }}
 
     </section>
 

@@ -55,19 +55,21 @@
 
 {% if label_hidden %}
 
-  {% if multiple %}    
+  {% if multiple %}
 
-      {% for key, item in items %}       
+      {% for key, item in items %}
+
+        {% set nombre_items =  item.content["#context"].value|replace({'á':'a', 'é':'e', 'í':'i', 'ó':'o', 'ú':'u', ' ':''})|lower %}
 
         <li class="nav-item flex-fill">
-        
-          <a class="text-center nav-link {{ key == 0 ? 'active' : '' }}" id="paragra-{{ key }}-tab" data-toggle="tab" href="#paragra-{{ key }}" 
-          role="tab" aria-controls="paragra-{{ key }}" aria-selected="true">
+
+          <a class="text-center nav-link {{ key == 0 ? 'active' : '' }}" id="paragra-{{ key }}-tab" data-toggle="tab" href="#paragra-{{ key }}"
+          role="tab" aria-controls="paragra-{{ key }}" aria-selected="true" nombre-items="{{ nombre_items }}">
 
             {{ item.content }}
 
           </a>
-        
+
         </li>
 
       {% endfor %}
@@ -77,14 +79,14 @@
     {% for item in items %}
 
       <li class="nav-item flex-fill">
-        
-        <a class="text-center nav-link active" id="home-tab" data-toggle="tab" href="#home" 
+
+        <a class="text-center nav-link active" id="home-tab" data-toggle="tab" href="#home"
         role="tab" aria-controls="home" aria-selected="true">
 
           {{ item.content }}
 
         </a>
-        
+
       </li>
 
     {% endfor %}

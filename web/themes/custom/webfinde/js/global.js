@@ -137,6 +137,40 @@
                 /* ===== ===== INTERNAS ===== ===== */
                 let iterarTab = 0;
 
+                /* ===== ===== Activar el tab principal al venir por url ===== ===== */
+                let hash_productos_servicios = window.location.hash.toString().replace(/^#|-/g,'');
+
+                if(hash_productos_servicios !== ""){
+
+                    let tab_pane = "";
+
+                    $('.productoServicios .cuerpoContenido ul.tabPrincipal li a').each(function(index, element){
+
+                        $(element).removeClass('active');
+
+                        if($(element).attr("nombre-items") === hash_productos_servicios){
+                            tab_pane = $(element).attr("aria-controls");
+                            $(element).addClass("active");
+                        }
+
+                    });
+
+                    $('.productoServicios #myTabContentPrincipal .tab-pane').each(function(index, element){
+
+                        $(element).removeClass('active show');
+
+                        if(tab_pane === $(element).attr('id')){
+
+                            $(element).addClass('active show');
+
+                            $('html, body').animate({
+                                scrollTop: $(".productoServicios .cuerpoContenido ul.tabPrincipal").offset().top
+                            }, 2000);
+
+                        }
+                    });
+                }
+
                 /* ===== ===== Cambio de atributos al cambiar en los tabs principal, usabilidad interna ===== ===== */
                 $('.productoServicios .cuerpoContenido ul.tabPrincipal li a').on("click", function() {
 
