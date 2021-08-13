@@ -282,7 +282,7 @@
                     $(window).scroll(function() {
 
                         if ($(window).scrollTop() >= alturacifras - 200) {
-                            console.log(alturacifras-200);
+
                             contador();
 
                         }
