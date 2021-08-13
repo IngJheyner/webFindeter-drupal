@@ -4,11 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.6_1_politicas_lineamientos_y_man.field_cont_politicas_lineamiento
-    - field.field.node.6_1_politicas_lineamientos_y_man.field_tr_6_1_docu_tipo_doc
-    - field.field.node.6_1_politicas_lineamientos_y_man.field_tr_taxo_tipo_de_documento
+    - field.field.node.6_1_politicas_lineamientos_y_man.field_tr_parag_archivo_politicas
     - node.type.6_1_politicas_lineamientos_y_man
   module:
-    - file
+    - paragraphs
     - path
     - text
 id: node.6_1_politicas_lineamientos_y_man.default
@@ -30,22 +29,17 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
-  field_tr_6_1_docu_tipo_doc:
+  field_tr_parag_archivo_politicas:
+    type: entity_reference_paragraphs
     weight: 122
     settings:
-      progress_indicator: throbber
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
     third_party_settings: {  }
-    type: file_generic
-    region: content
-  field_tr_taxo_tipo_de_documento:
-    weight: 123
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
     region: content
   langcode:
     type: language_select

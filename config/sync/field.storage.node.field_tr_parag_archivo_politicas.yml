@@ -1,21 +1,22 @@
-uuid: e39d845b-182f-4158-9808-7d5344f54d58
+uuid: 373a7908-a664-426a-968b-62d35da35f82
 langcode: es
 status: true
 dependencies:
   module:
+    - entity_reference_revisions
     - field_permissions
     - node
-    - taxonomy
+    - paragraphs
 third_party_settings:
   field_permissions:
     permission_type: public
-id: node.field_tr_taxo_tipo_de_documento
-field_name: field_tr_taxo_tipo_de_documento
+id: node.field_tr_parag_archivo_politicas
+field_name: field_tr_parag_archivo_politicas
 entity_type: node
-type: entity_reference
+type: entity_reference_revisions
 settings:
-  target_type: taxonomy_term
-module: core
+  target_type: paragraph
+module: entity_reference_revisions
 locked: false
 cardinality: -1
 translatable: true

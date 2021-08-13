@@ -1,22 +1,20 @@
-uuid: 607acce1-5d32-49b4-9db5-f2f74ceb19e4
+uuid: 0f3c9471-19c7-462a-a990-878ad3e72084
 langcode: es
 status: true
 dependencies:
   module:
     - field_permissions
+    - link
     - paragraphs
 third_party_settings:
   field_permissions:
     permission_type: public
-id: paragraph.field_tr_para_nomb_doc_link
-field_name: field_tr_para_nomb_doc_link
+id: paragraph.field_tr_pargr_enlace_sitio_cont
+field_name: field_tr_pargr_enlace_sitio_cont
 entity_type: paragraph
-type: string
-settings:
-  max_length: 500
-  is_ascii: false
-  case_sensitive: false
-module: core
+type: link
+settings: {  }
+module: link
 locked: false
 cardinality: 1
 translatable: true
