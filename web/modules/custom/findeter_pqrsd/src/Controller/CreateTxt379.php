@@ -78,16 +78,33 @@ class CreateTxt379 extends ControllerBase {
 
           case 'credito':
 
-            if(!isset($node->get('field_pqrsd_respuesta')->getValue()[0]['value']))
-              $re_pe_1 += 1;//1
+            if($node->get('created')->getValue()[0]['value'] < $fecha_inicio){
+              if(isset($node->get('field_pqrsd_respuesta')->getValue()[0]['value'])){
+                if($node->get('field_pqrsd_fecha_respuesta')->getValue()[0]['value'] >= date("Y-m-d", $fecha_inicio)){
+                  $re_pe_1 += 1;//1
+                }
+              }else{
+                $re_pe_1 += 1;//1
+              }
+            }
+
             if($node->get('created')->getValue()[0]['value'] >= $fecha_inicio)
               $re_rb_1 += 1;//2
             break;
 
           case 'microcredito':
 
-            if(!isset($node->get('field_pqrsd_respuesta')->getValue()[0]['value']))
-              $re_pe_2 += 1;//1
+            if($node->get('created')->getValue()[0]['value'] < $fecha_inicio){
+
+              if(isset($node->get('field_pqrsd_respuesta')->getValue()[0]['value'])){
+                if($node->get('field_pqrsd_fecha_respuesta')->getValue()[0]['value'] >= date("Y-m-d", $fecha_inicio)){
+                  $re_pe_2 += 1;//1
+                }
+              }else{
+                $re_pe_2 += 1;//1
+              }
+            }
+
             if($node->get('created')->getValue()[0]['value'] >= $fecha_inicio)
               $re_rb_2 += 1;//2
             break;
@@ -232,7 +249,7 @@ class CreateTxt379 extends ControllerBase {
     $uri = $my_path."/reporte_379/$file_name";
 
     if (file_put_contents($uri, $datos) === FALSE){
-      $this->messenger()->addError('Hubo problemas al crear el archivo. Si el problema persiste ponerse en contacto con el administrador. Linea 227');
+      $this->messenger()->addError('Hubo problemas al crear el archivo. Contacte con el administrador.');
       $url = Url::fromRoute('view.pqrsd.page_2');
       $response = new RedirectResponse($url->toString(), 302);
       return $response->send();
