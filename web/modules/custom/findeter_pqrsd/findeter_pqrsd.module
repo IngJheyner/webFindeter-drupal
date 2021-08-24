@@ -672,6 +672,8 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
   $field = $variables['field'];
   $row = $variables['row'];
 
+  $currentUser = \Drupal::currentUser();
+  $rolesUser = $currentUser->getRoles();
 
   if ($view->storage->id() == 'pqrsd'){
 
@@ -703,7 +705,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
         $modalLink['#attributes'] = $modalOptions;
         $htmlOutput .='<br>'.render($modalLink).'<br>';
 
-        if($view->field['field_pqrsd_respuesta']->original_value == ''){
+        if($view->field['field_pqrsd_respuesta']->original_value == '' && !in_array('auditor_pqrsd',$rolesUser)){
 
           $url = Url::fromRoute('findeter_pqrsd.update_pqrsd_admin', ['nid' => $nid]);
           $modalLink = Link::fromTextAndUrl('Editar', $url);
@@ -915,7 +917,7 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
     $args[0] = $currentUser->id();
 
     // if user is admin, remove argument to show all nodes
-    if(in_array('administrator',$rolesUser)){
+    if(in_array('administrator',$rolesUser) || in_array('auditor_pqrsd',$rolesUser)){
       unset($args[0]);
     }
 
