@@ -119,3 +119,11 @@ findeter_pqrsd.expor_report_excel:
   path: '/reporte-excel-pqrsd/{filter}'
   requirements:
     _user_is_logged_in: 'TRUE'
+
+findeter_pqrsd.export_format_379:
+  path: '/reporte-formato-379'
+  defaults:
+    _controller: '\Drupal\findeter_pqrsd\Controller\CreateTxt379::reportFormat379'
+    _title: 'Reporte formato 379'
+  requirements:
+    _user_is_logged_in: 'TRUE'

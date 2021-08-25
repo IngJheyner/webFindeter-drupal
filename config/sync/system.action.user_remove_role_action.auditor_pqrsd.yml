@@ -1,0 +1,14 @@
+uuid: eff40eca-8edb-43ca-8685-fb6d4677aea4
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.auditor_pqrsd
+  module:
+    - user
+id: user_remove_role_action.auditor_pqrsd
+label: 'Elimina el rol PQRSD Auditor al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: auditor_pqrsd
