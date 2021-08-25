@@ -258,6 +258,7 @@ class CreateTxt379 extends ControllerBase {
     $headers = [
       'Content-Type' => 'text/*',
       'Content-Description' => 'File Download',
+      //'Charset' => 'UTF-8-BOM',
       'Content-Disposition' => "attachment; filename=$file_name"
     ];
 
