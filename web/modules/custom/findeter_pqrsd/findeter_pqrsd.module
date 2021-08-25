@@ -175,6 +175,38 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
     $form['#attached']['library'][] = 'findeter_pqrsd/admin_pages';
   }
 
+  /* ============================================
+  REPORTES
+  -Se crea los campos fecha para generar el formato 379
+  =============================================== */
+
+  if($form['#id'] == 'views-exposed-form-pqrsd-page-2'){
+
+    $form['fecha-vencimiento']['#suffix'] = Markup::create('
+    <div
+    style="clear:left; width:100%" id="formato_379">
+      Los siguientes campos se utilizan para descargar el <em><strong>reporte 379</strong></em> trimestral.<br>
+    </div>');
+
+    $form['trimestre-inicio'] = [
+      '#type' => 'textfield',
+      '#title' =>t('Fecha creación'),
+      '#placeholder' => t('Trimestral'),
+      //'#size' => 60,
+      //'#maxlength' => 128,
+    ];
+
+    $form['trimestre-fin'] = [
+      '#type' => 'textfield',
+      '#title' =>t('<br>'),
+      '#placeholder' => t('Trimestral'),
+      //'#size' => 60,
+      //'#maxlength' => 128,
+    ];
+
+  }
+
+
 }
 
 /**
@@ -835,7 +867,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
  * Implements hook_preprocess_views_exposed_form()
  *
  */
-function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
+function findeter_pqrsd_preprocess_views_exposed_form(&$variables, &$form) {
 
   if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-1'){
 
@@ -853,8 +885,10 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
 
   if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-2'){
 
-    $url = Url::fromRoute('findeter_pqrsd.expor_report_pdf',['filter'=>'filter']);
+    //$url = Url::fromRoute('findeter_pqrsd.expor_report_pdf',['filter'=>'filter']);
     $urlReporteXlsx = Url::fromRoute('findeter_pqrsd.expor_report_excel',['filter'=>'filter']);
+    $urlFormato379 = Url::fromRoute('findeter_pqrsd.export_format_379', $_GET);
+
     $link_options = array(
       'attributes' => array(
         'class' => array(
@@ -862,14 +896,24 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
         ),
       ),
     );
-    $url->setOptions($link_options);
+    $link_options_format_379 = array(
+      'attributes' => array(
+        'class' => array(
+          'export-link-format-379',
+        ),
+      ),
+    );
+    //$url->setOptions($link_options);
     $urlReporteXlsx->setOptions($link_options);
+    $urlFormato379->setOptions($link_options_format_379);
 
-    $exportPdf = Link::fromTextAndUrl('Exportar datos PDF', $url);
+    //$exportPdf = Link::fromTextAndUrl('Exportar datos PDF', $url);
     $urlReporteXlsx = Link::fromTextAndUrl('Exportar datos Excel', $urlReporteXlsx);
+    $urlFormato379 = Link::fromTextAndUrl('Exportar formato 379', $urlFormato379);
 
-    $exportPdf = $exportPdf->toRenderable();
+    //$exportPdf = $exportPdf->toRenderable();
     $urlReporteXlsx = $urlReporteXlsx->toRenderable();
+    $urlFormato379 = $urlFormato379->toRenderable();
 
     $variables['form']['actions']['#suffix'] = Markup::create('
         <div class="list-charts">
@@ -879,7 +923,7 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
       <div class="chart-container"><canvas id="tipo-producto-chart"></canvas></div>
       <div class="chart-container"><canvas id="canal-recepcion-chart"></canvas></div>
       <div class="chart-container"><canvas id="forma-recepcion-chart"></canvas></div>
-        </div>'.render($urlReporteXlsx));
+        </div>'.render($urlReporteXlsx).render($urlFormato379));
   }
   /* ============================================
   PAGE ESTADOS DE PQRSD FILTER
