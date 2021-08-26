@@ -55,15 +55,15 @@
 
 {% if label_hidden %}
 
-  {% if multiple %}    
+  {% if multiple %}
 
-      {% for key, item in items %}     
+      {% for key, item in items %}
 
-       
-        <div class="tab-pane fade {{ key == 0 ? 'show active' : '' }}" 
-        idAncla="paragra-internas-{{ key }}" 
+        <div class="tab-pane fade {{ key == 0 ? 'show active' : '' }}"
+        idAncla="paragra-internas-{{ key }}"
         id="paragra-internas-{{ key }}"
-        role="tabpanel" aria-labelledby="paragra-internas-{{ key }}-tab">
+        role="tabpanel"
+        aria-labelledby="paragra-internas-{{ key }}-tab">
 
           {{ item.content }}
 
@@ -73,9 +73,13 @@
 
   {% else %}
 
-    {% for item in items %}
+    {% for key, item in items %}
 
-      <div class="tab-pane fade {{ key == 0 ? 'show active' : '' }}" id="paragra-internas-{{ key }}" role="tabpanel" aria-labelledby="paragra-internas-{{ key }}-tab">
+      <div class="tab-pane fade {{ key == 0 ? 'show active' : '' }}"
+      id="paragra-internas-{{ key }}"
+      idAncla="paragra-internas-{{ key }}"
+      role="tabpanel"
+      aria-labelledby="paragra-internas-{{ key }}-tab">
 
         {{ item.content }}
 

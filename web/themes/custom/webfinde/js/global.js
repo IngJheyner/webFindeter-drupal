@@ -138,6 +138,7 @@
                 let iterarTab = 0;
 
                 /* ===== ===== Activar el tab principal al venir por url ===== ===== */
+
                 let hash_productos_servicios = window.location.hash.toString().replace(/^#|-/g,'');
 
                 if(hash_productos_servicios !== ""){
@@ -146,16 +147,16 @@
 
                     $('.productoServicios .cuerpoContenido ul.tabPrincipal li a').each(function(index, element){
 
-                        $(element).removeClass('active');
-
                         if($(element).attr("nombre-items") === hash_productos_servicios){
                             tab_pane = $(element).attr("aria-controls");
                             $(element).addClass("active");
+                        }else{
+                            $(element).removeClass('active');
                         }
 
                     });
 
-                    $('.productoServicios #myTabContentPrincipal .tab-pane').each(function(index, element){
+                    $('.productoServicios #myTabContentPrincipal > div.tab-pane').each(function(index, element){
 
                         $(element).removeClass('active show');
 
