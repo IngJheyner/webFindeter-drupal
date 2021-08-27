@@ -19,14 +19,19 @@
  * - content: The content to go inside the wrapper for this region.
  */
 #}
+
 <{{ wrapper }}{{ attributes }}>
 
   {{ title_suffix.contextual_links }}
 
   {% if top.content %}
-  <{{ top.wrapper }}{{ top.attributes }}>
-    {{ top.content }}
-  </{{ top.wrapper }}>
+
+    <{{ top.wrapper }}{{ top.attributes }}>
+
+      {{ top.content }}
+
+    </{{ top.wrapper }}>
+
   {% endif %}
 
 {% if left.content or right.content %}

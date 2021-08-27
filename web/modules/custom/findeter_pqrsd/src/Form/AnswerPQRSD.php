@@ -41,6 +41,7 @@ class AnswerPQRSD extends FormBase {
     $form['field_pqrsd_respuesta'] = [
       '#type'  => 'textarea',
       '#title' => 'Escriba la respuesta al requerimiento',
+      '#required' => TRUE,
     ];
 
     $fileSettings = $definitions['field_pqrsd_respuesta_archivos']->getSettings();
@@ -61,6 +62,7 @@ class AnswerPQRSD extends FormBase {
       '#title'   => $definitions['field_pqrsd_respuesta_a_favor']->getLabel(),
       '#options' => $definitions['field_pqrsd_respuesta_a_favor']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
+      '#required' => TRUE,
     ];
 
 
@@ -101,7 +103,7 @@ class AnswerPQRSD extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {}
 
   public function ajaxCloseModal(array &$form, FormStateInterface $form_state) {
-    $formValues = $form_state->getValues();    
+    $formValues = $form_state->getValues();
 
     $node = Node::load($formValues['node_id']);
 

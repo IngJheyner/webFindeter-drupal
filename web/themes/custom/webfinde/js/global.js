@@ -137,6 +137,41 @@
                 /* ===== ===== INTERNAS ===== ===== */
                 let iterarTab = 0;
 
+                /* ===== ===== Activar el tab principal al venir por url ===== ===== */
+
+                let hash_productos_servicios = window.location.hash.toString().replace(/^#|-/g,'');
+
+                if(hash_productos_servicios !== ""){
+
+                    let tab_pane = "";
+
+                    $('.productoServicios .cuerpoContenido ul.tabPrincipal li a').each(function(index, element){
+
+                        if($(element).attr("nombre-items") === hash_productos_servicios){
+                            tab_pane = $(element).attr("aria-controls");
+                            $(element).addClass("active");
+                        }else{
+                            $(element).removeClass('active');
+                        }
+
+                    });
+
+                    $('.productoServicios #myTabContentPrincipal > div.tab-pane').each(function(index, element){
+
+                        $(element).removeClass('active show');
+
+                        if(tab_pane === $(element).attr('id')){
+
+                            $(element).addClass('active show');
+
+                            $('html, body').animate({
+                                scrollTop: $(".productoServicios .cuerpoContenido ul.tabPrincipal").offset().top
+                            }, 2000);
+
+                        }
+                    });
+                }
+
                 /* ===== ===== Cambio de atributos al cambiar en los tabs principal, usabilidad interna ===== ===== */
                 $('.productoServicios .cuerpoContenido ul.tabPrincipal li a').on("click", function() {
 
@@ -246,18 +281,18 @@
                 if (document.getElementById("block-findeter-cifras-home")) {
 
                     $(window).scroll(function() {
-    
-                        if ($(window).scrollTop() >= alturacifras - 200) {
-                            console.log(alturacifras-200);
-                            contador();
-    
-                        }
-    
-                    });
-                }          
-            
 
-            
+                        if ($(window).scrollTop() >= alturacifras - 200) {
+
+                            contador();
+
+                        }
+
+                    });
+                }
+
+
+
                 /* ========= Fin efecto =========== */
 
                 /*===========================================
@@ -305,8 +340,6 @@
                 $(".menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem").on("click", function() {
 
                     if ($(this).attr("mostrar") == "true") {
-                        console.log("🚀 ~ file: global.js ~ line 383 ~ $ ~ $(this).parent()", $(this).parent())
-                        console.log("🚀 ~ file: global.js ~ line 383 ~ $ ~ $(this).parent()", $(this).parent())
 
                         $(this).children('ul').children('li').fadeIn(1000, function() {
 
@@ -427,7 +460,7 @@
                 const fontSize = (operador) => {
 
                     const incrementar_text_rize = 1;
-                    const etiquetas_text_rize = ['h1', 'h2','h3','h6', 'p', 'em', 'ul', 'ol','strong'];
+                    const etiquetas_text_rize = ['h1', 'h2','h3','h5', 'h6', 'p', 'em', 'ul', 'ol','strong', 'table', 'label', 'a'];
                     let array_etiqueta_text_rize = [];
 
                     let text_rize = document.querySelector('.text-rize');
@@ -449,7 +482,7 @@
                                     font_size = font_size.replace("px", '');
 
                                     const font_size_text = (operador == "suma") ? parseInt(incrementar_text_rize) + parseInt(font_size) : parseInt(font_size) - parseInt(incrementar_text_rize);
-                                    $(element[e]).css("font-size", font_size_text+"px");
+                                    $(element[e]).attr("style", "font-size: " + font_size_text +"px !important");
                                 }
 
                             });

@@ -1,3 +1,9 @@
+@use '../../../mixins/custom-etiquetas' as encabezado;
+
+/* ===== ===== ENCABEZADO ===== ===== */
+
+@include encabezado.encabezado("article", "sobreFindeter");
+
 article.sobreFindeter {
     .nav.nav-pills .nav-item {
         width: 140px;

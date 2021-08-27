@@ -43,6 +43,24 @@
 
                 $('#datepicker-max').val($('#edit-created-max').val());
 
+                /*===========================================
+                REPORTES
+                -Custom a campos para el formato 379
+                =============================================*/
+                $('#edit-trimestre-inicio').before('<label class="custom-label">Del:</label>');
+                $('#edit-trimestre-fin').before('<label class="custom-label">Al:</label>');
+
+                $("#edit-trimestre-inicio").datepicker({
+                    dateFormat: "dd-mm-yy",
+                    altField: "input[data-drupal-selector=edit-trimestre-inicio]",
+                    altFormat: "dd-mm-yy"
+                });
+                $("#edit-trimestre-fin").datepicker({
+                    dateFormat: "dd-mm-yy",
+                    altField: "input[data-drupal-selector=edit-trimestre-fin]",
+                    altFormat: "dd-mm-yy"
+                });
+
 
                 //replace url params to generate pdf file
                 if ($('.export-link').length) {

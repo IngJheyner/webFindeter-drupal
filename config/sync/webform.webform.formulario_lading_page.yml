@@ -1,7 +1,12 @@
 uuid: f854b4a1-4f20-4b56-95a8-8e85d1d9ed73
 langcode: es
 status: open
-dependencies: {  }
+dependencies:
+  module:
+    - honeypot
+third_party_settings:
+  honeypot:
+    time_restriction: true
 open: null
 close: null
 weight: 0
@@ -12,7 +17,7 @@ id: formulario_lading_page
 title: 'Formulario Lading Page'
 description: 'Formulario que se utiliza en algunas secciones y nodos internos de la pagina para mostrar consultas por parte del usuario.'
 category: ''
-elements: "flexbox:\n  '#type': webform_flexbox\n  '#align_items': center\n  nombres_lading_page:\n    '#type': textfield\n    '#title': Nombres\n    '#title_display': before\n    '#size': 20\n    '#autocomplete': 'off'\n    '#required': true\n    '#counter_type': character\n    '#counter_minimum': 1\n    '#counter_maximum': 20\n    '#counter_maximum_message': '%d caracteres.'\n    '#attributes':\n      style: 'background: white !important;'\n  apellidos_lading_page:\n    '#type': textfield\n    '#title': Apellidos\n    '#title_display': before\n    '#autocomplete': 'off'\n    '#required': true\n    '#counter_type': character\n    '#counter_minimum': 1\n    '#counter_maximum': 20\n    '#attributes':\n      style: 'background: white !important;'\ncolumna_2:\n  '#type': webform_flexbox\n  '#align_items': center\n  cedula_lading_page:\n    '#type': number\n    '#title': Cédula\n    '#title_display': before\n    '#size': '9'\n    '#autocomplete': ''\n    '#required': true\n    '#min': 1\n    '#max': 10\n  celular_lading_page:\n    '#type': tel\n    '#title': Celular\n    '#title_display': before\n    '#autocomplete': ''\n    '#required': true\n    '#wrapper_attributes':\n      class:\n        - d-block\n    '#international': true\n    '#international_initial_country': CO\nemail_lading_page:\n  '#type': email\n  '#title': Email\n  '#title_display': before\n  '#autocomplete': ''\n  '#required': true\ndepartamento_lading_page:\n  '#type': webform_term_select\n  '#title': Departamento\n  '#title_display': before\n  '#select2': true\n  '#required': true\n  '#format': custom\n  '#format_text': '{{ elements_flattened }} {{ data.composite_element_key.delta.subelement_key }}'\n  '#vocabulary': colombia_deparments\n  '#breadcrumb': true\n  '#breadcrumb_delimiter': '-'\n  '#tree_delimiter': ''\n  '#depth': 2\nproducto_servicio_lading_page:\n  '#type': webform_entity_select\n  '#title': 'Producto y/o Servicio'\n  '#title_display': before\n  '#required': true\n  '#target_type': node\n  '#selection_handler': 'default:node'\n  '#selection_settings':\n    target_bundles:\n      productos_servicios: productos_servicios\nsector_lading_page:\n  '#type': webform_select_other\n  '#title': Sector\n  '#title_display': before\n  '#options':\n    publico: Publico\n    privado: Privado\n  '#other__option_label': 'Otro, cuál:'\n  '#required': true\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': Enviar"
+elements: "flexbox:\n  '#type': webform_flexbox\n  '#align_items': center\n  nombres_lading_page:\n    '#type': textfield\n    '#title': Nombres\n    '#title_display': before\n    '#autocomplete': ''\n    '#required': true\n    '#attributes':\n      style: 'background: white !important;'\n  apellidos_lading_page:\n    '#type': textfield\n    '#title': Apellidos\n    '#title_display': before\n    '#autocomplete': ''\n    '#required': true\n    '#attributes':\n      style: 'background: white !important;'\ncolumna_2:\n  '#type': webform_flexbox\n  '#align_items': center\n  cedula_lading_page:\n    '#type': number\n    '#title': Cédula\n    '#title_display': before\n    '#size': '9'\n    '#autocomplete': ''\n    '#required': true\n    '#min': 1\n    '#max': 10\n  celular_lading_page:\n    '#type': tel\n    '#title': Celular\n    '#title_display': before\n    '#autocomplete': ''\n    '#required': true\n    '#wrapper_attributes':\n      class:\n        - d-block\n    '#international': true\n    '#international_initial_country': CO\ncolumna_3:\n  '#type': webform_flexbox\n  email_lading_page:\n    '#type': email\n    '#title': Email\n    '#title_display': before\n    '#autocomplete': ''\n    '#required': true\n  departamento_lading_page:\n    '#type': webform_term_select\n    '#title': Departamento\n    '#title_display': before\n    '#select2': true\n    '#required': true\n    '#format': custom\n    '#format_text': '{{ elements_flattened }} {{ data.composite_element_key.delta.subelement_key }}'\n    '#vocabulary': colombia_deparments\n    '#breadcrumb': true\n    '#breadcrumb_delimiter': '-'\n    '#tree_delimiter': ''\n    '#depth': 2\ncolumna_4:\n  '#type': webform_flexbox\n  '#align_items': center\n  producto_servicio_lading_page:\n    '#type': webform_entity_select\n    '#title': 'Producto y/o Servicio'\n    '#title_display': before\n    '#required': true\n    '#target_type': node\n    '#selection_handler': 'default:node'\n    '#selection_settings':\n      target_bundles:\n        productos_servicios: productos_servicios\n  sector_lading_page:\n    '#type': webform_select_other\n    '#title': Sector\n    '#title_display': before\n    '#options':\n      publico: Publico\n      privado: Privado\n    '#other__option_label': 'Otro, cuál:'\n    '#required': true\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': Enviar"
 css: ''
 javascript: ''
 settings:
@@ -47,7 +52,7 @@ settings:
   form_unsaved: false
   form_disable_back: false
   form_submit_back: false
-  form_autofocus: true
+  form_autofocus: false
   form_details_toggle: false
   form_access_denied: default
   form_access_denied_title: ''
@@ -127,9 +132,9 @@ settings:
   limit_total_interval: null
   limit_total_message: ''
   limit_total_unique: false
-  limit_user: null
-  limit_user_interval: null
-  limit_user_message: ''
+  limit_user: 1
+  limit_user_interval: 86400
+  limit_user_message: 'Numero de intentos de envio del formulario completado.'
   limit_user_unique: false
   entity_limit_total: null
   entity_limit_total_interval: null

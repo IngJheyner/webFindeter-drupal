@@ -16,8 +16,9 @@
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.7",
         "drupal/addtoany": "^1.14",
-        "drupal/admin_toolbar": "^2.3",
+        "drupal/admin_toolbar": "^3.0",
         "drupal/adminimal_theme": "^1.6",
+        "drupal/advagg": "^4.1",
         "drupal/backup_migrate": "^4.1",
         "drupal/bootstrap4": "^2.1",
         "drupal/bootstrap_layouts": "^5.2",
@@ -32,9 +33,9 @@
         "drupal/core-composer-scaffold": "^8.8.0",
         "drupal/cshs": "^3.0",
         "drupal/custom_search": "^1.0@beta",
-        "drupal/devel": "2.1",
+        "drupal/devel": "^2.1",
         "drupal/devel_entity_updates": "^3.0",
-        "drupal/devel_php": "1.2",
+        "drupal/devel_php": "^1.2",
         "drupal/disable_field": "^2.4",
         "drupal/easy_breadcrumb": "^1.13",
         "drupal/easy_install": "^10.4",
@@ -63,7 +64,7 @@
         "drupal/menu_per_role": "^1.2",
         "drupal/migrate_plus": "4.2",
         "drupal/migrate_source_csv": "^3.4",
-        "drupal/migrate_tools": "4.5",
+        "drupal/migrate_tools": "^4.5",
         "drupal/module_filter": "^3.2",
         "drupal/page_manager": "^4.0@beta",
         "drupal/panels": "^4.6",
@@ -73,9 +74,11 @@
         "drupal/readonlymode": "^1.1",
         "drupal/recaptcha": "^3.0",
         "drupal/redirect": "^1.6",
+        "drupal/redis": "^1.5",
         "drupal/search_api": "^1.17",
         "drupal/search_autocomplete": "^2.0",
         "drupal/search_kint": "^1.0",
+        "drupal/seckit": "^2.0",
         "drupal/simple_sitemap": "^3.10",
         "drupal/simplify": "^1.2",
         "drupal/slick": "^2.2",
@@ -174,6 +177,9 @@
                 "Multiple usages of FieldPluginBase::getEntity do not check for NULL, leading to WSOD": "https://www.drupal.org/files/issues/2020-09-03/3007424-108.patch",
                 "AssertionError: Tokens need to be valid Twig variables. in assert": "https://www.drupal.org/files/issues/2019-05-22/views-ignore_invalid_tokens_in_replace-3056489-1-D8.6.16.patch",
                 "Exposed date filter leads to a notice": "https://www.drupal.org/files/issues/2020-11-12/2811887-53.patch"
+            },
+            "drupal/redis": {
+                "Default lifetime for permanent TTL": "https://www.drupal.org/files/issues/2020-09-23/redis-default_permanent_ttl-2944938.patch"
             }
         }
     }
