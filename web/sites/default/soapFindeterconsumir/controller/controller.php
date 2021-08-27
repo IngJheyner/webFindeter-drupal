@@ -5,7 +5,7 @@ function consult(){
         $fileName = $_GET['nombre'];
         //echo($_GET['nombre']);
         //$filePath = 'E:/ecosistema/private/contratacion/ws/0001-2016_AAD_ACTA DE SELECCION C-FDT-01-2016.pdf';
-        $filePath = 'E:/ecosistemaecov2.1/private/contratacion/ws/'.$fileName;
+        $filePath = 'E:/ecosistemaecov2.2/private/contratacion/ws/'.$fileName;
         $ext =explode(".", $fileName)[1];
         if(!empty($fileName) && file_exists($filePath)){
             // Define headers
