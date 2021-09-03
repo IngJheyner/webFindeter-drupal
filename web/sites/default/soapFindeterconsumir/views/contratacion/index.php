@@ -256,9 +256,7 @@
                         registro = data.Registro;
                         $('#numberproceso').html('Proceso Número: '+ registro.interno);
                         $('#fechainicio').html(registro.pctf_apertura.split("T")[0]);
-                        if(registro.pctf_cierre.split("T")[0] != '1900-01-01'){
-                            $('#fechacierre').html(registro.pctf_cierre.split("T")[0]);
-                        }
+                        $('#fechacierre').html(registro.pctf_cierre.split("T")[0]);
                         $('#estadodoc').html(registro.papc_nombre);
                         $('#objetoproceso').html(registro.objeto);
                     },
