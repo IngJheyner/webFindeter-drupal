@@ -7,11 +7,13 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Ajax\InvokeCommand;
+use Drupal\Core\Render\Element\Date;
 use Drupal\views\Views;
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Render\Markup;
 
 use Drupal\findeter_pqrsd\Holidays\holidaysPQRSD;
+use PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Days;
 
 /**
  * Implements hook_help().
@@ -133,9 +135,11 @@ function defineDatesSemaphore($values){
 /**
  * Calculate timestamp for bussines day in the future
  */
-function _getBussinesDays($addDays){
+function _getBussinesDays($addDays, $day_answer = FALSE){
 
   $timeStamp = strtotime("tomorrow");
+
+  $tot_day_answer = 0; //Conteo de dias habiles para la respuesta
 
   // loop for X days
   for($i=0; $i<$addDays; $i++){
@@ -154,15 +158,17 @@ function _getBussinesDays($addDays){
 
       // if it's Saturday or Sunday get $i-1
       if(($nextDay == 0 || $nextDay == 6) || $feriado) {
-          $i--;
+          $day_answer == FALSE ? $i-- : $tot_day_answer++;
       }
-
       // modify timestamp, add 1 day
       $timeStamp = $timeStamp+$addDay;
 
   }
 
-  return $timeStamp;
+  //Se restan los dias no habiles mas los dias desde su fecha de vencimiento.
+  $res_day_answer = $addDays - $tot_day_answer;
+
+  return $day_answer ? $res_day_answer  : $timeStamp;
 }
 
 
@@ -796,14 +802,18 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
         $orangeDate = strtotime($row->_entity->getFields()['field_pqrsd_fecha_naranja'][0]->getValue()['value']);
         $redDate = strtotime($row->_entity->getFields()['field_pqrsd_fecha_roja'][0]->getValue()['value']);
         $timeStamp = strtotime('now');
-
-        $datesConfigure = defineDatesSemaphore([
+        /*$datesConfigure = defineDatesSemaphore([
           'field_pqrsd_preferencial'  => $preferencial,
           'field_pqrsd_tipo_radicado' => $tipoRadicado,
           'field_pqrsd_tipo_peticion' => $tipoPeticion
         ]);
 
-        $daysleft = $datesConfigure['number-red'] - round(((($timeStamp-$registerDate)/24)/60)/60) +1;
+        $daysleft = $datesConfigure['number-red'] - round(((($timeStamp-$registerDate)/24)/60)/60) +1;*/
+        $date_now = new DateTime(date('Y-m-d'));
+        $date_red = new DateTime(date('Y-m-d', $redDate));
+        $days_rest = $date_now->diff($date_red);
+
+        $daysleft = _getBussinesDays($days_rest->days, TRUE);
 
         $closed = false;
         if(isset($row->_entity->getFields()['field_pqrsd_respuesta'][0])){
@@ -818,7 +828,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
           if($timeStamp<$orangeDate){
             $semaphore = '
             <div class="green">Verde</div>
-            <div class="days-left">Quedan:<br> '.$daysleft.' dias</div>';
+            <div class="days-left">Quedan:<br> '.ngettext($daysleft." día", $daysleft." días", $daysleft).'</div>';
 
           }else{
 
@@ -826,7 +836,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
               $semaphore = '
                 <div class="orange">Naranja</div>
-                <div class="days-left">Quedan:<br> '.$daysleft.' dias</div>';
+                <div class="days-left">Quedan:<br> '.ngettext($daysleft." día", $daysleft." días", $daysleft).'</div>';
 
             }else{
               if($timeStamp>=$redDate){

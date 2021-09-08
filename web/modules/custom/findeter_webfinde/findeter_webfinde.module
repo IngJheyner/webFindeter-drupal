@@ -1,9 +1,15 @@
 <?php
+/**
+ * @file
+ * Configuracion y modificacion de funciones y preprocesos en formularios, entidades del sitio. Findeter
+ */
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\Entity\User;
+
 /**
  * Implements hook_form_alter
  */
+
 function findeter_webfinde_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
   /* ============================================
@@ -11,6 +17,9 @@ function findeter_webfinde_form_alter(&$form, FormStateInterface $form_state, $f
   =============================================== */
   if($form['#id'] == 'node-convocatorias-form' || $form['#id'] == 'node-convocatorias-edit-form'){
 
+    /* ============================================
+    CONVOCATORIAS
+    =============================================== */
     $form['#attached']['library'][] = 'findeter_webfinde/global-scripts';
 
     $rolesUser = \Drupal::currentUser()->getRoles();
@@ -28,4 +37,6 @@ function findeter_webfinde_form_alter(&$form, FormStateInterface $form_state, $f
     }
 
   }
+
 }
+
