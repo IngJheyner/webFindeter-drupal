@@ -31,7 +31,7 @@ parser_configuration:
 processor: 'entity:media'
 processor_configuration:
   langcode: es
-  update_existing: 2
+  update_existing: 1
   update_non_existent: _keep
   expire: -1
   owner_feed_author: false
@@ -93,7 +93,8 @@ mappings:
     target: name
     map:
       value: name
-    unique: {  }
+    unique:
+      value: '1'
     settings:
       language: null
   -
