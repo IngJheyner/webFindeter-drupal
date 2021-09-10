@@ -802,18 +802,31 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
         $orangeDate = strtotime($row->_entity->getFields()['field_pqrsd_fecha_naranja'][0]->getValue()['value']);
         $redDate = strtotime($row->_entity->getFields()['field_pqrsd_fecha_roja'][0]->getValue()['value']);
         $timeStamp = strtotime('now');
+
         /*$datesConfigure = defineDatesSemaphore([
           'field_pqrsd_preferencial'  => $preferencial,
           'field_pqrsd_tipo_radicado' => $tipoRadicado,
           'field_pqrsd_tipo_peticion' => $tipoPeticion
-        ]);
+        ]);*/
 
-        $daysleft = $datesConfigure['number-red'] - round(((($timeStamp-$registerDate)/24)/60)/60) +1;*/
+        //$daysleft = $datesConfigure['number-red'] - round(((($timeStamp-$registerDate)/24)/60)/60) +1;
         $date_now = new DateTime(date('Y-m-d'));
         $date_red = new DateTime(date('Y-m-d', $redDate));
         $days_rest = $date_now->diff($date_red);
 
-        $daysleft = _getBussinesDays($days_rest->days, TRUE);
+        $config = \Drupal::config('findeter_pqrsd.admin');
+        $peticion = $config->get('semaphore');
+
+        $type_day = $tipoPeticion == "" ? $peticion['none'] : $peticion[$tipoPeticion];
+
+        if($preferencial != 'congresista'){
+          if($type_day['logic'] != 'calendar days')
+            $daysleft = _getBussinesDays($days_rest->days, TRUE);
+          else
+            $daysleft = $days_rest->days;
+        }else{
+          $daysleft = $days_rest->days;
+        }
 
         $closed = false;
         if(isset($row->_entity->getFields()['field_pqrsd_respuesta'][0])){
