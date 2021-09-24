@@ -1,0 +1,21 @@
+uuid: a90ef69d-6b0d-4179-98cd-d43aea24e5b8
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_menu
+    - taxonomy.vocabulary.blog
+id: taxonomy_term.blog.field_menu
+field_name: field_menu
+entity_type: taxonomy_term
+bundle: blog
+label: menu
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:menu'
+  handler_settings: {  }
+field_type: entity_reference
