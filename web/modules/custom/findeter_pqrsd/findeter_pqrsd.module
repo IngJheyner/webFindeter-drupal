@@ -841,7 +841,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
           if($timeStamp<$orangeDate){
             $semaphore = '
             <div class="green">Verde</div>
-            <div class="days-left">Quedan:<br> '.ngettext($daysleft." día", $daysleft." días", $daysleft).'</div>';
+            <div class="days-left">Quedan:<br>'.$daysleft.' días</div>';
 
           }else{
 
@@ -849,7 +849,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
               $semaphore = '
                 <div class="orange">Naranja</div>
-                <div class="days-left">Quedan:<br> '.ngettext($daysleft." día", $daysleft." días", $daysleft).'</div>';
+                <div class="days-left">Quedan:<br>'.$daysleft.' días</div>';
 
             }else{
               if($timeStamp>=$redDate){
