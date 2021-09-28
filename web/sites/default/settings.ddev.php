@@ -52,7 +52,7 @@ if (version_compare(DRUPAL::VERSION, "8.8.0", '>=') &&
   version_compare(DRUPAL::VERSION, "9.0.0", '<') &&
   empty($config_directories[CONFIG_SYNC_DIRECTORY]) &&
   empty($settings['config_sync_directory'])) {
-  $settings['config_sync_directory'] = '../config/ddev/sync/';
+  $settings['config_sync_directory'] = '../config/sync/';
 }
 // For Drupal9, it's always $settings['config_sync_directory']
 if (version_compare(DRUPAL::VERSION, "9.0.0", '>=') &&
