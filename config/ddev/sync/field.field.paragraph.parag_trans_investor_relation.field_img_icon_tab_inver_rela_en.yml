@@ -1,0 +1,61 @@
+uuid: 25eb8e61-cd27-4edd-b72f-2d9d319b5ab1
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_img_icon_tab_inver_rela_en
+    - paragraphs.paragraphs_type.parag_trans_investor_relation
+  module:
+    - disable_field
+    - filefield_paths
+    - image
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: webfinde/images/investor_relations/pragraph_icons
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: paragraph.parag_trans_investor_relation.field_img_icon_tab_inver_rela_en
+field_name: field_img_icon_tab_inver_rela_en
+entity_type: paragraph
+bundle: parag_trans_investor_relation
+label: 'Imagen Icon tab contenido English'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png jpg jpeg svg'
+  max_filesize: 2MB
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

@@ -1,0 +1,22 @@
+uuid: 0d18d88c-6d32-4e20-87eb-d52a48b79c2e
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.tipo_content_compromiso_salud
+id: node.tipo_content_compromiso_salud.promote
+field_name: promote
+entity_type: node
+bundle: tipo_content_compromiso_salud
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

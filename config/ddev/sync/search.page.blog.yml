@@ -1,0 +1,15 @@
+uuid: dc635427-5a9a-40a0-9d9b-667b8b1138d3
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: blog
+label: Blog
+path: blog
+weight: 0
+plugin: node_search
+configuration:
+  rankings:
+    recent: 1
+    relevance: 2

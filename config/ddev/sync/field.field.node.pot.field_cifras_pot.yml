@@ -1,0 +1,60 @@
+uuid: a3cf4f47-0d24-4203-a16c-d6bda8b7ad7b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cifras_pot
+    - node.type.pot
+    - paragraphs.paragraphs_type.cifras_porque_findeter_pot
+  module:
+    - disable_field
+    - entity_reference_revisions
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.pot.field_cifras_pot
+field_name: field_cifras_pot
+entity_type: node
+bundle: pot
+label: Cifras
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      cifras_porque_findeter_pot: cifras_porque_findeter_pot
+    target_bundles_drag_drop:
+      cifras_porque_findeter_pot:
+        enabled: true
+        weight: 10
+      findeter_en_cifras_home:
+        weight: 11
+        enabled: false
+      parag_cont_grill_segu_inform:
+        weight: 12
+        enabled: false
+      parag_trans_investor_relation:
+        weight: 13
+        enabled: false
+      productos_servicios_home:
+        weight: 14
+        enabled: false
+      ps_contenido_items_internos:
+        weight: 15
+        enabled: false
+      ps_grillas_internas:
+        weight: 16
+        enabled: false
+      servicios_findeter_pot:
+        weight: 17
+        enabled: false
+      tabs_productos_servicio:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

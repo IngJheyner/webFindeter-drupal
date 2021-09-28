@@ -1,0 +1,25 @@
+uuid: 3e589481-11ce-4f5d-b13c-8209f432e00c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_convcatoria_email_proceso
+    - node.type.convocatorias
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.convocatorias.field_convcatoria_email_proceso
+field_name: field_convcatoria_email_proceso
+entity_type: node
+bundle: convocatorias
+label: 'Correo electrónico de contacto del proceso'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

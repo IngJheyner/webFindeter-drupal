@@ -1,0 +1,22 @@
+uuid: 7fe3c61a-f8c2-4247-9250-64138fdef711
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.tipo_cont_investor_relations
+id: node.tipo_cont_investor_relations.promote
+field_name: promote
+entity_type: node
+bundle: tipo_cont_investor_relations
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

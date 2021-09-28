@@ -1,0 +1,34 @@
+uuid: cce693a3-94c7-4844-9475-7205df6e25a9
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prosperity_archivos
+    - media.type.prosperity_archivos
+    - node.type.prosperity_fund
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.prosperity_fund.field_prosperity_archivos
+field_name: field_prosperity_archivos
+entity_type: node
+bundle: prosperity_fund
+label: Archivos
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      prosperity_archivos: prosperity_archivos
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,20 @@
+uuid: 3a66e550-b587-49b0-9fcb-0c2cd9a200ba
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_convcatoria_programa
+field_name: field_convcatoria_programa
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

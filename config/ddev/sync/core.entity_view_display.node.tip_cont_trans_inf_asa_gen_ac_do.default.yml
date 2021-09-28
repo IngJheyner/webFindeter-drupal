@@ -1,0 +1,30 @@
+uuid: 424beb88-9c80-4b51-92a0-93a0ed502668
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tip_cont_trans_inf_asa_gen_ac_do.field_trans_cont_inf_asam_gen_as
+    - node.type.tip_cont_trans_inf_asa_gen_ac_do
+  module:
+    - text
+    - user
+id: node.tip_cont_trans_inf_asa_gen_ac_do.default
+targetEntityType: node
+bundle: tip_cont_trans_inf_asa_gen_ac_do
+mode: default
+content:
+  field_trans_cont_inf_asam_gen_as:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

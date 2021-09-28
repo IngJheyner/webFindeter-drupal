@@ -1,0 +1,22 @@
+uuid: c66a1c6b-97e8-40e7-be06-3c61942d8894
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.5_2_ejecucion_presupuestal_histo
+id: node.5_2_ejecucion_presupuestal_histo.promote
+field_name: promote
+entity_type: node
+bundle: 5_2_ejecucion_presupuestal_histo
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,270 @@
+uuid: 8adffa25-939b-41c3-bc22-162748f1d09b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.sobre_findeter.body
+    - field.field.node.sobre_findeter.field_img_fondo_sobre_findeter
+    - field.field.node.sobre_findeter.field_tabs_descrip_sobre_findete
+    - field.field.node.sobre_findeter.field_tabs_nav_sobre_findeter
+    - image.style.thumbnail
+    - node.type.sobre_findeter
+  module:
+    - field_group
+    - image
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_tabs_sobre_findeter:
+      children:
+        - group_informacion_sobre_findeter
+        - group_media_sobre_findeter
+        - group_descripcion_sobre_findeter
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: tabs
+    group_descripcion_sobre_findeter:
+      children:
+        - body
+        - group_tabs_nav_sobr
+        - group_content_extr_sobre_findete
+      parent_name: group_tabs_sobre_findeter
+      weight: 3
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: open
+        required_fields: true
+      label: Descripción
+    group_media_sobre_findeter:
+      children:
+        - field_img_fondo_sobre_findeter
+      parent_name: group_tabs_sobre_findeter
+      weight: 2
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Media
+    group_informacion_sobre_findeter:
+      children:
+        - title
+        - langcode
+        - uid
+        - created
+        - promote
+        - sticky
+        - path
+        - status
+      parent_name: group_tabs_sobre_findeter
+      weight: 1
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: open
+        required_fields: true
+      label: Información
+    group_tabs_nav_sobr:
+      children:
+        - group_titulos_tabs_nav
+        - group_tabs_desc_nav
+      parent_name: group_descripcion_sobre_findeter
+      weight: 14
+      format_type: tabs
+      region: content
+      format_settings:
+        direction: horizontal
+        id: ''
+        classes: ''
+      label: 'Navegación interna en sobre findeter'
+    group_titulos_tabs_nav:
+      children:
+        - field_tabs_nav_sobre_findeter
+      parent_name: group_tabs_nav_sobr
+      weight: 15
+      format_type: tab
+      region: content
+      format_settings:
+        description: 'Texto simple, para los titulos de la navegación de los tabs. '
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Titulos en la navegacion'
+    group_tabs_desc_nav:
+      children:
+        - field_tabs_descrip_sobre_findete
+      parent_name: group_tabs_nav_sobr
+      weight: 17
+      format_type: tab
+      region: content
+      format_settings:
+        description: 'Descripción de cada contenido en los tabs'
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Descripciones de los contenidos de la navegacion'
+    group_content_extr_sobre_findete:
+      children:
+        - group_tab_titulo_content_extra_s
+        - group_tab_desc_content_extra_sob
+      parent_name: group_descripcion_sobre_findeter
+      weight: 15
+      format_type: tabs
+      region: content
+      format_settings:
+        direction: horizontal
+        id: ''
+        classes: ''
+      label: 'Contenido Extra'
+    group_tab_titulo_content_extra_s:
+      children:
+        - field_titulo_contenido_ext_sobr_
+      parent_name: group_content_extr_sobre_findete
+      weight: 20
+      format_type: tab
+      region: content
+      format_settings:
+        description: 'Titulos de los contenidos extra de findeter'
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Titulos de contenido extra'
+    group_tab_desc_content_extra_sob:
+      children:
+        - field_descrip_contenido_extra_so
+      parent_name: group_content_extr_sobre_findete
+      weight: 22
+      format_type: tab
+      region: content
+      format_settings:
+        description: 'Contenido extra sobre findeter'
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Descripción contenido extra'
+id: node.sobre_findeter.default
+targetEntityType: node
+bundle: sobre_findeter
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 13
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_img_fondo_sobre_findeter:
+    weight: 11
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_tabs_descrip_sobre_findete:
+    weight: 18
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+  field_tabs_nav_sobre_findeter:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 3
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 9
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

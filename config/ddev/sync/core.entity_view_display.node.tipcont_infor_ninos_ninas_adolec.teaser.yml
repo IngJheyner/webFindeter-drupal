@@ -1,0 +1,32 @@
+uuid: 5b555357-1194-4544-978c-b872f63e8e46
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tipcont_infor_ninos_ninas_adolec.body
+    - node.type.tipcont_infor_ninos_ninas_adolec
+  module:
+    - text
+    - user
+id: node.tipcont_infor_ninos_ninas_adolec.teaser
+targetEntityType: node
+bundle: tipcont_infor_ninos_ninas_adolec
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

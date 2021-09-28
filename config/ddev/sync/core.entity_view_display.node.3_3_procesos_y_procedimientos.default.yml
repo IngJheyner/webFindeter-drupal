@@ -1,0 +1,31 @@
+uuid: 3d506806-f197-4252-8996-60e5264e1e5a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.3_3_procesos_y_procedimientos.field_cont_desc_procesos_procedi
+    - node.type.3_3_procesos_y_procedimientos
+  module:
+    - text
+    - user
+id: node.3_3_procesos_y_procedimientos.default
+targetEntityType: node
+bundle: 3_3_procesos_y_procedimientos
+mode: default
+content:
+  field_cont_desc_procesos_procedi:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

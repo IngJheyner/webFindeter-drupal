@@ -1,0 +1,41 @@
+uuid: d91aeb3c-c6ae-41fd-af58-a8182ba12f70
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_cont_issuances.body
+    - field.field.node.tipo_cont_issuances.field_img_enca_issuances
+    - node.type.tipo_cont_issuances
+  module:
+    - image
+    - text
+    - user
+id: node.tipo_cont_issuances.default
+targetEntityType: node
+bundle: tipo_cont_issuances
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_img_enca_issuances:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

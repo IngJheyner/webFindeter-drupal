@@ -1,0 +1,28 @@
+uuid: 5f7c4ff6-7a2a-4f83-b381-89db48ebd56d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cont_trans_mision_vision
+    - node.type.tip_cont_trans_mision_vision
+  module:
+    - disable_field
+    - text
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.tip_cont_trans_mision_vision.field_cont_trans_mision_vision
+field_name: field_cont_trans_mision_vision
+entity_type: node
+bundle: tip_cont_trans_mision_vision
+label: 'Contenido mision y vision'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

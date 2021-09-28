@@ -1,0 +1,21 @@
+uuid: dcab26af-6587-4095-aa39-b21186f35ebf
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contenido_presupesto
+    - node.type.5_2_ejecucion_presupuestal_histo
+  module:
+    - text
+id: node.5_2_ejecucion_presupuestal_histo.field_contenido_presupesto
+field_name: field_contenido_presupesto
+entity_type: node
+bundle: 5_2_ejecucion_presupuestal_histo
+label: 'contenido presupesto'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

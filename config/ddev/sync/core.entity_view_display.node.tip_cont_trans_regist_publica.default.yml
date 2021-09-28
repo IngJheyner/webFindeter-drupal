@@ -1,0 +1,30 @@
+uuid: e5cfd1e0-3ca4-4444-98b6-0aa913e7271e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tip_cont_trans_regist_publica.field_trans_cont_regis_publi
+    - node.type.tip_cont_trans_regist_publica
+  module:
+    - text
+    - user
+id: node.tip_cont_trans_regist_publica.default
+targetEntityType: node
+bundle: tip_cont_trans_regist_publica
+mode: default
+content:
+  field_trans_cont_regis_publi:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

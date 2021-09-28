@@ -1,0 +1,39 @@
+uuid: 073b62d2-2a4e-4c29-9500-8f24bdc7a798
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_convcatoria_tipo_compra
+    - node.type.convocatorias
+    - taxonomy.vocabulary.tipo_de_compra
+  content:
+    - 'taxonomy_term:tipo_de_compra:137c7cda-0c18-4541-b15b-2eee144ad668'
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.convocatorias.field_convcatoria_tipo_compra
+field_name: field_convcatoria_tipo_compra
+entity_type: node
+bundle: convocatorias
+label: 'Tipo de Compra'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 137c7cda-0c18-4541-b15b-2eee144ad668
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tipo_de_compra: tipo_de_compra
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

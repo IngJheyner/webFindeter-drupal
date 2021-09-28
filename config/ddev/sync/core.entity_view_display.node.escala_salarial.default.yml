@@ -1,0 +1,31 @@
+uuid: ab360c66-2979-402c-b244-566bb3d3f556
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.escala_salarial.field_contenido_escala_salarial
+    - node.type.escala_salarial
+  module:
+    - text
+    - user
+id: node.escala_salarial.default
+targetEntityType: node
+bundle: escala_salarial
+mode: default
+content:
+  field_contenido_escala_salarial:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,22 @@
+uuid: abf61489-4f48-45ee-8a97-1a197bf91132
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.terminos_condiciones_portal
+id: node.terminos_condiciones_portal.promote
+field_name: promote
+entity_type: node
+bundle: terminos_condiciones_portal
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

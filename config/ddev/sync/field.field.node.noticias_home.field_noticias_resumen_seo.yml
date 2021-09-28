@@ -1,0 +1,25 @@
+uuid: 47de297d-26e6-4dcd-826d-542dc9ee7e8c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_noticias_resumen_seo
+    - node.type.noticias_home
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.noticias_home.field_noticias_resumen_seo
+field_name: field_noticias_resumen_seo
+entity_type: node
+bundle: noticias_home
+label: 'Resumen SEO'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

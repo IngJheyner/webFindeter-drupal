@@ -1,0 +1,61 @@
+uuid: 3acbde06-5021-4e75-b422-851120e8c5bf
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_relac_invers_imag_encab
+    - node.type.tip_cont_relacion_inversionistas
+  module:
+    - disable_field
+    - filefield_paths
+    - image
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: webfinder/images/relacion_inversionistas
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.tip_cont_relacion_inversionistas.field_relac_invers_imag_encab
+field_name: field_relac_invers_imag_encab
+entity_type: node
+bundle: tip_cont_relacion_inversionistas
+label: 'Imagen Encabezado'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png jpg jpeg'
+  max_filesize: 2MB
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

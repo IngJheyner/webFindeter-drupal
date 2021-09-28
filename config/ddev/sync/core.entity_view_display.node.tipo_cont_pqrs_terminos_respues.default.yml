@@ -1,0 +1,30 @@
+uuid: 582abee0-cb00-4ead-8e6d-0c924ae89432
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_cont_pqrs_terminos_respues.body
+    - node.type.tipo_cont_pqrs_terminos_respues
+  module:
+    - text
+    - user
+id: node.tipo_cont_pqrs_terminos_respues.default
+targetEntityType: node
+bundle: tipo_cont_pqrs_terminos_respues
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

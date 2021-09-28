@@ -1,0 +1,22 @@
+uuid: bfbf3820-6fc2-4936-8aa3-502b4af0a597
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.prueba_contenido_22_07_2021
+id: node.prueba_contenido_22_07_2021.promote
+field_name: promote
+entity_type: node
+bundle: prueba_contenido_22_07_2021
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

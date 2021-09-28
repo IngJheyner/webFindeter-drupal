@@ -1,0 +1,32 @@
+uuid: 684a8534-bbbc-4484-8486-e5e2da84cf2f
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tipo_content_compromiso_colombia.body
+    - node.type.tipo_content_compromiso_colombia
+  module:
+    - text
+    - user
+id: node.tipo_content_compromiso_colombia.teaser
+targetEntityType: node
+bundle: tipo_content_compromiso_colombia
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

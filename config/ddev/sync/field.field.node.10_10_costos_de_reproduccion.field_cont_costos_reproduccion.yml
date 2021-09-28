@@ -1,0 +1,21 @@
+uuid: 1664b0f8-ea0c-452a-98a5-52267a575533
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cont_costos_reproduccion
+    - node.type.10_10_costos_de_reproduccion
+  module:
+    - text
+id: node.10_10_costos_de_reproduccion.field_cont_costos_reproduccion
+field_name: field_cont_costos_reproduccion
+entity_type: node
+bundle: 10_10_costos_de_reproduccion
+label: 'contenido de costos de reproducción'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

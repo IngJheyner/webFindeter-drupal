@@ -1,0 +1,133 @@
+uuid: 5a563149-d85f-4bcd-8e47-f2cfeba15c49
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.prosperity_fund.body
+    - field.field.node.prosperity_fund.field_prosperity_archivos
+    - field.field.node.prosperity_fund.field_prosperity_proceso
+    - node.type.prosperity_fund
+  module:
+    - field_group
+    - media_library
+    - path
+third_party_settings:
+  field_group:
+    group_grupo_tabs:
+      children:
+        - group_informacion
+        - group_multimedia
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: 'Grupo Tabs'
+    group_informacion:
+      children:
+        - title
+        - field_prosperity_proceso
+        - created
+        - uid
+        - langcode
+        - path
+        - status
+      parent_name: group_grupo_tabs
+      weight: 20
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Información
+    group_multimedia:
+      children:
+        - field_prosperity_archivos
+      parent_name: group_grupo_tabs
+      weight: 21
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Multimedia
+id: node.prosperity_fund.default
+targetEntityType: node
+bundle: prosperity_fund
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prosperity_archivos:
+    type: media_library_widget
+    weight: 1
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  field_prosperity_proceso:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  langcode:
+    type: language_select
+    weight: 5
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  body: true
+  promote: true
+  sticky: true

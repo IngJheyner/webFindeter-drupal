@@ -1,0 +1,28 @@
+uuid: c4e112ee-01fe-49bd-ac0a-d1eaf13c3b66
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.tipo_cont_pqrs_terminos_respues
+  module:
+    - disable_field
+    - text
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.tipo_cont_pqrs_terminos_respues.body
+field_name: body
+entity_type: node
+bundle: tipo_cont_pqrs_terminos_respues
+label: 'Contenido pqrs términos de respuesta'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

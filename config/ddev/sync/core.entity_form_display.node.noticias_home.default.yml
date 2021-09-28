@@ -1,0 +1,245 @@
+uuid: 7d07bd2a-5a73-4397-82f1-58d303fdad75
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.noticias_home.body
+    - field.field.node.noticias_home.field_img_noticia_home
+    - field.field.node.noticias_home.field_noticias_resumen_redes
+    - field.field.node.noticias_home.field_noticias_resumen_seo
+    - field.field.node.noticias_home.field_noticias_tipo_noticia_seo
+    - field.field.node.noticias_home.field_noticias_titulo_redes
+    - field.field.node.noticias_home.field_noticias_titulo_seo
+    - field.field.node.noticias_home.field_tipo_noticia
+    - image.style.thumbnail
+    - node.type.noticias_home
+  module:
+    - field_group
+    - image
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_contenido:
+      children:
+        - field_noticias_resumen_redes
+        - field_noticias_resumen_seo
+        - body
+      parent_name: group_contenido_noticia
+      weight: 19
+      format_type: tab
+      region: content
+      format_settings:
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+        formatter: closed
+      label: Noticia
+    group_contenido_noticia:
+      children:
+        - group_informacion
+        - group_multimedia
+        - group_contenido
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: Contenido
+    group_informacion:
+      children:
+        - title
+        - field_noticias_titulo_redes
+        - field_noticias_titulo_seo
+        - field_noticias_tipo_noticia_seo
+        - field_tipo_noticia
+        - created
+        - status
+        - uid
+      parent_name: group_contenido_noticia
+      weight: 1
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Información
+    group_mas_informacion:
+      children: {  }
+      parent_name: ''
+      weight: 6
+      format_type: tab
+      region: hidden
+      format_settings:
+        description: ''
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Detalles
+    group_multimedia:
+      children:
+        - field_img_noticia_home
+      parent_name: group_contenido_noticia
+      weight: 17
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Multimedia
+    group_group_tabs:
+      children: {  }
+      parent_name: ''
+      weight: 5
+      format_type: tabs
+      region: hidden
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+      label: 'Group tabs'
+    group_seo:
+      children: {  }
+      parent_name: ''
+      weight: 7
+      format_type: tab
+      region: hidden
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: SEO
+id: node.noticias_home.default
+targetEntityType: node
+bundle: noticias_home
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 18
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_img_noticia_home:
+    weight: 18
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_noticias_resumen_redes:
+    weight: 16
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_noticias_resumen_seo:
+    weight: 17
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_noticias_tipo_noticia_seo:
+    type: entity_reference_autocomplete
+    weight: 7
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_noticias_titulo_redes:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_noticias_titulo_seo:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 10
+      placeholder: ''
+    third_party_settings: {  }
+  field_tipo_noticia:
+    type: entity_reference_autocomplete
+    weight: 8
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 10
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 11
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  promote: true
+  sticky: true

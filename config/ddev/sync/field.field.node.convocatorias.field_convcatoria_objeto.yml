@@ -1,0 +1,25 @@
+uuid: 577a5184-1922-4d26-9afd-29d26b9b1c64
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_convcatoria_objeto
+    - node.type.convocatorias
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.convocatorias.field_convcatoria_objeto
+field_name: field_convcatoria_objeto
+entity_type: node
+bundle: convocatorias
+label: 'Objeto de la convocatoria'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

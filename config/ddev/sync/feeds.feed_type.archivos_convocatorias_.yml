@@ -1,0 +1,112 @@
+uuid: 93cf0758-c51c-474f-a9d6-0a7b3ec97b9a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_muldia_fecha
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_ruta_archivo
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_tipo_adjunto
+    - field.field.media.mltdia_convcatoria_archivo.field_media_document
+    - media.type.mltdia_convcatoria_archivo
+  module:
+    - feeds_tamper
+    - media
+third_party_settings:
+  feeds_tamper:
+    tampers: {  }
+id: archivos_convocatorias_
+label: 'Archivos [ Convocatorias ]'
+description: ''
+help: ''
+import_period: 3600
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'private://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ;
+  no_headers: false
+  line_limit: 100
+processor: 'entity:media'
+processor_configuration:
+  langcode: es
+  update_existing: 1
+  update_non_existent: _keep
+  expire: -1
+  owner_feed_author: false
+  owner_id: 1
+  authorize: true
+  skip_hash_check: false
+  values:
+    bundle: mltdia_convcatoria_archivo
+custom_sources:
+  field_convcatoria_muldia_fecha:
+    label: field_convcatoria_muldia_fecha
+    value: field_convcatoria_muldia_fecha
+    machine_name: field_convcatoria_muldia_fecha
+  field_convcatoria_ruta_archivo:
+    label: field_convcatoria_ruta_archivo
+    value: field_convcatoria_ruta_archivo
+    machine_name: field_convcatoria_ruta_archivo
+  field_media_document:
+    label: field_media_document
+    value: field_media_document
+    machine_name: field_media_document
+  field_convcatoria_tipo_adjunto:
+    label: field_convcatoria_tipo_adjunto
+    value: field_convcatoria_tipo_adjunto
+    machine_name: field_convcatoria_tipo_adjunto
+  name:
+    label: name
+    value: name
+    machine_name: name
+  id_archivo:
+    label: id_archivo
+    value: id_archivo
+    machine_name: id_archivo
+mappings:
+  -
+    target: field_convcatoria_ruta_archivo
+    map:
+      value: field_convcatoria_ruta_archivo
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_media_document
+    map:
+      target_id: field_media_document
+      description: field_media_document
+    settings:
+      language: ''
+      reference_by: origname
+      existing: '1'
+      autocreate: 0
+  -
+    target: field_convcatoria_tipo_adjunto
+    map:
+      value: field_convcatoria_tipo_adjunto
+    settings:
+      language: null
+  -
+    target: name
+    map:
+      value: name
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: created
+    map:
+      value: field_convcatoria_muldia_fecha
+    settings:
+      language: ''
+      timezone: America/Bogota
+  -
+    target: field_convcatoria_muldia_fecha
+    map:
+      value: field_convcatoria_muldia_fecha
+    settings:
+      language: ''
+      timezone: America/Bogota

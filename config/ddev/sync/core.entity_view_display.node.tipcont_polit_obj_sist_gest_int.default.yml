@@ -1,0 +1,30 @@
+uuid: db1be046-0d79-4796-8426-21044bef1bb6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipcont_polit_obj_sist_gest_int.body
+    - node.type.tipcont_polit_obj_sist_gest_int
+  module:
+    - text
+    - user
+id: node.tipcont_polit_obj_sist_gest_int.default
+targetEntityType: node
+bundle: tipcont_polit_obj_sist_gest_int
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

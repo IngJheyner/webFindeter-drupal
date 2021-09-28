@@ -1,0 +1,163 @@
+uuid: 0a42dd9b-689d-4713-9330-81be13d3adbb
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.convocatorias.body
+    - field.field.node.convocatorias.feeds_item
+    - field.field.node.convocatorias.field_convcatoria_archivos
+    - field.field.node.convocatorias.field_convcatoria_contractual
+    - field.field.node.convocatorias.field_convcatoria_contratacion
+    - field.field.node.convocatorias.field_convcatoria_departamento
+    - field.field.node.convocatorias.field_convcatoria_email_proceso
+    - field.field.node.convocatorias.field_convcatoria_estado
+    - field.field.node.convocatorias.field_convcatoria_forma_pago
+    - field.field.node.convocatorias.field_convcatoria_moneda
+    - field.field.node.convocatorias.field_convcatoria_objeto
+    - field.field.node.convocatorias.field_convcatoria_presupuesto
+    - field.field.node.convocatorias.field_convcatoria_programa
+    - field.field.node.convocatorias.field_convcatoria_tipo_compra
+    - node.type.convocatorias
+  module:
+    - cshs
+    - field_formatter_class
+    - layout_builder
+    - options
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.convocatorias.full
+targetEntityType: node
+bundle: convocatorias
+mode: full
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_convcatoria_archivos:
+    type: entity_reference_entity_view
+    weight: 8
+    label: hidden
+    settings:
+      view_mode: convocatorias_archivos
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    region: content
+  field_convcatoria_contractual:
+    weight: 11
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: entity_reference_label
+    region: content
+  field_convcatoria_contratacion:
+    weight: 9
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: entity_reference_label
+    region: content
+  field_convcatoria_departamento:
+    weight: 7
+    label: hidden
+    settings:
+      separator: ' - '
+      linked: 0
+      reverse: 0
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: cshs_full_hierarchy
+    region: content
+  field_convcatoria_email_proceso:
+    weight: 10
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_convcatoria_estado:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_convcatoria_forma_pago:
+    weight: 12
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: entity_reference_label
+    region: content
+  field_convcatoria_moneda:
+    type: entity_reference_label
+    weight: 4
+    region: content
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+  field_convcatoria_objeto:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_convcatoria_presupuesto:
+    weight: 5
+    label: above
+    settings:
+      thousand_separator: ','
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: number_decimal
+    region: content
+  field_convcatoria_programa:
+    weight: 3
+    label: inline
+    settings:
+      linked: 0
+      reverse: 0
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: cshs_group_by_root
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  feeds_item: true
+  field_convcatoria_tipo_compra: true
+  langcode: true
+  search_api_excerpt: true

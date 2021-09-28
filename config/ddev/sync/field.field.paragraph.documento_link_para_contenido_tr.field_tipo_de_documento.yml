@@ -1,0 +1,35 @@
+uuid: 8af5e0aa-fd2b-4888-a15c-af71ec9343a2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_tipo_de_documento
+    - paragraphs.paragraphs_type.documento_link_para_contenido_tr
+    - taxonomy.vocabulary.tipo_documentos_o_link_transpare
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: paragraph.documento_link_para_contenido_tr.field_tipo_de_documento
+field_name: field_tipo_de_documento
+entity_type: paragraph
+bundle: documento_link_para_contenido_tr
+label: 'Tipo de documento'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tipo_documentos_o_link_transpare: tipo_documentos_o_link_transpare
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

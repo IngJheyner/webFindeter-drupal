@@ -1,0 +1,159 @@
+uuid: 97d2563c-98c5-4874-af5d-7dde16c77c54
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.2_1_datos_abiertos.field_contenido_periodo_datos_ab
+    - field.field.node.2_1_datos_abiertos.field_descripcion_principal
+    - field.field.node.2_1_datos_abiertos.field_img_encabezado_datos
+    - field.field.node.2_1_datos_abiertos.field_periodos
+    - field.field.node.2_1_datos_abiertos.field_titulo_periodo_datos_abier
+    - image.style.thumbnail
+    - node.type.2_1_datos_abiertos
+  module:
+    - field_group
+    - svg_image
+    - text
+third_party_settings:
+  field_group:
+    group_periodos:
+      children:
+        - group_titulo_periodo
+        - group_contenido_periodo
+      parent_name: ''
+      weight: 8
+      format_type: tabs
+      region: hidden
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: Periodos
+    group_titulo_periodo:
+      children:
+        - field_titulo_periodo_datos_abier
+      parent_name: group_periodos
+      weight: 10
+      format_type: tab
+      region: hidden
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'titulo periodo'
+    group_contenido_periodo:
+      children:
+        - field_contenido_periodo_datos_ab
+      parent_name: group_periodos
+      weight: 11
+      format_type: tab
+      region: hidden
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Contenido periodo'
+    group_contenido_tab:
+      children:
+        - group_informaci
+        - group_contenido
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: Contenido_tabs
+    group_informaci:
+      children:
+        - title
+        - created
+        - status
+      parent_name: group_contenido_tab
+      weight: 12
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Información
+    group_contenido:
+      children:
+        - field_descripcion_principal
+        - field_img_encabezado_datos
+      parent_name: group_contenido_tab
+      weight: 14
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Contenido
+id: node.2_1_datos_abiertos.default
+targetEntityType: node
+bundle: 2_1_datos_abiertos
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_descripcion_principal:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_img_encabezado_datos:
+    type: image_image
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_contenido_periodo_datos_ab: true
+  field_periodos: true
+  field_titulo_periodo_datos_abier: true
+  langcode: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true

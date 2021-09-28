@@ -1,0 +1,26 @@
+uuid: 99530d92-2980-4239-910d-e40fb36ae2c7
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - options
+_core:
+  default_config_hash: k3iuogKMulHIJq9CX9QiENi8wzp5f5eqU9GRQZ3x28o
+id: node.field_authorization
+field_name: field_authorization
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Al dar clic sobre el botón "Enviar solicitud" ésta quedará registrada y con ella autoriza a FINDETER el tratamiento de mis datos personales para la gestión interna conforme a su política de protección de datos.'
+      label: 'Al dar clic sobre el botón "Enviar solicitud" ésta quedará registrada y con ella autoriza a FINDETER el tratamiento de mis datos personales para la gestión interna conforme a su política de protección de datos.'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 2
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

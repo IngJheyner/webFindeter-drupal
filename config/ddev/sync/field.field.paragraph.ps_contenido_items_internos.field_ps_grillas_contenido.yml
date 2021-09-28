@@ -1,0 +1,48 @@
+uuid: f08b4e12-3b6f-4d0c-8c1c-7eab29f2ed4b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ps_grillas_contenido
+    - paragraphs.paragraphs_type.ps_contenido_items_internos
+    - paragraphs.paragraphs_type.ps_grillas_internas
+  module:
+    - disable_field
+    - entity_reference_revisions
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: paragraph.ps_contenido_items_internos.field_ps_grillas_contenido
+field_name: field_ps_grillas_contenido
+entity_type: paragraph
+bundle: ps_contenido_items_internos
+label: 'Grillas o Columanas'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      ps_grillas_internas: ps_grillas_internas
+    target_bundles_drag_drop:
+      findeter_en_cifras_home:
+        weight: 6
+        enabled: false
+      productos_servicios_home:
+        weight: 7
+        enabled: false
+      ps_contenido_items_internos:
+        weight: 8
+        enabled: false
+      ps_grillas_internas:
+        enabled: true
+        weight: 9
+      tabs_productos_servicio:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions
