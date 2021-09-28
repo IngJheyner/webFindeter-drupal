@@ -1,0 +1,27 @@
+uuid: b0d58864-e5f7-4926-8066-44134beacb85
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.pie_de_pagina
+    - field.storage.block_content.field_pqr_footer
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: block_content.pie_de_pagina.field_pqr_footer
+field_name: field_pqr_footer
+entity_type: block_content
+bundle: pie_de_pagina
+label: 'Línea de atención de peticiones, quejas, reclamos y denuncias'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Línea nacional gratuita: 01-8000-116622'
+default_value_callback: ''
+settings: {  }
+field_type: string

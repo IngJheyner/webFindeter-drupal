@@ -1,0 +1,102 @@
+uuid: 2bbff915-4fe8-4987-aba3-7c0778b560ce
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.politicas_y_objetivos_del_sistema_de_gestion_integrado
+id: politicas_y_objetivos_del_sistema_de_gestion_integrado-layout_builder-0
+label: 'Políticas y objetivos del Sistema de Gestión Integrado'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: 0e4f07c9-b5f5-4b33-b589-6bc206d3f9bb
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        c608bfa7-75ce-4d4c-bce0-ac1d1986dade:
+          uuid: c608bfa7-75ce-4d4c-bce0-ac1d1986dade
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 2
+        e834ce91-1420-4c2a-ae64-f5c2c0409731:
+          uuid: e834ce91-1420-4c2a-ae64-f5c2c0409731
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: '0'
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 1
+            expand: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:2bcec003-9329-4286-9ed5-3140842114ed'
+            suggestion: transparencia_acceso_informacion_sidebar
+            context_mapping: {  }
+          additional: {  }
+          weight: 2
+        8e275682-f486-4330-974f-acb9b861ce6c:
+          uuid: 8e275682-f486-4330-974f-acb9b861ce6c
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-block_transp_politicas_objetivos_sistema_gestion_integrado'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: '1'
+            context_mapping: {  }
+          additional: {  }
+          weight: 2
+      third_party_settings: {  }
+page: politicas_y_objetivos_del_sistema_de_gestion_integrado
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

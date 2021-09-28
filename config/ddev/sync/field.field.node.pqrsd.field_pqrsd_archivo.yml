@@ -1,0 +1,52 @@
+uuid: 1204ea81-1bb3-4fe3-b8ae-4184f91b8105
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pqrsd_archivo
+    - node.type.pqrsd
+  module:
+    - disable_field
+    - file
+    - filefield_paths
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: 'pqrsd/[date:custom:Y]-[date:custom:m]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+  disable_field:
+    add_disable: none
+    edit_disable: none
+_core:
+  default_config_hash: bfCOBtSXop9QJd-iKvslsFAoSsgRZ7nvwS-JwXd6VGQ
+id: node.pqrsd.field_pqrsd_archivo
+field_name: field_pqrsd_archivo
+entity_type: node
+bundle: pqrsd
+label: 'Adjuntar archivo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'pqrsd/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt doc docx pdf xls odf xlsx cvs zip'
+  max_filesize: '20 MB'
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

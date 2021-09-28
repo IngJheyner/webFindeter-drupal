@@ -1,0 +1,14 @@
+uuid: 329319ea-ae6c-4345-9309-08ba230c3223
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.pqrsd_administrador
+  module:
+    - user
+id: user_add_role_action.pqrsd_administrador
+label: 'Añade el rol PQRSD Administrador al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: pqrsd_administrador

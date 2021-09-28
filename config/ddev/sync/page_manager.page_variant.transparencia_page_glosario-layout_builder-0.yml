@@ -1,0 +1,102 @@
+uuid: ea08d54d-79d3-4f48-8f7b-230b66692e09
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.transparencia_page_glosario
+id: transparencia_page_glosario-layout_builder-0
+label: Glosario
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: a2ea600a-26e3-4d1d-afe7-356343933dd1
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-8: col-sm-8
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-4: col-sm-4
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        7d0d0296-313b-41b2-8d15-d8b2fe8b5444:
+          uuid: 7d0d0296-313b-41b2-8d15-d8b2fe8b5444
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 3
+        52b86851-93ca-41dd-ac71-8c312eb77cca:
+          uuid: 52b86851-93ca-41dd-ac71-8c312eb77cca
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: '0'
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 1
+            expand: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
+            suggestion: transparencia_acceso_informacion_sidebar
+            context_mapping: {  }
+          additional: {  }
+          weight: 1
+        d67e0a9f-7936-430f-8fb1-015017b6066a:
+          uuid: d67e0a9f-7936-430f-8fb1-015017b6066a
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-transp_page_glosario'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 3
+      third_party_settings: {  }
+page: transparencia_page_glosario
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

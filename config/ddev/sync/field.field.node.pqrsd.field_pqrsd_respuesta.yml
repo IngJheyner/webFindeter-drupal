@@ -1,0 +1,25 @@
+uuid: a8719116-f1eb-4970-bf20-1a42d00fcc91
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pqrsd_respuesta
+    - node.type.pqrsd
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    edit_disable: none
+id: node.pqrsd.field_pqrsd_respuesta
+field_name: field_pqrsd_respuesta
+entity_type: node
+bundle: pqrsd
+label: Respuesta
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,116 @@
+uuid: 562d0703-458c-483e-afd3-a584b5acd7bf
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.convocatorias_encabezado
+    - field.field.block_content.convocatorias_encabezado.body
+    - field.field.block_content.convocatorias_encabezado.field_banner_convcatorias
+    - field.field.block_content.convocatorias_encabezado.field_convocatoria_img_fondo
+    - field.field.block_content.convocatorias_encabezado.field_convocatoria_titulo
+    - field.field.block_content.convocatorias_encabezado.field_enlace_banner_convocatoria
+    - image.style.thumbnail
+  module:
+    - field_group
+    - link
+    - svg_image
+    - text
+third_party_settings:
+  field_group:
+    group_informacion:
+      children:
+        - info
+        - field_convocatoria_titulo
+        - field_convocatoria_img_fondo
+        - group_banner
+        - body
+        - langcode
+      parent_name: ''
+      weight: 0
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        description: ''
+        weight: 0
+        required_fields: true
+        id: ''
+        classes: ''
+        open: false
+      label: 'Información y Contenido'
+    group_banner:
+      children:
+        - field_enlace_banner_convocatoria
+        - field_banner_convcatorias
+      parent_name: group_informacion
+      weight: 5
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Banner
+id: block_content.convocatorias_encabezado.default
+targetEntityType: block_content
+bundle: convocatorias_encabezado
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 8
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  field_banner_convcatorias:
+    weight: 7
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_convocatoria_img_fondo:
+    weight: 4
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_convocatoria_titulo:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_enlace_banner_convocatoria:
+    weight: 6
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  info:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 9
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,102 @@
+uuid: d9a90479-ce25-4166-b9a2-ac1bd2ab57b2
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.8_6_plan_anual_de_adquisiciones
+id: 8_6_plan_anual_de_adquisiciones-layout_builder-0
+label: 'Plan anual de Adquisiciones'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: 23898ed9-f5ed-4125-9d56-16aee85e5365
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        ce3d1ce2-3b5d-44ff-8ff4-0bf24b8c24a0:
+          uuid: ce3d1ce2-3b5d-44ff-8ff4-0bf24b8c24a0
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 1
+        fa9c9fef-9fd4-4c20-9674-c78e38f9136d:
+          uuid: fa9c9fef-9fd4-4c20-9674-c78e38f9136d
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-8_6_plan_anual_de_adquisiciones'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: '1'
+            context_mapping: {  }
+          additional: {  }
+          weight: 2
+        54471297-0f5f-48b5-8d4b-2cf503bec72b:
+          uuid: 54471297-0f5f-48b5-8d4b-2cf503bec72b
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: '0'
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 1
+            expand: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:fbbf2d8f-3985-4704-ab5d-c2dbc833bc38'
+            suggestion: transparencia_acceso_informacion_sidebar
+            context_mapping: {  }
+          additional: {  }
+          weight: 2
+      third_party_settings: {  }
+page: 8_6_plan_anual_de_adquisiciones
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

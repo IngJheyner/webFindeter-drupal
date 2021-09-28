@@ -1,0 +1,23 @@
+uuid: 2bee50bd-9431-44d7-bd93-a6b624de5749
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.pie_de_pagina
+    - field.storage.block_content.field_url_likedin_footer
+  module:
+    - link
+id: block_content.pie_de_pagina.field_url_likedin_footer
+field_name: field_url_likedin_footer
+entity_type: block_content
+bundle: pie_de_pagina
+label: 'Url Likedin'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

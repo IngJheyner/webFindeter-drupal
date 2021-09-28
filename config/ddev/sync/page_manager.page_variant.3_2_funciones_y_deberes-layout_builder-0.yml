@@ -1,0 +1,102 @@
+uuid: adefe6dc-90df-404c-b66b-8ee94c8fe6f2
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.3_2_funciones_y_deberes
+id: 3_2_funciones_y_deberes-layout_builder-0
+label: 'funciones y deberes'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: 2b024767-ac49-44c2-b974-200277c99700
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        e369c5ac-e945-46af-b2b3-ac1b6818e46f:
+          uuid: e369c5ac-e945-46af-b2b3-ac1b6818e46f
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 2
+        32a923f7-afb6-4a9d-89b1-5646db2080a8:
+          uuid: 32a923f7-afb6-4a9d-89b1-5646db2080a8
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-3_2_funciones_y_deberes'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: '1'
+            context_mapping: {  }
+          additional: {  }
+          weight: 1
+        385dfbd7-f242-4e08-9760-96d6256e3e71:
+          uuid: 385dfbd7-f242-4e08-9760-96d6256e3e71
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: '0'
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 1
+            expand: true
+            parent: 'transparencia-acceso-informacion:menu_link_content:d5ee5ec6-3346-4402-a12c-cf492f96edc0'
+            suggestion: transparencia_acceso_informacion_sidebar
+            context_mapping: {  }
+          additional: {  }
+          weight: 2
+      third_party_settings: {  }
+page: 3_2_funciones_y_deberes
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

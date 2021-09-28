@@ -1,0 +1,14 @@
+uuid: 6ce0b664-518d-44de-8e11-59678918fbb0
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.pqrsd_denuncias
+  module:
+    - user
+id: user_add_role_action.pqrsd_denuncias
+label: 'Añade el rol PQRSD Denuncias al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: pqrsd_denuncias

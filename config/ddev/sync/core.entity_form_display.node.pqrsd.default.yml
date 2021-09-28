@@ -1,0 +1,410 @@
+uuid: fc94e959-b8a6-4cde-80f3-2fb40d34fd36
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.pqrsd.field_pqrsd_archivo
+    - field.field.node.pqrsd.field_pqrsd_asignaciones
+    - field.field.node.pqrsd.field_pqrsd_autorizacion
+    - field.field.node.pqrsd.field_pqrsd_canal_recepcion
+    - field.field.node.pqrsd.field_pqrsd_comentario_traslado
+    - field.field.node.pqrsd.field_pqrsd_departamento
+    - field.field.node.pqrsd.field_pqrsd_descripcion
+    - field.field.node.pqrsd.field_pqrsd_direccion
+    - field.field.node.pqrsd.field_pqrsd_email
+    - field.field.node.pqrsd.field_pqrsd_fax
+    - field.field.node.pqrsd.field_pqrsd_fecha_naranja
+    - field.field.node.pqrsd.field_pqrsd_fecha_respuesta
+    - field.field.node.pqrsd.field_pqrsd_fecha_roja
+    - field.field.node.pqrsd.field_pqrsd_forma_recepcion
+    - field.field.node.pqrsd.field_pqrsd_grupo_etnico
+    - field.field.node.pqrsd.field_pqrsd_marketing
+    - field.field.node.pqrsd.field_pqrsd_medio_respuesta
+    - field.field.node.pqrsd.field_pqrsd_motivo
+    - field.field.node.pqrsd.field_pqrsd_municipio
+    - field.field.node.pqrsd.field_pqrsd_nit
+    - field.field.node.pqrsd.field_pqrsd_nombre_producto
+    - field.field.node.pqrsd.field_pqrsd_numero_id
+    - field.field.node.pqrsd.field_pqrsd_numero_radicado
+    - field.field.node.pqrsd.field_pqrsd_otros
+    - field.field.node.pqrsd.field_pqrsd_palabras_clave
+    - field.field.node.pqrsd.field_pqrsd_preferencial
+    - field.field.node.pqrsd.field_pqrsd_primer_apellido
+    - field.field.node.pqrsd.field_pqrsd_primer_nombre
+    - field.field.node.pqrsd.field_pqrsd_rango_edad
+    - field.field.node.pqrsd.field_pqrsd_razon_social
+    - field.field.node.pqrsd.field_pqrsd_respuesta
+    - field.field.node.pqrsd.field_pqrsd_respuesta_a_favor
+    - field.field.node.pqrsd.field_pqrsd_respuesta_archivos
+    - field.field.node.pqrsd.field_pqrsd_segundo_apellido
+    - field.field.node.pqrsd.field_pqrsd_segundo_nombre
+    - field.field.node.pqrsd.field_pqrsd_telefono
+    - field.field.node.pqrsd.field_pqrsd_tipo_discapacidad
+    - field.field.node.pqrsd.field_pqrsd_tipo_documento
+    - field.field.node.pqrsd.field_pqrsd_tipo_empresa
+    - field.field.node.pqrsd.field_pqrsd_tipo_peticion
+    - field.field.node.pqrsd.field_pqrsd_tipo_radicado
+    - field.field.node.pqrsd.field_pqrsd_tipo_solicitante
+    - node.type.pqrsd
+  module:
+    - datetime
+    - file
+    - path
+id: node.pqrsd.default
+targetEntityType: node
+bundle: pqrsd
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_pqrsd_archivo:
+    weight: 8
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_pqrsd_asignaciones:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_pqrsd_autorizacion:
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_pqrsd_canal_recepcion:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_pqrsd_comentario_traslado:
+    weight: 47
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_pqrsd_departamento:
+    weight: 14
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_pqrsd_descripcion:
+    weight: 15
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_pqrsd_direccion:
+    weight: 16
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_pqrsd_email:
+    weight: 13
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_pqrsd_fax:
+    weight: 17
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_pqrsd_fecha_naranja:
+    type: datetime_default
+    weight: 42
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_pqrsd_fecha_respuesta:
+    weight: 46
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_pqrsd_fecha_roja:
+    type: datetime_default
+    weight: 43
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_pqrsd_forma_recepcion:
+    weight: 18
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_pqrsd_grupo_etnico:
+    weight: 40
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_pqrsd_marketing:
+    weight: 19
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_pqrsd_medio_respuesta:
+    weight: 20
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_pqrsd_motivo:
+    weight: 21
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_pqrsd_municipio:
+    weight: 22
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_pqrsd_nit:
+    weight: 23
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_pqrsd_nombre_producto:
+    weight: 24
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_pqrsd_numero_id:
+    weight: 25
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_pqrsd_numero_radicado:
+    type: string_textfield
+    weight: 45
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pqrsd_otros:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_pqrsd_palabras_clave:
+    weight: 27
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_pqrsd_preferencial:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_pqrsd_primer_apellido:
+    weight: 28
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_pqrsd_primer_nombre:
+    weight: 29
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_pqrsd_rango_edad:
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_pqrsd_razon_social:
+    weight: 31
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_pqrsd_respuesta:
+    type: string_textarea
+    weight: 44
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_pqrsd_segundo_apellido:
+    weight: 32
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_pqrsd_segundo_nombre:
+    weight: 33
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_pqrsd_telefono:
+    weight: 34
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_pqrsd_tipo_discapacidad:
+    weight: 41
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_pqrsd_tipo_documento:
+    weight: 39
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_pqrsd_tipo_empresa:
+    weight: 35
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_pqrsd_tipo_peticion:
+    weight: 36
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_pqrsd_tipo_radicado:
+    weight: 37
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_pqrsd_tipo_solicitante:
+    weight: 38
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_pqrsd_respuesta_a_favor: true
+  field_pqrsd_respuesta_archivos: true

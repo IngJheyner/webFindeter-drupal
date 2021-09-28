@@ -1,0 +1,14 @@
+uuid: 1ebd357c-0c2b-402f-a926-139e883d7c0f
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.pqrsd_denuncias
+  module:
+    - user
+id: user_remove_role_action.pqrsd_denuncias
+label: 'Elimina el rol PQRSD Denuncias al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: pqrsd_denuncias

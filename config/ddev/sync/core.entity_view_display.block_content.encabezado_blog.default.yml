@@ -1,0 +1,110 @@
+uuid: e0dcdf14-25ec-4c49-8ded-e99725744621
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.encabezado_blog
+    - field.field.block_content.encabezado_blog.field_buscador
+    - field.field.block_content.encabezado_blog.field_facebook
+    - field.field.block_content.encabezado_blog.field_facebook_url
+    - field.field.block_content.encabezado_blog.field_fondo
+    - field.field.block_content.encabezado_blog.field_logo
+    - field.field.block_content.encabezado_blog.field_subtitulo
+    - field.field.block_content.encabezado_blog.field_titulo
+    - field.field.block_content.encabezado_blog.field_twitter
+    - field.field.block_content.encabezado_blog.field_twitter_url
+  module:
+    - link
+    - svg_image
+id: block_content.encabezado_blog.default
+targetEntityType: block_content
+bundle: encabezado_blog
+mode: default
+content:
+  field_buscador:
+    weight: 3
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_facebook:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_facebook_url:
+    weight: 8
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_fondo:
+    weight: 4
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_logo:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_subtitulo:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_titulo:
+    weight: 7
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_twitter:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_twitter_url:
+    weight: 9
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden:
+  langcode: true

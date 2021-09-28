@@ -1,0 +1,14 @@
+uuid: 7dfbb596-b64d-49a3-9c0e-b52c96cd1b1f
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.auditor_pqrsd
+  module:
+    - user
+id: user_add_role_action.auditor_pqrsd
+label: 'Añade el rol PQRSD Auditor al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: auditor_pqrsd

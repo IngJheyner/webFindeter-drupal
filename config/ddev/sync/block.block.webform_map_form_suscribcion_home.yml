@@ -1,0 +1,31 @@
+uuid: dff17e18-66b5-4601-be3e-98add9feb5c1
+langcode: es
+status: true
+dependencies:
+  config:
+    - webform.webform.contact
+  module:
+    - system
+    - webform
+  theme:
+    - webfinde
+id: webform_map_form_suscribcion_home
+theme: webfinde
+region: region_B
+weight: -9
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: 'Mapa, Formulario de contacto y suscribir [ Home ]'
+  provider: webform
+  label_display: '0'
+  webform_id: contact
+  default_data: ''
+  redirect: false
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

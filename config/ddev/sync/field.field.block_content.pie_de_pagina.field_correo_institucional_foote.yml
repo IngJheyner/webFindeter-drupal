@@ -1,0 +1,21 @@
+uuid: ae4b79ce-33bb-4b7a-a9b9-6ef7e8b33135
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.pie_de_pagina
+    - field.storage.block_content.field_correo_institucional_foote
+id: block_content.pie_de_pagina.field_correo_institucional_foote
+field_name: field_correo_institucional_foote
+entity_type: block_content
+bundle: pie_de_pagina
+label: 'Correo Institucional'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: findeter@findeter.gov.co
+default_value_callback: ''
+settings: {  }
+field_type: email

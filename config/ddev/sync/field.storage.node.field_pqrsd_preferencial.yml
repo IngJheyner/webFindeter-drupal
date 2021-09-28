@@ -1,0 +1,50 @@
+uuid: a51df0ed-2026-4bf0-b7f9-aa876f7894cd
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - options
+_core:
+  default_config_hash: Wkq5l8_zMCj_E_SuYT-Q8v3Pbm-WnKvVPREVwwLcPXA
+id: node.field_pqrsd_preferencial
+field_name: field_pqrsd_preferencial
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: mujer_gestante
+      label: 'Mujer gestante'
+    -
+      value: adulto_mayor
+      label: 'Adulto mayor'
+    -
+      value: nina
+      label: Niña
+    -
+      value: nino
+      label: Niño
+    -
+      value: adolescente
+      label: Adolescente
+    -
+      value: veterano
+      label: 'Veterano fuerza pública'
+    -
+      value: periodista
+      label: Periodista
+    -
+      value: congresista
+      label: Congresista
+    -
+      value: '1'
+      label: Ninguna
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

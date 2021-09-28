@@ -1,0 +1,311 @@
+uuid: f5a866a7-754e-4fb6-a7e5-473ccf74802d
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.pie_de_pagina
+    - field.field.block_content.pie_de_pagina.field_conmutador
+    - field.field.block_content.pie_de_pagina.field_correo_denuncias_footer
+    - field.field.block_content.pie_de_pagina.field_correo_institucional_foote
+    - field.field.block_content.pie_de_pagina.field_email_contacto_footer
+    - field.field.block_content.pie_de_pagina.field_email_judiciales_footer
+    - field.field.block_content.pie_de_pagina.field_facebook_icono_footer
+    - field.field.block_content.pie_de_pagina.field_flickr_icono_footer
+    - field.field.block_content.pie_de_pagina.field_horario_de_atencion_footer
+    - field.field.block_content.pie_de_pagina.field_img_saving_amazong_footer
+    - field.field.block_content.pie_de_pagina.field_instagram_icono_footer
+    - field.field.block_content.pie_de_pagina.field_likedin_icono_footer
+    - field.field.block_content.pie_de_pagina.field_logo_footer
+    - field.field.block_content.pie_de_pagina.field_logo_ministerio_hacienda_f
+    - field.field.block_content.pie_de_pagina.field_logo_superintendencia_foot
+    - field.field.block_content.pie_de_pagina.field_ntf_judiciales_footer
+    - field.field.block_content.pie_de_pagina.field_pqr_footer
+    - field.field.block_content.pie_de_pagina.field_sede_principal_footer
+    - field.field.block_content.pie_de_pagina.field_twitter_icono_footer
+    - field.field.block_content.pie_de_pagina.field_url_facebook_footer
+    - field.field.block_content.pie_de_pagina.field_url_flicker_footer
+    - field.field.block_content.pie_de_pagina.field_url_instagram_footer
+    - field.field.block_content.pie_de_pagina.field_url_likedin_footer
+    - field.field.block_content.pie_de_pagina.field_url_saving_amazong_footer
+    - field.field.block_content.pie_de_pagina.field_url_twitter_footer
+    - field.field.block_content.pie_de_pagina.field_url_youtube_footer
+    - field.field.block_content.pie_de_pagina.field_youtube_icono_footer
+  module:
+    - link
+    - svg_image
+id: block_content.pie_de_pagina.default
+targetEntityType: block_content
+bundle: pie_de_pagina
+mode: default
+content:
+  field_conmutador:
+    weight: 16
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_correo_denuncias_footer:
+    weight: 20
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_correo_institucional_foote:
+    weight: 18
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_email_judiciales_footer:
+    weight: 19
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_facebook_icono_footer:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_flickr_icono_footer:
+    weight: 21
+    label: above
+    settings:
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_horario_de_atencion_footer:
+    weight: 15
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_img_saving_amazong_footer:
+    weight: 24
+    label: hidden
+    settings:
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_instagram_icono_footer:
+    weight: 4
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_likedin_icono_footer:
+    weight: 5
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_logo_footer:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_logo_ministerio_hacienda_f:
+    weight: 13
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_logo_superintendencia_foot:
+    weight: 12
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_pqr_footer:
+    weight: 17
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_sede_principal_footer:
+    weight: 14
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_twitter_icono_footer:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_url_facebook_footer:
+    weight: 7
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_url_flicker_footer:
+    weight: 22
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_url_instagram_footer:
+    weight: 9
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_url_likedin_footer:
+    weight: 10
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_url_saving_amazong_footer:
+    weight: 23
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_url_twitter_footer:
+    weight: 6
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_url_youtube_footer:
+    weight: 8
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_youtube_icono_footer:
+    weight: 3
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  field_email_contacto_footer: true
+  field_ntf_judiciales_footer: true
+  langcode: true

@@ -1,0 +1,84 @@
+uuid: 86b92af7-3765-400b-9398-0a8cddbe8e8a
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.encabezado_home
+    - field.field.block_content.encabezado_home.field_img_govco_encabezado_home
+    - field.field.block_content.encabezado_home.field_logo_encabezado_home
+    - image.style.thumbnail
+  module:
+    - field_group
+    - image
+third_party_settings:
+  field_group:
+    group_contenido:
+      children:
+        - field_logo_encabezado_home
+        - field_logo_findeter_negro
+        - field_img_govco_encabezado_home
+      parent_name: ''
+      weight: 3
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+        weight: 0
+      label: Contenido
+    group_informacion:
+      children:
+        - info
+        - langcode
+      parent_name: ''
+      weight: 0
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+        weight: 0
+      label: Información
+id: block_content.encabezado_home.default
+targetEntityType: block_content
+bundle: encabezado_home
+mode: default
+content:
+  field_img_govco_encabezado_home:
+    weight: 5
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_logo_encabezado_home:
+    weight: 3
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  info:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

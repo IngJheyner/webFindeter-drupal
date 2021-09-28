@@ -1,0 +1,102 @@
+uuid: af230fa7-1b93-42be-899e-ffab29cba0a3
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.13_1_politica_de_seguridad_de_la_informacion_y_proteccion_de_datos_personales
+id: 13_1_politica_de_seguridad_de_la_informacion_y_proteccion_de_datos_personales-layout_builder-0
+label: 'Política de seguridad de la información'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: 3efab8c0-1320-423f-a9ea-6a6ce5fc20f5
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        e900d7c1-9287-4b06-b647-c8947604d1b2:
+          uuid: e900d7c1-9287-4b06-b647-c8947604d1b2
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: '0'
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 1
+            expand: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:b8fd924b-1a63-4843-ba24-a37b83ede164'
+            suggestion: transparencia_acceso_informacion_sidebar
+            context_mapping: {  }
+          additional: {  }
+          weight: 1
+        79faef6e-1f2d-4db3-840d-cd0846e1095e:
+          uuid: 79faef6e-1f2d-4db3-840d-cd0846e1095e
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-13_1_politica_de_seguridad_de_la_informacion'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: '1'
+            context_mapping: {  }
+          additional: {  }
+          weight: 1
+        68ceb78d-3860-40bb-904e-721a33c277ff:
+          uuid: 68ceb78d-3860-40bb-904e-721a33c277ff
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+      third_party_settings: {  }
+page: 13_1_politica_de_seguridad_de_la_informacion_y_proteccion_de_datos_personales
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

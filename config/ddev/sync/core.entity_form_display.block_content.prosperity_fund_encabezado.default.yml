@@ -1,0 +1,71 @@
+uuid: 3eb8b213-fba5-44d0-a6d3-5d615361c04b
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.prosperity_fund_encabezado
+    - field.field.block_content.prosperity_fund_encabezado.body
+    - field.field.block_content.prosperity_fund_encabezado.field_prosperity_img_fondo
+    - field.field.block_content.prosperity_fund_encabezado.field_prosperity_titulo_defecto
+    - image.style.thumbnail
+  module:
+    - field_group
+    - image
+third_party_settings:
+  field_group:
+    group_informacion:
+      children:
+        - info
+        - field_prosperity_titulo_defecto
+        - field_prosperity_img_fondo
+        - langcode
+      parent_name: ''
+      weight: 0
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+        weight: 0
+      label: Información
+id: block_content.prosperity_fund_encabezado.default
+targetEntityType: block_content
+bundle: prosperity_fund_encabezado
+mode: default
+content:
+  field_prosperity_img_fondo:
+    weight: 3
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_prosperity_titulo_defecto:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  info:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 4
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden:
+  body: true

@@ -1,0 +1,40 @@
+uuid: be7d7457-a0c2-4623-a85b-1087f0e5e877
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.noticias_redes_sociales_home
+    - field.field.block_content.noticias_redes_sociales_home.body
+  module:
+    - text
+id: block_content.noticias_redes_sociales_home.default
+targetEntityType: block_content
+bundle: noticias_redes_sociales_home
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 26
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

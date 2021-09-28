@@ -1,0 +1,78 @@
+uuid: 28908e9a-38b6-48dc-91e6-5d34d7dbd62c
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.page_convocatorias_prosperity_fund
+id: page_convocatorias_prosperity_fund-layout_builder-0
+label: 'Prosperity Fund'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: 4678f453-b7d5-4fa5-a52b-1ed2702ce6a9
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_1col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          main:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|my-5
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        24c71a04-f091-4931-a430-5103afd5c11b:
+          uuid: 24c71a04-f091-4931-a430-5103afd5c11b
+          region: top
+          configuration:
+            id: 'block_content:992ef26e-7538-4427-bf44-b6ad1415ca6e'
+            label: 'Prosperity Fund [ Encabezado ]'
+            provider: block_content
+            label_display: '0'
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 1
+        5002ed5d-28cf-47da-881d-d4c0f8211dba:
+          uuid: 5002ed5d-28cf-47da-881d-d4c0f8211dba
+          region: main
+          configuration:
+            id: 'views_block:prosperity_fund-page_prosperity_fund'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 1
+      third_party_settings: {  }
+page: page_convocatorias_prosperity_fund
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

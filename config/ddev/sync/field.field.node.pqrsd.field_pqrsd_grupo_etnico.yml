@@ -1,0 +1,21 @@
+uuid: 736113ef-e16f-4b3b-8e2e-8de1cde52d22
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pqrsd_grupo_etnico
+    - node.type.pqrsd
+  module:
+    - options
+id: node.pqrsd.field_pqrsd_grupo_etnico
+field_name: field_pqrsd_grupo_etnico
+entity_type: node
+bundle: pqrsd
+label: '¿Pertenece a algún grupo étnico?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

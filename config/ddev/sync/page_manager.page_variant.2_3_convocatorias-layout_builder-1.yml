@@ -1,0 +1,113 @@
+uuid: fdb245b8-d9f7-46af-9f3e-2c3efb8f556d
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.2_3_convocatorias
+  module:
+    - user
+id: 2_3_convocatorias-layout_builder-1
+label: Funcionarios
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: 9c7690bb-4e2f-4325-b116-002cc8f4da10
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        b9062a64-ae74-463f-bfdd-04a29b785c6c:
+          uuid: b9062a64-ae74-463f-bfdd-04a29b785c6c
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 3
+        d225a814-b252-41cd-9c33-6ffaf6a5d9ba:
+          uuid: d225a814-b252-41cd-9c33-6ffaf6a5d9ba
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: '0'
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 1
+            expand: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
+            suggestion: transparencia_acceso_informacion_sidebar
+            context_mapping: {  }
+          additional: {  }
+          weight: 2
+        c20bbb09-2090-489d-b6f1-1c6b2f1d5fbe:
+          uuid: c20bbb09-2090-489d-b6f1-1c6b2f1d5fbe
+          region: left
+          configuration:
+            id: 'views_block:convocatorias-block_convocatoria_funcionario'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 3
+      third_party_settings: {  }
+page: 2_3_convocatorias
+weight: 0
+selection_criteria:
+  -
+    id: user_role
+    roles:
+      authenticated: authenticated
+      abogado: abogado
+      secretaria_general: secretaria_general
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+selection_logic: and
+static_context: {  }

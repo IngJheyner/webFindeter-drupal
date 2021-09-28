@@ -1,0 +1,102 @@
+uuid: e2e536e4-ec62-4300-9288-1870f89a1612
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.tranps_page_informes_enviados_al_congreso
+id: tranps_page_informes_enviados_al_congreso-layout_builder-0
+label: 'informes enviados al congreso'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: b2a5a849-0372-4abd-ac43-426bf4dec800
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        db39acd1-6409-410f-8a9a-be260501e0c3:
+          uuid: db39acd1-6409-410f-8a9a-be260501e0c3
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 1
+        bb56f778-aa79-4b45-a1a0-73119c3079c1:
+          uuid: bb56f778-aa79-4b45-a1a0-73119c3079c1
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: '0'
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 1
+            expand: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:69786591-4579-4385-9d42-4aaca45aa84c'
+            suggestion: transparencia_acceso_informacion_sidebar
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        7f3054db-198f-4734-8b95-acfb4bdacd66:
+          uuid: 7f3054db-198f-4734-8b95-acfb4bdacd66
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-block_informes_enviados_congreso'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: '1'
+            context_mapping: {  }
+          additional: {  }
+          weight: 1
+      third_party_settings: {  }
+page: tranps_page_informes_enviados_al_congreso
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }
