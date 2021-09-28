@@ -975,16 +975,15 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables, &$form) {
  */
 function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
 
+  //retrive logued user info
+  $currentUser = \Drupal::currentUser();
+  $rolesUser = $currentUser->getRoles();
+  $args[0] = $currentUser->id();
 
-  if($view->storage->id()== 'pqrsd' && $display_id == 'page_1'){
-
-    //retrive logued user info
-    $currentUser = \Drupal::currentUser();
-    $rolesUser = $currentUser->getRoles();
-    $args[0] = $currentUser->id();
+  if($view->storage->id()== 'pqrsd' && ($display_id == 'page_1' || $display_id == 'page_2')){    
 
     // if user is admin, remove argument to show all nodes
-    if(in_array('administrator',$rolesUser) || in_array('auditor_pqrsd',$rolesUser)){
+    if(in_array('administrator',$rolesUser) || in_array('auditor_pqrsd',$rolesUser) || in_array('pqrsd_denuncias',$rolesUser)){
       unset($args[0]);
     }
 
@@ -1025,6 +1024,19 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
 
   }
 
+  /* ============================================
+  FILTRAR PQRSD SI EL ROL DE USUARIO ES PQRSD DENUNCIAS
+  =============================================== */
+  if($view->storage->id()== 'pqrsd'  && ($display_id == 'page_1' || $display_id == 'page_2')){
+      //dump($view);
+     // if user is admin, remove argument to show all nodes
+     if(in_array('pqrsd_denuncias',$rolesUser)){
+      
+      $type_settled = $view->display_handler->options['filters']['field_pqrsd_tipo_radicado_value']['value'];
+      $settled_filter = array_diff($type_settled, ['Peticiones', 'Quejas', 'Reclamos', 'Sugerencias']);
+      $view->display_handler->options['filters']['field_pqrsd_tipo_radicado_value']['value'] = $settled_filter;
+    }
+  }
 }
 
 /**
