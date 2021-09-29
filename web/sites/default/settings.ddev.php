@@ -69,6 +69,7 @@ $settings['config_sync_directory'] = '../config/sync';
 $settings['file_private_path'] = '../private';
 
 $config['config_split.config_split.desarrollo']['status'] = TRUE;
+$config['config_split.config_split.iis']['status'] = FALSE;
 
 /* ============================================
 WEBPROFILER
