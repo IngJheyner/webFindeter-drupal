@@ -6,7 +6,7 @@ seckit_xss:
       webkit: false
     report-only: false
     default-src: '''self'''
-    script-src: '''unsafe-inline'' data: *'
+    script-src: '''unsafe-eval'' ''unsafe-inline'' data: *'
     object-src: '*'
     img-src: '''self'' * data:'
     media-src: '*'

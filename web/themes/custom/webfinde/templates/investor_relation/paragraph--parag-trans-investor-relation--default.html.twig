@@ -67,7 +67,7 @@
 {% block paragraph %}
  
     <a class="col-md-3 pointer" style="padding:30px;"  href="{{ content.field_url_inves_rela_content_tab.0 }}" title="{{ content.field_inver_rela_titu_conten_tab.0 }}">
-      <img  style="margin-bottom:20px;" src="{{ file_url(content.field_img_icon_tab_inver_rela_en[0]['#item'].entity.uri.value) }}" 
+      <img onerror='this.remove();'  style="margin-bottom:20px;" src="{{ file_url(content.field_img_icon_tab_inver_rela_en[0]['#item'].entity.uri.value) }}" 
       alt={{content.field_img_icon_tab_inver_rela_en[0]['#item'].alt}}
       class="d-flex mx-auto" width="50em"/>
       <p class="title d-flex justify-content-center ">{{ content.field_inver_rela_titu_conten_tab.0 }}</p>

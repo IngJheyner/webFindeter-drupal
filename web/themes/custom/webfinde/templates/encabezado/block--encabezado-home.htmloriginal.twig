@@ -52,14 +52,14 @@
       {# ===== ===== Img govco ===== ===== #}
       <div class="col-3 px-0 text-center d-none d-xl-block govCo">
 
-        <img src="{{ file_url(content.field_img_govco_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid mt-2 mt-lg-0" />
+        <img onerror='this.remove();' src="{{ file_url(content.field_img_govco_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid mt-2 mt-lg-0" />
       
       </div>
 
       {# ===== ===== Img Logo ===== ===== #}
       <div class="col-9 col-sm-6 col-md-4 col-lg-3 pt-1 px-0 d-xl-none text-center govCo">
 
-        <a href="{{ url('<front>') }}"><img src="{{ file_url(content.field_logo_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
+        <a href="{{ url('<front>') }}"><img onerror='this.remove();' src="{{ file_url(content.field_logo_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
       
       </div>
 
@@ -90,7 +90,7 @@
 
         <div class="col-7 col-sm-5 col-xl-2 p-0 d-none d-xl-block">
 
-          <a href="{{ url('<front>') }}"><img src="{{ file_url(content.field_logo_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
+          <a href="{{ url('<front>') }}"><img onerror='this.remove();' src="{{ file_url(content.field_logo_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
 
         </div>
 
@@ -114,7 +114,7 @@
 
       <div class="imgClose">
       
-        <a href="{{ url('<front>') }}"><img src="{{ file_url(content.field_logo_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
+        <a href="{{ url('<front>') }}"><img onerror='this.remove();' src="{{ file_url(content.field_logo_encabezado_home[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
       
         <button type="button" class="close mr-3">
         
