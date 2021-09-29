@@ -50,7 +50,7 @@
 
     <figure class="transparenciaAcceso w-100">
 
-      <img src="{{ file_url(content.field_img_fondo_transparencia[0]['#item'].entity.uri.value) }}" class="img-fluid w-100">
+      <img onerror='this.remove();' src="{{ file_url(content.field_img_fondo_transparencia[0]['#item'].entity.uri.value) }}" class="img-fluid w-100">
 
     </figure>
 

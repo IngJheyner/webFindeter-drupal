@@ -58,10 +58,10 @@
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="{{ file_url(content.field_img_principal_cifras[0]['#item'].entity.uri.value) }}" class="img-fluid mx-auto">
+              <img onerror='this.remove();' src="{{ file_url(content.field_img_principal_cifras[0]['#item'].entity.uri.value) }}" class="img-fluid mx-auto">
             </div>
             <div class="flip-card-back">
-              <img src="{{ file_url(content.field_img_secundaria_cifras[0]['#item'].entity.uri.value) }}" class="img-fluid mx-auto">
+              <img onerror='this.remove();' src="{{ file_url(content.field_img_secundaria_cifras[0]['#item'].entity.uri.value) }}" class="img-fluid mx-auto">
             </div>
           </div>
         </div>

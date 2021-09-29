@@ -98,7 +98,7 @@
   {# ==== Encabezado ==== #}
 
   <figure class="w-100">
-    <img src="{{ file_url(node.field_img_politi_accion_respon.entity.fileuri) }}" class="img-fluid w-100">
+    <img onerror='this.remove();' src="{{ file_url(node.field_img_politi_accion_respon.entity.fileuri) }}" class="img-fluid w-100">
   </figure>
   <div class="encabezado container">
     <h1 class="tituloEncabezado mt-3">{{ label }}</h1>
