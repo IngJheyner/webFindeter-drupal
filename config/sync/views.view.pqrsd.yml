@@ -31,6 +31,7 @@ dependencies:
     - field.storage.node.field_pqrsd_tipo_solicitante
     - node.type.pqrsd
     - taxonomy.vocabulary.keywords_pqrsd
+    - user.role.administrator
     - user.role.auditor_pqrsd
     - user.role.authenticated
     - user.role.colaborador
@@ -3925,7 +3926,7 @@ display:
         type: role
         options:
           role:
-            authenticated: authenticated
+            administrator: administrator
             colaborador: colaborador
             pqrsd_administrador: pqrsd_administrador
             auditor_pqrsd: auditor_pqrsd
@@ -6382,6 +6383,7 @@ display:
         fields: false
         filters: false
         filter_groups: false
+        access: false
       fields:
         nid:
           id: nid
@@ -8816,6 +8818,15 @@ display:
         operator: AND
         groups:
           1: AND
+      access:
+        type: role
+        options:
+          role:
+            administrator: administrator
+            colaborador: colaborador
+            pqrsd_administrador: pqrsd_administrador
+            auditor_pqrsd: auditor_pqrsd
+            pqrsd_denuncias: pqrsd_denuncias
     cache_metadata:
       max-age: -1
       contexts:
@@ -8825,7 +8836,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_pqrsd_canal_recepcion'
         - 'config:field.storage.node.field_pqrsd_departamento'
@@ -9979,6 +9990,68 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          plugin_id: field
+        field_pqrsd_tipo_peticion:
+          id: field_pqrsd_tipo_peticion
+          table: node__field_pqrsd_tipo_peticion
+          field: field_pqrsd_tipo_peticion
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Tipo de Peticion'
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: 1
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: 0
           plugin_id: field
         field_pqrsd_tipo_solicitante:
           id: field_pqrsd_tipo_solicitante
@@ -11422,5 +11495,6 @@ display:
         - 'config:field.storage.node.field_pqrsd_segundo_apellido'
         - 'config:field.storage.node.field_pqrsd_segundo_nombre'
         - 'config:field.storage.node.field_pqrsd_telefono'
+        - 'config:field.storage.node.field_pqrsd_tipo_peticion'
         - 'config:field.storage.node.field_pqrsd_tipo_radicado'
         - 'config:field.storage.node.field_pqrsd_tipo_solicitante'

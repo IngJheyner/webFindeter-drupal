@@ -48,7 +48,7 @@
 
           <figure class="transparenciaAcceso w-100">
 
-            <a href="{{content.field_enlace_block.0['#url']}}"><img src="{{ file_url(content.field_imagen_basico[0]['#item'].entity.uri.value) }}" class="img-fluid w-100"></a>
+            <a href="{{content.field_enlace_block.0['#url']}}"><img onerror='this.remove();' src="{{ file_url(content.field_imagen_basico[0]['#item'].entity.uri.value) }}" class="img-fluid w-100"></a>
 
           </figure>
 

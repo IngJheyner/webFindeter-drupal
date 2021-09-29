@@ -88,7 +88,7 @@
   {# ==== Encabezado ==== #}
 
   <figure class="w-100">
-    <img src="{{ file_url(node.field_img_fondo_sobre_findeter.entity.fileuri) }}" class="img-fluid w-100">
+    <img onerror='this.remove();' src="{{ file_url(node.field_img_fondo_sobre_findeter.entity.fileuri) }}" class="img-fluid w-100">
   </figure>
 
   <div class="encabezado container">

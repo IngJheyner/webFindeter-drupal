@@ -89,7 +89,7 @@
   <section class="slider container-fluid px-0">
 
     <div class="logo d-none d-xl-block">
-       <a href="{{ url('<front>') }}"><img src="{{ file_url(content.field_img_logo_findeter_pot[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
+       <a href="{{ url('<front>') }}"><img onerror='this.remove();' src="{{ file_url(content.field_img_logo_findeter_pot[0]['#item'].entity.uri.value) }}" class="img-fluid" /></a>
     </div>
 
     {{ drupal_view('slider','slide_pot') }}
@@ -299,7 +299,7 @@
           </div>
 
           <div class="col-12 col-md-6 imagen">
-            <img src="{{ file_url(content.field_img_equipo_pot[0]['#item'].entity.uri.value) }}" class="img-fluid">
+            <img onerror='this.remove();' src="{{ file_url(content.field_img_equipo_pot[0]['#item'].entity.uri.value) }}" class="img-fluid">
           </div>
 
         </div>

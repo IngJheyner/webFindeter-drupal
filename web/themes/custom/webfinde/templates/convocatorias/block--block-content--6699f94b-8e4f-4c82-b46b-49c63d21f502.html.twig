@@ -38,7 +38,7 @@
 
   <figure class="w-100 m-0">
 
-    <img src="{{ file_url(content.field_convocatoria_img_fondo[0]['#item'].entity.uri.value) }}" class="img-fluid w-100">
+    <img onerror='this.remove();' src="{{ file_url(content.field_convocatoria_img_fondo[0]['#item'].entity.uri.value) }}" class="img-fluid w-100">
 
   </figure>
 
@@ -58,7 +58,7 @@
       <div class="banner w-100">
 
         <a href="{{ content.field_enlace_banner_convocatoria[0]['#url'].uri }}">
-          <img src="{{ file_url(content.field_banner_convcatorias[0]['#item'].entity.uri.value) }}" class="img-fluid w-100">
+          <img onerror='this.remove();' src="{{ file_url(content.field_banner_convcatorias[0]['#item'].entity.uri.value) }}" class="img-fluid w-100">
         </a>
         
       </div>

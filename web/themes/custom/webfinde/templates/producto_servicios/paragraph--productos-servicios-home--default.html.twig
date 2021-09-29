@@ -78,7 +78,7 @@
 
       </figure>
   
-      <img src="{{ content.field_fondo[0]['#item'].entity.uri.value|image_style('productos_y_servicios_fondo_home') }}" class="img-fluid">   
+      <img onerror='this.remove();' src="{{ content.field_fondo[0]['#item'].entity.uri.value|image_style('productos_y_servicios_fondo_home') }}" class="img-fluid">   
      
 
     {% endblock %}
