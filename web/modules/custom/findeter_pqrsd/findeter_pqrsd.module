@@ -839,30 +839,17 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
         ';
         }else{
           if($timeStamp<$orangeDate){
-<<<<<<< HEAD
-            $semaphore = "<div class='green'>Verde</div>
-            <div class='days-left'>Quedan:<br> $daysleft días</div>";
-            //<div class="days-left">Quedan:<br> '.ngettext($daysleft." día", $daysleft." días", $daysleft).'</div>';
-            
-=======
             $semaphore = '
             <div class="green">Verde</div>
             <div class="days-left">Quedan:<br>'.$daysleft.' días</div>';
->>>>>>> 98ce078ebb80b2fbfdb417f8b07182ad38d2ae2f
 
           }else{
 
             if($timeStamp>=$orangeDate && $timeStamp<$redDate){
-<<<<<<< HEAD
-              $semaphore = "<div class='orange'>Naranja</div>
-                <div class='days-left'>Quedan:<br> $daysleft días</div>";
-                //<div class="days-left">Quedan:<br> '.ngettext($daysleft." día", $daysleft." días", $daysleft).'</div>';
-=======
 
               $semaphore = '
                 <div class="orange">Naranja</div>
                 <div class="days-left">Quedan:<br>'.$daysleft.' días</div>';
->>>>>>> 98ce078ebb80b2fbfdb417f8b07182ad38d2ae2f
 
             }else{
               if($timeStamp>=$redDate){

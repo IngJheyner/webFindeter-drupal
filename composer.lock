@@ -3590,6 +3590,9 @@
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
                     }
+                },
+                "patches_applied": {
+                    "content access role": "https://www.drupal.org/files/issues/2020-08-28/content_access-role-2782813-25.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -8523,6 +8526,7 @@
                 "shasum": "a28d1ef08e39548748a35352a8e885bd53677bd9"
             },
             "require": {
+                "drupal/core": "~8.0",
                 "symfony/polyfill-apcu": "^1.3"
             },
             "type": "drupal-module",
@@ -8956,6 +8960,9 @@
                 "url": "https://ftp.drupal.org/files/projects/text_resize-8.x-1.1.zip",
                 "reference": "8.x-1.1",
                 "shasum": "ed3e8b7e136747fbc3fb24607436a7a58f082d7b"
+            },
+            "require": {
+                "drupal/core": "~8.0"
             },
             "type": "drupal-module",
             "extra": {
@@ -9555,6 +9562,7 @@
                 "shasum": "288dca1c095fa10768859034beb474b9618a4b00"
             },
             "require": {
+                "drupal/core": "^8.8",
                 "drupal/supercache": "*",
                 "drupalonwindows/netphp": "2.x-dev",
                 "php": "^7.1"
@@ -14900,9 +14908,6 @@
                 "debug",
                 "dump"
             ],
-            "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/v4.4.31"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -16548,11 +16553,6 @@
             ],
             "description": "Virtual file system to mock the real file system in unit tests.",
             "homepage": "http://vfs.bovigo.org/",
-            "support": {
-                "issues": "https://github.com/bovigo/vfsStream/issues",
-                "source": "https://github.com/bovigo/vfsStream/tree/master",
-                "wiki": "https://github.com/bovigo/vfsStream/wiki"
-            },
             "time": "2021-09-25T08:05:01+00:00"
         },
         {
@@ -17851,7 +17851,6 @@
                     "type": "github"
                 }
             ],
-            "abandoned": true,
             "time": "2020-11-30T07:30:19+00:00"
         },
         {
