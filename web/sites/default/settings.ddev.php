@@ -59,6 +59,14 @@ if (version_compare(DRUPAL::VERSION, "9.0.0", '>=') &&
   empty($settings['config_sync_directory'])) {
   $settings['config_sync_directory'] = 'sites/default/files/sync';
 }
+/**
+ * Load services definition file. CACHE
+ */
+$settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
+$settings['cache']['bins']['render'] = 'cache.backend.null';
+$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
+$config['system.performance']['css']['preprocess'] = FALSE;
+$config['system.performance']['js']['preprocess'] = FALSE;
 
 global $content_directories;
 
