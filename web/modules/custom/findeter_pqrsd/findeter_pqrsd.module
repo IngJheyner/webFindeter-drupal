@@ -709,7 +709,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
   $view = $variables['view'];
   $field = $variables['field'];
   $row = $variables['row'];
-
+  
   $currentUser = \Drupal::currentUser();
   $rolesUser = $currentUser->getRoles();
 
