@@ -134,6 +134,7 @@
         "drupal/xls_serialization": "^1.2",
         "drush/drush": "^9.7.1 | ^10.0.0",
         "highlight/highlightjs": "9.7.*",
+        "kint-php/kint": "^3.3",
         "mikehaertl/phpwkhtmltopdf": "^2.4",
         "vlucas/phpdotenv": "^4.0",
         "webflo/drupal-finder": "^1.0.0",
@@ -141,8 +142,7 @@
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
-        "drupal/core-dev": "^8.8.0",
-        "kint-php/kint": "^3.3"
+        "drupal/core-dev": "^8.8.0"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -196,9 +196,6 @@
             ]
         },
         "patches": {
-            "drupal/text_resize": {
-                "Falta la dependencia jquery-cookie": "https://www.drupal.org/files/issues/2020-06-30/cookie_is_not_a_function-3155864-002.patch"
-            },
             "drupal/conditional_fields": {
                 "conditional_fields error dependencias": "https://www.drupal.org/files/issues/2021-01-21/3191984-3-notice-trying-to-access-offset-on-value-of-type-null.patch"
             },
