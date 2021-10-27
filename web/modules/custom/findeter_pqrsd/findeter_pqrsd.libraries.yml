@@ -17,3 +17,13 @@ admin_pages:
   dependencies:
     - core/jquery
     - core/jquery.ui.datepicker
+
+classy-dropbutton:
+  css:
+    component:
+      ../../../core/themes/claro/css/components/dropbutton.css: {}
+  js:
+    ../../../core/misc/dropbutton/dropbutton.js: {}
+    ../../../core/themes/claro/js/dropbutton.js: {}
+  dependencies:
+    - core/drupal

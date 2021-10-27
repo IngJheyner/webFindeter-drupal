@@ -24,8 +24,8 @@
                     }
                 };
 
-                $('#edit-created-min').before('<label class="custom-label">Del:</label><input id="datepicker-min" type="text" placeholder="F. Inicio"/>');
-                $('#edit-created-max').before('<label class="custom-label">Al:</label><input id="datepicker-max" type="text" placeholder="F. Fin"/>');
+                $('#edit-created-min').before('<input id="datepicker-min" type="text" placeholder="F. Inicio" class="form-element"/>');
+                $('#edit-created-max').before('<input id="datepicker-max" type="text" placeholder="F. Fin" class="form-element"/>');
 
                 $("#datepicker-min").datepicker({
                     dateFormat: "dd-mm-yy",

@@ -24,8 +24,6 @@ function findeter_webfinde_form_alter(&$form, FormStateInterface $form_state, $f
     =============================================== */
     $form['#attached']['library'][] = 'findeter_webfinde/global-scripts';
 
-    
-
     $rol = "";
 
     if(in_array('abogado',$rolesUser)){
