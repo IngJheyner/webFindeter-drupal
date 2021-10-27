@@ -14,7 +14,7 @@ $port = 3306;
 // so use the host-side bind port on docker IP
 if (empty(getenv('DDEV_PHP_VERSION') && getenv('IS_DDEV_PROJECT') == 'true')) {
   $host = "127.0.0.1";
-  $port = 59791;
+  $port = 49704;
 }
 
 $databases['default']['default'] = array(
@@ -27,7 +27,7 @@ $databases['default']['default'] = array(
   'prefix' => "",
 );
 
-$settings['hash_salt'] = 'qHeZbsfLYODjgxrpCmUjSIwmfBmaqTImKPiNwLtIeLdGJNQaexhYhZipDeGZQsTq';
+$settings['hash_salt'] = 'GSujKxzdQAKDorjTVmYxBMbfayYdkuEfnBSOfCZtcEfAVmeytQOyqmKumEGiKNok';
 
 // This will prevent Drupal from setting read-only permissions on sites/default.
 $settings['skip_permissions_hardening'] = TRUE;
@@ -52,18 +52,36 @@ if (version_compare(DRUPAL::VERSION, "8.8.0", '>=') &&
   version_compare(DRUPAL::VERSION, "9.0.0", '<') &&
   empty($config_directories[CONFIG_SYNC_DIRECTORY]) &&
   empty($settings['config_sync_directory'])) {
-  $settings['config_sync_directory'] = '../config/sync/';
+  $settings['config_sync_directory'] = '..config/sync';
 }
 // For Drupal9, it's always $settings['config_sync_directory']
 if (version_compare(DRUPAL::VERSION, "9.0.0", '>=') &&
   empty($settings['config_sync_directory'])) {
   $settings['config_sync_directory'] = 'sites/default/files/sync';
 }
+/**
+ * Load services definition file. CACHE
+ */
+$settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
+$settings['cache']['bins']['render'] = 'cache.backend.null';
+$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
+$config['system.performance']['css']['preprocess'] = FALSE;
+$config['system.performance']['js']['preprocess'] = FALSE;
 
 global $content_directories;
 
 $content_directories['sync'] = '../content/sync';
 
+$settings['config_sync_directory'] = '../config/sync';
+
 $settings['file_private_path'] = '../private';
 
 $config['config_split.config_split.desarrollo']['status'] = TRUE;
+$config['config_split.config_split.iis']['status'] = FALSE;
+
+/* ============================================
+WEBPROFILER
+=============================================== */
+$class_loader->addPsr4('Drupal\\webprofiler\\', [ $app_root . '/modules/contrib/devel/webprofiler/src']);
+
+$settings['container_base_class'] = '\Drupal\webprofiler\DependencyInjection\TraceableContainer';

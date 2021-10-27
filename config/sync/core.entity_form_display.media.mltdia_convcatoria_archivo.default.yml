@@ -21,6 +21,7 @@ third_party_settings:
         - field_media_document
         - field_convcatoria_tipo_adjunto
         - status
+        - created
       parent_name: ''
       weight: 0
       format_type: fieldset
@@ -36,6 +37,12 @@ targetEntityType: media
 bundle: mltdia_convcatoria_archivo
 mode: default
 content:
+  created:
+    type: datetime_timestamp
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_convcatoria_ruta_archivo:
     weight: 26
     settings:
@@ -59,13 +66,12 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 31
+    weight: 29
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
 hidden:
-  created: true
   feeds_item: true
   field_convcatoria_mltdia_editar: true
   field_convcatoria_muldia_fecha: true

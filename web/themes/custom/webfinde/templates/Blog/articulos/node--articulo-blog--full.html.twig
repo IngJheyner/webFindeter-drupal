@@ -97,7 +97,7 @@
 
       <p class="text-muted d-inline-block mb-3 mb-sm-0 mr-sm-5">{{ node.created.value|format_date('custom', 'd \\d\\e F \\d\\e Y') }}</p>
 
-      <a href="javascript:history.back();"><img src="{{ url('<front>') }}themes/custom/webfinde/images/iconos/atras.png" width="30" class="d-inline-block mr-3 mr-sm-5"></a>
+      <a href="javascript:history.back();"><img onerror='this.remove();' src="{{ url('<front>') }}themes/custom/webfinde/images/iconos/atras.png" width="30" class="d-inline-block mr-3 mr-sm-5"></a>
 
       {# ===== ===== COMPARTIR REDES SOCIALES ===== ===== #}
       {{ content.addtoany }}

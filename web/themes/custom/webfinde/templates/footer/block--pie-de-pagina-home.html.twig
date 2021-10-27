@@ -62,10 +62,10 @@
           <div class="col-12 col-md-6 col-lg-3 mb-3 md-lg-0">
 
             {# ===== ===== Logo superitendencia ===== ===== #}
-            <img src="{{ file_url(content.field_logo_superintendencia_foot[0]['#item'].entity.uri.value) }}" class="img-fluid logoSuper" width="10%">
+            <img onerror='this.remove();' src="{{ file_url(content.field_logo_superintendencia_foot[0]['#item'].entity.uri.value) }}" class="img-fluid logoSuper" width="10%">
 
             {# ===== ===== Logo findeter ===== ===== #}
-            <img src="{{ file_url(content.field_logo_footer[0]['#item'].entity.uri.value) }}" class="img-fluid">
+            <img onerror='this.remove();' src="{{ file_url(content.field_logo_footer[0]['#item'].entity.uri.value) }}" class="img-fluid">
 
             {# ===== ===== iconos ===== ===== #}
             <ul class="list-inline iconosSocial mb-5">
@@ -75,7 +75,7 @@
 
                 <a href="{{ content.field_url_twitter_footer.0["#title"] }}" target="_blank">
 
-                  <img src="{{ file_url(content.field_twitter_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
+                  <img onerror='this.remove();' src="{{ file_url(content.field_twitter_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
 
                 </a>
 
@@ -86,7 +86,7 @@
 
                 <a href="{{ content.field_url_facebook_footer.0["#title"] }}" target="_blank">
 
-                  <img src="{{ file_url(content.field_facebook_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
+                  <img onerror='this.remove();' src="{{ file_url(content.field_facebook_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
 
                 </a>
 
@@ -97,7 +97,7 @@
 
                 <a href="{{ content.field_url_youtube_footer.0["#title"] }}" target="_blank">
 
-                  <img src="{{ file_url(content.field_youtube_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
+                  <img onerror='this.remove();' src="{{ file_url(content.field_youtube_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
 
                 </a>
 
@@ -108,7 +108,7 @@
 
                 <a href="{{ content.field_url_instagram_footer.0["#title"] }}" target="_blank">
 
-                  <img src="{{ file_url(content.field_instagram_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
+                  <img onerror='this.remove();' src="{{ file_url(content.field_instagram_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
 
                 </a>
 
@@ -119,7 +119,7 @@
 
                 <a href="{{ content.field_url_likedin_footer.0["#title"] }}" target="_blank">
 
-                  <img src="{{ file_url(content.field_likedin_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
+                  <img onerror='this.remove();' src="{{ file_url(content.field_likedin_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
 
                 </a>
 
@@ -130,7 +130,7 @@
 
                 <a href="{{ content.field_url_flicker_footer.0["#title"] }}" target="_blank">
 
-                  <img src="{{ file_url(content.field_flickr_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
+                  <img onerror='this.remove();' src="{{ file_url(content.field_flickr_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
 
                 </a>
 
@@ -143,7 +143,7 @@
 
               <a href="{{ content.field_url_saving_amazong_footer.0["#title"] }}" target="_blank">
 
-                <img src="{{ file_url(content.field_img_saving_amazong_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="127" height="24">
+                <img onerror='this.remove();' src="{{ file_url(content.field_img_saving_amazong_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="127" height="24">
 
               </a>
 
@@ -192,7 +192,7 @@
 
           <div class="col-12 col-md-6 mt-5">
 
-             <img src="{{ file_url(content.field_logo_ministerio_hacienda_f[0]['#item'].entity.uri.value) }}" width="300" class="float-md-right img-fluid">
+             <img onerror='this.remove();' src="{{ file_url(content.field_logo_ministerio_hacienda_f[0]['#item'].entity.uri.value) }}" width="300" class="float-md-right img-fluid">
 
           </div>
 
@@ -237,6 +237,11 @@ BTNES DE BARRA DE ACCESIBILIDAD - FONT SIZE, CONTRASTE
   </div>
   <div class="text-center mb-3">
     <a href="javascript:;" class="changer text-white" operador="resta" id="text_resize_decrease"><sup>-</sup><i class="fas fa-font"></i></a>
+  </div>
+  <div class="text-center mb-3">
+    <a href="https://centroderelevo.gov.co/632/w3-channel.html" target="_blank">
+      <img onerror="this.remove();" src="{{ url('<front>') }}themes/custom/webfinde/images/iconos/senial-man.png">
+    </a>
   </div>
 
 

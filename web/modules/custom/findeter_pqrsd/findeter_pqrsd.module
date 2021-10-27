@@ -709,7 +709,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
   $view = $variables['view'];
   $field = $variables['field'];
   $row = $variables['row'];
-
+  
   $currentUser = \Drupal::currentUser();
   $rolesUser = $currentUser->getRoles();
 
@@ -996,8 +996,8 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
 
   if($view->storage->id()== 'pqrsd' && $display_id == 'reporte_excel_pqrsd'){
 
-    if($args[0] != 'filter'){
-
+    if($args[0] != '1'){
+      
       $argus = explode("&", $args[0]);
       $param = [];
 

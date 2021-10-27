@@ -43,12 +43,18 @@
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="myLargeModalLabel" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 
       <div class="modal-dialog modal-lg modal-dialog-centered">
+       
 
         <div class="modal-content" style="background-color: transparent; border: 0">
 
-          <figure class="transparenciaAcceso w-100">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="opacity:1; color:#cddc4b;">
+            <span aria-hidden="true" style="font-size: 3rem;
+              position: absolute;
+              right: 01rem;">&times;</span>
+          </button>
 
-            <a href="{{content.field_enlace_block.0['#url']}}"><img src="{{ file_url(content.field_imagen_basico[0]['#item'].entity.uri.value) }}" class="img-fluid w-100"></a>
+          <figure class="transparenciaAcceso w-100">
+            <a href="{{content.field_enlace_block.0['#url']}}"><img onerror='this.remove();' src="{{ file_url(content.field_imagen_basico[0]['#item'].entity.uri.value) }}" class="img-fluid w-100"></a>
 
           </figure>
 

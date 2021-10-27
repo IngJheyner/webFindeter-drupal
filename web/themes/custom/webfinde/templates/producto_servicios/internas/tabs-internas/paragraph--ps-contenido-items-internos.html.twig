@@ -54,7 +54,7 @@
 
       {% if content.field_ps_internas_img_encabezado|render|trim is not empty %}
 
-        <img src="{{ file_url(content.field_ps_internas_img_encabezado[0]['#item'].entity.uri.value) }}" 
+        <img onerror='this.remove();' src="{{ file_url(content.field_ps_internas_img_encabezado[0]['#item'].entity.uri.value) }}" 
         alt="{{content.field_ps_internas_img_encabezado[0]['#item'].alt}}"
         class="img-fluid">
 
