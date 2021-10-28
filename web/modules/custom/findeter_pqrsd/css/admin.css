@@ -58,24 +58,23 @@
   border: 1px solid #ccc;
   padding: 1rem 10px;
 }
-#views-exposed-form-pqrsd-page-1 .form--inline{
-  display: grid;
+
+.views-exposed-form .form-item{
+  margin: 0;
 }
-.views-exposed-form details.seven-details{
-  margin: 5px;
-  padding: 10px;
+
+.views-exposed-form .seven-details.col-2 fieldset{
+  margin-left: 5rem;
 }
-.views-exposed-form details.seven-details.col-1 {
-  grid-column: 1;
-}
-.views-exposed-form details.seven-details.col-2 {
-  grid-column: 2;
-}
+
+
 .views-exposed-form .form-actions{
   width: 100%;
 }
 .views-exposed-form .seven-details__summary{
   padding: 0.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 .views-exposed-form .form-type-entity-autocomplete,
 .views-exposed-form .form-type-textfield{
@@ -98,14 +97,15 @@
 .views-exposed-form .form-item-created-min{
   clear: both;
 }
-.views-exposed-form .hasDatepicker{
-  width: 100px;
-}
 .views-exposed-form .custom-label{
   color: #333 !important;
   float: left;
   margin-right: 5px;
   font-size: 10px;
+}
+
+form#views-exposed-form-pqrsd-page-2{
+  display: block;
 }
 
 /*Table styles*/
@@ -168,6 +168,6 @@
   padding: 10px;
   background-color: #fff;
   display: inline-block;
-  width: 150px;
+  width: 200px;
   text-align: center;
 }

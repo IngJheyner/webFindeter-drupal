@@ -179,6 +179,7 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
 
   if($form['#id'] == 'views-exposed-form-pqrsd-page-1' || $form['#id'] == 'views-exposed-form-pqrsd-page-2'){
     $form['#attached']['library'][] = 'findeter_pqrsd/admin_pages';
+    $form['#attached']['library'][] = 'findeter_pqrsd/classy-dropbutton';
   }
 
   /* ============================================
@@ -188,24 +189,31 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
 
   if($form['#id'] == 'views-exposed-form-pqrsd-page-2'){
 
-    $form['fecha-vencimiento']['#suffix'] = Markup::create('
-    <div
-    style="clear:left; width:100%" id="formato_379">
-      Los siguientes campos se utilizan para descargar el <em><strong>reporte 379</strong></em> trimestral.<br>
-    </div>');
+    $form['container_date'] = [
+      '#type' => 'details',
+      '#title' => 'Reporte 379',
+      '#open' =>FALSE,
+    ];
 
-    $form['trimestre-inicio'] = [
+    $form['container_date']['description'] = [
+      '#type' => 'item',
+      '#markup' => '<p>Los siguientes campos se utilizan para el <strong>reporte 379.</strong></p>',
+    ];
+
+    $form['container_date']['trimestre-inicio'] = [
       '#type' => 'textfield',
       '#title' =>t('Fecha creación'),
       '#placeholder' => t('Trimestral'),
+      '#size' => 30,
       //'#size' => 60,
       //'#maxlength' => 128,
     ];
 
-    $form['trimestre-fin'] = [
+    $form['container_date']['trimestre-fin'] = [
       '#type' => 'textfield',
       '#title' =>t('<br>'),
       '#placeholder' => t('Trimestral'),
+      '#size' => 30,
       //'#size' => 60,
       //'#maxlength' => 128,
     ];
@@ -709,7 +717,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
   $view = $variables['view'];
   $field = $variables['field'];
   $row = $variables['row'];
-
+  
   $currentUser = \Drupal::currentUser();
   $rolesUser = $currentUser->getRoles();
 
@@ -730,7 +738,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
         $author = $view->field['uid']->original_value;
 
         $modalOptions = [
-          'class'               => ['use-ajax', 'btn', 'btn-outline-primary', 'button'],
+          'class'               => ['use-ajax'],
           'data-dialog-type'    => ['modal'],
           'data-dialog'         => ['modal'],
           'data-dialog-options' => ['{"width":800}'],
@@ -741,34 +749,34 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
         $modalLink = Link::fromTextAndUrl('Ver', $url);
         $modalLink = $modalLink->toRenderable();
         $modalLink['#attributes'] = $modalOptions;
-        $htmlOutput .='<br>'.render($modalLink).'<br>';
+        $htmlOutput .= '<li class="dropbutton__item dropbutton__item--extrasmall dropbutton-action">'.render($modalLink).'</li><li class="dropbutton-toggle"><button type="button" class="dropbutton__toggle"><span class="visually-hidden">Lista adicional de acciones</span></button></li>';
 
         if($view->field['field_pqrsd_respuesta']->original_value == '' && !in_array('auditor_pqrsd',$rolesUser)){
 
           $url = Url::fromRoute('findeter_pqrsd.update_pqrsd_admin', ['nid' => $nid]);
           $modalLink = Link::fromTextAndUrl('Editar', $url);
           $modalLink = $modalLink->toRenderable();
-          $modalLink['#attributes'] = ['class' => ['button']];
-          $htmlOutput .=render($modalLink);
+          //$modalLink['#attributes'] = ['class' => ['button']];
+          $htmlOutput .='<li class="dropbutton__item dropbutton__item--extrasmall dropbutton-action secondary-action">'.render($modalLink).'</li>';
 
 
           $url = Url::fromRoute('findeter_pqrsd.asign_pqrsd',['nid' => $nid,'usr' => $author]);
           $modalLink = Link::fromTextAndUrl('Asignar', $url);
           $modalLink = $modalLink->toRenderable();
           $modalLink['#attributes'] = $modalOptions;
-          $htmlOutput .= render($modalLink).'<br>';
+          $htmlOutput .= '<li class="dropbutton__item dropbutton__item--extrasmall dropbutton-action secondary-action">'.render($modalLink).'</li>';
 
           $url = Url::fromRoute('findeter_pqrsd.transfer_pqrsd',['nid' => $nid]);
           $modalLink = Link::fromTextAndUrl('Trasladar', $url);
           $modalLink = $modalLink->toRenderable();
           $modalLink['#attributes'] = $modalOptions;
-          $htmlOutput .= render($modalLink).'<br>';
+          $htmlOutput .= '<li class="dropbutton__item dropbutton__item--extrasmall dropbutton-action secondary-action">'.render($modalLink).'</li>';
 
           $url = Url::fromRoute('findeter_pqrsd.answer_pqrsd',['nid' => $nid]);
           $modalLink = Link::fromTextAndUrl('Responder', $url);
           $modalLink = $modalLink->toRenderable();
           $modalLink['#attributes'] = $modalOptions;
-          $htmlOutput .= render($modalLink).'<br>';
+          $htmlOutput .= '<li class="dropbutton__item dropbutton__item--extrasmall dropbutton-action secondary-action">'.render($modalLink).'</li>';
         }
 
         /*$url = Url::fromRoute('findeter_pqrsd.create_pdf',['nid' => $nid]);
@@ -777,7 +785,13 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
         $modalLink['#attributes'] = ['class' => ['button']];
         $htmlOutput .= render($modalLink);*/
 
-        $variables['output'] = ['#markup' => $htmlOutput];
+        $variables['output'] = ['#markup' => '<div class="dropbutton-wrapper dropbutton-multiple">
+        <div class="dropbutton-widget">
+        <ul class="dropbutton dropbutton--multiple dropbutton--extrasmall">
+        '.$htmlOutput.'
+        </ul>
+        </div>
+        </div>'];
       }
 
       if($field->field == 'field_pqrsd_fecha_naranja'){
@@ -893,20 +907,34 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 function findeter_pqrsd_preprocess_views_exposed_form(&$variables, &$form) {
 
   if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-1'){
-
+    
     // for exposed user request filters, join all inputs in two fieldsets
     $variables['form']['id_radicado']['#prefix'] = '
-      <details class="seven-details col-1" open="open">
-        <summary class="seven-details__summary">Buscar PQRSD:</summary>';
-    $variables['form']['palabras-clave']['#suffix'] = '</details>';
+      <div class="seven-details col-1">
+        <strong>Buscar PQRSD:</strong>
+        <div class="seven-details__summary">';
+    $variables['form']['palabras-clave']['#suffix'] = '</div></div>';
 
-    $variables['form']['estado']['#prefix'] = '
-      <details class="seven-details col-2" open="open">
-        <summary class="seven-details__summary">Filtrar por:</summary>';
-    $variables['form']['fecha-vencimiento']['#suffix'] = '</details>';
+    $variables['form']['created']['#prefix'] = '
+      <div class="seven-details col-2">
+        <strong>Filtrar por:</strong>
+        <div class="seven-details__summary">';
+    $variables['form']['fecha-vencimiento']['#suffix'] = '</div></div>';
   }
 
   if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-2'){
+
+    $variables['form']['producto']['#prefix'] = '
+      <div class="seven-details col-1">
+        <strong>Buscar PQRSD:</strong>
+        <div class="seven-details__summary">';
+    $variables['form']['palabras-clave']['#suffix'] = '</div></div>';
+
+    $variables['form']['created']['#prefix'] = '
+      <div class="seven-details col-2">
+        <strong>Filtrar por:</strong>
+        <div class="seven-details__summary">';
+    $variables['form']['fecha-vencimiento']['#suffix'] = '</div><hr></div>';
 
     //$url = Url::fromRoute('findeter_pqrsd.expor_report_pdf',['filter'=>'filter']);
     $urlReporteXlsx = Url::fromRoute('findeter_pqrsd.expor_report_excel',['filter'=>'filter']);
@@ -939,7 +967,7 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables, &$form) {
     $urlFormato379 = $urlFormato379->toRenderable();
 
     $variables['form']['actions']['#suffix'] = Markup::create('
-        <div class="list-charts">
+        <div class="list-charts" style="margin-top: 1rem">
       <div class="chart-container"><canvas id="time-chart"></canvas></div>
       <div class="chart-container"><canvas id="tipo-radicado-chart"></canvas></div>
       <div class="chart-container"><canvas id="tipo-solicitante-chart"></canvas></div>

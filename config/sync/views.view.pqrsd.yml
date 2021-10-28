@@ -120,24 +120,12 @@ display:
           summary: ''
           description: ''
           columns:
-            nid: nid
+            counter: counter
             field_pqrsd_preferencial: field_pqrsd_preferencial
             field_pqrsd_numero_radicado: field_pqrsd_numero_radicado
-            uid: uid
             created: created
             field_pqrsd_fecha_roja: field_pqrsd_fecha_roja
             field_pqrsd_tipo_radicado: field_pqrsd_tipo_radicado
-            field_pqrsd_email: field_pqrsd_email
-            field_pqrsd_departamento: field_pqrsd_departamento
-            field_pqrsd_direccion: field_pqrsd_direccion
-            field_pqrsd_municipio: field_pqrsd_municipio
-            field_pqrsd_numero_id: field_pqrsd_numero_id
-            field_pqrsd_fax: field_pqrsd_fax
-            field_pqrsd_primer_apellido: field_pqrsd_primer_apellido
-            field_pqrsd_primer_nombre: field_pqrsd_primer_nombre
-            field_pqrsd_segundo_apellido: field_pqrsd_segundo_apellido
-            field_pqrsd_segundo_nombre: field_pqrsd_segundo_nombre
-            field_pqrsd_telefono: field_pqrsd_telefono
             nothing: nothing
             field_pqrsd_tipo_solicitante: field_pqrsd_tipo_solicitante
             field_pqrsd_descripcion: field_pqrsd_descripcion
@@ -145,149 +133,78 @@ display:
             field_pqrsd_canal_recepcion: field_pqrsd_canal_recepcion
             field_pqrsd_forma_recepcion: field_pqrsd_forma_recepcion
             field_pqrsd_fecha_naranja: field_pqrsd_fecha_naranja
+            field_pqrsd_primer_nombre: field_pqrsd_primer_nombre
             field_pqrsd_respuesta: field_pqrsd_respuesta
-            field_pqrsd_tipo_peticion: field_pqrsd_tipo_peticion
+            field_pqrsd_telefono: field_pqrsd_telefono
+            field_pqrsd_segundo_nombre: field_pqrsd_segundo_nombre
+            field_pqrsd_segundo_apellido: field_pqrsd_segundo_apellido
+            field_pqrsd_primer_apellido: field_pqrsd_primer_apellido
+            nid: nid
+            field_pqrsd_fax: field_pqrsd_fax
+            field_pqrsd_numero_id: field_pqrsd_numero_id
+            field_pqrsd_municipio: field_pqrsd_municipio
+            field_pqrsd_direccion: field_pqrsd_direccion
+            field_pqrsd_departamento: field_pqrsd_departamento
+            field_pqrsd_email: field_pqrsd_email
+            uid: uid
+            view_node: view_node
           info:
-            nid:
+            counter:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-low
             field_pqrsd_preferencial:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-low
             field_pqrsd_numero_radicado:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
-            uid:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
+              responsive: priority-low
             created:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-low
             field_pqrsd_fecha_roja:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-low
             field_pqrsd_tipo_radicado:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
-            field_pqrsd_email:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_departamento:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_direccion:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_municipio:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_numero_id:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_fax:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_primer_apellido:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_primer_nombre:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_segundo_apellido:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_segundo_nombre:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_telefono:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
+              responsive: priority-low
             nothing:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-low
             field_pqrsd_tipo_solicitante:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-low
             field_pqrsd_descripcion:
               sortable: true
               default_sort_order: asc
@@ -323,6 +240,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            field_pqrsd_primer_nombre:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             field_pqrsd_respuesta:
               sortable: false
               default_sort_order: asc
@@ -330,7 +254,91 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_pqrsd_tipo_peticion:
+            field_pqrsd_telefono:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_segundo_nombre:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_segundo_apellido:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_primer_apellido:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_fax:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_numero_id:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_municipio:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_direccion:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_departamento:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_email:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            uid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            view_node:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -4109,57 +4117,6 @@ display:
             field_pqrsd_segundo_apellido: field_pqrsd_segundo_apellido
             field_pqrsd_segundo_nombre: field_pqrsd_segundo_nombre
           plugin_id: combine
-        created:
-          id: created
-          table: node_field_data
-          field: created
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: between
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
-          group: 1
-          exposed: true
-          expose:
-            operator_id: created_op
-            label: 'Fecha creación'
-            description: 'Formato: Día-Mes-Año'
-            use_operator: false
-            operator: created_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: created
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              revisol: '0'
-              auditor: '0'
-            placeholder: ''
-            min_placeholder: Del
-            max_placeholder: Al
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: created
-          plugin_id: date
         status:
           value: '1'
           table: node_field_data
@@ -4278,6 +4235,57 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: between
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: created_op
+            label: 'Fecha creación'
+            description: 'Formato: Día-Mes-Año'
+            use_operator: false
+            operator: created_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: created
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              revisol: '0'
+              auditor: '0'
+            placeholder: ''
+            min_placeholder: Del
+            max_placeholder: Al
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: created
+          plugin_id: date
         field_pqrsd_respuesta_value:
           id: field_pqrsd_respuesta_value
           table: node__field_pqrsd_respuesta
@@ -4773,6 +4781,73 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          plugin_id: field
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Fecha y hora recepción'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: timestamp
+          settings:
+            date_format: custom
+            custom_date_format: 'j/n/Y g:i a'
+            timezone: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: created
           plugin_id: field
         field_pqrsd_fecha_roja:
           id: field_pqrsd_fecha_roja
@@ -5322,73 +5397,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
-        created:
-          id: created
-          table: node_field_data
-          field: created
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Fecha y hora recepción'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: timestamp
-          settings:
-            date_format: custom
-            custom_date_format: 'j/n/Y g:i a'
-            timezone: ''
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: node
-          entity_field: created
           plugin_id: field
         field_pqrsd_primer_nombre:
           id: field_pqrsd_primer_nombre
@@ -8340,57 +8348,6 @@ display:
             field_pqrsd_segundo_apellido: field_pqrsd_segundo_apellido
             field_pqrsd_segundo_nombre: field_pqrsd_segundo_nombre
           plugin_id: combine
-        created:
-          id: created
-          table: node_field_data
-          field: created
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: between
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
-          group: 1
-          exposed: true
-          expose:
-            operator_id: created_op
-            label: 'Fecha creación'
-            description: 'Formato: Día-Mes-Año'
-            use_operator: false
-            operator: created_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: created
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              revisol: '0'
-              auditor: '0'
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: created
-          plugin_id: date
         status:
           value: '1'
           table: node_field_data
@@ -8460,6 +8417,51 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
+        field_pqrsd_tipo_radicado_value:
+          id: field_pqrsd_tipo_radicado_value
+          table: node__field_pqrsd_tipo_radicado
+          field: field_pqrsd_tipo_radicado_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            Peticiones: Peticiones
+            Quejas: Quejas
+            Reclamos: Reclamos
+            Sugerencias: Sugerencias
+            Denuncias: Denuncias
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
         field_pqrsd_palabras_clave_target_id:
           id: field_pqrsd_palabras_clave_target_id
           table: node__field_pqrsd_palabras_clave
@@ -8509,6 +8511,63 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: between
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: created_op
+            label: 'Fecha creación'
+            description: 'Formato: Día-Mes-Año'
+            use_operator: false
+            operator: created_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: created
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              abogado: '0'
+              secretaria_general: '0'
+              colaborador: '0'
+              c_modificador: '0'
+              publicador: '0'
+              pqrsd_administrador: '0'
+              auditor_pqrsd: '0'
+              pqrsd_denuncias: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: created
+          plugin_id: date
         field_pqrsd_respuesta_value:
           id: field_pqrsd_respuesta_value
           table: node__field_pqrsd_respuesta
@@ -8769,51 +8828,6 @@ display:
                   min: ''
                   max: ''
           plugin_id: datetime
-        field_pqrsd_tipo_radicado_value:
-          id: field_pqrsd_tipo_radicado_value
-          table: node__field_pqrsd_tipo_radicado
-          field: field_pqrsd_tipo_radicado_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value:
-            Peticiones: Peticiones
-            Quejas: Quejas
-            Reclamos: Reclamos
-            Sugerencias: Sugerencias
-            Denuncias: Denuncias
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          plugin_id: list_field
       filter_groups:
         operator: AND
         groups:

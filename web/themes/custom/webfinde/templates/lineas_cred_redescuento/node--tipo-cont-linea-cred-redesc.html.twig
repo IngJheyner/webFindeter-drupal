@@ -94,6 +94,7 @@
   ]
 %}
 
+{% if node.isPublished() %}
 <article{{ attributes.addClass(classes) }}>
 
 
@@ -127,3 +128,4 @@
   </div>
 
 </article>
+{% endif %}

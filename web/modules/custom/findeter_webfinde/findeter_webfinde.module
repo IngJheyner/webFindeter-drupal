@@ -12,6 +12,8 @@ use Drupal\user\Entity\User;
 
 function findeter_webfinde_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
+  $rolesUser = \Drupal::currentUser()->getRoles();
+  //dpm($form);
   /* ============================================
   CONVOCATORIAS
   =============================================== */
@@ -21,8 +23,6 @@ function findeter_webfinde_form_alter(&$form, FormStateInterface $form_state, $f
     CONVOCATORIAS
     =============================================== */
     $form['#attached']['library'][] = 'findeter_webfinde/global-scripts';
-
-    $rolesUser = \Drupal::currentUser()->getRoles();
 
     $rol = "";
 
@@ -38,5 +38,16 @@ function findeter_webfinde_form_alter(&$form, FormStateInterface $form_state, $f
 
   }
 
+}
+
+function findeter_webfinde_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) { 
+  $rolesUser = \Drupal::currentUser()->getRoles();
+
+  /* ============================================
+  ARCHIVOS CONVOCATORIAS MEDIA
+  =============================================== */
+  if(in_array('abogado',$rolesUser)){
+    hide($entity_form['created']);
+  }
 }
 
