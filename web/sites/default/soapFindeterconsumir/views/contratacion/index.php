@@ -255,8 +255,12 @@
                         console.log(data.Registro);
                         registro = data.Registro;
                         $('#numberproceso').html('Proceso Número: '+ registro.interno);
-                        $('#fechainicio').html(registro.pctf_apertura.split("T")[0]);
-                        $('#fechacierre').html(registro.pctf_cierre.split("T")[0]);
+                        /*$('#fechainicio').html(registro.pctf_apertura.split("T")[0]);
+                        if(registro.pctf_cierre != ""){
+                            $('#fechacierre').html(registro.pctf_cierre.split("T")[0]);
+                        }*/
+                        $('#fechainicio').html(registro.pctf_apertura);
+                        $('#fechacierre').html(registro.pctf_cierre);
                         $('#estadodoc').html(registro.papc_nombre);
                         $('#objetoproceso').html(registro.objeto);
                     },
