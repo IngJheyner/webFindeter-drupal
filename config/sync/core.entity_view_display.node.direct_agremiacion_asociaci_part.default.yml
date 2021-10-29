@@ -1,0 +1,30 @@
+uuid: 2b6aad98-c78b-4aea-a0e1-7df7b592a0dd
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.direct_agremiacion_asociaci_part.body
+    - node.type.direct_agremiacion_asociaci_part
+  module:
+    - text
+    - user
+id: node.direct_agremiacion_asociaci_part.default
+targetEntityType: node
+bundle: direct_agremiacion_asociaci_part
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

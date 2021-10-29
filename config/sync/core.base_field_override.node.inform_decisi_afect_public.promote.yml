@@ -1,0 +1,22 @@
+uuid: a87f7102-1ce8-49ca-8648-5d714b18cca3
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.inform_decisi_afect_public
+id: node.inform_decisi_afect_public.promote
+field_name: promote
+entity_type: node
+bundle: inform_decisi_afect_public
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
