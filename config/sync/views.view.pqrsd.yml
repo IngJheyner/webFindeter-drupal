@@ -3930,6 +3930,7 @@ display:
         filter_groups: false
         header: false
         fields: false
+        pager: false
       access:
         type: role
         options:
@@ -6336,6 +6337,27 @@ display:
           absolute: false
           entity_type: node
           plugin_id: entity_link
+      pager:
+        type: full
+        options:
+          items_per_page: 15
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« Primero'
+            last: 'Ultimo »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Mostrar registros'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
     cache_metadata:
       max-age: -1
       contexts:
@@ -6392,6 +6414,7 @@ display:
         filters: false
         filter_groups: false
         access: false
+        pager: false
       fields:
         nid:
           id: nid
@@ -8841,6 +8864,27 @@ display:
             pqrsd_administrador: pqrsd_administrador
             auditor_pqrsd: auditor_pqrsd
             pqrsd_denuncias: pqrsd_denuncias
+      pager:
+        type: full
+        options:
+          items_per_page: 10
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« Primero'
+            last: 'Ultimo »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Mostrar registros'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
     cache_metadata:
       max-age: -1
       contexts:

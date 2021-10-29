@@ -11,12 +11,14 @@ use Drupal\Core\Render\Element\Date;
 use Drupal\views\Views;
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Render\Markup;
+use Drupal\node\Entity\Node;
 
 use Drupal\findeter_pqrsd\Holidays\holidaysPQRSD;
 use PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Days;
 
 /**
  * Implements hook_help().
+ * @author Sandi <email@email.com>
  */
 function findeter_pqrsd_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
@@ -42,6 +44,7 @@ function findeter_pqrsd_help($route_name, RouteMatchInterface $route_match) {
 
 /**
 * Create an array with the taxonomy terms
+* @author Sandi <email@email.com>
 */
 function getTaxonomyTermsForm($tid){
   $child_tids = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('colombia_deparments', $tid, 1, false);
@@ -56,6 +59,7 @@ function getTaxonomyTermsForm($tid){
 
 /**
 * Callback deparment select ajax event
+* @author Sandi <email@email.com>
 */
 function callBackDeparment(array &$form, FormStateInterface $form_state) {
 
@@ -90,6 +94,7 @@ function callBackDeparment(array &$form, FormStateInterface $form_state) {
 
 /**
  * Define behavior of date red/orange for each scene
+ * @author Sandi <email@email.com>
  */
 function defineDatesSemaphore($values){
 
@@ -134,6 +139,8 @@ function defineDatesSemaphore($values){
 
 /**
  * Calculate timestamp for bussines day in the future
+ * @author user 3ddesarrollo <3ddesarrollo@3dstudioweb.com>
+ * @author Sandi <email@email.com>
  */
 function _getBussinesDays($addDays, $day_answer = FALSE){
 
@@ -174,6 +181,8 @@ function _getBussinesDays($addDays, $day_answer = FALSE){
 
 /**
  * Implements hook_form_alter
+ * @author user 3ddesarrollo <3ddesarrollo@3dstudioweb.com>
+ * @author Sandi <email@email.com>
  */
 function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
@@ -225,6 +234,7 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
 
 /**
 * Implements hook_mail().
+* @author Sandi <email@email.com>
 */
 function findeter_pqrsd_mail($key, &$message, $params) {
 
@@ -270,6 +280,7 @@ function findeter_pqrsd_mail($key, &$message, $params) {
 
 /**
 * Create a random number
+* @author Sandi <email@email.com>
 */
 function generarNumeroRadicado($type){
 
@@ -303,6 +314,7 @@ function generarNumeroRadicado($type){
 
 /**
 * Implements hook_cron()
+* @author Sandi <email@email.com>
 */
 function findeter_pqrsd_cron() {
 
@@ -388,6 +400,7 @@ function findeter_pqrsd_cron() {
 
 /**
  * Implements hook_preprocess_page
+ * @author Sandi <email@email.com>
  */
 function findeter_pqrsd_preprocess_page(&$variables) {
 
@@ -402,6 +415,7 @@ function findeter_pqrsd_preprocess_page(&$variables) {
 
 /**
  * Build all elements for register/update PQRSD
+ * @author Sandi <email@email.com>
  */
 function buildPQRSDform(){
   $form = [];
@@ -671,6 +685,7 @@ function buildPQRSDform(){
 
 /**
  * Function to send an email when a PQRSD has been asigned
+ * @author Sandi <email@email.com>
  */
 function sendNotificationAsign($user,$node){
   $mailManager = \Drupal::service('plugin.manager.mail');
@@ -711,6 +726,8 @@ function sendNotificationAsign($user,$node){
 
 /**
  * Implements hook_preprocess_views_view_field()
+ * @author user 3ddesarrollo <3ddesarrollo@3dstudioweb.com>
+ * @author Sandi <email@email.com>
  */
 function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
@@ -902,8 +919,9 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
 /**
  * Implements hook_preprocess_views_exposed_form()
- *
- */
+ * @author user 3ddesarrollo <3ddesarrollo@3dstudioweb.com>
+ * @author Sandi <email@email.com>
+*/
 function findeter_pqrsd_preprocess_views_exposed_form(&$variables, &$form) {
 
   if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-1'){
@@ -1000,6 +1018,8 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables, &$form) {
 
 /**
  * Implements hook_views_pre_view
+ * @author user 3ddesarrollo <3ddesarrollo@3dstudioweb.com>
+ * @author Sandi <email@email.com>
  */
 function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
 
@@ -1021,7 +1041,9 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
   FILTRAR VALORES POR FECHA E IMPORTAR DATOS AL EXCEL
   SI EXISTEN EL PARAMETRO CREATED VIA GET
   =============================================== */
-
+   /**
+   * @author user 3ddesarrollo <3ddesarrollo@3dstudioweb.com>
+   */
   if($view->storage->id()== 'pqrsd' && $display_id == 'reporte_excel_pqrsd'){
 
     if($args[0] != '1'){
@@ -1055,6 +1077,9 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
   /* ============================================
   FILTRAR PQRSD SI EL ROL DE USUARIO ES PQRSD DENUNCIAS
   =============================================== */
+  /**
+   * @author user 3ddesarrollo <3ddesarrollo@3dstudioweb.com>
+   */
   if($view->storage->id()== 'pqrsd'  && ($display_id == 'page_1' || $display_id == 'page_2')){
       //dump($view);
      // if user is admin, remove argument to show all nodes
@@ -1070,6 +1095,8 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
 /**
  * Implements hook_views_pre_render
  * @param ViewExecutable $view
+ * @author user 3ddesarrollo <3ddesarrollo@3dstudioweb.com>
+ * @author Sandi <email@email.com>
  */
 function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
 
@@ -1087,6 +1114,7 @@ function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
   $spanishMonths['December'] = 'Diciembre';
 
   $tipoRadicados = ['Peticiones','Quejas','Reclamos','Sugerencias','Denuncias','Total'];
+
   foreach($tipoRadicados as $tr){
     $mResume[$tr]['name'] = $tr;
     $mResume[$tr]['recibidas'] = 0;
@@ -1104,10 +1132,17 @@ function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
 
     $data = [];
 
-    foreach($view->result as $value){
+    $query = \Drupal::entityQuery('node')
+                ->condition('type', 'pqrsd')
+                ->execute();
 
+    foreach ($query as $nid) {
+
+      $node = Node::load($nid);
+
+      /* ===== ===== CHARTS GRAFICOS ===== ===== */
       //define data for general chart
-      $month = date('F',$value->_entity->get('created')->value);
+      $month = date('F',$node->get('created')->value);
       $month = $spanishMonths[$month];
 
       if(!isset($data['monthly'][$month])){
@@ -1116,54 +1151,53 @@ function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
       $data['monthly'][$month]++;
 
       //define data for "Tipo radicado" field.
-      $tipoRadicado = $value->_entity->get('field_pqrsd_tipo_radicado')->value;
+      $tipoRadicado = $node->get('field_pqrsd_tipo_radicado')->value;
+
       if(!isset($data['tipoRadicado'][$tipoRadicado])){
         $data['tipoRadicado'][$tipoRadicado] = 0;
       }
       $data['tipoRadicado'][$tipoRadicado]++;
 
       // define data for "Tipo solicitante" field
-      $tipoSolicitante = $value->_entity->get('field_pqrsd_tipo_solicitante')->value;
+      $tipoSolicitante = $node->get('field_pqrsd_tipo_solicitante')->value;
       if(!isset($data['tipoSolicitante'][$tipoSolicitante])){
         $data['tipoSolicitante'][$tipoSolicitante] = 0;
       }
       $data['tipoSolicitante'][$tipoSolicitante]++;
 
       // define data for "Tipo producto" field
-      $tipoProducto = $value->_entity->get('field_pqrsd_nombre_producto')->value;
+      $tipoProducto = $node->get('field_pqrsd_nombre_producto')->value;
       if(!isset($data['tipoProducto'][$tipoProducto])){
         $data['tipoProducto'][$tipoProducto] = 0;
       }
       $data['tipoProducto'][$tipoProducto]++;
 
       // define data for "Canal recepción" field
-      $canalRecepcion = $value->_entity->get('field_pqrsd_canal_recepcion')->value;
+      $canalRecepcion = $node->get('field_pqrsd_canal_recepcion')->value;
       if(!isset($data['canalRecepcion'][$canalRecepcion])){
         $data['canalRecepcion'][$canalRecepcion] = 0;
       }
       $data['canalRecepcion'][$canalRecepcion]++;
 
       // define data for "Forma recepción" field
-      $formaRecepcion = $value->_entity->get('field_pqrsd_forma_recepcion')->value;
+      $formaRecepcion = $node->get('field_pqrsd_forma_recepcion')->value;
       if(!isset($data['formaRecepcion'][$formaRecepcion])){
         $data['formaRecepcion'][$formaRecepcion] = 0;
       }
       $data['formaRecepcion'][$formaRecepcion]++;
 
-
-      // define matrix resume
-
+      /* ===== ===== TABLA DE RESULTADOS ===== ===== */
       $now = strtotime('today');
-      $fOrange = strtotime($value->_entity->get('field_pqrsd_fecha_naranja')->value);
-      $fRed = strtotime($value->_entity->get('field_pqrsd_fecha_roja')->value);
-      $fAnswer = strtotime($value->_entity->get('field_pqrsd_fecha_respuesta')->value);
-
+      $fOrange = strtotime($node->get('field_pqrsd_fecha_naranja')->value);
+      $fRed = strtotime($node->get('field_pqrsd_fecha_roja')->value);
+      $fAnswer = strtotime($node->get('field_pqrsd_fecha_respuesta')->value);
 
       // PQRSD cerradas/abiertas
       $mResume[$tipoRadicado]['name'] = $tipoRadicado;
       $mResume[$tipoRadicado]['recibidas'] = $data['tipoRadicado'][$tipoRadicado];
 
-      if( $value->_entity->get('field_pqrsd_respuesta')->value == ''){
+      if($node->get('field_pqrsd_respuesta')->value == ''){
+
         $mResume[$tipoRadicado]['por_resolver']++;
 
         if($now > $fRed){
@@ -1173,11 +1207,11 @@ function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
 
         $mResume[$tipoRadicado]['cerrados']++;
 
-        if($value->_entity->get('field_pqrsd_respuesta_a_favor')->value == 'findeter'){
+        if($node->get('field_pqrsd_respuesta_a_favor')->value == 'findeter'){
           $mResume[$tipoRadicado]['favor_entidad']++;
         }
 
-        if($value->_entity->get('field_pqrsd_respuesta_a_favor')->value == 'consumidor'){
+        if($node->get('field_pqrsd_respuesta_a_favor')->value == 'consumidor'){
           $mResume[$tipoRadicado]['favor_consumidor']++;
         }
 
@@ -1185,13 +1219,13 @@ function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
           $mResume[$tipoRadicado]['cerrado_a_tiempo']++;
         }
 
-        if( strpos($value->_entity->get('field_pqrsd_respuesta')->value, 'PQRSD Trasladada a:') ){
+        if( strpos($node->get('field_pqrsd_respuesta')->value, 'PQRSD Trasladada a:') ){
           $mResume[$tipoRadicado]['trasladadas']++;
         }
 
       }
 
-      if( $value->_entity->get('field_pqrsd_tipo_peticion')->value == 'publica') {
+      if($node->get('field_pqrsd_tipo_peticion')->value == 'publica') {
         $mResume[$tipoRadicado]['info_publica']++;
       }
 
@@ -1232,6 +1266,7 @@ function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
 
     $view->element['#attached']['drupalSettings']['pqrsdReports'] = $data;
     $view->element['mResume'] = $buildTable;
+    //dump($view->element);
 
   }
 
