@@ -1,0 +1,30 @@
+uuid: 1f7c081c-8df3-4d6b-9b8a-a9401f9b5f22
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.servicio_pub_norm_formu_atenci.body
+    - node.type.servicio_pub_norm_formu_atenci
+  module:
+    - text
+    - user
+id: node.servicio_pub_norm_formu_atenci.default
+targetEntityType: node
+bundle: servicio_pub_norm_formu_atenci
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

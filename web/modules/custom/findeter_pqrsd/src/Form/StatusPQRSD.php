@@ -218,7 +218,7 @@ class StatusPQRSD extends FormBase {
 
         $responseHtml[] = '<div class="status-answer"><b>Estado de su radicatoria:</b>';
 
-        if($node->get('field_pqrsd_respuesta_archivos')->getValue() != ''){
+        if($node->get('field_pqrsd_respuesta')->getValue()){
 
           $filesList = [];
           foreach ($node->get('field_pqrsd_respuesta_archivos')->getValue() as $fileItem){

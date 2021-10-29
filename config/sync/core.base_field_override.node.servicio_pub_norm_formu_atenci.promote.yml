@@ -1,0 +1,22 @@
+uuid: 4fd2d854-901e-41b5-b365-e127bf12c4f7
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.servicio_pub_norm_formu_atenci
+id: node.servicio_pub_norm_formu_atenci.promote
+field_name: promote
+entity_type: node
+bundle: servicio_pub_norm_formu_atenci
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

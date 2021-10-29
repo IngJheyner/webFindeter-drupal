@@ -1,15 +1,15 @@
-uuid: adefe6dc-90df-404c-b66b-8ee94c8fe6f2
+uuid: d096ef24-9c75-4f01-a0c4-7c852457a01a
 langcode: es
 status: true
 dependencies:
   config:
-    - page_manager.page.3_2_funciones_y_deberes
-id: 3_2_funciones_y_deberes-layout_builder-0
-label: 'Msiión, Visión, Funciones y deberes'
+    - page_manager.page.directorio_institucional_sedes_regionales_y_dependencias
+id: directorio_institucional_sedes_regionales_y_dependencias-layout_builder-0
+label: 'Constructor de diseños.'
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: 2b024767-ac49-44c2-b974-200277c99700
+  uuid: 6cb09731-5055-4d06-9e81-5483872c9366
   label: null
   weight: 0
   sections:
@@ -49,12 +49,12 @@ variant_settings:
             add_region_classes: 1
             attributes: ''
       components:
-        e369c5ac-e945-46af-b2b3-ac1b6818e46f:
-          uuid: e369c5ac-e945-46af-b2b3-ac1b6818e46f
+        5edaf632-63f5-41c1-9691-79c8bc0a3bb9:
+          uuid: 5edaf632-63f5-41c1-9691-79c8bc0a3bb9
           region: top
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
-            label: 'Transparencia y acceso a la información pública'
+            label: 'Transparencia y acceso a la información pública '
             provider: block_content
             label_display: visible
             status: true
@@ -62,9 +62,22 @@ variant_settings:
             view_mode: full
             context_mapping: {  }
           additional: {  }
-          weight: 3
-        385dfbd7-f242-4e08-9760-96d6256e3e71:
-          uuid: 385dfbd7-f242-4e08-9760-96d6256e3e71
+          weight: 0
+        d591ad1e-ca61-4f74-afad-cd0554344d00:
+          uuid: d591ad1e-ca61-4f74-afad-cd0554344d00
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-1_2_sedes_y_horario_de_atencion'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        71420638-9b59-4fcb-8c8a-018027bd626f:
+          uuid: 71420638-9b59-4fcb-8c8a-018027bd626f
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
@@ -74,30 +87,17 @@ variant_settings:
             follow: false
             follow_parent: child
             level: 1
-            depth: 1
-            expand_all_items: true
+            depth: 0
+            expand_all_items: false
             parent: 'transparencia-acceso-informacion:menu_link_content:9d663ce0-7090-4f10-9bc9-f402051bee86'
             suggestion: transparencia_acceso_informacion_sidebar
             label_type: block
             label_link: false
             context_mapping: {  }
           additional: {  }
-          weight: 3
-        8b5627aa-b6cc-4f16-bedd-901c4265a2aa:
-          uuid: 8b5627aa-b6cc-4f16-bedd-901c4265a2aa
-          region: left
-          configuration:
-            id: 'views_block:transparencia_acceso_informacion_publica-mision_vision_funciones_y_deberes'
-            label: ''
-            provider: views
-            label_display: '0'
-            views_label: ''
-            items_per_page: none
-            context_mapping: {  }
-          additional: {  }
-          weight: 3
+          weight: 0
       third_party_settings: {  }
-page: 3_2_funciones_y_deberes
+page: directorio_institucional_sedes_regionales_y_dependencias
 weight: 0
 selection_criteria: {  }
 selection_logic: and

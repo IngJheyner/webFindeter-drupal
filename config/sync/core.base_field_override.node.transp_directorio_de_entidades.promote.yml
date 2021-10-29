@@ -1,0 +1,22 @@
+uuid: d2e50af9-aa4f-4985-8c0a-b3916ca4b598
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.transp_directorio_de_entidades
+id: node.transp_directorio_de_entidades.promote
+field_name: promote
+entity_type: node
+bundle: transp_directorio_de_entidades
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

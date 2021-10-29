@@ -1,0 +1,32 @@
+uuid: 3051e392-07a7-4c44-8a4f-231596fe883a
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.mecani_prese_solici_queja_recla.body
+    - node.type.mecani_prese_solici_queja_recla
+  module:
+    - text
+    - user
+id: node.mecani_prese_solici_queja_recla.teaser
+targetEntityType: node
+bundle: mecani_prese_solici_queja_recla
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
