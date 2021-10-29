@@ -1,0 +1,23 @@
+uuid: 2dc1be52-4a8b-4f0a-baad-f0370f82a7b0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.transp_directorio_de_entidades
+  module:
+    - text
+id: node.transp_directorio_de_entidades.body
+field_name: body
+entity_type: node
+bundle: transp_directorio_de_entidades
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

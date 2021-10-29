@@ -1,0 +1,32 @@
+uuid: 5171e10e-259d-463b-867a-e4eef484d77f
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.transp_directorio_de_entidades.body
+    - node.type.transp_directorio_de_entidades
+  module:
+    - text
+    - user
+id: node.transp_directorio_de_entidades.teaser
+targetEntityType: node
+bundle: transp_directorio_de_entidades
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

@@ -1,0 +1,22 @@
+uuid: acd46885-3c39-485f-8486-6d56c1e11321
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.mecani_prese_solici_queja_recla
+id: node.mecani_prese_solici_queja_recla.promote
+field_name: promote
+entity_type: node
+bundle: mecani_prese_solici_queja_recla
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

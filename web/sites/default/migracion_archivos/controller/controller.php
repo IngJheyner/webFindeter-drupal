@@ -1,6 +1,6 @@
 <?php
 
-    $ruta = 'F:/copia-media/';
+    $ruta = 'E:/MIGRACION-EVALUA/EVALUA/';
 	set_time_limit(6000);
 
     function cantidad_archivos($path, $extension_archivo)
@@ -44,6 +44,8 @@
             //var_dump($path);
             $name_file = explode("/", $file); 
             $name_file = end($name_file);
+            echo("moviendo.. ".$name_file."\n");
+            echo("<br>");
             //var_dump($name_file);exit();
             $origen = $file;
             $destino = $path.$convocatoria;
@@ -53,7 +55,7 @@
 
     }    
 
-    $archivos_pdf = cantidad_archivos($ruta, 'pptx');
+    $archivos_pdf = cantidad_archivos($ruta, '15o');
 
     echo traslation_files($archivos_pdf, $ruta);
 

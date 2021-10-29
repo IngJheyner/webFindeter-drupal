@@ -1,0 +1,30 @@
+uuid: 16b2f36e-445b-41ff-8dd6-b61093c15606
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.proce_toma_decisiones_areas.body
+    - node.type.proce_toma_decisiones_areas
+  module:
+    - text
+    - user
+id: node.proce_toma_decisiones_areas.default
+targetEntityType: node
+bundle: proce_toma_decisiones_areas
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

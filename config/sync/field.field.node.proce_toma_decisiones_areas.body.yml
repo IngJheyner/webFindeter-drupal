@@ -1,0 +1,23 @@
+uuid: 926fb0eb-2bf0-4892-b95b-447cf05fb9d4
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.proce_toma_decisiones_areas
+  module:
+    - text
+id: node.proce_toma_decisiones_areas.body
+field_name: body
+entity_type: node
+bundle: proce_toma_decisiones_areas
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

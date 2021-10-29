@@ -50,7 +50,7 @@ fetcher_configuration:
   directory: 'private://feeds'
 parser: csv
 parser_configuration:
-  delimiter: ;
+  delimiter: ','
   no_headers: false
   line_limit: 100
 processor: 'entity:node'

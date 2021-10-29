@@ -1,0 +1,23 @@
+uuid: 07de2c3f-68ec-4815-8503-7bebf6671964
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.servicio_pub_norm_formu_atenci
+  module:
+    - text
+id: node.servicio_pub_norm_formu_atenci.body
+field_name: body
+entity_type: node
+bundle: servicio_pub_norm_formu_atenci
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

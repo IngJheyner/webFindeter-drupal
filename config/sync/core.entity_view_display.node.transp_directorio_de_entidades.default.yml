@@ -1,0 +1,30 @@
+uuid: b39fd9e7-1907-4136-9df9-b57f3cdc4a14
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.transp_directorio_de_entidades.body
+    - node.type.transp_directorio_de_entidades
+  module:
+    - text
+    - user
+id: node.transp_directorio_de_entidades.default
+targetEntityType: node
+bundle: transp_directorio_de_entidades
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

@@ -1,0 +1,23 @@
+uuid: 346d3912-1a29-4ea6-bfef-585e8174e1f6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.mecani_prese_solici_queja_recla
+  module:
+    - text
+id: node.mecani_prese_solici_queja_recla.body
+field_name: body
+entity_type: node
+bundle: mecani_prese_solici_queja_recla
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

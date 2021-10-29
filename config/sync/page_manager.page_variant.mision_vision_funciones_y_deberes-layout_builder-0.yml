@@ -1,15 +1,15 @@
-uuid: adefe6dc-90df-404c-b66b-8ee94c8fe6f2
+uuid: 34368c65-bab8-4913-9458-ad15e1a15c8b
 langcode: es
 status: true
 dependencies:
   config:
-    - page_manager.page.3_2_funciones_y_deberes
-id: 3_2_funciones_y_deberes-layout_builder-0
-label: 'Msiión, Visión, Funciones y deberes'
+    - page_manager.page.mision_vision_funciones_y_deberes
+id: mision_vision_funciones_y_deberes-layout_builder-0
+label: 'Misión, Visión, Funciones y Deberes'
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: 2b024767-ac49-44c2-b974-200277c99700
+  uuid: 831ddac3-8f5d-412b-99fe-14d1c839dfc3
   label: null
   weight: 0
   sections:
@@ -49,8 +49,8 @@ variant_settings:
             add_region_classes: 1
             attributes: ''
       components:
-        e369c5ac-e945-46af-b2b3-ac1b6818e46f:
-          uuid: e369c5ac-e945-46af-b2b3-ac1b6818e46f
+        8a3461fc-4686-4d91-a4d9-ab10ad80eb63:
+          uuid: 8a3461fc-4686-4d91-a4d9-ab10ad80eb63
           region: top
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
@@ -62,29 +62,9 @@ variant_settings:
             view_mode: full
             context_mapping: {  }
           additional: {  }
-          weight: 3
-        385dfbd7-f242-4e08-9760-96d6256e3e71:
-          uuid: 385dfbd7-f242-4e08-9760-96d6256e3e71
-          region: right
-          configuration:
-            id: 'menu_block:transparencia-acceso-informacion'
-            label: 'Transparencia y Acceso a la información Pública'
-            provider: menu_block
-            label_display: '0'
-            follow: false
-            follow_parent: child
-            level: 1
-            depth: 1
-            expand_all_items: true
-            parent: 'transparencia-acceso-informacion:menu_link_content:9d663ce0-7090-4f10-9bc9-f402051bee86'
-            suggestion: transparencia_acceso_informacion_sidebar
-            label_type: block
-            label_link: false
-            context_mapping: {  }
-          additional: {  }
-          weight: 3
-        8b5627aa-b6cc-4f16-bedd-901c4265a2aa:
-          uuid: 8b5627aa-b6cc-4f16-bedd-901c4265a2aa
+          weight: 0
+        f1e3fa1e-acb4-4333-97ba-a20e61684139:
+          uuid: f1e3fa1e-acb4-4333-97ba-a20e61684139
           region: left
           configuration:
             id: 'views_block:transparencia_acceso_informacion_publica-mision_vision_funciones_y_deberes'
@@ -95,9 +75,29 @@ variant_settings:
             items_per_page: none
             context_mapping: {  }
           additional: {  }
-          weight: 3
+          weight: 0
+        96a5764e-4adb-4a41-b37c-cb3019b3f038:
+          uuid: 96a5764e-4adb-4a41-b37c-cb3019b3f038
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: '0'
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 0
+            expand_all_items: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:9d663ce0-7090-4f10-9bc9-f402051bee86'
+            suggestion: transparencia_acceso_informacion_sidebar
+            label_type: block
+            label_link: false
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
       third_party_settings: {  }
-page: 3_2_funciones_y_deberes
+page: mision_vision_funciones_y_deberes
 weight: 0
 selection_criteria: {  }
 selection_logic: and
