@@ -41,7 +41,7 @@ class holidaysPQRSD
 		$this->calcula_emiliani(8, 15);				// Asunci�n Agosto 15
 		$this->calcula_emiliani(10, 12);			// Descubrimiento de Am�rica Oct 12
 		$this->calcula_emiliani(11, 1);				// Todos los santos Nov 1
-		$this->calcula_emiliani(11, 11);			// Independencia de Cartagena Nov 11
+		$this->calcula_emiliani(11, 15);			// Independencia de Cartagena Nov 15
 		
 		//otras fechas calculadas a partir de la pascua.
 		

@@ -81,6 +81,8 @@
   ]
 %}
 
+{% if node.isPublished() %}
+
 <div{{ attributes.addClass(classes) }}>
 
   {# ============================================
@@ -350,3 +352,4 @@
   </div>
 
 </div>
+{% endif %}

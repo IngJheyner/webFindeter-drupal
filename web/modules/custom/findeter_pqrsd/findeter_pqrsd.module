@@ -284,8 +284,20 @@ function findeter_pqrsd_mail($key, &$message, $params) {
 */
 function generarNumeroRadicado($type){
 
-  $config = \Drupal::service('config.factory')->getEditable('findeter_pqrsd.settings');
-  $secuencialNumber = $config->get('number_settled',1);
+  $query = \Drupal::entityQuery('node')
+                ->condition('type', 'pqrsd')
+                ->sort('nid', DESC)
+                ->range(0, 1)
+                ->execute();
+
+  $nid = array_values($query);
+  $node = Node::load($nid[0]);
+
+  $number_settled = $node->get('field_pqrsd_numero_radicado')->value;
+
+  //$config = \Drupal::service('config.factory')->getEditable('findeter_pqrsd.settings');
+  //$secuencialNumber = $config->get('number_settled',1);
+
   if(!$secuencialNumber){
     $secuencialNumber = 1;
   }

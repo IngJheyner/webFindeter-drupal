@@ -19,7 +19,6 @@ dependencies:
     - node.type.pot
     - node.type.slider_home
   module:
-    - image
     - link
     - node
     - slick_views
@@ -917,9 +916,9 @@ display:
           skin_thumbnail: ''
           thumbnail_position: ''
           thumbnail_caption: ''
-          grid: 4
-          grid_medium: 4
-          grid_small: 4
+          grid: '4'
+          grid_medium: '4'
+          grid_small: '4'
           visible_items: 4
           preserve_keys: false
           image: ''
@@ -1657,9 +1656,9 @@ display:
           skin_thumbnail: ''
           thumbnail_position: ''
           thumbnail_caption: ''
-          grid: 1
-          grid_medium: 1
-          grid_small: 1
+          grid: '1'
+          grid_medium: '1'
+          grid_small: '1'
           visible_items: 1
           preserve_keys: false
           image: ''
@@ -1727,9 +1726,9 @@ display:
           skin_thumbnail: ''
           thumbnail_position: ''
           thumbnail_caption: ''
-          grid: 3
-          grid_medium: 3
-          grid_small: 3
+          grid: '3'
+          grid_medium: '3'
+          grid_small: '3'
           visible_items: 3
           preserve_keys: false
           image: ''
@@ -2305,9 +2304,9 @@ display:
           skin_thumbnail: ''
           thumbnail_position: ''
           thumbnail_caption: ''
-          grid: 1
-          grid_medium: 1
-          grid_small: 1
+          grid: '1'
+          grid_medium: '1'
+          grid_small: '1'
           visible_items: 1
           preserve_keys: false
           image: ''
@@ -2927,6 +2926,9 @@ display:
         style: false
         row: false
         arguments: false
+        access: false
+        title: false
+        pager: false
       filter_groups:
         operator: AND
         groups:
@@ -2940,7 +2942,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: true
             text: '<p class="d-none">{{ title }}</p>'
@@ -3044,7 +3046,7 @@ display:
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: true
+          hide_alter_empty: false
           click_sort_column: target_id
           type: image_url
           settings:
@@ -3070,19 +3072,19 @@ display:
           navigation: 1
           indicators: 1
           pause: 0
-          use_caption: 1
-          wrap: 1
+          use_caption: 0
+          wrap: 0
           effect: slide
           image: field_img_slider_pot
-          title: ''
+          title: title
           description: ''
       row:
         type: fields
         options: {  }
       display_description: 'slider que aparece en la pagina interna del POT'
       arguments:
-        nid:
-          id: nid
+        nid_1:
+          id: nid_1
           table: node_field_data
           field: nid
           relationship: none
@@ -3097,7 +3099,7 @@ display:
           title: ''
           default_argument_type: node
           default_argument_options: {  }
-          default_argument_skip_url: true
+          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -3117,6 +3119,14 @@ display:
           entity_type: node
           entity_field: nid
           plugin_id: node_nid
+      access:
+        type: none
+        options: {  }
+      title: 'Slider [ POT ]'
+      pager:
+        type: none
+        options:
+          offset: 0
     cache_metadata:
       max-age: -1
       contexts:
@@ -3124,7 +3134,6 @@ display:
         - 'languages:language_interface'
         - url
         - 'user.node_grants:view'
-        - user.permissions
       tags:
         - 'config:field.storage.node.field_img_slider_pot'
   slider_home:
@@ -3981,9 +3990,9 @@ display:
           skin_thumbnail: ''
           thumbnail_position: ''
           thumbnail_caption: ''
-          grid: 1
-          grid_medium: 1
-          grid_small: 1
+          grid: '1'
+          grid_medium: '1'
+          grid_small: '1'
           visible_items: 1
           preserve_keys: false
           image: ''
@@ -4743,9 +4752,9 @@ display:
           skin_thumbnail: ''
           thumbnail_position: ''
           thumbnail_caption: ''
-          grid: 4
-          grid_medium: 4
-          grid_small: 4
+          grid: '4'
+          grid_medium: '4'
+          grid_small: '4'
           visible_items: 4
           preserve_keys: false
           image: ''
