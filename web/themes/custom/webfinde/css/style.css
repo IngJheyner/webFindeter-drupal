@@ -833,7 +833,7 @@ MEDIA QUERY
     margin: 1.5rem 0rem 0 0rem;
   }
   form#search-block-form div.buscadorAcceso input[type=search] {
-    height: calc(1em + .75rem + 2px);
+    height: calc(1em + 0.75rem + 2px);
     border: 1px solid #112d6a !important;
   }
   form#search-block-form div.buscadorAcceso .menuAccesoRapido {
@@ -3169,12 +3169,12 @@ ENCABEZADO
 /* ==============================
 CUSTOM TITULOS
 ============================== */
-div.pot div.cajaTitulo {
+article.pot div.cajaTitulo {
   display: flex;
   border-bottom: 1px solid #112d6a;
   padding-bottom: 20px;
 }
-div.pot div.cajaTitulo .titulo {
+article.pot div.cajaTitulo .titulo {
   position: relative;
   /* ==============================
   MEDIA QUERY
@@ -3184,7 +3184,7 @@ div.pot div.cajaTitulo .titulo {
   /*MOVIL VERTICAL(sm 320px)*/
   /*MOVIL VERTICAL(sm 320px)*/
 }
-div.pot div.cajaTitulo .titulo::after {
+article.pot div.cajaTitulo .titulo::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -3194,86 +3194,86 @@ div.pot div.cajaTitulo .titulo::after {
   left: 0;
 }
 @media (max-width: 575.98px) {
-  div.pot div.cajaTitulo .titulo {
+  article.pot div.cajaTitulo .titulo {
     font-size: 2.5rem;
   }
-  div.pot div.cajaTitulo .titulo::after {
+  article.pot div.cajaTitulo .titulo::after {
     position: initial;
   }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
-  div.pot div.cajaTitulo .titulo {
+  article.pot div.cajaTitulo .titulo {
     font-size: 3rem;
   }
-  div.pot div.cajaTitulo .titulo::after {
+  article.pot div.cajaTitulo .titulo::after {
     position: initial;
   }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
-  div.pot div.cajaTitulo .titulo {
+  article.pot div.cajaTitulo .titulo {
     font-size: 3rem;
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  div.pot div.cajaTitulo .titulo {
+  article.pot div.cajaTitulo .titulo {
     font-size: 3rem;
   }
 }
-div.pot blockquote {
+article.pot blockquote {
   line-height: 1.8rem;
 }
-div.pot section.slider {
+article.pot section.slider {
   position: relative;
 }
-div.pot section.slider div.logo {
+article.pot section.slider div.logo {
   position: absolute;
   z-index: 999;
   top: 0;
 }
-div.pot section.slider div.logo a > img {
+article.pot section.slider div.logo a > img {
   width: 50%;
 }
-div.pot section.queEsPot div.galeriaPot div.slick div.slick-slider {
+article.pot section.queEsPot div.galeriaPot div.slick div.slick-slider {
   /* ===== ===== Botones ===== ===== */
 }
-div.pot section.queEsPot div.galeriaPot div.slick div.slick-slider ul.slick-dots li.slick-active button::before {
+article.pot section.queEsPot div.galeriaPot div.slick div.slick-slider ul.slick-dots li.slick-active button::before {
   color: #00993e;
 }
-div.pot section.queEsPot div.galeriaPot div.slick nav button::before {
+article.pot section.queEsPot div.galeriaPot div.slick nav button::before {
   color: #00993e;
 }
-div.pot section.beneficios div.contenido ul {
+article.pot section.beneficios div.contenido ul {
   list-style-image: url("../images/iconos/punto-azul.png");
 }
-div.pot section.beneficios div.contenido ul li {
+article.pot section.beneficios div.contenido ul li {
   margin-bottom: 1rem;
 }
-div.pot section.servicios div.encabezadoCaja {
+article.pot section.servicios div.encabezadoCaja {
   width: 80%;
   /*MOVIL VERTICAL(sm 320px)*/
   /*MOVIL VERTICAL(sm 320px)*/
   /*MOVIL VERTICAL(sm 320px)*/
 }
 @media (max-width: 575.98px) {
-  div.pot section.servicios div.encabezadoCaja {
+  article.pot section.servicios div.encabezadoCaja {
     width: 100%;
   }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
-  div.pot section.servicios div.encabezadoCaja {
+  article.pot section.servicios div.encabezadoCaja {
     width: 100%;
   }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
-  div.pot section.servicios div.encabezadoCaja {
+  article.pot section.servicios div.encabezadoCaja {
     width: 100%;
   }
 }
-div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo {
+article.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo {
   border-bottom: 1px solid #112d6a;
   padding-bottom: 20px;
 }
-div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1 {
+article.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1 {
   position: relative;
   width: 80%;
   /*MOVIL VERTICAL(sm 320px)*/
@@ -3281,7 +3281,7 @@ div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1 {
   /*MOVIL VERTICAL(sm 320px)*/
   /*MOVIL VERTICAL(sm 320px)*/
 }
-div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1::after {
+article.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -3291,79 +3291,79 @@ div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1::aft
   left: 0;
 }
 @media (max-width: 575.98px) {
-  div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1 {
+  article.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1 {
     font-size: 2.53rem;
     width: 100%;
   }
-  div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1::after {
+  article.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1::after {
     position: initial;
   }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
-  div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1 {
+  article.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1 {
     font-size: 2.53rem;
     width: 100%;
   }
-  div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1::after {
+  article.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1::after {
     position: initial;
   }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
-  div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1 {
+  article.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1 {
     font-size: 2.53rem;
     width: 100%;
   }
-  div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1::after {
+  article.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1::after {
     position: initial;
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  div.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1 {
+  article.pot section.servicios div.encabezadoCaja div.encabezado > div.titulo h1 {
     font-size: 3rem;
   }
 }
-div.pot section.servicios div.encabezadoCaja h1 {
+article.pot section.servicios div.encabezadoCaja h1 {
   color: #0a9bd8;
 }
-div.pot section.servicios div.row > div[class*=col] ul li {
+article.pot section.servicios div.row > div[class*=col] ul li {
   margin-bottom: 0.5rem;
 }
-div.pot section.porqueFindeter div.cifras h1,
-div.pot section.porqueFindeter div.cifras h3 {
+article.pot section.porqueFindeter div.cifras h1,
+article.pot section.porqueFindeter div.cifras h3 {
   color: #112d6a;
 }
-div.pot section.porqueFindeter div.cifras h5 {
+article.pot section.porqueFindeter div.cifras h5 {
   font-size: larger;
 }
-div.pot section.porqueFindeter div.cifras h1.display-4 {
+article.pot section.porqueFindeter div.cifras h1.display-4 {
   color: #CDDC4B;
 }
-div.pot section.contactenos div.encabezadoCaja {
+article.pot section.contactenos div.encabezadoCaja {
   width: 50%;
   /*MOVIL VERTICAL(sm 320px)*/
   /*MOVIL VERTICAL(sm 320px)*/
   /*MOVIL VERTICAL(sm 320px)*/
 }
 @media (max-width: 575.98px) {
-  div.pot section.contactenos div.encabezadoCaja {
+  article.pot section.contactenos div.encabezadoCaja {
     width: 100%;
   }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
-  div.pot section.contactenos div.encabezadoCaja {
+  article.pot section.contactenos div.encabezadoCaja {
     width: 100%;
   }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
-  div.pot section.contactenos div.encabezadoCaja {
+  article.pot section.contactenos div.encabezadoCaja {
     width: 100%;
   }
 }
-div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo {
+article.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo {
   border-bottom: 1px solid #112d6a;
   padding-bottom: 20px;
 }
-div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1 {
+article.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1 {
   position: relative;
   width: 80%;
   /*MOVIL VERTICAL(sm 320px)*/
@@ -3371,7 +3371,7 @@ div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1 {
   /*MOVIL VERTICAL(sm 320px)*/
   /*MOVIL VERTICAL(sm 320px)*/
 }
-div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1::after {
+article.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -3381,52 +3381,52 @@ div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1::a
   left: 0;
 }
 @media (max-width: 575.98px) {
-  div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1 {
+  article.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1 {
     font-size: 2.53rem;
     width: 100%;
   }
-  div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1::after {
+  article.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1::after {
     position: initial;
   }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
-  div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1 {
+  article.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1 {
     font-size: 2.53rem;
     width: 100%;
   }
-  div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1::after {
+  article.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1::after {
     position: initial;
   }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
-  div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1 {
+  article.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1 {
     font-size: 2.53rem;
     width: 100%;
   }
-  div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1::after {
+  article.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1::after {
     position: initial;
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  div.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1 {
+  article.pot section.contactenos div.encabezadoCaja div.encabezado > div.titulo h1 {
     font-size: 3rem;
   }
 }
-div.pot section.contactenos div.encabezadoCaja h1 {
+article.pot section.contactenos div.encabezadoCaja h1 {
   color: #0a9bd8;
 }
-div.pot section.contactenos > div.row {
+article.pot section.contactenos > div.row {
   margin: 0 8rem 0 8rem;
 }
-div.pot section.contactenos > div.row > div.tablaInfo {
+article.pot section.contactenos > div.row > div.tablaInfo {
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
-div.pot section.contactenos > div.row > div.tablaInfo table h4 {
+article.pot section.contactenos > div.row > div.tablaInfo table h4 {
   font-weight: bold;
   margin-bottom: 1rem;
 }
-div.pot section.contactenos table {
+article.pot section.contactenos table {
   border: 0 transparent;
 }
 
@@ -4233,7 +4233,7 @@ div.form-lading-page form div.iti {
 }
 div.form-lading-page form span.select2 > span.selection > span.select2-selection--single {
   width: 100%;
-  height: calc(1.5em + .75rem + 2px);
+  height: calc(1.5em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   border: 1px solid #112d6a !important;

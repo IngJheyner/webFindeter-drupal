@@ -4,8 +4,6 @@ status: true
 dependencies:
   config:
     - page_manager.page.page_convocatorias
-  module:
-    - user
 id: page_convocatorias-layout_builder-1
 label: 'Ciudadano [ Anonimo ]'
 variant: layout_builder
@@ -75,13 +73,6 @@ variant_settings:
       third_party_settings: {  }
 page: page_convocatorias
 weight: 1
-selection_criteria:
-  -
-    id: user_role
-    roles:
-      anonymous: anonymous
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
+selection_criteria: {  }
 selection_logic: and
 static_context: {  }
