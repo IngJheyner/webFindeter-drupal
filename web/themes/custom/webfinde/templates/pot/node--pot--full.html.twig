@@ -81,7 +81,9 @@
   ]
 %}
 
-<div{{ attributes.addClass(classes) }}>
+{% if node.isPublished() %}
+
+<article{{ attributes.addClass(classes) }}>
 
   {# ============================================
   SLIDER
@@ -349,4 +351,6 @@
     
   </div>
 
-</div>
+</article>
+
+{% endif %}
