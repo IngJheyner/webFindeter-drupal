@@ -284,7 +284,7 @@ function findeter_pqrsd_mail($key, &$message, $params) {
 */
 function generarNumeroRadicado($type){
 
-  /*$query = \Drupal::entityQuery('node')
+  $query = \Drupal::entityQuery('node')
                 ->condition('type', 'pqrsd')
                 ->sort('nid', DESC)
                 ->range(0, 1)
@@ -292,22 +292,22 @@ function generarNumeroRadicado($type){
 
   $nid = array_values($query);
   $node = Node::load($nid[0]);
+  
+  $number_settled = $node->get('field_pqrsd_numero_radicado')->value;
+  $secuencialNumber = preg_split('/[A-Z]/', $number_settled);
 
-  $number_settled = $node->get('field_pqrsd_numero_radicado')->value;*/
-
-  $config = \Drupal::service('config.factory')->getEditable('findeter_pqrsd.settings');
-  $secuencialNumber = $config->get('number_settled',1);
+  //$config = \Drupal::service('config.factory')->getEditable('findeter_pqrsd.settings');
+  //$secuencialNumber = $config->get('number_settled',1);
 
   if(!$secuencialNumber){
     $secuencialNumber = 1;
   }
 
+  $secuencialNumber[1]++;
   $numeroRadicado = date('Ymd',\Drupal::time()->getCurrentTime());
-  $numeroRadicado .= $type[0].$secuencialNumber;
+  $numeroRadicado .= $type[0].$secuencialNumber[1];  
 
-  $secuencialNumber++;
-
-  $config->set('number_settled', $secuencialNumber)->save();
+  //$config->set('number_settled', $secuencialNumber)->save();
 
   /*for($i=0;$i<=4;$i++){
     $numeroRadicado .= rand (0, 9) ;
@@ -778,7 +778,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
         $modalLink = Link::fromTextAndUrl('Ver', $url);
         $modalLink = $modalLink->toRenderable();
         $modalLink['#attributes'] = $modalOptions;
-        $htmlOutput .= '<li class="dropbutton__item dropbutton__item--extrasmall dropbutton-action">'.render($modalLink).'</li><li class="dropbutton-toggle"><button type="button" class="dropbutton__toggle"><span class="visually-hidden">Lista adicional de acciones</span></button></li>';
+        $htmlOutput .= '<li class="dropbutton-action">'.render($modalLink).'</li></li>';
 
         if($view->field['field_pqrsd_respuesta']->original_value == '' && !in_array('auditor_pqrsd',$rolesUser)){
 
@@ -786,26 +786,26 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
           $modalLink = Link::fromTextAndUrl('Editar', $url);
           $modalLink = $modalLink->toRenderable();
           //$modalLink['#attributes'] = ['class' => ['button']];
-          $htmlOutput .='<li class="dropbutton__item dropbutton__item--extrasmall dropbutton-action secondary-action">'.render($modalLink).'</li>';
+          $htmlOutput .='<li class="dropbutton-action secondary-action">'.render($modalLink).'</li>';
 
 
           $url = Url::fromRoute('findeter_pqrsd.asign_pqrsd',['nid' => $nid,'usr' => $author]);
           $modalLink = Link::fromTextAndUrl('Asignar', $url);
           $modalLink = $modalLink->toRenderable();
           $modalLink['#attributes'] = $modalOptions;
-          $htmlOutput .= '<li class="dropbutton__item dropbutton__item--extrasmall dropbutton-action secondary-action">'.render($modalLink).'</li>';
+          $htmlOutput .= '<li class="dropbutton-action secondary-action">'.render($modalLink).'</li>';
 
           $url = Url::fromRoute('findeter_pqrsd.transfer_pqrsd',['nid' => $nid]);
           $modalLink = Link::fromTextAndUrl('Trasladar', $url);
           $modalLink = $modalLink->toRenderable();
           $modalLink['#attributes'] = $modalOptions;
-          $htmlOutput .= '<li class="dropbutton__item dropbutton__item--extrasmall dropbutton-action secondary-action">'.render($modalLink).'</li>';
+          $htmlOutput .= '<li class="dropbutton-action secondary-action">'.render($modalLink).'</li>';
 
           $url = Url::fromRoute('findeter_pqrsd.answer_pqrsd',['nid' => $nid]);
           $modalLink = Link::fromTextAndUrl('Responder', $url);
           $modalLink = $modalLink->toRenderable();
           $modalLink['#attributes'] = $modalOptions;
-          $htmlOutput .= '<li class="dropbutton__item dropbutton__item--extrasmall dropbutton-action secondary-action">'.render($modalLink).'</li>';
+          $htmlOutput .= '<li class="dropbutton-action secondary-action">'.render($modalLink).'</li>';
         }
 
         /*$url = Url::fromRoute('findeter_pqrsd.create_pdf',['nid' => $nid]);
@@ -816,7 +816,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
         $variables['output'] = ['#markup' => '<div class="dropbutton-wrapper dropbutton-multiple">
         <div class="dropbutton-widget">
-        <ul class="dropbutton dropbutton--multiple dropbutton--extrasmall">
+        <ul class="dropbutton">
         '.$htmlOutput.'
         </ul>
         </div>
