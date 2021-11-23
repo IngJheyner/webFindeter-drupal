@@ -446,10 +446,11 @@
                             "next": "Siguiente"
                         }
                     },
-                    order: [
-                        [2, 'desc'],
-                        [0, 'asc']
-                    ],
+                    /*order: [
+                        [2, 'asc'],
+                        //[0, 'asc']
+                    ],*/
+                    "ordering" : false
                 });
 
 
