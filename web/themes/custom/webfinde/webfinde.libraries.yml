@@ -24,4 +24,16 @@ mapaHome:
   js:
     js/mapaHome.js: {}
 
+#Para datackpicker order date prosperity fund
+#moments.js Date formatter
+momentjs:
+  remote: https://github.com/moment/moment
+  version: "2.29.1"
+  license:
+    name: MIT
+    url: https://github.com/moment/moment/blob/develop/LICENSE
+    gpl-compatible: true
+  js:
+    https://momentjs.com/downloads/moment-with-locales.min.js: { type: external, minified: true }
+
 
