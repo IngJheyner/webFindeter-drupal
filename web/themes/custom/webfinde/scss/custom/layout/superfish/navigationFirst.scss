@@ -33,6 +33,10 @@ $superfish-1-background-color-level-fourth: #c0c0c0;
       }
     }*/
         li.sf-depth-1 {
+            >span{
+                max-width: 215px;
+                text-align: center;
+            }
             >span,
             a {
                 color: white;
@@ -123,7 +127,7 @@ $superfish-1-background-color-level-fourth: #c0c0c0;
             &.sfHover {
                 outline: 0;
                 >ul {
-                    top: 45px;
+                    top: 55px;
                 }
             }
         }
