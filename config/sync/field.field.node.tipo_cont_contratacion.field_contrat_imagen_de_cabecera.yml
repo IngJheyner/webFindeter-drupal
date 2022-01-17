@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_contrat_imagen_de_cabecera
     - node.type.tipo_cont_contratacion
   module:
-    - disable_field
     - filefield_paths
     - image
 third_party_settings:
@@ -27,9 +26,6 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-  disable_field:
-    add_disable: none
-    edit_disable: none
 id: node.tipo_cont_contratacion.field_contrat_imagen_de_cabecera
 field_name: field_contrat_imagen_de_cabecera
 entity_type: node

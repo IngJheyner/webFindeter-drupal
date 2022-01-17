@@ -180,15 +180,18 @@ class RegisterPQRSDAdmin extends FormBase {
       if($key == 'field_pqrsd_palabras_clave'){
         $tag = $form_state->getValue('field_pqrsd_palabras_clave');
         if (empty($tag)) {
-          drupal_set_message("Tag is empty, nothing to do");
+          //drupal_set_message("Tag is empty, nothing to do");
+          $this->messenger()->addMessage($this->t("Tag is empty, nothing to do"), 'warning');
         }
         elseif (is_string($tag)) {
-          drupal_set_message("A term selected, tid = $tag");
+          //drupal_set_message("A term selected, tid = $tag");
+          $this->messenger()->addMessage($this->t("A term selected, tid = $tag"), 'warning');
         }
         elseif (isset($tag['entity']) && ($tag['entity'] instanceof Term)) {
           $entity = $tag['entity'];
           $entity->save();
-          drupal_set_message("A new term : " . $entity->id() . " : " . $entity->label());
+          //drupal_set_message("A new term : " . $entity->id() . " : " . $entity->label());
+          $this->messenger()->addMessage($this->t("A new term : " . $entity->id() . " : " . $entity->label()));
         }
       }
 
@@ -214,7 +217,7 @@ class RegisterPQRSDAdmin extends FormBase {
     $usrAsignField = $form_state->getValue('field_asign');
     $user = \Drupal::currentUser();
 
-    $newRequest->field_pqrsd_asignaciones[] = $user->getUsername().' | '.$user->id().' | '.date('j/m/Y H:i:s');
+    $newRequest->field_pqrsd_asignaciones[] = $user->getAccountName().' | '.$user->id().' | '.date('j/m/Y H:i:s');
 
     // define date of answer
     $datesConfigure = defineDatesSemaphore($values);
@@ -228,7 +231,7 @@ class RegisterPQRSDAdmin extends FormBase {
       if($userAsign = \Drupal\user\Entity\User::load($userArray[1])){
         if($userAsign->id() != $user->id()){
           $user = $userAsign;
-          $newRequest->field_pqrsd_asignaciones[] = $user->getUsername().' | '.$user->id().' | '.date('j/m/Y H:i:s');
+          $newRequest->field_pqrsd_asignaciones[] = $user->getAccountName().' | '.$user->id().' | '.date('j/m/Y H:i:s');
         }
 
         $module = 'findeter_pqrsd';
@@ -245,7 +248,7 @@ class RegisterPQRSDAdmin extends FormBase {
           $userName .= $form_state->getValue('field_pqrsd_primer_apellido');
         }
 
-        $mailBody[] = 'Hola '.$user->getUsername();
+        $mailBody[] = 'Hola '.$user->getAccountName();
         $mailBody[] = 'Le informamos que se le asignó una PQRSD para que le dé respuesta:';
         $mailBody[] = '<div class="numero-radicado">
                       <b>#Radicatoria: </b>'.$numeroRadicado.'

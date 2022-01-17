@@ -6,7 +6,6 @@ dependencies:
     - field.storage.paragraph.field_tr_paragr_docu_archi
     - paragraphs.paragraphs_type.documento_link_para_contenido_tr
   module:
-    - disable_field
     - file
     - filefield_paths
 third_party_settings:
@@ -27,9 +26,6 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-  disable_field:
-    add_disable: none
-    edit_disable: none
 id: paragraph.documento_link_para_contenido_tr.field_tr_paragr_docu_archi
 field_name: field_tr_paragr_docu_archi
 entity_type: paragraph

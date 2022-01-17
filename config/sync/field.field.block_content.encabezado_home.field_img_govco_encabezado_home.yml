@@ -6,7 +6,6 @@ dependencies:
     - block_content.type.encabezado_home
     - field.storage.block_content.field_img_govco_encabezado_home
   module:
-    - disable_field
     - filefield_paths
     - image
 third_party_settings:
@@ -27,9 +26,6 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-  disable_field:
-    add_disable: none
-    edit_disable: none
 id: block_content.encabezado_home.field_img_govco_encabezado_home
 field_name: field_img_govco_encabezado_home
 entity_type: block_content

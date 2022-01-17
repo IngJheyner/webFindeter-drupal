@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_imagen
     - node.type.articulo_blog
   module:
-    - disable_field
     - filefield_paths
     - image
 third_party_settings:
@@ -27,9 +26,6 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-  disable_field:
-    add_disable: none
-    edit_disable: none
 id: node.articulo_blog.field_imagen
 field_name: field_imagen
 entity_type: node

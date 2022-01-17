@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_img_enca_corp_govern
     - node.type.tipo_cont_corporate_governance
   module:
-    - disable_field
     - filefield_paths
     - image
 third_party_settings:
@@ -27,9 +26,6 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-  disable_field:
-    add_disable: none
-    edit_disable: none
 id: node.tipo_cont_corporate_governance.field_img_enca_corp_govern
 field_name: field_img_enca_corp_govern
 entity_type: node

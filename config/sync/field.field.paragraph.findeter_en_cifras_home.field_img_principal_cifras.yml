@@ -6,7 +6,6 @@ dependencies:
     - field.storage.paragraph.field_img_principal_cifras
     - paragraphs.paragraphs_type.findeter_en_cifras_home
   module:
-    - disable_field
     - filefield_paths
     - image
 third_party_settings:
@@ -27,9 +26,6 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-  disable_field:
-    add_disable: none
-    edit_disable: none
 id: paragraph.findeter_en_cifras_home.field_img_principal_cifras
 field_name: field_img_principal_cifras
 entity_type: paragraph

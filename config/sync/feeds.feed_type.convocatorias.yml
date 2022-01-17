@@ -4,41 +4,13 @@ status: true
 dependencies:
   config:
     - core.base_field_override.node.convocatorias.title
-    - field.field.node.convocatorias.field_convcatoria_archivos
-    - field.field.node.convocatorias.field_convcatoria_contractual
-    - field.field.node.convocatorias.field_convcatoria_contratacion
-    - field.field.node.convocatorias.field_convcatoria_departamento
-    - field.field.node.convocatorias.field_convcatoria_email_proceso
-    - field.field.node.convocatorias.field_convcatoria_estado
-    - field.field.node.convocatorias.field_convcatoria_forma_pago
-    - field.field.node.convocatorias.field_convcatoria_moneda
-    - field.field.node.convocatorias.field_convcatoria_objeto
-    - field.field.node.convocatorias.field_convcatoria_presupuesto
-    - field.field.node.convocatorias.field_convcatoria_programa
-    - field.field.node.convocatorias.field_convcatoria_tipo_compra
     - node.type.convocatorias
   module:
     - feeds_tamper
     - node
 third_party_settings:
   feeds_tamper:
-    tampers:
-      a83757e6-3312-4d65-9f57-582cf7e13300:
-        separator: '~'
-        limit: null
-        plugin: explode
-        source: field_convcatoria_archivos
-        weight: 0
-        label: Explode
-        uuid: a83757e6-3312-4d65-9f57-582cf7e13300
-      fe2d06bc-9f2f-4a8e-963a-1f753cc4129e:
-        separator: '-'
-        limit: null
-        plugin: explode
-        source: field_convcatoria_departamento
-        weight: 0
-        label: Explode
-        uuid: fe2d06bc-9f2f-4a8e-963a-1f753cc4129e
+    tampers: {  }
 id: convocatorias
 label: Convocatorias
 description: ''
@@ -65,6 +37,7 @@ processor_configuration:
   skip_hash_check: false
   values:
     type: convocatorias
+  insert_new: 1
 custom_sources:
   title:
     label: title
@@ -136,101 +109,9 @@ mappings:
     settings:
       language: null
   -
-    target: field_convcatoria_contratacion
-    map:
-      target_id: field_convcatoria_contratacion
-    settings:
-      language: null
-      reference_by: name
-      autocreate: false
-  -
-    target: field_convcatoria_email_proceso
-    map:
-      value: field_convcatoria_email_proceso
-    unique: {  }
-    settings:
-      language: null
-      defuse: false
-  -
-    target: field_convcatoria_moneda
-    map:
-      target_id: field_convcatoria_moneda
-    settings:
-      language: null
-      reference_by: name
-      autocreate: false
-  -
-    target: field_convcatoria_objeto
-    map:
-      value: field_convcatoria_objeto
-    settings:
-      language: null
-  -
-    target: field_convcatoria_presupuesto
-    map:
-      value: field_convcatoria_presupuesto
-    unique: {  }
-    settings:
-      language: null
-  -
-    target: field_convcatoria_programa
-    map:
-      target_id: field_convcatoria_programa
-    settings:
-      language: null
-      reference_by: name
-      autocreate: false
-  -
-    target: field_convcatoria_tipo_compra
-    map:
-      target_id: field_convcatoria_tipo_compra
-    settings:
-      language: null
-      reference_by: name
-      autocreate: false
-  -
-    target: field_convcatoria_contractual
-    map:
-      target_id: field_convcatoria_contractual
-    settings:
-      language: null
-      reference_by: name
-      autocreate: false
-  -
     target: created
     map:
       value: fecha
     settings:
       language: ''
       timezone: America/Bogota
-  -
-    target: field_convcatoria_forma_pago
-    map:
-      target_id: field_convcatoria_forma_pago
-    settings:
-      language: null
-      reference_by: name
-      autocreate: false
-  -
-    target: field_convcatoria_archivos
-    map:
-      target_id: field_convcatoria_archivos
-    settings:
-      language: ''
-      reference_by: name
-      autocreate: 0
-      feeds_item: false
-  -
-    target: field_convcatoria_departamento
-    map:
-      target_id: field_convcatoria_departamento
-    settings:
-      language: null
-      reference_by: name
-      autocreate: false
-  -
-    target: field_convcatoria_estado
-    map:
-      value: field_convcatoria_estado
-    settings:
-      language: null

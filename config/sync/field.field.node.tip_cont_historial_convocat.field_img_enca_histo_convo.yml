@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_img_enca_histo_convo
     - node.type.tip_cont_historial_convocat
   module:
-    - disable_field
     - filefield_paths
     - image
 third_party_settings:
@@ -27,9 +26,6 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-  disable_field:
-    add_disable: none
-    edit_disable: none
 id: node.tip_cont_historial_convocat.field_img_enca_histo_convo
 field_name: field_img_enca_histo_convo
 entity_type: node

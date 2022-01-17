@@ -6,7 +6,6 @@ dependencies:
     - block_content.type.pie_de_pagina
     - field.storage.block_content.field_instagram_icono_footer
   module:
-    - disable_field
     - filefield_paths
     - image
 third_party_settings:
@@ -27,9 +26,6 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-  disable_field:
-    add_disable: none
-    edit_disable: none
 id: block_content.pie_de_pagina.field_instagram_icono_footer
 field_name: field_instagram_icono_footer
 entity_type: block_content

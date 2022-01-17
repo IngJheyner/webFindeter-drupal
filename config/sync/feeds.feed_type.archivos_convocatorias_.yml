@@ -3,10 +3,6 @@ langcode: es
 status: true
 dependencies:
   config:
-    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_muldia_fecha
-    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_ruta_archivo
-    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_tipo_adjunto
-    - field.field.media.mltdia_convcatoria_archivo.field_media_document
     - media.type.mltdia_convcatoria_archivo
   module:
     - feeds_tamper
@@ -40,6 +36,7 @@ processor_configuration:
   skip_hash_check: false
   values:
     bundle: mltdia_convcatoria_archivo
+  insert_new: 1
 custom_sources:
   field_convcatoria_muldia_fecha:
     label: field_convcatoria_muldia_fecha
@@ -67,29 +64,6 @@ custom_sources:
     machine_name: id_archivo
 mappings:
   -
-    target: field_convcatoria_ruta_archivo
-    map:
-      value: field_convcatoria_ruta_archivo
-    unique: {  }
-    settings:
-      language: null
-  -
-    target: field_media_document
-    map:
-      target_id: field_media_document
-      description: field_media_document
-    settings:
-      language: ''
-      reference_by: origname
-      existing: '1'
-      autocreate: 0
-  -
-    target: field_convcatoria_tipo_adjunto
-    map:
-      value: field_convcatoria_tipo_adjunto
-    settings:
-      language: null
-  -
     target: name
     map:
       value: name
@@ -99,13 +73,6 @@ mappings:
       language: null
   -
     target: created
-    map:
-      value: field_convcatoria_muldia_fecha
-    settings:
-      language: ''
-      timezone: America/Bogota
-  -
-    target: field_convcatoria_muldia_fecha
     map:
       value: field_convcatoria_muldia_fecha
     settings:

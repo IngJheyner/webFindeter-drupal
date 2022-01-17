@@ -27,7 +27,7 @@ class ValidatorRegex extends BaseValidator {
   /**
    * {@inheritdoc}
    */
-  public function validates($value) {
+  public function validates($value, $allValues) {
     return preg_match($this->pattern, $value);
   }
 

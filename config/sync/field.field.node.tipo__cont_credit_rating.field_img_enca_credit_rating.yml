@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_img_enca_credit_rating
     - node.type.tipo__cont_credit_rating
   module:
-    - disable_field
     - filefield_paths
     - image
 third_party_settings:
@@ -27,9 +26,6 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-  disable_field:
-    add_disable: none
-    edit_disable: none
 id: node.tipo__cont_credit_rating.field_img_enca_credit_rating
 field_name: field_img_enca_credit_rating
 entity_type: node

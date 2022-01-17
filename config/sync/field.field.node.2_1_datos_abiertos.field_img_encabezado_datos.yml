@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_img_encabezado_datos
     - node.type.2_1_datos_abiertos
   module:
-    - disable_field
     - filefield_paths
     - image
 third_party_settings:
@@ -27,9 +26,6 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-  disable_field:
-    add_disable: none
-    edit_disable: none
 id: node.2_1_datos_abiertos.field_img_encabezado_datos
 field_name: field_img_encabezado_datos
 entity_type: node

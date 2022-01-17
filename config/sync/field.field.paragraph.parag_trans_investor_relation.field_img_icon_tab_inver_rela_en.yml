@@ -6,7 +6,6 @@ dependencies:
     - field.storage.paragraph.field_img_icon_tab_inver_rela_en
     - paragraphs.paragraphs_type.parag_trans_investor_relation
   module:
-    - disable_field
     - filefield_paths
     - image
 third_party_settings:
@@ -27,9 +26,6 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-  disable_field:
-    add_disable: none
-    edit_disable: none
 id: paragraph.parag_trans_investor_relation.field_img_icon_tab_inver_rela_en
 field_name: field_img_icon_tab_inver_rela_en
 entity_type: paragraph

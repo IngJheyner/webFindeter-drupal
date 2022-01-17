@@ -9,7 +9,6 @@ dependencies:
     module:
       - media
   module:
-    - disable_field
     - file
     - filefield_paths
 third_party_settings:
@@ -30,9 +29,6 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-  disable_field:
-    add_disable: none
-    edit_disable: none
 _core:
   default_config_hash: 52m0CtJVAoE3Qvh2AiciSkV8odAgQeRo4yNDGgUA7dc
 id: media.document.field_media_document

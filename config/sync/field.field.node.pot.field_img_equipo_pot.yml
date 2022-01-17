@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_img_equipo_pot
     - node.type.pot
   module:
-    - disable_field
     - filefield_paths
     - image
 third_party_settings:
@@ -27,9 +26,6 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-  disable_field:
-    add_disable: none
-    edit_disable: none
 id: node.pot.field_img_equipo_pot
 field_name: field_img_equipo_pot
 entity_type: node
