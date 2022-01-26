@@ -6,7 +6,6 @@ dependencies:
     - block_content.type.glosario_encabezado
     - field.storage.block_content.field_glosario_img_fondo
   module:
-    - disable_field
     - filefield_paths
     - image
 third_party_settings:
@@ -27,9 +26,6 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-  disable_field:
-    add_disable: none
-    edit_disable: none
 id: block_content.glosario_encabezado.field_glosario_img_fondo
 field_name: field_glosario_img_fondo
 entity_type: block_content

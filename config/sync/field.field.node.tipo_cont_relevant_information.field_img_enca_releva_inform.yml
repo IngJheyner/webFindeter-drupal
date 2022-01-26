@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_img_enca_releva_inform
     - node.type.tipo_cont_relevant_information
   module:
-    - disable_field
     - filefield_paths
     - image
 third_party_settings:
@@ -27,9 +26,6 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-  disable_field:
-    add_disable: none
-    edit_disable: none
 id: node.tipo_cont_relevant_information.field_img_enca_releva_inform
 field_name: field_img_enca_releva_inform
 entity_type: node

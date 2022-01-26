@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_img_encab_financi_informat
     - node.type.tipo_cont_financial_information
   module:
-    - disable_field
     - filefield_paths
     - image
 third_party_settings:
@@ -27,9 +26,6 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-  disable_field:
-    add_disable: none
-    edit_disable: none
 id: node.tipo_cont_financial_information.field_img_encab_financi_informat
 field_name: field_img_encab_financi_informat
 entity_type: node

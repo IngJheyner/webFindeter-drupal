@@ -6,7 +6,6 @@ dependencies:
     - field.storage.paragraph.field_fondo_modal
     - paragraphs.paragraphs_type.productos_servicios_home
   module:
-    - disable_field
     - filefield_paths
     - image
 third_party_settings:
@@ -27,9 +26,6 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-  disable_field:
-    add_disable: none
-    edit_disable: none
 id: paragraph.productos_servicios_home.field_fondo_modal
 field_name: field_fondo_modal
 entity_type: paragraph

@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_pqrsd_archivo
     - node.type.pqrsd
   module:
-    - disable_field
     - file
     - filefield_paths
 third_party_settings:
@@ -27,9 +26,6 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-  disable_field:
-    add_disable: none
-    edit_disable: none
 _core:
   default_config_hash: bfCOBtSXop9QJd-iKvslsFAoSsgRZ7nvwS-JwXd6VGQ
 id: node.pqrsd.field_pqrsd_archivo
