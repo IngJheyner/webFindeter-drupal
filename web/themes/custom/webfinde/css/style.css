@@ -190,6 +190,10 @@ COLORES
     background-image: url('../images/dropdown-arrows.png');
   }*/
 }
+#block-menu-principal ul.sf-style-none li.sf-depth-1 > span {
+  max-width: 215px;
+  text-align: center;
+}
 #block-menu-principal ul.sf-style-none li.sf-depth-1 > span,
 #block-menu-principal ul.sf-style-none li.sf-depth-1 a {
   color: white;
@@ -239,7 +243,7 @@ COLORES
   outline: 0;
 }
 #block-menu-principal ul.sf-style-none li.sfHover > ul {
-  top: 45px;
+  top: 55px;
 }
 #block-menu-principal div.sf-accordion-toggle.sf-style-none a {
   background: #f0f0f0;
@@ -430,62 +434,66 @@ section.menuPrincipal {
   /* ==============================
   MENU ESCRITORIO
   ============================== */
+  /*nav {
+      margin: 40px auto;
+      >ul {
+          width: 100%;
+      }
+      ul {
+          position: relative;
+          margin: 0;
+          padding: 0;
+          li {
+              list-style: none;
+              >a,
+              span {
+                  text-shadow: 1px 1px 2px black;
+                  display: block;
+                  cursor: pointer;
+
+              }
+              >svg {
+                  position: absolute;
+                  bottom: -10px;
+                  display: none;
+                  margin-left: 2rem;
+                  font-size: 30px;
+              }
+              &:hover svg {
+                  display: block;
+              }
+              ul.submenu {
+                  background-color: white;
+                  padding: 20px;
+                  position: absolute;
+                  z-index: 1000;
+                  display: none;
+                  border-bottom: 3px solid var.$color-cuaternario;
+                  >li.submenuItems {
+                      margin: 0 20px;
+                      >span {
+                          display: none;
+                      }
+                      ul>li>a,
+                      span {
+                          color: black !important;
+                          text-shadow: none;
+                          &:hover {
+                              text-decoration: underline;
+                          }
+                      }
+                  }
+              }
+              &:hover ul.submenu {
+                  display: flex;
+              }
+          }
+      }
+  }*/
 }
-section.menuPrincipal nav {
-  margin: 40px auto;
-}
-section.menuPrincipal nav > ul {
-  width: 100%;
-}
-section.menuPrincipal nav ul {
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
-section.menuPrincipal nav ul li {
-  list-style: none;
-}
-section.menuPrincipal nav ul li > a,
-section.menuPrincipal nav ul li span {
-  text-shadow: 1px 1px 2px black;
-  display: block;
-  cursor: pointer;
-}
-section.menuPrincipal nav ul li > svg {
-  position: absolute;
-  bottom: -10px;
-  display: none;
-  margin-left: 2rem;
-  font-size: 30px;
-}
-section.menuPrincipal nav ul li:hover svg {
-  display: block;
-}
-section.menuPrincipal nav ul li ul.submenu {
-  background-color: white;
-  padding: 20px;
-  position: absolute;
-  z-index: 1000;
-  display: none;
-  border-bottom: 3px solid #00993e;
-}
-section.menuPrincipal nav ul li ul.submenu > li.submenuItems {
-  margin: 0 20px;
-}
-section.menuPrincipal nav ul li ul.submenu > li.submenuItems > span {
-  display: none;
-}
-section.menuPrincipal nav ul li ul.submenu > li.submenuItems ul > li > a,
-section.menuPrincipal nav ul li ul.submenu > li.submenuItems span {
-  color: black !important;
-  text-shadow: none;
-}
-section.menuPrincipal nav ul li ul.submenu > li.submenuItems ul > li > a:hover,
-section.menuPrincipal nav ul li ul.submenu > li.submenuItems span:hover {
-  text-decoration: underline;
-}
-section.menuPrincipal nav ul li:hover ul.submenu {
-  display: flex;
+section.menuPrincipal div.menuPrincipal__logo img {
+  width: 300px;
+  height: auto;
 }
 
 /* ==============================
@@ -661,58 +669,58 @@ div.controlVideoHome {
 /* ==============================
 FORMULARIO DEL BUSCADOR
 ============================== */
-form#search-block-form {
+div.block-search form#search-block-form {
   position: relative;
   margin: 36.5rem 2rem 0 2rem;
   /*div.container-inline,div{
       display: grid;
   }*/
 }
-form#search-block-form div.form-item {
+div.block-search form#search-block-form div.form-item {
   margin: 0;
 }
-form#search-block-form div.buscadorAcceso input[type=search] {
+div.block-search form#search-block-form div.buscadorAcceso input[type=search] {
   width: 100%;
   border: none !important;
 }
-form#search-block-form div.buscadorAcceso .menuAccesoRapido {
+div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido {
   background: #e5e5e5;
   padding: 2rem;
   border-radius: 0 0 0.8rem 0.8rem;
 }
-form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li {
+div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li {
   margin: 0 1rem 0 1rem;
   text-align: center;
 }
-form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li a,
-form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li span {
+div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li a,
+div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li span {
   color: black;
   display: block;
   font-size: 1rem;
 }
-form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li a:visited,
-form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li span:visited {
+div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li a:visited,
+div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li span:visited {
   color: #00993e;
 }
-form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(1) span.icon::before {
+div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(1) span.icon::before {
   content: url("/themes/custom/webfinde/images/iconos/Acceso-Directo/ER_convocatorias.png");
 }
-form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(2) span.icon::before {
+div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(2) span.icon::before {
   content: url("/themes/custom/webfinde/images/iconos/Acceso-Directo/ER_leytransparencia.png");
 }
-form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(3) span.icon::before {
+div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(3) span.icon::before {
   content: url("/themes/custom/webfinde/images/iconos/Acceso-Directo/ER_contratacion.png");
 }
-form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(4) span.icon::before {
+div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(4) span.icon::before {
   content: url("/themes/custom/webfinde/images/iconos/Acceso-Directo/ER_inversionistas.png");
 }
-form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(5) span.icon::before {
+div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(5) span.icon::before {
   content: url("/themes/custom/webfinde/images/iconos/Acceso-Directo/ER_properity.png");
 }
-form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(6) span.icon::before {
+div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li:nth-child(6) span.icon::before {
   content: url("/themes/custom/webfinde/images/iconos/Acceso-Directo/virtual.png");
 }
-form#search-block-form input[type=submit] {
+div.block-search form#search-block-form input[type=submit] {
   position: absolute;
   top: 0;
   right: 0;

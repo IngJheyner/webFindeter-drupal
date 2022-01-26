@@ -431,6 +431,27 @@
 
                 formBusquedaAvanzada();
 
+                /* ===== ===== FUNCION ORDENAR POR FECHA PROSPERITY FUND ===== ===== */
+                //PLUGINS MOMENTS.JS
+                $.fn.dataTable.render.moment = function ( from, to, locale ) {
+                    // Argument shifting
+                    if ( arguments.length === 1 ) {
+                        locale = 'en';
+                        to = from;
+                        from = 'YYYY-MM-DD';
+                    }
+                    else if ( arguments.length === 2 ) {
+                        locale = 'en';
+                    }                 
+                    return function ( d, type, row ) {
+                        var m = window.moment( d, from, locale, true );
+                 
+                        // Order and type get a number value from Moment, everything else
+                        // sees the rendered value
+                        return m.format( type === 'sort' || type === 'type' ? 'x' : to );
+                    };
+                };
+
                 /* ===== ===== INTERNAS DETALLE DE PROCESO y prosperity fund ===== ===== */
                 $('#tableDetalleConvocatorias').DataTable({
 
@@ -446,11 +467,15 @@
                             "next": "Siguiente"
                         }
                     },
-                    /*order: [
-                        [2, 'asc'],
+                    order: [
+                        [2, 'desc'],
                         //[0, 'asc']
-                    ],*/
-                    "ordering" : false
+                    ],
+                    columnDefs: [ {
+                        targets: 2,
+                        render: $.fn.dataTable.render.moment('DD/MM/YYYY', 'DD/MM/YYYY')
+                    } ]
+                    //"ordering" : false
                 });
 
 

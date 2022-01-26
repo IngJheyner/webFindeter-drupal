@@ -91,7 +91,8 @@ class AdminModule extends ConfigFormBase {
       '#collapsed'   => FALSE,
     );
 
-    $viewModes = \Drupal::entityManager()->getViewModes('node');
+    //$viewModes = \Drupal::entityManager()->getViewModes('node');
+    $viewModes = \Drupal::service('entity_display.repository')->getViewModes('node');
     $viewModesAsOption = [];
     foreach($viewModes as $idMode=>$viewMode){
       $viewModesAsOption[$idMode] = $viewMode['label'];

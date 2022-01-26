@@ -35,10 +35,17 @@ section.menuPrincipal {
     position: relative;
     z-index: 5;
     background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.4) 25%);
+    
+    div.menuPrincipal__logo{
+        img{
+            width: 300px;
+            height: auto;
+        }
+    }
     /* ==============================
     MENU ESCRITORIO
     ============================== */
-    nav {
+    /*nav {
         margin: 40px auto;
         >ul {
             width: 100%;
@@ -54,6 +61,7 @@ section.menuPrincipal {
                     text-shadow: 1px 1px 2px black;
                     display: block;
                     cursor: pointer;
+
                 }
                 >svg {
                     position: absolute;
@@ -92,7 +100,7 @@ section.menuPrincipal {
                 }
             }
         }
-    }
+    }*/
 }
 
 

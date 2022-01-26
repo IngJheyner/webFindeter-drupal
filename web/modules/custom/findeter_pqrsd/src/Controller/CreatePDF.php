@@ -51,7 +51,9 @@ class CreatePDF extends ControllerBase {
 
     // On some systems you may have to set the path to the wkhtmltopdf executable
     // $pdf->binary = 'C:\...';
-    $my_path = \Drupal::service('file_system')->realpath(file_default_scheme() . "://");
+    $default_schema = \Drupal::config('system.file')->get('default_scheme');
+    $my_path = \Drupal::service('file_system')->realpath($default_schema . "://");
+    //$my_path = \Drupal::service('file_system')->realpath(file_default_scheme() . "://");
 
     if (!$pdf->saveAs($my_path.'/request_'.$nid.'.pdf')) {
         $error = $pdf->getError();
@@ -92,7 +94,8 @@ class CreatePDF extends ControllerBase {
 
     $title = $view->getTitle();
     $render = $view->render();
-    $output = drupal_render($render);
+    //$output = drupal_render($render);
+    $output = \Drupal::service('renderer')->render($render);
 
     $config = $this->config('findeter_pqrsd.admin');
 
@@ -123,7 +126,9 @@ class CreatePDF extends ControllerBase {
 
     // On some systems you may have to set the path to the wkhtmltopdf executable
     // $pdf->binary = 'C:\...';
-    $my_path = \Drupal::service('file_system')->realpath(file_default_scheme() . "://");
+    $default_schema = \Drupal::config('system.file')->get('default_scheme');
+    $my_path = \Drupal::service('file_system')->realpath($default_schema . "://");
+    //$my_path = \Drupal::service('file_system')->realpath(file_default_scheme() . "://");
 
     if (!$pdf->saveAs($my_path.'/report-'.date('d/m/Y-H:i:s').'.pdf')) {
         $error = $pdf->getError();

@@ -27,7 +27,7 @@
                 $('#edit-created-min').before('<input id="datepicker-min" type="text" placeholder="F. Inicio" class="form-element"/>');
                 $('#edit-created-max').before('<input id="datepicker-max" type="text" placeholder="F. Fin" class="form-element"/>');
 
-                $("#datepicker-min").datepicker({
+                /*$("#datepicker-min").datepicker({
                     dateFormat: "dd-mm-yy",
                     altField: "input[data-drupal-selector=edit-created-min]",
                     altFormat: "dd-mm-yy"
@@ -41,7 +41,7 @@
                     altFormat: "dd-mm-yy"
                 });
 
-                $('#datepicker-max').val($('#edit-created-max').val());
+                $('#datepicker-max').val($('#edit-created-max').val());*/
 
                 /*===========================================
                 REPORTES
@@ -50,7 +50,7 @@
                 $('#edit-trimestre-inicio').before('<label class="custom-label">Del:</label>');
                 $('#edit-trimestre-fin').before('<label class="custom-label">Al:</label>');
 
-                $("#edit-trimestre-inicio").datepicker({
+                /*$("#edit-trimestre-inicio").datepicker({
                     dateFormat: "dd-mm-yy",
                     altField: "input[data-drupal-selector=edit-trimestre-inicio]",
                     altFormat: "dd-mm-yy"
@@ -59,8 +59,7 @@
                     dateFormat: "dd-mm-yy",
                     altField: "input[data-drupal-selector=edit-trimestre-fin]",
                     altFormat: "dd-mm-yy"
-                });
-
+                });*/
 
                 //replace url params to generate pdf file
                 if ($('.export-link').length) {
