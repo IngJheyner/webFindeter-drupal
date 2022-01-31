@@ -6,12 +6,13 @@ dependencies:
     - page_manager.page.page_convocatorias_prosperity_fund
 id: page_convocatorias_prosperity_fund-layout_builder-0
 label: 'Prosperity Fund'
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: 4678f453-b7d5-4fa5-a52b-1ed2702ce6a9
   label: null
   weight: 0
+  uuid: 4678f453-b7d5-4fa5-a52b-1ed2702ce6a9
   sections:
     -
       layout_id: bs_1col_stacked
@@ -49,30 +50,29 @@ variant_settings:
           configuration:
             id: 'block_content:992ef26e-7538-4427-bf44-b6ad1415ca6e'
             label: 'Prosperity Fund [ Encabezado ]'
-            provider: block_content
             label_display: '0'
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 1
+          additional: {  }
         5002ed5d-28cf-47da-881d-d4c0f8211dba:
           uuid: 5002ed5d-28cf-47da-881d-d4c0f8211dba
           region: main
           configuration:
             id: 'views_block:prosperity_fund-page_prosperity_fund'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: none
-            context_mapping: {  }
-          additional: {  }
           weight: 1
+          additional: {  }
       third_party_settings: {  }
 page: page_convocatorias_prosperity_fund
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

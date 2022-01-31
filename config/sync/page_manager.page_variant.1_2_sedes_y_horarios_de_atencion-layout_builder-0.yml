@@ -6,12 +6,13 @@ dependencies:
     - page_manager.page.1_2_sedes_y_horarios_de_atencion
 id: 1_2_sedes_y_horarios_de_atencion-layout_builder-0
 label: '1.2 Sedes y horarios de atención'
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: 5aaec9cb-e9ac-4544-b15e-d45a157d959e
   label: null
   weight: 0
+  uuid: 5aaec9cb-e9ac-4544-b15e-d45a157d959e
   sections:
     -
       layout_id: bs_2col_stacked
@@ -55,48 +56,47 @@ variant_settings:
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
             label: 'Transparencia y acceso a la información pública'
-            provider: block_content
             label_display: visible
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 2
+          additional: {  }
         b3cdb50d-0359-4678-8b54-b4fb0de85588:
           uuid: b3cdb50d-0359-4678-8b54-b4fb0de85588
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
             label: 'Transparencia y Acceso a la información Pública'
-            provider: menu_block
             label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
             follow: false
             follow_parent: child
             level: 1
             depth: 1
-            expand: false
             parent: 'transparencia-acceso-informacion:menu_link_content:9d663ce0-7090-4f10-9bc9-f402051bee86'
             suggestion: transparencia_acceso_informacion_sidebar
-            context_mapping: {  }
-          additional: {  }
+            expand: false
           weight: 2
+          additional: {  }
         20f3fd62-4d5e-497c-bd61-be489c188bab:
           uuid: 20f3fd62-4d5e-497c-bd61-be489c188bab
           region: left
           configuration:
             id: 'views_block:transparencia_acceso_informacion_publica-1_2_sedes_y_horario_de_atencion'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: none
-            context_mapping: {  }
-          additional: {  }
           weight: 2
+          additional: {  }
       third_party_settings: {  }
 page: 1_2_sedes_y_horarios_de_atencion
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

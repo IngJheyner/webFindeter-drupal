@@ -11,12 +11,12 @@ pattern: '/convocatorias-prosperity-fund/[node:title]'
 selection_criteria:
   a4b01601-f41e-44da-95a3-a015eebfc7ac:
     id: node_type
-    bundles:
-      prosperity_fund: prosperity_fund
     negate: false
+    uuid: a4b01601-f41e-44da-95a3-a015eebfc7ac
     context_mapping:
       node: node
-    uuid: a4b01601-f41e-44da-95a3-a015eebfc7ac
+    bundles:
+      prosperity_fund: prosperity_fund
 selection_logic: and
 weight: -5
 relationships: {  }

@@ -16,8 +16,6 @@ mode: media_library
 content:
   created:
     type: timestamp
-    weight: 1
-    region: content
     label: above
     settings:
       date_format: html_date
@@ -26,22 +24,24 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
+    weight: 1
+    region: content
   field_media_document:
     type: file_table
-    weight: 2
-    region: content
     label: above
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
+    weight: 2
+    region: content
   name:
     type: string
-    weight: 0
-    region: content
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   addtoany: true
   langcode: true

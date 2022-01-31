@@ -16,15 +16,15 @@ third_party_settings:
     group_grupo_tabs:
       children:
         - group_cifra
+      label: 'Grupo Tabs'
+      region: content
       parent_name: ''
       weight: 0
       format_type: accordion
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         effect: none
-      label: 'Grupo Tabs'
     group_cifra:
       children:
         - field_titulo_cifra_pot
@@ -32,62 +32,62 @@ third_party_settings:
         - field_cifra_pot
         - field_prefijo_cifra_pot
         - field_otros_conceptos_pot
+      label: Cifra
+      region: content
       parent_name: group_grupo_tabs
       weight: 4
       format_type: accordion_item
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         formatter: closed
-        required_fields: true
         description: ''
-      label: Cifra
+        required_fields: true
 id: paragraph.cifras_porque_findeter_pot.default
 targetEntityType: paragraph
 bundle: cifras_porque_findeter_pot
 mode: default
 content:
   field_cifra_pot:
+    type: string_textfield
     weight: 7
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_otros_conceptos_pot:
+    type: string_textfield
     weight: 9
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_prefijo_cifra_pot:
+    type: string_textfield
     weight: 8
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_sufijo_cifra_pot:
+    type: string_textfield
     weight: 6
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_titulo_cifra_pot:
+    type: string_textfield
     weight: 5
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
 hidden:
   created: true
   status: true

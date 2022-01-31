@@ -2,9 +2,9 @@ uuid: 98e3bf1a-abcd-4c6e-9de9-c62c9f58b440
 langcode: es
 status: open
 dependencies: {  }
+weight: 0
 open: null
 close: null
-weight: 0
 uid: 38
 template: false
 archive: false
@@ -12,7 +12,77 @@ id: encuesta_de_satisfaccion_pqrsd
 title: 'Encuesta de Satisfacción PQRSD'
 description: 'Encuesta de Satisfacci&oacute;n Atenci&oacute;n de Peticiones, Quejas, Reclamos y/o Denuncias (PQRSD)&nbsp;y Calidad en el Servicio'
 category: ''
-elements: "titulo:\n  '#type': processed_text\n  '#text': |\n    <h2 align=\"center\" style=\"text-align: center; margin-bottom: 11px;\">Encuesta de Satisfacción Atención de Peticiones, Quejas, Reclamos y/o Denuncias (PQRSD)&nbsp;y Calidad en el Servicio</h2>\n    \n  '#format': html_editor\nresumen:\n  '#type': processed_text\n  '#text': |\n    <p>Su opinión es muy importante para nosotros. Lo(a) invitamos a diligenciar la siguiente encuesta, con el fin de conocer su nivel de satisfacción frente a la atención que le hemos brindado en la respuesta de Peticiones, Quejas, Reclamos y/o Denuncias (PQRSD); así como en la prestación de nuestros servicios:</p>\n    \n  '#format': html_editor\nhorizontal_rule:\n  '#type': webform_horizontal_rule\n1_seleccione_el_canal_por_medio_del_cual_ha_sido_atendido_a_:\n  '#type': select\n  '#title': '1. Seleccione el canal por medio del cual formuló su solicitud de información'\n  '#options':\n    Presencial: Presencial\n    Telefónico: Telefónico\n    Correspondencia: Correspondencia\n    'Correo electrónico': 'Correo electrónico'\n    Chat: Chat\n    'Redes sociales': 'Redes sociales'\n  '#empty_option': 'Selecciona el canal'\n  '#required': true\n  '#required_error': 'Todas las preguntas son obligatorias'\n2_la_claridad_de_la_informacion_suministrada_por_la_entidad_en_r:\n  '#type': select\n  '#title': '2. La claridad de la información suministrada por la entidad en respuesta a su Petición, Queja, Reclamo, Sugerencia y/o Denuncia (PQRSD) fue:'\n  '#options': calificacion_de_4_opciones_\n  '#empty_option': 'Seleccione una opción'\n  '#required': true\n  '#required_error': 'Todas las preguntas son obligatorias'\n3_el_nivel_de_amabilidad_respeto_y_cortesia_del_a_funcionario_a_:\n  '#type': select\n  '#title': '3. El nivel de amabilidad y respeto con que fue atendida su Petición, Queja, Reclamo, Sugerencia y/o Denuncia (PQRSD)'\n  '#options': calificacion_de_4_opciones_\n  '#empty_option': 'Seleccione una opción'\n  '#required': true\n4_el_acceso_para_formular_sus_peticiones_quejas_reclamos_y_o_den:\n  '#type': select\n  '#title': '4. El acceso para formular sus Peticiones, Quejas, Reclamos y/o Denuncias (PQRSD), fue:'\n  '#options': calificacion_de_4_opciones_\n  '#empty_option': 'Seleccione una opción'\n  '#required': true\n  '#required_error': 'Todas las preguntas son obligatorias'\n5_en_general_que_tan_satisfecho_a_se_encuentra_con_los_servicios:\n  '#type': select\n  '#title': '5. En general, ¿Qué tan satisfecho(a) se encuentra con los servicios que le ofrece Findeter?'\n  '#options': satisfecho_de_5_opciones_\n  '#empty_option': 'Seleccione su nivel de satisfacción'\n  '#required': true\n  '#required_error': 'Todas las preguntas son obligatorias'\n6_que_aspecto_o_cuales_aspectos_mejoraria_de_su_experiencia_con_:\n  '#type': textarea\n  '#title': '6. ¿Qué o cuáles aspectos mejoraría de su experiencia con Findeter?'\n  '#description': 'Puede ingresar hasta un m&aacute;ximo de 1000 caracteres.'\n  '#maxlength': 1000\n  '#rows': 4\n  '#placeholder': 'Describa los aspectos que mejoraría de su experiencia'\n  '#required': true\n  '#required_error': 'Todas las preguntas son obligatorias'\n  '#counter_type': character\n  '#counter_maximum': 1000\n  '#counter_maximum_message': '%d caracteres restantes'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': Enviar"
+elements: |-
+  titulo:
+    '#type': processed_text
+    '#text': |
+      <h2 align="center" style="text-align: center; margin-bottom: 11px;">Encuesta de Satisfacción Atención de Peticiones, Quejas, Reclamos y/o Denuncias (PQRSD)&nbsp;y Calidad en el Servicio</h2>
+      
+    '#format': html_editor
+  resumen:
+    '#type': processed_text
+    '#text': |
+      <p>Su opinión es muy importante para nosotros. Lo(a) invitamos a diligenciar la siguiente encuesta, con el fin de conocer su nivel de satisfacción frente a la atención que le hemos brindado en la respuesta de Peticiones, Quejas, Reclamos y/o Denuncias (PQRSD); así como en la prestación de nuestros servicios:</p>
+      
+    '#format': html_editor
+  horizontal_rule:
+    '#type': webform_horizontal_rule
+  1_seleccione_el_canal_por_medio_del_cual_ha_sido_atendido_a_:
+    '#type': select
+    '#title': '1. Seleccione el canal por medio del cual formuló su solicitud de información'
+    '#options':
+      Presencial: Presencial
+      Telefónico: Telefónico
+      Correspondencia: Correspondencia
+      'Correo electrónico': 'Correo electrónico'
+      Chat: Chat
+      'Redes sociales': 'Redes sociales'
+    '#empty_option': 'Selecciona el canal'
+    '#required': true
+    '#required_error': 'Todas las preguntas son obligatorias'
+  2_la_claridad_de_la_informacion_suministrada_por_la_entidad_en_r:
+    '#type': select
+    '#title': '2. La claridad de la información suministrada por la entidad en respuesta a su Petición, Queja, Reclamo, Sugerencia y/o Denuncia (PQRSD) fue:'
+    '#options': calificacion_de_4_opciones_
+    '#empty_option': 'Seleccione una opción'
+    '#required': true
+    '#required_error': 'Todas las preguntas son obligatorias'
+  3_el_nivel_de_amabilidad_respeto_y_cortesia_del_a_funcionario_a_:
+    '#type': select
+    '#title': '3. El nivel de amabilidad y respeto con que fue atendida su Petición, Queja, Reclamo, Sugerencia y/o Denuncia (PQRSD)'
+    '#options': calificacion_de_4_opciones_
+    '#empty_option': 'Seleccione una opción'
+    '#required': true
+  4_el_acceso_para_formular_sus_peticiones_quejas_reclamos_y_o_den:
+    '#type': select
+    '#title': '4. El acceso para formular sus Peticiones, Quejas, Reclamos y/o Denuncias (PQRSD), fue:'
+    '#options': calificacion_de_4_opciones_
+    '#empty_option': 'Seleccione una opción'
+    '#required': true
+    '#required_error': 'Todas las preguntas son obligatorias'
+  5_en_general_que_tan_satisfecho_a_se_encuentra_con_los_servicios:
+    '#type': select
+    '#title': '5. En general, ¿Qué tan satisfecho(a) se encuentra con los servicios que le ofrece Findeter?'
+    '#options': satisfecho_de_5_opciones_
+    '#empty_option': 'Seleccione su nivel de satisfacción'
+    '#required': true
+    '#required_error': 'Todas las preguntas son obligatorias'
+  6_que_aspecto_o_cuales_aspectos_mejoraria_de_su_experiencia_con_:
+    '#type': textarea
+    '#title': '6. ¿Qué o cuáles aspectos mejoraría de su experiencia con Findeter?'
+    '#description': 'Puede ingresar hasta un m&aacute;ximo de 1000 caracteres.'
+    '#maxlength': 1000
+    '#rows': 4
+    '#placeholder': 'Describa los aspectos que mejoraría de su experiencia'
+    '#required': true
+    '#required_error': 'Todas las preguntas son obligatorias'
+    '#counter_type': character
+    '#counter_maximum': 1000
+    '#counter_maximum_message': '%d caracteres restantes'
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#submit__label': Enviar
 css: ''
 javascript: ''
 settings:
@@ -27,9 +97,9 @@ settings:
   page_theme_name: ''
   form_title: both
   form_submit_once: false
-  form_exception_message: ''
   form_open_message: ''
   form_close_message: ''
+  form_exception_message: ''
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
@@ -39,31 +109,36 @@ settings:
   form_prepopulate_source_entity: false
   form_prepopulate_source_entity_required: false
   form_prepopulate_source_entity_type: ''
-  form_reset: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
   form_disable_autocomplete: false
   form_novalidate: false
   form_disable_inline_errors: false
   form_required: false
-  form_unsaved: false
-  form_disable_back: false
-  form_submit_back: false
   form_autofocus: false
   form_details_toggle: false
+  form_reset: false
   form_access_denied: default
   form_access_denied_title: ''
   form_access_denied_message: ''
   form_access_denied_attributes: {  }
   form_file_limit: ''
+  form_attributes: {  }
   form_method: ''
   form_action: ''
-  form_attributes: {  }
   share: false
   share_node: false
   share_theme_name: ''
   share_title: true
   share_page_body_attributes: {  }
   submission_label: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
   submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
   submission_views: {  }
   submission_views_replace: {  }
   submission_user_columns: {  }
@@ -72,11 +147,6 @@ settings:
   submission_access_denied_title: ''
   submission_access_denied_message: ''
   submission_access_denied_attributes: {  }
-  submission_exception_message: ''
-  submission_locked_message: ''
-  submission_excluded_elements: {  }
-  submission_exclude_empty: false
-  submission_exclude_empty_checkbox: false
   previous_submission_message: ''
   previous_submissions_message: ''
   autofill: false
@@ -87,13 +157,13 @@ settings:
   wizard_progress_percentage: false
   wizard_progress_link: false
   wizard_progress_states: false
-  wizard_auto_forward: true
-  wizard_auto_forward_hide_next_button: false
-  wizard_keyboard: true
   wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
   wizard_confirmation_label: ''
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
   wizard_track: ''
   wizard_prev_button_label: ''
   wizard_next_button_label: ''
@@ -116,9 +186,9 @@ settings:
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
   confirmation_type: inline
+  confirmation_url: ''
   confirmation_title: Gracias
   confirmation_message: "<h2>Encuesta de Satisfacci&oacute;n Atenci&oacute;n de Peticiones, Quejas, Reclamos y/o Denuncias (PQRSD)&nbsp;y Calidad en el Servicio</h2>\r\n<br />\r\nGracias por compartir su opini&oacute;n con nosotros.&nbsp;Nos ayuda a continuar mejorando nuestros servicios.&nbsp;"
-  confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: false
   confirmation_back_label: 'Diligenciar otra encuesta'

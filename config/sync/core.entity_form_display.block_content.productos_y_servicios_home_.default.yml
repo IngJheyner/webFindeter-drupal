@@ -14,50 +14,51 @@ third_party_settings:
     group_ejecucion:
       children:
         - field_seccion_bloque
+      label: Contenido
+      region: content
       parent_name: ''
       weight: 3
       format_type: details_sidebar
-      region: content
       format_settings:
-        description: ''
-        open: true
-        weight: 0
-        required_fields: true
-        id: ''
         classes: ''
-      label: Contenido
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
+        weight: 0
     group_informacion:
       children:
         - field_nombre_de_la_seccion
         - info
+      label: Información
+      region: content
       parent_name: ''
       weight: 0
       format_type: details_sidebar
-      region: content
       format_settings:
-        description: ''
-        weight: 0
-        required_fields: true
-        id: ''
         classes: ''
+        id: ''
         open: false
-      label: Información
+        description: ''
+        required_fields: true
+        weight: 0
 id: block_content.productos_y_servicios_home_.default
 targetEntityType: block_content
 bundle: productos_y_servicios_home_
 mode: default
 content:
   field_nombre_de_la_seccion:
+    type: string_textfield
     weight: 1
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_seccion_bloque:
     type: entity_reference_paragraphs
     weight: 26
+    region: content
     settings:
       title: Párrafo
       title_plural: Parráfos
@@ -66,7 +67,6 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
-    region: content
   info:
     type: string_textfield
     weight: 2

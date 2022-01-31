@@ -19,39 +19,39 @@ third_party_settings:
         - field_prosperity_titulo_defecto
         - field_prosperity_img_fondo
         - langcode
+      label: Información
+      region: content
       parent_name: ''
       weight: 0
       format_type: details_sidebar
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         open: false
+        description: ''
         required_fields: true
         weight: 0
-      label: Información
 id: block_content.prosperity_fund_encabezado.default
 targetEntityType: block_content
 bundle: prosperity_fund_encabezado
 mode: default
 content:
   field_prosperity_img_fondo:
+    type: image_image
     weight: 3
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_prosperity_titulo_defecto:
+    type: string_textfield
     weight: 2
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   info:
     type: string_textfield
     weight: 1

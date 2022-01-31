@@ -6,12 +6,13 @@ dependencies:
     - page_manager.page.2_1_datos_abiertos
 id: 2_1_datos_abiertos-layout_builder-0
 label: 'Datos Abiertos'
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: bf172efb-540c-489a-87b5-f51956d1b733
   label: null
   weight: 0
+  uuid: bf172efb-540c-489a-87b5-f51956d1b733
   sections:
     -
       layout_id: bs_2col_stacked
@@ -55,48 +56,47 @@ variant_settings:
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
             label: 'Transparencia y acceso a la información pública'
-            provider: block_content
             label_display: visible
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 2
+          additional: {  }
         f72d79cf-20ad-43e2-80d4-0974825d4a7f:
           uuid: f72d79cf-20ad-43e2-80d4-0974825d4a7f
           region: left
           configuration:
             id: 'views_block:transparencia_acceso_informacion_publica-page_datos_abiertos'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: '1'
-            context_mapping: {  }
-          additional: {  }
           weight: 1
+          additional: {  }
         0c79b659-8bee-4299-a383-f9e242c0b74e:
           uuid: 0c79b659-8bee-4299-a383-f9e242c0b74e
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
             label: 'Transparencia y Acceso a la información Pública'
-            provider: menu_block
             label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
             follow: false
             follow_parent: child
             level: 1
             depth: 1
-            expand: false
             parent: 'transparencia-acceso-informacion:menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
             suggestion: transparencia_acceso_informacion_sidebar
-            context_mapping: {  }
-          additional: {  }
+            expand: false
           weight: 2
+          additional: {  }
       third_party_settings: {  }
 page: 2_1_datos_abiertos
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

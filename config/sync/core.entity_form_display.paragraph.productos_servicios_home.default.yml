@@ -24,113 +24,113 @@ third_party_settings:
         - field_descripcion
         - group_imagenes
         - group_botonera
+      label: '--------------------- Columna ---------------------------'
+      region: content
       parent_name: group_grupo
       weight: 1
       format_type: accordion_item
-      region: content
       format_settings:
+        classes: 'btn btn-success'
+        id: ''
         formatter: closed
         required_fields: true
-        id: ''
-        classes: 'btn btn-success'
-      label: '--------------------- Columna ---------------------------'
     group_grupo:
       children:
         - group_bloque
+      label: grupo
+      region: content
       parent_name: ''
       weight: 0
       format_type: accordion
-      region: content
       format_settings:
-        effect: bounceslide
-        id: ''
         classes: ''
-      label: grupo
+        id: ''
+        effect: bounceslide
     group_botonera:
       children:
         - field_ampliar_informacion
         - field_enlace_url
+      label: Botonera
+      region: content
       parent_name: group_bloque
       weight: 6
       format_type: details
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
+        open: false
         description: ''
         required_fields: true
-        open: false
-      label: Botonera
     group_imagenes:
       children:
         - field_fondo
         - field_fondo_modal
+      label: Imagenes
+      region: content
       parent_name: group_bloque
       weight: 4
       format_type: details
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         open: false
+        description: ''
         required_fields: true
-      label: Imagenes
 id: paragraph.productos_servicios_home.default
 targetEntityType: paragraph
 bundle: productos_servicios_home
 mode: default
 content:
   field_ampliar_informacion:
+    type: string_textfield
     weight: 4
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_descripcion:
+    type: text_textarea_with_summary
     weight: 2
+    region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-    type: text_textarea_with_summary
-    region: content
   field_enlace_url:
+    type: link_default
     weight: 5
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_fondo:
+    type: image_image
     weight: 3
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_fondo_modal:
+    type: image_image
     weight: 4
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_titulo:
+    type: string_textfield
     weight: 1
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
 hidden:
   created: true
   status: true

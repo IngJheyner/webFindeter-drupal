@@ -16,33 +16,33 @@ third_party_settings:
         - info
         - field_titulo_cifras
         - langcode
+      label: Información
+      region: content
       parent_name: ''
       weight: 0
       format_type: details_sidebar
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         open: false
+        description: ''
         required_fields: true
         weight: 0
-      label: Información
     group_contenido:
       children:
         - field_seccion_bloque_cifras
+      label: Contenido
+      region: content
       parent_name: ''
       weight: 1
       format_type: details_sidebar
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         open: false
+        description: ''
         required_fields: true
         weight: 0
-      label: Contenido
 id: block_content.findeter_en_cifras_home.default
 targetEntityType: block_content
 bundle: findeter_en_cifras_home
@@ -51,6 +51,7 @@ content:
   field_seccion_bloque_cifras:
     type: entity_reference_paragraphs
     weight: 2
+    region: content
     settings:
       title: Párrafo
       title_plural: Parráfos
@@ -59,15 +60,14 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
-    region: content
   field_titulo_cifras:
+    type: string_textfield
     weight: 2
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   info:
     type: string_textfield
     weight: 1

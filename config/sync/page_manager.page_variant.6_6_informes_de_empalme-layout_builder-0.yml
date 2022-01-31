@@ -6,12 +6,13 @@ dependencies:
     - page_manager.page.6_6_informes_de_empalme
 id: 6_6_informes_de_empalme-layout_builder-0
 label: 'Informes de empalme'
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: 12d728f0-1ad8-4d73-a11e-eda2796a340d
   label: null
   weight: 0
+  uuid: 12d728f0-1ad8-4d73-a11e-eda2796a340d
   sections:
     -
       layout_id: bs_2col_stacked
@@ -55,48 +56,47 @@ variant_settings:
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
             label: 'Transparencia y acceso a la información pública'
-            provider: block_content
             label_display: visible
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 2
+          additional: {  }
         93d61a20-8c76-4d7e-818a-8a1a737aa1b1:
           uuid: 93d61a20-8c76-4d7e-818a-8a1a737aa1b1
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
             label: 'Transparencia y Acceso a la información Pública'
-            provider: menu_block
             label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
             follow: false
             follow_parent: child
             level: 1
             depth: 1
-            expand: false
             parent: 'transparencia-acceso-informacion:menu_link_content:2bcec003-9329-4286-9ed5-3140842114ed'
             suggestion: transparencia_acceso_informacion_sidebar
-            context_mapping: {  }
-          additional: {  }
+            expand: false
           weight: 2
+          additional: {  }
         8e9454e3-f354-4624-92d5-ccf40a1d7ff6:
           uuid: 8e9454e3-f354-4624-92d5-ccf40a1d7ff6
           region: left
           configuration:
             id: 'views_block:transparencia_acceso_informacion_publica-6_6_informes_de_empalme'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: '1'
-            context_mapping: {  }
-          additional: {  }
           weight: 2
+          additional: {  }
       third_party_settings: {  }
 page: 6_6_informes_de_empalme
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

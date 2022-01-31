@@ -16,8 +16,8 @@ dependencies:
     - video_embed_field
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: node.slider_home.full
 targetEntityType: node
 bundle: slider_home
@@ -25,8 +25,6 @@ mode: full
 content:
   field_slider_video_html:
     type: video_embed_field_video
-    weight: 1
-    region: content
     label: hidden
     settings:
       autoplay: true
@@ -36,11 +34,13 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
-  links:
-    weight: 0
+    weight: 1
     region: content
+  links:
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   addtoany: true
   body: true

@@ -6,12 +6,13 @@ dependencies:
     - page_manager.page.page_convcatorias_ultimas_actualizaciones
 id: page_convcatorias_ultimas_actualizaciones-layout_builder-0
 label: 'Ultimas actualizaciones'
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: 63ffb14e-b512-449e-bdd4-8dfb818e3827
   label: null
   weight: 0
+  uuid: 63ffb14e-b512-449e-bdd4-8dfb818e3827
   sections:
     -
       layout_id: bs_1col_stacked
@@ -49,30 +50,29 @@ variant_settings:
           configuration:
             id: 'block_content:6699f94b-8e4f-4c82-b46b-49c63d21f502'
             label: 'Convocatorias [ Encabezado ]'
-            provider: block_content
             label_display: '0'
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 1
+          additional: {  }
         3d905b6b-c300-4aa9-a59f-5fa71d3a4185:
           uuid: 3d905b6b-c300-4aa9-a59f-5fa71d3a4185
           region: main
           configuration:
             id: 'views_block:revisiones_convocatorias-ultimas_actualizaciones'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: none
-            context_mapping: {  }
-          additional: {  }
           weight: 1
+          additional: {  }
       third_party_settings: {  }
 page: page_convcatorias_ultimas_actualizaciones
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

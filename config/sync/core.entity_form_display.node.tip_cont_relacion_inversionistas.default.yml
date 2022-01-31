@@ -19,58 +19,58 @@ third_party_settings:
         - group_informacion
         - group_multimedia
         - group_contenido_relacion_inversi
+      label: 'tabs Relacion Inversionistas'
+      region: content
       parent_name: ''
       weight: 0
       format_type: tabs
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         direction: horizontal
-      label: 'tabs Relacion Inversionistas'
     group_informacion:
       children:
         - title
         - uid
+      label: información
+      region: content
       parent_name: group_tabs_relacion_inversionist
       weight: 20
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: información
     group_multimedia:
       children:
         - field_relac_invers_imag_encab
+      label: multimedia
+      region: content
       parent_name: group_tabs_relacion_inversionist
       weight: 21
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: multimedia
     group_contenido_relacion_inversi:
       children:
         - body
+      label: Contenido
+      region: content
       parent_name: group_tabs_relacion_inversionist
       weight: 22
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Contenido
 id: node.tip_cont_relacion_inversionistas.default
 targetEntityType: node
 bundle: tip_cont_relacion_inversionistas
@@ -79,13 +79,13 @@ content:
   body:
     type: text_textarea_with_summary
     weight: 10
+    region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-    region: content
   created:
     type: datetime_timestamp
     weight: 4
@@ -93,13 +93,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_relac_invers_imag_encab:
+    type: image_image
     weight: 11
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   langcode:
     type: language_select
     weight: 2
@@ -115,24 +115,24 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 5
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 9
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 6
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -145,12 +145,12 @@ content:
   uid:
     type: entity_reference_autocomplete
     weight: 2
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
-    region: content
     third_party_settings: {  }
   url_redirects:
     weight: 8

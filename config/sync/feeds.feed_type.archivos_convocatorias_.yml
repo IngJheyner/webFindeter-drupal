@@ -10,8 +10,8 @@ dependencies:
 third_party_settings:
   feeds_tamper:
     tampers: {  }
-id: archivos_convocatorias_
 label: 'Archivos [ Convocatorias ]'
+id: archivos_convocatorias_
 description: ''
 help: ''
 import_period: 3600
@@ -26,51 +26,51 @@ parser_configuration:
   line_limit: 100
 processor: 'entity:media'
 processor_configuration:
+  values:
+    bundle: mltdia_convcatoria_archivo
   langcode: es
+  insert_new: 1
   update_existing: 1
   update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
   expire: -1
   owner_feed_author: false
   owner_id: 1
-  authorize: true
-  skip_hash_check: false
-  values:
-    bundle: mltdia_convcatoria_archivo
-  insert_new: 1
 custom_sources:
   field_convcatoria_muldia_fecha:
-    label: field_convcatoria_muldia_fecha
     value: field_convcatoria_muldia_fecha
+    label: field_convcatoria_muldia_fecha
     machine_name: field_convcatoria_muldia_fecha
   field_convcatoria_ruta_archivo:
-    label: field_convcatoria_ruta_archivo
     value: field_convcatoria_ruta_archivo
+    label: field_convcatoria_ruta_archivo
     machine_name: field_convcatoria_ruta_archivo
   field_media_document:
-    label: field_media_document
     value: field_media_document
+    label: field_media_document
     machine_name: field_media_document
   field_convcatoria_tipo_adjunto:
-    label: field_convcatoria_tipo_adjunto
     value: field_convcatoria_tipo_adjunto
+    label: field_convcatoria_tipo_adjunto
     machine_name: field_convcatoria_tipo_adjunto
   name:
-    label: name
     value: name
+    label: name
     machine_name: name
   id_archivo:
-    label: id_archivo
     value: id_archivo
+    label: id_archivo
     machine_name: id_archivo
 mappings:
   -
     target: name
     map:
       value: name
-    unique:
-      value: '1'
     settings:
       language: null
+    unique:
+      value: '1'
   -
     target: created
     map:

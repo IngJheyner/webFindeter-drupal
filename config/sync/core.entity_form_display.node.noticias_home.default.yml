@@ -25,31 +25,31 @@ third_party_settings:
         - field_noticias_resumen_redes
         - field_noticias_resumen_seo
         - body
+      label: Noticia
+      region: content
       parent_name: group_contenido_noticia
       weight: 19
       format_type: tab
-      region: content
       format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
         description: ''
         required_fields: true
-        id: ''
-        classes: ''
-        formatter: closed
-      label: Noticia
     group_contenido_noticia:
       children:
         - group_informacion
         - group_multimedia
         - group_contenido
+      label: Contenido
+      region: content
       parent_name: ''
       weight: 0
       format_type: tabs
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         direction: horizontal
-      label: Contenido
     group_informacion:
       children:
         - title
@@ -60,68 +60,68 @@ third_party_settings:
         - created
         - status
         - uid
+      label: Información
+      region: content
       parent_name: group_contenido_noticia
       weight: 1
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Información
     group_mas_informacion:
       children: {  }
+      label: Detalles
+      region: hidden
       parent_name: ''
       weight: 6
       format_type: tab
-      region: hidden
       format_settings:
-        description: ''
-        formatter: closed
-        required_fields: true
-        id: ''
         classes: ''
-      label: Detalles
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
     group_multimedia:
       children:
         - field_img_noticia_home
+      label: Multimedia
+      region: content
       parent_name: group_contenido_noticia
       weight: 17
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Multimedia
     group_group_tabs:
       children: {  }
+      label: 'Group tabs'
+      region: hidden
       parent_name: ''
       weight: 5
       format_type: tabs
-      region: hidden
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         direction: vertical
-      label: 'Group tabs'
     group_seo:
       children: {  }
+      label: SEO
+      region: hidden
       parent_name: ''
       weight: 7
       format_type: tab
-      region: hidden
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: SEO
 id: node.noticias_home.default
 targetEntityType: node
 bundle: noticias_home
@@ -130,13 +130,13 @@ content:
   body:
     type: text_textarea_with_summary
     weight: 18
+    region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-    region: content
   created:
     type: datetime_timestamp
     weight: 9
@@ -144,29 +144,29 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_img_noticia_home:
+    type: image_image
     weight: 18
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_noticias_resumen_redes:
+    type: string_textarea
     weight: 16
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: content
   field_noticias_resumen_seo:
+    type: string_textarea
     weight: 17
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: content
   field_noticias_tipo_noticia_seo:
     type: entity_reference_autocomplete
     weight: 7
@@ -236,9 +236,9 @@ content:
     third_party_settings: {  }
   url_redirects:
     weight: 50
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   langcode: true
   promote: true

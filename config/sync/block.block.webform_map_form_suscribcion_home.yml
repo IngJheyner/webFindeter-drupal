@@ -18,14 +18,14 @@ plugin: webform_block
 settings:
   id: webform_block
   label: 'Mapa, Formulario de contacto y suscribir [ Home ]'
-  provider: webform
   label_display: '0'
+  provider: webform
   webform_id: contact
   default_data: ''
   redirect: false
 visibility:
   request_path:
     id: request_path
-    pages: '<front>'
     negate: false
     context_mapping: {  }
+    pages: '<front>'

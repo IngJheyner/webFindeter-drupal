@@ -42,18 +42,18 @@ third_party_settings:
         - group_logos
         - group_iconos
         - group_informacion_general
+      label: Contenido
+      region: content
       parent_name: ''
       weight: 1
       format_type: details_sidebar
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         open: true
+        description: ''
         required_fields: true
         weight: 0
-      label: Contenido
     group_iconos:
       children:
         - group_facebook
@@ -63,134 +63,134 @@ third_party_settings:
         - group_likedin
         - group_flickr
         - group_credito_directo
+      label: 'Iconos con enlaces'
+      region: content
       parent_name: group_contenido
       weight: 10
       format_type: details
-      region: content
       format_settings:
+        classes: ''
+        id: ''
+        open: false
         description: ''
         required_fields: true
-        id: ''
-        classes: ''
-        open: false
-      label: 'Iconos con enlaces'
     group_facebook:
       children:
         - field_url_facebook_footer
         - field_facebook_icono_footer
+      label: Facebook
+      region: content
       parent_name: group_iconos
       weight: 15
       format_type: fieldset
-      region: content
       format_settings:
+        classes: ''
+        id: ''
         description: ''
         required_fields: true
-        id: ''
-        classes: ''
-      label: Facebook
     group_twiitter:
       children:
         - field_url_twitter_footer
         - field_twitter_icono_footer
+      label: Twiitter
+      region: content
       parent_name: group_iconos
       weight: 16
       format_type: fieldset
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         description: ''
         required_fields: true
-      label: Twiitter
     group_youtube:
       children:
         - field_url_youtube_footer
         - field_youtube_icono_footer
+      label: Youtube
+      region: content
       parent_name: group_iconos
       weight: 17
       format_type: fieldset
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         description: ''
         required_fields: true
-      label: Youtube
     group_instagram:
       children:
         - field_url_instagram_footer
         - field_instagram_icono_footer
+      label: Instagram
+      region: content
       parent_name: group_iconos
       weight: 18
       format_type: fieldset
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         description: ''
         required_fields: true
-      label: Instagram
     group_likedin:
       children:
         - field_url_likedin_footer
         - field_likedin_icono_footer
+      label: Likedin
+      region: content
       parent_name: group_iconos
       weight: 19
       format_type: fieldset
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         description: ''
         required_fields: true
-      label: Likedin
     group_informacion:
       children:
         - info
         - langcode
+      label: Información
+      region: content
       parent_name: ''
       weight: 0
       format_type: details_sidebar
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         open: false
+        description: ''
         required_fields: true
         weight: 0
-      label: Información
     group_logos:
       children:
         - group_logos_group
         - group_mas_logos
         - field_mas_logos_footer
+      label: Logos
+      region: content
       parent_name: group_contenido
       weight: 4
       format_type: details
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         open: false
+        description: ''
         required_fields: true
-      label: Logos
     group_logos_group:
       children:
         - field_logo_footer
         - field_logo_superintendencia_foot
         - field_logo_ministerio_hacienda_f
+      label: 'Logos principales'
+      region: content
       parent_name: group_logos
       weight: 5
       format_type: fieldset
-      region: content
       format_settings:
+        classes: ''
+        id: ''
         description: ''
         required_fields: true
-        id: ''
-        classes: ''
-      label: 'Logos principales'
     group_informacion_general:
       children:
         - field_sede_principal_footer
@@ -202,270 +202,270 @@ third_party_settings:
         - field_correo_institucional_foote
         - field_email_judiciales_footer
         - field_correo_denuncias_footer
+      label: 'Información General'
+      region: content
       parent_name: group_contenido
       weight: 28
       format_type: details
-      region: content
       format_settings:
+        classes: ''
+        id: ''
+        open: false
         description: ''
         required_fields: true
-        id: ''
-        classes: ''
-        open: false
-      label: 'Información General'
     group_credito_directo:
       children: {  }
+      label: 'Credito Directo'
+      region: content
       parent_name: group_iconos
       weight: 21
       format_type: fieldset
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         description: ''
         required_fields: true
-      label: 'Credito Directo'
     group_flickr:
       children:
         - field_url_flicker_footer
         - field_flickr_icono_footer
+      label: Flickr
+      region: content
       parent_name: group_iconos
       weight: 20
       format_type: fieldset
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         description: ''
         required_fields: true
-      label: Flickr
     group_mas_logos:
       children:
         - field_url_saving_amazong_footer
         - field_img_saving_amazong_footer
+      label: 'Mas Logos'
+      region: content
       parent_name: group_logos
       weight: 6
       format_type: fieldset
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         description: ''
         required_fields: true
-      label: 'Mas Logos'
 id: block_content.pie_de_pagina.default
 targetEntityType: block_content
 bundle: pie_de_pagina
 mode: default
 content:
   field_conmutador:
+    type: string_textfield
     weight: 33
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_correo_denuncias_footer:
-    weight: 37
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
     type: email_default
+    weight: 37
     region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
   field_correo_institucional_foote:
+    type: email_default
     weight: 35
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: email_default
     region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
   field_email_contacto_footer:
+    type: email_default
     weight: 32
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: email_default
     region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
   field_email_judiciales_footer:
+    type: email_default
     weight: 36
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: email_default
     region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
   field_facebook_icono_footer:
+    type: image_image
     weight: 13
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_flickr_icono_footer:
+    type: image_image
     weight: 39
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_horario_de_atencion_footer:
+    type: string_textfield
     weight: 30
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_img_saving_amazong_footer:
+    type: image_image
     weight: 8
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_instagram_icono_footer:
+    type: image_image
     weight: 22
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_likedin_icono_footer:
+    type: image_image
     weight: 25
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_logo_footer:
+    type: image_image
     weight: 6
+    region: content
     settings:
+      progress_indicator: throbber
       preview_image_style: medium
-      progress_indicator: throbber
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_logo_ministerio_hacienda_f:
+    type: image_image
     weight: 8
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_logo_superintendencia_foot:
+    type: image_image
     weight: 7
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_ntf_judiciales_footer:
-    weight: 31
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
     type: email_default
+    weight: 31
     region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
   field_pqr_footer:
+    type: string_textfield
     weight: 34
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_sede_principal_footer:
+    type: string_textfield
     weight: 29
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_twitter_icono_footer:
+    type: image_image
     weight: 17
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_url_facebook_footer:
+    type: link_default
     weight: 12
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_url_flicker_footer:
+    type: link_default
     weight: 37
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_url_instagram_footer:
+    type: link_default
     weight: 21
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_url_likedin_footer:
+    type: link_default
     weight: 24
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_url_saving_amazong_footer:
+    type: link_default
     weight: 7
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_url_twitter_footer:
+    type: link_default
     weight: 15
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_url_youtube_footer:
+    type: link_default
     weight: 18
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_youtube_icono_footer:
+    type: image_image
     weight: 20
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   info:
     type: string_textfield
     weight: 1

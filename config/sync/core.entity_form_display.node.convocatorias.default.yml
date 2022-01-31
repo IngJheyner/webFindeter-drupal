@@ -30,15 +30,15 @@ third_party_settings:
         - group_informacion
         - group_contenido
         - group_multimedia
+      label: 'Grupo Tabs'
+      region: content
       parent_name: ''
       weight: 0
       format_type: tabs
-      region: content
       format_settings:
-        direction: horizontal
-        id: ''
         classes: ''
-      label: 'Grupo Tabs'
+        id: ''
+        direction: horizontal
     group_informacion:
       children:
         - title
@@ -46,17 +46,17 @@ third_party_settings:
         - field_convcatoria_estado
         - langcode
         - status
+      label: Información
+      region: content
       parent_name: group_gr
       weight: 3
       format_type: tab
-      region: content
       format_settings:
-        description: ''
-        formatter: open
-        required_fields: true
-        id: ''
         classes: ''
-      label: Información
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
     group_contenido:
       children:
         - field_convcatoria_email_proceso
@@ -64,31 +64,31 @@ third_party_settings:
         - field_convcatoria_presupuesto
         - field_convcatoria_objeto
         - group_grupo_tabs_detalles
+      label: Contenido
+      region: content
       parent_name: group_gr
       weight: 4
       format_type: tab
-      region: content
       format_settings:
-        description: ''
-        formatter: closed
-        required_fields: true
-        id: ''
         classes: ''
-      label: Contenido
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
     group_multimedia:
       children:
         - field_convcatoria_archivos
+      label: Multimedia
+      region: content
       parent_name: group_gr
       weight: 13
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Multimedia
     group_lista_de_elementos_de_la_c:
       children:
         - field_convcatoria_tipo_compra
@@ -96,44 +96,44 @@ third_party_settings:
         - field_convcatoria_contratacion
         - field_convcatoria_contractual
         - field_convcatoria_forma_pago
+      label: 'Lista de elementos de la convocatoria'
+      region: content
       parent_name: group_grupo_tabs_detalles
       weight: 12
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
+        formatter: closed
         description: ''
         required_fields: true
-        formatter: closed
-      label: 'Lista de elementos de la convocatoria'
     group_grupo_tabs_detalles:
       children:
         - group_lista_de_elementos_de_la_c
         - group_departamentos_y_municipios
+      label: 'Grupo Tabs Detalles'
+      region: content
       parent_name: group_contenido
       weight: 12
       format_type: tabs
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         direction: vertical
-      label: 'Grupo Tabs Detalles'
     group_departamentos_y_municipios:
       children:
         - field_convcatoria_departamento
+      label: 'Departamentos y Municipios'
+      region: content
       parent_name: group_grupo_tabs_detalles
       weight: 20
       format_type: tab
-      region: content
       format_settings:
-        description: ''
-        formatter: closed
-        required_fields: true
-        id: ''
         classes: ''
-      label: 'Departamentos y Municipios'
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
 id: node.convocatorias.default
 targetEntityType: node
 bundle: convocatorias
@@ -152,100 +152,100 @@ content:
     settings:
       entity_browser: entity_browser_archivos_convocatorias
       field_widget_display: rendered_entity
-      field_widget_display_settings:
-        view_mode: full
       field_widget_edit: true
       field_widget_remove: true
-      selection_mode: selection_prepend
       field_widget_replace: false
       open: false
+      field_widget_display_settings:
+        view_mode: full
+      selection_mode: selection_prepend
     third_party_settings: {  }
   field_convcatoria_contractual:
+    type: options_select
     weight: 29
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_convcatoria_contratacion:
+    type: options_select
     weight: 28
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_convcatoria_departamento:
+    type: cshs
     weight: 7
+    region: content
     settings:
-      parent: null
       force_deepest: true
+      parent: null
       level_labels: ''
       none_label: '- Seleccione -'
       hierarchy_depth: '0'
       required_depth: '0'
       save_lineage: false
     third_party_settings: {  }
-    type: cshs
-    region: content
   field_convcatoria_email_proceso:
-    weight: 8
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
     type: email_default
+    weight: 8
     region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
   field_convcatoria_estado:
+    type: options_select
     weight: 6
+    region: content
     settings: {  }
     third_party_settings:
       conditional_fields: {  }
-    type: options_select
-    region: content
   field_convcatoria_forma_pago:
-    weight: 30
-    settings: {  }
-    third_party_settings: {  }
     type: options_buttons
+    weight: 30
     region: content
-  field_convcatoria_moneda:
-    weight: 9
     settings: {  }
     third_party_settings: {  }
+  field_convcatoria_moneda:
     type: options_select
+    weight: 9
     region: content
+    settings: {  }
+    third_party_settings: {  }
   field_convcatoria_objeto:
+    type: string_textarea
     weight: 11
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: content
   field_convcatoria_presupuesto:
+    type: number
     weight: 10
+    region: content
     settings:
       placeholder: '400.000.000,00'
     third_party_settings: {  }
-    type: number
-    region: content
   field_convcatoria_programa:
+    type: cshs
     weight: 27
+    region: content
     settings:
       force_deepest: true
       parent: '0'
       level_labels: '--, No. Convenio'
+      none_label: '- Please select -'
       save_lineage: false
       hierarchy_depth: 0
       required_depth: 0
-      none_label: '- Please select -'
     third_party_settings: {  }
-    type: cshs
-    region: content
   field_convcatoria_tipo_compra:
+    type: options_select
     weight: 26
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   langcode:
     type: language_select
     weight: 7

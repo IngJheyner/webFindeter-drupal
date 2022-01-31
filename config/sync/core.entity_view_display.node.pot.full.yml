@@ -41,8 +41,8 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: node.pot.full
 targetEntityType: node
 bundle: pot
@@ -50,82 +50,66 @@ mode: full
 content:
   body:
     type: text_default
-    weight: 5
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 5
+    region: content
   field_cifras_pot:
     type: entity_reference_revisions_entity_view
-    weight: 12
-    region: content
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    weight: 12
+    region: content
   field_descripcion_equipo_pot:
     type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 17
     region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   field_descripcion_porque_pot:
     type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 11
     region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   field_descripcion_pot:
     type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 3
     region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   field_descripcion_servicio_pot:
     type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 8
     region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   field_descripcion_trayectora_pot:
     type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 2
     region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   field_formulario_contactenos_pot:
     type: text_default
-    weight: 22
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 22
+    region: content
   field_img_beneficios_pot:
     type: blazy
-    weight: 6
-    region: content
     label: hidden
     settings:
-      style: ''
-      image_style: ''
-      responsive_image_style: narrow
-      media_switch: colorbox
-      box_style: ''
-      thumbnail_style: ''
-      ratio: '3:2'
-      box_caption: ''
-      box_caption_custom: ''
-      grid: null
-      grid_medium: null
-      grid_small: null
-      current_view_mode: full
-      background: false
       caption:
         title: '0'
         alt: '0'
@@ -133,58 +117,78 @@ content:
       layout: ''
       view_mode: ''
       cache: 0
+      current_view_mode: full
       skin: ''
       fx: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
       box_media_style: ''
+      responsive_image_style: narrow
+      box_style: ''
+      image_style: ''
+      media_switch: colorbox
+      ratio: '3:2'
+      thumbnail_style: ''
       _uri: ''
       breakpoints: {  }
       sizes: ''
       grid_header: ''
+      grid: null
+      grid_medium: null
+      grid_small: null
     third_party_settings:
       field_formatter_class:
         class: ''
+    weight: 6
+    region: content
   field_img_equipo_pot:
     type: image
-    weight: 18
-    region: content
     label: hidden
     settings:
+      image_link: ''
+      image_style: ''
       svg_attributes:
         width: null
         height: null
       svg_render_as_image: true
-      image_style: ''
-      image_link: ''
     third_party_settings: {  }
+    weight: 18
+    region: content
   field_img_galeria_pot:
     type: slick_image
-    weight: 1
-    region: content
     label: hidden
     settings:
-      style: ''
+      caption:
+        title: '0'
+        alt: '0'
       optionset: default
-      optionset_thumbnail: ''
+      icon: ''
+      layout: below
+      view_mode: ''
+      cache: 0
+      current_view_mode: full
       skin: fullwidth
-      skin_thumbnail: ''
-      image_style: ''
-      responsive_image_style: ''
-      thumbnail_effect: ''
-      thumbnail_position: ''
-      media_switch: ''
-      box_style: ''
-      thumbnail_style: ''
-      ratio: ''
+      fx: ''
+      style: ''
+      background: false
       box_caption: ''
       box_caption_custom: ''
+      box_media_style: ''
+      responsive_image_style: ''
+      box_style: ''
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      thumbnail_style: ''
+      _uri: ''
+      breakpoints: {  }
+      sizes: ''
+      grid_header: ''
       grid: null
       grid_medium: '1'
       grid_small: '1'
-      visible_items: 1
-      layout: below
-      thumbnail_caption: ''
-      cache: 0
-      override: true
       overridables:
         arrows: arrows
         dots: dots
@@ -194,121 +198,115 @@ content:
         mouseWheel: '0'
         randomize: '0'
         variableWidth: '0'
-      current_view_mode: full
-      background: false
-      caption:
-        title: '0'
-        alt: '0'
-      preserve_keys: false
+      optionset_thumbnail: ''
+      skin_thumbnail: ''
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: true
       skin_arrows: ''
       skin_dots: ''
-      fx: ''
-      icon: ''
-      view_mode: ''
-      box_media_style: ''
-      _uri: ''
-      breakpoints: {  }
-      sizes: ''
-      grid_header: ''
+      preserve_keys: false
+      visible_items: 1
     third_party_settings:
       field_formatter_class:
         class: ''
+    weight: 1
+    region: content
   field_img_logo_findeter_pot:
     type: image
-    weight: 13
-    region: content
     label: above
     settings:
+      image_link: ''
+      image_style: ''
       svg_attributes:
         width: null
         height: null
       svg_render_as_image: true
-      image_style: ''
-      image_link: ''
     third_party_settings: {  }
+    weight: 13
+    region: content
   field_informacion_contacteno_pot:
     type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 20
     region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   field_informacion_movil_pot:
     type: text_default
-    weight: 21
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 21
+    region: content
   field_servicios_pot:
     type: entity_reference_revisions_entity_view
-    weight: 9
-    region: content
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    weight: 9
+    region: content
   field_titulo_beneficio_pot:
     type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 4
     region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   field_titulo_contactenos_pot:
     type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 19
     region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   field_titulo_nuestro_equipo_pot:
     type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 16
     region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   field_titulo_porque_findeter_pot:
     type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 10
     region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   field_titulo_pregunta_pot:
     type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 0
     region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   field_titulo_servicios_pot:
     type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 7
     region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   field_titulo_trayectoria_pot:
     type: string
-    weight: 14
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 14
+    region: content
   field_trayectoria_pot:
     type: entity_reference_entity_view
-    weight: 15
-    region: content
     label: hidden
     settings:
       view_mode: full
@@ -316,6 +314,8 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
+    weight: 15
+    region: content
 hidden:
   addtoany: true
   field_img_slider_pot: true

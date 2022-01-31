@@ -21,25 +21,25 @@ mode: compact
 content:
   field_nombre_usuario:
     type: string
-    weight: 1
-    region: content
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 1
+    region: content
   user_picture:
     type: image
-    weight: 0
-    region: content
+    label: hidden
     settings:
-      image_style: thumbnail
       image_link: content
+      image_style: thumbnail
       svg_attributes:
         width: null
         height: null
       svg_render_as_image: true
     third_party_settings: {  }
-    label: hidden
+    weight: 0
+    region: content
 hidden:
   field_apellidos_usuario: true
   field_dependencia_usuarios: true

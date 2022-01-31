@@ -6,12 +6,13 @@ dependencies:
     - page_manager.page.3_5_directorio_de_informacion_de_servidores_publicos_empleados_y_contratistas
 id: 3_5_directorio_de_informacion_de_servidores_publicos_empleados_y_contratistas-layout_builder-0
 label: 'directorio de informacion servidores publicos '
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: 97e421e9-5bb0-4fb1-88b5-c51c1b7f3cd8
   label: null
   weight: 0
+  uuid: 97e421e9-5bb0-4fb1-88b5-c51c1b7f3cd8
   sections:
     -
       layout_id: bs_2col_stacked
@@ -55,48 +56,47 @@ variant_settings:
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
             label: 'Transparencia y acceso a la información pública'
-            provider: block_content
             label_display: visible
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 2
+          additional: {  }
         fe0c756e-8159-4c53-8df8-c178f9086f06:
           uuid: fe0c756e-8159-4c53-8df8-c178f9086f06
           region: left
           configuration:
             id: 'views_block:transparencia_acceso_informacion_publica-3_5_directorio_de_informacion_de_servidores_publicos_empleados_y_contratistas'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: '1'
-            context_mapping: {  }
-          additional: {  }
           weight: 1
+          additional: {  }
         97a2fe94-9ba2-4cca-b5b2-a87e2cebbde9:
           uuid: 97a2fe94-9ba2-4cca-b5b2-a87e2cebbde9
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
             label: 'Transparencia y Acceso a la información Pública'
-            provider: menu_block
             label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
             follow: false
             follow_parent: child
             level: 1
             depth: 1
-            expand: false
             parent: 'transparencia-acceso-informacion:menu_link_content:d5ee5ec6-3346-4402-a12c-cf492f96edc0'
             suggestion: transparencia_acceso_informacion_sidebar
-            context_mapping: {  }
-          additional: {  }
+            expand: false
           weight: 2
+          additional: {  }
       third_party_settings: {  }
 page: 3_5_directorio_de_informacion_de_servidores_publicos_empleados_y_contratistas
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

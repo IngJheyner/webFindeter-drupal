@@ -6,12 +6,13 @@ dependencies:
     - page_manager.page.transparencia_acceso_informacion
 id: transparencia_acceso_informacion-layout_builder-0
 label: Transparencia
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: b56eb9b9-52b9-4e49-a39f-2a8aaf3ad185
   label: null
   weight: 0
+  uuid: b56eb9b9-52b9-4e49-a39f-2a8aaf3ad185
   sections:
     -
       layout_id: bs_2col_stacked
@@ -55,17 +56,16 @@ variant_settings:
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
             label: 'Transparencia y acceso a la información pública'
-            provider: block_content
             label_display: visible
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 0
+          additional: {  }
       third_party_settings: {  }
 page: transparencia_acceso_informacion
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

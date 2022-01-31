@@ -52,8 +52,8 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: node.pqrsd.search_index
 targetEntityType: node
 bundle: pqrsd
@@ -61,12 +61,12 @@ mode: search_index
 content:
   field_pqrsd_numero_radicado:
     type: string
-    weight: 140
-    region: content
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 140
+    region: content
 hidden:
   addtoany: true
   field_pqrsd_archivo: true

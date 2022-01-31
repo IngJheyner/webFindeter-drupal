@@ -11,6 +11,9 @@ field_name: field_logo_footer
 entity_type: block_content
 type: image
 settings:
+  target_type: file
+  display_field: false
+  display_default: false
   uri_scheme: public
   default_image:
     uuid: bab27b2d-9d23-4faa-98f8-f11cf8af6965
@@ -18,9 +21,6 @@ settings:
     title: ''
     width: 703
     height: 305
-  target_type: file
-  display_field: false
-  display_default: false
 module: image
 locked: false
 cardinality: 1

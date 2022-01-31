@@ -8,12 +8,13 @@ dependencies:
     - user
 id: page_convocatorias-layout_builder-1
 label: 'Ciudadano [ Anonimo ]'
+weight: 1
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: a8bc3f6e-9668-4687-aa6d-330aeab0176b
   label: null
   weight: 0
+  uuid: a8bc3f6e-9668-4687-aa6d-330aeab0176b
   sections:
     -
       layout_id: bs_1col_stacked
@@ -51,37 +52,36 @@ variant_settings:
           configuration:
             id: 'block_content:6699f94b-8e4f-4c82-b46b-49c63d21f502'
             label: 'Convocatorias [ Encabezado ]'
-            provider: block_content
             label_display: '0'
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 1
+          additional: {  }
         701e927d-0227-43c0-b4be-c4a6c1d99eb5:
           uuid: 701e927d-0227-43c0-b4be-c4a6c1d99eb5
           region: main
           configuration:
             id: 'views_block:convocatorias-block_convocatoria_ciudadano'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: none
-            context_mapping: {  }
-          additional: {  }
           weight: 1
+          additional: {  }
       third_party_settings: {  }
 page: page_convocatorias
-weight: 1
 selection_criteria:
   -
     id: user_role
-    roles:
-      anonymous: anonymous
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous
 selection_logic: and
 static_context: {  }

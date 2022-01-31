@@ -17,55 +17,55 @@ third_party_settings:
         - field_logo_encabezado_home
         - field_logo_findeter_negro
         - field_img_govco_encabezado_home
+      label: Contenido
+      region: content
       parent_name: ''
       weight: 3
       format_type: details_sidebar
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         open: false
+        description: ''
         required_fields: true
         weight: 0
-      label: Contenido
     group_informacion:
       children:
         - info
         - langcode
+      label: Información
+      region: content
       parent_name: ''
       weight: 0
       format_type: details_sidebar
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         open: false
+        description: ''
         required_fields: true
         weight: 0
-      label: Información
 id: block_content.encabezado_home.default
 targetEntityType: block_content
 bundle: encabezado_home
 mode: default
 content:
   field_img_govco_encabezado_home:
+    type: image_image
     weight: 5
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_logo_encabezado_home:
+    type: image_image
     weight: 3
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   info:
     type: string_textfield
     weight: 1

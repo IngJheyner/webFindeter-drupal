@@ -15,13 +15,14 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    allow_custom: true
     enabled: true
+    allow_custom: true
     sections:
       -
         layout_id: bs_1col
         layout_settings:
           label: ''
+          context_mapping: {  }
           layout:
             wrapper: div
             classes:
@@ -42,36 +43,36 @@ third_party_settings:
             configuration:
               id: 'field_block:node:preguntas_frecuentes:field_tema_pregunta_frecuentes'
               label: 'Tema de la pregunta'
-              provider: layout_builder
               label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
-                label: hidden
                 type: entity_reference_label
+                label: hidden
                 settings:
                   link: true
                 third_party_settings:
                   field_formatter_class:
                     class: ''
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-            additional: {  }
             weight: 7
+            additional: {  }
           b492cdbc-d06c-4b3e-81d9-82aa25514477:
             uuid: b492cdbc-d06c-4b3e-81d9-82aa25514477
             region: main
             configuration:
+              id: 'field_block:node:preguntas_frecuentes:body'
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
-              id: 'field_block:node:preguntas_frecuentes:body'
               formatter:
-                label: hidden
                 type: text_default
+                label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            additional: {  }
             weight: 8
+            additional: {  }
         third_party_settings: {  }
 id: node.preguntas_frecuentes.full
 targetEntityType: node
@@ -79,24 +80,24 @@ bundle: preguntas_frecuentes
 mode: full
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 101
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 101
     region: content
   field_tema_pregunta_frecuentes:
-    weight: 102
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 102
     region: content
   links:
-    weight: 100
     settings: {  }
     third_party_settings: {  }
+    weight: 100
     region: content
 hidden:
   addtoany: true

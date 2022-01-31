@@ -6,12 +6,13 @@ dependencies:
     - page_manager.page.page_glosario
 id: page_glosario-layout_builder-0
 label: Glosario
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: e2123b59-fb25-4b31-8a18-20b80d2a71ad
   label: null
   weight: 0
+  uuid: e2123b59-fb25-4b31-8a18-20b80d2a71ad
   sections:
     -
       layout_id: bs_1col_stacked
@@ -49,30 +50,29 @@ variant_settings:
           configuration:
             id: 'block_content:19d4a30e-d7f1-4cb1-bf30-204a35adc84b'
             label: 'Glosario [ Encabezado ]'
-            provider: block_content
             label_display: '0'
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 1
+          additional: {  }
         1482d9cd-1707-4d91-b9a0-57e10d69d6bf:
           uuid: 1482d9cd-1707-4d91-b9a0-57e10d69d6bf
           region: main
           configuration:
             id: 'views_block:glosario-page_glosarios'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: none
-            context_mapping: {  }
-          additional: {  }
           weight: 1
+          additional: {  }
       third_party_settings: {  }
 page: page_glosario
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

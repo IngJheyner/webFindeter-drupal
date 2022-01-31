@@ -15,8 +15,8 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: node.prosperity_fund.full
 targetEntityType: node
 bundle: prosperity_fund
@@ -24,7 +24,6 @@ mode: full
 content:
   field_prosperity_archivos:
     type: entity_reference_entity_view
-    weight: 0
     label: hidden
     settings:
       view_mode: convocatorias_archivos
@@ -32,14 +31,15 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
+    weight: 0
     region: content
   field_prosperity_proceso:
     type: list_default
-    weight: 1
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   addtoany: true
   body: true

@@ -13,29 +13,29 @@ dependencies:
     - layout_builder
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: block_content.prosperity_fund_encabezado.full
 targetEntityType: block_content
 bundle: prosperity_fund_encabezado
 mode: full
 content:
   field_prosperity_img_fondo:
-    weight: 0
+    type: image
     label: hidden
     settings:
-      image_style: ''
       image_link: ''
+      image_style: ''
     third_party_settings: {  }
-    type: image
+    weight: 0
     region: content
   field_prosperity_titulo_defecto:
-    weight: 1
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 1
     region: content
 hidden:
   body: true

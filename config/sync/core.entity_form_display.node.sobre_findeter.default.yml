@@ -21,45 +21,45 @@ third_party_settings:
         - group_informacion_sobre_findeter
         - group_media_sobre_findeter
         - group_descripcion_sobre_findeter
+      label: tabs
+      region: content
       parent_name: ''
       weight: 0
       format_type: tabs
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         direction: horizontal
-      label: tabs
     group_descripcion_sobre_findeter:
       children:
         - body
         - group_tabs_nav_sobr
         - group_content_extr_sobre_findete
+      label: Descripción
+      region: content
       parent_name: group_tabs_sobre_findeter
       weight: 3
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: open
+        description: ''
         required_fields: true
-      label: Descripción
     group_media_sobre_findeter:
       children:
         - field_img_fondo_sobre_findeter
+      label: Media
+      region: content
       parent_name: group_tabs_sobre_findeter
       weight: 2
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Media
     group_informacion_sobre_findeter:
       children:
         - title
@@ -70,99 +70,99 @@ third_party_settings:
         - sticky
         - path
         - status
+      label: Información
+      region: content
       parent_name: group_tabs_sobre_findeter
       weight: 1
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: open
+        description: ''
         required_fields: true
-      label: Información
     group_tabs_nav_sobr:
       children:
         - group_titulos_tabs_nav
         - group_tabs_desc_nav
+      label: 'Navegación interna en sobre findeter'
+      region: content
       parent_name: group_descripcion_sobre_findeter
       weight: 14
       format_type: tabs
-      region: content
       format_settings:
-        direction: horizontal
-        id: ''
         classes: ''
-      label: 'Navegación interna en sobre findeter'
+        id: ''
+        direction: horizontal
     group_titulos_tabs_nav:
       children:
         - field_tabs_nav_sobre_findeter
+      label: 'Titulos en la navegacion'
+      region: content
       parent_name: group_tabs_nav_sobr
       weight: 15
       format_type: tab
-      region: content
       format_settings:
-        description: 'Texto simple, para los titulos de la navegación de los tabs. '
-        formatter: closed
-        required_fields: true
-        id: ''
         classes: ''
-      label: 'Titulos en la navegacion'
+        id: ''
+        formatter: closed
+        description: 'Texto simple, para los titulos de la navegación de los tabs. '
+        required_fields: true
     group_tabs_desc_nav:
       children:
         - field_tabs_descrip_sobre_findete
+      label: 'Descripciones de los contenidos de la navegacion'
+      region: content
       parent_name: group_tabs_nav_sobr
       weight: 17
       format_type: tab
-      region: content
       format_settings:
-        description: 'Descripción de cada contenido en los tabs'
-        formatter: closed
-        required_fields: true
-        id: ''
         classes: ''
-      label: 'Descripciones de los contenidos de la navegacion'
+        id: ''
+        formatter: closed
+        description: 'Descripción de cada contenido en los tabs'
+        required_fields: true
     group_content_extr_sobre_findete:
       children:
         - group_tab_titulo_content_extra_s
         - group_tab_desc_content_extra_sob
+      label: 'Contenido Extra'
+      region: content
       parent_name: group_descripcion_sobre_findeter
       weight: 15
       format_type: tabs
-      region: content
       format_settings:
-        direction: horizontal
-        id: ''
         classes: ''
-      label: 'Contenido Extra'
+        id: ''
+        direction: horizontal
     group_tab_titulo_content_extra_s:
       children:
         - field_titulo_contenido_ext_sobr_
+      label: 'Titulos de contenido extra'
+      region: content
       parent_name: group_content_extr_sobre_findete
       weight: 20
       format_type: tab
-      region: content
       format_settings:
-        description: 'Titulos de los contenidos extra de findeter'
-        formatter: closed
-        required_fields: true
-        id: ''
         classes: ''
-      label: 'Titulos de contenido extra'
+        id: ''
+        formatter: closed
+        description: 'Titulos de los contenidos extra de findeter'
+        required_fields: true
     group_tab_desc_content_extra_sob:
       children:
         - field_descrip_contenido_extra_so
+      label: 'Descripción contenido extra'
+      region: content
       parent_name: group_content_extr_sobre_findete
       weight: 22
       format_type: tab
-      region: content
       format_settings:
-        description: 'Contenido extra sobre findeter'
-        formatter: closed
-        required_fields: true
-        id: ''
         classes: ''
-      label: 'Descripción contenido extra'
+        id: ''
+        formatter: closed
+        description: 'Contenido extra sobre findeter'
+        required_fields: true
 id: node.sobre_findeter.default
 targetEntityType: node
 bundle: sobre_findeter
@@ -171,13 +171,13 @@ content:
   body:
     type: text_textarea_with_summary
     weight: 13
+    region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-    region: content
   created:
     type: datetime_timestamp
     weight: 5
@@ -185,31 +185,31 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_img_fondo_sobre_findeter:
+    type: image_image
     weight: 11
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_tabs_descrip_sobre_findete:
+    type: text_textarea_with_summary
     weight: 18
+    region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-    type: text_textarea_with_summary
-    region: content
   field_tabs_nav_sobre_findeter:
+    type: string_textfield
     weight: 26
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   langcode:
     type: language_select
     weight: 3
@@ -225,24 +225,24 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 6
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 9
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 7
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -255,16 +255,16 @@ content:
   uid:
     type: entity_reference_autocomplete
     weight: 4
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
-    region: content
     third_party_settings: {  }
   url_redirects:
     weight: 50
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden: {  }

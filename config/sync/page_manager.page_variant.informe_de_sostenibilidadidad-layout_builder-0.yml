@@ -6,12 +6,13 @@ dependencies:
     - page_manager.page.informe_de_sostenibilidadidad
 id: informe_de_sostenibilidadidad-layout_builder-0
 label: 'Informe de Sostenibilidad'
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: 4e1a6554-1423-4766-a061-458a847d3c48
   label: null
   weight: 0
+  uuid: 4e1a6554-1423-4766-a061-458a847d3c48
   sections:
     -
       layout_id: bs_2col_stacked
@@ -55,48 +56,47 @@ variant_settings:
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
             label: 'Transparencia y acceso a la información pública'
-            provider: block_content
             label_display: visible
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 2
+          additional: {  }
         f74f7b9e-7ff2-4235-b130-7f0731d3323f:
           uuid: f74f7b9e-7ff2-4235-b130-7f0731d3323f
           region: left
           configuration:
             id: 'views_block:transparencia_acceso_informacion_publica-block_informes_sostenibilidad'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: '1'
-            context_mapping: {  }
-          additional: {  }
           weight: 0
+          additional: {  }
         fcd4e4eb-5592-4dce-8cbb-a81a5e009ef9:
           uuid: fcd4e4eb-5592-4dce-8cbb-a81a5e009ef9
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
             label: 'Transparencia y Acceso a la información Pública'
-            provider: menu_block
             label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
             follow: false
             follow_parent: child
             level: 1
             depth: 1
-            expand: false
             parent: 'transparencia-acceso-informacion:menu_link_content:69786591-4579-4385-9d42-4aaca45aa84c'
             suggestion: transparencia_acceso_informacion_sidebar
-            context_mapping: {  }
-          additional: {  }
+            expand: false
           weight: 0
+          additional: {  }
       third_party_settings: {  }
 page: informe_de_sostenibilidadidad
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

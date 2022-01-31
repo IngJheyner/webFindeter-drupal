@@ -11,12 +11,12 @@ pattern: '/noticias/[node:field_tipo_noticia:entity:name]/[node:title]'
 selection_criteria:
   c310225f-4d54-4017-9a7c-455074d2765d:
     id: node_type
-    bundles:
-      noticias_home: noticias_home
     negate: false
+    uuid: c310225f-4d54-4017-9a7c-455074d2765d
     context_mapping:
       node: node
-    uuid: c310225f-4d54-4017-9a7c-455074d2765d
+    bundles:
+      noticias_home: noticias_home
 selection_logic: and
 weight: -5
 relationships: {  }

@@ -6,12 +6,13 @@ dependencies:
     - page_manager.page.8_3_invitaciones_a_cotizar
 id: 8_3_invitaciones_a_cotizar-layout_builder-0
 label: 'Invitaciones a Cotizar'
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: 9cadf57a-e8d5-4e84-bf09-cc680b08a93c
   label: null
   weight: 0
+  uuid: 9cadf57a-e8d5-4e84-bf09-cc680b08a93c
   sections:
     -
       layout_id: bs_2col_stacked
@@ -55,48 +56,47 @@ variant_settings:
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
             label: 'Transparencia y acceso a la información pública'
-            provider: block_content
             label_display: visible
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 2
+          additional: {  }
         6f30d6eb-13c0-48da-9cd8-4d1ab7d5dd82:
           uuid: 6f30d6eb-13c0-48da-9cd8-4d1ab7d5dd82
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
             label: 'Transparencia y Acceso a la información Pública'
-            provider: menu_block
             label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
             follow: false
             follow_parent: child
             level: 1
             depth: 1
-            expand: false
             parent: 'transparencia-acceso-informacion:menu_link_content:fbbf2d8f-3985-4704-ab5d-c2dbc833bc38'
             suggestion: transparencia_acceso_informacion_sidebar
-            context_mapping: {  }
-          additional: {  }
+            expand: false
           weight: 2
+          additional: {  }
         38eeb75a-9df6-433c-8594-4c77244380d8:
           uuid: 38eeb75a-9df6-433c-8594-4c77244380d8
           region: left
           configuration:
             id: 'views_block:transparencia_acceso_informacion_publica-8_3_invitaciones_a_cotizar'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: '1'
-            context_mapping: {  }
-          additional: {  }
           weight: 2
+          additional: {  }
       third_party_settings: {  }
 page: 8_3_invitaciones_a_cotizar
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

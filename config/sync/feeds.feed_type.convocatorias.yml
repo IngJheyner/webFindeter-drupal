@@ -11,8 +11,8 @@ dependencies:
 third_party_settings:
   feeds_tamper:
     tampers: {  }
-id: convocatorias
 label: Convocatorias
+id: convocatorias
 description: ''
 help: ''
 import_period: 3600
@@ -27,87 +27,87 @@ parser_configuration:
   line_limit: 100
 processor: 'entity:node'
 processor_configuration:
+  values:
+    type: convocatorias
   langcode: es
+  insert_new: 1
   update_existing: 2
   update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
   expire: -1
   owner_feed_author: false
   owner_id: 1
-  authorize: true
-  skip_hash_check: false
-  values:
-    type: convocatorias
-  insert_new: 1
 custom_sources:
   title:
-    label: title
     value: title
+    label: title
     machine_name: title
   field_convcatoria_contratacion:
-    label: field_convcatoria_contratacion
     value: field_convcatoria_contratacion
+    label: field_convcatoria_contratacion
     machine_name: field_convcatoria_contratacion
   field_convcatoria_email_proceso:
-    label: field_convcatoria_email_proceso
     value: field_convcatoria_email_proceso
+    label: field_convcatoria_email_proceso
     machine_name: field_convcatoria_email_proceso
   field_convcatoria_moneda:
-    label: field_convcatoria_moneda
     value: field_convcatoria_moneda
+    label: field_convcatoria_moneda
     machine_name: field_convcatoria_moneda
   field_convcatoria_objeto:
-    label: field_convcatoria_objeto
     value: field_convcatoria_objeto
+    label: field_convcatoria_objeto
     machine_name: field_convcatoria_objeto
   field_convcatoria_presupuesto:
-    label: field_convcatoria_presupuesto
     value: field_convcatoria_presupuesto
+    label: field_convcatoria_presupuesto
     machine_name: field_convcatoria_presupuesto
   field_convcatoria_programa:
-    label: field_convcatoria_programa
     value: field_convcatoria_programa
+    label: field_convcatoria_programa
     machine_name: field_convcatoria_programa
   field_convcatoria_tipo_compra:
-    label: field_convcatoria_tipo_compra
     value: field_convcatoria_tipo_compra
+    label: field_convcatoria_tipo_compra
     machine_name: field_convcatoria_tipo_compra
   field_convcatoria_contractual:
-    label: field_convcatoria_contractual
     value: field_convcatoria_contractual
+    label: field_convcatoria_contractual
     machine_name: field_convcatoria_contractual
   fecha:
-    label: fecha
     value: fecha
+    label: fecha
     machine_name: fecha
   field_convcatoria_forma_pago:
-    label: field_convcatoria_forma_pago
     value: field_convcatoria_forma_pago
+    label: field_convcatoria_forma_pago
     machine_name: field_convcatoria_forma_pago
   field_convcatoria_archivos:
-    label: field_convcatoria_archivos
     value: field_convcatoria_archivos
+    label: field_convcatoria_archivos
     machine_name: field_convcatoria_archivos
   field_convcatoria_archivos_1:
-    label: field_convcatoria_archivos_1
     value: field_convcatoria_archivos_1
+    label: field_convcatoria_archivos_1
     machine_name: field_convcatoria_archivos_1
   field_convcatoria_departamento:
-    label: field_convcatoria_departamento
     value: field_convcatoria_departamento
+    label: field_convcatoria_departamento
     machine_name: field_convcatoria_departamento
   field_convcatoria_estado:
-    label: field_convcatoria_estado
     value: field_convcatoria_estado
+    label: field_convcatoria_estado
     machine_name: field_convcatoria_estado
 mappings:
   -
     target: title
     map:
       value: title
-    unique:
-      value: '1'
     settings:
       language: null
+    unique:
+      value: '1'
   -
     target: created
     map:

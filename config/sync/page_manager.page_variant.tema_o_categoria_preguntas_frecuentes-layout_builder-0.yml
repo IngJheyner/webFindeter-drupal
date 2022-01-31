@@ -6,12 +6,13 @@ dependencies:
     - page_manager.page.tema_o_categoria_preguntas_frecuentes
 id: tema_o_categoria_preguntas_frecuentes-layout_builder-0
 label: Tema
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: 267da74d-5044-4f6f-8b98-ab8af7bf7b18
   label: null
   weight: 0
+  uuid: 267da74d-5044-4f6f-8b98-ab8af7bf7b18
   sections:
     -
       layout_id: bs_1col_stacked
@@ -49,30 +50,29 @@ variant_settings:
           configuration:
             id: 'views_block:preguntas_frecuentes-block_1'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: none
-            context_mapping: {  }
-          additional: {  }
           weight: 0
+          additional: {  }
         9023ff19-4608-425e-81f2-e9abf40c3409:
           uuid: 9023ff19-4608-425e-81f2-e9abf40c3409
           region: top
           configuration:
             id: 'block_content:b96fe7bd-33c9-4b7d-849a-7515c598cadb'
             label: 'Preguntas Frecuentes [ Encabezado ]'
-            provider: block_content
             label_display: '0'
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 0
+          additional: {  }
       third_party_settings: {  }
 page: tema_o_categoria_preguntas_frecuentes
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

@@ -11,11 +11,11 @@ source: 'oembed:video'
 queue_thumbnail_downloads: false
 new_revision: false
 source_configuration:
+  source_field: field_media_oembed_video
   thumbnails_directory: 'public://webfinde/internas/videos/thumbnails'
   providers:
     - YouTube
     - Vimeo
-  source_field: field_media_oembed_video
 field_map:
   title: name
   width: field_media_oembed_video

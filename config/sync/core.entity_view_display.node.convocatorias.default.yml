@@ -26,12 +26,12 @@ bundle: convocatorias
 mode: default
 content:
   field_convcatoria_tipo_compra:
-    weight: 1
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 1
     region: content
 hidden:
   addtoany: true

@@ -22,86 +22,86 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: node.noticias_home.full
 targetEntityType: node
 bundle: noticias_home
 mode: full
 content:
   addtoany:
+    settings: {  }
+    third_party_settings: {  }
     weight: 9
     region: content
-    settings: {  }
-    third_party_settings: {  }
   body:
-    label: hidden
     type: text_default
-    weight: 1
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
     region: content
   field_img_noticia_home:
-    weight: 3
+    type: image
     label: hidden
     settings:
-      image_style: noticias_home
       image_link: ''
+      image_style: noticias_home
     third_party_settings:
       field_formatter_class:
         class: ''
-    type: image
+    weight: 3
     region: content
   field_noticias_resumen_redes:
-    weight: 7
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 7
     region: content
   field_noticias_resumen_seo:
-    weight: 5
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 5
     region: content
   field_noticias_tipo_noticia_seo:
-    weight: 8
+    type: entity_reference_label
     label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 8
     region: content
   field_noticias_titulo_redes:
-    weight: 6
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 6
     region: content
   field_noticias_titulo_seo:
-    weight: 4
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 4
     region: content
   field_tipo_noticia:
-    weight: 2
+    type: entity_reference_label
     label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 2
     region: content
   links:
-    weight: 0
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   langcode: true

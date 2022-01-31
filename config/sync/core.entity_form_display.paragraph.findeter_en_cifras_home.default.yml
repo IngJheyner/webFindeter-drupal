@@ -17,69 +17,69 @@ third_party_settings:
     group_grupo_accordion:
       children:
         - group_cifras
+      label: 'Grupo Accordion'
+      region: content
       parent_name: ''
       weight: 0
       format_type: accordion
-      region: content
       format_settings:
-        effect: bounceslide
-        id: ''
         classes: ''
-      label: 'Grupo Accordion'
+        id: ''
+        effect: bounceslide
     group_cifras:
       children:
         - field_cifras_findeter_cifras
         - field_descripcion_cifras
         - field_img_principal_cifras
         - field_img_secundaria_cifras
+      label: '------Cifras-------'
+      region: content
       parent_name: group_grupo_accordion
       weight: 1
       format_type: accordion_item
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         formatter: closed
-        required_fields: true
         description: ''
-      label: '------Cifras-------'
+        required_fields: true
 id: paragraph.findeter_en_cifras_home.default
 targetEntityType: paragraph
 bundle: findeter_en_cifras_home
 mode: default
 content:
   field_cifras_findeter_cifras:
+    type: string_textfield
     weight: 2
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_descripcion_cifras:
+    type: string_textfield
     weight: 3
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_img_principal_cifras:
+    type: image_image
     weight: 4
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_img_secundaria_cifras:
+    type: image_image
     weight: 5
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
 hidden:
   created: true
   status: true

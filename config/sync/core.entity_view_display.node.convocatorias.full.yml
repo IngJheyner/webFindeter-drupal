@@ -28,23 +28,22 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: node.convocatorias.full
 targetEntityType: node
 bundle: convocatorias
 mode: full
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 1
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
     region: content
   field_convcatoria_archivos:
     type: entity_reference_entity_view
-    weight: 8
     label: hidden
     settings:
       view_mode: convocatorias_archivos
@@ -52,29 +51,30 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
+    weight: 8
     region: content
   field_convcatoria_contractual:
-    weight: 11
+    type: entity_reference_label
     label: above
     settings:
       link: false
     third_party_settings:
       field_formatter_class:
         class: ''
-    type: entity_reference_label
+    weight: 11
     region: content
   field_convcatoria_contratacion:
-    weight: 9
+    type: entity_reference_label
     label: above
     settings:
       link: false
     third_party_settings:
       field_formatter_class:
         class: ''
-    type: entity_reference_label
+    weight: 9
     region: content
   field_convcatoria_departamento:
-    weight: 7
+    type: cshs_full_hierarchy
     label: hidden
     settings:
       separator: ' - '
@@ -83,51 +83,51 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
-    type: cshs_full_hierarchy
+    weight: 7
     region: content
   field_convcatoria_email_proceso:
-    weight: 10
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 10
     region: content
   field_convcatoria_estado:
-    weight: 2
+    type: list_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 2
     region: content
   field_convcatoria_forma_pago:
-    weight: 12
+    type: entity_reference_label
     label: above
     settings:
       link: false
     third_party_settings:
       field_formatter_class:
         class: ''
-    type: entity_reference_label
+    weight: 12
     region: content
   field_convcatoria_moneda:
     type: entity_reference_label
-    weight: 4
-    region: content
     label: above
     settings:
       link: false
     third_party_settings:
       field_formatter_class:
         class: ''
+    weight: 4
+    region: content
   field_convcatoria_objeto:
-    weight: 6
+    type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 6
     region: content
   field_convcatoria_presupuesto:
-    weight: 5
+    type: number_decimal
     label: above
     settings:
       thousand_separator: ','
@@ -137,10 +137,10 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
-    type: number_decimal
+    weight: 5
     region: content
   field_convcatoria_programa:
-    weight: 3
+    type: cshs_group_by_root
     label: inline
     settings:
       linked: 0
@@ -148,13 +148,13 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
-    type: cshs_group_by_root
+    weight: 3
     region: content
   links:
-    weight: 0
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   addtoany: true
   feeds_item: true

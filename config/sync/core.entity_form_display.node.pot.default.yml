@@ -49,15 +49,15 @@ third_party_settings:
         - group_trayectoria_experiencia
         - group_nuestro_equipo
         - group_contactenos
+      label: 'Grupo Tabs'
+      region: content
       parent_name: ''
       weight: 0
       format_type: tabs
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         direction: horizontal
-      label: 'Grupo Tabs'
     group_informacion:
       children:
         - title
@@ -65,186 +65,186 @@ third_party_settings:
         - created
         - path
         - status
+      label: Información
+      region: content
       parent_name: group_grupo_tabs
       weight: 20
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Información
     group_encabezado_slider:
       children:
         - field_img_logo_findeter_pot
         - field_img_slider_pot
+      label: 'Encabezado Slider'
+      region: content
       parent_name: group_grupo_tabs
       weight: 21
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: 'Encabezado Slider'
     group__que_es_el_pot_:
       children:
         - field_titulo_pregunta_pot
         - field_img_galeria_pot
         - field_descripcion_pot
+      label: '¿Qué es el POT?'
+      region: content
       parent_name: group_grupo_tabs
       weight: 22
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: '¿Qué es el POT?'
     group_beneficios:
       children:
         - field_titulo_beneficio_pot
         - body
         - field_img_beneficios_pot
+      label: Beneficios
+      region: content
       parent_name: group_grupo_tabs
       weight: 23
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Beneficios
     group_servicios_findeter_pot:
       children:
         - field_titulo_servicios_pot
         - field_descripcion_servicio_pot
         - field_servicios_pot
+      label: Servicios
+      region: content
       parent_name: group_grupo_tabs
       weight: 24
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        direction: vertical
+        id: ''
         formatter: closed
         description: ''
         required_fields: true
-      label: Servicios
+        direction: vertical
     group__por_que_findeter_:
       children:
         - field_titulo_porque_findeter_pot
         - field_descripcion_porque_pot
         - field_cifras_pot
+      label: '¿Por que Findeter?'
+      region: content
       parent_name: group_grupo_tabs
       weight: 25
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: '¿Por que Findeter?'
     group_trayectoria_experiencia:
       children:
         - field_titulo_trayectoria_pot
         - field_descripcion_trayectora_pot
         - field_trayectoria_pot
+      label: 'Trayectoria y experiencia'
+      region: content
       parent_name: group_grupo_tabs
       weight: 26
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: 'Trayectoria y experiencia'
     group_nuestro_equipo:
       children:
         - field_titulo_nuestro_equipo_pot
         - field_descripcion_equipo_pot
         - field_img_equipo_pot
+      label: 'Nuestro Equipo'
+      region: content
       parent_name: group_grupo_tabs
       weight: 27
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: 'Nuestro Equipo'
     group_contactenos:
       children:
         - field_titulo_contactenos_pot
         - group_grupo_tabs_contactenos
+      label: Contáctenos
+      region: content
       parent_name: group_grupo_tabs
       weight: 28
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Contáctenos
     group_grupo_tabs_contactenos:
       children:
         - group_informacion_contactenos
         - group_formulario
+      label: 'Grupo Tabs Contactenos'
+      region: content
       parent_name: group_contactenos
       weight: 44
       format_type: tabs
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         direction: vertical
-      label: 'Grupo Tabs Contactenos'
     group_informacion_contactenos:
       children:
         - field_informacion_contacteno_pot
         - field_informacion_movil_pot
+      label: Información
+      region: content
       parent_name: group_grupo_tabs_contactenos
       weight: 20
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Información
     group_formulario:
       children:
         - field_formulario_contactenos_pot
+      label: Formulario
+      region: content
       parent_name: group_grupo_tabs_contactenos
       weight: 21
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Formulario
 id: node.pot.default
 targetEntityType: node
 bundle: pot
@@ -269,6 +269,7 @@ content:
   field_cifras_pot:
     type: entity_reference_paragraphs
     weight: 36
+    region: content
     settings:
       title: 'Agregar Cifra'
       title_plural: Cifras
@@ -277,114 +278,114 @@ content:
       form_display_mode: default
       default_paragraph_type: cifras_porque_findeter_pot
     third_party_settings: {  }
-    region: content
   field_descripcion_equipo_pot:
+    type: string_textarea
     weight: 41
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: content
   field_descripcion_porque_pot:
+    type: string_textarea
     weight: 35
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: content
   field_descripcion_pot:
+    type: string_textarea
     weight: 30
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: content
   field_descripcion_servicio_pot:
+    type: string_textarea
     weight: 32
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: content
   field_descripcion_trayectora_pot:
-    weight: 38
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
     type: string_textarea
+    weight: 38
     region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_formulario_contactenos_pot:
+    type: text_textarea
     weight: 46
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
   field_img_beneficios_pot:
+    type: image_image
     weight: 5
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_img_equipo_pot:
+    type: image_image
     weight: 42
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_img_galeria_pot:
+    type: image_image
     weight: 29
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_img_logo_findeter_pot:
+    type: image_image
     weight: 3
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_img_slider_pot:
+    type: image_image
     weight: 4
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_informacion_contacteno_pot:
+    type: text_textarea
     weight: 44
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
   field_informacion_movil_pot:
+    type: text_textarea
     weight: 45
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
   field_servicios_pot:
     type: entity_reference_paragraphs
     weight: 33
+    region: content
     settings:
       title: Servicio
       title_plural: Servicios
@@ -393,80 +394,79 @@ content:
       form_display_mode: default
       default_paragraph_type: servicios_findeter_pot
     third_party_settings: {  }
-    region: content
   field_titulo_beneficio_pot:
+    type: string_textfield
     weight: 2
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_titulo_contactenos_pot:
+    type: string_textfield
     weight: 43
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_titulo_nuestro_equipo_pot:
+    type: string_textfield
     weight: 40
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_titulo_porque_findeter_pot:
+    type: string_textfield
     weight: 34
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_titulo_pregunta_pot:
+    type: string_textfield
     weight: 28
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_titulo_servicios_pot:
+    type: string_textfield
     weight: 31
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_titulo_trayectoria_pot:
+    type: string_textfield
     weight: 37
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_trayectoria_pot:
+    type: inline_entity_form_complex
     weight: 40
+    region: content
     settings:
-      match_operator: CONTAINS
       form_mode: default
-      revision: false
       override_labels: false
       label_singular: ''
       label_plural: ''
-      collapsible: false
-      collapsed: false
       allow_new: true
       allow_existing: false
+      match_operator: CONTAINS
       allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
     third_party_settings: {  }
-    type: inline_entity_form_complex
-    region: content
   langcode:
     type: language_select
     weight: 2
@@ -482,10 +482,10 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 5
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield

@@ -16,23 +16,23 @@ bundle: documento_link_para_contenido_tr
 mode: default
 content:
   field_tipo_de_documento:
-    weight: 3
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 3
     region: content
   field_tr_paragr_docu_archi:
-    weight: 1
+    type: file_default
     label: above
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
-    type: file_default
+    weight: 1
     region: content
   field_tr_pargr_enlace_sitio_cont:
-    weight: 2
+    type: link
     label: above
     settings:
       trim_length: 80
@@ -41,6 +41,6 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    weight: 2
     region: content
 hidden: {  }

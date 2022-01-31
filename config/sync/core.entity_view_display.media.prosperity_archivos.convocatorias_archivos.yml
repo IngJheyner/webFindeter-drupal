@@ -13,8 +13,8 @@ dependencies:
     - layout_builder
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: media.prosperity_archivos.convocatorias_archivos
 targetEntityType: media
 bundle: prosperity_archivos
@@ -22,8 +22,6 @@ mode: convocatorias_archivos
 content:
   created:
     type: timestamp
-    weight: 3
-    region: content
     label: hidden
     settings:
       date_format: short
@@ -32,31 +30,33 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
+    weight: 3
+    region: content
   field_media_document:
     type: file_default
-    weight: 1
-    region: content
     label: hidden
     settings:
       use_description_as_link_text: false
     third_party_settings:
       field_formatter_class:
         class: ''
+    weight: 1
+    region: content
   field_prosperity_descripcion:
     type: basic_string
-    weight: 2
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 2
+    region: content
   name:
     type: string
-    weight: 0
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   addtoany: true
   langcode: true

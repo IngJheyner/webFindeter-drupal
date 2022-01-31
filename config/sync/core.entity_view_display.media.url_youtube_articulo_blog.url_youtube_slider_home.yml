@@ -12,8 +12,8 @@ dependencies:
     - media
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: media.url_youtube_articulo_blog.url_youtube_slider_home
 targetEntityType: media
 bundle: url_youtube_articulo_blog
@@ -21,8 +21,6 @@ mode: url_youtube_slider_home
 content:
   field_media_oembed_video:
     type: oembed
-    weight: 0
-    region: content
     label: hidden
     settings:
       max_width: 0
@@ -30,6 +28,8 @@ content:
     third_party_settings:
       field_formatter_class:
         class: w-100
+    weight: 0
+    region: content
 hidden:
   addtoany: true
   created: true
