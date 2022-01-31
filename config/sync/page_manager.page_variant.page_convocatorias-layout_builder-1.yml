@@ -7,8 +7,8 @@ dependencies:
   module:
     - user
 id: page_convocatorias-layout_builder-1
-label: 'Ciudadano [ Anonimo ]'
-weight: 1
+label: Convocatorias
+weight: -10
 variant: layout_builder
 variant_settings:
   id: layout_builder
@@ -75,13 +75,6 @@ variant_settings:
           additional: {  }
       third_party_settings: {  }
 page: page_convocatorias
-selection_criteria:
-  -
-    id: user_role
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
-    roles:
-      anonymous: anonymous
+selection_criteria: {  }
 selection_logic: and
 static_context: {  }
