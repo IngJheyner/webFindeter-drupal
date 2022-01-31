@@ -15,46 +15,46 @@ third_party_settings:
       children:
         - group_informacion
         - group_contenido
+      label: tabs_escala_salarial
+      region: content
       parent_name: ''
       weight: 0
       format_type: tabs
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         direction: horizontal
-      label: tabs_escala_salarial
     group_informacion:
       children:
         - title
         - langcode
         - uid
         - created
+      label: Información
+      region: content
       parent_name: group_tabs_escala_salarial
       weight: 10
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Información
     group_contenido:
       children:
         - field_contenido_escala_salarial
+      label: contenido
+      region: content
       parent_name: group_tabs_escala_salarial
       weight: 11
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: contenido
 id: node.escala_salarial.default
 targetEntityType: node
 bundle: escala_salarial
@@ -67,13 +67,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_contenido_escala_salarial:
+    type: text_textarea
     weight: 5
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
   langcode:
     type: language_select
     weight: 1
@@ -89,24 +89,24 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 1
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 4
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 2
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -119,16 +119,16 @@ content:
   uid:
     type: entity_reference_autocomplete
     weight: 2
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
-    region: content
     third_party_settings: {  }
   url_redirects:
     weight: 50
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden: {  }

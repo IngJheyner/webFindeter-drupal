@@ -12,29 +12,29 @@ dependencies:
     - svg_image
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: block_content.block_pqrs_encabezado.full
 targetEntityType: block_content
 bundle: block_pqrs_encabezado
 mode: full
 content:
   field_block_pqrs_img_encabezado:
-    weight: 0
+    type: image
     label: above
     settings:
-      image_style: ''
       image_link: ''
+      image_style: ''
     third_party_settings: {  }
-    type: image
+    weight: 0
     region: content
   field_pqrsd_titulo_defecto:
-    weight: 1
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 1
     region: content
 hidden:
   langcode: true

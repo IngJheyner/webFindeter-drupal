@@ -7,9 +7,9 @@ dependencies:
 third_party_settings:
   honeypot:
     time_restriction: true
+weight: 0
 open: null
 close: null
-weight: 0
 uid: 1
 template: false
 archive: false
@@ -17,7 +17,94 @@ id: formulario_lading_page
 title: 'Formulario Lading Page'
 description: 'Formulario que se utiliza en algunas secciones y nodos internos de la pagina para mostrar consultas por parte del usuario.'
 category: ''
-elements: "flexbox:\n  '#type': webform_flexbox\n  '#align_items': center\n  nombres_lading_page:\n    '#type': textfield\n    '#title': Nombres\n    '#title_display': before\n    '#autocomplete': ''\n    '#required': true\n    '#attributes':\n      style: 'background: white !important;'\n  apellidos_lading_page:\n    '#type': textfield\n    '#title': Apellidos\n    '#title_display': before\n    '#autocomplete': ''\n    '#required': true\n    '#attributes':\n      style: 'background: white !important;'\ncolumna_2:\n  '#type': webform_flexbox\n  '#align_items': center\n  cedula_lading_page:\n    '#type': number\n    '#title': Cédula\n    '#title_display': before\n    '#size': '9'\n    '#autocomplete': ''\n    '#required': true\n  celular_lading_page:\n    '#type': tel\n    '#title': Celular\n    '#title_display': before\n    '#autocomplete': ''\n    '#required': true\n    '#wrapper_attributes':\n      class:\n        - d-block\n    '#international': true\n    '#international_initial_country': CO\ncolumna_3:\n  '#type': webform_flexbox\n  email_lading_page:\n    '#type': email\n    '#title': Email\n    '#title_display': before\n    '#autocomplete': ''\n    '#required': true\n  departamento_lading_page:\n    '#type': webform_term_select\n    '#title': Departamento\n    '#title_display': before\n    '#select2': true\n    '#required': true\n    '#format': custom\n    '#format_text': '{{ elements_flattened }} {{ data.composite_element_key.delta.subelement_key }}'\n    '#vocabulary': colombia_deparments\n    '#breadcrumb': true\n    '#breadcrumb_delimiter': '-'\n    '#tree_delimiter': ''\n    '#depth': 2\ncolumna_4:\n  '#type': webform_flexbox\n  '#align_items': center\n  producto_servicio_lading_page:\n    '#type': webform_entity_select\n    '#title': 'Producto y/o Servicio'\n    '#title_display': before\n    '#required': true\n    '#target_type': node\n    '#selection_handler': 'default:node'\n    '#selection_settings':\n      target_bundles:\n        productos_servicios: productos_servicios\n  sector_lading_page:\n    '#type': webform_select_other\n    '#title': Sector\n    '#title_display': before\n    '#options':\n      publico: Publico\n      privado: Privado\n    '#other__option_label': 'Otro, cuál:'\n    '#required': true\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': Enviar"
+elements: |-
+  flexbox:
+    '#type': webform_flexbox
+    '#align_items': center
+    nombres_lading_page:
+      '#type': textfield
+      '#title': Nombres
+      '#title_display': before
+      '#autocomplete': ''
+      '#required': true
+      '#attributes':
+        style: 'background: white !important;'
+    apellidos_lading_page:
+      '#type': textfield
+      '#title': Apellidos
+      '#title_display': before
+      '#autocomplete': ''
+      '#required': true
+      '#attributes':
+        style: 'background: white !important;'
+  columna_2:
+    '#type': webform_flexbox
+    '#align_items': center
+    cedula_lading_page:
+      '#type': number
+      '#title': Cédula
+      '#title_display': before
+      '#size': '9'
+      '#autocomplete': ''
+      '#required': true
+    celular_lading_page:
+      '#type': tel
+      '#title': Celular
+      '#title_display': before
+      '#autocomplete': ''
+      '#required': true
+      '#wrapper_attributes':
+        class:
+          - d-block
+      '#international': true
+      '#international_initial_country': CO
+  columna_3:
+    '#type': webform_flexbox
+    email_lading_page:
+      '#type': email
+      '#title': Email
+      '#title_display': before
+      '#autocomplete': ''
+      '#required': true
+    departamento_lading_page:
+      '#type': webform_term_select
+      '#title': Departamento
+      '#title_display': before
+      '#select2': true
+      '#required': true
+      '#format': custom
+      '#format_text': '{{ elements_flattened }} {{ data.composite_element_key.delta.subelement_key }}'
+      '#vocabulary': colombia_deparments
+      '#breadcrumb': true
+      '#breadcrumb_delimiter': '-'
+      '#tree_delimiter': ''
+      '#depth': 2
+  columna_4:
+    '#type': webform_flexbox
+    '#align_items': center
+    producto_servicio_lading_page:
+      '#type': webform_entity_select
+      '#title': 'Producto y/o Servicio'
+      '#title_display': before
+      '#required': true
+      '#target_type': node
+      '#selection_handler': 'default:node'
+      '#selection_settings':
+        target_bundles:
+          productos_servicios: productos_servicios
+    sector_lading_page:
+      '#type': webform_select_other
+      '#title': Sector
+      '#title_display': before
+      '#options':
+        publico: Publico
+        privado: Privado
+      '#other__option_label': 'Otro, cuál:'
+      '#required': true
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#submit__label': Enviar
 css: ''
 javascript: ''
 settings:
@@ -32,9 +119,9 @@ settings:
   page_theme_name: ''
   form_title: source_entity_webform
   form_submit_once: false
-  form_exception_message: ''
   form_open_message: ''
   form_close_message: ''
+  form_exception_message: ''
   form_previous_submissions: false
   form_confidential: false
   form_confidential_message: ''
@@ -44,31 +131,36 @@ settings:
   form_prepopulate_source_entity: false
   form_prepopulate_source_entity_required: false
   form_prepopulate_source_entity_type: ''
-  form_reset: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
   form_disable_autocomplete: false
   form_novalidate: false
   form_disable_inline_errors: false
   form_required: false
-  form_unsaved: false
-  form_disable_back: false
-  form_submit_back: false
   form_autofocus: false
   form_details_toggle: false
+  form_reset: false
   form_access_denied: default
   form_access_denied_title: ''
   form_access_denied_message: ''
   form_access_denied_attributes: {  }
   form_file_limit: ''
+  form_attributes: {  }
   form_method: ''
   form_action: ''
-  form_attributes: {  }
   share: false
   share_node: false
   share_theme_name: ''
   share_title: true
   share_page_body_attributes: {  }
   submission_label: Enviar
+  submission_exception_message: ''
+  submission_locked_message: ''
   submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
   submission_views: {  }
   submission_views_replace: {  }
   submission_user_columns: {  }
@@ -77,11 +169,6 @@ settings:
   submission_access_denied_title: ''
   submission_access_denied_message: ''
   submission_access_denied_attributes: {  }
-  submission_exception_message: ''
-  submission_locked_message: ''
-  submission_excluded_elements: {  }
-  submission_exclude_empty: false
-  submission_exclude_empty_checkbox: false
   previous_submission_message: ''
   previous_submissions_message: ''
   autofill: false
@@ -92,13 +179,13 @@ settings:
   wizard_progress_percentage: false
   wizard_progress_link: false
   wizard_progress_states: false
-  wizard_auto_forward: true
-  wizard_auto_forward_hide_next_button: false
-  wizard_keyboard: true
   wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
   wizard_confirmation_label: ''
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
   wizard_track: ''
   wizard_prev_button_label: ''
   wizard_next_button_label: ''
@@ -121,9 +208,9 @@ settings:
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
   confirmation_type: message
+  confirmation_url: ''
   confirmation_title: ''
   confirmation_message: ''
-  confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''

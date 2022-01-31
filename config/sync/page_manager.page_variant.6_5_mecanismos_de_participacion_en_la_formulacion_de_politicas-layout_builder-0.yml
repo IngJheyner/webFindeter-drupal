@@ -6,12 +6,13 @@ dependencies:
     - page_manager.page.6_5_mecanismos_de_participacion_en_la_formulacion_de_politicas
 id: 6_5_mecanismos_de_participacion_en_la_formulacion_de_politicas-layout_builder-0
 label: 'Mecanismos de participación en la formulación de políticas'
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: d37d6179-28f0-4e9f-a2c3-f0fc470f9496
   label: null
   weight: 0
+  uuid: d37d6179-28f0-4e9f-a2c3-f0fc470f9496
   sections:
     -
       layout_id: bs_2col_stacked
@@ -55,48 +56,47 @@ variant_settings:
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
             label: 'Transparencia y acceso a la información pública'
-            provider: block_content
             label_display: visible
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 2
+          additional: {  }
         fd47a1a4-8e9b-4297-8e85-3d90a7f301ff:
           uuid: fd47a1a4-8e9b-4297-8e85-3d90a7f301ff
           region: left
           configuration:
             id: 'views_block:transparencia_acceso_informacion_publica-6_5_mecanismos_de_participacion_en_la_formulacion_de_politicas'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: '1'
-            context_mapping: {  }
-          additional: {  }
           weight: 1
+          additional: {  }
         7d018cce-2f2c-4bde-8385-34c97345b133:
           uuid: 7d018cce-2f2c-4bde-8385-34c97345b133
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
             label: 'Transparencia y Acceso a la información Pública'
-            provider: menu_block
             label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
             follow: false
             follow_parent: child
             level: 1
             depth: 1
-            expand: false
             parent: 'transparencia-acceso-informacion:menu_link_content:2bcec003-9329-4286-9ed5-3140842114ed'
             suggestion: transparencia_acceso_informacion_sidebar
-            context_mapping: {  }
-          additional: {  }
+            expand: false
           weight: 2
+          additional: {  }
       third_party_settings: {  }
 page: 6_5_mecanismos_de_participacion_en_la_formulacion_de_politicas
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

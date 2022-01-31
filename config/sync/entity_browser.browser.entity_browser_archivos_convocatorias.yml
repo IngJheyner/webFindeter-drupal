@@ -27,9 +27,12 @@ widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
   9eaa4759-3f53-4183-b86d-6cd37f930b49:
+    id: dropzonejs_media_entity_inline_entity_form
+    uuid: 9eaa4759-3f53-4183-b86d-6cd37f930b49
+    label: 'Biblioteca de Archivos Convocatorias'
+    weight: 1
     settings:
-      form_mode: default
-      media_type: mltdia_convcatoria_archivo
+      submit_text: 'Subir Archivos'
       upload_location: 'public://[date:custom:Y]-[date:custom:m]'
       dropzone_description: 'Suelta los archivos aquí para subirlos'
       max_filesize: 2048M
@@ -40,8 +43,5 @@ widgets:
       resize_quality: !!float 1
       resize_method: contain
       thumbnail_method: contain
-      submit_text: 'Subir Archivos'
-    uuid: 9eaa4759-3f53-4183-b86d-6cd37f930b49
-    weight: 1
-    label: 'Biblioteca de Archivos Convocatorias'
-    id: dropzonejs_media_entity_inline_entity_form
+      media_type: mltdia_convcatoria_archivo
+      form_mode: default

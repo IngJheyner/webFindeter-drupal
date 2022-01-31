@@ -21,18 +21,18 @@ third_party_settings:
         - field_img_fondo_preg_frecuentes
         - body
         - langcode
+      label: 'Información y Contenido'
+      region: content
       parent_name: ''
       weight: 0
       format_type: details_sidebar
-      region: content
       format_settings:
-        description: ''
-        weight: 0
-        required_fields: true
-        id: ''
         classes: ''
+        id: ''
         open: false
-      label: 'Información y Contenido'
+        description: ''
+        required_fields: true
+        weight: 0
 id: block_content.preguntas_frecuentes.default
 targetEntityType: block_content
 bundle: preguntas_frecuentes
@@ -41,29 +41,29 @@ content:
   body:
     type: text_textarea_with_summary
     weight: 29
+    region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-    region: content
   field_img_fondo_preg_frecuentes:
+    type: image_image
     weight: 28
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_titulo_preg_frecuentes:
+    type: string_textfield
     weight: 26
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   info:
     type: string_textfield
     weight: 27

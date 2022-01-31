@@ -6,12 +6,13 @@ dependencies:
     - page_manager.page.3_2_funciones_y_deberes
 id: 3_2_funciones_y_deberes-layout_builder-0
 label: 'Msiión, Visión, Funciones y deberes'
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: 2b024767-ac49-44c2-b974-200277c99700
   label: null
   weight: 0
+  uuid: 2b024767-ac49-44c2-b974-200277c99700
   sections:
     -
       layout_id: bs_2col_stacked
@@ -55,50 +56,49 @@ variant_settings:
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
             label: 'Transparencia y acceso a la información pública'
-            provider: block_content
             label_display: visible
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 3
+          additional: {  }
         385dfbd7-f242-4e08-9760-96d6256e3e71:
           uuid: 385dfbd7-f242-4e08-9760-96d6256e3e71
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
             label: 'Transparencia y Acceso a la información Pública'
-            provider: menu_block
             label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
             follow: false
             follow_parent: child
+            label_link: false
+            label_type: block
             level: 1
             depth: 1
             expand_all_items: true
             parent: 'transparencia-acceso-informacion:menu_link_content:9d663ce0-7090-4f10-9bc9-f402051bee86'
             suggestion: transparencia_acceso_informacion_sidebar
-            label_type: block
-            label_link: false
-            context_mapping: {  }
-          additional: {  }
           weight: 3
+          additional: {  }
         8b5627aa-b6cc-4f16-bedd-901c4265a2aa:
           uuid: 8b5627aa-b6cc-4f16-bedd-901c4265a2aa
           region: left
           configuration:
             id: 'views_block:transparencia_acceso_informacion_publica-mision_vision_funciones_y_deberes'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: none
-            context_mapping: {  }
-          additional: {  }
           weight: 3
+          additional: {  }
       third_party_settings: {  }
 page: 3_2_funciones_y_deberes
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

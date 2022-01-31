@@ -16,8 +16,6 @@ mode: media_library
 content:
   field_media_oembed_video:
     type: oembed
-    weight: 0
-    region: content
     label: hidden
     settings:
       max_width: 0
@@ -25,6 +23,8 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
+    weight: 0
+    region: content
 hidden:
   addtoany: true
   created: true

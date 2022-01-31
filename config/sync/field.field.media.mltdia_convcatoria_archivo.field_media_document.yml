@@ -17,15 +17,15 @@ third_party_settings:
         slashes: false
         pathauto: false
         transliterate: false
-    redirect: false
-    retroactive_update: false
-    active_updating: false
     file_name:
       value: 'convocatorias/[media:field_convcatoria_ruta_archivo]/[file:name]'
       options:
         slashes: false
         pathauto: false
         transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
 id: media.mltdia_convcatoria_archivo.field_media_document
 field_name: field_media_document
 entity_type: media
@@ -37,10 +37,10 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
+  handler: 'default:file'
+  handler_settings: {  }
   file_directory: ''
   file_extensions: 'doc docx pdf xls xlsx zip rar dwg 7z png jpg pptx cfg tif txt bak ctb log 001 012 i00 15o o00 mp4 xlsm'
   max_filesize: '300 MB'
   description_field: false
-  handler: 'default:file'
-  handler_settings: {  }
 field_type: file

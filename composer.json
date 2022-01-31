@@ -55,11 +55,11 @@
         "drupal/config_split": "^1.7",
         "drupal/console": "^1.0.2",
         "drupal/content_access": "^1.0@alpha",
-        "drupal/core": "9.0",
-        "drupal/core-composer-scaffold": "9.0",
+        "drupal/core": "^9.0",
+        "drupal/core-composer-scaffold": "^9.0",
         "drupal/cshs": "^3.0",
         "drupal/custom_search": "^1.0@beta",
-        "drupal/easy_breadcrumb": "^1.13",
+        "drupal/easy_breadcrumb": "^2.0",
         "drupal/easy_install": "^10.4",
         "drupal/editor_file": "^1.5",
         "drupal/encrypt": "^3.0",
@@ -81,9 +81,9 @@
         "drupal/mailchimp": "^1.11",
         "drupal/menu_block": "^1.6",
         "drupal/menu_per_role": "^1.2",
-        "drupal/migrate_plus": "5.1",
+        "drupal/migrate_plus": "^5.1",
         "drupal/migrate_source_csv": "^3.4",
-        "drupal/migrate_tools": "^4.5",
+        "drupal/migrate_tools": "^5.0",
         "drupal/module_filter": "^3.2",
         "drupal/page_manager": "^4.0@beta",
         "drupal/panels": "^4.6",
@@ -129,7 +129,7 @@
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
-        "drupal/core-dev": "9.0"
+        "drupal/core-dev": "^9.0"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -190,7 +190,8 @@
                 "Notice: Undefined index: value in Drupal\\views\\Plugin\\views\\filter\\NumericFilter->acceptExposedInput()": "https://www.drupal.org/files/issues/2020-06-04/2825860-exposed-filter-notice-38.patch",
                 "Multiple usages of FieldPluginBase::getEntity do not check for NULL, leading to WSOD": "https://www.drupal.org/files/issues/2020-09-03/3007424-108.patch",
                 "AssertionError: Tokens need to be valid Twig variables. in assert": "https://www.drupal.org/files/issues/2019-05-22/views-ignore_invalid_tokens_in_replace-3056489-1-D8.6.16.patch",
-                "Exposed date filter leads to a notice": "https://www.drupal.org/files/issues/2020-11-12/2811887-53.patch"
+                "Exposed date filter leads to a notice": "https://www.drupal.org/files/issues/2020-11-12/2811887-53.patch",
+                "Argument #1 ($uri) must be of type string, null given": "https://www.drupal.org/files/issues/2021-12-18/file-url-generator-3254245-34.patch"
 
             },
             "drupal/redis": {

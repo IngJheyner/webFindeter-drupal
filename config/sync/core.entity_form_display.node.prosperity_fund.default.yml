@@ -17,15 +17,15 @@ third_party_settings:
       children:
         - group_informacion
         - group_multimedia
+      label: 'Grupo Tabs'
+      region: content
       parent_name: ''
       weight: 0
       format_type: tabs
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         direction: horizontal
-      label: 'Grupo Tabs'
     group_informacion:
       children:
         - title
@@ -35,31 +35,31 @@ third_party_settings:
         - langcode
         - path
         - status
+      label: Información
+      region: content
       parent_name: group_grupo_tabs
       weight: 20
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Información
     group_multimedia:
       children:
         - field_prosperity_archivos
+      label: Multimedia
+      region: content
       parent_name: group_grupo_tabs
       weight: 21
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Multimedia
 id: node.prosperity_fund.default
 targetEntityType: node
 bundle: prosperity_fund
@@ -74,16 +74,16 @@ content:
   field_prosperity_archivos:
     type: media_library_widget
     weight: 1
+    region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
-    region: content
   field_prosperity_proceso:
+    type: options_select
     weight: 2
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   langcode:
     type: language_select
     weight: 5
@@ -99,10 +99,10 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 7
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -115,18 +115,18 @@ content:
   uid:
     type: entity_reference_autocomplete
     weight: 4
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
-    region: content
     third_party_settings: {  }
   url_redirects:
     weight: 50
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   body: true
   promote: true

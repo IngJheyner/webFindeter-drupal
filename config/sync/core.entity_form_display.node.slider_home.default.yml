@@ -21,15 +21,15 @@ third_party_settings:
       children:
         - group_informacion
         - group_contenido
+      label: 'Grupo Tabs'
+      region: content
       parent_name: ''
       weight: 0
       format_type: tabs
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         direction: horizontal
-      label: 'Grupo Tabs'
     group_informacion:
       children:
         - title
@@ -38,48 +38,48 @@ third_party_settings:
         - created
         - path
         - status
+      label: Información
+      region: content
       parent_name: group_grupo_tabs
       weight: 13
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Información
     group_contenido:
       children:
         - body
         - group_multimedia
+      label: Contenido
+      region: content
       parent_name: group_grupo_tabs
       weight: 14
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Contenido
     group_multimedia:
       children:
         - field_slider_multimedia
         - field_image
         - field_slider_video_html
+      label: Multimedia
+      region: content
       parent_name: group_contenido
       weight: 3
       format_type: fieldset
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         description: ''
-        formatter: closed
         required_fields: true
-      label: Multimedia
+        formatter: closed
 id: node.slider_home.default
 targetEntityType: node
 bundle: slider_home
@@ -88,13 +88,13 @@ content:
   body:
     type: text_textarea_with_summary
     weight: 2
+    region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-    region: content
   created:
     type: datetime_timestamp
     weight: 4
@@ -102,25 +102,25 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_image:
+    type: image_image
     weight: 5
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_slider_multimedia:
-    weight: 4
-    settings: {  }
-    third_party_settings: {  }
     type: options_buttons
+    weight: 4
     region: content
-  field_slider_video_html:
-    weight: 6
     settings: {  }
     third_party_settings: {  }
+  field_slider_video_html:
     type: video_embed_field_textfield
+    weight: 6
     region: content
+    settings: {  }
+    third_party_settings: {  }
   langcode:
     type: language_select
     weight: 2
@@ -136,10 +136,10 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 6
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -152,12 +152,12 @@ content:
   uid:
     type: entity_reference_autocomplete
     weight: 3
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
-    region: content
     third_party_settings: {  }
 hidden:
   promote: true

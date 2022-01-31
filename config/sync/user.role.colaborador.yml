@@ -1,7 +1,15 @@
 uuid: 56e834d1-9f36-457d-8e38-ca32b0f3d745
 langcode: es
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - node.type.10_12_informe_de_peticiones_quej
+    - node.type.pqrsd
+  module:
+    - field_permissions
+    - node
+    - system
+    - toolbar
 id: colaborador
 label: 'PQRSD Colaborador'
 weight: 5

@@ -16,8 +16,8 @@ plugin: custom_search
 settings:
   id: custom_search
   label: 'Buscador [ Blog ]'
-  provider: custom_search
   label_display: '0'
+  provider: custom_search
   search_box:
     label_visibility: false
     label: ''
@@ -33,6 +33,7 @@ settings:
     weight: -9
     region: block
   content:
+    page: blog
     types:
       articulo_blog: articulo_blog
       1_1_canales_atencion_ciudadano: '0'
@@ -245,48 +246,6 @@ settings:
       webform: '0'
     weight: -8
     region: popup
-    page: blog
-  criteria:
-    or:
-      display: false
-      label: 'Que contenga cualquiera de las palabras'
-      weight: -6
-      region: popup
-    phrase:
-      display: false
-      label: 'Que contenga la frase'
-      weight: -5
-      region: popup
-    negative:
-      display: false
-      label: 'Que no contenga ninguna de las palabras'
-      weight: -4
-      region: popup
-  languages:
-    languages:
-      current: '0'
-      es: '0'
-      und: '0'
-      zxx: '0'
-    selector:
-      type: select
-      label_visibility: true
-      label: Languages
-    any:
-      text: '- Cualquiera -'
-      restricts: false
-      force: false
-    weight: -3
-    region: popup
-  paths:
-    list: ''
-    selector:
-      type: select
-      label_visibility: false
-      label: 'Customize your search'
-    separator: +
-    weight: -2
-    region: popup
   taxonomy:
     blog:
       type: disabled
@@ -294,24 +253,24 @@ settings:
       label_visibility: true
       label: blog
       all_text: '- Cualquiera -'
-      region: popup
       weight: -7
+      region: popup
     node_search:
       type: disabled
       depth: 0
       label_visibility: true
       label: Contenido
       all_text: '- Cualquiera -'
-      region: block
       weight: -6
+      region: block
     user_search:
       type: disabled
       depth: 0
       label_visibility: true
       label: Usuarios
       all_text: '- Cualquiera -'
-      region: block
       weight: -5
+      region: block
     colombia_deparments:
       type: disabled
       depth: null
@@ -416,9 +375,50 @@ settings:
       all_text: '- Cualquiera -'
       weight: null
       region: null
+  criteria:
+    or:
+      display: false
+      label: 'Que contenga cualquiera de las palabras'
+      weight: -6
+      region: popup
+    phrase:
+      display: false
+      label: 'Que contenga la frase'
+      weight: -5
+      region: popup
+    negative:
+      display: false
+      label: 'Que no contenga ninguna de las palabras'
+      weight: -4
+      region: popup
+  languages:
+    languages:
+      current: '0'
+      es: '0'
+      und: '0'
+      zxx: '0'
+    selector:
+      type: select
+      label_visibility: true
+      label: Languages
+    any:
+      text: '- Cualquiera -'
+      restricts: false
+      force: false
+    weight: -3
+    region: popup
+  paths:
+    selector:
+      type: select
+      label_visibility: false
+      label: 'Customize your search'
+    list: ''
+    separator: +
+    weight: -2
+    region: popup
 visibility:
   request_path:
     id: request_path
-    pages: /blog
     negate: false
     context_mapping: {  }
+    pages: /blog

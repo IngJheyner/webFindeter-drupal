@@ -16,25 +16,25 @@ bundle: 6_1_politicas_lineamientos_y_man
 mode: default
 content:
   field_cont_politicas_lineamiento:
-    weight: 101
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 101
     region: content
   field_tr_parag_archivo_politicas:
     type: entity_reference_revisions_entity_view
-    weight: 102
     label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    weight: 102
     region: content
   links:
-    weight: 100
     settings: {  }
     third_party_settings: {  }
+    weight: 100
     region: content
 hidden:
   addtoany: true

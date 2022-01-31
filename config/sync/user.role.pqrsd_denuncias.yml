@@ -1,7 +1,14 @@
 uuid: 9fbc1084-5b44-4b20-8937-ff9232b72c60
 langcode: es
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - node.type.pqrsd
+  module:
+    - field_permissions
+    - node
+    - system
+    - toolbar
 id: pqrsd_denuncias
 label: 'PQRSD Denuncias'
 weight: 10

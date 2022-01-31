@@ -26,15 +26,15 @@ third_party_settings:
         - group_informacion
         - group_encabezado
         - group_contenido
+      label: 'Grupo Tabs'
+      region: content
       parent_name: ''
       weight: 0
       format_type: tabs
-      region: content
       format_settings:
-        direction: horizontal
-        id: ''
         classes: ''
-      label: 'Grupo Tabs'
+        id: ''
+        direction: horizontal
     group_informacion:
       children:
         - title
@@ -45,32 +45,32 @@ third_party_settings:
         - sticky
         - path
         - status
+      label: Información
+      region: content
       parent_name: group_grupo_tabs
       weight: 5
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Información
     group_encabezado:
       children:
         - field_ps_titulo_encabezado
         - field_ps_img_encabezado
+      label: Encabezado
+      region: content
       parent_name: group_grupo_tabs
       weight: 20
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Encabezado
     group_contenido:
       children:
         - field_ps_imagen_portada
@@ -78,58 +78,58 @@ third_party_settings:
         - body
         - field_ps_titulo_tabs_opc1
         - group_prestancion_uno_1
+      label: Contenido
+      region: content
       parent_name: group_grupo_tabs
       weight: 20
       format_type: tab
-      region: content
       format_settings:
-        description: ''
-        formatter: open
-        required_fields: true
-        id: ''
         classes: ''
-      label: Contenido
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
     group_prestancion_uno_1:
       children:
         - group_items_menu_navegacion
         - group_ps_paragra_contenido_itern
+      label: 'Group Tabs Iternas'
+      region: content
       parent_name: group_contenido
       weight: 17
       format_type: tabs
-      region: content
       format_settings:
-        direction: vertical
-        id: ''
         classes: ''
-      label: 'Group Tabs Iternas'
+        id: ''
+        direction: vertical
     group_items_menu_navegacion:
       children:
         - field_ps_items
+      label: 'Items o menu de navegacion principal'
+      region: content
       parent_name: group_prestancion_uno_1
       weight: 20
       format_type: tab
-      region: content
       format_settings:
-        description: "Items principal que se visualizan como menú de navegación o tabs del contenido. <br><br>\r\nColoque los items en orden del primero al ultimo la cual se visualiza de izquierda a derecha, es muy <b>importante</b> ordenar de tal manera que en los <i>Contenidos internos para cada uno de los items</i> deben quedar en el mismo orden para los items principales."
-        formatter: closed
-        required_fields: true
-        id: ''
         classes: ''
-      label: 'Items o menu de navegacion principal'
+        id: ''
+        formatter: closed
+        description: "Items principal que se visualizan como menú de navegación o tabs del contenido. <br><br>\r\nColoque los items en orden del primero al ultimo la cual se visualiza de izquierda a derecha, es muy <b>importante</b> ordenar de tal manera que en los <i>Contenidos internos para cada uno de los items</i> deben quedar en el mismo orden para los items principales."
+        required_fields: true
     group_ps_paragra_contenido_itern:
       children:
         - field_ps_paragra_tabs_internas
+      label: 'Contenido Interno, para cada uno de los items o menú principal'
+      region: content
       parent_name: group_prestancion_uno_1
       weight: 21
       format_type: tab
-      region: content
       format_settings:
-        description: ''
-        formatter: closed
-        required_fields: true
-        id: ''
         classes: ''
-      label: 'Contenido Interno, para cada uno de los items o menú principal'
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
 id: node.productos_servicios.default
 targetEntityType: node
 bundle: productos_servicios
@@ -138,13 +138,13 @@ content:
   body:
     type: text_textarea_with_summary
     weight: 15
+    region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-    region: content
   created:
     type: datetime_timestamp
     weight: 4
@@ -152,40 +152,41 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_ps_descripcion:
+    type: string_textarea
     weight: 14
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: content
   field_ps_imagen_portada:
+    type: image_image
     weight: 13
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_ps_img_encabezado:
+    type: image_image
     weight: 13
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_ps_items:
+    type: string_textfield
     weight: 21
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_ps_paragra_tabs_internas:
     type: entity_reference_paragraphs
     weight: 22
+    region: content
     settings:
       title: Párrafo
       title_plural: Parráfos
@@ -194,24 +195,23 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
-    region: content
   field_ps_titulo_encabezado:
+    type: string_textfield
     weight: 12
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_ps_titulo_tabs_opc1:
+    type: string_textfield
     weight: 16
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings:
       conditional_fields: {  }
-    type: string_textfield
-    region: content
   langcode:
     type: language_select
     weight: 2
@@ -227,24 +227,24 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 6
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 9
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 7
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -257,12 +257,12 @@ content:
   uid:
     type: entity_reference_autocomplete
     weight: 3
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
-    region: content
     third_party_settings: {  }
   url_redirects:
     weight: 50

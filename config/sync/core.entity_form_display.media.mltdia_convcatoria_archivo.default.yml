@@ -22,16 +22,16 @@ third_party_settings:
         - field_convcatoria_tipo_adjunto
         - status
         - created
+      label: Grupo
+      region: content
       parent_name: ''
       weight: 0
       format_type: fieldset
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         description: ''
         required_fields: true
-      label: Grupo
 id: media.mltdia_convcatoria_archivo.default
 targetEntityType: media
 bundle: mltdia_convcatoria_archivo
@@ -44,13 +44,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_convcatoria_ruta_archivo:
+    type: string_textfield
     weight: 26
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_convcatoria_tipo_adjunto:
     type: options_select
     weight: 28

@@ -8,12 +8,13 @@ dependencies:
     - user
 id: 2_3_convocatorias-layout_builder-1
 label: Funcionarios
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: 9c7690bb-4e2f-4325-b116-002cc8f4da10
   label: null
   weight: 0
+  uuid: 9c7690bb-4e2f-4325-b116-002cc8f4da10
   sections:
     -
       layout_id: bs_2col_stacked
@@ -57,57 +58,56 @@ variant_settings:
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
             label: 'Transparencia y acceso a la información pública'
-            provider: block_content
             label_display: visible
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 3
+          additional: {  }
         d225a814-b252-41cd-9c33-6ffaf6a5d9ba:
           uuid: d225a814-b252-41cd-9c33-6ffaf6a5d9ba
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
             label: 'Transparencia y Acceso a la información Pública'
-            provider: menu_block
             label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
             follow: false
             follow_parent: child
             level: 1
             depth: 1
-            expand: false
             parent: 'transparencia-acceso-informacion:menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
             suggestion: transparencia_acceso_informacion_sidebar
-            context_mapping: {  }
-          additional: {  }
+            expand: false
           weight: 2
+          additional: {  }
         c20bbb09-2090-489d-b6f1-1c6b2f1d5fbe:
           uuid: c20bbb09-2090-489d-b6f1-1c6b2f1d5fbe
           region: left
           configuration:
             id: 'views_block:convocatorias-block_convocatoria_funcionario'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: none
-            context_mapping: {  }
-          additional: {  }
           weight: 3
+          additional: {  }
       third_party_settings: {  }
 page: 2_3_convocatorias
-weight: 0
 selection_criteria:
   -
     id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
     roles:
       authenticated: authenticated
       abogado: abogado
       secretaria_general: secretaria_general
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
 selection_logic: and
 static_context: {  }

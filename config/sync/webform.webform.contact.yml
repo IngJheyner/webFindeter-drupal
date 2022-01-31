@@ -5,9 +5,11 @@ dependencies:
   enforced:
     module:
       - webform
+_core:
+  default_config_hash: ywLzu4PKup4MjhKzlVPqWyRXPu5co-ou5hySnaWh6Uc
+weight: 0
 open: null
 close: null
-weight: 0
 uid: null
 template: false
 archive: false
@@ -15,7 +17,69 @@ id: contact
 title: 'Formulario de Contacto'
 description: '<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Formulario web b&aacute;sico de contacto por correo electr&oacute;nico.</font></font>'
 category: ''
-elements: "titulo_parrafo:\n  '#type': webform_markup\n  '#markup': |\n    <h4>Su opini&oacute;n es importante para nosotros</h4>\n    &nbsp;\n    \n    <p>Perm&iacute;tanos conocer sus comentarios acerca de cualquier tema relacionado con nuestra organizaci&oacute;n.</p>\n    \nemail:\n  '#type': email\n  '#title': 'Correo electrónico'\n  '#title_display': before\n  '#placeholder': mail@dominio.com\n  '#required': true\n  '#default_value': '[current-user:mail]'\n  '#label_attributes':\n    class:\n      - font-weight-bold\nsubject:\n  '#type': textfield\n  '#title': Asunto\n  '#title_display': before\n  '#placeholder': Asunto\n  '#required': true\n  '#label_attributes':\n    class:\n      - font-weight-bold\n  '#test': 'Testing contact webform from [site:name]'\ntelefono_celular:\n  '#type': tel\n  '#title': 'Teléfono Celular'\n  '#title_display': before\n  '#required': true\n  '#required_error': 'El campo teléfono celular es requerido.'\n  '#label_attributes':\n    class:\n      - font-weight-bold\n  '#international': true\n  '#international_initial_country': CO\nmessage:\n  '#type': textarea\n  '#title': Mensaje\n  '#title_display': before\n  '#placeholder': Mensaje\n  '#required': true\n  '#label_attributes':\n    class:\n      - font-weight-bold\n  '#test': 'Please ignore this email.'\ncheck_contactenos_form_acepta_terminos_y_condiciones:\n  '#type': checkbox\n  '#title': 'Acepto términos y condiciones'\n  '#required': true\n  '#required_error': 'Debe aceptar los términos y condiciones'\n  '#attributes':\n    style: 'font-size:5px'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': Enviar\n  '#submit__attributes':\n    style: 'background-color: #2d549d !important;'"
+elements: |-
+  titulo_parrafo:
+    '#type': webform_markup
+    '#markup': |
+      <h4>Su opini&oacute;n es importante para nosotros</h4>
+      &nbsp;
+      
+      <p>Perm&iacute;tanos conocer sus comentarios acerca de cualquier tema relacionado con nuestra organizaci&oacute;n.</p>
+      
+  email:
+    '#type': email
+    '#title': 'Correo electrónico'
+    '#title_display': before
+    '#placeholder': mail@dominio.com
+    '#required': true
+    '#default_value': '[current-user:mail]'
+    '#label_attributes':
+      class:
+        - font-weight-bold
+  subject:
+    '#type': textfield
+    '#title': Asunto
+    '#title_display': before
+    '#placeholder': Asunto
+    '#required': true
+    '#label_attributes':
+      class:
+        - font-weight-bold
+    '#test': 'Testing contact webform from [site:name]'
+  telefono_celular:
+    '#type': tel
+    '#title': 'Teléfono Celular'
+    '#title_display': before
+    '#required': true
+    '#required_error': 'El campo teléfono celular es requerido.'
+    '#label_attributes':
+      class:
+        - font-weight-bold
+    '#international': true
+    '#international_initial_country': CO
+  message:
+    '#type': textarea
+    '#title': Mensaje
+    '#title_display': before
+    '#placeholder': Mensaje
+    '#required': true
+    '#label_attributes':
+      class:
+        - font-weight-bold
+    '#test': 'Please ignore this email.'
+  check_contactenos_form_acepta_terminos_y_condiciones:
+    '#type': checkbox
+    '#title': 'Acepto términos y condiciones'
+    '#required': true
+    '#required_error': 'Debe aceptar los términos y condiciones'
+    '#attributes':
+      style: 'font-size:5px'
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#submit__label': Enviar
+    '#submit__attributes':
+      style: 'background-color: #2d549d !important;'
 css: ''
 javascript: ''
 settings:
@@ -30,9 +94,9 @@ settings:
   page_theme_name: ''
   form_title: source_entity_webform
   form_submit_once: false
-  form_exception_message: ''
   form_open_message: ''
   form_close_message: ''
+  form_exception_message: ''
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
@@ -42,31 +106,36 @@ settings:
   form_prepopulate_source_entity: false
   form_prepopulate_source_entity_required: false
   form_prepopulate_source_entity_type: ''
-  form_reset: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
   form_disable_autocomplete: false
   form_novalidate: false
   form_disable_inline_errors: false
   form_required: false
-  form_unsaved: false
-  form_disable_back: false
-  form_submit_back: false
   form_autofocus: false
   form_details_toggle: false
+  form_reset: false
   form_access_denied: default
   form_access_denied_title: ''
   form_access_denied_message: ''
   form_access_denied_attributes: {  }
   form_file_limit: ''
+  form_attributes: {  }
   form_method: ''
   form_action: ''
-  form_attributes: {  }
   share: false
   share_node: false
   share_theme_name: ''
   share_title: true
   share_page_body_attributes: {  }
   submission_label: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
   submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
   submission_views: {  }
   submission_views_replace: {  }
   submission_user_columns: {  }
@@ -75,11 +144,6 @@ settings:
   submission_access_denied_title: ''
   submission_access_denied_message: ''
   submission_access_denied_attributes: {  }
-  submission_exception_message: ''
-  submission_locked_message: ''
-  submission_excluded_elements: {  }
-  submission_exclude_empty: false
-  submission_exclude_empty_checkbox: false
   previous_submission_message: ''
   previous_submissions_message: ''
   autofill: false
@@ -90,13 +154,13 @@ settings:
   wizard_progress_percentage: false
   wizard_progress_link: false
   wizard_progress_states: false
-  wizard_auto_forward: true
-  wizard_auto_forward_hide_next_button: false
-  wizard_keyboard: true
   wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
   wizard_confirmation_label: ''
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
   wizard_track: ''
   wizard_prev_button_label: ''
   wizard_next_button_label: ''
@@ -119,9 +183,9 @@ settings:
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
   confirmation_type: inline
+  confirmation_url: '<front>'
   confirmation_title: Mensaje.
   confirmation_message: "<span style=\"font-size:11pt\"><span style=\"line-height:107%\"><span style=\"font-family:Calibri,sans-serif\">Gracias por comentar en nuestra p&aacute;gina web, tu inquietud o mensaje ser&aacute; respondido en los pr&oacute;ximos d&iacute;as.</span></span></span><br />\r\n&nbsp;"
-  confirmation_url: '<front>'
   confirmation_attributes:
     class:
       - 'messages messages--status'
@@ -203,9 +267,9 @@ access:
 handlers:
   email_confirmation:
     id: email
+    handler_id: email_confirmation
     label: 'Email confirmation'
     notes: ''
-    handler_id: email_confirmation
     status: true
     conditions: {  }
     weight: 1
@@ -214,13 +278,17 @@ handlers:
         - completed
       to_mail: '[current-user:mail]'
       to_options: {  }
-      cc_mail: ''
-      cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
       from_mail: _default
       from_options: {  }
       from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
       subject: '[webform_submission:values:subject:raw]'
       body: '[webform_submission:values:message:value]'
       excluded_elements: {  }
@@ -231,18 +299,14 @@ handlers:
       html: true
       attachments: false
       twig: false
-      debug: false
-      reply_to: ''
-      return_path: ''
-      sender_mail: ''
-      sender_name: ''
       theme_name: ''
       parameters: {  }
+      debug: false
   email_notification:
     id: email
+    handler_id: email_notification
     label: 'Email notification'
     notes: ''
-    handler_id: email_notification
     status: true
     conditions: {  }
     weight: 2
@@ -251,13 +315,17 @@ handlers:
         - completed
       to_mail: _default
       to_options: {  }
-      cc_mail: ''
-      cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
       from_mail: '[webform_submission:values:email:raw]'
       from_options: {  }
       from_name: '[webform_submission:values:name:raw]'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
       subject: '[webform_submission:values:subject:raw]'
       body: '[webform_submission:values:message:value]'
       excluded_elements: {  }
@@ -268,13 +336,7 @@ handlers:
       html: true
       attachments: false
       twig: false
-      debug: false
-      reply_to: ''
-      return_path: ''
-      sender_mail: ''
-      sender_name: ''
       theme_name: ''
       parameters: {  }
+      debug: false
 variants: {  }
-_core:
-  default_config_hash: ywLzu4PKup4MjhKzlVPqWyRXPu5co-ou5hySnaWh6Uc

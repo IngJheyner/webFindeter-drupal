@@ -19,46 +19,46 @@ third_party_settings:
       children:
         - group_inform
         - group_contenido
+      label: Grupo
+      region: content
       parent_name: ''
       weight: 0
       format_type: tabs
-      region: content
       format_settings:
-        direction: vertical
-        id: ''
         classes: ''
-      label: Grupo
+        id: ''
+        direction: vertical
     group_inform:
       children:
         - info
         - langcode
+      label: Información
+      region: content
       parent_name: group_grupo
       weight: 20
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Información
     group_contenido:
       children:
         - body
         - field_enlace_block
         - field_imagen_basico
+      label: Contenido
+      region: content
       parent_name: group_grupo
       weight: 21
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Contenido
 _core:
   default_config_hash: jAps3FCxvKecABS_tgExbhCZrBLQB3bNPWw18WjE3ss
 id: block_content.basic.default
@@ -77,21 +77,21 @@ content:
       show_summary: false
     third_party_settings: {  }
   field_enlace_block:
+    type: link_default
     weight: 3
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_imagen_basico:
+    type: image_image
     weight: 4
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   info:
     type: string_textfield
     weight: 1

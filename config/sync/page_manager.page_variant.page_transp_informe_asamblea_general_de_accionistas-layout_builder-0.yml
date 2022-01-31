@@ -6,12 +6,13 @@ dependencies:
     - page_manager.page.page_transp_informe_asamblea_general_de_accionistas
 id: page_transp_informe_asamblea_general_de_accionistas-layout_builder-0
 label: 'Informes Asamblea general de Accionistas'
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: 3d78e3d9-eb38-4410-a3ab-574a23513a5d
   label: null
   weight: 0
+  uuid: 3d78e3d9-eb38-4410-a3ab-574a23513a5d
   sections:
     -
       layout_id: bs_2col_stacked
@@ -55,48 +56,47 @@ variant_settings:
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
             label: 'Transparencia y acceso a la información pública'
-            provider: block_content
             label_display: visible
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 1
+          additional: {  }
         eb638106-4d97-4dd7-9fee-85ab33d41b9b:
           uuid: eb638106-4d97-4dd7-9fee-85ab33d41b9b
           region: left
           configuration:
             id: 'views_block:transparencia_acceso_informacion_publica-block_informe_asamblea_general_accionistas'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: '1'
-            context_mapping: {  }
-          additional: {  }
           weight: 1
+          additional: {  }
         5fd4ac43-24c1-4a02-b85c-f0264a13d91e:
           uuid: 5fd4ac43-24c1-4a02-b85c-f0264a13d91e
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
             label: 'Transparencia y Acceso a la información Pública'
-            provider: menu_block
             label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
             follow: false
             follow_parent: child
             level: 1
             depth: 1
-            expand: false
             parent: 'transparencia-acceso-informacion:menu_link_content:69786591-4579-4385-9d42-4aaca45aa84c'
             suggestion: transparencia_acceso_informacion_sidebar
-            context_mapping: {  }
-          additional: {  }
+            expand: false
           weight: 0
+          additional: {  }
       third_party_settings: {  }
 page: page_transp_informe_asamblea_general_de_accionistas
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

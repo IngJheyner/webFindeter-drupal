@@ -21,11 +21,14 @@ third_party_settings:
       children:
         - name
         - field_convcatoria_tipo_adjunto
+      label: Archivo
       parent_name: ''
+      region: content
       weight: 0
       format_type: html_element
-      region: content
       format_settings:
+        classes: ''
+        id: ''
         element: div
         show_label: false
         label_element: h3
@@ -33,12 +36,9 @@ third_party_settings:
         attributes: 'style="border:2px solid red; padding: 1rem;"'
         effect: none
         speed: fast
-        id: ''
-        classes: ''
-      label: Archivo
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: media.mltdia_convcatoria_archivo.media_library
 targetEntityType: media
 bundle: mltdia_convcatoria_archivo
@@ -46,19 +46,19 @@ mode: media_library
 content:
   field_convcatoria_tipo_adjunto:
     type: list_default
-    weight: 2
-    region: content
     label: above
     settings: {  }
     third_party_settings: {  }
+    weight: 2
+    region: content
   name:
     type: string
-    weight: 1
-    region: content
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   addtoany: true
   created: true

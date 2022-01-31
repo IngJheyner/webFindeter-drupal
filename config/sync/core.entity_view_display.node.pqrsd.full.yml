@@ -55,337 +55,337 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: node.pqrsd.full
 targetEntityType: node
 bundle: pqrsd
 mode: full
 content:
   field_pqrsd_archivo:
-    weight: 101
+    type: file_default
     label: above
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
-    type: file_default
+    weight: 101
     region: content
   field_pqrsd_asignaciones:
-    weight: 102
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 102
     region: content
   field_pqrsd_autorizacion:
-    weight: 104
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 104
     region: content
   field_pqrsd_canal_recepcion:
-    weight: 105
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 105
     region: content
   field_pqrsd_comentario_traslado:
-    weight: 142
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 142
     region: content
   field_pqrsd_departamento:
-    weight: 107
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 107
     region: content
   field_pqrsd_descripcion:
-    weight: 108
+    type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 108
     region: content
   field_pqrsd_direccion:
-    weight: 109
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 109
     region: content
   field_pqrsd_email:
-    weight: 106
+    type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 106
     region: content
   field_pqrsd_fax:
-    weight: 110
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 110
     region: content
   field_pqrsd_fecha_naranja:
-    weight: 111
+    type: datetime_default
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: medium
     third_party_settings: {  }
-    type: datetime_default
+    weight: 111
     region: content
   field_pqrsd_fecha_respuesta:
-    weight: 141
+    type: datetime_default
     label: above
     settings:
       timezone_override: UTC
       format_type: medium
     third_party_settings: {  }
-    type: datetime_default
+    weight: 141
     region: content
   field_pqrsd_fecha_roja:
-    weight: 112
+    type: datetime_default
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: medium
     third_party_settings: {  }
-    type: datetime_default
+    weight: 112
     region: content
   field_pqrsd_forma_recepcion:
-    weight: 113
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 113
     region: content
   field_pqrsd_grupo_etnico:
-    weight: 138
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 138
     region: content
   field_pqrsd_marketing:
-    weight: 114
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 114
     region: content
   field_pqrsd_medio_respuesta:
-    weight: 115
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 115
     region: content
   field_pqrsd_motivo:
-    weight: 116
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 116
     region: content
   field_pqrsd_municipio:
-    weight: 117
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 117
     region: content
   field_pqrsd_nit:
-    weight: 118
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 118
     region: content
   field_pqrsd_nombre_producto:
-    weight: 119
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 119
     region: content
   field_pqrsd_numero_id:
-    weight: 120
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 120
     region: content
   field_pqrsd_numero_radicado:
-    weight: 140
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 140
     region: content
   field_pqrsd_otros:
-    weight: 121
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 121
     region: content
   field_pqrsd_palabras_clave:
-    weight: 122
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 122
     region: content
   field_pqrsd_preferencial:
-    weight: 103
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 103
     region: content
   field_pqrsd_primer_apellido:
-    weight: 123
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 123
     region: content
   field_pqrsd_primer_nombre:
-    weight: 124
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 124
     region: content
   field_pqrsd_rango_edad:
-    weight: 125
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 125
     region: content
   field_pqrsd_razon_social:
-    weight: 126
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 126
     region: content
   field_pqrsd_respuesta:
-    weight: 127
+    type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 127
     region: content
   field_pqrsd_respuesta_a_favor:
-    weight: 129
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 129
     region: content
   field_pqrsd_respuesta_archivos:
-    weight: 128
+    type: file_default
     label: above
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
-    type: file_default
+    weight: 128
     region: content
   field_pqrsd_segundo_apellido:
-    weight: 130
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 130
     region: content
   field_pqrsd_segundo_nombre:
-    weight: 131
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 131
     region: content
   field_pqrsd_telefono:
-    weight: 132
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 132
     region: content
   field_pqrsd_tipo_discapacidad:
-    weight: 139
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 139
     region: content
   field_pqrsd_tipo_documento:
-    weight: 137
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 137
     region: content
   field_pqrsd_tipo_empresa:
-    weight: 133
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 133
     region: content
   field_pqrsd_tipo_peticion:
-    weight: 134
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 134
     region: content
   field_pqrsd_tipo_radicado:
-    weight: 135
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 135
     region: content
   field_pqrsd_tipo_solicitante:
-    weight: 136
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 136
     region: content
   links:
-    weight: 100
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 100
+    region: content
 hidden:
   addtoany: true
   langcode: true

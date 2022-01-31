@@ -19,19 +19,22 @@ dependencies:
     - options
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
   field_group:
     group_archivo:
       children:
         - name
         - field_convcatoria_tipo_adjunto
         - field_convcatoria_muldia_fecha
+      label: 'Detalle Archivo'
       parent_name: ''
+      region: content
       weight: 0
       format_type: html_element
-      region: content
       format_settings:
+        classes: ''
+        id: ''
         element: fieldset
         show_label: true
         label_element: legend
@@ -39,9 +42,6 @@ third_party_settings:
         attributes: 'style="border:2px solid #112d6a; width:100vh"'
         effect: none
         speed: slow
-        id: ''
-        classes: ''
-      label: 'Detalle Archivo'
 id: media.mltdia_convcatoria_archivo.full
 targetEntityType: media
 bundle: mltdia_convcatoria_archivo
@@ -49,8 +49,6 @@ mode: full
 content:
   field_convcatoria_muldia_fecha:
     type: datetime_default
-    weight: 3
-    region: content
     label: above
     settings:
       timezone_override: ''
@@ -58,21 +56,23 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
+    weight: 3
+    region: content
   field_convcatoria_tipo_adjunto:
     type: list_default
-    weight: 2
-    region: content
     label: above
     settings: {  }
     third_party_settings: {  }
+    weight: 2
+    region: content
   name:
     type: string
-    weight: 1
-    region: content
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   addtoany: true
   created: true

@@ -21,9 +21,9 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       tabs_productos_servicio: tabs_productos_servicio
+    negate: 0
     target_bundles_drag_drop:
       findeter_en_cifras_home:
         weight: 4
@@ -38,6 +38,6 @@ settings:
         weight: 9
         enabled: false
       tabs_productos_servicio:
-        enabled: true
         weight: 6
+        enabled: true
 field_type: entity_reference_revisions

@@ -17,15 +17,15 @@ third_party_settings:
       children:
         - group_informacion
         - group_contenido
+      label: 'Group tabs'
+      region: content
       parent_name: ''
       weight: 0
       format_type: tabs
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         direction: horizontal
-      label: 'Group tabs'
     group_informacion:
       children:
         - langcode
@@ -36,33 +36,33 @@ third_party_settings:
         - path
         - status
         - field_encabezado_preguntas_frecu
+      label: Información
+      region: content
       parent_name: group_group_tabs
       weight: 1
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Información
     group_contenido:
       children:
         - field_tema_pregunta_frecuentes
         - title
         - body
+      label: Contenido
+      region: content
       parent_name: group_group_tabs
       weight: 2
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Contenido
 id: node.preguntas_frecuentes.default
 targetEntityType: node
 bundle: preguntas_frecuentes
@@ -71,13 +71,13 @@ content:
   body:
     type: text_textarea_with_summary
     weight: 6
+    region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-    region: content
   created:
     type: datetime_timestamp
     weight: 5
@@ -85,11 +85,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_tema_pregunta_frecuentes:
+    type: options_select
     weight: 4
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   langcode:
     type: language_select
     weight: 3
@@ -105,24 +105,24 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 6
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 9
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 7
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -135,17 +135,17 @@ content:
   uid:
     type: entity_reference_autocomplete
     weight: 4
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
-    region: content
     third_party_settings: {  }
   url_redirects:
     weight: 50
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   layout_builder__layout: true

@@ -18,14 +18,14 @@ plugin: 'block_content:4e8f6f29-947e-424d-9fc7-3ee09cd6367f'
 settings:
   id: 'block_content:4e8f6f29-947e-424d-9fc7-3ee09cd6367f'
   label: 'Encabezado [ Blog ]'
-  provider: block_content
   label_display: '0'
+  provider: block_content
   status: true
   info: ''
   view_mode: full
 visibility:
   request_path:
     id: request_path
-    pages: "/blog\r\n/blog/*"
     negate: false
     context_mapping: {  }
+    pages: "/blog\r\n/blog/*"

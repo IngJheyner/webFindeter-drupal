@@ -19,14 +19,14 @@ bundle: basic
 mode: default
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 0
-    region: content
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
   field_enlace_block:
-    weight: 1
+    type: link
     label: above
     settings:
       trim_length: 80
@@ -35,20 +35,20 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    weight: 1
     region: content
   field_imagen_basico:
-    weight: 2
+    type: image
     label: above
     settings:
+      image_link: ''
+      image_style: ''
       svg_attributes:
         width: null
         height: null
       svg_render_as_image: true
-      image_style: ''
-      image_link: ''
     third_party_settings: {  }
-    type: image
+    weight: 2
     region: content
 hidden:
   langcode: true

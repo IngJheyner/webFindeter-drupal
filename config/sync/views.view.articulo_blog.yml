@@ -10,8 +10,8 @@ dependencies:
     - node.type.articulo_blog
     - taxonomy.vocabulary.blog
   module:
-    - image
     - node
+    - svg_image
     - taxonomy
     - text
     - user
@@ -25,59 +25,12 @@ base_table: node_field_data
 base_field: nid
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: perm
-        options:
-          perm: 'access content'
-      cache:
-        type: tag
-        options: {  }
-      query:
-        type: views_query
-        options:
-          disable_sql_rewrite: false
-          distinct: false
-          replica: false
-          query_comment: ''
-          query_tags: {  }
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Apply
-          reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: some
-        options:
-          items_per_page: 3
-          offset: 3
-      style:
-        type: views_bootstrap_grid
-        options:
-          grouping: {  }
-          row_class: 'mb-sm-3 grid-item'
-          default_row_class: true
-          col_xs: col-12
-          col_sm: col-sm-6
-          col_md: col-md-4
-          col_lg: col-lg-4
-          col_xl: col-xl-4
-      row:
-        type: fields
-        options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
+      title: 'Articulo [ Bloque (1) ]'
       fields:
         field_imagen:
           id: field_imagen
@@ -86,6 +39,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -141,7 +95,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_tipo_de_articulo:
           id: field_tipo_de_articulo
           table: node__field_tipo_de_articulo
@@ -149,6 +102,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -204,7 +158,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         body:
           id: body
           table: node__body
@@ -212,6 +165,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -267,7 +221,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         view_node:
           id: view_node
           table: node
@@ -275,6 +228,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: entity_link
           label: ''
           exclude: true
           alter:
@@ -319,8 +274,6 @@ display:
           text: vista
           output_url_as_text: true
           absolute: true
-          entity_type: node
-          plugin_id: entity_link
         title:
           id: title
           table: node_field_data
@@ -328,6 +281,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -383,7 +337,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         created:
           id: created
           table: node_field_data
@@ -391,6 +344,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: created
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -448,9 +404,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: created
-          plugin_id: field
         nothing:
           id: nothing
           table: views
@@ -458,6 +411,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: custom
           label: ''
           exclude: false
           alter:
@@ -499,33 +453,29 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
-          plugin_id: custom
-      filters:
-        status:
-          value: '1'
-          table: node_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-          group: 1
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            articulo_blog: articulo_blog
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
+      pager:
+        type: some
+        options:
+          offset: 3
+          items_per_page: 3
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: tag
+        options: {  }
+      empty: {  }
       sorts:
         created:
           id: created
@@ -534,22 +484,73 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          granularity: second
           entity_type: node
           entity_field: created
           plugin_id: date
-      title: 'Articulo [ Bloque (1) ]'
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: created
+          exposed: false
+          granularity: second
+      arguments: {  }
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            articulo_blog: articulo_blog
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+      style:
+        type: views_bootstrap_grid
+        options:
+          grouping: {  }
+          row_class: 'mb-sm-3 grid-item'
+          default_row_class: true
+          col_xs: col-12
+          col_sm: col-sm-6
+          col_md: col-md-4
+          col_lg: col-lg-4
+          col_xl: col-xl-4
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_tags: {  }
+      relationships: {  }
+      css_class: 'articuloBlogDos mt-5'
       header: {  }
       footer: {  }
-      empty: {  }
-      relationships: {  }
-      arguments: {  }
       display_extenders: {  }
-      css_class: 'articuloBlogDos mt-5'
     cache_metadata:
       max-age: -1
       contexts:
@@ -562,25 +563,11 @@ display:
         - 'config:field.storage.node.field_imagen'
         - 'config:field.storage.node.field_tipo_de_articulo'
   articulo_blog_bloque_dos:
-    display_plugin: block
     id: articulo_blog_bloque_dos
     display_title: 'Articulo [ Bloque (2) ]'
+    display_plugin: block
     position: 2
     display_options:
-      display_extenders: {  }
-      block_description: 'Articulo [ Blog Bloque 2 ]'
-      display_description: ''
-      css_class: 'articuloBlogDos my-5'
-      defaults:
-        css_class: false
-        pager: false
-        fields: false
-        sorts: false
-      pager:
-        type: some
-        options:
-          items_per_page: 3
-          offset: 3
       fields:
         nid:
           id: nid
@@ -589,6 +576,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -645,9 +635,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: nid
-          plugin_id: field
         field_imagen:
           id: field_imagen
           table: node__field_imagen
@@ -655,6 +642,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -710,7 +698,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_tipo_de_articulo:
           id: field_tipo_de_articulo
           table: node__field_tipo_de_articulo
@@ -718,6 +705,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -773,7 +761,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         body:
           id: body
           table: node__body
@@ -781,6 +768,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -836,7 +824,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         view_node:
           id: view_node
           table: node
@@ -844,6 +831,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: entity_link
           label: ''
           exclude: true
           alter:
@@ -888,8 +877,6 @@ display:
           text: vista
           output_url_as_text: true
           absolute: false
-          entity_type: node
-          plugin_id: entity_link
         title:
           id: title
           table: node_field_data
@@ -897,6 +884,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -952,7 +940,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         created:
           id: created
           table: node_field_data
@@ -960,6 +947,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: created
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1017,9 +1007,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: created
-          plugin_id: field
         nothing:
           id: nothing
           table: views
@@ -1027,6 +1014,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: custom
           label: ''
           exclude: false
           alter:
@@ -1068,7 +1056,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
-          plugin_id: custom
+      pager:
+        type: some
+        options:
+          offset: 3
+          items_per_page: 3
       sorts:
         created:
           id: created
@@ -1077,14 +1069,24 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          order: DESC
-          exposed: false
-          expose:
-            label: ''
-          granularity: second
           entity_type: node
           entity_field: created
           plugin_id: date
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created
+          exposed: false
+          granularity: second
+      defaults:
+        css_class: false
+        pager: false
+        fields: false
+        sorts: false
+      css_class: 'articuloBlogDos my-5'
+      display_description: ''
+      display_extenders: {  }
+      block_description: 'Articulo [ Blog Bloque 2 ]'
     cache_metadata:
       max-age: -1
       contexts:
@@ -1097,25 +1099,11 @@ display:
         - 'config:field.storage.node.field_imagen'
         - 'config:field.storage.node.field_tipo_de_articulo'
   articulo_blog_bloque_uno:
-    display_plugin: block
     id: articulo_blog_bloque_uno
     display_title: 'Articulo [ Bloque (1) ]'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: 'Articulo [ Blog Bloque 1 ]'
-      display_description: ''
-      css_class: articuloBlog
-      defaults:
-        css_class: false
-        pager: false
-        fields: false
-        sorts: false
-      pager:
-        type: some
-        options:
-          items_per_page: 3
-          offset: null
       fields:
         nid:
           id: nid
@@ -1124,6 +1112,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1180,9 +1171,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: nid
-          plugin_id: field
         field_imagen:
           id: field_imagen
           table: node__field_imagen
@@ -1190,6 +1178,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1245,7 +1234,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_tipo_de_articulo:
           id: field_tipo_de_articulo
           table: node__field_tipo_de_articulo
@@ -1253,6 +1241,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1308,7 +1297,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         body:
           id: body
           table: node__body
@@ -1316,6 +1304,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1371,7 +1360,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         view_node:
           id: view_node
           table: node
@@ -1379,6 +1367,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: entity_link
           label: ''
           exclude: true
           alter:
@@ -1423,8 +1413,6 @@ display:
           text: vista
           output_url_as_text: true
           absolute: false
-          entity_type: node
-          plugin_id: entity_link
         title:
           id: title
           table: node_field_data
@@ -1432,6 +1420,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1487,7 +1476,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         created:
           id: created
           table: node_field_data
@@ -1495,6 +1483,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: created
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1552,9 +1543,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: created
-          plugin_id: field
         nothing:
           id: nothing
           table: views
@@ -1562,6 +1550,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: custom
           label: ''
           exclude: false
           alter:
@@ -1603,7 +1592,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
-          plugin_id: custom
+      pager:
+        type: some
+        options:
+          offset: null
+          items_per_page: 3
       sorts:
         created:
           id: created
@@ -1612,14 +1605,24 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          order: DESC
-          exposed: false
-          expose:
-            label: ''
-          granularity: minute
           entity_type: node
           entity_field: created
           plugin_id: date
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created
+          exposed: false
+          granularity: minute
+      defaults:
+        css_class: false
+        pager: false
+        fields: false
+        sorts: false
+      css_class: articuloBlog
+      display_description: ''
+      display_extenders: {  }
+      block_description: 'Articulo [ Blog Bloque 1 ]'
     cache_metadata:
       max-age: -1
       contexts:
@@ -1632,32 +1635,12 @@ display:
         - 'config:field.storage.node.field_imagen'
         - 'config:field.storage.node.field_tipo_de_articulo'
   mas_articulos_contenido_interno:
-    display_plugin: block
     id: mas_articulos_contenido_interno
     display_title: 'Más Artículos [ Contenido Interno ]'
+    display_plugin: block
     position: 2
     display_options:
-      display_extenders: {  }
-      block_description: 'Más Artículos [ Contenido Interno ]'
-      display_description: ''
-      css_class: 'articuloBlogDos masArticulosInterno mb-5 container'
-      defaults:
-        css_class: false
-        pager: false
-        fields: false
-        title: false
-        relationships: false
-        arguments: false
-        filters: false
-        filter_groups: false
-        group_by: false
-        sorts: false
-        header: false
-      pager:
-        type: some
-        options:
-          items_per_page: 3
-          offset: 0
+      title: 'Más Artículos [ Contenido Interno ]'
       fields:
         field_imagen:
           id: field_imagen
@@ -1666,6 +1649,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1722,7 +1706,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_tipo_de_articulo:
           id: field_tipo_de_articulo
           table: node__field_tipo_de_articulo
@@ -1730,6 +1713,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1785,7 +1769,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         body:
           id: body
           table: node__body
@@ -1793,6 +1776,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1848,7 +1832,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         view_node:
           id: view_node
           table: node
@@ -1856,6 +1839,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: entity_link
           label: ''
           exclude: true
           alter:
@@ -1900,8 +1885,6 @@ display:
           text: vista
           output_url_as_text: true
           absolute: false
-          entity_type: node
-          plugin_id: entity_link
         title:
           id: title
           table: node_field_data
@@ -1909,6 +1892,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1964,7 +1948,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         created:
           id: created
           table: node_field_data
@@ -1972,6 +1955,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: created
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -2029,9 +2015,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: created
-          plugin_id: field
         nothing:
           id: nothing
           table: views
@@ -2039,6 +2022,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: custom
           label: ''
           exclude: false
           alter:
@@ -2080,21 +2064,25 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
-          plugin_id: custom
-      title: 'Más Artículos [ Contenido Interno ]'
-      relationships:
-        term_node_tid:
-          id: term_node_tid
-          table: node_field_data
-          field: term_node_tid
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 3
+      sorts:
+        random:
+          id: random
+          table: views
+          field: random
           relationship: none
           group_type: group
-          admin_label: término
-          required: true
-          vids:
-            - blog
-          entity_type: node
-          plugin_id: node_term_data
+          admin_label: ''
+          plugin_id: random
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: random
+          exposed: false
       arguments:
         tid_1:
           id: tid_1
@@ -2103,6 +2091,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: taxonomy_index_tid
           default_action: default
           exception:
             value: all
@@ -2122,8 +2111,8 @@ display:
           summary_options:
             base_path: ''
             count: true
-            items_per_page: 25
             override: false
+            items_per_page: 25
           summary:
             sort_order: asc
             number_of_records: 0
@@ -2137,7 +2126,6 @@ display:
           add_table: false
           require_value: false
           reduce_duplicates: true
-          plugin_id: taxonomy_index_tid
         nid:
           id: nid
           table: node_field_data
@@ -2145,6 +2133,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: nid
+          plugin_id: node_nid
           default_action: default
           exception:
             value: all
@@ -2158,8 +2149,8 @@ display:
           summary_options:
             base_path: ''
             count: true
-            items_per_page: 25
             override: false
+            items_per_page: 25
           summary:
             sort_order: asc
             number_of_records: 0
@@ -2171,36 +2162,33 @@ display:
           validate_options: {  }
           break_phrase: false
           not: true
-          entity_type: node
-          entity_field: nid
-          plugin_id: node_nid
       filters:
         status:
-          value: '1'
+          id: status
           table: node_field_data
           field: status
-          plugin_id: boolean
           entity_type: node
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         type:
           id: type
           table: node_field_data
           field: type
-          value:
-            articulo_blog: articulo_blog
           entity_type: node
           entity_field: type
           plugin_id: bundle
+          value:
+            articulo_blog: articulo_blog
+          group: 1
           expose:
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         created:
           id: created
           table: node_field_data
@@ -2208,6 +2196,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: created
+          plugin_id: date
           operator: '<'
           value:
             min: '5 day'
@@ -2230,9 +2221,9 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-            placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -2245,27 +2236,38 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
-          entity_field: created
-          plugin_id: date
       filter_groups:
         operator: AND
         groups:
           1: AND
-      group_by: false
-      sorts:
-        random:
-          id: random
-          table: views
-          field: random
+      defaults:
+        title: false
+        css_class: false
+        pager: false
+        group_by: false
+        relationships: false
+        fields: false
+        sorts: false
+        arguments: false
+        filters: false
+        filter_groups: false
+        header: false
+      relationships:
+        term_node_tid:
+          id: term_node_tid
+          table: node_field_data
+          field: term_node_tid
           relationship: none
           group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: random
+          admin_label: término
+          entity_type: node
+          plugin_id: node_term_data
+          required: true
+          vids:
+            - blog
+      css_class: 'articuloBlogDos masArticulosInterno mb-5 container'
+      group_by: false
+      display_description: ''
       header:
         area_text_custom:
           id: area_text_custom
@@ -2274,10 +2276,12 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          empty: false
-          tokenize: false
-          content: '<h3 class="text-left my-5">Últimos artículos relacionados.</h3>'
           plugin_id: text_custom
+          empty: false
+          content: '<h3 class="text-left my-5">Últimos artículos relacionados.</h3>'
+          tokenize: false
+      display_extenders: {  }
+      block_description: 'Más Artículos [ Contenido Interno ]'
     cache_metadata:
       max-age: 0
       contexts:

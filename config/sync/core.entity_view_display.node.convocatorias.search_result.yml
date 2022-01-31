@@ -26,8 +26,8 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: node.convocatorias.search_result
 targetEntityType: node
 bundle: convocatorias
@@ -35,28 +35,28 @@ mode: search_result
 content:
   field_convcatoria_archivos:
     type: entity_reference_label
-    weight: 2
-    region: content
     label: above
     settings:
       link: true
     third_party_settings: {  }
+    weight: 2
+    region: content
   field_convcatoria_estado:
     type: list_default
-    weight: 1
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
   field_convcatoria_objeto:
     type: basic_string
-    weight: 0
-    region: content
     label: hidden
     settings: {  }
     third_party_settings:
       field_formatter_class:
         class: ''
+    weight: 0
+    region: content
 hidden:
   addtoany: true
   body: true

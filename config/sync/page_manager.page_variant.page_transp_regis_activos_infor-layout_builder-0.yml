@@ -6,12 +6,13 @@ dependencies:
     - page_manager.page.page_transp_regis_activos_infor
 id: page_transp_regis_activos_infor-layout_builder-0
 label: '10.1 Registro de activos de información'
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: 0ed1efb3-096e-447f-b9e7-4035502f63c1
   label: null
   weight: 0
+  uuid: 0ed1efb3-096e-447f-b9e7-4035502f63c1
   sections:
     -
       layout_id: bs_2col_stacked
@@ -55,48 +56,47 @@ variant_settings:
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
             label: 'Transparencia y acceso a la información pública'
-            provider: block_content
             label_display: visible
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 2
+          additional: {  }
         b17efd2b-fe59-4246-8ebe-0228f3ffc72a:
           uuid: b17efd2b-fe59-4246-8ebe-0228f3ffc72a
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
             label: 'Transparencia y Acceso a la información Pública'
-            provider: menu_block
             label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
             follow: false
             follow_parent: child
             level: 1
             depth: 1
-            expand: false
             parent: 'transparencia-acceso-informacion:menu_link_content:691db354-e5f9-4666-b987-80fb2c5299ca'
             suggestion: transparencia_acceso_informacion_sidebar
-            context_mapping: {  }
-          additional: {  }
+            expand: false
           weight: 2
+          additional: {  }
         e04d4f0f-613a-4496-b708-2765fbe39ce8:
           uuid: e04d4f0f-613a-4496-b708-2765fbe39ce8
           region: left
           configuration:
             id: 'views_block:transparencia_acceso_informacion_publica-block_trans_registro_activos_informacion'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: '1'
-            context_mapping: {  }
-          additional: {  }
           weight: 2
+          additional: {  }
       third_party_settings: {  }
 page: page_transp_regis_activos_infor
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

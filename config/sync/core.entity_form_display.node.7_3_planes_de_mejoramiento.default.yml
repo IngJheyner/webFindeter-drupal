@@ -17,47 +17,47 @@ third_party_settings:
       children:
         - group_info
         - group_contenido
+      label: 'Grupo Tabs'
+      region: content
       parent_name: ''
       weight: 0
       format_type: tabs
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         direction: horizontal
-      label: 'Grupo Tabs'
     group_info:
       children:
         - title
         - created
         - path
         - status
+      label: Información
+      region: content
       parent_name: group_grupo_tabs
       weight: 20
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Información
     group_contenido:
       children:
         - field_cont_plan_mejoramiento
         - field_archivos_plan_mejoramiento
+      label: Contenido
+      region: content
       parent_name: group_grupo_tabs
       weight: 21
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Contenido
 id: node.7_3_planes_de_mejoramiento.default
 targetEntityType: node
 bundle: 7_3_planes_de_mejoramiento
@@ -72,18 +72,18 @@ content:
   field_archivos_plan_mejoramiento:
     type: media_library_widget
     weight: 26
+    region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
-    region: content
   field_cont_plan_mejoramiento:
+    type: text_textarea
     weight: 22
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
   path:
     type: path
     weight: 3
@@ -92,10 +92,10 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 5
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield

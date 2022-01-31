@@ -19,48 +19,48 @@ bundle: convocatorias_encabezado
 mode: default
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 0
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
     region: content
   field_banner_convcatorias:
-    weight: 3
+    type: image
     label: hidden
     settings:
+      image_link: ''
+      image_style: ''
       svg_attributes:
         width: null
         height: null
       svg_render_as_image: true
-      image_style: ''
-      image_link: ''
     third_party_settings: {  }
-    type: image
+    weight: 3
     region: content
   field_convocatoria_img_fondo:
-    weight: 1
+    type: image
     label: hidden
     settings:
-      image_style: ''
       image_link: ''
+      image_style: ''
       svg_attributes:
         width: null
         height: null
       svg_render_as_image: true
     third_party_settings: {  }
-    type: image
+    weight: 1
     region: content
   field_convocatoria_titulo:
-    weight: 2
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 2
     region: content
   field_enlace_banner_convocatoria:
-    weight: 4
+    type: link
     label: hidden
     settings:
       trim_length: 80
@@ -69,7 +69,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    weight: 4
     region: content
 hidden:
   langcode: true
