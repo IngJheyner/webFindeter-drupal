@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec1c1a076ac01d699900c48d5b87a10a",
+    "content-hash": "6248f61c94d46754a027be3d0644a2e5",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -747,10 +747,6 @@
                 }
             ],
             "description": "Improved Psr-3 / Psr\\Log logger based on Symfony Console components.",
-            "support": {
-                "issues": "https://github.com/consolidation/log/issues",
-                "source": "https://github.com/consolidation/log/tree/2.1.0"
-            },
             "time": "2022-01-30T03:49:07+00:00"
         },
         {
@@ -3007,14 +3003,10 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "includes/bootstrap.inc",
-                    "includes/guzzle_php81_shim.php"
-                ],
                 "psr-4": {
                     "Drupal\\Core\\": "lib/Drupal/Core",
-                    "Drupal\\Driver\\": "../drivers/lib/Drupal/Driver",
-                    "Drupal\\Component\\": "lib/Drupal/Component"
+                    "Drupal\\Component\\": "lib/Drupal/Component",
+                    "Drupal\\Driver\\": "../drivers/lib/Drupal/Driver"
                 },
                 "classmap": [
                     "lib/Drupal.php",
@@ -3043,6 +3035,10 @@
                     "lib/Drupal/Core/Http/InputBag.php",
                     "lib/Drupal/Core/Installer/InstallerRedirectTrait.php",
                     "lib/Drupal/Core/Site/Settings.php"
+                ],
+                "files": [
+                    "includes/bootstrap.inc",
+                    "includes/guzzle_php81_shim.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -6465,6 +6461,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "value.autocomplete not function": "https://www.drupal.org/files/issues/2021-06-24/value-autocomplete-not-function-3220334-3.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -8719,12 +8718,12 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "src/functions_include.php"
-                ],
                 "psr-4": {
                     "GuzzleHttp\\Psr7\\": "src/"
-                }
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -10784,10 +10783,6 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
-            "support": {
-                "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/1.4.4"
-            },
             "funding": [
                 {
                     "url": "https://github.com/ondrejmirtes",
