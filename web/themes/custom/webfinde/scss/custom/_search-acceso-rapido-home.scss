@@ -30,6 +30,7 @@ div.block-search{
             input[type=search] {
                 width: 100%;
                 border: none !important;
+                background-image: none;
             }
             .menuAccesoRapido {
                 background: var.$color-quinario;
@@ -157,92 +158,111 @@ MEDIA QUERY
 ============================== */
 
 @include media-query.media(xs) {
-    form#search-block-form {
-        margin: 1.5rem 0rem 0 0rem;
-        div.buscadorAcceso {
-            input[type=search] {
-                height: calc(1em + .75rem + 2px);
-                border: 1px solid var.$color-primario !important;
-            }
-            .menuAccesoRapido {
-                overflow-x: scroll;
-                padding: 2rem 0 2rem 0;
-                margin-top: 2rem;
-                nav {
-                    ul {
-                        flex-direction: initial;
-                        li {
-                            margin: 0 1rem 0 0.5rem;
-                            text-align: center;
+    div.block-search{
+        form#search-block-form {
+            margin: 1.5rem 0rem 0 0rem;
+            div.buscadorAcceso {
+                input[type=search] {
+                    height: calc(1em + .75rem + 2px);
+                    border: 1px solid var.$color-primario !important;
+                    &::placeholder{
+                        color: white;
+                    }
+                }
+                .menuAccesoRapido {
+                    overflow-x: scroll;
+                    padding: 2rem 0 2rem 0;
+                    margin-top: 2rem;
+                    nav {
+                        ul {
+                            display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                            row-gap: 1rem;
+                            li {
+                                margin: 0 1rem 0 0.5rem;
+                                text-align: center;
+                                a{
+                                    font-size: 14px;
+                                }
+                            }
                         }
                     }
                 }
             }
-        }
-        input[type="submit"] {
-            top: -3px;
-            background: url('/themes/custom/webfinde/images/iconos/search-gris.png') no-repeat;
-            background-color: initial !important;
+            input[type="submit"] {
+                top: -3px;
+                background: url('/themes/custom/webfinde/images/iconos/search-gris.png') no-repeat;
+                background-color: initial !important;                
+            }
         }
     }
 }
 
 @include media-query.media(sm) {
-    form#search-block-form {
-        margin: 1.5rem 0rem 0 0rem;
-        div.buscadorAcceso {
-            input[type=search] {
-                border: 1px solid var.$color-primario !important;
-            }
-            .menuAccesoRapido {
-                overflow-x: scroll;
-                padding: 2rem 0 2rem 0;
-                margin-top: 2rem;
-                nav {
-                    ul {
-                        li {
-                            margin: 0 1rem 0 2.1rem;
+    div.block-search{
+        form#search-block-form {
+            margin: 1.5rem 0rem 0 0rem;
+            div.buscadorAcceso {
+                input[type=search] {
+                    border: 1px solid var.$color-primario !important;
+                }
+                .menuAccesoRapido {
+                    overflow-x: scroll;
+                    padding: 2rem 0 2rem 0;
+                    margin-top: 2rem;
+                    nav {
+                        ul {
+                            display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                            row-gap: 1rem;
+                            li {
+                                margin: 0 1rem 0 2.1rem;
+                            }
                         }
                     }
                 }
             }
-        }
-        input[type="submit"] {
-            background: url('/themes/custom/webfinde/images/iconos/search-gris.png') no-repeat;
-            background-color: initial !important;
+            input[type="submit"] {
+                background: url('/themes/custom/webfinde/images/iconos/search-gris.png') no-repeat;
+                background-color: initial !important;
+            }
         }
     }
 }
 
 @include media-query.media(md) {
-    form#search-block-form {
-        margin: 16rem 0rem 0 0rem;
-        div.buscadorAcceso {
-            .menuAccesoRapido {
-                overflow-x: scroll;
-                padding: 2rem 0 2rem 0;
+    div.block-search{
+        form#search-block-form {
+            margin: 16rem 0rem 0 0rem;
+            div.buscadorAcceso {
+                .menuAccesoRapido {
+                    overflow-x: scroll;
+                    padding: 2rem 0 2rem 0;
+                }
             }
         }
     }
 }
 
 @include media-query.media(lg) {
-    form#search-block-form {
-        margin: 22rem 2rem 0 2rem;
-        div.buscadorAcceso {
-            .menuAccesoRapido {
-                padding: 2rem 0 2rem 0;
+    div.block-search{
+        form#search-block-form {
+            margin: 22rem 2rem 0 2rem;
+            div.buscadorAcceso {
+                .menuAccesoRapido {
+                    padding: 2rem 0 2rem 0;
+                }
             }
         }
     }
 }
 
 @include media-query.media(xl) {
-    
-    form#search-block-form {
-        margin: 21rem 2rem 0 2rem;
-    }
-    
+    div.block-search{
+        form#search-block-form {
+            margin: 21rem 2rem 0 2rem;
+        }
+    }    
 }
 
 
@@ -250,9 +270,11 @@ MEDIA QUERY
 
 @include media-query.media(xxl) {
 
+    div.block-search{
    
-    form#search-block-form {
-        margin: 24rem 2rem 0 2rem;
+        form#search-block-form {
+            margin: 24rem 2rem 0 2rem;
+        }
     }
     
 }
@@ -261,9 +283,10 @@ MEDIA QUERY
 /* ===== ===== MEDIA REVISAMOS EN 1600 ===== ===== */
 
 @include media-query.media(yl) {
-   
-    form#search-block-form {
-        margin: 28.5rem 2rem 0 2rem;
+    div.block-search{
+        form#search-block-form {
+            margin: 28.5rem 2rem 0 2rem;
+        }
     }
     
 }

@@ -223,3 +223,11 @@ MEDIA QUERY
         }
     }
 }
+
+@include media-query.media(md) {
+    div.contactenos {
+        div.titulo>h1::after {
+            background-color: initial;
+        }
+    }
+}

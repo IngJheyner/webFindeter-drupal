@@ -231,3 +231,13 @@ MEDIA QUERY
         }
     }
 }
+
+@include media-query.media(md) {
+    .sliderNoticiaHome {
+        div.encabezado>h1 {
+            &::after {
+                background-color: initial;
+            }
+        }
+    }
+}

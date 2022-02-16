@@ -13,6 +13,14 @@ VENTANA MODAL
     background-color: transparent;
 }*/
 /* ==============================
+CONTENEDOR
+============================== */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+/* ==============================
 BOTONES
 ============================== */
 .btn-primary {
@@ -682,6 +690,7 @@ div.block-search form#search-block-form div.form-item {
 div.block-search form#search-block-form div.buscadorAcceso input[type=search] {
   width: 100%;
   border: none !important;
+  background-image: none;
 }
 div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido {
   background: #e5e5e5;
@@ -837,26 +846,34 @@ MEDIA QUERY
 ============================== */
 /*MOVIL VERTICAL(sm 320px)*/
 @media (max-width: 575.98px) {
-  form#search-block-form {
+  div.block-search form#search-block-form {
     margin: 1.5rem 0rem 0 0rem;
   }
-  form#search-block-form div.buscadorAcceso input[type=search] {
-    height: calc(1em + 0.75rem + 2px);
+  div.block-search form#search-block-form div.buscadorAcceso input[type=search] {
+    height: calc(1em + .75rem + 2px);
     border: 1px solid #112d6a !important;
   }
-  form#search-block-form div.buscadorAcceso .menuAccesoRapido {
+  div.block-search form#search-block-form div.buscadorAcceso input[type=search]::placeholder {
+    color: white;
+  }
+  div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido {
     overflow-x: scroll;
     padding: 2rem 0 2rem 0;
     margin-top: 2rem;
   }
-  form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul {
-    flex-direction: initial;
+  div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1rem;
   }
-  form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li {
+  div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li {
     margin: 0 1rem 0 0.5rem;
     text-align: center;
   }
-  form#search-block-form input[type=submit] {
+  div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li a {
+    font-size: 14px;
+  }
+  div.block-search form#search-block-form input[type=submit] {
     top: -3px;
     background: url("/themes/custom/webfinde/images/iconos/search-gris.png") no-repeat;
     background-color: initial !important;
@@ -864,61 +881,66 @@ MEDIA QUERY
 }
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
-  form#search-block-form {
+  div.block-search form#search-block-form {
     margin: 1.5rem 0rem 0 0rem;
   }
-  form#search-block-form div.buscadorAcceso input[type=search] {
+  div.block-search form#search-block-form div.buscadorAcceso input[type=search] {
     border: 1px solid #112d6a !important;
   }
-  form#search-block-form div.buscadorAcceso .menuAccesoRapido {
+  div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido {
     overflow-x: scroll;
     padding: 2rem 0 2rem 0;
     margin-top: 2rem;
   }
-  form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li {
+  div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1rem;
+  }
+  div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido nav ul li {
     margin: 0 1rem 0 2.1rem;
   }
-  form#search-block-form input[type=submit] {
+  div.block-search form#search-block-form input[type=submit] {
     background: url("/themes/custom/webfinde/images/iconos/search-gris.png") no-repeat;
     background-color: initial !important;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 768px) and (max-width: 991.98px) {
-  form#search-block-form {
+  div.block-search form#search-block-form {
     margin: 16rem 0rem 0 0rem;
   }
-  form#search-block-form div.buscadorAcceso .menuAccesoRapido {
+  div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido {
     overflow-x: scroll;
     padding: 2rem 0 2rem 0;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  form#search-block-form {
+  div.block-search form#search-block-form {
     margin: 22rem 2rem 0 2rem;
   }
-  form#search-block-form div.buscadorAcceso .menuAccesoRapido {
+  div.block-search form#search-block-form div.buscadorAcceso .menuAccesoRapido {
     padding: 2rem 0 2rem 0;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 1200px) and (max-width: 1365.98px) {
-  form#search-block-form {
+  div.block-search form#search-block-form {
     margin: 21rem 2rem 0 2rem;
   }
 }
 /* ===== ===== MEDIA REVISAMOS EN 1366 ===== ===== */
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 1366px) and (max-width: 1599.98px) {
-  form#search-block-form {
+  div.block-search form#search-block-form {
     margin: 24rem 2rem 0 2rem;
   }
 }
 /* ===== ===== MEDIA REVISAMOS EN 1600 ===== ===== */
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 1600px) and (max-width: 1919.98px) {
-  form#search-block-form {
+  div.block-search form#search-block-form {
     margin: 28.5rem 2rem 0 2rem;
   }
 }
@@ -947,33 +969,28 @@ section.productosServicios .titulo h1:after {
 }
 section.productosServicios .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  width: 100%;
+  grid-template-columns: repeat(5, 1fr);
   position: relative;
+  grid-auto-flow: row;
+  grid-auto-rows: auto;
+  column-gap: 20px;
   height: 100%;
+  width: 100%;
 }
 section.productosServicios .grid-container .grid-item {
-  width: 212px;
   position: relative;
-  margin-right: 20px;
-  height: 25em;
   cursor: pointer;
-  box-shadow: 1rem 0rem 1rem #C8D0E3 !important;
+  box-shadow: 1rem 0rem 1rem #c8d0e3 !important;
   border-radius: 0.8rem;
-}
-section.productosServicios .grid-container .grid-item:last-child {
-  margin-right: 0em;
 }
 section.productosServicios .grid-container .grid-item figure {
   position: absolute;
   z-index: 1;
   bottom: 0px;
-  left: 0;
   width: 100%;
   height: 25%;
-  background: #296294;
-  margin-bottom: 0px;
   border-radius: 0.8em 0.8em;
+  margin: 0;
   /*background: repeating-linear-gradient(187deg,
   transparent 0, transparent 15%,
       var.$color-secundario 0, var.$color-secundario);*/
@@ -1003,6 +1020,7 @@ section.productosServicios .grid-container .grid-item figure .fondo button {
 }
 section.productosServicios .grid-container .grid-item img {
   border-radius: 0.8em;
+  width: 100%;
 }
 
 /* =================================
@@ -1015,9 +1033,11 @@ VENTANA MODAL PRODUCTOS Y SERVICIOS
   padding-right: 0 !important;
   height: 500px;
   border-radius: 0.8em;
+  background-repeat: no-repeat;
+  background-position: top center;
 }
 #modalProductosServicios .modal-dialog {
-  max-width: 1141px;
+  max-width: 800px;
   margin: 0;
 }
 #modalProductosServicios .modal-dialog .modal-content {
@@ -1026,7 +1046,7 @@ VENTANA MODAL PRODUCTOS Y SERVICIOS
 }
 #modalProductosServicios .modal-dialog .modal-content .modal-body {
   top: 10em;
-  padding: 21px 20px 20px 70px;
+  left: 3rem;
 }
 #modalProductosServicios .modal-dialog .modal-content .modal-body h3 {
   margin-bottom: 5px;
@@ -1194,7 +1214,7 @@ MEDIA QUERY
     overflow-x: scroll;
   }
   section.productosServicios .grid-container .grid-item {
-    margin-left: 1.5rem;
+    width: 212px;
   }
 
   /* =================================
@@ -1226,6 +1246,9 @@ MEDIA QUERY
   section.productosServicios .grid-container {
     overflow-x: scroll;
   }
+  section.productosServicios .grid-container .grid-item {
+    width: 212px;
+  }
 
   /* =================================
   VENTANA MODAL PRODUCTOS Y SERVICIOS
@@ -1248,8 +1271,14 @@ MEDIA QUERY
     width: 100%;
     font-size: 1.9rem;
   }
+  section.productosServicios .titulo h1::after {
+    background-color: initial;
+  }
   section.productosServicios .grid-container {
     overflow-x: scroll;
+  }
+  section.productosServicios .grid-container .grid-item {
+    width: 212px;
   }
 
   /* =================================
@@ -1626,6 +1655,12 @@ MEDIA QUERY
     width: 100%;
   }
 }
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .sliderNoticiaHome div.encabezado > h1::after {
+    background-color: initial;
+  }
+}
 /* ===== ===== FINDETER EN CIFFRAS ===== ===== */
 /* ==============================
 COLORES
@@ -1799,11 +1834,12 @@ div.casosExito .slideCasoExito ul li div.contenidoSlider {
 }
 div.casosExito .slideCasoExito ul li div.contenidoSlider a {
   position: absolute;
-  top: 2rem;
-  right: 1rem;
+  top: 0;
+  left: 0;
   width: 50%;
   font-weight: bold;
   font-size: 1.1rem;
+  transform: translate(70%, 50%);
 }
 div.casosExito .slideCasoExito .slick {
   /* ===== ===== Flechas de navegacion ===== ===== */
@@ -2111,6 +2147,12 @@ MEDIA QUERY
 }
 /*MOVIL VERTICAL(sm 320px)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
+  div.contactenos div.titulo > h1::after {
+    background-color: initial;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
   div.contactenos div.titulo > h1::after {
     background-color: initial;
   }
@@ -3863,9 +3905,6 @@ div.convocatoriaCiudadano form div.form--inline input[type=submit],
 div.convocatoriaCiudadano form div.form--inline a.busquedaAvz {
   background-color: #00993e !important;
 }
-div.convocatoriaCiudadano form div.form--inline div:nth-child(4) {
-  display: none;
-}
 div.convocatoriaCiudadano form div.form--inline div:nth-child(5) {
   display: none;
 }
@@ -3880,6 +3919,12 @@ div.convocatoriaCiudadano form div.form--inline div:nth-child(8) {
 }
 div.convocatoriaCiudadano form div.form--inline div:nth-child(9) {
   display: none;
+}
+div.convocatoriaCiudadano form div.form--inline fieldset {
+  display: none;
+}
+div.convocatoriaCiudadano form div.form--inline fieldset legend {
+  font-size: 1rem;
 }
 
 table:nth-child(2) thead tr > th:nth-child(1) {
@@ -4241,7 +4286,7 @@ div.form-lading-page form div.iti {
 }
 div.form-lading-page form span.select2 > span.selection > span.select2-selection--single {
   width: 100%;
-  height: calc(1.5em + 0.75rem + 2px);
+  height: calc(1.5em + .75rem + 2px);
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   border: 1px solid #112d6a !important;

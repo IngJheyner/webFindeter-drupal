@@ -321,7 +321,9 @@
 
                 if (imgEncabezadoArticulo != null) {
 
-                    $(".encabezadoBlog").css("background-image", "url('" + imgEncabezadoArticulo + "')");
+                    if(imgEncabezadoArticulo !== undefined)
+                        $(".encabezadoBlog").css("background-image", "url('" + imgEncabezadoArticulo + "')");
+
                     $(".encabezadoBlog .titulos h4").hide();
                     $(".encabezadoBlog .titulos h1").hide();
 
@@ -329,7 +331,8 @@
 
                     var imgEncabezado = $(".encabezadoBlog").attr("imgFondoEncabezado");
 
-                    $(".encabezadoBlog").css("background-image", "url('" + imgEncabezado + "')");
+                    if(imgEncabezado !== undefined)
+                        $(".encabezadoBlog").css("background-image", "url('" + imgEncabezado + "')");
                 }
 
                 /*===========================================
@@ -364,6 +367,7 @@
                 CONVOCATORIAS
                 =============================================*/
                 let activarBusqueda = false;
+                //console.log("🚀 ~ file: global.js ~ line 370 ~ $ ~ activarBusqueda", activarBusqueda)
 
                 function formBusquedaAvanzada() {
 
@@ -396,40 +400,37 @@
                     });
 
                     $(".convocatoriaCiudadano form .form-actions a").on('click', function() {
-
+                        
                         if (activarBusqueda === false) {
-                            //$(".convocatoriaCiudadano form .form--inline div:nth-child(3)").slideDown("slow");
-                            $(".convocatoriaCiudadano form .form--inline div:nth-child(4)").slideDown("slow");
+                            
                             $(".convocatoriaCiudadano form .form--inline div:nth-child(5)").slideDown("slow");
                             $(".convocatoriaCiudadano form .form--inline div:nth-child(6)").slideDown("slow");
                             $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").slideDown("slow");
                             $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").slideDown("slow");
                             $(".convocatoriaCiudadano form .form--inline div:nth-child(9)").slideDown("slow");
+                            $(".convocatoriaCiudadano form .form--inline fieldset").slideDown("slow");
                             activarBusqueda = true;
+                            
                         } else {
-                            //$(".convocatoriaCiudadano form .form--inline div:nth-child(3)").slideUp("slow");
-                            $(".convocatoriaCiudadano form .form--inline div:nth-child(4)").slideUp("slow");
+                            
                             $(".convocatoriaCiudadano form .form--inline div:nth-child(5)").slideUp("slow");
                             $(".convocatoriaCiudadano form .form--inline div:nth-child(6)").slideUp("slow");
                             $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").slideUp("slow");
                             $(".convocatoriaCiudadano form .form--inline div:nth-child(8)").slideUp("slow");
                             $(".convocatoriaCiudadano form .form--inline div:nth-child(9)").slideUp("slow");
+                            $(".convocatoriaCiudadano form .form--inline fieldset").slideUp("slow");
                             activarBusqueda = false;
                         }
-                    });
-
-                    $(".convocatoriaCiudadano form .form-actions input[type='submit']").on('click', function() {
-                        if (activarBusqueda) { activarBusqueda = true };
-                        //console.log("🚀 ~ file: global.js ~ line 240 ~ $ ~ mostrarFiltros", activarBusqueda)
                     });
 
                 }
 
                 $(document).ajaxStop(function() {
                     formBusquedaAvanzada();
+                    //console.log("🚀 ~ file: global.js ~ line 370 ~ $ ~ activarBusqueda", activarBusqueda)
                 });
 
-                formBusquedaAvanzada();
+                //formBusquedaAvanzada();
 
                 /* ===== ===== FUNCION ORDENAR POR FECHA PROSPERITY FUND ===== ===== */
                 //PLUGINS MOMENTS.JS
@@ -533,7 +534,9 @@
                 =============================================*/
                 let gridDefecto = $("div.casosExito div.slideCasoExito .slick .slide--0 ul li.grid--0").children().children().children().children().children().children('.contenidoSlider').children('a');
 
-                $("div.casosExito").css({ 'background': 'url("' + $(gridDefecto).attr('imgFondo') + '")' });
+                if($(gridDefecto).attr('imgFondo') !== undefined){
+                    $("div.casosExito").css({ 'background': 'url("' + $(gridDefecto).attr('imgFondo') + '")' });
+                }                
 
                 $("div.casosExito div.contenido h1.tituloCaso").html($(gridDefecto).attr('titulo'));
                 $("div.casosExito div.contenido p.descripcionCaso").html($(gridDefecto).attr('descripcion'));

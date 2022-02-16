@@ -25,9 +25,16 @@ div.convocatoriaCiudadano {
             a.busquedaAvz {
                 background-color: var.$color-cuaternario !important;
             }
-            @for $i from 4 through 9 {
+            @for $i from 5 through 9 {
                 div:nth-child(#{$i}) {
                     display: none;
+                }
+            }
+
+            fieldset{
+                display: none;
+                legend{
+                    font-size: 1rem;
                 }
             }
         }

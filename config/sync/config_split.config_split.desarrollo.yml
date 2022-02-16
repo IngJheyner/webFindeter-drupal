@@ -7,15 +7,11 @@ label: Desarrollo
 description: 'Módulos que se instala solo en ambientes de desarrollo y se excluye en ambientes de preproducción y producción.'
 weight: 0
 folder: ../config/dev
-module:
-  devel: 0
-  devel_entity_updates: 0
-  devel_generate: 0
-  kint: 0
-  webprofiler: 0
+module: {  }
 theme: {  }
 blacklist:
   - advagg.settings
+  - system.site
 graylist: {  }
 graylist_dependents: true
 graylist_skip_equal: true

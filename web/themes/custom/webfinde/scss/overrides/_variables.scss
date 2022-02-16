@@ -1,4 +1,5 @@
 @use '../custom/variables' as var;
+@use '../mixins/media-query' as media-query;
 // Override bootstrap framework variables.
 // Full list of variables in [path to themes/contrib]/bootstrap4/dist/bootstrap/4.4.1/scss/_variables.scss
 // or [path to themes/contrib]/bootstrap4/scss/_theme_variables.scss.
@@ -14,6 +15,14 @@ VENTANA MODAL
     background-color: transparent;
 }*/
 
+/* ==============================
+CONTENEDOR
+============================== */
+@media (min-width: 1200px){
+    .container{
+        max-width: 1200px;
+    }
+}
 
 /* ==============================
 BOTONES

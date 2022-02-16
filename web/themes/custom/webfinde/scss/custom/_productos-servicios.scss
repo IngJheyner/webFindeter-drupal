@@ -21,33 +21,31 @@ section.productosServicios {
         }
     }
     .grid-container {
+
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        width: 100%;
+        grid-template-columns: repeat(5, 1fr);
         position: relative;
+        grid-auto-flow: row;
+        grid-auto-rows: auto;
+        column-gap: 20px;
         height: 100%;
+        width: 100%;
+
         .grid-item {
-            width: 212px;
+
             position: relative;
-            //background-color: silver;
-            margin-right: 20px;
-            height: 25em;
             cursor: pointer;
-            box-shadow: 1rem 0rem 1rem #C8D0E3!important;
+            box-shadow: 1rem 0rem 1rem #c8d0e3 !important;
             border-radius: 0.8rem;
-            &:last-child {
-                margin-right: 0em;
-            }
             figure {
                 position: absolute;
                 z-index: 1;
                 bottom: 0px;
-                left: 0;
                 width: 100%;
                 height: 25%;
-                background: var.$color-secundario;
-                margin-bottom: 0px;
+                //background: var.$color-secundario;
                 border-radius: 0.8em 0.8em;
+                margin: 0;
                 /*background: repeating-linear-gradient(187deg,
                 transparent 0, transparent 15%,
                     var.$color-secundario 0, var.$color-secundario);*/
@@ -77,6 +75,7 @@ section.productosServicios {
             }
             img {
                 border-radius: 0.8em;
+                width: 100%;
             }
         }
     }
@@ -94,8 +93,10 @@ VENTANA MODAL PRODUCTOS Y SERVICIOS
     padding-right: 0 !important;
     height: 500px;
     border-radius: 0.8em;
+    background-repeat: no-repeat;
+    background-position: top center;
     .modal-dialog {
-        max-width: 1141px;
+        max-width: 800px;
         margin: 0;
         .modal-content {
             background-color: initial !important;
@@ -104,7 +105,7 @@ VENTANA MODAL PRODUCTOS Y SERVICIOS
                 //background-color: var.$color-primario !important;           
                 //border-top: 10px solid var.$color-secundario;
                 top: 10em;
-                padding: 21px 20px 20px 70px;
+                left: 3rem;
                 h3 {
                     margin-bottom: 5px;
                     color: var.$color-terciario;
@@ -153,7 +154,7 @@ MEDIA QUERY
         .grid-container {
             overflow-x: scroll;
             .grid-item {
-                margin-left: 1.5rem;
+                width: 212px;
             }
         }
     }
@@ -188,6 +189,9 @@ MEDIA QUERY
         }
         .grid-container {
             overflow-x: scroll;
+            .grid-item {
+                width: 212px;
+            }
         }
     }
     /* =================================
@@ -212,10 +216,16 @@ MEDIA QUERY
             h1 {
                 width: 100%;
                 font-size: 1.9rem;
+                &::after {
+                    background-color: initial;
+                }
             }
         }
         .grid-container {
             overflow-x: scroll;
+            .grid-item {
+                width: 212px;
+            }
         }
     }
     /* =================================
