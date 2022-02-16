@@ -85,7 +85,7 @@
   <div class="articuloInternasBlog container" imgFondoEncabezado="{{ file_url(content.field_imagen_fondo_articulo[0]['#item'].entity.uri.value) }}">
 
     <!--<a {#{ create_attribute({'href': ['/blog/tipo-articulo/'~tipoArticulo]}) }#}>-->
-    <a href="/blog/tipo-articulo/{{ content.field_tipo_de_articulo[0]["#plain_text"]|lower|replace(' ', '-') }}">
+    <a href="/blog/tipo-articulo/{{ content.field_tipo_de_articulo[0]["#plain_text"]|lower|replace({' ':'-'}) }}">
 
       <h5 class="text-center tipoArticulo">{{ content.field_tipo_de_articulo[0]["#plain_text"] }}<h5>
 

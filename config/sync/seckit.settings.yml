@@ -3,24 +3,24 @@ _core:
 langcode: es
 seckit_xss:
   csp:
-    checkbox: true
+    checkbox: false
     vendor-prefix:
       x: false
       webkit: false
     report-only: false
-    default-src: '''self'''
-    script-src: '''unsafe-eval'' ''unsafe-inline'' data: *'
-    object-src: '*'
-    style-src: '''self'' ''unsafe-inline'' data: *'
-    img-src: '''self'' * data:'
-    media-src: '*'
-    frame-src: '*'
-    frame-ancestors: '*'
-    child-src: '*'
-    font-src: '*'
-    connect-src: '*'
-    report-uri: /report-csp-violation
-    upgrade-req: true
+    default-src: ''
+    script-src: ''
+    object-src: ''
+    style-src: ''
+    img-src: ''
+    media-src: ''
+    frame-src: ''
+    frame-ancestors: ''
+    child-src: ''
+    font-src: ''
+    connect-src: ''
+    report-uri: ''
+    upgrade-req: false
     policy-uri: ''
   x_xss:
     seckit_x_xss_option_disable: Disabled
@@ -29,10 +29,10 @@ seckit_xss:
     seckit_x_xss_option_1_block: '1; mode=block'
     select: 0
 seckit_csrf:
-  origin: true
+  origin: false
   origin_whitelist: ''
 seckit_clickjacking:
-  js_css_noscript: true
+  js_css_noscript: false
   noscript_message: 'Lo sentimos, debe habilitar JavaScript para visitar este sitio web.'
   x_frame: '1'
   x_frame_allow_from: ''
