@@ -1,13 +1,13 @@
 _core:
-  default_config_hash: ey8bRwK17YbAVEX7GEm09YR5UneOQ_Nqzh6a3V-rIP0
+  default_config_hash: azWBxQFowXKyqUvvROIrMBXpwGaxz4JxhL6xz420P3Q
 langcode: es
 applies_admin_routes: true
 include_invalid_paths: true
-excluded_paths: form
+excluded_paths: ''
 replaced_titles: ''
 custom_paths: ''
 include_home_segment: true
-alternative_title_field: ''
+alternative_title_field: field_breadcrumb_title
 home_segment_title: Inicio
 home_segment_keep: false
 include_title_segment: true
@@ -23,12 +23,20 @@ term_hierarchy: false
 use_site_title: false
 add_structured_data_json_ld: true
 capitalizator_mode: ucforce
-capitalizator_ignored_words: {  }
+capitalizator_ignored_words:
+  - of
+  - and
+  - or
+  - de
+  - del
+  - 'y'
+  - o
+  - a
 capitalizator_forced_words: {  }
 capitalizator_forced_words_case_sensitivity: true
 capitalizator_forced_words_first_letter: true
 follow_redirects: true
-limit_segment_display: true
+limit_segment_display: false
 segment_display_limit: ''
 truncator_mode: true
 truncator_length: 100
