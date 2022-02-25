@@ -2,9 +2,14 @@ uuid: b5ec40f7-3a66-4764-ac7d-eb14167e12d1
 langcode: es
 status: open
 dependencies:
+  module:
+    - honeypot
   enforced:
     module:
       - webform
+third_party_settings:
+  honeypot:
+    time_restriction: true
 _core:
   default_config_hash: ywLzu4PKup4MjhKzlVPqWyRXPu5co-ou5hySnaWh6Uc
 weight: 0
@@ -15,7 +20,7 @@ template: false
 archive: false
 id: contact
 title: 'Formulario de Contacto'
-description: '<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Formulario web b&aacute;sico de contacto por correo electr&oacute;nico.</font></font>'
+description: 'Formulario web b&aacute;sico de contacto por correo electr&oacute;nico.'
 category: ''
 elements: |-
   titulo_parrafo:
