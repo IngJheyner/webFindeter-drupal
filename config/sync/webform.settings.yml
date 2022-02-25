@@ -3,7 +3,7 @@ _core:
 langcode: es
 settings:
   default_status: open
-  default_page_base_path: form
+  default_page_base_path: /form
   default_ajax: false
   default_ajax_progress_type: throbber
   default_ajax_effect: fade
@@ -12,11 +12,11 @@ settings:
   default_reset_button_label: Reset
   default_delete_button_label: Eliminar
   default_form_submit_once: false
-  default_form_open_message: 'This form has not yet been opened to submissions.'
-  default_form_close_message: 'Sorry&hellip; This form is closed to new submissions.'
-  default_form_exception_message: 'Unable to display this webform. Please contact the site administrator.'
-  default_form_confidential_message: 'This form is confidential. You must <a href="[site:login-url]/logout?destination=[current-page:url:relative]">Log out</a> to submit it.'
-  default_form_access_denied_message: 'Please login to access this form.'
+  default_form_open_message: '<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Este formulario a&uacute;n no se ha abierto a env&iacute;os.</font></font>'
+  default_form_close_message: '<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Lo sentimos... Este formulario est&aacute; cerrado a nuevos env&iacute;os.</font></font>'
+  default_form_exception_message: '<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">No se puede mostrar este formulario web. </font><font style="vertical-align: inherit;">Por favor contacte al administrador del sitio.</font></font>'
+  default_form_confidential_message: '<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Este formulario es confidencial. </font><font style="vertical-align: inherit;">Debe </font></font><a href="[site:login-url]/logout?destination=[current-page:url:relative]"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cerrar sesi&oacute;n</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> para enviarlo.</font></font>'
+  default_form_access_denied_message: '<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Por favor inicie sesi&oacute;n para acceder a este formulario.</font></font>'
   default_form_disable_remote_addr: false
   default_form_novalidate: false
   default_form_disable_inline_errors: false
@@ -37,13 +37,13 @@ settings:
   default_preview_prev_button_label: '< Previous'
   default_preview_label: Previsualizar
   default_preview_title: '[webform:title]: Preview'
-  default_preview_message: 'Please review your submission. Your submission is not complete until you press the &quot;Submit&quot; button!'
+  default_preview_message: '<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Por favor, revise su env&iacute;o. </font><font style="vertical-align: inherit;">&iexcl;Su env&iacute;o no est&aacute; completo hasta que presione el bot&oacute;n &quot;Enviar&quot;!</font></font>'
   default_draft_button_label: 'Save Draft'
   default_draft_saved_message: 'Submission saved. You may return to this form later and it will restore the current values.'
   default_draft_loaded_message: 'A partially-completed form was found. Please complete the remaining portions.'
   default_draft_pending_single_message: 'You have a pending draft for this webform. <a href="#">Load your pending draft</a>.'
   default_draft_pending_multiple_message: 'You have pending drafts for this webform. <a href="#">View your pending drafts</a>.'
-  default_confirmation_message: 'Se agreg&oacute; un nuevo env&iacute;o a [webform:title].'
+  default_confirmation_message: '<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Se agreg&oacute; un nuevo env&iacute;o a [webform:title].</font></font>'
   default_confirmation_back_label: 'Back to form'
   default_limit_total_message: 'No more submissions are permitted.'
   default_limit_user_message: 'No more submissions are permitted.'
@@ -106,6 +106,7 @@ assets:
   css: ''
   javascript: ''
 form:
+  limit: 50
   filter_category: ''
   filter_state: ''
 element:
@@ -238,3 +239,4 @@ third_party_settings:
     replace_administration_mode: true
   honeypot:
     honeypot: true
+    time_restriction: true
