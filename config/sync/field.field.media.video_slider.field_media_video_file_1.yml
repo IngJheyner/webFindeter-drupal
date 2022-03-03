@@ -1,18 +1,18 @@
-uuid: 10ebfb39-137f-4461-9ceb-f2ca5e264fc1
+uuid: 79f60a94-59be-481d-a76d-1d64a4165bba
 langcode: es
 status: true
 dependencies:
   config:
-    - field.storage.node.field_pqrsd_respuesta_archivos
-    - node.type.pqrsd
+    - field.storage.media.field_media_video_file_1
+    - media.type.video_slider
   module:
     - file
     - filefield_paths
 third_party_settings:
   filefield_paths:
-    enabled: true
+    enabled: false
     file_path:
-      value: 'pqrsd/respuestas/[date:custom:Y]-[date:custom:m]'
+      value: '[date:custom:Y]-[date:custom:m]'
       options:
         slashes: false
         pathauto: false
@@ -26,23 +26,21 @@ third_party_settings:
     redirect: false
     retroactive_update: false
     active_updating: false
-_core:
-  default_config_hash: '-_bNMqa1WXooexLFAUKADMbD0PD92elrBZ8Ph-oqUUI'
-id: node.pqrsd.field_pqrsd_respuesta_archivos
-field_name: field_pqrsd_respuesta_archivos
-entity_type: node
-bundle: pqrsd
-label: 'Respuesta archivos'
+id: media.video_slider.field_media_video_file_1
+field_name: field_media_video_file_1
+entity_type: media
+bundle: video_slider
+label: 'Video file'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:file'
   handler_settings: {  }
-  file_directory: 'pqrsd/respuestas/[date:custom:Y]-[date:custom:m]'
-  file_extensions: 'txt doc docx pdf xls odf xlsx cvs zip'
-  max_filesize: ''
+  file_directory: webfinde/videos/slider_home
+  file_extensions: mp4
+  max_filesize: '50 mb'
   description_field: false
 field_type: file

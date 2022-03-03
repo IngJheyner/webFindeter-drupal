@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.slider_home.field_image
     - field.field.node.slider_home.field_slider_multimedia
     - field.field.node.slider_home.field_slider_video_html
+    - field.field.node.slider_home.field_video_slider
     - node.type.slider_home
   module:
     - user
@@ -24,6 +25,15 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_video_slider:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
     region: content
 hidden:
   addtoany: true

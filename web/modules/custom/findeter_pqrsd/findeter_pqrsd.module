@@ -286,7 +286,7 @@ function generarNumeroRadicado($type){
 
   $query = \Drupal::entityQuery('node')
                 ->condition('type', 'pqrsd')
-                ->sort('nid', DESC)
+                ->sort('nid', 'DESC')
                 ->range(0, 1)
                 ->execute();
 
@@ -347,7 +347,7 @@ function findeter_pqrsd_cron() {
       $redDate = $row->_entity->get('field_pqrsd_fecha_roja')->getValue()[0]['value'];
       $numberPqrsd = $row->_entity->get('field_pqrsd_numero_radicado')->getValue()[0]['value'];
       $email = $row->_entity->getOwner()->getEmail();
-      $userName = $row->_entity->getOwner()->getUsername();
+      $userName = $row->_entity->getOwner()->getAccountName();
 
       if (date('Y-m-d') == $orangeDate) {
 
@@ -713,7 +713,7 @@ function sendNotificationAsign($user,$node){
     $userName .= $node->get('field_pqrsd_primer_apellido')->getValue()[0]['value'];
   }
 
-  $mailBody[] = 'Hola '.$user->getUsername();
+  $mailBody[] = 'Hola '.$user->getAccountName();
   $mailBody[] = 'Le informamos que se le asignó una PQRSD para que le dé respuesta:';
   $mailBody[] = '<div class="numero-radicado">
                   <b>#Radicatoria: </b>'.$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'].'
@@ -945,7 +945,7 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables, &$form) {
         <div class="seven-details__summary">';
     $variables['form']['palabras-clave']['#suffix'] = '</div></div>';
 
-    $variables['form']['created']['#prefix'] = '
+    $variables['form']['created_wrapper']['#prefix'] = '
       <div class="seven-details col-2">
         <strong>Filtrar por:</strong>
         <div class="seven-details__summary">';
@@ -960,7 +960,7 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables, &$form) {
         <div class="seven-details__summary">';
     $variables['form']['palabras-clave']['#suffix'] = '</div></div>';
 
-    $variables['form']['created']['#prefix'] = '
+    $variables['form']['created_wrapper']['#prefix'] = '
       <div class="seven-details col-2">
         <strong>Filtrar por:</strong>
         <div class="seven-details__summary">';

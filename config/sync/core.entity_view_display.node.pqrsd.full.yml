@@ -49,6 +49,7 @@ dependencies:
     - node.type.pqrsd
   module:
     - datetime
+    - field_formatter_class
     - file
     - layout_builder
     - options
@@ -312,7 +313,9 @@ content:
     label: above
     settings:
       use_description_as_link_text: true
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
     weight: 128
     region: content
   field_pqrsd_segundo_apellido:

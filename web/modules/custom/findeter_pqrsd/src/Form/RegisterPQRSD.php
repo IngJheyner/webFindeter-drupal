@@ -416,7 +416,7 @@ class RegisterPQRSD extends FormBase {
 
     $user = \Drupal\user\Entity\User::load($config->get('asign_user'));
     $newRequest->uid = $user->id();
-    $newRequest->set('field_pqrsd_asignaciones', $user->getUsername().' | '.$user->id().' | '.date('j/m/Y H:i:s'));
+    $newRequest->set('field_pqrsd_asignaciones', $user->getAccountName().' | '.$user->id().' | '.date('j/m/Y H:i:s'));
 
     // channel and way to recipt the PQRSD
     $newRequest->set('field_pqrsd_canal_recepcion', 'web');

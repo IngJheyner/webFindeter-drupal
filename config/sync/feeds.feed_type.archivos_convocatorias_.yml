@@ -10,8 +10,8 @@ dependencies:
 third_party_settings:
   feeds_tamper:
     tampers: {  }
-label: 'Archivos [ Convocatorias ]'
 id: archivos_convocatorias_
+label: 'Archivos [ Convocatorias ]'
 description: ''
 help: ''
 import_period: 3600
@@ -42,26 +42,32 @@ custom_sources:
     value: field_convcatoria_muldia_fecha
     label: field_convcatoria_muldia_fecha
     machine_name: field_convcatoria_muldia_fecha
+    type: csv
   field_convcatoria_ruta_archivo:
     value: field_convcatoria_ruta_archivo
     label: field_convcatoria_ruta_archivo
     machine_name: field_convcatoria_ruta_archivo
+    type: csv
   field_media_document:
     value: field_media_document
     label: field_media_document
     machine_name: field_media_document
+    type: csv
   field_convcatoria_tipo_adjunto:
     value: field_convcatoria_tipo_adjunto
     label: field_convcatoria_tipo_adjunto
     machine_name: field_convcatoria_tipo_adjunto
+    type: csv
   name:
     value: name
     label: name
     machine_name: name
+    type: csv
   id_archivo:
     value: id_archivo
     label: id_archivo
     machine_name: id_archivo
+    type: csv
 mappings:
   -
     target: name

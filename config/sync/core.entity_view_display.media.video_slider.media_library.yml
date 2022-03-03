@@ -1,0 +1,42 @@
+uuid: 358cf13f-279f-4a7e-a656-78877b1938d1
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.video_slider.field_media_video_file_1
+    - media.type.video_slider
+  module:
+    - blazy
+    - field_formatter_class
+    - file
+id: media.video_slider.media_library
+targetEntityType: media
+bundle: video_slider
+mode: media_library
+content:
+  field_media_video_file_1:
+    type: file_video
+    label: hidden
+    settings:
+      controls: false
+      autoplay: true
+      loop: true
+      multiple_file_display_type: tags
+      muted: true
+      width: 800
+      height: 480
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+      blazy:
+        blazy: false
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

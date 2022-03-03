@@ -288,6 +288,13 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_pqrsd_respuesta_archivos:
+    type: file_generic
+    weight: 49
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
   field_pqrsd_segundo_apellido:
     type: string_textfield
     weight: 32
@@ -401,10 +408,9 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 48
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_pqrsd_respuesta_a_favor: true
-  field_pqrsd_respuesta_archivos: true

@@ -6,14 +6,33 @@ dependencies:
     - field.storage.node.field_image
     - node.type.slider_home
   module:
+    - filefield_paths
     - image
+third_party_settings:
+  filefield_paths:
+    enabled: false
+    file_path:
+      value: webfinde/images/slider_home
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
 id: node.slider_home.field_image
 field_name: field_image
 entity_type: node
 bundle: slider_home
 label: Imagen
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
