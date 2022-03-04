@@ -68,15 +68,15 @@ class StepOne extends BaseStep {
     // Get data field definitions of content type
     $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'pqrsd');
     
-    $formStep['title']['#markup'] = '<h2 class="text-center col-12">Seleccione la manera como desea radicar su solicitud</h2>';
+    $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Seleccione la manera como desea radicar su solicitud</h2>';
 
     // start first col
     $formStep['field_pqrsd_tipo_solicitante'] = [
       '#type'         => 'select',
-      '#title'        => '<span class"required">*</span>'.$definitions['field_pqrsd_tipo_solicitante']->getLabel(),
+      '#title'        => $definitions['field_pqrsd_tipo_solicitante']->getLabel(),
       '#options'      => $definitions['field_pqrsd_tipo_solicitante']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
-      '#prefix'       => '<div class="col">'
+      '#prefix'       => '<div class="row mx-auto form-container"><div class="col-12 col-md-6 form-container-col">'
     ];
 
 
@@ -106,7 +106,7 @@ class StepOne extends BaseStep {
       
       $formStep['field_pqrsd_tipo_peticion'] = [
         '#type'         => 'select',
-        '#title'        => '<span class"required">*</span>'.$definitions['field_pqrsd_tipo_peticion']->getLabel(),
+        '#title'        => $definitions['field_pqrsd_tipo_peticion']->getLabel(),
         '#options'      => $typeRequestValues,
         '#empty_option' => '-Seleccione una opción-'
       ];
@@ -116,7 +116,7 @@ class StepOne extends BaseStep {
     // end first col
     $formStep['field_pqrsd_tipo_discapacidad'] = [
       '#type'         => 'select',
-      '#title'        => '<span class"required">*</span>'.$definitions['field_pqrsd_tipo_discapacidad']->getLabel(),
+      '#title'        => $definitions['field_pqrsd_tipo_discapacidad']->getLabel(),
       '#options'      => $definitions['field_pqrsd_tipo_discapacidad']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
       '#suffix'       => '</div>'
@@ -125,28 +125,28 @@ class StepOne extends BaseStep {
     // start second col
     $formStep['field_pqrsd_grupo_etnico'] = [
       '#type'         => 'select',
-      '#title'        => '<span class"required">*</span>'.$definitions['field_pqrsd_grupo_etnico']->getLabel(),
+      '#title'        => $definitions['field_pqrsd_grupo_etnico']->getLabel(),
       '#options'      => $definitions['field_pqrsd_grupo_etnico']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
-      '#prefix'       => '<div class="col">'
+      '#prefix'       => '<div class="col-12 col-md-6 form-container-col">'
     ];
 
     // end second col
     $formStep['field_pqrsd_preferencial'] = [
       '#type'         => 'select',
-      '#title'        => '<span class"required">*</span>'.$definitions['field_pqrsd_preferencial']->getLabel(),
+      '#title'        => $definitions['field_pqrsd_preferencial']->getLabel(),
       '#options'      => $definitions['field_pqrsd_preferencial']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
-      '#suffix'       => '</div>'
+      //'#suffix'       => '</div>'
     ];
 
     $formStep['field_pqrsd_rango_edad'] = [
       '#type'         => 'select',
-      '#title'        => '<span class"required">*</span>'.$definitions['field_pqrsd_rango_edad']->getLabel(),
+      '#title'        => $definitions['field_pqrsd_rango_edad']->getLabel(),
       '#options'      => $definitions['field_pqrsd_rango_edad']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
-      '#prefix'       => '<div class="col-12">',
-      '#suffix'       => '</div>'
+      //'#prefix'       => '<div class="col-12">',
+      '#suffix'       => '</div></div>'
     ];
     
     return $formStep;

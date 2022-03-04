@@ -63,15 +63,15 @@ class StepThree extends BaseStep {
     // Get the definitions
     $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'pqrsd');
 
-    $formStep['title']['#markup'] = '<h2 class="text-center col-12">Información del producto</h2>';
+    $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información del producto</h2>';
 
     // start col 1
     $formStep['field_pqrsd_nombre_producto'] = [
       '#type'    => 'select',
-      '#title'   => '<span class"required">*</span>'.$definitions['field_pqrsd_nombre_producto']->getLabel(),
+      '#title'   => $definitions['field_pqrsd_nombre_producto']->getLabel(),
       '#options' => $definitions['field_pqrsd_nombre_producto']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
-      '#prefix'       => '<div class="col">'
+      '#prefix'       => '<div class="row mx-auto form-container"><div class="col-12 col-md-6 form-container-col">'
     ];
 
     $formStep['field_pqrsd_motivo'] = [
@@ -105,11 +105,11 @@ class StepThree extends BaseStep {
     $formStep['field_pqrsd_descripcion'] = [
       '#type'        => 'textarea',
       '#maxlength'   => 3500,
-      '#title'       => '<span class"required">*</span>'.$definitions['field_pqrsd_descripcion']->getLabel(),
+      '#title'       => $definitions['field_pqrsd_descripcion']->getLabel(),
       '#attributes'  => ['placeholder'=>'Escriba el detalle de su Petición, Queja, Reclamo, Sugerencia o Denuncia.','id'=>'edit-field-request-description'],
       '#description' => '<div>Puede ingresar hasta un máximo de 3500 caracteres. <br>Caracteres ingresados: <span class="counter-char">-</span>, máximo 3500 caracteres.</div>',
-      '#prefix'      => '</div><div class="col">',
-      '#suffix'      => '</div>'
+      '#prefix'      => '</div><div class="col-12 col-md-6 form-container-col">',
+      '#suffix'      => '</div></div>'
     ];
 
     return $formStep;

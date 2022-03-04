@@ -79,7 +79,7 @@ class StepFour extends BaseStep {
     // just for anonimous, take these fields
     if($values['field_pqrsd_tipo_solicitante'] == 'anonimo'){
 
-      $formStep['title_anonimous']['#markup'] = '<h2 class="text-center col-12">¿Usted desea ser notificado frente al trámite de esta solicitud?</h2>';
+      $formStep['title_anonimous']['#markup'] = '<h2 class="text-center mt-4 mb-5">¿Usted desea ser notificado frente al trámite de esta solicitud?</h2>';
 
       $formStep['field_qprsd_answer_channel_anonimous'] = [
         '#type'          => 'radios',
@@ -93,23 +93,25 @@ class StepFour extends BaseStep {
     }
     
     $formStep['title'] = [
-      '#markup' => '<h2 class="text-center col-12">Seleccione el canal por medio del cual le gustaría recibir la respuesta a su solicitud</h2>',
+      '#markup' => '<h2 class="text-center mt-4 mb-5">Seleccione el canal por medio del cual le gustaría recibir la respuesta a su solicitud</h2>',
       '#prefix' => '<div id="no-anonimous">'
     ];
     $formStep['field_pqrsd_medio_respuesta'] = [
       '#type'    => 'radios',
-      '#options' => $definitions['field_pqrsd_medio_respuesta']->getSetting('allowed_values')
+      '#options' => $definitions['field_pqrsd_medio_respuesta']->getSetting('allowed_values'),
+      '#prefix' => '<div class="row form-container"><div class="col-10 form-container-col"><p class="font-weight-bold text-dark col-title-canal">Seleccione el canal de respuesta</p>',
+      '#suffix' => '<hr>'
     ];
 
     $formStep['field_pqrsd_autorizacion'] = [
       '#type'  => 'checkbox',
-      '#title' => '<span class"required">*</span> '.array_shift($definitions['field_pqrsd_autorizacion']->getSetting('allowed_values')),
+      '#title' => array_shift($definitions['field_pqrsd_autorizacion']->getSetting('allowed_values')),
     ];
 
     $formStep['field_pqrsd_marketing'] = [
       '#type'  => 'checkbox',
       '#title' => array_shift($definitions['field_pqrsd_marketing']->getSetting('allowed_values')),
-      '#suffix' => '</div>'
+      '#suffix' => '</div></div></div>'
     ];
 
     return $formStep;

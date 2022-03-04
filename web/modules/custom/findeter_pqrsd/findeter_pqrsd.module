@@ -418,8 +418,13 @@ function findeter_pqrsd_preprocess_page(&$variables) {
 
   $routeUrl = \Drupal::routeMatch()->getRouteName();
 
+
   if ($routeUrl == 'findeter_pqrsd.confirm_register_pqrsd_admin') {
     $variables['#attached']['library'][] = 'findeter_pqrsd/admin_pages';
+  }
+
+  if ($routeUrl == 'findeter_pqrsd.register_pqrsd') {
+    $variables['#attached']['library'][] = 'findeter_pqrsd/user_pages';
   }
 
 }

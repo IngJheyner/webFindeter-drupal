@@ -142,9 +142,9 @@ class RegisterPQRSD extends FormBase {
 
     $form['wrapper']['content-fields'] = [
       '#type'       => 'container',
-      '#attributes' => [
-        'class' => ['row']
-      ],
+      /*'#attributes' => [
+        'class' => ['rows']
+      ],*/
     ];
 
     // Attach step form elements.
