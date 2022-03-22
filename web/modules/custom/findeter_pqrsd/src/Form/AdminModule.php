@@ -54,7 +54,7 @@ class AdminModule extends ConfigFormBase {
     $users = $userStorage->loadMultiple($uids);
     $usersAsOptions = [];
     foreach($users as $uid=>$usr){
-      $usersAsOptions[$uid] = $usr->getUsername();
+      $usersAsOptions[$uid] = $usr->getAccountName();
     }
 
     $form['user-fieldset']['asign_user'] = [

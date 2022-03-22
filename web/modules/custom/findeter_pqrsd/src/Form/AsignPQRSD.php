@@ -55,7 +55,7 @@ class AsignPQRSD extends FormBase {
     $users = $userStorage->loadMultiple($uids);
     $usersAsOptions = [];
     foreach($users as $uid=>$usr){
-      $usersAsOptions[$uid] = $usr->getUsername();
+      $usersAsOptions[$uid] = $usr->getAccountName();
     }
 
     $form['users'] = [
@@ -105,7 +105,7 @@ class AsignPQRSD extends FormBase {
 
     $node = Node::load($formValues['node_id']);
     $user = \Drupal\user\Entity\User::load($formValues['users']);
-    $node->field_pqrsd_asignaciones[] = $user->getUsername().' | '.$user->id().' | '.date('j/m/Y H:i:s');
+    $node->field_pqrsd_asignaciones[] = $user->getAccountName().' | '.$user->id().' | '.date('j/m/Y H:i:s');
     $node->uid = $user->id();
     $node->save();
 
@@ -124,7 +124,7 @@ class AsignPQRSD extends FormBase {
         $userName .= $node->get('field_pqrsd_primer_apellido')->getValue()[0]['value'];
       }
 
-      $mailBody[] = 'Hola '.$user->getUsername();
+      $mailBody[] = 'Hola '.$user->getAccountName();
       $mailBody[] = 'Le informamos que se le asignó una PQRSD para que le dé respuesta:';
       $mailBody[] = '<div class="numero-radicado">
                       <b>Radicado: </b>'.$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'].'
