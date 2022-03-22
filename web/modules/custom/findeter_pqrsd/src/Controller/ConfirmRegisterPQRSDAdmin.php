@@ -59,7 +59,7 @@ class ConfirmRegisterPQRSDAdmin extends ControllerBase {
             </div>
             <div class="row">
               <span class="text">Asignado a:  </span>
-              <span class="value">'.$node->get('uid')->entity->getUsername().'</span>
+              <span class="value">'.$node->get('uid')->entity->getAccountName().'</span>
             </div>
             <div class="row">
               <span class="text">Fecha de vencimiento:  </span>

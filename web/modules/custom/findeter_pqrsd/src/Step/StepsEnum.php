@@ -27,7 +27,7 @@ abstract class StepsEnum {
    */
   public static function toArray() {
     return [
-      self::STEP_ZERO => 'step-zero',
+      self::STEP_zero => 'step-zero',
       self::STEP_ONE => 'step-one',
       self::STEP_TWO => 'step-two',
       self::STEP_THREE => 'step-three',

@@ -177,13 +177,18 @@ class RegisterPQRSD extends FormBase {
     }
 
     $allSteps = $this->stepManager->getAllSteps();
+
     if(isset($allSteps[1])){
+
       if($allSteps[1]->getValues()['field_pqrsd_tipo_solicitante'] == 'anonimo'){
+
         $form['wrapper']['actions']['next']['#value'] = 'Enviar solicitud';
         $form['wrapper']['actions']['next']['#goto_step'] = 6;
         $form['wrapper']['actions']['next']['#submit_handler'] = 'submitValues';
         unset($form['wrapper']['actions']['next']['#ajax']);
+
       }
+
     }
 
     // fill fields with stored values
@@ -245,7 +250,8 @@ class RegisterPQRSD extends FormBase {
 
       $steps = $this->stepManager->getAllSteps();
 
-      $url = Url::fromRoute('findeter_pqrsd.confirm_register_pqrsd',['operation'=>'create','nid'=>$steps[4]->getValues()['new_nid']])->toString();
+      $url = Url::fromRoute('findeter_pqrsd.confirm_register_pqrsd',['nid'=>$steps[4]->getValues()['new_nid']])->toString();
+      //$url = Url::fromRoute('findeter_pqrsd.confirm_register_pqrsd',['operation'=>'create','nid'=>500])->toString();
       $response->addCommand(new \Drupal\Core\Ajax\RedirectCommand($url));
 
     }else{
@@ -471,6 +477,7 @@ class RegisterPQRSD extends FormBase {
 
     // store the nid value of new node created
     $values['new_nid'] = $newRequest->id();
+
     $values['pqrsd_numero_radicado'] = $numeroRadicado;
 
     $this->step->setValues($values);
