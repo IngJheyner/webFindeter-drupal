@@ -431,9 +431,30 @@
                 });
 
                 //formBusquedaAvanzada();
+                $('#tableDetalleConvocatorias').DataTable({
 
-                /* ===== ===== FUNCION ORDENAR POR FECHA PROSPERITY FUND ===== ===== */
-                //PLUGINS MOMENTS.JS
+                    "language": {
+                        "info": "Mostrando pagina _PAGE_ de _PAGES_, total de archivos _TOTAL_",
+                        "search": "Buscar:",
+                        "emptyTable": "No se encontraron archivos adjuntos para la convocatoria.",
+                        "zeroRecords": "No se encontraron resultados.",
+                        "infoFiltered": " - de _MAX_ filtros",
+                        "lengthMenu": "Mostrar _MENU_ registros por pagina.",
+                        "paginate": {
+                            "previous": "Anterior",
+                            "next": "Siguiente"
+                        }
+                    },
+                    order: [
+                        [2, 'desc'],
+                        //[0, 'asc']
+                    ],
+                    //"ordering" : false
+                });
+
+                /*===========================================
+                PROSPERITY FUND
+                =============================================*/
                 $.fn.dataTable.render.moment = function ( from, to, locale ) {
                     // Argument shifting
                     if ( arguments.length === 1 ) {
@@ -454,7 +475,7 @@
                 };
 
                 /* ===== ===== INTERNAS DETALLE DE PROCESO y prosperity fund ===== ===== */
-                $('#tableDetalleConvocatorias').DataTable({
+                $('#tableDetalleProsperity').DataTable({
 
                     "language": {
                         "info": "Mostrando pagina _PAGE_ de _PAGES_, total de archivos _TOTAL_",

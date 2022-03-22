@@ -1,0 +1,21 @@
+uuid: 26cd4c8f-4525-41b1-bda3-b171b37a4a74
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.video_slider.field_media_video_file_1
+    - media.type.video_slider
+id: media.video_slider.media_library
+targetEntityType: media
+bundle: video_slider
+mode: media_library
+content: {  }
+hidden:
+  created: true
+  field_media_video_file_1: true
+  langcode: true
+  name: true
+  path: true
+  status: true
+  uid: true

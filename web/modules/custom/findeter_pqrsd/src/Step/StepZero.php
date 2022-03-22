@@ -68,7 +68,7 @@ class StepZero extends BaseStep {
     $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'pqrsd');
     
     $formStep['title']['#markup'] = '
-      <h2 class="text-center col-12">Registro de Formularios</h2><br><br>
+      <h2 class="text-center mb-5 mt-4">Registro de Formularios</h2>
       <div class="card">
       <div class="card-body">
       <p>Gracias por ingresar al sistema atención al usuario del portal, su opinión es muy importante para nosotros.<br><br>

@@ -75,41 +75,43 @@ class StepTwo extends BaseStep {
     $values = $steps[1]->getValues();
 
     if($values['field_pqrsd_tipo_solicitante'] == 'juridica'){
-      $formStep['title']['#markup'] = '<h2 class="text-center col-12">Información básica: Persona jurídica</h2>';
+      $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información básica: 
+                                      <p class="text-dark font-weight-bold">Persona jurídica</p></h2>';
 
       // start col 1
       $formStep['field_pqrsd_nit'] = [
         '#type'       => 'textfield',
-        '#title'      => '<span class"required">*</span>'.$definitions['field_pqrsd_nit']->getLabel(),
+        '#title'      => $definitions['field_pqrsd_nit']->getLabel(),
         //'#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_nit']->getLabel())],
         '#attributes' => ['placeholder'=>'Ej: 2321133'],
-        '#prefix'     => '<div class="col">'
+        '#prefix'     => '<div class="row mx-auto form-container"><div class="col-12 col-md-6 form-container-col">'
       ];
 
       $formStep['field_pqrsd_razon_social'] = [
         '#type'       => 'textfield',
-        '#title'      => '<span class"required">*</span>'.$definitions['field_pqrsd_razon_social']->getLabel(),
+        '#title'      => $definitions['field_pqrsd_razon_social']->getLabel(),
         //'#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_razon_social']->getLabel())]
         '#attributes' => ['placeholder'=>'Ej: Empresa S.A.S'],
       ];
 
       $formStep['field_pqrsd_tipo_empresa'] = [
         '#type'         => 'select',
-        '#title'        => '<span class"required">*</span>'.$definitions['field_pqrsd_tipo_empresa']->getLabel(),
+        '#title'        => $definitions['field_pqrsd_tipo_empresa']->getLabel(),
         '#options'      => $definitions['field_pqrsd_tipo_empresa']->getSetting('allowed_values'),
         '#empty_option' => '-Seleccione una opción-',
       ];
 
     }else{
-      $formStep['title']['#markup'] = '<h2 class="text-center col-12">Información básica: Persona '.$values['field_type_requester'].'</h2>';
+      $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información básica: 
+                                        <p class="text-dark font-weight-bold">Persona '.$values['field_pqrsd_tipo_solicitante'].'</p></h2>';
 
       // start col 1
       $formStep['field_pqrsd_numero_id'] = [
         '#type'       => 'textfield',
-        '#title'      => '<span class"required">*</span>'.$definitions['field_pqrsd_numero_id']->getLabel(),
+        '#title'      => $definitions['field_pqrsd_numero_id']->getLabel(),
         //'#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_numero_id']->getLabel())],
         '#attributes' => ['placeholder'=>'Ej: 2321133'],
-        '#prefix'     => '<div class="col">'
+        '#prefix'     => '<div class="row mx-auto form-container"><div class="col-12 col-md-6 form-container-col">'
       ];
 
       $formStep['field_pqrsd_tipo_documento'] = [
@@ -122,7 +124,7 @@ class StepTwo extends BaseStep {
 
     $formStep['field_pqrsd_primer_nombre'] = [
       '#type'       => 'textfield',
-      '#title'      => '<span class"required">*</span>'.$definitions['field_pqrsd_primer_nombre']->getLabel(),
+      '#title'      => $definitions['field_pqrsd_primer_nombre']->getLabel(),
       '#attributes' => ['placeholder'=>'Ej: Juan']
     ];
 
@@ -134,7 +136,7 @@ class StepTwo extends BaseStep {
 
     $formStep['field_pqrsd_primer_apellido'] = [
       '#type'       => 'textfield',
-      '#title'      => '<span class"required">*</span>'.$definitions['field_pqrsd_primer_apellido']->getLabel(),
+      '#title'      => $definitions['field_pqrsd_primer_apellido']->getLabel(),
       '#attributes' => ['placeholder'=>'Ej: Pedraza']
     ];
 
@@ -156,16 +158,16 @@ class StepTwo extends BaseStep {
     // start col 2
     $formStep['field_pqrsd_direccion'] = [
       '#type'       => 'textfield',
-      '#title'      => '<span class"required">*</span>'.$definitions['field_pqrsd_direccion']->getLabel(),
+      '#title'      => $definitions['field_pqrsd_direccion']->getLabel(),
       '#attributes' => ['placeholder'=>'Ej: carrera 2 No 32 - 15'],
-      '#prefix'     => '<div class="col">'
+      '#prefix'     => '<div class="col-12 col-md-6 form-container-col">'
     ];
 
     $deparmentOptions = getTaxonomyTermsForm(0);
 
     $formStep['field_pqrsd_departamento'] = [
       '#type'    => 'select',
-      '#title'   => '<span class"required">*</span>'.$definitions['field_pqrsd_departamento']->getLabel(),
+      '#title'   => $definitions['field_pqrsd_departamento']->getLabel(),
       '#options' => $deparmentOptions,
       '#source'  => 'steps',
       '#ajax'    => [
@@ -187,7 +189,7 @@ class StepTwo extends BaseStep {
 
     $formStep['field_pqrsd_municipio'] = [
       '#type'      => 'select',
-      '#title'     => '<span class"required">*</span>'.$definitions['field_pqrsd_municipio']->getLabel(),
+      '#title'     => $definitions['field_pqrsd_municipio']->getLabel(),
       '#prefix'    => '<div id="output-municipalities">',
       '#suffix'    => '</div>',
       '#empty_option' => '-Seleccione una opción-',
@@ -199,7 +201,7 @@ class StepTwo extends BaseStep {
 
     $formStep['field_pqrsd_telefono'] = [
       '#type'       => 'textfield',
-      '#title'      => '<span class"required">*</span>'.$definitions['field_pqrsd_telefono']->getLabel(),
+      '#title'      => $definitions['field_pqrsd_telefono']->getLabel(),
       '#attributes' => ['placeholder'=>'Ej: 5435455']
     ];
 
@@ -212,9 +214,9 @@ class StepTwo extends BaseStep {
     // end col 2
     $formStep['field_pqrsd_email'] = [
       '#type'       => 'email',
-      '#title'      => '<span class"required">*</span>'.$definitions['field_pqrsd_email']->getLabel(),
+      '#title'      => $definitions['field_pqrsd_email']->getLabel(),
       '#attributes' => ['placeholder'=>'Ej: correo@gmail.com'],
-      '#suffix'     => '</div>'
+      '#suffix'     => '</div></div>'
     ];
     
     return $formStep;

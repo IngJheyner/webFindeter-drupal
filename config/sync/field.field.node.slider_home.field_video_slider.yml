@@ -1,0 +1,29 @@
+uuid: 212c0947-8ea7-4354-8d03-ad25b728de90
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video_slider
+    - media.type.video_slider
+    - node.type.slider_home
+id: node.slider_home.field_video_slider
+field_name: field_video_slider
+entity_type: node
+bundle: slider_home
+label: Video
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      video_slider: video_slider
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

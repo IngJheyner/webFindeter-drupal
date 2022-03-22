@@ -1,17 +1,17 @@
-uuid: 344a9579-7d26-44de-b1db-ddd0e7876dca
+uuid: 5e2ed857-9d94-4003-973d-81538272c354
 langcode: es
 status: true
 dependencies:
   module:
     - field_permissions
     - file
-    - node
+    - media
 third_party_settings:
   field_permissions:
     permission_type: public
-id: node.field_pqrsd_respuesta_archivos
-field_name: field_pqrsd_respuesta_archivos
-entity_type: node
+id: media.field_media_video_file_1
+field_name: field_media_video_file_1
+entity_type: media
 type: file
 settings:
   target_type: file
@@ -20,7 +20,7 @@ settings:
   uri_scheme: public
 module: file
 locked: false
-cardinality: 4
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
