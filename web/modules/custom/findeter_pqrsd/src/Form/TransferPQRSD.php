@@ -96,7 +96,7 @@ class TransferPQRSD extends FormBase {
 
     $response = new AjaxResponse();
 
-    $mailBody[] = 'Reciba un cordial saludo de parte de Findeter.';
+    $mailBody[] = '<p>Reciba un cordial saludo de parte de Findeter.</p><br>';
 
     $formValues = $form_state->getValues();
 
@@ -111,11 +111,13 @@ class TransferPQRSD extends FormBase {
     $nameRadicador[] = $node->get('field_pqrsd_segundo_nombre')->getString();
     $nameRadicador[] = $node->get('field_pqrsd_segundo_apellido')->getString();
 
-    $mailBody[] = 'De conformidad con lo establecido en la ley 1755 de 2015, de manera atenta damos traslado por competencia a la PQRSD radicada en Findeter con el número:'.$node->get('field_pqrsd_numero_radicado')->getString();
-    $mailBody[] = 'Agradecemos su acostumbrada colaboración, para dar continuidad al trámite correspondiente.';
-    $mailBody[] = '';
+    $mailBody[] = '<p>De conformidad con lo establecido en la ley 1755 de 2015, de manera atenta damos traslado por competencia a la PQRSD radicada en Findeter con el número: <strong>'.$node->get('field_pqrsd_numero_radicado')->getString().'</strong></p>';
+    $mailBody[] = '<p>Agradecemos su acostumbrada colaboración, para dar continuidad al trámite correspondiente.</p><br>';
+    $mailBody[] = '<hr>';
     $mailBody[] = 'Cordialmente,';
     $mailBody[] = 'Vicepresidencia comercial - Servicio al cliente Findeter';
+    $mailBody[] = '<a href="https://www.findeter.gov.co" target="_blank"><img onerror="this.remove();" alt="Findeter" src="https://www.findeter.gov.co/sites/default/files/webfinde/images/encabezado/logo.png" width="300" height="150"></a>';
+
 
     $params['message'] = implode('<br>',$mailBody);
 

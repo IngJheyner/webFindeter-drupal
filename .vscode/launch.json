@@ -8,11 +8,14 @@
             "name": "Listen for Xdebug",
             "type": "php",
             "request": "launch",
-            "port": 9000,
+            "port": 9003,
             "log": true,
             "pathMappings": {
-                "/app/": "${workspaceRoot}/",
-            }
+                "/app": "${workspaceRoot}", 
+                "/app/web": "${workspaceRoot}/web", 
+                "/app/web/index.php": "${workspaceRoot}/web/index.php"
+            },
+            "stopOnEntry": true,
         },
     ]
 }

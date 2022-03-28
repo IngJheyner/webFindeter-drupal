@@ -176,3 +176,25 @@ form#views-exposed-form-pqrsd-page-2{
   width: 200px;
   text-align: center;
 }
+
+/* ==============================
+VENTANA MODAL INFO DASHBOARD
+============================== */
+div#container-modal details div.seven-details__wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+div#container-modal details div.seven-details__wrapper div#seven-details__column_1,
+div#container-modal details div.seven-details__wrapper div#seven-details__column_2{
+  flex-basis: 300px;
+}
+
+div#container-modal details div.seven-details__wrapper div#seven-details__column_1 > div,
+div#container-modal details div.seven-details__wrapper div#seven-details__column_2 > div{
+  margin-block-end: 8px;
+}
+
+div#container-modal details div.seven-details__wrapper div#seven-details__column_1 fieldset div.fieldset-wrapper > div{
+  margin-block: 8px;
+}

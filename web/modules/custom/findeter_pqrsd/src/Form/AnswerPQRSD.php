@@ -9,6 +9,8 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\AlertCommand;
 use Drupal\node\Entity\Node;
 use Drupal\file\Entity\File;
+use Drupal\block\Entity\Block;
+use Drupal\Core\Entity\EntityInterface;
 
 /**
  * Class AnswerPQRSD.
@@ -103,6 +105,9 @@ class AnswerPQRSD extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {}
 
   public function ajaxCloseModal(array &$form, FormStateInterface $form_state) {
+
+    global $base_url;
+
     $formValues = $form_state->getValues();
 
     $node = Node::load($formValues['node_id']);
@@ -119,10 +124,10 @@ class AnswerPQRSD extends FormBase {
       $file->save();
     }
 
-    $node->save();
+    $node->save();    
 
     if(isset($node->get('field_pqrsd_email')->getValue()[0]['value']) &&
-        $node->get('field_pqrsd_medio_respuesta')->getValue()[0]['value'] == 'email'){
+      $node->get('field_pqrsd_medio_respuesta')->getValue()[0]['value'] == 'email'){
 
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'findeter_pqrsd';
@@ -130,16 +135,22 @@ class AnswerPQRSD extends FormBase {
       //$to = $form_state->getValue('field_pqrsd_email');
       $to = $node->get('field_pqrsd_email')->getValue()[0]['value'];
 
-      $mailBody[] = 'Reciba un cordial saludo de parte de Findeter';
-      $mailBody[] = 'Le informamos que hemos dado respuesta la PQRSD con número: <b>'.$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'].'</b>';
-      $mailBody[] = '<div class="numero-radicado">Estimado usuario: <br><br>
-      '.$node->get('field_pqrsd_respuesta')->getValue()[0]['value'] .'
-      </div>';
+      $mailBody[] = '<p>Reciba un cordial saludo de parte de Findeter.</p>';
+      $mailBody[] = '<p>Le informamos que hemos dado respuesta la PQRSD con número: <b>'.$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'].'</b></p><br><br>
+      
+      ';
+      $mailBody[] = '<div class="numero-radicado"><strong>Estimado usuario: </strong><br>
+      <blockquote>'.$node->get('field_pqrsd_respuesta')->getValue()[0]['value'] .'</blockquote>';
 
-      $mailBody[] = '';
+      if(sizeof($formValues['field_pqrsd_respuesta_archivos'])){
+        $mailBody[] = '<p><strong>Nota:</strong> La respuesta a este radicado tiene <u>archivos adjuntos</u>, consulta con el numero de radicado asignado en el siguiente <a href="https://www.findeter.gov.co/estado-pqrsd">enlace</a></p>';
+      }    
+
+      $mailBody[] = '</div><hr>';
       $mailBody[] = 'Cordialmente,';
       $mailBody[] = 'Vicepresidencia comercial - Servicio al cliente';
       $mailBody[] = 'Findeter';
+      $mailBody[] = '<a href="https://www.findeter.gov.co" target="_blank"><img onerror="this.remove();" alt="Findeter" src="https://www.findeter.gov.co/sites/default/files/webfinde/images/encabezado/logo.png" width="300" height="150"></a>';
 
       $params['message'] = implode('<br>',$mailBody);
 
@@ -157,10 +168,10 @@ class AnswerPQRSD extends FormBase {
       $user = \Drupal\user\Entity\User::load(1);
       $to = $user->getEmail();
 
-      $mailBody[] = 'PQRSD Respondida:';
-      $mailBody[] = 'Se dió respuesta a la PQRSD con número: <b>'.$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'].'</b>';
-      $mailBody[] = '<div class="numero-radicado">Texto de respuesta: <br><br>
-      '.$node->get('field_pqrsd_respuesta')->getValue()[0]['value'] .'
+      $mailBody[] = '<br><hr><br><strong>PQRSD Respondida:</strong>';
+      $mailBody[] = 'Se dió respuesta a la PQRSD con número: <b>'.$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'].'</b><br><br>';
+      $mailBody[] = '<div class="numero-radicado"><strong>Texto de respuesta:</strong><br>
+      <blockquote>'.$node->get('field_pqrsd_respuesta')->getValue()[0]['value'].'</blockquote>
       </div>';
 
       $params['message'] = implode('<br>',$mailBody);

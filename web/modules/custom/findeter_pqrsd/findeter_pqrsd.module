@@ -240,36 +240,42 @@ function findeter_pqrsd_mail($key, &$message, $params) {
 
   switch ($key) {
     case 'transfer_pqrsd':
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = 'Traslado PQRSD por competencia';
       $message['body'][] = $params['message'];
       break;
 
     case 'registered_pqrsd':
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = 'Registro de PQRSD';
       $message['body'][] = $params['message'];
       break;
 
     case 'answer_pqrsd':
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = 'Respuesta de PQRSD';
       $message['body'][] = $params['message'];
       break;
 
     case 'asigned_pqrsd':
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = 'Nueva asignación de PQRSD';
       $message['body'][] = $params['message'];
       break;
 
     case 'notification_orange':
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = 'Pronto vencimiento para respuesta de PQRSD';
       $message['body'][] = $params['message'];
       break;
 
     case 'notification_red':
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = 'Tiempo execido para  respuesta de PQRSD';
       $message['body'][] = $params['message'];
@@ -356,16 +362,18 @@ function findeter_pqrsd_cron() {
         $key = 'notification_orange';
         $to = $email;
 
-        $mailBody[] = 'Hola '.$userName;
-        $mailBody[] = 'Le informamos que se la PQRSD con número: <b>'.$numberPqrsd.'</b> se encuentra pronta a caducar el próximo:';
+        $mailBody[] = '<p>Hola '.$userName.'</p><br>';
+        $mailBody[] = '<p>Le informamos que se la PQRSD con número: <b>'.$numberPqrsd.'</b> se encuentra pronta a caducar el próximo:</p>';
         $mailBody[] = '<div class="expiration-orange">
                         '.date('d/m/Y',strtotime($orangeDate)).'
                       </div>';
-        $mailBody[] = 'Le invitamos a gestionar esta PQRSD, iniciando sesión en la página administrativa del sistema';
-        $mailBody[] = '';
+        $mailBody[] = '<p>Le invitamos a gestionar esta PQRSD, iniciando sesión en la página administrativa del sistema.</p>';
+        $mailBody[] = '<hr>';
         $mailBody[] = 'Cordialmente,';
         $mailBody[] = 'Vicepresidencia comercial - Servicio al cliente';
         $mailBody[] = 'Findeter';
+        $mailBody[] = '<a href="https://www.findeter.gov.co" target="_blank"><img onerror="this.remove();" alt="Findeter" src="https://www.findeter.gov.co/sites/default/files/webfinde/images/encabezado/logo.png" width="300" height="150"></a>';
+
 
         $params['message'] = implode('<br>',$mailBody);
 
@@ -382,16 +390,18 @@ function findeter_pqrsd_cron() {
           $key = 'notification_red';
           $to = $email;
 
-          $mailBody[] = 'Hola '.$userName;
-          $mailBody[] = 'Le informamos que se la PQRSD con número: <b>'.$numberPqrsd.'</b> execidó el tiempo de respuesta asignado para su respuesta el:';
+          $mailBody[] = '<p>Hola '.$userName.'</p><br>';
+          $mailBody[] = '<p>Le informamos que se la PQRSD con número: <b>'.$numberPqrsd.'</b> execidó el tiempo de respuesta asignado para su respuesta el:</p>';
           $mailBody[] = '<div class="expiration-orange">
                           '.date('d/m/Y',strtotime($redDate)).'
                         </div>';
-          $mailBody[] = 'Le invitamos a gestionar esta PQRSD, iniciando sesión en la página administrativa del sistema';
-          $mailBody[] = '';
+          $mailBody[] = '<p>Le invitamos a gestionar esta PQRSD, iniciando sesión en la página administrativa del sistema.</p>';
+          $mailBody[] = '<hr>';
           $mailBody[] = 'Cordialmente,';
           $mailBody[] = 'Vicepresidencia comercial - Servicio al cliente';
           $mailBody[] = 'Findeter';
+          $mailBody[] = '<a href="https://www.findeter.gov.co" target="_blank"><img onerror="this.remove();" alt="Findeter" src="https://www.findeter.gov.co/sites/default/files/webfinde/images/encabezado/logo.png" width="300" height="150"></a>';
+
 
           $params['message'] = implode('<br>',$mailBody);
 
@@ -718,19 +728,21 @@ function sendNotificationAsign($user,$node){
     $userName .= $node->get('field_pqrsd_primer_apellido')->getValue()[0]['value'];
   }
 
-  $mailBody[] = 'Hola '.$user->getAccountName();
-  $mailBody[] = 'Le informamos que se le asignó una PQRSD para que le dé respuesta:';
+  $mailBody[] = '<p>Hola '.$user->getAccountName().'</p><br>';
+  $mailBody[] = '<p>Le informamos que se le asignó una PQRSD para que le dé respuesta:</p>';
   $mailBody[] = '<div class="numero-radicado">
-                  <b>#Radicatoria: </b>'.$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'].'
-                  <b>Cliente: </b>'.$userName.'
-                  <b>Fecha registro: </b>'.date('d/m/Y H:m:i',$node->getCreatedTime()).'
+                  <b>No. Radicatoria: </b>'.$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'].'<br>
+                  <b>Cliente: </b>'.$userName.'<br>
+                  <b>Fecha registro: </b>'.date('d/m/Y H:m:i',$node->getCreatedTime()).'<br>
                   <b>Fecha vencimiento respuesta: </b>'.$node->get('field_pqrsd_fecha_roja')->getValue()[0]['value'].'
                 </div>';
-  $mailBody[] = 'Le invitamos a gestionar esta PQRSD, iniciando sesión en la página administrativa del sistema';
-  $mailBody[] = '';
+  $mailBody[] = '<p>Le invitamos a gestionar esta PQRSD, iniciando sesión en la página administrativa del sistema</p><br>';
+  $mailBody[] = '<hr>';
   $mailBody[] = 'Cordialmente,';
   $mailBody[] = 'Vicepresidencia comercial - Servicio al cliente';
   $mailBody[] = 'Findeter';
+  $mailBody[] = '<a href="https://www.findeter.gov.co" target="_blank"><img onerror="this.remove();" alt="Findeter" src="https://www.findeter.gov.co/sites/default/files/webfinde/images/encabezado/logo.png" width="300" height="150"></a>';
+
 
   $params['message'] = implode('<br>',$mailBody);
 
