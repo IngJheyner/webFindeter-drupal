@@ -18,6 +18,7 @@ dependencies:
     - field.field.block_content.pie_de_pagina.field_logo_footer
     - field.field.block_content.pie_de_pagina.field_logo_ministerio_hacienda_f
     - field.field.block_content.pie_de_pagina.field_logo_superintendencia_foot
+    - field.field.block_content.pie_de_pagina.field_more_logos_footer
     - field.field.block_content.pie_de_pagina.field_ntf_judiciales_footer
     - field.field.block_content.pie_de_pagina.field_pqr_footer
     - field.field.block_content.pie_de_pagina.field_sede_principal_footer
@@ -178,6 +179,14 @@ content:
       svg_render_as_image: true
     third_party_settings: {  }
     weight: 12
+    region: content
+  field_more_logos_footer:
+    type: image_url
+    label: hidden
+    settings:
+      image_style: ''
+    third_party_settings: {  }
+    weight: 25
     region: content
   field_pqr_footer:
     type: string

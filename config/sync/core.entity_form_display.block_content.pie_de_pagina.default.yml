@@ -18,6 +18,7 @@ dependencies:
     - field.field.block_content.pie_de_pagina.field_logo_footer
     - field.field.block_content.pie_de_pagina.field_logo_ministerio_hacienda_f
     - field.field.block_content.pie_de_pagina.field_logo_superintendencia_foot
+    - field.field.block_content.pie_de_pagina.field_more_logos_footer
     - field.field.block_content.pie_de_pagina.field_ntf_judiciales_footer
     - field.field.block_content.pie_de_pagina.field_pqr_footer
     - field.field.block_content.pie_de_pagina.field_sede_principal_footer
@@ -164,7 +165,6 @@ third_party_settings:
       children:
         - group_logos_group
         - group_mas_logos
-        - field_mas_logos_footer
       label: Logos
       region: content
       parent_name: group_contenido
@@ -243,6 +243,7 @@ third_party_settings:
       children:
         - field_url_saving_amazong_footer
         - field_img_saving_amazong_footer
+        - field_more_logos_footer
       label: 'Mas Logos'
       region: content
       parent_name: group_logos
@@ -365,6 +366,14 @@ content:
   field_logo_superintendencia_foot:
     type: image_image
     weight: 7
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_more_logos_footer:
+    type: image_image
+    weight: 9
     region: content
     settings:
       progress_indicator: throbber

@@ -6,16 +6,18 @@ dependencies:
     - block_content.type.encabezado_home
     - field.field.block_content.encabezado_home.field_img_govco_encabezado_home
     - field.field.block_content.encabezado_home.field_logo_encabezado_home
+    - field.field.block_content.encabezado_home.field_url_govco_header
     - image.style.thumbnail
   module:
     - field_group
-    - image
+    - link
+    - svg_image
 third_party_settings:
   field_group:
     group_contenido:
       children:
         - field_logo_encabezado_home
-        - field_logo_findeter_negro
+        - field_url_govco_header
         - field_img_govco_encabezado_home
       label: Contenido
       region: content
@@ -65,6 +67,14 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_url_govco_header:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   info:
     type: string_textfield
