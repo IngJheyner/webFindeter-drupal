@@ -447,19 +447,23 @@ class RegisterPQRSD extends FormBase {
       $key = 'registered_pqrsd';
       $to = $values['field_pqrsd_email'];
 
-      $url = Url::fromRoute('findeter_pqrsd.status_pqrsd');
+      /*$url = Url::fromRoute('findeter_pqrsd.status_pqrsd');
       $statusLink = Link::fromTextAndUrl('ingresar', $url);
-      $statusLink = $statusLink->toRenderable();
+      $statusLink = $statusLink->toRenderable();*/
 
-      $mailBody[] = 'Reciba un cordial saludo de parte de Findeter';
-      $mailBody[] = 'De antemano queremos agradecerle por haberse puesto en contacto con nosotros a traves del sistema de atención al usuario. Su opinión es muy importante para nosotros.';
-      $mailBody[] = 'Le informamos que su solicitud ha sido registrada satisfactoriamente con el código de radicado:';
-      $mailBody[] = '<div class="numero-radicado">'.$numeroRadicado.'</div>';
-      $mailBody[] = 'Con este código podrá '.render($statusLink).' para consultar el estado de la misma y si es el caso ampliar o enviar información adicional';
-      $mailBody[] = '';
+      $mailBody[] = '<p>Reciba un cordial saludo de parte de Findeter.</p>';
+
+      $mailBody[] = '<p>De antemano queremos agradecerle por haberse puesto en contacto con nosotros a traves del sistema de atención al usuario. Su opinión es muy importante para nosotros.</p>';
+
+      $mailBody[] = '<p>Le informamos que su solicitud ha sido registrada satisfactoriamente con el código de radicado:<br><strong>'.$numeroRadicado.'</strong></p>';
+      
+      $mailBody[] = '<p>Con este código podrá <a href="https://www.findeter.gov.co/estado-pqrsd">ingresar</a> para consultar el estado de la misma y si es el caso ampliar o enviar información adicional</p>';
+
+      $mailBody[] = '<hr>';
       $mailBody[] = 'Cordialmente,';
       $mailBody[] = 'Vicepresidencia comercial - Servicio al cliente';
       $mailBody[] = 'Findeter';
+      $mailBody[] = '<a href="https://www.findeter.gov.co" target="_blank"><img onerror="this.remove();" alt="Findeter" src="https://www.findeter.gov.co/sites/default/files/webfinde/images/encabezado/logo.png" width="300" height="150"></a>';
 
       $params['message'] = implode('<br>',$mailBody);
 

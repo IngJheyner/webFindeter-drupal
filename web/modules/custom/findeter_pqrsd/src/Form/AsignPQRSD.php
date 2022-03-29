@@ -111,7 +111,8 @@ class AsignPQRSD extends FormBase {
 
     if($user->getEmail() !== ''){
 
-      $mailManager = \Drupal::service('plugin.manager.mail');
+      sendNotificationAsign($user,$node);
+      /*$mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'findeter_pqrsd';
       $key = 'asigned_pqrsd';
       $to = $user->getEmail();
@@ -143,11 +144,9 @@ class AsignPQRSD extends FormBase {
       $langcode = \Drupal::currentUser()->getPreferredLangcode();
       $send = true;
 
-      $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+      $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);*/
 
     }
-
-
 
     $response = new AjaxResponse();
     $response->addCommand(new InvokeCommand(NULL, 'afterAsignCallback', ['Reloading page!']));

@@ -71,7 +71,7 @@ class UsersAutoCompleteController extends ControllerBase {
     foreach ($users as $user) {
   
       $label = [
-        $user->getUsername(),
+        $user->getAccountName(),
           '<small>(' . $user->id() . ')</small>'
       ];
   
@@ -109,7 +109,7 @@ class UsersAutoCompleteController extends ControllerBase {
     $html = '<table>';
     foreach ($users as $user) {
       $mail = $user->getEmail();
-      $username = $user->getUsername();
+      $username = $user->getAccountName();
       $rel = $username.'('.$user->id().')';
       $name = '<a class="user-asign-link" href="#" rel="'.$rel.'">'.$username.'</a>';
 

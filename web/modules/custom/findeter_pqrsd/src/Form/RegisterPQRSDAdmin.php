@@ -248,19 +248,20 @@ class RegisterPQRSDAdmin extends FormBase {
           $userName .= $form_state->getValue('field_pqrsd_primer_apellido');
         }
 
-        $mailBody[] = 'Hola '.$user->getAccountName();
-        $mailBody[] = 'Le informamos que se le asignó una PQRSD para que le dé respuesta:';
+        $mailBody[] = '<p>Hola '.$user->getAccountName().'</p><br>';
+        $mailBody[] = '<p>Le informamos que se le asignó una PQRSD para que le dé respuesta:</p>';
         $mailBody[] = '<div class="numero-radicado">
-                      <b>#Radicatoria: </b>'.$numeroRadicado.'
-                      <b>Cliente: </b>'.$userName.'
-                      <b>Fecha registro: </b>'.date('d/m/Y H:m:i').'
-                      <b>Fecha vencimiento respuesta: </b>'.$datesConfigure['red'].'
-                    </div>';
-        $mailBody[] = 'Le invitamos a gestionar esta PQRSD, iniciando sesión en la página administrativa del sistema';
-        $mailBody[] = '';
+                        <b>No. Radicatoria: </b>'.$numeroRadicado.'<br>
+                        <b>Cliente: </b>'.$userName.'<br>
+                        <b>Fecha registro: </b>'.date('d/m/Y H:m:i').'<br>
+                        <b>Fecha vencimiento respuesta: </b>'.$datesConfigure['red'].'
+                      </div>';
+        $mailBody[] = '<p>Le invitamos a gestionar esta PQRSD, iniciando sesión en la página administrativa del sistema</p><br>';
+        $mailBody[] = '<hr>';
         $mailBody[] = 'Cordialmente,';
         $mailBody[] = 'Vicepresidencia comercial - Servicio al cliente';
         $mailBody[] = 'Findeter';
+        $mailBody[] = '<a href="https://www.findeter.gov.co" target="_blank"><img onerror="this.remove();" alt="Findeter" src="https://www.findeter.gov.co/sites/default/files/webfinde/images/encabezado/logo.png" width="300" height="150"></a>';
 
         $params['message'] = implode('<br>',$mailBody);
 
@@ -292,15 +293,15 @@ class RegisterPQRSDAdmin extends FormBase {
       $statusLink = Link::fromTextAndUrl('ingresar', $url);
       $statusLink = $statusLink->toRenderable();
 
-      $mailBody[] = 'Reciba un cordial saludo de parte de Findeter';
-      $mailBody[] = 'De antemano queremos agradecerle por haberse puesto en contacto con nosotros a traves del sistema de atención al usuario. Su opinión es muy importante para nosotros.';
-      $mailBody[] = 'Le informamos que su solicitud ha sido registrada satisfactoriamente con el código de radicado:';
-      $mailBody[] = '<div class="numero-radicado">'.$numeroRadicado.'</div>';
-      $mailBody[] = 'Con este código podrá '.render($statusLink).' para consultar el estado de la misma y si es el caso ampliar o enviar información adicional';
-      $mailBody[] = '';
+      $mailBody[] = '<p>Reciba un cordial saludo de parte de Findeter.</p>';
+      $mailBody[] = '<p>De antemano queremos agradecerle por haberse puesto en contacto con nosotros a traves del sistema de atención al usuario. Su opinión es muy importante para nosotros.</p>';
+      $mailBody[] = '<p>Le informamos que su solicitud ha sido registrada satisfactoriamente con el código de radicado:<br><strong>'.$numeroRadicado.'</strong></p>';      
+      $mailBody[] = '<p>Con este código podrá <a href="https://www.findeter.gov.co/estado-pqrsd">ingresar</a> para consultar el estado de la misma y si es el caso ampliar o enviar información adicional</p>';
+      $mailBody[] = '<hr>';
       $mailBody[] = 'Cordialmente,';
       $mailBody[] = 'Vicepresidencia comercial - Servicio al cliente';
       $mailBody[] = 'Findeter';
+      $mailBody[] = '<a href="https://www.findeter.gov.co" target="_blank"><img onerror="this.remove();" alt="Findeter" src="https://www.findeter.gov.co/sites/default/files/webfinde/images/encabezado/logo.png" width="300" height="150"></a>';
 
       $params['message'] = implode('<br>',$mailBody);
 
