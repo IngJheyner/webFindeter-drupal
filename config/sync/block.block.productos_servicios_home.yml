@@ -2,10 +2,7 @@ uuid: 0bf56b0f-36ba-479e-b8a7-942bfabb241a
 langcode: es
 status: true
 dependencies:
-  content:
-    - 'block_content:productos_y_servicios_home_:d5e6db9e-1148-4099-b9e7-13b47dbf6c90'
   module:
-    - block_content
     - system
   theme:
     - webfinde
@@ -19,7 +16,7 @@ settings:
   id: 'block_content:d5e6db9e-1148-4099-b9e7-13b47dbf6c90'
   label: 'Productos y Servicios [ Home ]'
   label_display: '0'
-  provider: block_content
+  provider: core
   status: true
   info: ''
   view_mode: full
