@@ -46,7 +46,7 @@ div.pageTipoArticulosBlog {
 }
 
 div.masArticulosInterno {
-    border-top: 2px solid var.$color-quinario;
+    border: 1px solid var.$color-quinario;
 }
 
 
@@ -57,40 +57,48 @@ INTERNAS
 div.articuloInternasBlog {
     background: white;
     transform: translate(0, -70px);
-    padding: 5em 5em 0 5em;
-    .tipoArticulo,
-    .titulo {
-        margin-bottom: 1.5em;
-    }
-    .tipoArticulo {
-        &::before {
-            content: "";
-            background: url(../images/iconos/punto-azul.png) no-repeat;
-            background-size: 30px, 30px;
-            background-size: 15px, 15px;
-            background-position: center top;
-            display: inline-block;
-            height: 15px;
-            width: 30px;
+    //padding: 5em 0 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    div.info-header{
+        grid-column: 1 / 4;
+        .tipoArticulo,
+        .titulo {
+            margin-bottom: 1.5em;
         }
-        &::after {
-            content: "";
-            background: url(../images/iconos/punto-azul.png) no-repeat;
-            background-size: 30px, 30px;
-            background-size: 15px, 15px;
-            background-position: center top;
-            display: inline-block;
-            height: 15px;
-            width: 30px;
+        .tipoArticulo {
+            &::before {
+                content: "";
+                background: url(../images/iconos/punto-azul.png) no-repeat;
+                background-size: 30px, 30px;
+                background-size: 15px, 15px;
+                background-position: center top;
+                display: inline-block;
+                height: 15px;
+                width: 30px;
+            }
+            &::after {
+                content: "";
+                background: url(../images/iconos/punto-azul.png) no-repeat;
+                background-size: 30px, 30px;
+                background-size: 15px, 15px;
+                background-position: center top;
+                display: inline-block;
+                height: 15px;
+                width: 30px;
+            }
+        }
+        div.infoSocial {
+            margin-bottom: 4em;
+            p {
+                font-size: 18px;
+            }
         }
     }
-    div.infoSocial {
-        margin-bottom: 4em;
-        p {
-            font-size: 18px;
-        }
-    }
+    
     div.cuerpoArticulo {
+        grid-column: 1 / 3;
         img {
             max-width: 100%;
             height: auto;
@@ -155,9 +163,18 @@ MEDIA QUERY
     div.articuloInternasBlog {
         transform: translate(0, 0);
         padding: 1em 1em 0 1em;
-    }
-    div.masArticulosInterno {
-        margin-top: 2em;
+
+        div.cuerpoArticulo{
+            grid-column: 1 / 4;
+        }
+
+        div.mostrar-more{
+            grid-column: 1 / 4;
+        }
+
+        div.masArticulosInterno {
+            margin-top: 2em;
+        }
     }
 }
 
@@ -170,18 +187,31 @@ MEDIA QUERY
     ============================== */
     div.articuloInternasBlog {
         transform: translate(0, 0);
-        padding: 1em 1em 0 1em;
-        .tipoArticulo,
-        .titulo {
-            margin-bottom: 1em;
-        }
-        div.infoSocial {
-            p:nth-child(1) {
-                display: block !important;
+
+        div.info-header{
+            .tipoArticulo,
+            .titulo {
+                margin-bottom: 1em;
+            }
+            div.infoSocial {
+                p:nth-child(1) {
+                    display: block !important;
+                }
             }
         }
+
+        div.cuerpoArticulo{
+            grid-column: 1 / 4;
+        }
+
+        div.mostrar-more{
+            grid-column: 1 / 4;
+        }
+
+        div.masArticulosInterno {
+            margin-top: 2em;
+        }
+        
     }
-    div.masArticulosInterno {
-        margin-top: 2em;
-    }
+   
 }

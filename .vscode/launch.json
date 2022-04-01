@@ -11,11 +11,10 @@
             "port": 9003,
             "log": true,
             "pathMappings": {
-                "/app": "${workspaceRoot}", 
-                "/app/web": "${workspaceRoot}/web", 
-                "/app/web/index.php": "${workspaceRoot}/web/index.php"
+                "/app": "${workspaceRoot}"
             },
             "stopOnEntry": true,
+            "hostname": "0.0.0.0"
         },
     ]
 }
