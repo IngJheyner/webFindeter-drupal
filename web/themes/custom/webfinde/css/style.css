@@ -69,7 +69,7 @@ BADGE SPAN
 INFORMACION PARA LECUTRA DE INFO. ACCESIBILIDAD
 =============================================== */
 .font-accesibilidad {
-  font-size: 1.34rem;
+  font-size: 1.2rem;
 }
 
 /* ==============================
@@ -1565,6 +1565,25 @@ div.encabezadoNoticias div.encabezado h1.tituloEncabezado {
   }
 }
 
+article.noticiasInternas div.container-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+}
+article.noticiasInternas div.container-info div.info-header {
+  grid-column: 1/4;
+}
+article.noticiasInternas div.container-info div.info-content {
+  grid-column: 1/3;
+}
+article.noticiasInternas div.container-info div.new-relations {
+  grid-column: 3/4;
+  border: 1px solid #e5e5e5;
+}
+
+/* ==============================
+VISTA
+============================== */
 div.pageNoticias .grid-item {
   position: relative;
   overflow: hidden;
@@ -1600,6 +1619,15 @@ MEDIA QUERY
     font-size: 1.5rem;
   }
 
+  article.noticiasInternas div.container-info div.info-header {
+    grid-column: 1/4;
+  }
+  article.noticiasInternas div.container-info div.info-content {
+    grid-column: 1/4;
+  }
+  article.noticiasInternas div.container-info div.new-relations {
+    grid-column: 1/4;
+  }
   article.noticiasInternas h1,
 article.noticiasInternas h2 {
     font-size: 1.5rem;
@@ -2917,7 +2945,7 @@ div.pageTipoArticulosBlog .grid .grid-item:hover img {
 }
 
 div.masArticulosInterno {
-  border-top: 2px solid #e5e5e5;
+  border: 1px solid #e5e5e5;
 }
 
 /* ==============================
@@ -2926,13 +2954,18 @@ INTERNAS
 div.articuloInternasBlog {
   background: white;
   transform: translate(0, -70px);
-  padding: 5em 5em 0 5em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 10px;
 }
-div.articuloInternasBlog .tipoArticulo,
-div.articuloInternasBlog .titulo {
+div.articuloInternasBlog div.info-header {
+  grid-column: 1/4;
+}
+div.articuloInternasBlog div.info-header .tipoArticulo,
+div.articuloInternasBlog div.info-header .titulo {
   margin-bottom: 1.5em;
 }
-div.articuloInternasBlog .tipoArticulo::before {
+div.articuloInternasBlog div.info-header .tipoArticulo::before {
   content: "";
   background: url(../images/iconos/punto-azul.png) no-repeat;
   background-size: 30px, 30px;
@@ -2942,7 +2975,7 @@ div.articuloInternasBlog .tipoArticulo::before {
   height: 15px;
   width: 30px;
 }
-div.articuloInternasBlog .tipoArticulo::after {
+div.articuloInternasBlog div.info-header .tipoArticulo::after {
   content: "";
   background: url(../images/iconos/punto-azul.png) no-repeat;
   background-size: 30px, 30px;
@@ -2952,11 +2985,14 @@ div.articuloInternasBlog .tipoArticulo::after {
   height: 15px;
   width: 30px;
 }
-div.articuloInternasBlog div.infoSocial {
+div.articuloInternasBlog div.info-header div.infoSocial {
   margin-bottom: 4em;
 }
-div.articuloInternasBlog div.infoSocial p {
+div.articuloInternasBlog div.info-header div.infoSocial p {
   font-size: 18px;
+}
+div.articuloInternasBlog div.cuerpoArticulo {
+  grid-column: 1/3;
 }
 div.articuloInternasBlog div.cuerpoArticulo img {
   max-width: 100%;
@@ -3048,8 +3084,13 @@ MEDIA QUERY
     transform: translate(0, 0);
     padding: 1em 1em 0 1em;
   }
-
-  div.masArticulosInterno {
+  div.articuloInternasBlog div.cuerpoArticulo {
+    grid-column: 1/4;
+  }
+  div.articuloInternasBlog div.mostrar-more {
+    grid-column: 1/4;
+  }
+  div.articuloInternasBlog div.masArticulosInterno {
     margin-top: 2em;
   }
 }
@@ -3064,17 +3105,21 @@ MEDIA QUERY
   ============================== */
   div.articuloInternasBlog {
     transform: translate(0, 0);
-    padding: 1em 1em 0 1em;
   }
-  div.articuloInternasBlog .tipoArticulo,
-div.articuloInternasBlog .titulo {
+  div.articuloInternasBlog div.info-header .tipoArticulo,
+div.articuloInternasBlog div.info-header .titulo {
     margin-bottom: 1em;
   }
-  div.articuloInternasBlog div.infoSocial p:nth-child(1) {
+  div.articuloInternasBlog div.info-header div.infoSocial p:nth-child(1) {
     display: block !important;
   }
-
-  div.masArticulosInterno {
+  div.articuloInternasBlog div.cuerpoArticulo {
+    grid-column: 1/4;
+  }
+  div.articuloInternasBlog div.mostrar-more {
+    grid-column: 1/4;
+  }
+  div.articuloInternasBlog div.masArticulosInterno {
     margin-top: 2em;
   }
 }
