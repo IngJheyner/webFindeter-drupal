@@ -16,8 +16,7 @@
 
                 $("form#node-convocatorias-form input[id='edit-field-convcatoria-archivos-entity-browser-entity-browser-open-modal'], form#node-convocatorias-edit-form input[id='edit-field-convcatoria-archivos-entity-browser-entity-browser-open-modal'] ").on('click', function() {
 
-                    codigoProceso = $("form#node-convocatorias-form input[id='edit-title-0-value'],form#node-convocatorias-edit-form input[id='edit-title-0-value']").val();
-                    
+                    codigoProceso = $("form#node-convocatorias-form input[id='edit-title-0-value'],form#node-convocatorias-edit-form input[id='edit-title-0-value']").val().trim();
                     
                     $(document, context).ajaxStop(function() {
 
@@ -51,6 +50,7 @@
                                 $(newFiles).children('div.form-wrapper').each(function(idx, el) {
 
                                     $(el).children('fieldset').children('div.fieldset-wrapper').children('div.field--name-field-convcatoria-ruta-archivo').children().children('input').val(codigoProceso);
+                                    
 
                                     $(el).children('fieldset').children('div.fieldset-wrapper').children('div.field--name-field-convcatoria-ruta-archivo').css('display', 'none');
 
