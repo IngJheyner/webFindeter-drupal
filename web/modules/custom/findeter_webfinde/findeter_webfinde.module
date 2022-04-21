@@ -7,11 +7,32 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\Entity\User;
 
 /**
+ * Implements hook_cron().
+ * @author 3ddesarrollo <email@email.com>
+ */
+function findeter_webfinde_cron() {
+
+  /* ============================================
+  CONVOCATORIAS
+  script que se ejecuta para borrar archivos sueltos
+  en la carpeta private y que no se han utilizado o cargado
+  por parte de algun usuario.
+  =============================================== */
+  /*$fileSystem = \Drupal::service('file_system');
+  $files = $fileSystem->scanDirectory('private://', '/\.pdf$|\.txt$/', ['recurse' => FALSE]);
+
+  if(sizeof($files)){
+    foreach ($files as $file) {
+      $fileSystem->unlink($file->uri);
+    }
+  }*/
+}
+
+/**
  * Implements hook_form_alter
  */
 
 function findeter_webfinde_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-
   $rolesUser = \Drupal::currentUser()->getRoles();
   //dpm($form);
   /* ============================================
