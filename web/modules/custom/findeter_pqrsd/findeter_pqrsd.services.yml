@@ -1,0 +1,7 @@
+services:
+  api.smfc:
+    class: Drupal\findeter_pqrsd\ApiSmfc
+    arguments: ["%api.credentials%"]
+parameters:
+  api.credentials:
+    - {user: 'elondono@findeter.gov.co', pass: '0TLt30I9TWitKm', secret_key: tnx#cuuhn#ux15h5km_gey34u49m)=$ia*6mcr=o!8m1i8xp=w}

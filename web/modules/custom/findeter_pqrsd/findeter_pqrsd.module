@@ -428,6 +428,8 @@ function findeter_pqrsd_cron() {
  */
 function findeter_pqrsd_preprocess_page(&$variables) {
 
+  $api = \Drupal::service('api.smfc');
+
   $routeUrl = \Drupal::routeMatch()->getRouteName();
 
 
