@@ -1,0 +1,32 @@
+uuid: 9efffa94-4285-4f31-ba02-9c18f69e5146
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.inform_decisi_afect_public.body
+    - node.type.inform_decisi_afect_public
+  module:
+    - text
+    - user
+id: node.inform_decisi_afect_public.teaser
+targetEntityType: node
+bundle: inform_decisi_afect_public
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

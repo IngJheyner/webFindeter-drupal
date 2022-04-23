@@ -1699,26 +1699,13 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: false
+          content: "<div class=\"float-right m-2 text-white\">\r\n<a href=\"/historial-de-convocatorias\" class=\"text-white\"><i class=\"fa fa-history\" aria-hidden=\"true\"></i> {{ 'Historial'|t }}</a> |\r\n<a href=\"/convocatorias/ultimas-actualizaciones\" class=\"text-white\"><i class=\"fa fa-refresh\" aria-hidden=\"true\"></i> {{ 'Últimas actualizaciones'|t }}</a>\r\n</div>"
           tokenize: true
-          content: "<div class=\"titulos mb-4\" id=\"cont\">\r\n\r\n    <div class=\"d-flex\">\r\n\r\n        <figure class=\"icono pr-2\">\r\n            <img src=\"/themes/custom/webfinde/images/iconos/Iconos-transparencia/icono-3.png\">\r\n        </figure>\r\n    \r\n        <h2 class=\"font-weight-bold pl-2\">{{ \"3. Contratación\"|t }}</h2>\r\n\r\n    </div>  \r\n    \r\n    <h3 class=\"font-weight-bold text-dark\">{{ \"3.2.2 Convocatorias \"|t }}</h3>\r\n\r\n</div>\r\n\r\n<div class=\"float-right m-2 text-white\">\r\n<a href=\"/historial-de-convocatorias\" class=\"text-white\"><i class=\"fa fa-history\" aria-hidden=\"true\"></i> {{ 'Historial'|t }}</a> |\r\n<a href=\"/convocatorias/ultimas-actualizaciones\" class=\"text-white\"><i class=\"fa fa-refresh\" aria-hidden=\"true\"></i> {{ 'Últimas actualizaciones'|t }}</a>\r\n</div>\r\n"
-          plugin_id: text_custom
-      relationships:
-        uid:
-          id: uid
-          table: node_field_revision
-          field: uid
-          relationship: none
-          group_type: group
-          admin_label: Usuario
-          required: true
-          entity_type: node
-          entity_field: uid
-          plugin_id: standard
-      sorts:
-        created:
-          id: created
-          table: node_field_data
-          field: created
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
           relationship: none
           group_type: group
           admin_label: ''
@@ -2127,18 +2114,7 @@ display:
           empty: false
           content: 'Registro @start - @end de @total convocatorias.'
       display_comment: "Vista que no se utiliza, ya que cambiaron la lógica y funcionalidad en otra.\r\n\r\nEsta se encuentra igual en la vista llamada Contenido > Contenido Convocatoria."
-      header:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: true
-          content: "<div class=\"titulos mb-4\" id=\"cont\">\r\n\r\n    <div class=\"d-flex\">\r\n\r\n        <figure class=\"icono pr-2\">\r\n            <img src=\"/themes/custom/webfinde/images/iconos/Iconos-transparencia/icono-3.png\">\r\n        </figure>\r\n    \r\n        <h2 class=\"font-weight-bold pl-2\">{{ \"3. Contratación\"|t }}</h2>\r\n\r\n    </div>  \r\n    \r\n    <h3 class=\"font-weight-bold text-dark\">{{ \"3.2.2 Convocatorias \"|t }}</h3>\r\n\r\n</div>"
-          plugin_id: text_custom
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:

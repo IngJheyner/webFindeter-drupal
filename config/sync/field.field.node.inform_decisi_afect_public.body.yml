@@ -1,0 +1,23 @@
+uuid: 7874aad6-402d-4ae4-bc10-003dfde2e95d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.inform_decisi_afect_public
+  module:
+    - text
+id: node.inform_decisi_afect_public.body
+field_name: body
+entity_type: node
+bundle: inform_decisi_afect_public
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

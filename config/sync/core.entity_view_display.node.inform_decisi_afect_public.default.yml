@@ -1,0 +1,30 @@
+uuid: 86e4249f-653b-4efb-9ad8-6ee8b0d5a7b7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.inform_decisi_afect_public.body
+    - node.type.inform_decisi_afect_public
+  module:
+    - text
+    - user
+id: node.inform_decisi_afect_public.default
+targetEntityType: node
+bundle: inform_decisi_afect_public
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

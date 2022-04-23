@@ -5,9 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.media.media_library
     - field.field.media.document.field_media_document
+    - image.style.thumbnail
     - media.type.document
   module:
-    - file
+    - image
 _core:
   default_config_hash: WA5PBCSll9OeXbS16GbGz8jNgz7vkUAmC_72nn0yyBo
 id: media.document.media_library
@@ -27,7 +28,7 @@ content:
 hidden:
   addtoany: true
   created: true
+  field_media_document: true
   langcode: true
   name: true
-  thumbnail: true
   uid: true
