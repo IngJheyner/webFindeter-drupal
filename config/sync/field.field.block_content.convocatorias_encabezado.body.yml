@@ -1,0 +1,23 @@
+uuid: 751bb930-b846-402a-9d40-ff3c92fb4ca3
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.convocatorias_encabezado
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.convocatorias_encabezado.body
+field_name: body
+entity_type: block_content
+bundle: convocatorias_encabezado
+label: 'Descripción o Información'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

@@ -1,0 +1,30 @@
+uuid: 7f3c6757-5426-4bfb-a504-ddf8670c45ea
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.6_4_1_seguimiento_plan_estrategi.body
+    - node.type.6_4_1_seguimiento_plan_estrategi
+  module:
+    - text
+    - user
+id: node.6_4_1_seguimiento_plan_estrategi.default
+targetEntityType: node
+bundle: 6_4_1_seguimiento_plan_estrategi
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

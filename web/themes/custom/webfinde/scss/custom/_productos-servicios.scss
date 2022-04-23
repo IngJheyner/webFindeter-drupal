@@ -1,0 +1,256 @@
+@use '_variables' as var;
+@use '../mixins/media-query' as media-query;
+section.productosServicios {
+    .titulo {
+        border-bottom: 1px solid var.$color-secundario;
+        padding-bottom: 20px;
+        h1 {
+            text-align: center;
+            width: 90%;
+            color: var.$color-primario;
+            position: relative;
+            &:after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                background-color: #296294;
+                top: 2.8em;
+                left: 0;
+            }
+        }
+    }
+    .grid-container {
+
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        position: relative;
+        grid-auto-flow: row;
+        grid-auto-rows: auto;
+        column-gap: 20px;
+        height: 100%;
+        width: 100%;
+
+        .grid-item {
+
+            position: relative;
+            cursor: pointer;
+            box-shadow: 1rem 0rem 1rem #c8d0e3 !important;
+            border-radius: 0.8rem;
+            figure {
+                position: absolute;
+                z-index: 1;
+                bottom: 0px;
+                width: 100%;
+                height: 25%;
+                //background: var.$color-secundario;
+                border-radius: 0.8em 0.8em;
+                margin: 0;
+                /*background: repeating-linear-gradient(187deg,
+                transparent 0, transparent 15%,
+                    var.$color-secundario 0, var.$color-secundario);*/
+                .fondo {
+                    position: absolute;
+                    z-index: 2;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 169%;
+                    color: #CDDC4B;
+                    border-radius: 0 0 0.8em 0.8em;
+                    background-image: repeating-linear-gradient(188deg, transparent 0, transparent 15%, var.$color-primario 0, #296294);
+                    /*background: var.$color-primario;*/
+                    a {
+                        position: absolute;
+                        bottom: 4rem;
+                        left: 0;
+                        font-size: 22px !important;
+                        width: 100%;
+                        color: var.$color-terciario;
+                    }
+                    button {
+                        display: none;
+                    }
+                }
+            }
+            img {
+                border-radius: 0.8em;
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+/* =================================
+VENTANA MODAL PRODUCTOS Y SERVICIOS
+==================================== */
+
+#modalProductosServicios {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    padding-right: 0 !important;
+    height: 500px;
+    border-radius: 0.8em;
+    background-repeat: no-repeat;
+    background-position: top center;
+    .modal-dialog {
+        max-width: 800px;
+        margin: 0;
+        .modal-content {
+            background-color: initial !important;
+            border: 0 !important;
+            .modal-body {
+                //background-color: var.$color-primario !important;           
+                //border-top: 10px solid var.$color-secundario;
+                top: 10em;
+                left: 3rem;
+                h3 {
+                    margin-bottom: 5px;
+                    color: var.$color-terciario;
+                }
+                div.descripcion {
+                    max-width: 60%;
+                    color: white;
+                    p {
+                        font-size: 1rem;
+                    }
+                }
+                button.close {
+                    color: white;
+                    font-size: 2.5rem;
+                }
+            }
+        }
+    }
+}
+
+
+/* ==============================
+INTERNAS
+============================== */
+
+
+/* ===== ===== INTERNAS ===== ===== */
+
+@import '../custom/internas/productos_servicios/productos-servicios';
+
+/* ==============================
+MEDIA QUERY
+============================== */
+
+@include media-query.media(xs) {
+    section.productosServicios {
+        .titulo {
+            h1 {
+                width: 100%;
+                font-size: 1.5rem;
+                &::after {
+                    background-color: initial;
+                }
+            }
+        }
+        .grid-container {
+            overflow-x: scroll;
+            .grid-item {
+                width: 212px;
+            }
+        }
+    }
+    /* =================================
+    VENTANA MODAL PRODUCTOS Y SERVICIOS
+    ==================================== */
+    #modalProductosServicios {
+        height: inherit;
+        background: repeating-linear-gradient(188deg, transparent 0px, transparent 0%, rgb(17, 45, 106) 0px, rgb(41, 98, 148)) !important;
+        position: fixed;
+        .modal-dialog .modal-content .modal-body {
+            top: 0em;
+            padding: 21px 20px 20px 21px;
+            margin-top: 2em;
+            left: 0;
+            div.descripcion {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+@include media-query.media(sm) {
+    section.productosServicios {
+        .titulo {
+            h1 {
+                width: 100%;
+                font-size: 1.9rem;
+                &::after {
+                    background-color: initial;
+                }
+            }
+        }
+        .grid-container {
+            overflow-x: scroll;
+            .grid-item {
+                width: 212px;
+            }
+        }
+    }
+    /* =================================
+    VENTANA MODAL PRODUCTOS Y SERVICIOS
+    ==================================== */
+    #modalProductosServicios {
+        height: inherit;
+        background: repeating-linear-gradient(188deg, transparent 0px, transparent 0%, rgb(17, 45, 106) 0px, rgb(41, 98, 148)) !important;
+        .modal-dialog .modal-content .modal-body {
+            top: 4em;
+            padding: 21px 20px 20px 21px;
+            div.descripcion {
+                max-width: 90%;
+            }
+        }
+    }
+}
+
+@include media-query.media(md) {
+    section.productosServicios {
+        .titulo {
+            h1 {
+                width: 100%;
+                font-size: 1.9rem;
+                &::after {
+                    background-color: initial;
+                }
+            }
+        }
+        .grid-container {
+            overflow-x: scroll;
+            .grid-item {
+                width: 212px;
+            }
+        }
+    }
+    /* =================================
+    VENTANA MODAL PRODUCTOS Y SERVICIOS
+    ==================================== */
+    #modalProductosServicios .modal-dialog .modal-content .modal-body {
+        top: 8em;
+        padding: 21px 20px 20px 21px;
+        div.descripcion {
+            max-width: 100%;
+        }
+    }
+}
+
+@include media-query.media(lg) {
+    section.productosServicios {
+        .grid-container {
+            overflow-x: scroll;
+        }
+    }
+    /* =================================
+    VENTANA MODAL PRODUCTOS Y SERVICIOS
+    ==================================== */
+    #modalProductosServicios .modal-dialog .modal-content .modal-body {
+        top: 8em;
+    }
+}

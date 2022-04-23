@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Theme override for an 'input' #type form element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the input element.
+ * - children: Optional additional rendered elements.
+ *
+ * @see template_preprocess_input()
+ */
+#}
+
+{# ============================================
+BUSCADOR
+=============================================== #}
+<div class="row m-0 buscadorAcceso">
+
+  <div class="col-12 p-0">
+
+    <div class="d-flex">
+
+      <input{{ attributes.addClass('form-control') }} placeholder="Encuentre lo que necesite (Convocatorias, servicios, productos)"/>
+
+      <!--<input title="Escriba lo que quiere buscar." data-drupal-selector="edit-keys" type="search" id="edit-keys" name="keys" size="15" maxlength="128" class="form-search form-control d-md-none" />-->
+
+    </div>
+
+  </div>
+
+  {% if path('<current>') == '/inicio' %}
+
+    <div class="col-12 d-flex menuAccesoRapido">
+
+      <h3 class="mt-4 w-25 text-dark d-none d-xl-block">{{ 'Accesos rápidos:'|t }}</h3>
+
+      {{ drupal_menu("acceso-rapido-home") }}
+
+    </div>
+
+  {% endif %}
+
+</div>
+
+
+
+

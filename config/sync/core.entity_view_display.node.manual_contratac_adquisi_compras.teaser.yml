@@ -1,0 +1,32 @@
+uuid: 0da9e41a-b816-43f4-bdd3-4d5639702d7c
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.manual_contratac_adquisi_compras.body
+    - node.type.manual_contratac_adquisi_compras
+  module:
+    - text
+    - user
+id: node.manual_contratac_adquisi_compras.teaser
+targetEntityType: node
+bundle: manual_contratac_adquisi_compras
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

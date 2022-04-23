@@ -1,0 +1,57 @@
+uuid: dfdecbf9-f1b5-4cd4-90e5-1bbdd7efe7a4
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cifras_porque_findeter_pot.field_cifra_pot
+    - field.field.paragraph.cifras_porque_findeter_pot.field_otros_conceptos_pot
+    - field.field.paragraph.cifras_porque_findeter_pot.field_prefijo_cifra_pot
+    - field.field.paragraph.cifras_porque_findeter_pot.field_sufijo_cifra_pot
+    - field.field.paragraph.cifras_porque_findeter_pot.field_titulo_cifra_pot
+    - paragraphs.paragraphs_type.cifras_porque_findeter_pot
+id: paragraph.cifras_porque_findeter_pot.default
+targetEntityType: paragraph
+bundle: cifras_porque_findeter_pot
+mode: default
+content:
+  field_cifra_pot:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_otros_conceptos_pot:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_prefijo_cifra_pot:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_sufijo_cifra_pot:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_titulo_cifra_pot:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

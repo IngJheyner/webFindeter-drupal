@@ -1,0 +1,119 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'container',
+    'mt-5',
+    'noticiasRedesSociales',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+
+  {% block content %}
+
+    <div class="row">
+
+      {# ===== ===== Noticias ===== ===== #}
+      <div class="col-12 col-lg-8 mb-5 mb-lg-0">
+
+        {# ===== ===== Pantalla > 768px ===== ===== #}
+        {{ drupal_view('slider', 'noticias_slider_home') }}
+
+        {# ===== ===== Movil < 576px ===== ===== #}
+        {{ drupal_view('slider', 'noticias_slider_movil_home') }}
+
+      </div>
+
+      {# ===== ===== Redes Sociales ===== ===== #}
+      <div class="col-12 col-lg-4 redeSociales">
+
+        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+
+          <li class="nav-item">
+
+            <a class="nav-link active" id="twitter-tab" data-toggle="tab" href="#twitter" role="tab" aria-controls="twitter" aria-selected="true">Twitter</a>
+
+          </li>
+
+          <li class="nav-item">
+
+            <a class="nav-link" id="facebook-tab" data-toggle="tab" href="#facebook" role="tab" aria-controls="facebook" aria-selected="false">Facebook</a>
+
+          </li>
+
+        </ul>
+
+        <div class="tab-content">
+
+          {# ===== ===== Twitter ===== ===== #}
+          <div class="tab-pane pt-3 px-4 px-lg-0 twitter active" id="twitter" role="tabpanel" aria-labelledby="twitter-tab">
+
+            <a class="twitter-timeline" data-lang="es"
+            data-height="500"
+            data-chrome="nofooter noborders noheader"
+            data-cards="hidden"
+            {#data-tweet-limit="1"#}
+            href="https://twitter.com/Findeter?ref_src=twsrc%5Etfw">Tweets by Findeter</a>
+
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+          </div>
+
+          {# ===== ===== Facebook ===== ===== #}
+          <div class="tab-pane pt-3 px-4 px-lg-0" id="facebook" role="tabpanel" aria-labelledby="facebook-tab">
+
+            <div id = "fb-root" > </div> <script async diferir crossorigin = "anonymous" src = "https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v8.0&appId= 503270643714178 & autoLogAppEvents = 1 " nonce = " OSr28HaD " > </script>
+
+            <div class = "fb-page" data-href = "https://www.facebook.com/findetercol/"
+            data-tabs = "timeline"
+            data-width = ""
+            data-height = "500"
+            data-small- header = "true"
+            data-adapt-container-width = "true"
+            data-hide-cover = "true"
+            data-show-facepile = "false" >
+
+              <blockquote cite = "https://www.facebook.com/ findetercol / " class = " fb-xfbml-parse-ignore " > <a href = "https://www.facebook.com/findetercol/"            > Buscador </a> </blockquote>
+            
+            </div>
+             
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  {% endblock %}
+
+</div>

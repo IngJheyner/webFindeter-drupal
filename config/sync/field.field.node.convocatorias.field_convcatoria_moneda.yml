@@ -1,0 +1,33 @@
+uuid: 2b1fe19a-b8fb-40ff-9ef8-bd554157cf09
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_convcatoria_moneda
+    - node.type.convocatorias
+    - taxonomy.vocabulary.moneda
+  content:
+    - 'taxonomy_term:moneda:28fa78ab-488c-4aa1-a2cb-56b7e6432663'
+id: node.convocatorias.field_convcatoria_moneda
+field_name: field_convcatoria_moneda
+entity_type: node
+bundle: convocatorias
+label: Moneda
+description: 'Seleccione el tipo de moneda de la cuantia.'
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 28fa78ab-488c-4aa1-a2cb-56b7e6432663
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      moneda: moneda
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,104 @@
+uuid: 26e04c02-eeef-4f91-a5df-37ec8167e795
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.registro_de_activos_de_informacion
+id: registro_de_activos_de_informacion-layout_builder-0
+label: 'Constructor de diseños.'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: fd4cdbf3-9777-4503-8d46-6921f763a25c
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        e1f4ceaf-fc8d-4de5-a24e-dc354fa1f33f:
+          uuid: e1f4ceaf-fc8d-4de5-a24e-dc354fa1f33f
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        23ea5173-3866-498b-8ad7-1dd9d9d11126:
+          uuid: 23ea5173-3866-498b-8ad7-1dd9d9d11126
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-block_trans_registro_activos_informacion'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        ef26fb65-d0ce-4ccd-990b-dfd0fff21e77:
+          uuid: ef26fb65-d0ce-4ccd-990b-dfd0fff21e77
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: '0'
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 0
+            expand_all_items: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:69786591-4579-4385-9d42-4aaca45aa84c'
+            suggestion: transparencia_acceso_informacion_sidebar
+            label_type: block
+            label_link: false
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+      third_party_settings: {  }
+page: registro_de_activos_de_informacion
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

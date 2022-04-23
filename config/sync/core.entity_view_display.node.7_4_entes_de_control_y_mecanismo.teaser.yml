@@ -1,0 +1,25 @@
+uuid: 3086d148-299d-411c-b405-851abe4d7871
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.7_4_entes_de_control_y_mecanismo.field_contenido_entes_de_control
+    - node.type.7_4_entes_de_control_y_mecanismo
+  module:
+    - user
+id: node.7_4_entes_de_control_y_mecanismo.teaser
+targetEntityType: node
+bundle: 7_4_entes_de_control_y_mecanismo
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_contenido_entes_de_control: true
+  langcode: true
+  search_api_excerpt: true

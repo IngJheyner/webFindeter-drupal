@@ -1,0 +1,32 @@
+uuid: 7a8b4faf-33d3-4180-b119-3539bfaa9b1f
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tip_con_infor_rendi_de_cuentas.body
+    - node.type.tip_con_infor_rendi_de_cuentas
+  module:
+    - text
+    - user
+id: node.tip_con_infor_rendi_de_cuentas.teaser
+targetEntityType: node
+bundle: tip_con_infor_rendi_de_cuentas
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

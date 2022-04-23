@@ -1,0 +1,60 @@
+uuid: dfae529d-08a3-4fee-a510-3a0c89cbc968
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.encabezado_home
+    - field.field.block_content.encabezado_home.field_img_govco_encabezado_home
+    - field.field.block_content.encabezado_home.field_logo_encabezado_home
+    - field.field.block_content.encabezado_home.field_url_govco_header
+  module:
+    - field_formatter_class
+    - link
+    - svg_image
+id: block_content.encabezado_home.default
+targetEntityType: block_content
+bundle: encabezado_home
+mode: default
+content:
+  field_img_govco_encabezado_home:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_logo_encabezado_home:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_url_govco_header:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 2
+    region: content
+hidden:
+  langcode: true

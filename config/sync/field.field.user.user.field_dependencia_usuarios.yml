@@ -1,0 +1,30 @@
+uuid: 7b7dc60c-ebfc-4896-bd53-66839229f01d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_dependencia_usuarios
+    - taxonomy.vocabulary.dependecia_usuario
+  module:
+    - user
+id: user.user.field_dependencia_usuarios
+field_name: field_dependencia_usuarios
+entity_type: user
+bundle: user
+label: Dependencia
+description: 'Seleccione la dependencia o grupo administrativo que pertenece este usuario.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      dependecia_usuario: dependecia_usuario
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

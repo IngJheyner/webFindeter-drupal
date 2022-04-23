@@ -1,0 +1,41 @@
+uuid: 5db7a62b-5dcd-44c8-bcc2-91e0f2694a39
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_cont_relevant_information.body
+    - field.field.node.tipo_cont_relevant_information.field_img_enca_releva_inform
+    - node.type.tipo_cont_relevant_information
+  module:
+    - image
+    - text
+    - user
+id: node.tipo_cont_relevant_information.default
+targetEntityType: node
+bundle: tipo_cont_relevant_information
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_img_enca_releva_inform:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

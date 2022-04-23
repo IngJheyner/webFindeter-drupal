@@ -1,0 +1,53 @@
+uuid: afbc9ba9-c6f3-4332-b055-40b865c79964
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.findeter_en_cifras_home.field_cifras_findeter_cifras
+    - field.field.paragraph.findeter_en_cifras_home.field_descripcion_cifras
+    - field.field.paragraph.findeter_en_cifras_home.field_img_principal_cifras
+    - field.field.paragraph.findeter_en_cifras_home.field_img_secundaria_cifras
+    - paragraphs.paragraphs_type.findeter_en_cifras_home
+  module:
+    - image
+id: paragraph.findeter_en_cifras_home.default
+targetEntityType: paragraph
+bundle: findeter_en_cifras_home
+mode: default
+content:
+  field_cifras_findeter_cifras:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_descripcion_cifras:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_img_principal_cifras:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_img_secundaria_cifras:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  search_api_excerpt: true

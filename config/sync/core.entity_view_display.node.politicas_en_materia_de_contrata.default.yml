@@ -1,0 +1,30 @@
+uuid: 68eb5bd6-3521-4bf4-8d83-26923e10c895
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.politicas_en_materia_de_contrata.body
+    - node.type.politicas_en_materia_de_contrata
+  module:
+    - text
+    - user
+id: node.politicas_en_materia_de_contrata.default
+targetEntityType: node
+bundle: politicas_en_materia_de_contrata
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

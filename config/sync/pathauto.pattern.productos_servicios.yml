@@ -1,0 +1,22 @@
+uuid: 784bad5c-3bf9-4fc3-8831-380208cd641d
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: productos_servicios
+label: 'Productos y Servicios'
+type: 'canonical_entities:node'
+pattern: '[node:field_ps_titulo_encabezado]/[node:title]'
+selection_criteria:
+  84cd2a73-672b-47e3-9b53-b88ff201ee04:
+    id: node_type
+    negate: false
+    uuid: 84cd2a73-672b-47e3-9b53-b88ff201ee04
+    context_mapping:
+      node: node
+    bundles:
+      productos_servicios: productos_servicios
+selection_logic: and
+weight: -5
+relationships: {  }

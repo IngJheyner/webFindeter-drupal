@@ -1,0 +1,41 @@
+uuid: 872e536e-ff59-4359-bbe1-6268af370a21
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tip_cont_historial_convocat.field_cont_histo_conv
+    - field.field.node.tip_cont_historial_convocat.field_img_enca_histo_convo
+    - node.type.tip_cont_historial_convocat
+  module:
+    - image
+    - text
+    - user
+id: node.tip_cont_historial_convocat.default
+targetEntityType: node
+bundle: tip_cont_historial_convocat
+mode: default
+content:
+  field_cont_histo_conv:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_img_enca_histo_convo:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

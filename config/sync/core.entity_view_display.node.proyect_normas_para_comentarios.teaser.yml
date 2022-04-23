@@ -1,0 +1,32 @@
+uuid: c603ddb3-daf6-4134-a931-129fc43ddc8a
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.proyect_normas_para_comentarios.body
+    - node.type.proyect_normas_para_comentarios
+  module:
+    - text
+    - user
+id: node.proyect_normas_para_comentarios.teaser
+targetEntityType: node
+bundle: proyect_normas_para_comentarios
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

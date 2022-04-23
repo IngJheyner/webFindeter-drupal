@@ -1,0 +1,30 @@
+uuid: 0031e758-a247-4c91-b422-3e81e327bb9d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.normativa_de_la_entidad_o_autori.body
+    - node.type.normativa_de_la_entidad_o_autori
+  module:
+    - text
+    - user
+id: node.normativa_de_la_entidad_o_autori.default
+targetEntityType: node
+bundle: normativa_de_la_entidad_o_autori
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

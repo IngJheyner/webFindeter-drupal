@@ -1,0 +1,40 @@
+uuid: 7976a7b9-af04-4210-918d-fcee6a2f511b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ps_contenido_items_internos.field_ps_grillas_contenido
+    - field.field.paragraph.ps_contenido_items_internos.field_ps_internas_img_encabezado
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.ps_contenido_items_internos
+  module:
+    - image
+    - paragraphs
+id: paragraph.ps_contenido_items_internos.default
+targetEntityType: paragraph
+bundle: ps_contenido_items_internos
+mode: default
+content:
+  field_ps_grillas_contenido:
+    type: entity_reference_paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_ps_internas_img_encabezado:
+    type: image_image
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

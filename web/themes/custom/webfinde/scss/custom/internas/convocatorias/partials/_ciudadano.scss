@@ -1,0 +1,99 @@
+@use '../../../variables' as var;
+@use '../../../../mixins/media-query' as media-query;
+
+/* ==============================
+VISTA
+============================== */
+
+div.convocatoriaCiudadano {
+    form {
+        div.form--inline {
+            padding: 2rem;
+            background-color: var.$color-primario;
+            color: white;
+            //Codigo proceso y objeto
+            div.form-item-title,
+            div.form-item-field-convcatoria-objeto-value {
+                width: 100% !important;
+            }
+            //Departamento
+            div.form-item-field-convcatoria-departamento-target-id {
+                //display: block !important;
+                width: 100%;
+            }
+            input[type="submit"],
+            a.busquedaAvz {
+                background-color: var.$color-cuaternario !important;
+            }
+            @for $i from 5 through 9 {
+                div:nth-child(#{$i}) {
+                    display: none;
+                }
+            }
+
+            fieldset{
+                display: none;
+                legend{
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+table:nth-child(2) {
+    thead {
+        tr>th:nth-child(1) {
+            width: 200px;
+        }
+    }
+    tbody {
+        tr>td:nth-child(1) {
+            a {
+                color: var.$color-cuaternario !important;
+                font-weight: bolder;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        tr td {
+            div.item-list ul {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+div.convocatoriaUltimasActualizaciones {
+    table:nth-child(2) {
+        tbody {
+            tr>td:nth-child(1) {
+                a {
+                    color: var.$color-cuaternario !important;
+                }
+            }
+        }
+    }
+}
+
+
+/* ==============================
+MEDIA QUERY
+============================== */
+
+@include media-query.media(xs) {
+    div.convocatoriaCiudadano {
+        form {
+            div.form--inline {
+                div#edit-actions {
+                    a {
+                        display: block;
+                        margin-top: 1rem;
+                        margin-left: 0 !important;
+                    }
+                }
+            }
+        }
+    }
+}

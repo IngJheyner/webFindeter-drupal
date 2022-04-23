@@ -1,0 +1,104 @@
+uuid: d71da1db-226b-4850-913b-86b469aae2d5
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.informe_sobre_defensa_publica_y_prevencion_del_dano_antijuridico
+id: informe_sobre_defensa_publica_y_prevencion_del_dano_antijuridico-layout_builder-0
+label: 'Constructor de diseños.'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: 007a9ad9-1bfe-4842-8a80-3e77d997529a
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        6d0e85f5-9edf-46bb-876e-8745eb981f9a:
+          uuid: 6d0e85f5-9edf-46bb-876e-8745eb981f9a
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        7977b0b8-f11d-4e86-8b1e-8291b98b4711:
+          uuid: 7977b0b8-f11d-4e86-8b1e-8291b98b4711
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-7_6_defensa_judicial'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        97fff707-f668-4c62-a356-4032d729382e:
+          uuid: 97fff707-f668-4c62-a356-4032d729382e
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: '0'
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 0
+            expand_all_items: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:2c824b48-d3d7-4364-b37e-6f78bfff832a'
+            suggestion: transparencia_acceso_informacion_sidebar
+            label_type: block
+            label_link: false
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+      third_party_settings: {  }
+page: informe_sobre_defensa_publica_y_prevencion_del_dano_antijuridico
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

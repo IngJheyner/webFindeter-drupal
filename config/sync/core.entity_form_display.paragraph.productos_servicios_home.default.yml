@@ -1,0 +1,136 @@
+uuid: 381e3c9f-943b-4a15-814f-d742a1d6db0f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.productos_servicios_home.field_ampliar_informacion
+    - field.field.paragraph.productos_servicios_home.field_descripcion
+    - field.field.paragraph.productos_servicios_home.field_enlace_url
+    - field.field.paragraph.productos_servicios_home.field_fondo
+    - field.field.paragraph.productos_servicios_home.field_fondo_modal
+    - field.field.paragraph.productos_servicios_home.field_titulo
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.productos_servicios_home
+  module:
+    - field_group
+    - image
+    - link
+    - text
+third_party_settings:
+  field_group:
+    group_bloque:
+      children:
+        - field_titulo
+        - field_descripcion
+        - group_imagenes
+        - group_botonera
+      label: '--------------------- Columna ---------------------------'
+      region: content
+      parent_name: group_grupo
+      weight: 1
+      format_type: accordion_item
+      format_settings:
+        classes: 'btn btn-success'
+        id: ''
+        formatter: closed
+        required_fields: true
+    group_grupo:
+      children:
+        - group_bloque
+      label: grupo
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: accordion
+      format_settings:
+        classes: ''
+        id: ''
+        effect: bounceslide
+    group_botonera:
+      children:
+        - field_ampliar_informacion
+        - field_enlace_url
+      label: Botonera
+      region: content
+      parent_name: group_bloque
+      weight: 6
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_imagenes:
+      children:
+        - field_fondo
+        - field_fondo_modal
+      label: Imagenes
+      region: content
+      parent_name: group_bloque
+      weight: 4
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+id: paragraph.productos_servicios_home.default
+targetEntityType: paragraph
+bundle: productos_servicios_home
+mode: default
+content:
+  field_ampliar_informacion:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_descripcion:
+    type: text_textarea_with_summary
+    weight: 2
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_enlace_url:
+    type: link_default
+    weight: 5
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_fondo:
+    type: image_image
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_fondo_modal:
+    type: image_image
+    weight: 4
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_titulo:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

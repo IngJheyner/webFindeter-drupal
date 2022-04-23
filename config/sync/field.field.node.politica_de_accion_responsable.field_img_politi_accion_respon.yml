@@ -1,0 +1,57 @@
+uuid: 3e44e205-2c22-4392-bb2c-7741f7e64fd2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_img_politi_accion_respon
+    - node.type.politica_de_accion_responsable
+  module:
+    - filefield_paths
+    - image
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: webfinde/images/politica_accion_responsabilidad
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+id: node.politica_de_accion_responsable.field_img_politi_accion_respon
+field_name: field_img_politi_accion_respon
+entity_type: node
+bundle: politica_de_accion_responsable
+label: 'Imagen Encabezado'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png jpg jpeg'
+  max_filesize: 2MB
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

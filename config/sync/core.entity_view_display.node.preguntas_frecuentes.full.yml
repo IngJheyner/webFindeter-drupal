@@ -1,0 +1,106 @@
+uuid: 1f5237c7-8ee3-4557-938d-6017a19165e8
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.preguntas_frecuentes.body
+    - field.field.node.preguntas_frecuentes.field_tema_pregunta_frecuentes
+    - field.field.node.preguntas_frecuentes.layout_builder__layout
+    - node.type.preguntas_frecuentes
+  module:
+    - bootstrap_layouts
+    - layout_builder
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+    sections:
+      -
+        layout_id: bs_1col
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          layout:
+            wrapper: div
+            classes:
+              row: row
+            add_layout_class: 0
+            attributes: class|container
+          regions:
+            main:
+              wrapper: div
+              classes:
+                col-sm-12: col-sm-12
+              add_region_classes: 0
+              attributes: ''
+        components:
+          e2e3fb5f-58f8-4ecb-8e15-d440972de6fa:
+            uuid: e2e3fb5f-58f8-4ecb-8e15-d440972de6fa
+            region: main
+            configuration:
+              id: 'field_block:node:preguntas_frecuentes:field_tema_pregunta_frecuentes'
+              label: 'Tema de la pregunta'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: true
+                third_party_settings:
+                  field_formatter_class:
+                    class: ''
+            weight: 7
+            additional: {  }
+          b492cdbc-d06c-4b3e-81d9-82aa25514477:
+            uuid: b492cdbc-d06c-4b3e-81d9-82aa25514477
+            region: main
+            configuration:
+              id: 'field_block:node:preguntas_frecuentes:body'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 8
+            additional: {  }
+        third_party_settings: {  }
+id: node.preguntas_frecuentes.full
+targetEntityType: node
+bundle: preguntas_frecuentes
+mode: full
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_tema_pregunta_frecuentes:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  layout_builder__layout: true
+  search_api_excerpt: true

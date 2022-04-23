@@ -1,0 +1,31 @@
+uuid: 090c4763-b832-4c65-83f0-dd5bc7d57aab
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.3_9_ofertas_de_empleo.field_contenido_descripcion
+    - node.type.3_9_ofertas_de_empleo
+  module:
+    - text
+    - user
+id: node.3_9_ofertas_de_empleo.default
+targetEntityType: node
+bundle: 3_9_ofertas_de_empleo
+mode: default
+content:
+  field_contenido_descripcion:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

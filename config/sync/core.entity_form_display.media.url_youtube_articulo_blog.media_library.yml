@@ -1,0 +1,30 @@
+uuid: 9eec102d-30cf-48f2-ab4d-7547dbfd7314
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.url_youtube_articulo_blog.field_media_oembed_video
+    - media.type.url_youtube_articulo_blog
+  module:
+    - media
+id: media.url_youtube_articulo_blog.media_library
+targetEntityType: media
+bundle: url_youtube_articulo_blog
+mode: media_library
+content:
+  field_media_oembed_video:
+    type: oembed_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  name: true
+  path: true
+  status: true
+  uid: true

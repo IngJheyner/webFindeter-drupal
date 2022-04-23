@@ -1,0 +1,32 @@
+uuid: 9be5dfd3-0284-44af-9113-a8562049cddf
+langcode: es
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:a490fb80-90d2-4b00-820c-9be5e8a1b1be'
+  module:
+    - block_content
+    - system
+  theme:
+    - webfinde
+id: venta_modal_home
+theme: webfinde
+region: region_C
+weight: -13
+provider: null
+plugin: 'block_content:a490fb80-90d2-4b00-820c-9be5e8a1b1be'
+settings:
+  id: 'block_content:a490fb80-90d2-4b00-820c-9be5e8a1b1be'
+  label: 'Venta Modal [ Home ]'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /contratacion
+    negate: false
+    context_mapping: {  }
+    pages: '<front>'

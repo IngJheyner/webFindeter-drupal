@@ -1,0 +1,19 @@
+uuid: 9154e15f-9ee4-4c37-9234-da537956aeb1
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.glosario_encabezado
+    - field.field.block_content.glosario_encabezado.body
+    - field.field.block_content.glosario_encabezado.field_glosario_img_fondo
+    - field.field.block_content.glosario_encabezado.field_glosario_titulo_defecto
+id: block_content.glosario_encabezado.default
+targetEntityType: block_content
+bundle: glosario_encabezado
+mode: default
+content: {  }
+hidden:
+  body: true
+  field_glosario_img_fondo: true
+  field_glosario_titulo_defecto: true
+  langcode: true

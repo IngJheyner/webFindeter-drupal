@@ -1,0 +1,293 @@
+@use 'variables' as var;
+@use '../mixins/media-query' as media-query;
+@use '../mixins/custom-etiquetas' as encabezado;
+
+/* =====================================
+CONTROL DE PAUSA PARA EL VIDEO DEL HOME
+======================================== */
+
+div.controlVideoHome {
+    position: absolute;
+    left: 1rem;
+}
+
+
+/* ==============================
+FORMULARIO DEL BUSCADOR
+============================== */
+div.block-search{
+    
+    form#search-block-form {
+        position: relative;
+        margin: 36.5rem 2rem 0 2rem;
+        div.form-item {
+            margin: 0;
+        }
+        /*div.container-inline,div{
+            display: grid;
+        }*/
+        div.buscadorAcceso {
+            input[type=search] {
+                width: 100%;
+                border: none !important;
+                background-image: none;
+            }
+            .menuAccesoRapido {
+                background: var.$color-quinario;
+                padding: 2rem;
+                border-radius: 0 0 0.8rem 0.8rem;
+                nav {
+                    ul {
+                        li {
+                            margin: 0 1rem 0 1rem;
+                            text-align: center;
+                            a,
+                            span {
+                                color: black;
+                                display: block;
+                                font-size: 1rem;
+                                &:visited {
+                                    color: var.$color-cuaternario;
+                                }
+                            }
+                            $li: (1:"ER_convocatorias.png", 2:"ER_leytransparencia.png", 3:"ER_contratacion.png", 4:"ER_inversionistas.png", 5:"ER_properity.png", 6:"virtual.png");
+                            @each $num,
+                            $icon in $li {
+                                &:nth-child(#{$num}) {
+                                    span.icon::before {
+                                        content: url('/themes/custom/webfinde/images/iconos/Acceso-Directo/#{$icon}');
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        input[type="submit"] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-radius: 0 .25rem 0 0;
+            line-height: 2.5;
+            background: url('/themes/custom/webfinde/images/iconos/buscador.png') no-repeat;
+            background-position: center top;
+            width: 53px;
+        }
+    }
+
+}
+
+
+//INTERNAS
+@include encabezado.encabezado("div",
+"encabezadoBusqueda");
+div.busqueda {
+    form.search-form {
+        padding: 2rem;
+        background-color: var.$color-primario;
+        color: white;
+        margin-bottom: 1rem;
+        position: relative;
+        a {
+            color: white !important;
+        }
+        input[type="submit"] {
+            background-color: var.$color-cuaternario !important;
+            margin: 1rem 0;
+        }
+    }
+    div.item-list {
+        ol {
+            margin: 0 0 2rem 0;
+            padding: 0;
+            list-style: none;
+            li {
+                margin-bottom: 1rem;
+                h3 a:hover {
+                    color: var.$color-cuaternario !important;
+                }
+                div.search-snippet-info p.search-info {
+                    display: inline-block;
+                    padding: .25em .4em;
+                    font-size: 75%;
+                    font-weight: 700;
+                    line-height: 1;
+                    text-align: center;
+                    white-space: nowrap;
+                    vertical-align: baseline;
+                    border-radius: .25rem;
+                    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+                    color: #fff;
+                    background-color: #343a40;
+                }
+            }
+        }
+    }
+    h2 {
+        text-align: center;
+        border-bottom: 2px solid var.$color-quinario;
+        margin-bottom: 2rem;
+    }
+}
+
+
+/* ===== ===== BUSCADOR INTERNAS BLOG ===== ===== */
+
+div.busquedaBlogInterna {
+    div.buscador form#custom-search-block-form {
+        padding: 2rem 2rem 0 2rem;
+        background-color: var.$color-primario;
+        color: white;
+        margin-bottom: 0;
+        div.form-type-select {
+            display: none;
+        }
+        div#edit-actions {
+            margin-bottom: 0;
+            input[type="submit"] {
+                width: auto;
+                //padding: 0;
+            }
+        }
+    }
+}
+
+
+/* ==============================
+MEDIA QUERY
+============================== */
+
+@include media-query.media(xs) {
+    div.block-search{
+        form#search-block-form {
+            margin: 1.5rem 0rem 0 0rem;
+            div.buscadorAcceso {
+                input[type=search] {
+                    height: calc(1em + .75rem + 2px);
+                    border: 1px solid var.$color-primario !important;
+                    &::placeholder{
+                        color: white;
+                    }
+                }
+                .menuAccesoRapido {
+                    overflow-x: scroll;
+                    padding: 2rem 0 2rem 0;
+                    margin-top: 2rem;
+                    nav {
+                        ul {
+                            display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                            row-gap: 1rem;
+                            li {
+                                margin: 0 1rem 0 0.5rem;
+                                text-align: center;
+                                a{
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            input[type="submit"] {
+                top: -3px;
+                background: url('/themes/custom/webfinde/images/iconos/search-gris.png') no-repeat;
+                background-color: initial !important;                
+            }
+        }
+    }
+}
+
+@include media-query.media(sm) {
+    div.block-search{
+        form#search-block-form {
+            margin: 1.5rem 0rem 0 0rem;
+            div.buscadorAcceso {
+                input[type=search] {
+                    border: 1px solid var.$color-primario !important;
+                }
+                .menuAccesoRapido {
+                    overflow-x: scroll;
+                    padding: 2rem 0 2rem 0;
+                    margin-top: 2rem;
+                    nav {
+                        ul {
+                            display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                            row-gap: 1rem;
+                            li {
+                                margin: 0 1rem 0 2.1rem;
+                            }
+                        }
+                    }
+                }
+            }
+            input[type="submit"] {
+                background: url('/themes/custom/webfinde/images/iconos/search-gris.png') no-repeat;
+                background-color: initial !important;
+            }
+        }
+    }
+}
+
+@include media-query.media(md) {
+    div.block-search{
+        form#search-block-form {
+            margin: 16rem 0rem 0 0rem;
+            div.buscadorAcceso {
+                .menuAccesoRapido {
+                    overflow-x: scroll;
+                    padding: 2rem 0 2rem 0;
+                }
+            }
+        }
+    }
+}
+
+@include media-query.media(lg) {
+    div.block-search{
+        form#search-block-form {
+            margin: 22rem 2rem 0 2rem;
+            div.buscadorAcceso {
+                .menuAccesoRapido {
+                    padding: 2rem 0 2rem 0;
+                }
+            }
+        }
+    }
+}
+
+@include media-query.media(xl) {
+    div.block-search{
+        form#search-block-form {
+            margin: 21rem 2rem 0 2rem;
+        }
+    }    
+}
+
+
+/* ===== ===== MEDIA REVISAMOS EN 1366 ===== ===== */
+
+@include media-query.media(xxl) {
+
+    div.block-search{
+   
+        form#search-block-form {
+            margin: 24rem 2rem 0 2rem;
+        }
+    }
+    
+}
+
+
+/* ===== ===== MEDIA REVISAMOS EN 1600 ===== ===== */
+
+@include media-query.media(yl) {
+    div.block-search{
+        form#search-block-form {
+            margin: 28.5rem 2rem 0 2rem;
+        }
+    }
+    
+}

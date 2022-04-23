@@ -1,0 +1,30 @@
+uuid: e3f4a5ad-dc4b-4715-8a88-decd079a85bc
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tip_cont_transp_regis_activ_info.field_trans_cont_regis_act_infor
+    - node.type.tip_cont_transp_regis_activ_info
+  module:
+    - text
+    - user
+id: node.tip_cont_transp_regis_activ_info.default
+targetEntityType: node
+bundle: tip_cont_transp_regis_activ_info
+mode: default
+content:
+  field_trans_cont_regis_act_infor:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

@@ -1,0 +1,27 @@
+uuid: 12c10097-db20-4517-8e67-28c3b6d77044
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.7_1_informes_de_gestion_evaluaci.field_contenido_informes_de_gest
+    - field.field.node.7_1_informes_de_gestion_evaluaci.field_tipo_doc_paragraph
+    - node.type.7_1_informes_de_gestion_evaluaci
+  module:
+    - user
+id: node.7_1_informes_de_gestion_evaluaci.teaser
+targetEntityType: node
+bundle: 7_1_informes_de_gestion_evaluaci
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_contenido_informes_de_gest: true
+  field_tipo_doc_paragraph: true
+  langcode: true
+  search_api_excerpt: true

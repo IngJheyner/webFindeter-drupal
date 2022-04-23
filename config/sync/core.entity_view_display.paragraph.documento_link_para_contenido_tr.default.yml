@@ -1,0 +1,55 @@
+uuid: be03f611-8478-4f3c-a1e9-8852bc24a320
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.documento_link_para_contenido_tr.field_name_doc_type_doc_transp
+    - field.field.paragraph.documento_link_para_contenido_tr.field_tipo_de_documento
+    - field.field.paragraph.documento_link_para_contenido_tr.field_tr_paragr_docu_archi
+    - field.field.paragraph.documento_link_para_contenido_tr.field_tr_pargr_enlace_sitio_cont
+    - paragraphs.paragraphs_type.documento_link_para_contenido_tr
+  module:
+    - file
+    - link
+id: paragraph.documento_link_para_contenido_tr.default
+targetEntityType: paragraph
+bundle: documento_link_para_contenido_tr
+mode: default
+content:
+  field_name_doc_type_doc_transp:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_tipo_de_documento:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_tr_paragr_docu_archi:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_tr_pargr_enlace_sitio_cont:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

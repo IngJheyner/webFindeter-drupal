@@ -1,0 +1,41 @@
+uuid: a2da6f9c-8fd8-4697-b19d-646c507e35de
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo__cont_credit_rating.body
+    - field.field.node.tipo__cont_credit_rating.field_img_enca_credit_rating
+    - node.type.tipo__cont_credit_rating
+  module:
+    - image
+    - text
+    - user
+id: node.tipo__cont_credit_rating.default
+targetEntityType: node
+bundle: tipo__cont_credit_rating
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_img_enca_credit_rating:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

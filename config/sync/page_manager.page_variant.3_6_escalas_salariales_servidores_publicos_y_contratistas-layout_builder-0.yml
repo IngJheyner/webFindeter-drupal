@@ -1,0 +1,102 @@
+uuid: cadfd4fb-8c2e-4509-9c75-e6cfe9e6b98b
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.3_6_escalas_salariales_servidores_publicos_y_contratistas
+id: 3_6_escalas_salariales_servidores_publicos_y_contratistas-layout_builder-0
+label: 'Escalas salariales'
+weight: 0
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  label: null
+  weight: 0
+  uuid: a167bb56-e469-4cdb-a11d-2544c5b5215e
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        430cb7c1-9cd0-4464-be22-d4de74ccf8f2:
+          uuid: 430cb7c1-9cd0-4464-be22-d4de74ccf8f2
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            label_display: visible
+            provider: block_content
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          weight: 2
+          additional: {  }
+        4ba36de3-481e-4e36-87f8-6c710aa00710:
+          uuid: 4ba36de3-481e-4e36-87f8-6c710aa00710
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-3_6_escalas_salariales_servidores_publicos_y_contratistas'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: '1'
+          weight: 1
+          additional: {  }
+        c3ab7def-1353-4802-a5f4-255249312d9c:
+          uuid: c3ab7def-1353-4802-a5f4-255249312d9c
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 1
+            parent: 'transparencia-acceso-informacion:menu_link_content:d5ee5ec6-3346-4402-a12c-cf492f96edc0'
+            suggestion: transparencia_acceso_informacion_sidebar
+            expand: false
+          weight: 2
+          additional: {  }
+      third_party_settings: {  }
+page: 3_6_escalas_salariales_servidores_publicos_y_contratistas
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

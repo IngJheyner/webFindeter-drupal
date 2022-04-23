@@ -1,0 +1,32 @@
+uuid: 2021a8bf-56a0-49a9-8065-5b4126046b79
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.publicacion_de_la_informacion_co.body
+    - node.type.publicacion_de_la_informacion_co
+  module:
+    - text
+    - user
+id: node.publicacion_de_la_informacion_co.teaser
+targetEntityType: node
+bundle: publicacion_de_la_informacion_co
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

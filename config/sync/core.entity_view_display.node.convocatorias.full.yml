@@ -1,0 +1,163 @@
+uuid: 0a42dd9b-689d-4713-9330-81be13d3adbb
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.convocatorias.body
+    - field.field.node.convocatorias.feeds_item
+    - field.field.node.convocatorias.field_convcatoria_archivos
+    - field.field.node.convocatorias.field_convcatoria_contractual
+    - field.field.node.convocatorias.field_convcatoria_contratacion
+    - field.field.node.convocatorias.field_convcatoria_departamento
+    - field.field.node.convocatorias.field_convcatoria_email_proceso
+    - field.field.node.convocatorias.field_convcatoria_estado
+    - field.field.node.convocatorias.field_convcatoria_forma_pago
+    - field.field.node.convocatorias.field_convcatoria_moneda
+    - field.field.node.convocatorias.field_convcatoria_objeto
+    - field.field.node.convocatorias.field_convcatoria_presupuesto
+    - field.field.node.convocatorias.field_convcatoria_programa
+    - field.field.node.convocatorias.field_convcatoria_tipo_compra
+    - node.type.convocatorias
+  module:
+    - cshs
+    - field_formatter_class
+    - layout_builder
+    - options
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.convocatorias.full
+targetEntityType: node
+bundle: convocatorias
+mode: full
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_convcatoria_archivos:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: convocatorias_archivos
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 8
+    region: content
+  field_convcatoria_contractual:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 11
+    region: content
+  field_convcatoria_contratacion:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 9
+    region: content
+  field_convcatoria_departamento:
+    type: cshs_full_hierarchy
+    label: hidden
+    settings:
+      separator: ' - '
+      linked: 0
+      reverse: 0
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 7
+    region: content
+  field_convcatoria_email_proceso:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_convcatoria_estado:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_convcatoria_forma_pago:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 12
+    region: content
+  field_convcatoria_moneda:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 4
+    region: content
+  field_convcatoria_objeto:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_convcatoria_presupuesto:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ','
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 5
+    region: content
+  field_convcatoria_programa:
+    type: cshs_group_by_root
+    label: inline
+    settings:
+      linked: 0
+      reverse: 0
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  feeds_item: true
+  field_convcatoria_tipo_compra: true
+  langcode: true
+  search_api_excerpt: true

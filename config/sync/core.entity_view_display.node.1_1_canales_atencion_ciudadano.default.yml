@@ -1,0 +1,39 @@
+uuid: ae7ff0fd-d4f4-4f36-8651-8d2d3bb00760
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.1_1_canales_atencion_ciudadano.body
+    - field.field.node.1_1_canales_atencion_ciudadano.field_canales
+    - node.type.1_1_canales_atencion_ciudadano
+  module:
+    - text
+    - user
+id: node.1_1_canales_atencion_ciudadano.default
+targetEntityType: node
+bundle: 1_1_canales_atencion_ciudadano
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_canales:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

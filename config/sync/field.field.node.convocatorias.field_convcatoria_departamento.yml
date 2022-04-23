@@ -1,0 +1,29 @@
+uuid: 05f4e7e9-a840-4181-ae05-99874874aac0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_convcatoria_departamento
+    - node.type.convocatorias
+    - taxonomy.vocabulary.colombia_deparments
+id: node.convocatorias.field_convcatoria_departamento
+field_name: field_convcatoria_departamento
+entity_type: node
+bundle: convocatorias
+label: 'Departamento y Municipio'
+description: 'Seleccione el Departamento y posterior a este ,se desplegara una lista de las Ciudades y/o Municipios.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      colombia_deparments: colombia_deparments
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,116 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'container',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+
+  {{ title_prefix }}
+
+  {% if label %}
+
+    <h2{{ title_attributes }}>{{ label }}</h2>
+
+  {% endif %}
+
+  {{ title_suffix }}
+
+  {% block content %}
+
+  {# ============================================
+  ARTICULO BLOQUE [ 1 ]
+  =============================================== #}
+  {{ drupal_view('articulo_blog', 'articulo_blog_bloque_uno') }}
+
+  {# ============================================
+  SECCION DE VIDEO DEL BLOG
+  =============================================== #}
+  <section class="seccionVideoBlog">
+
+    <div class="row">
+
+      <div class="col-12 col-md-6 text-left titulo">
+
+        <h1 class="font-weight-bold">{{ content.field_titulo_frase.0 }}</h1>
+
+      </div>
+
+      <div class="col-12 col-md-6 video">
+
+        {#{ content.field_url_youtube }#}
+
+        {{ content.field_url_youtube_video_blog.0 }}
+
+      </div>
+
+    </div>
+
+  </section>
+
+  {# ============================================
+  ARTICULO BLOQUE [ 2 ]
+  =============================================== #}
+  {{ drupal_view('articulo_blog', 'articulo_blog_bloque_dos') }}
+
+  {# ============================================
+  SISTEMA DE BOLETIN
+  =============================================== #}
+
+  {#<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">#}
+
+  <section id="mc_embed_signup" class="boletinBlog">
+
+    <form>
+
+      <h3 class="text-white text-center mb-4">{{ 'Suscríbase a nuestro boletín'|t }}</h3>
+
+      <div class="text-center mb-3"><a name="subscribir" href="https://2ca8668f816c437da20dc49f7a1f6bf5.svc.dynamics.com/t/formsandbox/s84kWP9d3Knc4eEIkkZ86Wp-Fc0pAndjxtDVLJcjNuQ/ccf61fde-acd9-eb11-bacb-002248376338?ad=" class="btn btn-secondary btn-lg text-white" target="_blank">Suscribirme</a></div>
+
+      <p class="text-white text-center politicas">{{ 'Al suscribirse autoriza el manejo, uso y tratamiento de sus datos personales de acuerdo a las
+
+        <a href="https://www.findeter.gov.co/sites/default/files/2020-12/POLITICAS%20PROTECCION%20DE%20DATOS%20PERSONALES%20DE%20FINDETER.pdf"
+        class="font-weight-bold" target="_blank">
+        políticas</a>
+
+      de Findeter'|t }}</p>
+
+    </form>
+
+  </section>
+
+  <!--End mc_embed_signup-->
+
+  {% endblock %}
+
+</div>

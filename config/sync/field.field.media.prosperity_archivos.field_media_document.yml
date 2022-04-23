@@ -1,0 +1,46 @@
+uuid: c87a797f-c12a-45b2-8bf4-e6c3566bdb8c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_document
+    - media.type.prosperity_archivos
+  module:
+    - file
+    - filefield_paths
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: prosperity-fund
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+id: media.prosperity_archivos.field_media_document
+field_name: field_media_document
+entity_type: media
+bundle: prosperity_archivos
+label: Archivo
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: prosperity-fund
+  file_extensions: 'doc docx pdf xls xlsx zip rar'
+  max_filesize: '20 mb'
+  description_field: false
+field_type: file

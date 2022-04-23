@@ -1,0 +1,25 @@
+uuid: 95616fad-8cf2-4906-996f-97dc9adfa960
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.4_3_sistema_unico_de_informacion.field_contenido_descr_suin
+    - node.type.4_3_sistema_unico_de_informacion
+  module:
+    - user
+id: node.4_3_sistema_unico_de_informacion.teaser
+targetEntityType: node
+bundle: 4_3_sistema_unico_de_informacion
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_contenido_descr_suin: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,34 @@
+uuid: 8eae573b-8a3a-4105-8c20-08b556941be0
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.prueba_23_07_2021.body
+    - field.field.node.prueba_23_07_2021.field_texto_de_prueba_23_07_2021
+    - node.type.prueba_23_07_2021
+  module:
+    - text
+    - user
+id: node.prueba_23_07_2021.teaser
+targetEntityType: node
+bundle: prueba_23_07_2021
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_texto_de_prueba_23_07_2021: true
+  langcode: true

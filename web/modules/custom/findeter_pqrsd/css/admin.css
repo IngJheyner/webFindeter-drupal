@@ -1,0 +1,200 @@
+.pqrsd-confirm,
+#register-pqrsd-admin,
+#update-pqrsd-admin{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+#update-pqrsd-admin .details-wrapper,
+#register-pqrsd-admin .details-wrapper{
+  display: flex;
+  flex-flow: row wrap;
+}
+#update-pqrsd-admin .details-wrapper .col,
+#register-pqrsd-admin .details-wrapper .col{
+  width: 44%;
+  padding: 2%;
+}
+#update-pqrsd-admin .details-wrapper .form-text,
+#register-pqrsd-admin .details-wrapper .form-text{
+  width: 100%;
+}
+
+.pqrsd-confirm .success{
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+.pqrsd-confirm .success .row{
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 10px;
+}
+.pqrsd-confirm .success .value{
+  font-weight: bold;
+  display: block;
+  padding: 0px 10px;
+  background-color: #ccc;
+  width: 100px;
+}
+.pqrsd-confirm .success .text{
+  text-align: right;
+  margin-right: 10px;
+  width: 50%;
+  vertical-align: middle;
+}
+.pqrsd-confirm .actions-success{
+  width: 400px;
+  margin: 20px auto;
+}
+.pqrsd-confirm .actions-success .link{
+  display: list-item;
+}
+
+
+/*Exposed filters admin form*/
+.views-exposed-form{
+  background-color: #f3f3f3;
+  margin: 1rem 0px;
+  border: 1px solid #ccc;
+  padding: 1rem 10px;
+}
+
+.views-exposed-form .form-item{
+  margin: 0;
+}
+
+.views-exposed-form .seven-details{
+  padding: 1rem;
+}
+
+
+
+.views-exposed-form .form-actions{
+  width: 100%;
+}
+.views-exposed-form .seven-details__summary{
+  padding: 0.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.views-exposed-form .seven-details__wrapper .form-item{
+  float: none;
+}
+.views-exposed-form .form-type-entity-autocomplete,
+.views-exposed-form .form-type-textfield{
+  width: 10rem;
+}
+.views-exposed-form .form-type-checkbox{
+  width: 100px;
+  margin-top: 23px !important;
+}
+.views-exposed-form .form-item-created-max label{
+  color: #F3F3F3;
+}
+.views-exposed-form #edit-created-max,
+.views-exposed-form #edit-created-min{
+  display: none;
+}
+.views-exposed-form .list-charts{
+  overflow: hidden;
+}
+.views-exposed-form .form-item-created-min{
+  clear: both;
+}
+.views-exposed-form .custom-label{
+  color: #333 !important;
+  float: left;
+  margin-right: 5px;
+  font-size: 10px;
+}
+
+form#views-exposed-form-pqrsd-page-2{
+  display: block;
+}
+
+/*Table styles*/
+.views-view-table .blue{
+  background-image: url('images/blue.png');
+}
+.views-view-table .orange{
+  background-image: url('images/orange.png');
+}
+.views-view-table .red{
+  background-image: url('images/red.png');
+}
+.views-view-table .green{
+  background-image: url('images/green.png');
+}
+.views-view-table .green,
+.views-view-table .orange,
+.views-view-table .red,
+.views-view-table .blue{
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  background-size: contain;
+  text-indent: 10000px;
+  display: block;
+  overflow: hidden;
+}
+.views-view-table .days-left{
+  text-align: center;
+}
+
+/*Report styles*/
+.chart-container{
+  position: relative;
+  height: auto;
+  width: 450px;
+  border: 1px solid #ccc;
+  margin: 5px;
+  padding: 5px;
+  background-color: #fff;
+  float: left;
+}
+#tipo-solicitante-chart,
+#tipo-radicado-chart{
+  width: 200px;
+}
+.export-link{
+  margin: 15px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+  display: inline-block;
+  width: 150px;
+  text-align: center;
+}
+
+.export-link-format-379{
+  margin: 15px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+}
+
+/* ==============================
+VENTANA MODAL INFO DASHBOARD
+============================== */
+div#container-modal details div.seven-details__wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+div#container-modal details div.seven-details__wrapper div#seven-details__column_1,
+div#container-modal details div.seven-details__wrapper div#seven-details__column_2{
+  flex-basis: 300px;
+}
+
+div#container-modal details div.seven-details__wrapper div#seven-details__column_1 > div,
+div#container-modal details div.seven-details__wrapper div#seven-details__column_2 > div{
+  margin-block-end: 8px;
+}
+
+div#container-modal details div.seven-details__wrapper div#seven-details__column_1 fieldset div.fieldset-wrapper > div{
+  margin-block: 8px;
+}

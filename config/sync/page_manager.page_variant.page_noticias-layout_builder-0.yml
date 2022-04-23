@@ -1,0 +1,104 @@
+uuid: bf7f3f3b-86ef-43e6-a831-b4cfa57e5b5a
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.page_noticias
+id: page_noticias-layout_builder-0
+label: Noticias
+weight: 0
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  label: null
+  weight: 0
+  uuid: c2edd7a1-0c6e-4e20-be31-ce9ce1ff5f90
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-xs-12: col-xs-12
+              col-md-9: col-md-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-xs-12: col-xs-12
+              col-md-3: col-md-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        69da748d-b7ea-49b7-9771-ef34c7863124:
+          uuid: 69da748d-b7ea-49b7-9771-ef34c7863124
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            label_display: visible
+            provider: block_content
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          weight: 1
+          additional: {  }
+        6186440b-7394-4a44-9295-ce4327d7b91e:
+          uuid: 6186440b-7394-4a44-9295-ce4327d7b91e
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-transp_noticia'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: none
+          weight: 2
+          additional: {  }
+        0d79f6c7-ce32-451c-b740-afe5d906e27e:
+          uuid: 0d79f6c7-ce32-451c-b740-afe5d906e27e
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
+            follow: false
+            follow_parent: active
+            level: 1
+            depth: 1
+            parent: 'transparencia-acceso-informacion:menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
+            suggestion: transparencia_acceso_informacion_sidebar
+            expand: true
+          weight: 2
+          additional: {  }
+      third_party_settings: {  }
+page: page_noticias
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

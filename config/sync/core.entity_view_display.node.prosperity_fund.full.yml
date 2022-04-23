@@ -1,0 +1,47 @@
+uuid: 0bec54a5-cf23-47e7-9d98-5070bdd1995c
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.prosperity_fund.body
+    - field.field.node.prosperity_fund.field_prosperity_archivos
+    - field.field.node.prosperity_fund.field_prosperity_proceso
+    - node.type.prosperity_fund
+  module:
+    - field_formatter_class
+    - layout_builder
+    - options
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.prosperity_fund.full
+targetEntityType: node
+bundle: prosperity_fund
+mode: full
+content:
+  field_prosperity_archivos:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: convocatorias_archivos
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 0
+    region: content
+  field_prosperity_proceso:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  addtoany: true
+  body: true
+  langcode: true
+  links: true

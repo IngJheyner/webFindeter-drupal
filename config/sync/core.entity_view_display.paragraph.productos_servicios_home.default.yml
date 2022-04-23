@@ -1,0 +1,75 @@
+uuid: 35802ded-c8ad-4c70-8bc2-cd35fed0bba2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.productos_servicios_home.field_ampliar_informacion
+    - field.field.paragraph.productos_servicios_home.field_descripcion
+    - field.field.paragraph.productos_servicios_home.field_enlace_url
+    - field.field.paragraph.productos_servicios_home.field_fondo
+    - field.field.paragraph.productos_servicios_home.field_fondo_modal
+    - field.field.paragraph.productos_servicios_home.field_titulo
+    - paragraphs.paragraphs_type.productos_servicios_home
+  module:
+    - image
+    - link
+    - text
+id: paragraph.productos_servicios_home.default
+targetEntityType: paragraph
+bundle: productos_servicios_home
+mode: default
+content:
+  field_ampliar_informacion:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_descripcion:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_enlace_url:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_fondo:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: productos_y_servicios_fondo_home
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_fondo_modal:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_titulo:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

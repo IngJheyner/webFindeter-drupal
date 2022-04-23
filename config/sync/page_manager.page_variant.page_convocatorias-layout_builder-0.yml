@@ -1,0 +1,77 @@
+uuid: 04a7a298-83ff-4a25-bbe4-2a5c0eee445b
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.page_convocatorias
+  module:
+    - user
+id: page_convocatorias-layout_builder-0
+label: Funcionario
+weight: 0
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  label: null
+  weight: 0
+  uuid: 1a830b09-aadc-45cc-a456-5b2fb9f552fb
+  sections:
+    -
+      layout_id: bs_1col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          main:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|my-5
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        6306872d-798f-4407-b7c1-b3ddb3017028:
+          uuid: 6306872d-798f-4407-b7c1-b3ddb3017028
+          region: top
+          configuration:
+            id: 'block_content:6699f94b-8e4f-4c82-b46b-49c63d21f502'
+            label: 'Convocatorias [ Encabezado ]'
+            label_display: '0'
+            provider: block_content
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          weight: 1
+          additional: {  }
+      third_party_settings: {  }
+page: page_convocatorias
+selection_criteria:
+  -
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
+      abogado: abogado
+      secretaria_general: secretaria_general
+      c_modificador: c_modificador
+selection_logic: and
+static_context: {  }

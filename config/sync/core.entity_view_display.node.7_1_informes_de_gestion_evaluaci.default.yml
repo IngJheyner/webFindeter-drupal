@@ -1,0 +1,42 @@
+uuid: 833e5b20-0f25-4435-9dd8-595541b779cc
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.7_1_informes_de_gestion_evaluaci.field_contenido_informes_de_gest
+    - field.field.node.7_1_informes_de_gestion_evaluaci.field_tipo_doc_paragraph
+    - node.type.7_1_informes_de_gestion_evaluaci
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.7_1_informes_de_gestion_evaluaci.default
+targetEntityType: node
+bundle: 7_1_informes_de_gestion_evaluaci
+mode: default
+content:
+  field_contenido_informes_de_gest:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_tipo_doc_paragraph:
+    type: entity_reference_revisions_entity_view
+    weight: 102
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

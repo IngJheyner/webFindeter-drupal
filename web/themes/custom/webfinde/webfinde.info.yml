@@ -1,0 +1,22 @@
+name: webfinde
+type: theme
+description: 'Subtema para webfinde'
+core_version_requirement: ^8 || ^9
+base theme: bootstrap4
+
+# Stylesheets.
+stylesheets-remove:
+  - '@bootstrap4/css/style.css'
+
+# Libraries.
+libraries:
+  - webfinde/global
+
+# Regions.
+regions:
+  region_A: 'Region A [ Encabezados ]'
+  region_B: 'Region B'
+  region_C: 'Region C'
+  content: 'Main content'
+  region_D: 'Region D [ Pie de Página ]'
+

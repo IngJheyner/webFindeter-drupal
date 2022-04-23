@@ -1,0 +1,44 @@
+uuid: 47d14693-0c8b-4d50-ab6b-bf7170e69c2a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.parag_trans_investor_relation.field_img_icon_tab_inver_rela_en
+    - field.field.paragraph.parag_trans_investor_relation.field_inver_rela_titu_conten_tab
+    - field.field.paragraph.parag_trans_investor_relation.field_url_inves_rela_content_tab
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.parag_trans_investor_relation
+  module:
+    - image
+id: paragraph.parag_trans_investor_relation.default
+targetEntityType: paragraph
+bundle: parag_trans_investor_relation
+mode: default
+content:
+  field_img_icon_tab_inver_rela_en:
+    type: image_image
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_inver_rela_titu_conten_tab:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_url_inves_rela_content_tab:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

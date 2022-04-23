@@ -1,0 +1,48 @@
+uuid: 955d8ec4-c1ea-4fd6-b1b5-1ff4236b9316
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.block_pqrs_encabezado
+    - field.field.block_content.block_pqrs_encabezado.field_block_pqrs_img_encabezado
+    - field.field.block_content.block_pqrs_encabezado.field_pqrsd_titulo_defecto
+    - image.style.thumbnail
+  module:
+    - svg_image
+id: block_content.block_pqrs_encabezado.default
+targetEntityType: block_content
+bundle: block_pqrs_encabezado
+mode: default
+content:
+  field_block_pqrs_img_encabezado:
+    type: image_image
+    weight: 26
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_pqrsd_titulo_defecto:
+    type: string_textfield
+    weight: 27
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

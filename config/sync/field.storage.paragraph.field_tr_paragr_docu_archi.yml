@@ -1,0 +1,27 @@
+uuid: 7a84ab24-60b1-4d98-8ba7-810f36934b97
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - file
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: paragraph.field_tr_paragr_docu_archi
+field_name: field_tr_paragr_docu_archi
+entity_type: paragraph
+type: file
+settings:
+  target_type: file
+  display_field: false
+  display_default: false
+  uri_scheme: private
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

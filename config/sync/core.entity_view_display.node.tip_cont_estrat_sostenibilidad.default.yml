@@ -1,0 +1,41 @@
+uuid: fd1c829e-5bfd-4a9d-8cce-8b048675b56f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tip_cont_estrat_sostenibilidad.body
+    - field.field.node.tip_cont_estrat_sostenibilidad.field_tip_cont_est_sos_imagen
+    - node.type.tip_cont_estrat_sostenibilidad
+  module:
+    - image
+    - text
+    - user
+id: node.tip_cont_estrat_sostenibilidad.default
+targetEntityType: node
+bundle: tip_cont_estrat_sostenibilidad
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_tip_cont_est_sos_imagen:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

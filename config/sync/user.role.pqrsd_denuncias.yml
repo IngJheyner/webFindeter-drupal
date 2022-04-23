@@ -1,0 +1,29 @@
+uuid: 9fbc1084-5b44-4b20-8937-ff9232b72c60
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.pqrsd
+  module:
+    - field_permissions
+    - node
+    - system
+    - toolbar
+id: pqrsd_denuncias
+label: 'PQRSD Denuncias'
+weight: 10
+is_admin: null
+permissions:
+  - 'access toolbar'
+  - 'create field_pqrsd_fecha_roja'
+  - 'create pqrsd content'
+  - 'delete any pqrsd content'
+  - 'delete own pqrsd content'
+  - 'edit any pqrsd content'
+  - 'edit field_pqrsd_fecha_roja'
+  - 'edit own field_pqrsd_fecha_roja'
+  - 'edit own pqrsd content'
+  - 'view field_pqrsd_fecha_roja'
+  - 'view own field_pqrsd_fecha_roja'
+  - 'view pqrsd revisions'
+  - 'view the administration theme'

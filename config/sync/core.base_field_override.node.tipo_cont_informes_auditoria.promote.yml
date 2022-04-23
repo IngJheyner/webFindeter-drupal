@@ -1,0 +1,22 @@
+uuid: 2c6ae010-28a0-44fa-82e9-a0845db916f6
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.tipo_cont_informes_auditoria
+id: node.tipo_cont_informes_auditoria.promote
+field_name: promote
+entity_type: node
+bundle: tipo_cont_informes_auditoria
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

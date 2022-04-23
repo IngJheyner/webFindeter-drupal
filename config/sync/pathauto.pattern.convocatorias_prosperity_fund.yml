@@ -1,0 +1,22 @@
+uuid: d6908b76-59a9-415e-9ffd-fe6caa99fd67
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: convocatorias_prosperity_fund
+label: 'Prosperity Fund'
+type: 'canonical_entities:node'
+pattern: '/convocatorias-prosperity-fund/[node:title]'
+selection_criteria:
+  a4b01601-f41e-44da-95a3-a015eebfc7ac:
+    id: node_type
+    negate: false
+    uuid: a4b01601-f41e-44da-95a3-a015eebfc7ac
+    context_mapping:
+      node: node
+    bundles:
+      prosperity_fund: prosperity_fund
+selection_logic: and
+weight: -5
+relationships: {  }

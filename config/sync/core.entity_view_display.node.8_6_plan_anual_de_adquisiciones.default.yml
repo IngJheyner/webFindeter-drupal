@@ -1,0 +1,31 @@
+uuid: 4b80a80e-f6e9-41c3-919e-0e5c5d6d1180
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.8_6_plan_anual_de_adquisiciones.field_cont_plan_anual_adqusicion
+    - node.type.8_6_plan_anual_de_adquisiciones
+  module:
+    - text
+    - user
+id: node.8_6_plan_anual_de_adquisiciones.default
+targetEntityType: node
+bundle: 8_6_plan_anual_de_adquisiciones
+mode: default
+content:
+  field_cont_plan_anual_adqusicion:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

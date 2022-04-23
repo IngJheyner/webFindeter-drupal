@@ -1,0 +1,27 @@
+uuid: de88f465-5960-4db8-840d-fb3c320dbb40
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.articulo_blog
+  module:
+    - text
+id: node.articulo_blog.body
+field_name: body
+entity_type: node
+bundle: articulo_blog
+label: 'Contenido o cuerpo de información.'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: ''
+    summary: 'Se debe insertar un resumen de entrada del articulo, la cual se visualizara en la parte de los bloques públicos de contenido del home.'
+    format: html_editor
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: true
+field_type: text_with_summary

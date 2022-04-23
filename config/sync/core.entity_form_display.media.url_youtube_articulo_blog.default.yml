@@ -1,0 +1,20 @@
+uuid: 9010ea71-7696-4c95-bf6f-4c8653bd2317
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.media.url_youtube_articulo_blog.field_media_oembed_video
+    - media.type.url_youtube_articulo_blog
+id: media.url_youtube_articulo_blog.default
+targetEntityType: media
+bundle: url_youtube_articulo_blog
+mode: default
+content: {  }
+hidden:
+  created: true
+  field_media_oembed_video: true
+  langcode: true
+  name: true
+  path: true
+  status: true
+  uid: true

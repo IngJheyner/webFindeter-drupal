@@ -1,0 +1,23 @@
+uuid: 68e2b4b2-a841-46bb-81e1-26b1ed5e4817
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.manual_contratac_adquisi_compras
+  module:
+    - text
+id: node.manual_contratac_adquisi_compras.body
+field_name: body
+entity_type: node
+bundle: manual_contratac_adquisi_compras
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

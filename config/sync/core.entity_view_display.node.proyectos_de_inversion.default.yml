@@ -1,0 +1,30 @@
+uuid: 5e43c748-cb58-4efa-bd10-d5c8127e128e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.proyectos_de_inversion.body
+    - node.type.proyectos_de_inversion
+  module:
+    - text
+    - user
+id: node.proyectos_de_inversion.default
+targetEntityType: node
+bundle: proyectos_de_inversion
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

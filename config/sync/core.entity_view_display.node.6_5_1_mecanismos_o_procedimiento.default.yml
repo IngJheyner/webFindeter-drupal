@@ -1,0 +1,30 @@
+uuid: 533c48e5-bafa-447c-a169-934d69fa1ba0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.6_5_1_mecanismos_o_procedimiento.body
+    - node.type.6_5_1_mecanismos_o_procedimiento
+  module:
+    - text
+    - user
+id: node.6_5_1_mecanismos_o_procedimiento.default
+targetEntityType: node
+bundle: 6_5_1_mecanismos_o_procedimiento
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

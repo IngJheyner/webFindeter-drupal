@@ -1,0 +1,41 @@
+uuid: 08da2b4d-99e8-4060-9e81-c7f1ee5a98f8
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_cont_contratacion.body
+    - field.field.node.tipo_cont_contratacion.field_contrat_imagen_de_cabecera
+    - node.type.tipo_cont_contratacion
+  module:
+    - image
+    - text
+    - user
+id: node.tipo_cont_contratacion.default
+targetEntityType: node
+bundle: tipo_cont_contratacion
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_contrat_imagen_de_cabecera:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

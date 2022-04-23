@@ -1,0 +1,23 @@
+uuid: d92758e8-af4a-4733-a366-53a14f386c43
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.politica_de_accion_responsable
+  module:
+    - text
+id: node.politica_de_accion_responsable.body
+field_name: body
+entity_type: node
+bundle: politica_de_accion_responsable
+label: contenido
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

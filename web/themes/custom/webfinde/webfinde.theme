@@ -1,0 +1,86 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Render\Markup;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+/**
+ * @file
+ * SUBTHEME theme file.
+ */
+function webfinde_page_attachments_alter(&$page){
+
+    $viewport = array(
+
+        '#type' => 'html_tag',
+        '#tag' => 'meta',
+        "#attributes" => array(
+            'name' => 'viewport',
+            'content' => 'width=device-width, initial-scale=1, shrink-to-fit=no',
+        ),
+    );
+
+    $page['#attached']['html_head'][] = [$viewport, 'viewport'];
+}
+
+/**
+ * Implements hook_preprocess_views_exposed_form()
+ */
+function webfinde_preprocess_views_exposed_form(&$variables) {
+    $form =& $variables['form'];
+    if($form["#id"] == "views-exposed-form-convocatorias-block-convocatoria-ciudadano"){
+        $form["field_convcatoria_departamento_target_id"]["#attributes"]["class"][] = "form-control";
+        $form['actions']['submit']['#suffix'] = Markup::create('<a href="javascript:void(0)" class="btn btn-primary text-white ml-0 mt-3 mt-md-0 ml-md-5 busquedaAvz"><i class="fas fa-search-plus"></i> Mostrar más campos.</a>');
+    }
+}
+
+/**
+ *hook_preprocess_node
+*/
+
+function webfinde_preprocess_node(&$variables) {
+    global $base_url;
+    $currentUser = \Drupal::currentUser();
+    $rolesUser = $currentUser->getRoles();
+
+    /* ===== ===== No se muestra el contenido PQRSD para usuarios anonimos ===== ===== */
+    if($variables['node']->getType() == 'pqrsd'){
+
+        if(in_array('anonymous', $rolesUser)){
+            $response = new RedirectResponse($base_url);
+            $response->send();
+            return;
+        }
+    }
+}
+
+/**
+ * hook_preprocess_search_result
+ */
+function webfinde_preprocess_search_result(&$variables){
+    global $base_url;
+
+    //No se consultan contenido de tipo PQRSD en el buscador del home o cualquier otro.
+    if($variables['result']['node']->getType() == 'pqrsd'){
+        $response = new RedirectResponse($base_url);
+        $response->send();
+        return;
+    }
+}
+
+/**
+ * Implements hook_form_alter
+ */
+function webfinde_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+    if($form['#id'] == 'search-block-form'){
+       $form['actions']['submit']['#value'] = "";
+    }
+    if($form_id == 'search_form'){
+      hide($form['help_link']);
+    }
+
+}
+
+

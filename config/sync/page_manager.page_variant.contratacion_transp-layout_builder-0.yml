@@ -1,0 +1,104 @@
+uuid: 0716603f-736d-49dc-8832-e3d08ea0e2c3
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.contratacion_transp
+id: contratacion_transp-layout_builder-0
+label: 'Constructor de diseños.'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: b0ed4a04-c98c-4ce1-8c38-6809ab1d6c6f
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        a7d75456-f813-439d-8521-0f31f51b6632:
+          uuid: a7d75456-f813-439d-8521-0f31f51b6632
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        46c1ca03-ce83-4fc8-9192-99e6ee434416:
+          uuid: 46c1ca03-ce83-4fc8-9192-99e6ee434416
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-contratacion'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        c600d81c-d3ae-4f8f-bcd9-2f41d1337abf:
+          uuid: c600d81c-d3ae-4f8f-bcd9-2f41d1337abf
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: '0'
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 0
+            expand_all_items: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:d5ee5ec6-3346-4402-a12c-cf492f96edc0'
+            suggestion: transparencia_acceso_informacion_sidebar
+            label_type: block
+            label_link: false
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+      third_party_settings: {  }
+page: contratacion_transp
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

@@ -1,0 +1,40 @@
+uuid: 483eb97f-a25a-4afd-90cf-f9886a304416
+langcode: es
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.html_editor
+  module:
+    - contact
+    - filter
+    - google_analytics
+    - media
+    - paragraphs_type_permissions
+    - search
+    - system
+    - toolbar
+_core:
+  default_config_hash: btW6TFHajhy7Eo6YUvdFiPh4TcPggo8GBXYctjV6zag
+id: authenticated
+label: 'Usuario autenticado'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'access toolbar'
+  - 'opt-in or out of google analytics tracking'
+  - 'search content'
+  - 'use text format basic_html'
+  - 'use text format full_html'
+  - 'use text format html_editor'
+  - 'view media'
+  - 'view paragraph content findeter_en_cifras_home'
+  - 'view paragraph content parag_trans_investor_relation'
+  - 'view paragraph content productos_servicios_home'
+  - 'view paragraph content ps_contenido_items_internos'
+  - 'view paragraph content ps_grillas_internas'
+  - 'view paragraph content tabs_productos_servicio'
+  - 'view the administration theme'

@@ -1,0 +1,75 @@
+uuid: eabc90f6-4227-4909-8126-463779f64a75
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.convocatorias_encabezado
+    - field.field.block_content.convocatorias_encabezado.body
+    - field.field.block_content.convocatorias_encabezado.field_banner_convcatorias
+    - field.field.block_content.convocatorias_encabezado.field_convocatoria_img_fondo
+    - field.field.block_content.convocatorias_encabezado.field_convocatoria_titulo
+    - field.field.block_content.convocatorias_encabezado.field_enlace_banner_convocatoria
+  module:
+    - link
+    - svg_image
+    - text
+id: block_content.convocatorias_encabezado.default
+targetEntityType: block_content
+bundle: convocatorias_encabezado
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_banner_convcatorias:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_convocatoria_img_fondo:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_convocatoria_titulo:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_enlace_banner_convocatoria:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden:
+  langcode: true

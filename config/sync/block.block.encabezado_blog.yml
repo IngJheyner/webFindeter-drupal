@@ -1,0 +1,32 @@
+uuid: ee3e8bde-7e21-4c7a-a775-e18dc6d7f04a
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:encabezado_blog:4e8f6f29-947e-424d-9fc7-3ee09cd6367f'
+  module:
+    - block_content
+    - system
+  theme:
+    - webfinde
+id: encabezado_blog
+theme: webfinde
+region: region_A
+weight: -10
+provider: null
+plugin: 'block_content:4e8f6f29-947e-424d-9fc7-3ee09cd6367f'
+settings:
+  id: 'block_content:4e8f6f29-947e-424d-9fc7-3ee09cd6367f'
+  label: 'Encabezado [ Blog ]'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "/blog\r\n/blog/*\r\n/planear-el-territorio\r\n/estructurar-y-financiar-el-desarrollo\r\n/ejecutar-para-el-exito"
+    negate: false
+    context_mapping: {  }
+    pages: "/blog\r\n/blog/*"

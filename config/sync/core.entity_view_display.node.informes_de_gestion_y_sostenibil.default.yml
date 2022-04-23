@@ -1,0 +1,30 @@
+uuid: 66bf6c81-599c-4b9a-8740-fd3d471fd18d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.informes_de_gestion_y_sostenibil.body
+    - node.type.informes_de_gestion_y_sostenibil
+  module:
+    - text
+    - user
+id: node.informes_de_gestion_y_sostenibil.default
+targetEntityType: node
+bundle: informes_de_gestion_y_sostenibil
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

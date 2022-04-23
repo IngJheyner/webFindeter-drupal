@@ -1,0 +1,30 @@
+uuid: 02ceb5a4-637c-4a64-bc4c-33863af9632a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_cont_infraestructura_social.body
+    - node.type.tipo_cont_infraestructura_social
+  module:
+    - text
+    - user
+id: node.tipo_cont_infraestructura_social.default
+targetEntityType: node
+bundle: tipo_cont_infraestructura_social
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

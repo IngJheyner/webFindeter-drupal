@@ -1,0 +1,25 @@
+uuid: 5de7cd5c-1b8c-4471-b055-19c827de940c
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.6_5_mecanismos_de_participacion_.field_conten_mecanis_de_particip
+    - node.type.6_5_mecanismos_de_participacion_
+  module:
+    - user
+id: node.6_5_mecanismos_de_participacion_.teaser
+targetEntityType: node
+bundle: 6_5_mecanismos_de_participacion_
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_conten_mecanis_de_particip: true
+  langcode: true
+  search_api_excerpt: true

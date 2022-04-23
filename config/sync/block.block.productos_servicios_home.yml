@@ -1,0 +1,30 @@
+uuid: 31906d1b-35c4-4147-a9e1-731396fc83a4
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:productos_y_servicios_home_:81876647-a1d4-46af-8cf3-b1bedbdb31c5'
+  module:
+    - block_content
+    - system
+  theme:
+    - webfinde
+id: productos_servicios_home
+theme: webfinde
+region: region_B
+weight: -11
+provider: null
+plugin: 'block_content:81876647-a1d4-46af-8cf3-b1bedbdb31c5'
+settings:
+  id: 'block_content:81876647-a1d4-46af-8cf3-b1bedbdb31c5'
+  label: 'Producto y Servicios [ Home ]'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

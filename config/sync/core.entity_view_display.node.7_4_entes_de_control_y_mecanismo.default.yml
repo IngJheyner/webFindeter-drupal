@@ -1,0 +1,31 @@
+uuid: 123bfdd1-6644-4f8d-b644-3e46f62f69e7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.7_4_entes_de_control_y_mecanismo.field_contenido_entes_de_control
+    - node.type.7_4_entes_de_control_y_mecanismo
+  module:
+    - text
+    - user
+id: node.7_4_entes_de_control_y_mecanismo.default
+targetEntityType: node
+bundle: 7_4_entes_de_control_y_mecanismo
+mode: default
+content:
+  field_contenido_entes_de_control:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

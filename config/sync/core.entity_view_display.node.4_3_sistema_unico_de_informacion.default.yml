@@ -1,0 +1,31 @@
+uuid: f82af16d-62a2-4224-8206-f4359ddb44c1
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.4_3_sistema_unico_de_informacion.field_contenido_descr_suin
+    - node.type.4_3_sistema_unico_de_informacion
+  module:
+    - text
+    - user
+id: node.4_3_sistema_unico_de_informacion.default
+targetEntityType: node
+bundle: 4_3_sistema_unico_de_informacion
+mode: default
+content:
+  field_contenido_descr_suin:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

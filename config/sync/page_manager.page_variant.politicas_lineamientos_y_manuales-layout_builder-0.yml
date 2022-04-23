@@ -1,0 +1,104 @@
+uuid: 87f23d11-55e4-478b-83dd-24f8642178b8
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.politicas_lineamientos_y_manuales
+id: politicas_lineamientos_y_manuales-layout_builder-0
+label: 'Constructor de diseños.'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: e42d87f9-d7bc-41ae-9ecb-3d00b0a9413d
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        f787143f-c242-4dfb-af48-a7116642ac92:
+          uuid: f787143f-c242-4dfb-af48-a7116642ac92
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        f6dce82c-145a-4ec9-a217-4c92f41fa68f:
+          uuid: f6dce82c-145a-4ec9-a217-4c92f41fa68f
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: visible
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 0
+            expand_all_items: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
+            suggestion: transparencia_acceso_informacion_sidebar
+            label_type: block
+            label_link: false
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        26edd400-fb78-4acf-bc15-96ed14d6c500:
+          uuid: 26edd400-fb78-4acf-bc15-96ed14d6c500
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-6_1_politicas_lineamientos_y_manuales'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+      third_party_settings: {  }
+page: politicas_lineamientos_y_manuales
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

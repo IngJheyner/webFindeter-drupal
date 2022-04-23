@@ -1,0 +1,30 @@
+uuid: df96f9fc-b0aa-49ee-8f08-33a48f1ce77f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.contenido_de_pruebas.field_contenido_prueba
+    - node.type.contenido_de_pruebas
+  module:
+    - text
+    - user
+id: node.contenido_de_pruebas.default
+targetEntityType: node
+bundle: contenido_de_pruebas
+mode: default
+content:
+  field_contenido_prueba:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

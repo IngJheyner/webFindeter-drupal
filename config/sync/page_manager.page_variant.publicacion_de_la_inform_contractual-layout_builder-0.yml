@@ -1,0 +1,104 @@
+uuid: f5a4f71d-1018-4db2-8d4e-fdea21661d5b
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.publicacion_de_la_inform_contractual
+id: publicacion_de_la_inform_contractual-layout_builder-0
+label: 'Constructor de diseños.'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: 437e69bd-2e81-4853-9493-f063afd0a776
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        583000fb-f922-4587-a863-c79e0574f32b:
+          uuid: 583000fb-f922-4587-a863-c79e0574f32b
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        c1fa84b6-3c55-4aa4-837e-69637b81edd8:
+          uuid: c1fa84b6-3c55-4aa4-837e-69637b81edd8
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-publicacion_de_la_informacion_contractual'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        8f22db5c-df2c-44f2-a466-744b5fe82666:
+          uuid: 8f22db5c-df2c-44f2-a466-744b5fe82666
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: '0'
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 0
+            expand_all_items: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:d5ee5ec6-3346-4402-a12c-cf492f96edc0'
+            suggestion: transparencia_acceso_informacion_sidebar
+            label_type: block
+            label_link: false
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+      third_party_settings: {  }
+page: publicacion_de_la_inform_contractual
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

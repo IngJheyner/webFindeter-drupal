@@ -1,0 +1,14 @@
+uuid: 2e758b67-adbe-486d-8fac-9b78b3e6656d
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.publicador
+  module:
+    - user
+id: user_add_role_action.publicador
+label: 'Añade el rol Publicador al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: publicador

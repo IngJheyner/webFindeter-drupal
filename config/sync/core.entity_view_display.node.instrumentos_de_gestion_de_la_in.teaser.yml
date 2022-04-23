@@ -1,0 +1,32 @@
+uuid: c76e26ed-32ff-45d6-b307-d0f0957c83f6
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.instrumentos_de_gestion_de_la_in.body
+    - node.type.instrumentos_de_gestion_de_la_in
+  module:
+    - text
+    - user
+id: node.instrumentos_de_gestion_de_la_in.teaser
+targetEntityType: node
+bundle: instrumentos_de_gestion_de_la_in
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

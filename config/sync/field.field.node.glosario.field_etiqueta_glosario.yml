@@ -1,0 +1,29 @@
+uuid: 957a5af7-8aac-428a-83b5-00988d3e86c0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_etiqueta_glosario
+    - node.type.glosario
+    - taxonomy.vocabulary.glosario
+id: node.glosario.field_etiqueta_glosario
+field_name: field_etiqueta_glosario
+entity_type: node
+bundle: glosario
+label: Etiqueta
+description: "Etiqueta que representa al conjunto de conceptos al que pertenece a este glosario.\r\n<br><br>"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      glosario: glosario
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

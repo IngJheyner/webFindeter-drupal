@@ -1,0 +1,32 @@
+uuid: 8863162f-5079-4740-9429-06f804d4b37a
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.6_4_2_seguimiento_plan_de_accion.body
+    - node.type.6_4_2_seguimiento_plan_de_accion
+  module:
+    - text
+    - user
+id: node.6_4_2_seguimiento_plan_de_accion.teaser
+targetEntityType: node
+bundle: 6_4_2_seguimiento_plan_de_accion
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

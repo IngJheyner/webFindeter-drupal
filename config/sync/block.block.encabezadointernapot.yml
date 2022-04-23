@@ -1,0 +1,31 @@
+uuid: f3fedba4-4d5f-4d4a-890c-614d19a9aacf
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:encabezado_para_pot:4002fafe-de86-43c9-b8ec-add8e03113f6'
+  module:
+    - block_content
+    - system
+  theme:
+    - webfinde
+id: encabezadointernapot
+theme: webfinde
+region: region_A
+weight: 0
+provider: null
+plugin: 'block_content:4002fafe-de86-43c9-b8ec-add8e03113f6'
+settings:
+  id: 'block_content:4002fafe-de86-43c9-b8ec-add8e03113f6'
+  label: 'Encabezado [ interna POT - Ciudades sostenibles ]'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /ciudades-sostenibles
+    negate: false
+    context_mapping: {  }

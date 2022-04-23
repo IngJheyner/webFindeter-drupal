@@ -1,0 +1,30 @@
+uuid: d8c1c739-4989-4d3c-9c2b-a103937f7c9d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tip_cont_trans_mision_vision.field_cont_trans_mision_vision
+    - node.type.tip_cont_trans_mision_vision
+  module:
+    - text
+    - user
+id: node.tip_cont_trans_mision_vision.default
+targetEntityType: node
+bundle: tip_cont_trans_mision_vision
+mode: default
+content:
+  field_cont_trans_mision_vision:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

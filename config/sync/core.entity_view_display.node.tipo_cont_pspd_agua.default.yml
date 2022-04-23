@@ -1,0 +1,30 @@
+uuid: 8a6073c4-eed9-4523-854e-039a487263c6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_cont_pspd_agua.body
+    - node.type.tipo_cont_pspd_agua
+  module:
+    - text
+    - user
+id: node.tipo_cont_pspd_agua.default
+targetEntityType: node
+bundle: tipo_cont_pspd_agua
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

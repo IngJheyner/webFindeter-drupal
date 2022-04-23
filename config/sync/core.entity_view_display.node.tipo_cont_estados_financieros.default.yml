@@ -1,0 +1,30 @@
+uuid: fab53c1f-26f2-48ab-8b6d-b1214e50284f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_cont_estados_financieros.body
+    - node.type.tipo_cont_estados_financieros
+  module:
+    - text
+    - user
+id: node.tipo_cont_estados_financieros.default
+targetEntityType: node
+bundle: tipo_cont_estados_financieros
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

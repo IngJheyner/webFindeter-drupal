@@ -1,0 +1,31 @@
+uuid: 1e5618a2-87d3-4094-983d-ff5f26c47374
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.10_10_costos_de_reproduccion.field_cont_costos_reproduccion
+    - node.type.10_10_costos_de_reproduccion
+  module:
+    - text
+    - user
+id: node.10_10_costos_de_reproduccion.default
+targetEntityType: node
+bundle: 10_10_costos_de_reproduccion
+mode: default
+content:
+  field_cont_costos_reproduccion:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,21 @@
+uuid: 4ff39d01-5839-44a0-8426-5bda222004be
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_titulo_frase
+field_name: field_titulo_frase
+entity_type: block_content
+type: string
+settings:
+  max_length: 120
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

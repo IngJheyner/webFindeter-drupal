@@ -1,0 +1,108 @@
+uuid: 7f5bea17-6ed8-4949-a94c-fcca45a3bd9e
+langcode: es
+status: true
+dependencies:
+  module:
+    - media
+    - options
+id: media.field_convcatoria_tipo_adjunto
+field_name: field_convcatoria_tipo_adjunto
+entity_type: media
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: 'Acta de Adjudicación'
+    -
+      value: '24'
+      label: 'Acta de Apertura Sobre Económico'
+    -
+      value: '2'
+      label: 'Acta de Cancelación'
+    -
+      value: '3'
+      label: 'Acta de Cierre'
+    -
+      value: '4'
+      label: 'Acta de Declaratoria de Desierta'
+    -
+      value: '27'
+      label: 'Acta de Entrega/recibo final'
+    -
+      value: '28'
+      label: 'Acta de Entrega/recibo etapa'
+    -
+      value: '29'
+      label: 'Acta de inicio etapa'
+    -
+      value: '5'
+      label: 'Acta de Liquidación'
+    -
+      value: '6'
+      label: 'Acta de Reinicio'
+    -
+      value: '7'
+      label: 'Acta de Suspensión'
+    -
+      value: '25'
+      label: 'Acta de Saneamiento'
+    -
+      value: '8'
+      label: 'Acta de Terminación'
+    -
+      value: '9'
+      label: 'Acta/Orden de Inicio'
+    -
+      value: '10'
+      label: Adenda
+    -
+      value: '11'
+      label: 'Anexo Técnico'
+    -
+      value: '22'
+      label: Aviso
+    -
+      value: '12'
+      label: Constancia
+    -
+      value: '13'
+      label: Contrato
+    -
+      value: '23'
+      label: 'Documentos Contratación'
+    -
+      value: '14'
+      label: 'Estudios Previos'
+    -
+      value: '15'
+      label: Formato
+    -
+      value: '16'
+      label: Informe/Respuesta
+    -
+      value: '17'
+      label: 'Lineamientos de RSE'
+    -
+      value: '18'
+      label: 'Matriz de Riesgos'
+    -
+      value: '19'
+      label: 'Minuta contractual'
+    -
+      value: '20'
+      label: 'Modificación Contractual'
+    -
+      value: '26'
+      label: Propuesta
+    -
+      value: '21'
+      label: 'Términos de Referencia'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

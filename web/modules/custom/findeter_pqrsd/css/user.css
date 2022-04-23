@@ -1,0 +1,26 @@
+div.form-container{
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.8rem;
+    padding: 1rem;
+    max-width: fit-content;
+    justify-content: center;
+}
+
+div.form-container div.form-container-col div.form-item:not(.form-item-field-pqrsd-medio-respuesta):not(.form-item-field-pqrsd-medio-respuesta):not(.form-item-field-pqrsd-medio-respuesta) label{
+    font-weight: bold;
+}
+
+div.form-container div.form-container-col 
+div.form-item:not(.form-item-field-pqrsd-segundo-nombre):not(.form-item-field-pqrsd-segundo-apellido):not(.form-item-field-pqrsd-fax):not(.form-item-field-pqrsd-motivo):not(.form-item-field-pqrsd-otros):not(.form-item-field-pqrsd-archivo):not(.form-item-field-pqrsd-medio-respuesta):not(.form-item-field-pqrsd-medio-respuesta):not(.form-item-field-pqrsd-medio-respuesta)
+label::after,
+div.form-container div.form-container-col p.col-title-canal::after{
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 0.3em;
+    content: "";
+    vertical-align: super;
+    background-image: url(../../../../core/misc/icons/ee0000/required.svg);
+    background-repeat: no-repeat;
+    background-size: 6px 6px;
+}

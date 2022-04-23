@@ -1,0 +1,38 @@
+uuid: f6036eff-ca0e-4aa7-a424-5da19aadb85f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.prueba_26_07_2021.body
+    - field.field.node.prueba_26_07_2021.field_campo_de_prueba_26_07_2021
+    - node.type.prueba_26_07_2021
+  module:
+    - text
+    - user
+id: node.prueba_26_07_2021.default
+targetEntityType: node
+bundle: prueba_26_07_2021
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_campo_de_prueba_26_07_2021:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

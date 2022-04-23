@@ -1,0 +1,31 @@
+uuid: 6a5c34c0-e7a3-4d02-8cbe-a92de9ad16f7
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:encabezado_para_pot:bd91bb89-1f8d-4559-9538-0b53081a4d86'
+  module:
+    - block_content
+    - system
+  theme:
+    - webfinde
+id: encabezadointernapotplandemovilidad
+theme: webfinde
+region: region_A
+weight: 0
+provider: null
+plugin: 'block_content:bd91bb89-1f8d-4559-9538-0b53081a4d86'
+settings:
+  id: 'block_content:bd91bb89-1f8d-4559-9538-0b53081a4d86'
+  label: 'Encabezado [ interna POT - plan de movilidad]'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /plan-de-movilidad-sostenible-y-segura
+    negate: false
+    context_mapping: {  }

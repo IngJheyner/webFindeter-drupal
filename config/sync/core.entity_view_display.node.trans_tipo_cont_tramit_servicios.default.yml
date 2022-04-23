@@ -1,0 +1,30 @@
+uuid: c5de7582-91e3-46c7-811a-1aff4c56bf48
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.trans_tipo_cont_tramit_servicios.field_trans_cont_tramit_servic
+    - node.type.trans_tipo_cont_tramit_servicios
+  module:
+    - text
+    - user
+id: node.trans_tipo_cont_tramit_servicios.default
+targetEntityType: node
+bundle: trans_tipo_cont_tramit_servicios
+mode: default
+content:
+  field_trans_cont_tramit_servic:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

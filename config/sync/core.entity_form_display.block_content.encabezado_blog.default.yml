@@ -1,0 +1,200 @@
+uuid: f0606c10-9335-470b-b41e-bcdd97d922dc
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.encabezado_blog
+    - field.field.block_content.encabezado_blog.field_buscador
+    - field.field.block_content.encabezado_blog.field_facebook
+    - field.field.block_content.encabezado_blog.field_facebook_url
+    - field.field.block_content.encabezado_blog.field_fondo
+    - field.field.block_content.encabezado_blog.field_logo
+    - field.field.block_content.encabezado_blog.field_subtitulo
+    - field.field.block_content.encabezado_blog.field_titulo
+    - field.field.block_content.encabezado_blog.field_twitter
+    - field.field.block_content.encabezado_blog.field_twitter_url
+    - image.style.thumbnail
+  module:
+    - field_group
+    - link
+    - svg_image
+third_party_settings:
+  field_group:
+    group_informacion:
+      children:
+        - info
+        - group_titulos
+        - langcode
+      label: Información
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        weight: 0
+    group_contenido:
+      children:
+        - group_menus_group
+        - group_imagenes
+        - group_iconos
+      label: Contenido
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
+        weight: 0
+    group_imagenes:
+      children:
+        - field_logo
+        - field_fondo
+      label: Imagenes
+      region: content
+      parent_name: group_contenido
+      weight: 22
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        formatter: closed
+        effect: none
+    group_iconos:
+      children:
+        - field_buscador
+        - field_facebook
+        - field_facebook_url
+        - field_twitter
+        - field_twitter_url
+      label: Iconos
+      region: content
+      parent_name: group_contenido
+      weight: 23
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        formatter: closed
+        effect: none
+    group_titulos:
+      children:
+        - field_titulo
+        - field_subtitulo
+      label: Encabezados
+      region: content
+      parent_name: group_informacion
+      weight: 3
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        id: ''
+        description: ''
+        required_fields: true
+id: block_content.encabezado_blog.default
+targetEntityType: block_content
+bundle: encabezado_blog
+mode: default
+content:
+  field_buscador:
+    type: image_image
+    weight: 22
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_facebook:
+    type: image_image
+    weight: 23
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_facebook_url:
+    type: link_default
+    weight: 24
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_fondo:
+    type: image_image
+    weight: 22
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_logo:
+    type: image_image
+    weight: 21
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_subtitulo:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_titulo:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_twitter:
+    type: image_image
+    weight: 25
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_twitter_url:
+    type: link_default
+    weight: 26
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 6
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

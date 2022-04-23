@@ -1,0 +1,38 @@
+uuid: 43491bb8-1791-4890-8ee0-b2c6c0b599df
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.encabezado_blog
+    - field.storage.block_content.field_buscador
+  module:
+    - image
+id: block_content.encabezado_blog.field_buscador
+field_name: field_buscador
+entity_type: block_content
+bundle: encabezado_blog
+label: buscador
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: webfinde/images/blog/encabezado
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '2 mb'
+  max_resolution: 31x31
+  min_resolution: 31x31
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

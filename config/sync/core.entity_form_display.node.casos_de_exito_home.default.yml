@@ -1,0 +1,171 @@
+uuid: 5df553b4-1326-4d6d-9207-44a850e37301
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.casos_de_exito_home.body
+    - field.field.node.casos_de_exito_home.field_enviar_home_caso_exito
+    - field.field.node.casos_de_exito_home.field_img_carrusel_caso_exito
+    - field.field.node.casos_de_exito_home.field_img_fondo_caso_exito
+    - field.field.node.casos_de_exito_home.field_ruta_caso_exito
+    - image.style.thumbnail
+    - node.type.casos_de_exito_home
+  module:
+    - field_group
+    - link
+    - svg_image
+    - text
+third_party_settings:
+  field_group:
+    group_grupo:
+      children:
+        - group_informacion
+        - group_multimedia
+        - group_contenido
+      label: 'Grupo Tabs'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        id: ''
+        direction: horizontal
+    group_informacion:
+      children:
+        - title
+        - field_enviar_home_caso_exito
+        - created
+        - uid
+        - status
+        - langcode
+      label: Información
+      region: content
+      parent_name: group_grupo
+      weight: 1
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_multimedia:
+      children:
+        - field_img_fondo_caso_exito
+        - field_img_carrusel_caso_exito
+      label: Multimedia
+      region: content
+      parent_name: group_grupo
+      weight: 10
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_contenido:
+      children:
+        - field_ruta_caso_exito
+        - body
+      label: Contenido
+      region: content
+      parent_name: group_grupo
+      weight: 13
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+id: node.casos_de_exito_home.default
+targetEntityType: node
+bundle: casos_de_exito_home
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 27
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_enviar_home_caso_exito:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_img_carrusel_caso_exito:
+    type: image_image
+    weight: 12
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_img_fondo_caso_exito:
+    type: image_image
+    weight: 11
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_ruta_caso_exito:
+    type: link_default
+    weight: 26
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 7
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  path: true
+  promote: true
+  sticky: true
+  url_redirects: true

@@ -1,0 +1,23 @@
+uuid: bccc4c1c-30e2-4100-ba78-c6b777131ad7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.6_4_2_seguimiento_plan_de_accion
+  module:
+    - text
+id: node.6_4_2_seguimiento_plan_de_accion.body
+field_name: body
+entity_type: node
+bundle: 6_4_2_seguimiento_plan_de_accion
+label: 'contenido seguimiento plan accion'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

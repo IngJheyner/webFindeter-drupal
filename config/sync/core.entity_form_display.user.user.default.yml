@@ -1,0 +1,87 @@
+uuid: db8f2a38-5774-43dd-a2f6-b28a0a561c3b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_apellidos_usuario
+    - field.field.user.user.field_dependencia_usuarios
+    - field.field.user.user.field_nombre_usuario
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - field_group
+    - svg_image
+    - user
+third_party_settings:
+  field_group:
+    group_registro_usuarios:
+      children:
+        - field_nombre_usuario
+        - field_apellidos_usuario
+        - field_dependencia_usuarios
+        - account
+        - user_picture
+        - contact
+      label: 'Registro de usuarios para el Sitio Findeter'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        id: ''
+        description: ''
+        required_fields: true
+_core:
+  default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  account:
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  contact:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_apellidos_usuario:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dependencia_usuarios:
+    type: options_select
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_nombre_usuario:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_picture:
+    type: image_image
+    weight: 9
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+hidden:
+  google_analytics: true
+  langcode: true
+  language: true
+  path: true
+  timezone: true

@@ -1,0 +1,31 @@
+uuid: 389099d9-4b64-419a-9297-3ccbe78999e0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.7_1_1informes_de_gestion.field_contenido_informe_de_gesti
+    - node.type.7_1_1informes_de_gestion
+  module:
+    - text
+    - user
+id: node.7_1_1informes_de_gestion.default
+targetEntityType: node
+bundle: 7_1_1informes_de_gestion
+mode: default
+content:
+  field_contenido_informe_de_gesti:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

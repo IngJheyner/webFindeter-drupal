@@ -1,0 +1,31 @@
+uuid: 939847d2-6005-44bc-8c59-38944368d011
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.blog.field_menu
+    - taxonomy.vocabulary.blog
+  module:
+    - text
+id: taxonomy_term.blog.default
+targetEntityType: taxonomy_term
+bundle: blog
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_menu:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true

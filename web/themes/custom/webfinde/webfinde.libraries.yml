@@ -1,0 +1,39 @@
+global:
+  js:
+    ../../contrib/bootstrap4/dist/bootstrap/4.6.1/dist/js/bootstrap.bundle.min.js: {minified: true}
+    js/plugins/easing.example.js: {}
+    js/plugins/datepicker/bootstrap-datepicker.min.js: {minified: true}
+    js/plugins/datepicker/bootstrap-datepicker.es.min.js: {minified: true}
+    js/plugins/dataTable/jquery.dataTables.min.js: {minified: true}
+    js/plugins/dataTable/dataTables.bootstrap4.min.js: {minified: true}
+    js/global.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.once
+  css:
+    theme:
+      ../../contrib/bootstrap4/dist/bootstrap/4.6.1/dist/css/bootstrap.min.css: {minified: true}
+      css/plugins/bootstrap-datepicker.standalone.min.css: {minified: true}
+      css/plugins/dataTable/dataTables.bootstrap4.min.css: {minified: true}
+      css/plugins/colorbox/colorbox_webfinde.css: {}
+      css/style.css: {minified: true}
+
+mapaHome:
+  js:
+    js/mapaHome.js: {}
+
+#Para datackpicker order date prosperity fund
+#moments.js Date formatter
+momentjs:
+  remote: https://github.com/moment/moment
+  version: "2.29.1"
+  license:
+    name: MIT
+    url: https://github.com/moment/moment/blob/develop/LICENSE
+    gpl-compatible: true
+  js:
+    https://momentjs.com/downloads/moment-with-locales.min.js: { type: external, minified: true }
+
+

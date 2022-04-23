@@ -1,0 +1,23 @@
+uuid: 6d1567f2-054f-44b7-a00e-efccde84cea3
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.pie_de_pagina
+    - field.storage.block_content.field_conmutador
+id: block_content.pie_de_pagina.field_conmutador
+field_name: field_conmutador
+entity_type: block_content
+bundle: pie_de_pagina
+label: Conmutador
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: '(+57) 623 0311 / (+571) 623 03 88'
+  -
+    value: 'Fax: (571) 623 02 60'
+default_value_callback: ''
+settings: {  }
+field_type: string

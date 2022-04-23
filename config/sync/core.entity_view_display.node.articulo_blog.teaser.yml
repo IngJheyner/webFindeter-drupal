@@ -1,0 +1,38 @@
+uuid: 4711ccd5-733b-40ee-a3e7-c191f17e350a
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.articulo_blog.body
+    - field.field.node.articulo_blog.field_imagen
+    - field.field.node.articulo_blog.field_imagen_fondo_articulo
+    - field.field.node.articulo_blog.field_tipo_de_articulo
+    - node.type.articulo_blog
+  module:
+    - text
+    - user
+id: node.articulo_blog.teaser
+targetEntityType: node
+bundle: articulo_blog
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_imagen: true
+  field_imagen_fondo_articulo: true
+  field_tipo_de_articulo: true
+  langcode: true

@@ -1,0 +1,250 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+
+  {{ title_prefix }}
+
+  {% if label %}
+
+    <h2{{ title_attributes }}>{{ label }}</h2>
+
+  {% endif %}
+
+  {{ title_suffix }}
+
+  {#{ drupal_dump(content.field_url_facebook_footer.0 ) }#}
+
+  {% block content %}
+
+  {# ============================================
+  FOOTER(PIE DE PAGINA)
+  =============================================== #}
+
+    <div class="container-fluid footer">
+
+      <div class="container py-5">
+
+        <div class="row">
+
+          <div class="col-12 col-md-6 col-lg-3 mb-3 md-lg-0">
+
+            {# ===== ===== Logo superitendencia ===== ===== #}
+            <img onerror='this.remove();' src="{{ file_url(content.field_logo_superintendencia_foot[0]['#item'].entity.uri.value) }}" class="img-fluid logoSuper" width="10%">
+
+            {# ===== ===== Logo findeter ===== ===== #}
+            <img onerror='this.remove();' src="{{ file_url(content.field_logo_footer[0]['#item'].entity.uri.value) }}" class="img-fluid">
+
+            {# ===== ===== iconos ===== ===== #}
+            <ul class="list-inline iconosSocial mb-5">
+
+              {# ===== ===== Icono twitter ===== ===== #}
+              <li class="list-inline-item">
+
+                <a href="{{ content.field_url_twitter_footer.0["#title"] }}" target="_blank">
+
+                  <img onerror='this.remove();' src="{{ file_url(content.field_twitter_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
+
+                </a>
+
+              </li>
+
+              {# ===== ===== Icono facebook ===== ===== #}
+              <li class="list-inline-item">
+
+                <a href="{{ content.field_url_facebook_footer.0["#title"] }}" target="_blank">
+
+                  <img onerror='this.remove();' src="{{ file_url(content.field_facebook_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
+
+                </a>
+
+              </li>
+
+              {# ===== ===== Icono youtube ===== ===== #}
+              <li class="list-inline-item">
+
+                <a href="{{ content.field_url_youtube_footer.0["#title"] }}" target="_blank">
+
+                  <img onerror='this.remove();' src="{{ file_url(content.field_youtube_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
+
+                </a>
+
+              </li>
+
+              {# ===== ===== Icono instagram ===== ===== #}
+              <li class="list-inline-item">
+
+                <a href="{{ content.field_url_instagram_footer.0["#title"] }}" target="_blank">
+
+                  <img onerror='this.remove();' src="{{ file_url(content.field_instagram_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
+
+                </a>
+
+              </li>
+
+              {# ===== ===== Icono likedin ===== ===== #}
+              <li class="list-inline-item mt-2">
+
+                <a href="{{ content.field_url_likedin_footer.0["#title"] }}" target="_blank">
+
+                  <img onerror='this.remove();' src="{{ file_url(content.field_likedin_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
+
+                </a>
+
+              </li>
+
+              {# ===== ===== Icono Flickr ===== ===== #}
+              <li class="list-inline-item mt-2">
+
+                <a href="{{ content.field_url_flicker_footer.0["#title"] }}" target="_blank">
+
+                  <img onerror='this.remove();' src="{{ file_url(content.field_flickr_icono_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="24" height="24">
+
+                </a>
+
+              </li>
+
+            </ul>
+
+            {# ===== ===== Más logos ===== ===== #}
+            <div class="masLogos mt-5">
+
+              <a href="{{ content.field_url_saving_amazong_footer.0["#title"] }}" target="_blank">
+
+                <img onerror='this.remove();' src="{{ file_url(content.field_img_saving_amazong_footer[0]['#item'].entity.uri.value) }}" class="img-fluid" width="127" height="24">
+
+              </a>
+
+              {{ content.field_more_logos_footer }}
+
+            </div>
+
+          </div>
+
+          {# ===== ===== MENU ===== ===== #}
+          <div class="col-12 col-md-6 col-lg-3 mb-3" width="24" height="24">
+            {{ drupal_menu('menu-footer') }}
+          </div>
+
+          {# ===== ===== Info. general ===== ===== #}
+          <div class="col-12 col-md-6 col-lg-3 pl-lg-0">
+
+            {{ content.field_sede_principal_footer }}
+
+            {{ content.field_horario_de_atencion_footer }}
+
+            {{ content.field_ntf_judiciales_footer }}
+
+            {{ content.field_email_contacto_footer }}
+
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+
+             {{ content.field_conmutador }}
+
+             {{ content.field_pqr_footer }}
+
+             {{ content.field_correo_institucional_foote }}
+
+             {{ content.field_email_judiciales_footer }}
+
+             {{ content.field_correo_denuncias_footer }}
+
+          </div>
+
+          {# ===== ===== PiePagina ===== ===== #}
+          <div class="col-12 col-md-6 piePagina mt-5">
+
+            <a href="/transparencia-y-acceso-a-la-informacion-publica/politicas-de-seguridad-de-la-informacion/terminos-y-condiciones-de-uso-del-portal">Políticas de uso</a>
+            <p class="text-white"> Copyright &#9400; | {{ "now"|date("Y") }}</p>
+
+          </div>
+
+          <div class="col-12 col-md-6 mt-5">
+
+             <img onerror='this.remove();' src="{{ file_url(content.field_logo_ministerio_hacienda_f[0]['#item'].entity.uri.value) }}" width="300" class="float-md-right img-fluid">
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  {% endblock %}
+
+</div>
+
+{# ============================================
+CHAT
+=============================================== #}
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5fb926eaa1d54c18d8ebf61d/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+
+{# ============================================
+BTNES DE BARRA DE ACCESIBILIDAD - FONT SIZE, CONTRASTE
+=============================================== #}
+
+<div class="barraLateral d-none d-lg-block">
+
+  {{ drupal_entity('block', 'contraste', check_access=false) }}
+  {#{ drupal_entity('block', 'redimensionar_texto', check_access=false) }#}
+  <div class="text-center mb-3">
+    <a href="javascript:;" class="changer text-white" operador="suma" id="text_resize_increase"><sup>+</sup><i class="fas fa-font"></i></a>
+  </div>
+  <div class="text-center mb-3">
+    <a href="javascript:;" class="changer text-white" operador="resta" id="text_resize_decrease"><sup>-</sup><i class="fas fa-font"></i></a>
+  </div>
+  <div class="text-center mb-3">
+    <a href="https://centroderelevo.gov.co/632/w3-channel.html" target="_blank">
+      <img onerror="this.remove();" src="{{ url('<front>') }}themes/custom/webfinde/images/iconos/senial-man.png">
+    </a>
+  </div>
+
+
+</div>

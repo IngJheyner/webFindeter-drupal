@@ -1,0 +1,243 @@
+@use 'variables' as var;
+@use '../mixins/media-query' as media-query;
+
+/* ==============================
+NOTICIAS
+============================== */
+
+.sliderNoticiaHome {
+    div.encabezado {
+        border-bottom: 1px solid var.$color-secundario;
+        padding-bottom: 20px;
+        h1 {
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                width: 50%;
+                height: 4px;
+                background-color: #296294;
+                top: 1.8em;
+                left: 0;
+            }
+        }
+    }
+    div.slick {
+        ul {
+            li.grid {
+                width: 50%;
+                .grid__content {
+                    .slide__caption {
+                        padding: 0;
+                        p {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+                h2 {
+                    font-size: 1rem;
+                }
+                a {
+                    font-weight: bold;
+                    font-size: 1.1rem;
+                }
+                .fecha {
+                    position: relative;
+                    small {
+                        margin-left: 1.5rem;
+                    }
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        background: url('/themes/custom/webfinde/images/iconos/iconoFecha.png') no-repeat;
+                        display: inline-block;
+                        background-size: 18px, 18px;
+                        width: 18px;
+                        height: 18px;
+                        top: 0.2rem;
+                    }
+                }
+                &:nth-child(1) {
+                    img {
+                        margin-bottom: 1em;
+                    }
+                }
+            }
+            @for $i from 1 through 4 {
+                li:nth-child(n+2) {
+                    &.grid {
+                        .grid__content {
+                            .slide__caption {
+                                padding: 0;
+                            }
+                        }
+                    }
+                    img {
+                        display: none;
+                    }
+                }
+            }
+        }
+        /* ===== ===== Botonera ===== ===== */
+        .slick-dotted.slick-slider {
+            margin-bottom: 50px;
+        }
+        ul.slick-dots {
+            li {
+                button:before {
+                    color: var.$color-primario !important;
+                }
+                .slick-active {
+                    button:before {
+                        color: var.$color-primario !important;
+                    }
+                }
+            }
+        }
+        /* ===== ===== anterior y siguiente ===== ===== */
+        @mixin propBtn($urlImg) {
+            content: "";
+            background: url($urlImg) no-repeat;
+            display: inline-block;
+            background-size: 48px, 48px;
+            width: 48px;
+            height: 48px;
+            opacity: initial !important;
+        }
+        nav.slick__arrow {
+            position: relative;
+            width: 15%;
+            bottom: 1em;
+            top: auto;
+            .slick-arrow {
+                height: 48px;
+                width: 48px;
+            }
+            .slick-prev:before,
+            .slick-next:before {
+                font-family: initial !important;
+            }
+            /* ===== ===== Anterior ===== ===== */
+            .slick-prev {
+                &:before {
+                    @include propBtn('/themes/custom/webfinde/images/iconos/flechaIzq2.png');
+                }
+            }
+            .slick-prev.slick-disabled:before {
+                @include propBtn('/themes/custom/webfinde/images/iconos/flechaIzq.png');
+            }
+            /* ===== ===== siguiente ===== ===== */
+            .slick-next {
+                &:before {
+                    @include propBtn('/themes/custom/webfinde/images/iconos/flechaDer2.png');
+                }
+            }
+            .slick-next.slick-disabled:before {
+                @include propBtn('/themes/custom/webfinde/images/iconos/flechaDer.png');
+            }
+        }
+    }
+}
+
+
+/* ==============================
+REDES SOCIALES
+============================== */
+
+div.redeSociales {
+    ul.nav-tabs {
+        li {
+            position: relative;
+            a.nav-link {
+                border: 1px solid var.$color-quinario;
+                padding-left: 2rem;
+                font-size: 1rem;
+                &.active {
+                    border-color: var.$color-primario #dee2e6 #fff !important;
+                    border-top: 2px solid;
+                }
+            }
+        }
+        $icons: (1 "/themes/custom/webfinde/images/iconos/iconos-redes-twitter.png" 0.8rem,
+        2 "/themes/custom/webfinde/images/iconos/iconos-redes-facebook.png" 0.5rem,
+        3 "/themes/custom/webfinde/images/iconos/iconos-redes-instagram.png" 0.4rem);
+        @each $num,
+        $icon,
+        $size in $icons {
+            li:nth-child(#{$num}) {
+                a::before {
+                    position: absolute;
+                    content: "";
+                    background: url(#{$icon}) no-repeat;
+                    background-size: 25px, 25px;
+                    width: 25px;
+                    height: 25px;
+                    top: 0.5rem;
+                    left: $size;
+                }
+            }
+        }
+    }
+    div.tab-content {
+        border-left: 1px solid var.$color-quinario;
+        border-right: 1px solid var.$color-quinario;
+        border-bottom: 1px solid var.$color-quinario;
+        >div.tab-pane {
+            overflow-x: scroll;
+        }
+    }
+}
+
+
+/* ==============================
+INTERNAS Y LISTADO DE NOTICIAS
+============================== */
+
+@import '../custom/internas/noticias/noticias';
+
+/* ==============================
+MEDIA QUERY
+============================== */
+
+@include media-query.media(xs) {
+    .sliderNoticiaHome {
+        div.encabezado>h1 {
+            font-size: 1.5rem;
+            &::after {
+                background-color: initial;
+            }
+        }
+        div.slick ul li.grid {
+            width: 100%;
+            div.slide__description a img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@include media-query.media(sm) {
+    .sliderNoticiaHome {
+        div.encabezado>h1 {
+            &::after {
+                background-color: initial;
+            }
+        }
+        div.slick ul li.grid {
+            width: 100%;
+            div.slide__description a img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@include media-query.media(md) {
+    .sliderNoticiaHome {
+        div.encabezado>h1 {
+            &::after {
+                background-color: initial;
+            }
+        }
+    }
+}

@@ -1,0 +1,104 @@
+uuid: 24bf1cff-1ed2-4ea7-9f0f-a60fd7a64afe
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.serv_public_norm_form_protoc_aten
+id: serv_public_norm_form_protoc_aten-layout_builder-0
+label: 'Constructor de diseños.'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: c3b6432e-3a94-4fc4-b0f1-96d8555d9423
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        966b358a-b1cc-46e4-8b99-dd156a9f36e7:
+          uuid: 966b358a-b1cc-46e4-8b99-dd156a9f36e7
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        b749ce31-8d02-449b-9197-b6ac2cb2374f:
+          uuid: b749ce31-8d02-449b-9197-b6ac2cb2374f
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-servi_publico_normas_form_protocolos_atencion'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        e45970e7-3598-4e2e-8f84-5a113442ff53:
+          uuid: e45970e7-3598-4e2e-8f84-5a113442ff53
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: '0'
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 0
+            expand_all_items: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:9d663ce0-7090-4f10-9bc9-f402051bee86'
+            suggestion: transparencia_acceso_informacion_sidebar
+            label_type: block
+            label_link: false
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+      third_party_settings: {  }
+page: serv_public_norm_form_protoc_aten
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

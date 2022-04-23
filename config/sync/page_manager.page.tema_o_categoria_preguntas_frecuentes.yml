@@ -1,0 +1,16 @@
+uuid: 68748b6d-e196-4f0f-b804-109541da57c7
+langcode: es
+status: true
+dependencies: {  }
+id: tema_o_categoria_preguntas_frecuentes
+label: 'Tema o Categoría Preguntas Frecuentes'
+description: ''
+use_admin_theme: false
+path: '/preguntas-frecuentes/{tema}'
+access_logic: and
+access_conditions: {  }
+parameters:
+  tema:
+    machine_name: tema
+    label: Tema
+    type: string

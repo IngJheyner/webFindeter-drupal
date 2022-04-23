@@ -1,0 +1,102 @@
+uuid: 5305ef20-0ad6-409d-9946-e2c782d8b3a9
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.transp_page_evaluacion_ejercicio_rendicion_cuentas
+id: transp_page_evaluacion_ejercicio_rendicion_cuentas-layout_builder-0
+label: 'evaluacion ejercicio rendicion cuentas'
+weight: 0
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  label: null
+  weight: 0
+  uuid: 43d1b546-4f58-4427-87a6-8f1f07a0e040
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        646ba1e9-90fa-4f71-96b9-600ab85c2115:
+          uuid: 646ba1e9-90fa-4f71-96b9-600ab85c2115
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            label_display: visible
+            provider: block_content
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          weight: 2
+          additional: {  }
+        4ba656ff-9990-4673-95e1-e29cc4c69141:
+          uuid: 4ba656ff-9990-4673-95e1-e29cc4c69141
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 1
+            parent: 'transparencia-acceso-informacion:menu_link_content:2bcec003-9329-4286-9ed5-3140842114ed'
+            suggestion: transparencia_acceso_informacion_sidebar
+            expand: false
+          weight: 2
+          additional: {  }
+        f6c70aa3-a67b-4e3e-8b20-70bf20cec880:
+          uuid: f6c70aa3-a67b-4e3e-8b20-70bf20cec880
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-block_evaluacion_ejercicio_rendicion_cuentas'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: '1'
+          weight: 2
+          additional: {  }
+      third_party_settings: {  }
+page: transp_page_evaluacion_ejercicio_rendicion_cuentas
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

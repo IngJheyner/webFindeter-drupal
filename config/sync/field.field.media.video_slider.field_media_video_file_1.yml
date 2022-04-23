@@ -1,0 +1,46 @@
+uuid: 79f60a94-59be-481d-a76d-1d64a4165bba
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_video_file_1
+    - media.type.video_slider
+  module:
+    - file
+    - filefield_paths
+third_party_settings:
+  filefield_paths:
+    enabled: false
+    file_path:
+      value: '[date:custom:Y]-[date:custom:m]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+id: media.video_slider.field_media_video_file_1
+field_name: field_media_video_file_1
+entity_type: media
+bundle: video_slider
+label: 'Video file'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: webfinde/videos/slider_home
+  file_extensions: mp4
+  max_filesize: '50 mb'
+  description_field: false
+field_type: file

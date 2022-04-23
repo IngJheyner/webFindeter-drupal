@@ -1,0 +1,21 @@
+uuid: d5ca9ae9-73ae-4521-89e8-6ed3b95d5d12
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_descripcion_sedes
+    - node.type.1_2_sedes
+  module:
+    - text
+id: node.1_2_sedes.field_descripcion_sedes
+field_name: field_descripcion_sedes
+entity_type: node
+bundle: 1_2_sedes
+label: 'Descripción sedes'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

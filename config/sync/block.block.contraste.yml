@@ -1,0 +1,25 @@
+uuid: 8c93666b-0806-4c83-afcc-e755950bae19
+langcode: es
+status: false
+dependencies:
+  module:
+    - high_contrast
+  theme:
+    - webfinde
+id: contraste
+theme: webfinde
+region: region_A
+weight: -11
+provider: null
+plugin: high_contrast
+settings:
+  id: high_contrast
+  label: 'Contraste [ Bloque Lateral ]'
+  label_display: '0'
+  provider: high_contrast
+  switcher_widget: links
+  high_label: Activar
+  normal_label: Desactivar
+  use_ajax: 1
+  toggle_element: 1
+visibility: {  }

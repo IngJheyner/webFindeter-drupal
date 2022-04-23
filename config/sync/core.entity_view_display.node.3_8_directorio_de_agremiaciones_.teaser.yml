@@ -1,0 +1,25 @@
+uuid: 0f0d3384-f86f-4a14-9095-487c5a457342
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.3_8_directorio_de_agremiaciones_.field_contenido_directorio
+    - node.type.3_8_directorio_de_agremiaciones_
+  module:
+    - user
+id: node.3_8_directorio_de_agremiaciones_.teaser
+targetEntityType: node
+bundle: 3_8_directorio_de_agremiaciones_
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_contenido_directorio: true
+  langcode: true
+  search_api_excerpt: true

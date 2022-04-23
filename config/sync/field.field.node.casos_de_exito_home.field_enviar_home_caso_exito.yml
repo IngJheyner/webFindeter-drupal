@@ -1,0 +1,23 @@
+uuid: ef38e438-4687-4c18-b51c-bbc94a44cf73
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_enviar_home_caso_exito
+    - node.type.casos_de_exito_home
+id: node.casos_de_exito_home.field_enviar_home_caso_exito
+field_name: field_enviar_home_caso_exito
+entity_type: node
+bundle: casos_de_exito_home
+label: '¿Desea enviar el contenido a la pagina principal?'
+description: 'Si el campo esta seleccionado, el contenido se visualizara en la sección de caso de éxito del home o pagina principal.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'true'
+  off_label: 'false'
+field_type: boolean

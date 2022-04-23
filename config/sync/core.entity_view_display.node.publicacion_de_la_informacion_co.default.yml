@@ -1,0 +1,30 @@
+uuid: b1e405b7-8bde-484e-b068-a75cb9bd1b4a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.publicacion_de_la_informacion_co.body
+    - node.type.publicacion_de_la_informacion_co
+  module:
+    - text
+    - user
+id: node.publicacion_de_la_informacion_co.default
+targetEntityType: node
+bundle: publicacion_de_la_informacion_co
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

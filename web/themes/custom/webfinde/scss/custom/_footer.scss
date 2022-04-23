@@ -1,0 +1,153 @@
+@use '../custom/variables' as var;
+@use '../mixins/media-query' as media-query;
+@import '../custom/layout/text-rize/text-resize.scss'; //Tama_o de texto
+@mixin infoGeneral($propiedad, $colorItem, $mb: 2rem, $fz: 15px, $img: '', ) {
+    div.#{$propiedad} {
+        margin-bottom: $mb;
+        div.field__label {
+            color: white;
+        }
+        div.field__items {
+            div.field__item {
+                position: relative;
+                color: $colorItem;
+                font-size: $fz;
+                font-weight: lighter;
+                @if $img !='' {
+                    padding-left: 1.5rem;
+                    &::before {
+                        position: absolute;
+                        top: 2px;
+                        left: 0px;
+                        margin-right: 1rem;
+                        content: '' url($img);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    background-color: var.$color-primario;
+    background: linear-gradient(90deg, rgba(18, 47, 109, 1) 0%, rgba(61, 99, 171, 1) 50%, rgba(61, 99, 171, 1) 50%, rgba(18, 47, 109, 1) 100%);
+    img.logoSuper {
+        position: absolute;
+        left: 0px;
+        top: 2rem;
+        transform: translate(-70px, 0);
+    }
+    ul.iconosSocial {
+        li {
+            margin-right: 0.5rem;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+    ul.masLogos {
+        margin-top: 5rem;
+    }
+    div.piePagina,
+    a {
+        color: var.$color-terciario;
+    }
+    @include infoGeneral("field--name-field-sede-principal-footer", white);
+    @include infoGeneral("field--name-field-horario-de-atencion-footer", white);
+    @include infoGeneral("field--name-field-ntf-judiciales-footer", var.$color-terciario, 2rem, 14px, '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-email-contacto-footer", var.$color-terciario, 0, 14px, '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-conmutador", white, 2rem, 15px, '../images/iconos/telefono.png');
+    @include infoGeneral("field--name-field-pqr-footer", white, 2rem, 15px, '../images/iconos/telefono.png');
+    @include infoGeneral("field--name-field-correo-institucional-foote", var.$color-terciario, 2rem, 14px, '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-email-judiciales-footer", var.$color-terciario, 2rem, 14px, '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-correo-denuncias-footer", var.$color-terciario, 0, 14px, '../images/iconos/mail.png');
+}
+
+
+/* ==============================
+BARRA LATERAL - FONT SIZE CONTRASTE
+============================== */
+
+div.barraLateral {
+    position: fixed;
+    right: 0;
+    top: 30%;
+    transform: translate(0, 30%);
+    background: var.$color-secundario;
+    padding: 1em;
+    #block-contraste {
+        border-bottom: 2px solid white;
+        padding: 0 0 0.5em 0;
+        >form>#edit-toggle-link {
+            outline: none;
+            text-indent: -9000px;
+            display: block;
+            background: url('../images/iconos/contraste.svg') no-repeat;
+            background-position: 50% 0;
+            width: 45px;
+            height: 55px;
+        }
+        margin-bottom: 1rem;
+    }
+    #block-redimensionar-texto .content div:nth-child(1) {
+        border-bottom: 2px solid white;
+        padding: 0 0 0.5em 0;
+    }
+}
+
+
+/* ==============================
+MEDIA QUERY
+============================== */
+
+@include media-query.media(xs) {
+    .footer {
+        img.imgCreditoDirecto {
+            width: 25% !important;
+        }
+    }
+}
+
+@include media-query.media(sm) {
+    .footer {
+        img.imgCreditoDirecto {
+            width: 25% !important;
+        }
+    }
+    ul.iconosSocial {
+        text-align: center;
+    }
+    @include infoGeneral("field--name-field-ntf-judiciales-footer",
+    var.$color-terciario,
+    2rem,
+    15px !important,
+    '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-email-contacto-footer",
+    var.$color-terciario,
+    0,
+    15px !important,
+    '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-correo-institucional-foote",
+    var.$color-terciario,
+    2rem,
+    15px !important,
+    '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-email-judiciales-footer",
+    var.$color-terciario,
+    0,
+    15px !important,
+    '../images/iconos/mail.png');
+}
+
+@include media-query.media(lg) {
+    @include infoGeneral("field--name-field-ntf-judiciales-footer",
+    var.$color-terciario,
+    2rem,
+    13px !important,
+    '../images/iconos/mail.png');
+    @include infoGeneral("field--name-field-email-judiciales-footer",
+    var.$color-terciario,
+    0,
+    12px !important,
+    '../images/iconos/mail.png');
+}

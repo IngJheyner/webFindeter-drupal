@@ -1,0 +1,57 @@
+uuid: a3dfeb02-75ca-42aa-8301-1b5ef92a230f
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.encabezado_home
+    - field.storage.block_content.field_logo_encabezado_home
+  module:
+    - filefield_paths
+    - image
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: webfinde/images/encabezado
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+id: block_content.encabezado_home.field_logo_encabezado_home
+field_name: field_logo_encabezado_home
+entity_type: block_content
+bundle: encabezado_home
+label: 'Logo Findeter'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: webfinde/images/encabezado
+  file_extensions: 'png jpg jpeg svg'
+  max_filesize: '2 mb'
+  max_resolution: 705x310
+  min_resolution: 703x305
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

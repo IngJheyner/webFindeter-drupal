@@ -1,0 +1,75 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'encabezadoConvocatorias',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+
+  <figure class="w-100 m-0">
+
+    <img onerror='this.remove();' src="{{ file_url(content.field_convocatoria_img_fondo[0]['#item'].entity.uri.value) }}" class="img-fluid w-100">
+
+  </figure>
+
+  {% block content %}
+
+    <div class="encabezado container">
+
+      <h1 class="tituloEncabezado mt-3">{{ content.field_convocatoria_titulo[0] }}</h1>   
+
+    </div>   
+
+    {# ===== ===== Migas de pan ===== ===== #}
+    {{ drupal_breadcrumb() }}
+
+    {% if content.field_banner_convcatorias[0]|render|trim is not empty and path('<current>') == '/convocatorias'%}
+
+      <div class="banner w-100">
+
+        <a href="{{ content.field_enlace_banner_convocatoria[0]['#url'].uri }}">
+          <img onerror='this.remove();' src="{{ file_url(content.field_banner_convcatorias[0]['#item'].entity.uri.value) }}" class="img-fluid w-100">
+        </a>
+        
+      </div>
+
+    {% endif %}
+
+  {% endblock %}
+  
+</div>
+
+{# ============================================
+RENDERIZAR FORMULARIO LADING PAGE
+=============================================== #}
+{#{ drupal_entity('webform', 'formulario_lading_page' )}#}

@@ -1,0 +1,31 @@
+uuid: d146cc1c-b468-4903-8a1d-3c48e134f001
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.3_2_funciones_y_deberes.field_contdesc_funciones_deberes
+    - node.type.3_2_funciones_y_deberes
+  module:
+    - text
+    - user
+id: node.3_2_funciones_y_deberes.default
+targetEntityType: node
+bundle: 3_2_funciones_y_deberes
+mode: default
+content:
+  field_contdesc_funciones_deberes:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

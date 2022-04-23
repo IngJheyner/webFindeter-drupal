@@ -1,0 +1,106 @@
+uuid: 9d630af8-739c-41a1-bd2e-b26fc6d11710
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.transp_page_informes_gestion_sostenibilidad
+id: transp_page_informes_gestion_sostenibilidad-layout_builder-0
+label: 'Informes de gestion y sostenibilidad'
+weight: 0
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  label: null
+  weight: 0
+  uuid: 357e9693-3169-488b-a087-245fd290c890
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        82652d7a-0a67-461d-a28d-f03e618f96b6:
+          uuid: 82652d7a-0a67-461d-a28d-f03e618f96b6
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-block_informes_gestion_sostenibilidad'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: '1'
+          weight: 0
+          additional: {  }
+        b31b9763-d80e-4d30-9475-5b252999081d:
+          uuid: b31b9763-d80e-4d30-9475-5b252999081d
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            label_display: visible
+            provider: block_content
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          weight: 0
+          additional: {  }
+        3cc21353-3b90-40ee-abcb-f2da81f5f2c8:
+          uuid: 3cc21353-3b90-40ee-abcb-f2da81f5f2c8
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 1
+            expand_all_items: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:2c824b48-d3d7-4364-b37e-6f78bfff832a'
+            suggestion: transparencia_acceso_informacion_sidebar
+            label_type: block
+            label_link: false
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+          additional: {  }
+      third_party_settings: {  }
+page: transp_page_informes_gestion_sostenibilidad
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

@@ -1,0 +1,30 @@
+uuid: 1fbae138-d24f-4ff6-ab32-8ff8cfa36900
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipcont_progr_proye_ejecu_invers.body
+    - node.type.tipcont_progr_proye_ejecu_invers
+  module:
+    - text
+    - user
+id: node.tipcont_progr_proye_ejecu_invers.default
+targetEntityType: node
+bundle: tipcont_progr_proye_ejecu_invers
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

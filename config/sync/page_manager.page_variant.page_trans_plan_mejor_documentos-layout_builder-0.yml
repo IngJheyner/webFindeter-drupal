@@ -1,0 +1,102 @@
+uuid: 88403fb7-b632-4eab-b2ba-db827b72a28a
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.page_trans_plan_mejor_documentos
+id: page_trans_plan_mejor_documentos-layout_builder-0
+label: 'Planes de mejoramiento Documentos'
+weight: 0
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  label: null
+  weight: 0
+  uuid: 27177001-d1c6-4370-ae56-e7edc4035db0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        b6275d0a-64b3-46a8-a26b-7d9412ddae11:
+          uuid: b6275d0a-64b3-46a8-a26b-7d9412ddae11
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            label_display: visible
+            provider: block_content
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          weight: 0
+          additional: {  }
+        474d90ec-dbe2-4c43-85a5-ffd40a7494f6:
+          uuid: 474d90ec-dbe2-4c43-85a5-ffd40a7494f6
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-block_planes_mejoramiento_documentos'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: '1'
+          weight: 0
+          additional: {  }
+        83d1153e-6555-4f14-8f6e-5095d4f875a7:
+          uuid: 83d1153e-6555-4f14-8f6e-5095d4f875a7
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 1
+            parent: 'transparencia-acceso-informacion:menu_link_content:69786591-4579-4385-9d42-4aaca45aa84c'
+            suggestion: transparencia_acceso_informacion_sidebar
+            expand: false
+          weight: 0
+          additional: {  }
+      third_party_settings: {  }
+page: page_trans_plan_mejor_documentos
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

@@ -1,0 +1,41 @@
+uuid: dc89b22e-4885-416a-8eb5-3cfaa78c3149
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tip_cont_relacion_inversionistas.body
+    - field.field.node.tip_cont_relacion_inversionistas.field_relac_invers_imag_encab
+    - node.type.tip_cont_relacion_inversionistas
+  module:
+    - image
+    - text
+    - user
+id: node.tip_cont_relacion_inversionistas.default
+targetEntityType: node
+bundle: tip_cont_relacion_inversionistas
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_relac_invers_imag_encab:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

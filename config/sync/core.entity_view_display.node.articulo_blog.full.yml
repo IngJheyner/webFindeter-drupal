@@ -1,0 +1,44 @@
+uuid: c1cec3a1-2c8c-41e7-bb33-56591a9ecd9f
+langcode: es
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.articulo_blog.body
+    - field.field.node.articulo_blog.field_imagen
+    - field.field.node.articulo_blog.field_imagen_fondo_articulo
+    - field.field.node.articulo_blog.field_tipo_de_articulo
+    - node.type.articulo_blog
+  module:
+    - text
+    - user
+id: node.articulo_blog.full
+targetEntityType: node
+bundle: articulo_blog
+mode: full
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_tipo_de_articulo:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  addtoany: true
+  field_imagen: true
+  field_imagen_fondo_articulo: true
+  langcode: true

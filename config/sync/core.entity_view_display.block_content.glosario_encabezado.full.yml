@@ -1,0 +1,42 @@
+uuid: 171def20-4256-4a6e-b20d-1a54e355915d
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.glosario_encabezado
+    - core.entity_view_mode.block_content.full
+    - field.field.block_content.glosario_encabezado.body
+    - field.field.block_content.glosario_encabezado.field_glosario_img_fondo
+    - field.field.block_content.glosario_encabezado.field_glosario_titulo_defecto
+  module:
+    - image
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: block_content.glosario_encabezado.full
+targetEntityType: block_content
+bundle: glosario_encabezado
+mode: full
+content:
+  field_glosario_img_fondo:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_glosario_titulo_defecto:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  body: true
+  langcode: true

@@ -1,0 +1,24 @@
+uuid: b1a8f00e-26e9-4d90-949f-89ccbd8af5c6
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+    - field_permissions
+    - media
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: block_content.field_url_youtube
+field_name: field_url_youtube
+entity_type: block_content
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

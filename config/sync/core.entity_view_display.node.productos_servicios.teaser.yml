@@ -1,0 +1,46 @@
+uuid: b5667737-e0ec-443d-90a0-39c4d76c0d79
+langcode: es
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.productos_servicios.body
+    - field.field.node.productos_servicios.field_ps_descripcion
+    - field.field.node.productos_servicios.field_ps_imagen_portada
+    - field.field.node.productos_servicios.field_ps_img_encabezado
+    - field.field.node.productos_servicios.field_ps_items
+    - field.field.node.productos_servicios.field_ps_paragra_tabs_internas
+    - field.field.node.productos_servicios.field_ps_titulo_encabezado
+    - field.field.node.productos_servicios.field_ps_titulo_tabs_opc1
+    - node.type.productos_servicios
+  module:
+    - text
+    - user
+id: node.productos_servicios.teaser
+targetEntityType: node
+bundle: productos_servicios
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_ps_descripcion: true
+  field_ps_imagen_portada: true
+  field_ps_img_encabezado: true
+  field_ps_items: true
+  field_ps_paragra_tabs_internas: true
+  field_ps_titulo_encabezado: true
+  field_ps_titulo_tabs_opc1: true
+  langcode: true

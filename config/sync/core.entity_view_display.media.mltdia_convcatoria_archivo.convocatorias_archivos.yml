@@ -1,0 +1,66 @@
+uuid: e0a5a41b-3b19-4675-b36d-c8079585ce3a
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.convocatorias_archivos
+    - field.field.media.mltdia_convcatoria_archivo.feeds_item
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_mltdia_editar
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_muldia_fecha
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_ruta_archivo
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_tipo_adjunto
+    - field.field.media.mltdia_convcatoria_archivo.field_media_document
+    - media.type.mltdia_convcatoria_archivo
+  module:
+    - field_formatter_class
+    - file
+    - layout_builder
+    - options
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: media.mltdia_convcatoria_archivo.convocatorias_archivos
+targetEntityType: media
+bundle: mltdia_convcatoria_archivo
+mode: convocatorias_archivos
+content:
+  created:
+    type: timestamp
+    label: hidden
+    settings:
+      date_format: custom
+      custom_date_format: 'Y-m-d H:i:s'
+      timezone: America/Bogota
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 2
+    region: content
+  field_convcatoria_tipo_adjunto:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 0
+    region: content
+  field_media_document:
+    type: file_url_plain
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  addtoany: true
+  feeds_item: true
+  field_convcatoria_mltdia_editar: true
+  field_convcatoria_muldia_fecha: true
+  field_convcatoria_ruta_archivo: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

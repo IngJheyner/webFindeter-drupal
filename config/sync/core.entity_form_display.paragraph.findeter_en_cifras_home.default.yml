@@ -1,0 +1,85 @@
+uuid: ed6defd6-49b7-4c5c-97f5-80b6137f35da
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.findeter_en_cifras_home.field_cifras_findeter_cifras
+    - field.field.paragraph.findeter_en_cifras_home.field_descripcion_cifras
+    - field.field.paragraph.findeter_en_cifras_home.field_img_principal_cifras
+    - field.field.paragraph.findeter_en_cifras_home.field_img_secundaria_cifras
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.findeter_en_cifras_home
+  module:
+    - field_group
+    - image
+third_party_settings:
+  field_group:
+    group_grupo_accordion:
+      children:
+        - group_cifras
+      label: 'Grupo Accordion'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: accordion
+      format_settings:
+        classes: ''
+        id: ''
+        effect: bounceslide
+    group_cifras:
+      children:
+        - field_cifras_findeter_cifras
+        - field_descripcion_cifras
+        - field_img_principal_cifras
+        - field_img_secundaria_cifras
+      label: '------Cifras-------'
+      region: content
+      parent_name: group_grupo_accordion
+      weight: 1
+      format_type: accordion_item
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+id: paragraph.findeter_en_cifras_home.default
+targetEntityType: paragraph
+bundle: findeter_en_cifras_home
+mode: default
+content:
+  field_cifras_findeter_cifras:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_descripcion_cifras:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_img_principal_cifras:
+    type: image_image
+    weight: 4
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_img_secundaria_cifras:
+    type: image_image
+    weight: 5
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

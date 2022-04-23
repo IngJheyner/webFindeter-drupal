@@ -1,0 +1,30 @@
+uuid: dda0ba41-32e0-4a20-893e-3bf5f63f1bb7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_cont_infor_segui_plan_mejor.body
+    - node.type.tipo_cont_infor_segui_plan_mejor
+  module:
+    - text
+    - user
+id: node.tipo_cont_infor_segui_plan_mejor.default
+targetEntityType: node
+bundle: tipo_cont_infor_segui_plan_mejor
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

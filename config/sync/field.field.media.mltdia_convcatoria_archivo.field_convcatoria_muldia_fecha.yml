@@ -1,0 +1,24 @@
+uuid: 43a7652a-2129-44f2-812b-1cac361ee97b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_convcatoria_muldia_fecha
+    - media.type.mltdia_convcatoria_archivo
+  module:
+    - datetime
+id: media.mltdia_convcatoria_archivo.field_convcatoria_muldia_fecha
+field_name: field_convcatoria_muldia_fecha
+entity_type: media
+bundle: mltdia_convcatoria_archivo
+label: 'Fecha Publicación'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

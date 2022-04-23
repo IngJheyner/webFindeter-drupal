@@ -1,0 +1,57 @@
+uuid: a5ef18b7-8171-44ec-b498-875dfc2945c5
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_img_enca_releva_inform
+    - node.type.tipo_cont_relevant_information
+  module:
+    - filefield_paths
+    - image
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: webfinder/images/relevant_information
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+id: node.tipo_cont_relevant_information.field_img_enca_releva_inform
+field_name: field_img_enca_releva_inform
+entity_type: node
+bundle: tipo_cont_relevant_information
+label: 'Imagen Encabezado'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png jpg jpeg'
+  max_filesize: 2MB
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

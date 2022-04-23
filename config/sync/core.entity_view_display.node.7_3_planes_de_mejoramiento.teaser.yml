@@ -1,0 +1,27 @@
+uuid: 6d0a70a3-bfdd-45e6-a003-f6206904054d
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.7_3_planes_de_mejoramiento.field_archivos_plan_mejoramiento
+    - field.field.node.7_3_planes_de_mejoramiento.field_cont_plan_mejoramiento
+    - node.type.7_3_planes_de_mejoramiento
+  module:
+    - user
+id: node.7_3_planes_de_mejoramiento.teaser
+targetEntityType: node
+bundle: 7_3_planes_de_mejoramiento
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_archivos_plan_mejoramiento: true
+  field_cont_plan_mejoramiento: true
+  langcode: true
+  search_api_excerpt: true

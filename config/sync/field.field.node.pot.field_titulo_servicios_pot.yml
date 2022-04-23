@@ -1,0 +1,21 @@
+uuid: 8e7c6681-befd-4b4a-a810-7c69661c7247
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_titulo_servicios_pot
+    - node.type.pot
+id: node.pot.field_titulo_servicios_pot
+field_name: field_titulo_servicios_pot
+entity_type: node
+bundle: pot
+label: 'Título Servicios POT'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Servicios POT -  Findeter'
+default_value_callback: ''
+settings: {  }
+field_type: string

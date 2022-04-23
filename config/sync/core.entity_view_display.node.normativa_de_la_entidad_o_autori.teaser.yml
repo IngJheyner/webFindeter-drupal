@@ -1,0 +1,32 @@
+uuid: ad7b6b1b-475e-443c-8afd-92470904eff2
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.normativa_de_la_entidad_o_autori.body
+    - node.type.normativa_de_la_entidad_o_autori
+  module:
+    - text
+    - user
+id: node.normativa_de_la_entidad_o_autori.teaser
+targetEntityType: node
+bundle: normativa_de_la_entidad_o_autori
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

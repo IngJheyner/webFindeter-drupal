@@ -1,0 +1,34 @@
+uuid: a7149164-9616-4aa5-8756-f1f951b456cb
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tipo_cont_contratacion.body
+    - field.field.node.tipo_cont_contratacion.field_contrat_imagen_de_cabecera
+    - node.type.tipo_cont_contratacion
+  module:
+    - text
+    - user
+id: node.tipo_cont_contratacion.teaser
+targetEntityType: node
+bundle: tipo_cont_contratacion
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_contrat_imagen_de_cabecera: true
+  langcode: true

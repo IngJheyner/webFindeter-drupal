@@ -1,0 +1,23 @@
+uuid: 263cff20-b40c-4b3d-82de-993cb48215c2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.tipo_cont_informes_auditoria
+  module:
+    - text
+id: node.tipo_cont_informes_auditoria.body
+field_name: body
+entity_type: node
+bundle: tipo_cont_informes_auditoria
+label: 'Informes de auditoria'
+description: 'Informes de auditoria'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

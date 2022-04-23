@@ -1,0 +1,32 @@
+uuid: 37a21617-b2f1-4f2b-8d3c-d4fc6658c8d3
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.proce_toma_decisiones_areas.body
+    - node.type.proce_toma_decisiones_areas
+  module:
+    - text
+    - user
+id: node.proce_toma_decisiones_areas.teaser
+targetEntityType: node
+bundle: proce_toma_decisiones_areas
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

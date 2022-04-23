@@ -1,0 +1,64 @@
+uuid: 4a39eadc-7fc3-4c62-b47c-1736f6f5fcea
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.convocatorias_archivos
+    - field.field.media.prosperity_archivos.field_media_document
+    - field.field.media.prosperity_archivos.field_prosperity_descripcion
+    - media.type.prosperity_archivos
+  module:
+    - field_formatter_class
+    - file
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: media.prosperity_archivos.convocatorias_archivos
+targetEntityType: media
+bundle: prosperity_archivos
+mode: convocatorias_archivos
+content:
+  created:
+    type: timestamp
+    label: hidden
+    settings:
+      date_format: short
+      custom_date_format: ''
+      timezone: America/Bogota
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 3
+    region: content
+  field_media_document:
+    type: file_default
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 1
+    region: content
+  field_prosperity_descripcion:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  thumbnail: true
+  uid: true

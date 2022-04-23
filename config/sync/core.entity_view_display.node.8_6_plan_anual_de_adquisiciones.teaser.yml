@@ -1,0 +1,25 @@
+uuid: cc5aa050-1312-4f7c-8962-c6390baad47f
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.8_6_plan_anual_de_adquisiciones.field_cont_plan_anual_adqusicion
+    - node.type.8_6_plan_anual_de_adquisiciones
+  module:
+    - user
+id: node.8_6_plan_anual_de_adquisiciones.teaser
+targetEntityType: node
+bundle: 8_6_plan_anual_de_adquisiciones
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_cont_plan_anual_adqusicion: true
+  langcode: true
+  search_api_excerpt: true

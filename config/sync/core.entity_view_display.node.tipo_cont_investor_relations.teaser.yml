@@ -1,0 +1,36 @@
+uuid: bed0c964-9fc5-4035-8cb8-e03189f86660
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tipo_cont_investor_relations.body
+    - field.field.node.tipo_cont_investor_relations.field_invest_relat_img_encabezad
+    - field.field.node.tipo_cont_investor_relations.field_tabs_nav_conten_english
+    - node.type.tipo_cont_investor_relations
+  module:
+    - text
+    - user
+id: node.tipo_cont_investor_relations.teaser
+targetEntityType: node
+bundle: tipo_cont_investor_relations
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_invest_relat_img_encabezad: true
+  field_tabs_nav_conten_english: true
+  langcode: true

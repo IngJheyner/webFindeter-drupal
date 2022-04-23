@@ -1,0 +1,51 @@
+uuid: d7ddbbb4-6baf-4eab-96f6-1b6b79ff496b
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.slider_home.body
+    - field.field.node.slider_home.field_image
+    - field.field.node.slider_home.field_slider_multimedia
+    - field.field.node.slider_home.field_slider_video_html
+    - field.field.node.slider_home.field_video_slider
+    - node.type.slider_home
+  module:
+    - field_formatter_class
+    - layout_builder
+    - user
+    - video_embed_field
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.slider_home.full
+targetEntityType: node
+bundle: slider_home
+mode: full
+content:
+  field_slider_video_html:
+    type: video_embed_field_video
+    label: hidden
+    settings:
+      autoplay: true
+      responsive: true
+      width: 854
+      height: 480
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  body: true
+  field_image: true
+  field_slider_multimedia: true
+  field_video_slider: true
+  langcode: true

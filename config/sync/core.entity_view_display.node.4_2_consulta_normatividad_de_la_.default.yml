@@ -1,0 +1,31 @@
+uuid: e096420f-09c7-4495-8144-a7347ff5bb53
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.4_2_consulta_normatividad_de_la_.field_contenido_descr_consult
+    - node.type.4_2_consulta_normatividad_de_la_
+  module:
+    - text
+    - user
+id: node.4_2_consulta_normatividad_de_la_.default
+targetEntityType: node
+bundle: 4_2_consulta_normatividad_de_la_
+mode: default
+content:
+  field_contenido_descr_consult:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

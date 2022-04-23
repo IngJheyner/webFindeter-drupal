@@ -1,0 +1,30 @@
+uuid: 294b948c-61e1-4845-a3fb-b74964247654
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.6_4_2_seguimiento_plan_de_accion.body
+    - node.type.6_4_2_seguimiento_plan_de_accion
+  module:
+    - text
+    - user
+id: node.6_4_2_seguimiento_plan_de_accion.default
+targetEntityType: node
+bundle: 6_4_2_seguimiento_plan_de_accion
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

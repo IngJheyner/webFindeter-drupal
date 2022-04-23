@@ -1,0 +1,30 @@
+uuid: a55218e6-38ad-4efb-aa8e-66f02ad729a4
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.english.body
+    - node.type.english
+  module:
+    - text
+    - user
+id: node.english.default
+targetEntityType: node
+bundle: english
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

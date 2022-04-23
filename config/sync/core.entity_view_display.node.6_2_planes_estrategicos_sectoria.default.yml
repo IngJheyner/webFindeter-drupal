@@ -1,0 +1,31 @@
+uuid: 45ec1ec1-c19f-4ff2-b0f0-0d0b51c375f2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.6_2_planes_estrategicos_sectoria.field_contenido_planes_estrategi
+    - node.type.6_2_planes_estrategicos_sectoria
+  module:
+    - text
+    - user
+id: node.6_2_planes_estrategicos_sectoria.default
+targetEntityType: node
+bundle: 6_2_planes_estrategicos_sectoria
+mode: default
+content:
+  field_contenido_planes_estrategi:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

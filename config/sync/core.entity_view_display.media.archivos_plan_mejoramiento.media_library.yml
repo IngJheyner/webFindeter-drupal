@@ -1,0 +1,51 @@
+uuid: 8eaf927a-142f-43e6-8b0a-b66de5bcfc49
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.archivos_plan_mejoramiento.field_archivo_trans_simple
+    - field.field.media.archivos_plan_mejoramiento.field_media_document
+    - media.type.archivos_plan_mejoramiento
+  module:
+    - field_formatter_class
+    - file
+id: media.archivos_plan_mejoramiento.media_library
+targetEntityType: media
+bundle: archivos_plan_mejoramiento
+mode: media_library
+content:
+  created:
+    type: timestamp
+    label: above
+    settings:
+      date_format: html_date
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 1
+    region: content
+  field_media_document:
+    type: file_table
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  field_archivo_trans_simple: true
+  langcode: true
+  thumbnail: true
+  uid: true

@@ -1,0 +1,31 @@
+uuid: 7d183854-7f1c-42c7-8a45-b3da65c76674
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.13_1_politica_de_seguridad_de_la.field_cont_politi_de_seguridad
+    - node.type.13_1_politica_de_seguridad_de_la
+  module:
+    - text
+    - user
+id: node.13_1_politica_de_seguridad_de_la.default
+targetEntityType: node
+bundle: 13_1_politica_de_seguridad_de_la
+mode: default
+content:
+  field_cont_politi_de_seguridad:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

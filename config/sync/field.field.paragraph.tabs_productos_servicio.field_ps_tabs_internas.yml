@@ -1,0 +1,19 @@
+uuid: 8a052459-b455-46b0-a9a4-04262fa1ed2f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ps_tabs_internas
+    - paragraphs.paragraphs_type.tabs_productos_servicio
+id: paragraph.tabs_productos_servicio.field_ps_tabs_internas
+field_name: field_ps_tabs_internas
+entity_type: paragraph
+bundle: tabs_productos_servicio
+label: 'Items Tabs internas'
+description: '<b> Importante </b> Es muy importante recordar el orden de los Items para así ordenar las <i>Grillas o columnas con contenido descripto</i> que se diligencia en el siguiente apartado.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

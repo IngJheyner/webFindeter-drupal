@@ -1,0 +1,102 @@
+uuid: f55cef1e-625e-490f-83aa-85270bddecd2
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.2_4_preguntas_y_respuestas_frecuentes
+id: 2_4_preguntas_y_respuestas_frecuentes-layout_builder-0
+label: 'Preguntas y respuestas frecuentes'
+weight: 0
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  label: null
+  weight: 0
+  uuid: c11c4d40-240c-48e5-85a7-1782183b70e8
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        b0224a53-9406-4159-9c80-8e92852c1676:
+          uuid: b0224a53-9406-4159-9c80-8e92852c1676
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            label_display: visible
+            provider: block_content
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          weight: 2
+          additional: {  }
+        9b0cec72-3b6c-4da1-81e4-4a0dbdfc7ebb:
+          uuid: 9b0cec72-3b6c-4da1-81e4-4a0dbdfc7ebb
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 1
+            parent: 'transparencia-acceso-informacion:menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
+            suggestion: transparencia_acceso_informacion_sidebar
+            expand: false
+          weight: 2
+          additional: {  }
+        594bfcc3-39e8-4c01-9478-c310124c794e:
+          uuid: 594bfcc3-39e8-4c01-9478-c310124c794e
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-2_4_preguntas_y_respuestas_frecuentes'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: none
+          weight: 2
+          additional: {  }
+      third_party_settings: {  }
+page: 2_4_preguntas_y_respuestas_frecuentes
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

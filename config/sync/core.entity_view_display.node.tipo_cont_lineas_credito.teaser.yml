@@ -1,0 +1,34 @@
+uuid: b40f2f88-477c-4466-b9f3-6c51f07421c2
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tipo_cont_lineas_credito.body
+    - field.field.node.tipo_cont_lineas_credito.field_img_enca_lineas_credito
+    - node.type.tipo_cont_lineas_credito
+  module:
+    - text
+    - user
+id: node.tipo_cont_lineas_credito.teaser
+targetEntityType: node
+bundle: tipo_cont_lineas_credito
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_img_enca_lineas_credito: true
+  langcode: true

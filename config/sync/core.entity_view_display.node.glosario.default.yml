@@ -1,0 +1,40 @@
+uuid: d029553b-719c-455e-9ab2-fa1d8729c1c6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.glosario.body
+    - field.field.node.glosario.field_etiqueta_glosario
+    - node.type.glosario
+  module:
+    - text
+    - user
+id: node.glosario.default
+targetEntityType: node
+bundle: glosario
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_etiqueta_glosario:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

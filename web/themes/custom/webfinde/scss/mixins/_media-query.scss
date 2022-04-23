@@ -1,0 +1,46 @@
+$breakpoint-xs: 575.98px;
+$breakpoint-sm: 767.98px;
+$breakpoint-md: 991.98px;
+$breakpoint-lg: 1199.98px;
+$breakpoint-xl: 1365.98px;
+$breakpoint-xxl: 1599.98px;
+$breakpoint-yl: 1919.98px;
+
+@mixin media($media) {
+
+  /*MOVIL VERTICAL(sm 320px)*/
+  @if $media == xs {
+    @media (max-width: $breakpoint-xs) { @content; }
+  }
+
+  /*MOVIL HORIZONTAL(sm REVISAMOS EN 576px)*/
+  @else if $media == sm {
+    @media (min-width: 576px) and (max-width: $breakpoint-sm) { @content; }
+  }
+
+  /*TABLET VERTICAL (md REVISAMOS EN 768px)*/
+  @else if $media == md {
+    @media (min-width: 768px) and (max-width: $breakpoint-md) { @content; }
+  }
+
+  /*TABLET VERTICAL (lg REVISAMOS EN 992px)*/
+  @else if $media == lg {
+    @media (min-width: 992px) and (max-width: $breakpoint-lg) { @content; }
+  }
+
+  /*TABLET HORIZONTAL (XL REVISAMOS EN 1200px)*/
+  @else if $media == xl {
+    @media (min-width: 1200px) and (max-width: $breakpoint-xl) { @content; }
+  }
+
+  /*TABLET HORIZONTAL (XXL REVISAMOS EN 1366px)*/
+  @else if $media == xxl {
+    @media (min-width: 1366px) and (max-width: $breakpoint-xxl) { @content; }
+  }
+
+  /*TABLET HORIZONTAL (YL REVISAMOS EN 1600px)*/
+  @else if $media == yl {
+    @media (min-width: 1600px) and (max-width: $breakpoint-yl) { @content; }
+  }
+
+}

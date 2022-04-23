@@ -1,0 +1,23 @@
+uuid: d403dc76-e0b0-4b4b-8709-0d62b6d89b4c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.tip_cont_agua_saneamiento_basico
+  module:
+    - text
+id: node.tip_cont_agua_saneamiento_basico.body
+field_name: body
+entity_type: node
+bundle: tip_cont_agua_saneamiento_basico
+label: 'Contenido Agua y Saneamiento Básico'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

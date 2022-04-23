@@ -1,0 +1,502 @@
+uuid: 9d28665f-50a1-47c7-83bf-bf0d71690621
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.pot.body
+    - field.field.node.pot.field_cifras_pot
+    - field.field.node.pot.field_descripcion_equipo_pot
+    - field.field.node.pot.field_descripcion_porque_pot
+    - field.field.node.pot.field_descripcion_pot
+    - field.field.node.pot.field_descripcion_servicio_pot
+    - field.field.node.pot.field_descripcion_trayectora_pot
+    - field.field.node.pot.field_formulario_contactenos_pot
+    - field.field.node.pot.field_img_beneficios_pot
+    - field.field.node.pot.field_img_equipo_pot
+    - field.field.node.pot.field_img_galeria_pot
+    - field.field.node.pot.field_img_logo_findeter_pot
+    - field.field.node.pot.field_img_slider_pot
+    - field.field.node.pot.field_informacion_contacteno_pot
+    - field.field.node.pot.field_informacion_movil_pot
+    - field.field.node.pot.field_servicios_pot
+    - field.field.node.pot.field_titulo_beneficio_pot
+    - field.field.node.pot.field_titulo_contactenos_pot
+    - field.field.node.pot.field_titulo_nuestro_equipo_pot
+    - field.field.node.pot.field_titulo_porque_findeter_pot
+    - field.field.node.pot.field_titulo_pregunta_pot
+    - field.field.node.pot.field_titulo_servicios_pot
+    - field.field.node.pot.field_titulo_trayectoria_pot
+    - field.field.node.pot.field_trayectoria_pot
+    - image.style.thumbnail
+    - node.type.pot
+  module:
+    - field_group
+    - inline_entity_form
+    - paragraphs
+    - path
+    - svg_image
+    - text
+third_party_settings:
+  field_group:
+    group_grupo_tabs:
+      children:
+        - group_informacion
+        - group_encabezado_slider
+        - group__que_es_el_pot_
+        - group_beneficios
+        - group_servicios_findeter_pot
+        - group__por_que_findeter_
+        - group_trayectoria_experiencia
+        - group_nuestro_equipo
+        - group_contactenos
+      label: 'Grupo Tabs'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        id: ''
+        direction: horizontal
+    group_informacion:
+      children:
+        - title
+        - langcode
+        - created
+        - path
+        - status
+      label: Información
+      region: content
+      parent_name: group_grupo_tabs
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_encabezado_slider:
+      children:
+        - field_img_logo_findeter_pot
+        - field_img_slider_pot
+      label: 'Encabezado Slider'
+      region: content
+      parent_name: group_grupo_tabs
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group__que_es_el_pot_:
+      children:
+        - field_titulo_pregunta_pot
+        - field_img_galeria_pot
+        - field_descripcion_pot
+      label: '¿Qué es el POT?'
+      region: content
+      parent_name: group_grupo_tabs
+      weight: 22
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_beneficios:
+      children:
+        - field_titulo_beneficio_pot
+        - body
+        - field_img_beneficios_pot
+      label: Beneficios
+      region: content
+      parent_name: group_grupo_tabs
+      weight: 23
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_servicios_findeter_pot:
+      children:
+        - field_titulo_servicios_pot
+        - field_descripcion_servicio_pot
+        - field_servicios_pot
+      label: Servicios
+      region: content
+      parent_name: group_grupo_tabs
+      weight: 24
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+        direction: vertical
+    group__por_que_findeter_:
+      children:
+        - field_titulo_porque_findeter_pot
+        - field_descripcion_porque_pot
+        - field_cifras_pot
+      label: '¿Por que Findeter?'
+      region: content
+      parent_name: group_grupo_tabs
+      weight: 25
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_trayectoria_experiencia:
+      children:
+        - field_titulo_trayectoria_pot
+        - field_descripcion_trayectora_pot
+        - field_trayectoria_pot
+      label: 'Trayectoria y experiencia'
+      region: content
+      parent_name: group_grupo_tabs
+      weight: 26
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_nuestro_equipo:
+      children:
+        - field_titulo_nuestro_equipo_pot
+        - field_descripcion_equipo_pot
+        - field_img_equipo_pot
+      label: 'Nuestro Equipo'
+      region: content
+      parent_name: group_grupo_tabs
+      weight: 27
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_contactenos:
+      children:
+        - field_titulo_contactenos_pot
+        - group_grupo_tabs_contactenos
+      label: Contáctenos
+      region: content
+      parent_name: group_grupo_tabs
+      weight: 28
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_grupo_tabs_contactenos:
+      children:
+        - group_informacion_contactenos
+        - group_formulario
+      label: 'Grupo Tabs Contactenos'
+      region: content
+      parent_name: group_contactenos
+      weight: 44
+      format_type: tabs
+      format_settings:
+        classes: ''
+        id: ''
+        direction: vertical
+    group_informacion_contactenos:
+      children:
+        - field_informacion_contacteno_pot
+        - field_informacion_movil_pot
+      label: Información
+      region: content
+      parent_name: group_grupo_tabs_contactenos
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_formulario:
+      children:
+        - field_formulario_contactenos_pot
+      label: Formulario
+      region: content
+      parent_name: group_grupo_tabs_contactenos
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+id: node.pot.default
+targetEntityType: node
+bundle: pot
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 4
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_cifras_pot:
+    type: entity_reference_paragraphs
+    weight: 36
+    region: content
+    settings:
+      title: 'Agregar Cifra'
+      title_plural: Cifras
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: cifras_porque_findeter_pot
+    third_party_settings: {  }
+  field_descripcion_equipo_pot:
+    type: string_textarea
+    weight: 41
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_descripcion_porque_pot:
+    type: string_textarea
+    weight: 35
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_descripcion_pot:
+    type: string_textarea
+    weight: 31
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_descripcion_servicio_pot:
+    type: string_textarea
+    weight: 32
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_descripcion_trayectora_pot:
+    type: string_textarea
+    weight: 38
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_formulario_contactenos_pot:
+    type: text_textarea
+    weight: 46
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_img_beneficios_pot:
+    type: image_image
+    weight: 5
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_img_equipo_pot:
+    type: image_image
+    weight: 42
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_img_galeria_pot:
+    type: image_image
+    weight: 29
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_img_logo_findeter_pot:
+    type: image_image
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_img_slider_pot:
+    type: image_image
+    weight: 4
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_informacion_contacteno_pot:
+    type: text_textarea
+    weight: 44
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_informacion_movil_pot:
+    type: text_textarea
+    weight: 45
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_servicios_pot:
+    type: entity_reference_paragraphs
+    weight: 33
+    region: content
+    settings:
+      title: Servicio
+      title_plural: Servicios
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: servicios_findeter_pot
+    third_party_settings: {  }
+  field_titulo_beneficio_pot:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_titulo_contactenos_pot:
+    type: string_textfield
+    weight: 43
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_titulo_nuestro_equipo_pot:
+    type: string_textfield
+    weight: 40
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_titulo_porque_findeter_pot:
+    type: string_textfield
+    weight: 34
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_titulo_pregunta_pot:
+    type: string_textfield
+    weight: 28
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_titulo_servicios_pot:
+    type: string_textfield
+    weight: 31
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_titulo_trayectoria_pot:
+    type: string_textfield
+    weight: 37
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_trayectoria_pot:
+    type: inline_entity_form_complex
+    weight: 40
+    region: content
+    settings:
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 9
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  promote: true
+  sticky: true
+  uid: true
+  url_redirects: true

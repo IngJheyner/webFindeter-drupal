@@ -1,0 +1,22 @@
+uuid: d3d50e04-d5e2-4f85-838a-1f2d44c4e756
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: noticias_contenido_interno
+label: 'Noticias [ Contenido Interno ]'
+type: 'canonical_entities:node'
+pattern: '/noticias/[node:field_tipo_noticia:entity:name]/[node:title]'
+selection_criteria:
+  c310225f-4d54-4017-9a7c-455074d2765d:
+    id: node_type
+    negate: false
+    uuid: c310225f-4d54-4017-9a7c-455074d2765d
+    context_mapping:
+      node: node
+    bundles:
+      noticias_home: noticias_home
+selection_logic: and
+weight: -5
+relationships: {  }

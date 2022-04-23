@@ -1,0 +1,25 @@
+uuid: 0eff92df-f7ee-4eee-bd3d-74530b12e4e9
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_titulo_beneficio_pot
+field_name: field_titulo_beneficio_pot
+entity_type: node
+type: string
+settings:
+  max_length: 180
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

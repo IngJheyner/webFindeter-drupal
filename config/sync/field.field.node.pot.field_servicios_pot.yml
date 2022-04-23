@@ -1,0 +1,52 @@
+uuid: cf7321dd-8a87-4953-b948-54ad37c27959
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_servicios_pot
+    - node.type.pot
+    - paragraphs.paragraphs_type.servicios_findeter_pot
+  module:
+    - entity_reference_revisions
+id: node.pot.field_servicios_pot
+field_name: field_servicios_pot
+entity_type: node
+bundle: pot
+label: Servicios
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      servicios_findeter_pot: servicios_findeter_pot
+    negate: 0
+    target_bundles_drag_drop:
+      findeter_en_cifras_home:
+        weight: 9
+        enabled: false
+      parag_cont_grill_segu_inform:
+        weight: 10
+        enabled: false
+      parag_trans_investor_relation:
+        weight: 11
+        enabled: false
+      productos_servicios_home:
+        weight: 12
+        enabled: false
+      ps_contenido_items_internos:
+        weight: 13
+        enabled: false
+      ps_grillas_internas:
+        weight: 14
+        enabled: false
+      servicios_findeter_pot:
+        weight: 15
+        enabled: true
+      tabs_productos_servicio:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions

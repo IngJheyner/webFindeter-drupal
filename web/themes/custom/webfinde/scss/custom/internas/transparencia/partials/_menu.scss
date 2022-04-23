@@ -1,0 +1,135 @@
+@use '../../../variables' as var;
+@use '../../../../mixins/media-query' as media-query;
+
+div.menuTransparenciaAcceso{
+
+    border-bottom: 1px solid var.$color-quinario;
+
+    ul.nav{
+
+        div.gridContainer{  
+            
+            &:last-child{
+                margin-bottom: 0 !important;
+            }
+
+            li.gridItem{
+                
+                position: relative;
+                background-color: var.$color-quinario;
+                padding: 2rem 1rem 2rem 1rem;                    
+                border-radius: 0.5rem;
+                border-top: 10px solid var.$color-primario;
+                cursor: pointer;                     
+
+                div.gridItemTitulo{
+
+                    div.icono{
+
+                        border-right: 1px solid var.$color-secundario;
+                    }
+
+                    span.titulo{
+
+                        width: 65%;
+                        margin-left: 1rem;
+                        color: var.$color-secundario;
+                        font-weight: bold;
+                    }
+                    a.titulo{
+                        width: 65%;
+                        margin-left: 1rem;
+                        color: var.$color-secundario;
+                        font-weight: bold;
+                    }
+                }
+
+                ul.gridSubItems{
+
+                    position: absolute;                        
+                    left: 0;
+                    z-index: 1;                        
+                    margin: 0;
+                    border: initial;          
+                    padding: 0;
+                    list-style: none;
+                    width: 100%;                     
+
+                    li{
+
+                        text-align: left;                                                     
+                        background-color: var.$color-quinario; 
+                        display: none;
+
+                        &:last-child{
+                            border-radius: 0 0 0.5rem 0.5rem; 
+                        }
+
+                        &:hover{
+
+                            background-color: #ebf1f8;
+                        }
+
+                        div.containerSubItems{
+
+                            margin: 0 2rem;
+                            border-top: 1px solid #c7c7c7;
+                            padding: 1rem 0;                               
+
+                            a{
+                                
+                                color: black;
+                                font-weight: bold;
+                            }
+
+                        }                           
+                        
+                    }
+
+                    li:nth-child(1){
+
+                        div.containerSubItems{                                
+                            border-top: none;                                 
+                        }
+                    }
+                }
+            }                
+            
+        }
+        
+    }
+}
+
+/* ==============================
+MENU SIDEBAR TRANSPARENCIA
+============================== */
+div.menuTransparenciaSidebar{
+
+    ul{
+
+        li{
+
+            a:hover{
+
+                color: var.$color-secundario !important;
+                font-weight: bold;
+            }
+
+            a.active{
+                color: var.$color-secundario !important;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+/* ==============================
+MEDIA
+============================== */
+@include media-query.media(xs){
+
+    div.menuTransparenciaAcceso ul.nav div.gridContainer li.gridItem{
+                    
+        padding: 1rem 1rem 1rem 1rem;  
+    }
+}

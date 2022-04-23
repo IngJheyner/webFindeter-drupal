@@ -1,0 +1,21 @@
+uuid: 32412266-cef3-4138-808c-c44687ac2513
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.pie_de_pagina
+    - field.storage.block_content.field_email_contacto_footer
+id: block_content.pie_de_pagina.field_email_contacto_footer
+field_name: field_email_contacto_footer
+entity_type: block_content
+bundle: pie_de_pagina
+label: 'E-mail de contacto'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: findeter@findeter.gov.co
+default_value_callback: ''
+settings: {  }
+field_type: email

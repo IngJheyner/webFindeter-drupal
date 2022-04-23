@@ -1,0 +1,38 @@
+uuid: 403aa827-74dd-4dbd-b255-dac1063ffb48
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.articulo_blog.body
+    - field.field.node.articulo_blog.field_imagen
+    - field.field.node.articulo_blog.field_imagen_fondo_articulo
+    - field.field.node.articulo_blog.field_tipo_de_articulo
+    - node.type.articulo_blog
+  module:
+    - layout_builder
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.articulo_blog.search_index
+targetEntityType: node
+bundle: articulo_blog
+mode: search_index
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  field_imagen: true
+  field_imagen_fondo_articulo: true
+  field_tipo_de_articulo: true
+  langcode: true
+  links: true

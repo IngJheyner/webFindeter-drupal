@@ -1,0 +1,32 @@
+uuid: 1debff6d-a8d1-4181-b9eb-7d2a090e7de5
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tipo_cont_compro_educa_superior.body
+    - node.type.tipo_cont_compro_educa_superior
+  module:
+    - text
+    - user
+id: node.tipo_cont_compro_educa_superior.teaser
+targetEntityType: node
+bundle: tipo_cont_compro_educa_superior
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

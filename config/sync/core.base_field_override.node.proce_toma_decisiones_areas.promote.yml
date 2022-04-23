@@ -1,0 +1,22 @@
+uuid: 62ccc915-22de-4b21-a664-4b674036a20b
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.proce_toma_decisiones_areas
+id: node.proce_toma_decisiones_areas.promote
+field_name: promote
+entity_type: node
+bundle: proce_toma_decisiones_areas
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

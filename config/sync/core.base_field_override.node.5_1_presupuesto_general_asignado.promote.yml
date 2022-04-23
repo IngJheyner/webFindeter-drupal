@@ -1,0 +1,22 @@
+uuid: c6989bb4-8a09-4936-b1d4-d69af2dd045b
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.5_1_presupuesto_general_asignado
+id: node.5_1_presupuesto_general_asignado.promote
+field_name: promote
+entity_type: node
+bundle: 5_1_presupuesto_general_asignado
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

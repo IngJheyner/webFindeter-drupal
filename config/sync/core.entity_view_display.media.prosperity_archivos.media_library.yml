@@ -1,0 +1,34 @@
+uuid: d95296d0-70bd-4055-94c9-e8354218314b
+langcode: es
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.prosperity_archivos.field_media_document
+    - field.field.media.prosperity_archivos.field_prosperity_descripcion
+    - image.style.medium
+    - media.type.prosperity_archivos
+  module:
+    - image
+id: media.prosperity_archivos.media_library
+targetEntityType: media
+bundle: prosperity_archivos
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  created: true
+  field_media_document: true
+  field_prosperity_descripcion: true
+  langcode: true
+  name: true
+  uid: true

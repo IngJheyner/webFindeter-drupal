@@ -1,0 +1,32 @@
+uuid: 0a40e538-8d02-4dc3-85c0-e39f1d3f9440
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tip_cont_inform_rendi_cuent_fisc.body
+    - node.type.tip_cont_inform_rendi_cuent_fisc
+  module:
+    - text
+    - user
+id: node.tip_cont_inform_rendi_cuent_fisc.teaser
+targetEntityType: node
+bundle: tip_cont_inform_rendi_cuent_fisc
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

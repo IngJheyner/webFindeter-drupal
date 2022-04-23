@@ -1,0 +1,22 @@
+uuid: 5ba47bbf-0b17-42d0-a0ad-a368c0f19530
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.6_1_politicas_lineamientos_y_man
+id: node.6_1_politicas_lineamientos_y_man.promote
+field_name: promote
+entity_type: node
+bundle: 6_1_politicas_lineamientos_y_man
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

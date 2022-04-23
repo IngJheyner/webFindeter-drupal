@@ -1,0 +1,21 @@
+uuid: 168b2e58-562f-41e5-b60c-c1573f72e894
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ps_titulo_encabezado
+    - node.type.productos_servicios
+id: node.productos_servicios.field_ps_titulo_encabezado
+field_name: field_ps_titulo_encabezado
+entity_type: node
+bundle: productos_servicios
+label: 'Titulo por Defecto.'
+description: '<br><br>'
+required: true
+translatable: false
+default_value:
+  -
+    value: 'Productos y Servicios'
+default_value_callback: ''
+settings: {  }
+field_type: string

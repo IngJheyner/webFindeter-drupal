@@ -1,0 +1,23 @@
+uuid: e28f0f2c-7243-4f0c-8652-25e8012ad9b9
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.pot
+  module:
+    - text
+id: node.pot.body
+field_name: body
+entity_type: node
+bundle: pot
+label: 'Contenido o Descripción sobre los beneficios.'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

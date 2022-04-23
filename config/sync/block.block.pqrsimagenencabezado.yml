@@ -1,0 +1,31 @@
+uuid: 8b161a8d-517d-4490-a265-52739cc3022b
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:block_pqrs_encabezado:c2355d94-c32c-4d3f-9e76-0160b99f0a68'
+  module:
+    - block_content
+    - system
+  theme:
+    - webfinde
+id: pqrsimagenencabezado
+theme: webfinde
+region: region_A
+weight: 0
+provider: null
+plugin: 'block_content:c2355d94-c32c-4d3f-9e76-0160b99f0a68'
+settings:
+  id: 'block_content:c2355d94-c32c-4d3f-9e76-0160b99f0a68'
+  label: 'Encabezado [ PQRSD ]'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: "/registrar-pqrsd\r\n/registro-pqrsd/*\r\n/términos-de-respuesta\r\n/estado-pqrsd\r\n/estados-pqrsd"

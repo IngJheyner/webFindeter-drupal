@@ -1,0 +1,36 @@
+uuid: a4887d94-97a1-4a97-b80c-98df39377248
+langcode: es
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.media.full
+    - field.field.media.url_youtube_articulo_blog.field_media_oembed_video
+    - media.type.url_youtube_articulo_blog
+  module:
+    - layout_builder
+    - media
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: media.url_youtube_articulo_blog.full
+targetEntityType: media
+bundle: url_youtube_articulo_blog
+mode: full
+content:
+  field_media_oembed_video:
+    type: oembed
+    label: visually_hidden
+    settings:
+      max_width: 0
+      max_height: 0
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

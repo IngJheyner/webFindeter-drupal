@@ -1,0 +1,40 @@
+uuid: d9c33ed4-fc74-4b1e-b239-e2d352bf9e53
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.pqrsd
+    - node.type.tipo_cont_pqrs_terminos_respues
+  module:
+    - contact
+    - field_permissions
+    - file
+    - media
+    - node
+    - paragraphs_type_permissions
+    - search
+    - system
+_core:
+  default_config_hash: pq_mEIu_B4widZN7Ap81iCJSjShFFdcL0jEiCi8VrDk
+id: anonymous
+label: 'Usuario anónimo'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access files overview'
+  - 'access site-wide contact form'
+  - 'create pqrsd content'
+  - 'search content'
+  - 'view field_convcatoria_muldia_fecha'
+  - 'view media'
+  - 'view paragraph content cifras_porque_findeter_pot'
+  - 'view paragraph content findeter_en_cifras_home'
+  - 'view paragraph content parag_trans_investor_relation'
+  - 'view paragraph content productos_servicios_home'
+  - 'view paragraph content ps_contenido_items_internos'
+  - 'view paragraph content ps_grillas_internas'
+  - 'view paragraph content servicios_findeter_pot'
+  - 'view paragraph content tabs_productos_servicio'
+  - 'view pqrsd revisions'
+  - 'view tipo_cont_pqrs_terminos_respues revisions'

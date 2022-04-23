@@ -1,0 +1,104 @@
+uuid: c4afb6d0-239e-47b6-b970-e75f366451d7
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.proyectos_de_inversion_
+id: proyectos_de_inversion_-layout_builder-0
+label: 'Constructor de diseños.'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: c1509d80-3f18-4caf-89ca-af2a88066a31
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        e7f72bc8-023a-49e4-880c-0d75fc8a7b0e:
+          uuid: e7f72bc8-023a-49e4-880c-0d75fc8a7b0e
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        a400d718-c7d2-48da-b62c-af70d195040c:
+          uuid: a400d718-c7d2-48da-b62c-af70d195040c
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-proyectos_de_inversion'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        94b1e36e-c906-48a0-983c-bd0ff4b0c604:
+          uuid: 94b1e36e-c906-48a0-983c-bd0ff4b0c604
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: '0'
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 0
+            expand_all_items: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:2c824b48-d3d7-4364-b37e-6f78bfff832a'
+            suggestion: transparencia_acceso_informacion_sidebar
+            label_type: block
+            label_link: false
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+      third_party_settings: {  }
+page: proyectos_de_inversion_
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

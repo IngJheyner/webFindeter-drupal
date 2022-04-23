@@ -1,0 +1,31 @@
+uuid: f0d31791-e5af-4478-b278-25fd206e36a7
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:encabezado_para_pot:8596e17f-a618-4da5-a89e-7152d21b40da'
+  module:
+    - block_content
+    - system
+  theme:
+    - webfinde
+id: encabezadointernapotcatastromulti
+theme: webfinde
+region: region_A
+weight: 0
+provider: null
+plugin: 'block_content:8596e17f-a618-4da5-a89e-7152d21b40da'
+settings:
+  id: 'block_content:8596e17f-a618-4da5-a89e-7152d21b40da'
+  label: 'Encabezado [ interna POT - Catastro multi ]'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /catastro-multiproposito
+    negate: false
+    context_mapping: {  }

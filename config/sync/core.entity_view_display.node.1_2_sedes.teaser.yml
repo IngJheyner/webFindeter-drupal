@@ -1,0 +1,24 @@
+uuid: 8ec35d98-ae60-4fb7-a8f0-b874c14837f9
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.1_2_sedes.field_descripcion_sedes
+    - node.type.1_2_sedes
+  module:
+    - user
+id: node.1_2_sedes.teaser
+targetEntityType: node
+bundle: 1_2_sedes
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_descripcion_sedes: true
+  langcode: true

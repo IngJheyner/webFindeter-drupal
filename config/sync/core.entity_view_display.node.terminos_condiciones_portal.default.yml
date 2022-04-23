@@ -1,0 +1,30 @@
+uuid: 8dab55f7-7596-4f6c-aacb-c463f0406ebf
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.terminos_condiciones_portal.body
+    - node.type.terminos_condiciones_portal
+  module:
+    - text
+    - user
+id: node.terminos_condiciones_portal.default
+targetEntityType: node
+bundle: terminos_condiciones_portal
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

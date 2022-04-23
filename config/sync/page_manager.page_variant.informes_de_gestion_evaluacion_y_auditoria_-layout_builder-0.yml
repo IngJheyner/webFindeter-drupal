@@ -1,0 +1,104 @@
+uuid: 79715c5f-f93e-417e-b67c-01b7a28c8925
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.informes_de_gestion_evaluacion_y_auditoria_
+id: informes_de_gestion_evaluacion_y_auditoria_-layout_builder-0
+label: 'Constructor de diseños.'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: c154060e-7216-47a2-8f92-84e13449793c
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        bb4478a1-1ab0-4535-b2d5-65dfd775c81d:
+          uuid: bb4478a1-1ab0-4535-b2d5-65dfd775c81d
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        25b4163d-0a64-498a-b78e-f4bb942b6020:
+          uuid: 25b4163d-0a64-498a-b78e-f4bb942b6020
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: '0'
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 0
+            expand_all_items: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:2c824b48-d3d7-4364-b37e-6f78bfff832a'
+            suggestion: transparencia_acceso_informacion_sidebar
+            label_type: block
+            label_link: false
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        f84c559c-9267-47d2-b710-7f48167adb9f:
+          uuid: f84c559c-9267-47d2-b710-7f48167adb9f
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-7_1_informes_de_gestion_evaluacion_y_auditoria'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+      third_party_settings: {  }
+page: informes_de_gestion_evaluacion_y_auditoria_
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

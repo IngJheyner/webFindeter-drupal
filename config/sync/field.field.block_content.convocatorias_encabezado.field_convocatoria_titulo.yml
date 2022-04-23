@@ -1,0 +1,21 @@
+uuid: ee361be2-dd07-416c-8fbf-c9c23bd11a7c
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.convocatorias_encabezado
+    - field.storage.block_content.field_convocatoria_titulo
+id: block_content.convocatorias_encabezado.field_convocatoria_titulo
+field_name: field_convocatoria_titulo
+entity_type: block_content
+bundle: convocatorias_encabezado
+label: 'Titulo por defecto'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: Convocatorias
+default_value_callback: ''
+settings: {  }
+field_type: string

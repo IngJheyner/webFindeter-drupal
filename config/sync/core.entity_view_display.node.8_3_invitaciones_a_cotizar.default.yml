@@ -1,0 +1,31 @@
+uuid: 6466d835-cd03-4dfd-8582-8946e961c5db
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.8_3_invitaciones_a_cotizar.field_cont_invitaciones_cotizar
+    - node.type.8_3_invitaciones_a_cotizar
+  module:
+    - text
+    - user
+id: node.8_3_invitaciones_a_cotizar.default
+targetEntityType: node
+bundle: 8_3_invitaciones_a_cotizar
+mode: default
+content:
+  field_cont_invitaciones_cotizar:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

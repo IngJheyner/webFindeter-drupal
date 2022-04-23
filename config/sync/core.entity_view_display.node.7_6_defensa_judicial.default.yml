@@ -1,0 +1,31 @@
+uuid: 27edf7d2-f6e0-44a3-9101-ba573f8c951d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.7_6_defensa_judicial.field_contenido_defensa_judicial
+    - node.type.7_6_defensa_judicial
+  module:
+    - text
+    - user
+id: node.7_6_defensa_judicial.default
+targetEntityType: node
+bundle: 7_6_defensa_judicial
+mode: default
+content:
+  field_contenido_defensa_judicial:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

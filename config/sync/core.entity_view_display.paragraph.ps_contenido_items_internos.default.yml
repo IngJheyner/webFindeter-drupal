@@ -1,0 +1,35 @@
+uuid: cbb29f10-d010-4a15-805b-7e3c7f715b3e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ps_contenido_items_internos.field_ps_grillas_contenido
+    - field.field.paragraph.ps_contenido_items_internos.field_ps_internas_img_encabezado
+    - paragraphs.paragraphs_type.ps_contenido_items_internos
+  module:
+    - entity_reference_revisions
+    - image
+id: paragraph.ps_contenido_items_internos.default
+targetEntityType: paragraph
+bundle: ps_contenido_items_internos
+mode: default
+content:
+  field_ps_grillas_contenido:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_ps_internas_img_encabezado:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

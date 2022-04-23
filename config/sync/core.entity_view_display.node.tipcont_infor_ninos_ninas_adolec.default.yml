@@ -1,0 +1,30 @@
+uuid: 6a4e3de4-1164-4071-b2f7-2c54cc29246b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipcont_infor_ninos_ninas_adolec.body
+    - node.type.tipcont_infor_ninos_ninas_adolec
+  module:
+    - text
+    - user
+id: node.tipcont_infor_ninos_ninas_adolec.default
+targetEntityType: node
+bundle: tipcont_infor_ninos_ninas_adolec
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

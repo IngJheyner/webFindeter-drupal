@@ -1,0 +1,188 @@
+@use '../../variables' as var;
+@use '../../../mixins/media-query' as media-query;
+
+section.seccionVideoBlog{
+
+    margin-top: 30px;
+    margin-bottom: 90px;
+
+    div.titulo{
+
+        h1{
+           
+            color: var.$color-primario;
+            padding: 0 35px;
+            font-size: 2.4rem;
+
+            &::before{                
+                
+                content: "";             
+                background: url(../images/iconos/comillas-azules.png) no-repeat;
+                background-size: 30px, 30px;
+                display: inline-block;
+                height: 30px;
+                width: 30px;
+                transform: translate(0, -10px);
+                margin-right: 1rem;
+               
+
+            }
+            
+        }
+    }
+
+    div.video{
+
+        div.field--name-field-media-oembed-video{
+            width: 100%;
+
+            iframe{
+                width: 100%;
+            }
+        }
+    }
+}
+
+section.boletinBlog{   
+
+    padding: 2rem 10rem 0 10rem;
+
+    form{
+
+        background-color: var.$color-primario;
+        padding: 2rem 8rem 4rem 8rem;
+        border-radius: 0.8rem 0.8rem 0 0;
+
+        input[type='email']{
+            height: calc(2.5em + 0.75rem + 1px);
+            border-radius: 0;
+        }
+
+        input[type='submit']{
+
+            line-height: 2.6;
+        }
+
+        p.politicas{
+
+            a{
+                color: var.$color-cuaternario;
+            }
+        }
+    }
+}
+
+/* ==============================
+MEDIA QUERY
+============================== */
+@include media-query.media(lg){
+
+    section.seccionVideoBlog {
+
+        margin-top: -20px;
+        
+        div.titulo{
+
+            h1{
+               
+                padding: 0px 35px;
+                font-size: 2.2rem;
+            }
+        }
+    }
+}
+
+@include media-query.media(md){
+
+    section.seccionVideoBlog {
+
+        margin-top: -50px;
+        
+        div.titulo{
+
+            h1{
+               
+                padding: 30px 0px;
+                font-size: 1.9rem;
+            }
+        }
+    }
+
+    section.boletinBlog{   
+
+        padding: 0;
+
+        form{
+            border-radius: 0;
+        }
+    }
+}
+
+@include media-query.media(sm){
+
+    section.seccionVideoBlog {
+
+        margin-top: -80px;
+        margin-bottom: 80px;
+
+        div.titulo{
+
+            h1{
+                padding: 0;                
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+        }
+    }
+
+    section.boletinBlog{   
+
+        padding: 0;
+
+        form{
+            border-radius: 0;
+            padding: 2rem 2rem 4rem 2rem;
+        }
+    }
+}
+
+@include media-query.media(xs){
+
+    section.seccionVideoBlog {
+
+        margin-top: 3rem;
+        margin-bottom: 0px;
+
+        div.titulo{
+
+            h1{
+                padding: 0;  
+                margin-bottom: 2rem;
+                font-size: 2rem;
+            }
+        }
+    }
+
+    section.boletinBlog{   
+
+        padding: 0;
+
+        form{
+
+            border-radius: 0;
+            padding: 1rem 1rem 2rem 1rem;
+
+            h3{
+                font-size: 1.4rem;
+            }
+
+            div.clear{
+
+                text-align: center;
+                margin-top: 1rem;
+
+            }
+        }
+    }    
+
+}

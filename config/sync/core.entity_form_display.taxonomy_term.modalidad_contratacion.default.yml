@@ -1,0 +1,30 @@
+uuid: e02fefbd-6747-4ba5-a799-59fa88ee5295
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.modalidad_contratacion
+id: taxonomy_term.modalidad_contratacion.default
+targetEntityType: taxonomy_term
+bundle: modalidad_contratacion
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  path: true

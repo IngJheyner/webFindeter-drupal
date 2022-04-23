@@ -1,0 +1,41 @@
+uuid: 61963980-4af1-4d7d-80e7-410ddccb8e0c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_cont_corporate_governance.body
+    - field.field.node.tipo_cont_corporate_governance.field_img_enca_corp_govern
+    - node.type.tipo_cont_corporate_governance
+  module:
+    - image
+    - text
+    - user
+id: node.tipo_cont_corporate_governance.default
+targetEntityType: node
+bundle: tipo_cont_corporate_governance
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_img_enca_corp_govern:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

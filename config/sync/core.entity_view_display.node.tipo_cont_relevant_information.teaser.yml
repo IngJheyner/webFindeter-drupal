@@ -1,0 +1,34 @@
+uuid: e21790bc-5ed4-44ba-8390-367b157a59dd
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tipo_cont_relevant_information.body
+    - field.field.node.tipo_cont_relevant_information.field_img_enca_releva_inform
+    - node.type.tipo_cont_relevant_information
+  module:
+    - text
+    - user
+id: node.tipo_cont_relevant_information.teaser
+targetEntityType: node
+bundle: tipo_cont_relevant_information
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_img_enca_releva_inform: true
+  langcode: true

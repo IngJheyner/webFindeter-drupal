@@ -1,0 +1,111 @@
+uuid: 5dafadd9-0128-422c-944a-1aff8d6982fd
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.2_3_convocatorias
+  module:
+    - user
+id: 2_3_convocatorias-layout_builder-2
+label: 'Ciudadano [ Anonimo ]'
+weight: 0
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  label: null
+  weight: 0
+  uuid: 06fcc7fd-d9a8-403b-aa0d-445526c3da08
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        27a791c5-34a4-440a-ad71-d90161be3765:
+          uuid: 27a791c5-34a4-440a-ad71-d90161be3765
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 1
+            parent: 'transparencia-acceso-informacion:menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
+            suggestion: transparencia_acceso_informacion_sidebar
+            expand: false
+          weight: 1
+          additional: {  }
+        821009e7-041f-439e-9e0f-977bd8aebfda:
+          uuid: 821009e7-041f-439e-9e0f-977bd8aebfda
+          region: left
+          configuration:
+            id: 'views_block:convocatorias-block_convocatoria_ciudadano'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: none
+          weight: 1
+          additional: {  }
+        9103f10d-e955-469a-88c6-a820423b3625:
+          uuid: 9103f10d-e955-469a-88c6-a820423b3625
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            label_display: visible
+            provider: block_content
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          weight: 0
+          additional: {  }
+      third_party_settings: {  }
+page: 2_3_convocatorias
+selection_criteria:
+  -
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous
+selection_logic: and
+static_context: {  }

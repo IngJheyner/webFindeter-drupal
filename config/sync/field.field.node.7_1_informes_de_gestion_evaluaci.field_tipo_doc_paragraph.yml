@@ -1,0 +1,61 @@
+uuid: 90e34ed7-3206-48f2-a802-c4ecf4c68567
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tipo_doc_paragraph
+    - node.type.7_1_informes_de_gestion_evaluaci
+    - paragraphs.paragraphs_type.documento_link_para_contenido_tr
+  module:
+    - entity_reference_revisions
+id: node.7_1_informes_de_gestion_evaluaci.field_tipo_doc_paragraph
+field_name: field_tipo_doc_paragraph
+entity_type: node
+bundle: 7_1_informes_de_gestion_evaluaci
+label: 'Tipo de documento'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      documento_link_para_contenido_tr: documento_link_para_contenido_tr
+    target_bundles_drag_drop:
+      cifras_porque_findeter_pot:
+        weight: 12
+        enabled: false
+      documento_link_para_contenido_tr:
+        enabled: true
+        weight: 13
+      findeter_en_cifras_home:
+        weight: 14
+        enabled: false
+      parag_cont_grill_segu_inform:
+        weight: 15
+        enabled: false
+      parag_trans_investor_relation:
+        weight: 16
+        enabled: false
+      productos_servicios_home:
+        weight: 17
+        enabled: false
+      ps_contenido_items_internos:
+        weight: 18
+        enabled: false
+      ps_grillas_internas:
+        weight: 19
+        enabled: false
+      servicios_findeter_pot:
+        weight: 20
+        enabled: false
+      tabs_productos_servicio:
+        weight: 21
+        enabled: false
+      titulo_tipo_de_documento_o_link_:
+        weight: 22
+        enabled: false
+field_type: entity_reference_revisions

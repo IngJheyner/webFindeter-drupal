@@ -1,0 +1,33 @@
+uuid: a57f0c4d-3a78-4d6c-b103-78fea380b39d
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.encabezado_para_pot
+    - field.field.block_content.encabezado_para_pot.field_imagen_encabezado_para_sit
+    - responsive_image.styles.encabezado_interna_pot
+  module:
+    - field_formatter_class
+    - svg_image_responsive
+id: block_content.encabezado_para_pot.default
+targetEntityType: block_content
+bundle: encabezado_para_pot
+mode: default
+content:
+  field_imagen_encabezado_para_sit:
+    weight: 1
+    label: hidden
+    settings:
+      responsive_image_style: encabezado_interna_pot
+      image_link: ''
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: 0
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: responsive_image
+    region: content
+hidden:
+  langcode: true

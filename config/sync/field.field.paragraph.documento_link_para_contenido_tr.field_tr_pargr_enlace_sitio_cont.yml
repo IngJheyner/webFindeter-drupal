@@ -1,0 +1,23 @@
+uuid: 825f7895-64d8-4ee0-b058-9b8872c18302
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_tr_pargr_enlace_sitio_cont
+    - paragraphs.paragraphs_type.documento_link_para_contenido_tr
+  module:
+    - link
+id: paragraph.documento_link_para_contenido_tr.field_tr_pargr_enlace_sitio_cont
+field_name: field_tr_pargr_enlace_sitio_cont
+entity_type: paragraph
+bundle: documento_link_para_contenido_tr
+label: 'Enlace a sitio o contenido'
+description: 'Link/Enlace de contenido interno o sitio externo'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

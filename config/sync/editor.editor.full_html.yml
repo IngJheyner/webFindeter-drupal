@@ -1,0 +1,43 @@
+uuid: af9a6bee-66ef-4f70-89a5-2addd54ed6e6
+langcode: es
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+  module:
+    - ckeditor
+    - editor_file
+third_party_settings:
+  editor_file:
+    status: true
+    scheme: private
+    directory: internas
+    extensions: 'txt rtf doc docx ppt pptx xls xlsx xlsm pdf odf odg odp ods odt fodt fods fodp fodg key numbers pages'
+    max_size: ''
+_core:
+  default_config_hash: 967ijj7p6i7rwrYl7r08WQFeCY_c23YAh0h8u-w_CXM
+format: full_html
+editor: ckeditor
+settings:
+  toolbar:
+    rows: {  }
+  plugins:
+    language:
+      language_list: un
+    stylescombo:
+      styles: ''
+    video_embed:
+      defaults:
+        children:
+          autoplay: true
+          responsive: true
+          width: '854'
+          height: '480'
+image_upload:
+  status: true
+  scheme: public
+  directory: webfinde/images/internas
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

@@ -1,0 +1,25 @@
+uuid: bdd735b9-33f0-482b-ae92-7784d19036de
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.4_2_consulta_normatividad_de_la_.field_contenido_descr_consult
+    - node.type.4_2_consulta_normatividad_de_la_
+  module:
+    - user
+id: node.4_2_consulta_normatividad_de_la_.teaser
+targetEntityType: node
+bundle: 4_2_consulta_normatividad_de_la_
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_contenido_descr_consult: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,21 @@
+uuid: 05286a7f-ab3a-4343-9e66-617f7369ee2b
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.login_encabezado
+    - field.storage.block_content.field_login_titulo_defecto
+id: block_content.login_encabezado.field_login_titulo_defecto
+field_name: field_login_titulo_defecto
+entity_type: block_content
+bundle: login_encabezado
+label: 'Titulo por defecto'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: Login
+default_value_callback: ''
+settings: {  }
+field_type: string

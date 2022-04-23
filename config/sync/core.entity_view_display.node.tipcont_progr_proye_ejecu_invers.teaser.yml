@@ -1,0 +1,32 @@
+uuid: e04740ba-e080-4b8d-81a1-13c816e3bc6f
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tipcont_progr_proye_ejecu_invers.body
+    - node.type.tipcont_progr_proye_ejecu_invers
+  module:
+    - text
+    - user
+id: node.tipcont_progr_proye_ejecu_invers.teaser
+targetEntityType: node
+bundle: tipcont_progr_proye_ejecu_invers
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

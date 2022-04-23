@@ -1,0 +1,86 @@
+uuid: 358669bf-9d6c-482c-8d51-43a16d527e80
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.full
+    - field.field.media.mltdia_convcatoria_archivo.feeds_item
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_mltdia_editar
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_muldia_fecha
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_ruta_archivo
+    - field.field.media.mltdia_convcatoria_archivo.field_convcatoria_tipo_adjunto
+    - field.field.media.mltdia_convcatoria_archivo.field_media_document
+    - media.type.mltdia_convcatoria_archivo
+  module:
+    - datetime
+    - field_formatter_class
+    - field_group
+    - layout_builder
+    - options
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  field_group:
+    group_archivo:
+      children:
+        - name
+        - field_convcatoria_tipo_adjunto
+        - field_convcatoria_muldia_fecha
+      label: 'Detalle Archivo'
+      parent_name: ''
+      region: content
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: ''
+        id: ''
+        element: fieldset
+        show_label: true
+        label_element: legend
+        label_element_classes: ''
+        attributes: 'style="border:2px solid #112d6a; width:100vh"'
+        effect: none
+        speed: slow
+id: media.mltdia_convcatoria_archivo.full
+targetEntityType: media
+bundle: mltdia_convcatoria_archivo
+mode: full
+content:
+  field_convcatoria_muldia_fecha:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: html_date
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 3
+    region: content
+  field_convcatoria_tipo_adjunto:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  addtoany: true
+  created: true
+  feeds_item: true
+  field_convcatoria_mltdia_editar: true
+  field_convcatoria_ruta_archivo: true
+  field_media_document: true
+  langcode: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

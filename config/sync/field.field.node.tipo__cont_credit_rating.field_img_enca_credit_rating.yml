@@ -1,0 +1,57 @@
+uuid: 06a0b65d-5253-4435-a6d9-cf979e946316
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_img_enca_credit_rating
+    - node.type.tipo__cont_credit_rating
+  module:
+    - filefield_paths
+    - image
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: webfinde/images/credit_rating
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+id: node.tipo__cont_credit_rating.field_img_enca_credit_rating
+field_name: field_img_enca_credit_rating
+entity_type: node
+bundle: tipo__cont_credit_rating
+label: 'Imagen Encabezado'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png jpg jpeg'
+  max_filesize: 2MB
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

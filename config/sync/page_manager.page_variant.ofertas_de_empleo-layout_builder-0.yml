@@ -1,0 +1,104 @@
+uuid: 8549f96e-567d-42d9-b853-62547371ae60
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.ofertas_de_empleo
+id: ofertas_de_empleo-layout_builder-0
+label: 'Constructor de diseños.'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: b88428d6-cb5b-482f-a1e3-98d7ab4cb9c9
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        4785de18-dd74-44c1-9636-e6a289a1f19d:
+          uuid: 4785de18-dd74-44c1-9636-e6a289a1f19d
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública '
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        aa417299-c772-467f-a1c5-d6542b99a51a:
+          uuid: aa417299-c772-467f-a1c5-d6542b99a51a
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-3_9_ofertas_de_empleo'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+        011499cd-8bc5-4720-b341-d63778c9fed5:
+          uuid: 011499cd-8bc5-4720-b341-d63778c9fed5
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            provider: menu_block
+            label_display: '0'
+            follow: false
+            follow_parent: child
+            level: 1
+            depth: 0
+            expand_all_items: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:5213e782-2217-41a3-8fa6-9a63324691ac'
+            suggestion: transparencia_acceso_informacion_sidebar
+            label_type: block
+            label_link: false
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+      third_party_settings: {  }
+page: ofertas_de_empleo
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

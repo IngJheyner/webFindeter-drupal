@@ -1,0 +1,48 @@
+uuid: 0e648f40-5103-4dd5-b471-da0b569ecdd8
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.documento_link_para_contenido_tr.field_name_doc_type_doc_transp
+    - field.field.paragraph.documento_link_para_contenido_tr.field_tipo_de_documento
+    - field.field.paragraph.documento_link_para_contenido_tr.field_tr_paragr_docu_archi
+    - field.field.paragraph.documento_link_para_contenido_tr.field_tr_pargr_enlace_sitio_cont
+    - paragraphs.paragraphs_type.documento_link_para_contenido_tr
+  module:
+    - file
+    - link
+id: paragraph.documento_link_para_contenido_tr.default
+targetEntityType: paragraph
+bundle: documento_link_para_contenido_tr
+mode: default
+content:
+  field_name_doc_type_doc_transp:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_tipo_de_documento:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tr_paragr_docu_archi:
+    type: file_generic
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_tr_pargr_enlace_sitio_cont:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

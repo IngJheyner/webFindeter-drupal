@@ -1,0 +1,30 @@
+uuid: bac8689c-a60b-431c-8817-54e87983c5bd
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_cont_compro_educa_superior.body
+    - node.type.tipo_cont_compro_educa_superior
+  module:
+    - text
+    - user
+id: node.tipo_cont_compro_educa_superior.default
+targetEntityType: node
+bundle: tipo_cont_compro_educa_superior
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

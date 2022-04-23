@@ -1,0 +1,34 @@
+uuid: 7b8295bd-d4a2-4bb8-9764-6f513ba4b652
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.politica_de_accion_responsable.body
+    - field.field.node.politica_de_accion_responsable.field_img_politi_accion_respon
+    - node.type.politica_de_accion_responsable
+  module:
+    - text
+    - user
+id: node.politica_de_accion_responsable.teaser
+targetEntityType: node
+bundle: politica_de_accion_responsable
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_img_politi_accion_respon: true
+  langcode: true

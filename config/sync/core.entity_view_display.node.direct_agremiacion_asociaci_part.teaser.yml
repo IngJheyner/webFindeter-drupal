@@ -1,0 +1,32 @@
+uuid: b8441849-8765-40e9-b113-c16197b634d4
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.direct_agremiacion_asociaci_part.body
+    - node.type.direct_agremiacion_asociaci_part
+  module:
+    - text
+    - user
+id: node.direct_agremiacion_asociaci_part.teaser
+targetEntityType: node
+bundle: direct_agremiacion_asociaci_part
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

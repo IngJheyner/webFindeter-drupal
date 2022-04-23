@@ -1,0 +1,141 @@
+uuid: 5a563149-d85f-4bcd-8e47-f2cfeba15c49
+langcode: es
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.archivos_prosperity
+    - field.field.node.prosperity_fund.body
+    - field.field.node.prosperity_fund.field_prosperity_archivos
+    - field.field.node.prosperity_fund.field_prosperity_proceso
+    - node.type.prosperity_fund
+  module:
+    - entity_browser
+    - field_group
+    - path
+third_party_settings:
+  field_group:
+    group_grupo_tabs:
+      children:
+        - group_informacion
+        - group_multimedia
+      label: 'Grupo Tabs'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        id: ''
+        direction: horizontal
+    group_informacion:
+      children:
+        - title
+        - field_prosperity_proceso
+        - created
+        - uid
+        - langcode
+        - path
+        - status
+      label: Información
+      region: content
+      parent_name: group_grupo_tabs
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_multimedia:
+      children:
+        - field_prosperity_archivos
+      label: Multimedia
+      region: content
+      parent_name: group_grupo_tabs
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+id: node.prosperity_fund.default
+targetEntityType: node
+bundle: prosperity_fund
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prosperity_archivos:
+    type: entity_browser_entity_reference
+    weight: 1
+    region: content
+    settings:
+      entity_browser: archivos_prosperity
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_replace: false
+      open: false
+      field_widget_display_settings: {  }
+    third_party_settings: {  }
+  field_prosperity_proceso:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 5
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  promote: true
+  sticky: true

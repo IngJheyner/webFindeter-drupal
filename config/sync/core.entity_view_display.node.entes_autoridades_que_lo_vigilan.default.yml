@@ -1,0 +1,30 @@
+uuid: 4826707f-a7ce-48f8-89bd-cc778248a772
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.entes_autoridades_que_lo_vigilan.body
+    - node.type.entes_autoridades_que_lo_vigilan
+  module:
+    - text
+    - user
+id: node.entes_autoridades_que_lo_vigilan.default
+targetEntityType: node
+bundle: entes_autoridades_que_lo_vigilan
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

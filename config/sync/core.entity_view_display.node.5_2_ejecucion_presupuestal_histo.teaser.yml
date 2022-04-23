@@ -1,0 +1,25 @@
+uuid: 2a50d0ce-319e-4fb3-b00c-3092cdcf6f4e
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.5_2_ejecucion_presupuestal_histo.field_contenido_presupesto
+    - node.type.5_2_ejecucion_presupuestal_histo
+  module:
+    - user
+id: node.5_2_ejecucion_presupuestal_histo.teaser
+targetEntityType: node
+bundle: 5_2_ejecucion_presupuestal_histo
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_contenido_presupesto: true
+  langcode: true
+  search_api_excerpt: true

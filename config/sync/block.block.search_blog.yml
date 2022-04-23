@@ -1,0 +1,424 @@
+uuid: a347360b-19dd-4277-8aed-1a185922d6c0
+langcode: es
+status: false
+dependencies:
+  module:
+    - custom_search
+    - system
+  theme:
+    - webfinde
+id: search_blog
+theme: webfinde
+region: region_C
+weight: -12
+provider: null
+plugin: custom_search
+settings:
+  id: custom_search
+  label: 'Buscador [ Blog ]'
+  label_display: '0'
+  provider: custom_search
+  search_box:
+    label_visibility: false
+    label: ''
+    placeholder: 'Buscar articulos relacionados al blog.'
+    title: 'Escriba lo que quiere buscar.'
+    size: 15
+    max_length: 128
+    weight: -10
+    region: block
+  submit:
+    text: ''
+    image_path: themes/custom/webfinde/images/iconos/search-gris.png
+    weight: -9
+    region: block
+  content:
+    page: blog
+    types:
+      articulo_blog: articulo_blog
+      1_1_canales_atencion_ciudadano: '0'
+      1_2_sedes: '0'
+      1_3_politicas_seguridad_informac: '0'
+      10_10_costos_de_reproduccion: '0'
+      10_12_informe_de_peticiones_quej: '0'
+      13_1_politica_de_seguridad_de_la: '0'
+      13_2_ley_1581_de_2012_proteccion: '0'
+      2_1_datos_abiertos: '0'
+      3_2_funciones_y_deberes: '0'
+      3_3_procesos_y_procedimientos: '0'
+      3_4_organigrama: '0'
+      3_5_direct_infor_servi_publ_cont: '0'
+      3_8_directorio_de_agremiaciones_: '0'
+      3_9_ofertas_de_empleo: '0'
+      4_2_consulta_normatividad_de_la_: '0'
+      4_3_sistema_unico_de_informacion: '0'
+      5_1_presupuesto_general_asignado: '0'
+      5_2_ejecucion_presupuestal_histo: '0'
+      6_1_politicas_lineamientos_y_man: '0'
+      6_2_planes_estrategicos_sectoria: '0'
+      6_4_1_seguimiento_plan_estrategi: '0'
+      6_4_2_seguimiento_plan_de_accion: '0'
+      6_4_metas_objetivos_e_indicadore: '0'
+      6_5_1_mecanismos_o_procedimiento: '0'
+      6_5_mecanismos_de_participacion_: '0'
+      6_6_informes_de_empalme: '0'
+      7_1_1informes_de_gestion: '0'
+      7_1_informes_de_gestion_evaluaci: '0'
+      7_2_reportes_de_control_interno: '0'
+      7_3_planes_de_mejoramiento: '0'
+      7_4_entes_de_control_y_mecanismo: '0'
+      7_5_informacion_para_poblacion_v: '0'
+      7_6_defensa_judicial: '0'
+      8_3_invitaciones_a_cotizar: '0'
+      8_6_plan_anual_de_adquisiciones: '0'
+      casos_de_exito_home: '0'
+      contenido_de_pruebas: '0'
+      convocatorias: '0'
+      en: '0'
+      english: '0'
+      escala_salarial: '0'
+      evaluacion_ejercicio_de_rendicio: '0'
+      evento: '0'
+      glosario: '0'
+      informes_de_gestion_y_sostenibil: '0'
+      noticias_home: '0'
+      politica_de_accion_responsable: '0'
+      pqrsd: '0'
+      preguntas_frecuentes: '0'
+      productos_servicios: '0'
+      prosperity_fund: '0'
+      slider_home: '0'
+      sobre_findeter: '0'
+      terminos_condiciones_portal: '0'
+      tip_con_infor_rendi_de_cuentas: '0'
+      tip_cont_agua_saneamiento_basico: '0'
+      tip_cont_direct_entidades: '0'
+      tip_cont_estrat_sostenibilidad: '0'
+      tip_cont_historial_convocat: '0'
+      tip_cont_inform_envia_congreso: '0'
+      tip_cont_inform_rendi_cuent_fisc: '0'
+      tip_cont_relacion_inversionistas: '0'
+      tip_cont_trans_inf_asa_gen_ac_do: '0'
+      tip_cont_trans_mision_vision: '0'
+      tip_cont_trans_plan_mej_docum: '0'
+      tip_cont_trans_poli_prot_dat_fin: '0'
+      tip_cont_trans_regist_publica: '0'
+      tip_cont_transp_regis_activ_info: '0'
+      tipcont_infor_ninos_ninas_adolec: '0'
+      tipcont_polit_obj_sist_gest_int: '0'
+      tipcont_polit_objt_sist_gest_in: '0'
+      tipcont_progr_proye_ejecu_invers: '0'
+      tipo__cont_credit_rating: '0'
+      tipo_cont_compro_educa_superior: '0'
+      tipo_cont_compro_react_tramo: '0'
+      tipo_cont_contratacion: '0'
+      tipo_cont_corporate_governance: '0'
+      tipo_cont_estados_financieros: '0'
+      tipo_cont_financial_information: '0'
+      tipo_cont_general_information: '0'
+      tipo_cont_infor_asam_general_acc: '0'
+      tipo_cont_infor_segui_plan_mejor: '0'
+      tipo_cont_informe_sostenibilidad: '0'
+      tipo_cont_informes_auditoria: '0'
+      tipo_cont_infraestructura_social: '0'
+      tipo_cont_investor_relations: '0'
+      tipo_cont_issuances: '0'
+      tipo_cont_linea_cred_redesc: '0'
+      tipo_cont_lineas_credito: '0'
+      tipo_cont_pqrs_terminos_respues: '0'
+      tipo_cont_pspd_agua: '0'
+      tipo_cont_relevant_information: '0'
+      tipo_cont_trans_asi_tec_gest_pro: '0'
+      tipo_content_compromiso: '0'
+      tipo_content_compromiso_colombia: '0'
+      tipo_content_compromiso_salud: '0'
+      trans_tipo_cont_tramit_servicios: '0'
+      webform: '0'
+    other:
+      user_search: '0'
+    selector:
+      type: select
+      label_visibility: false
+      label: 'Buscar en'
+    any:
+      text: '- Cualquiera -'
+      restricts: false
+      force: false
+    excluded:
+      1_1_canales_atencion_ciudadano: '0'
+      1_2_sedes: '0'
+      1_3_politicas_seguridad_informac: '0'
+      10_10_costos_de_reproduccion: '0'
+      10_12_informe_de_peticiones_quej: '0'
+      13_1_politica_de_seguridad_de_la: '0'
+      13_2_ley_1581_de_2012_proteccion: '0'
+      2_1_datos_abiertos: '0'
+      3_2_funciones_y_deberes: '0'
+      3_3_procesos_y_procedimientos: '0'
+      3_4_organigrama: '0'
+      3_5_direct_infor_servi_publ_cont: '0'
+      3_8_directorio_de_agremiaciones_: '0'
+      3_9_ofertas_de_empleo: '0'
+      4_2_consulta_normatividad_de_la_: '0'
+      4_3_sistema_unico_de_informacion: '0'
+      5_1_presupuesto_general_asignado: '0'
+      5_2_ejecucion_presupuestal_histo: '0'
+      6_1_politicas_lineamientos_y_man: '0'
+      6_2_planes_estrategicos_sectoria: '0'
+      6_4_1_seguimiento_plan_estrategi: '0'
+      6_4_2_seguimiento_plan_de_accion: '0'
+      6_4_metas_objetivos_e_indicadore: '0'
+      6_5_1_mecanismos_o_procedimiento: '0'
+      6_5_mecanismos_de_participacion_: '0'
+      6_6_informes_de_empalme: '0'
+      7_1_1informes_de_gestion: '0'
+      7_1_informes_de_gestion_evaluaci: '0'
+      7_2_reportes_de_control_interno: '0'
+      7_3_planes_de_mejoramiento: '0'
+      7_4_entes_de_control_y_mecanismo: '0'
+      7_5_informacion_para_poblacion_v: '0'
+      7_6_defensa_judicial: '0'
+      8_3_invitaciones_a_cotizar: '0'
+      8_6_plan_anual_de_adquisiciones: '0'
+      articulo_blog: '0'
+      casos_de_exito_home: '0'
+      contenido_de_pruebas: '0'
+      convocatorias: '0'
+      en: '0'
+      english: '0'
+      escala_salarial: '0'
+      evaluacion_ejercicio_de_rendicio: '0'
+      evento: '0'
+      glosario: '0'
+      informes_de_gestion_y_sostenibil: '0'
+      noticias_home: '0'
+      politica_de_accion_responsable: '0'
+      pqrsd: '0'
+      preguntas_frecuentes: '0'
+      productos_servicios: '0'
+      prosperity_fund: '0'
+      slider_home: '0'
+      sobre_findeter: '0'
+      terminos_condiciones_portal: '0'
+      tip_con_infor_rendi_de_cuentas: '0'
+      tip_cont_agua_saneamiento_basico: '0'
+      tip_cont_direct_entidades: '0'
+      tip_cont_estrat_sostenibilidad: '0'
+      tip_cont_historial_convocat: '0'
+      tip_cont_inform_envia_congreso: '0'
+      tip_cont_inform_rendi_cuent_fisc: '0'
+      tip_cont_relacion_inversionistas: '0'
+      tip_cont_trans_inf_asa_gen_ac_do: '0'
+      tip_cont_trans_mision_vision: '0'
+      tip_cont_trans_plan_mej_docum: '0'
+      tip_cont_trans_poli_prot_dat_fin: '0'
+      tip_cont_trans_regist_publica: '0'
+      tip_cont_transp_regis_activ_info: '0'
+      tipcont_infor_ninos_ninas_adolec: '0'
+      tipcont_polit_obj_sist_gest_int: '0'
+      tipcont_polit_objt_sist_gest_in: '0'
+      tipcont_progr_proye_ejecu_invers: '0'
+      tipo__cont_credit_rating: '0'
+      tipo_cont_compro_educa_superior: '0'
+      tipo_cont_compro_react_tramo: '0'
+      tipo_cont_contratacion: '0'
+      tipo_cont_corporate_governance: '0'
+      tipo_cont_estados_financieros: '0'
+      tipo_cont_financial_information: '0'
+      tipo_cont_general_information: '0'
+      tipo_cont_infor_asam_general_acc: '0'
+      tipo_cont_infor_segui_plan_mejor: '0'
+      tipo_cont_informe_sostenibilidad: '0'
+      tipo_cont_informes_auditoria: '0'
+      tipo_cont_infraestructura_social: '0'
+      tipo_cont_investor_relations: '0'
+      tipo_cont_issuances: '0'
+      tipo_cont_linea_cred_redesc: '0'
+      tipo_cont_lineas_credito: '0'
+      tipo_cont_pqrs_terminos_respues: '0'
+      tipo_cont_pspd_agua: '0'
+      tipo_cont_relevant_information: '0'
+      tipo_cont_trans_asi_tec_gest_pro: '0'
+      tipo_content_compromiso: '0'
+      tipo_content_compromiso_colombia: '0'
+      tipo_content_compromiso_salud: '0'
+      trans_tipo_cont_tramit_servicios: '0'
+      webform: '0'
+    weight: -8
+    region: popup
+  taxonomy:
+    blog:
+      type: disabled
+      depth: 0
+      label_visibility: true
+      label: blog
+      all_text: '- Cualquiera -'
+      weight: -7
+      region: popup
+    node_search:
+      type: disabled
+      depth: 0
+      label_visibility: true
+      label: Contenido
+      all_text: '- Cualquiera -'
+      weight: -6
+      region: block
+    user_search:
+      type: disabled
+      depth: 0
+      label_visibility: true
+      label: Usuarios
+      all_text: '- Cualquiera -'
+      weight: -5
+      region: block
+    colombia_deparments:
+      type: disabled
+      depth: null
+      label_visibility: false
+      label: ''
+      all_text: '- Cualquiera -'
+      weight: null
+      region: null
+    convcatoria_tipo_contractuales:
+      type: disabled
+      depth: null
+      label_visibility: false
+      label: ''
+      all_text: '- Cualquiera -'
+      weight: null
+      region: null
+    convcatoria_tipo_forma_pago:
+      type: disabled
+      depth: null
+      label_visibility: false
+      label: ''
+      all_text: '- Cualquiera -'
+      weight: null
+      region: null
+    glosario:
+      type: disabled
+      depth: null
+      label_visibility: false
+      label: ''
+      all_text: '- Cualquiera -'
+      weight: null
+      region: null
+    keywords_pqrsd:
+      type: disabled
+      depth: null
+      label_visibility: false
+      label: ''
+      all_text: '- Cualquiera -'
+      weight: null
+      region: null
+    modalidad_contratacion:
+      type: disabled
+      depth: null
+      label_visibility: false
+      label: ''
+      all_text: '- Cualquiera -'
+      weight: null
+      region: null
+    moneda:
+      type: disabled
+      depth: null
+      label_visibility: false
+      label: ''
+      all_text: '- Cualquiera -'
+      weight: null
+      region: null
+    noticias_home_:
+      type: disabled
+      depth: null
+      label_visibility: false
+      label: ''
+      all_text: '- Cualquiera -'
+      weight: null
+      region: null
+    preguntas_frecuentes:
+      type: disabled
+      depth: null
+      label_visibility: false
+      label: ''
+      all_text: '- Cualquiera -'
+      weight: null
+      region: null
+    programa:
+      type: disabled
+      depth: null
+      label_visibility: false
+      label: ''
+      all_text: '- Cualquiera -'
+      weight: null
+      region: null
+    tags:
+      type: disabled
+      depth: null
+      label_visibility: false
+      label: ''
+      all_text: '- Cualquiera -'
+      weight: null
+      region: null
+    tipo_de_compra:
+      type: disabled
+      depth: null
+      label_visibility: false
+      label: ''
+      all_text: '- Cualquiera -'
+      weight: null
+      region: null
+    tipo_de_convocatoria:
+      type: disabled
+      depth: null
+      label_visibility: false
+      label: ''
+      all_text: '- Cualquiera -'
+      weight: null
+      region: null
+  criteria:
+    or:
+      display: false
+      label: 'Que contenga cualquiera de las palabras'
+      weight: -6
+      region: popup
+    phrase:
+      display: false
+      label: 'Que contenga la frase'
+      weight: -5
+      region: popup
+    negative:
+      display: false
+      label: 'Que no contenga ninguna de las palabras'
+      weight: -4
+      region: popup
+  languages:
+    languages:
+      current: '0'
+      es: '0'
+      und: '0'
+      zxx: '0'
+    selector:
+      type: select
+      label_visibility: true
+      label: Languages
+    any:
+      text: '- Cualquiera -'
+      restricts: false
+      force: false
+    weight: -3
+    region: popup
+  paths:
+    selector:
+      type: select
+      label_visibility: false
+      label: 'Customize your search'
+    list: ''
+    separator: +
+    weight: -2
+    region: popup
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /blog

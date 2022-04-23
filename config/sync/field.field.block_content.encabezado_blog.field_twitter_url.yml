@@ -1,0 +1,23 @@
+uuid: 1bd3e7e8-a8a9-4e12-939d-9176a84dbe3e
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.encabezado_blog
+    - field.storage.block_content.field_twitter_url
+  module:
+    - link
+id: block_content.encabezado_blog.field_twitter_url
+field_name: field_twitter_url
+entity_type: block_content
+bundle: encabezado_blog
+label: 'Twitter url'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

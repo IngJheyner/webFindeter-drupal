@@ -1,0 +1,32 @@
+uuid: e70a65af-014b-4e5d-af99-52c1bfd8a664
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - options
+_core:
+  default_config_hash: BuJDNJo17BsQtEZiiqYKDTrIxu-LRSkv5VyUwN1tuZw
+id: node.field_contact_answer_channel
+field_name: field_contact_answer_channel
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: email
+      label: 'Por correo electrónico'
+    -
+      value: fisico
+      label: 'Por correspondencia física'
+    -
+      value: telefono
+      label: 'Por teléfono'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

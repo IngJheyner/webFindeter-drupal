@@ -1,0 +1,41 @@
+uuid: 29affe40-5ba7-4872-a4ca-d6ae3e0d3d6e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tipo_cont_general_information.body
+    - field.field.node.tipo_cont_general_information.field_img_enca_general_infor
+    - node.type.tipo_cont_general_information
+  module:
+    - image
+    - text
+    - user
+id: node.tipo_cont_general_information.default
+targetEntityType: node
+bundle: tipo_cont_general_information
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_img_enca_general_infor:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

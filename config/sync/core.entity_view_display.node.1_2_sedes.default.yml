@@ -1,0 +1,30 @@
+uuid: 3a2f21f4-9ceb-45b3-b76c-195e07857890
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.1_2_sedes.field_descripcion_sedes
+    - node.type.1_2_sedes
+  module:
+    - text
+    - user
+id: node.1_2_sedes.default
+targetEntityType: node
+bundle: 1_2_sedes
+mode: default
+content:
+  field_descripcion_sedes:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

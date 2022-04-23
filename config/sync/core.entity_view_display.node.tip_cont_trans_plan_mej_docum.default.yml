@@ -1,0 +1,30 @@
+uuid: 3231c107-cd67-4b41-97f5-649c0f6a1e6b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.tip_cont_trans_plan_mej_docum.field_cont_trans_plan_docum
+    - node.type.tip_cont_trans_plan_mej_docum
+  module:
+    - text
+    - user
+id: node.tip_cont_trans_plan_mej_docum.default
+targetEntityType: node
+bundle: tip_cont_trans_plan_mej_docum
+mode: default
+content:
+  field_cont_trans_plan_docum:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
