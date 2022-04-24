@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "name": "drupal/recommended-project",
     "description": "Project template for Drupal 9 projects with a relocated document root",
     "type": "project",
@@ -21,52 +20,6 @@
         "drupal/core-project-message": "^9.3",
         "drupal/core-recommended": "^9.3",
         "cweagans/composer-patches": "^1.7",
-=======
-    "name": "drupal-composer/drupal-project",
-    "description": "Project template for Drupal 8 projects with composer",
-    "type": "project",
-    "license": "GPL-2.0-or-later",
-    "authors": [{
-        "name": "",
-        "role": ""
-    }],
-    "repositories": [{
-        "type": "composer",
-        "url": "https://packages.drupal.org/8"
-        },
-        {
-            "type": "package",
-            "package": {
-                "name" : "d3/d3",
-                "version": "v3.5.17",
-                "type": "drupal-library",
-                "source": {
-                    "url": "https://github.com/d3/d3.git",
-                    "type": "git",
-                    "reference": "tags/v3.5.17"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name" : "highlight/highlightjs",
-                "version": "9.7.0",
-                "type": "drupal-library",
-                "source": {
-                    "url": "https://github.com/highlightjs/highlight.js.git",
-                    "type": "git",
-                    "reference": "tags/9.7.0"
-                }
-            }
-        }
-    ],
-    "require": {
-        "php": ">=7.0.8",
-        "composer/installers": "^1.2",
-        "cweagans/composer-patches": "^1.7",
-        "d3/d3": "3.5.*",
->>>>>>> decdd79bdf3458273738f04a4ac40535fb800733
         "drupal/addtoany": "^1.14",
         "drupal/admin_toolbar": "^3.0",
         "drupal/adminimal_theme": "^1.6",
@@ -80,11 +33,6 @@
         "drupal/config_split": "^1.7",
         "drupal/console": "^1.0.2",
         "drupal/content_access": "^1.0@alpha",
-<<<<<<< HEAD
-=======
-        "drupal/core": "9.3.9",
-        "drupal/core-composer-scaffold": "9.3.9",
->>>>>>> decdd79bdf3458273738f04a4ac40535fb800733
         "drupal/cshs": "^3.0",
         "drupal/custom_search": "^1.0@beta",
         "drupal/devel": "^4.1",
@@ -150,10 +98,6 @@
         "drupal/webform": "^6.0@alpha",
         "drupal/xls_serialization": "^1.2",
         "drush/drush": "^9.7.1 | 10.3.6",
-<<<<<<< HEAD
-=======
-        "highlight/highlightjs": "9.7.*",
->>>>>>> decdd79bdf3458273738f04a4ac40535fb800733
         "kint-php/kint": "^3.3",
         "mikehaertl/phpwkhtmltopdf": "^2.4",
         "vlucas/phpdotenv": "^4.0",
@@ -161,12 +105,6 @@
         "wikimedia/composer-merge-plugin": "^2.0",
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
-<<<<<<< HEAD
-=======
-    "require-dev": {
-        "drupal/core-dev": "9.3.9"
-    },
->>>>>>> decdd79bdf3458273738f04a4ac40535fb800733
     "conflict": {
         "drupal/drupal": "*"
     },
@@ -176,7 +114,6 @@
         "sort-packages": true,
         "allow-plugins": {
             "composer/installers": true,
-<<<<<<< HEAD
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
             "cweagans/composer-patches": true,
@@ -186,48 +123,12 @@
         }
     },
     "extra": {
-=======
-            "cweagans/composer-patches": true,
-            "drupal/console-extend-plugin": true,
-            "drupal/core-composer-scaffold": true,
-            "wikimedia/composer-merge-plugin": true,
-            "zaporylie/composer-drupal-optimizations": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
-        }
-    },
-    "autoload": {
-        "classmap": [
-            "scripts/composer/ScriptHandler.php"
-        ],
-        "files": ["load.environment.php"]
-    },
-    "scripts": {
-        "pre-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
-        "pre-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
-        "post-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
-        ],
-        "post-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
-        ]
-    },
-    "extra": {
-        "composer-exit-on-patch-failure": true,
-        "patchLevel": {
-            "drupal/core": "-p2"
-        },
->>>>>>> decdd79bdf3458273738f04a4ac40535fb800733
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
             }
         },
         "installer-paths": {
-<<<<<<< HEAD
             "web/core": [
                 "type:drupal-core"
             ],
@@ -278,42 +179,4 @@
             ]
         }
     }
-=======
-            "web/core": ["type:drupal-core"],
-            "web/libraries/{$name}": ["type:drupal-library"],
-            "web/modules/contrib/{$name}": ["type:drupal-module"],
-            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
-            "web/themes/contrib/{$name}": ["type:drupal-theme"],
-            "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
-        },
-        "merge-plugin": {
-            "include": [
-                "web/modules/contrib/webform/composer.libraries.json"
-            ]
-        },
-        "patches": {
-            "drupal/conditional_fields": {
-                "conditional_fields error dependencias": "https://www.drupal.org/files/issues/2021-01-21/3191984-3-notice-trying-to-access-offset-on-value-of-type-null.patch"
-            },
-            "drupal/core": {
-                "Notice: Undefined index: value in Drupal\\views\\Plugin\\views\\filter\\NumericFilter->acceptExposedInput()": "https://www.drupal.org/files/issues/2020-06-04/2825860-exposed-filter-notice-38.patch",
-                "Multiple usages of FieldPluginBase::getEntity do not check for NULL, leading to WSOD": "https://www.drupal.org/files/issues/2020-09-03/3007424-108.patch",
-                "AssertionError: Tokens need to be valid Twig variables. in assert": "https://www.drupal.org/files/issues/2019-05-22/views-ignore_invalid_tokens_in_replace-3056489-1-D8.6.16.patch",
-                "Exposed date filter leads to a notice": "https://www.drupal.org/files/issues/2020-11-12/2811887-53.patch",
-                "Argument #1 ($uri) must be of type string, null given": "https://www.drupal.org/files/issues/2021-12-18/file-url-generator-3254245-34.patch",
-                "The entity:user context is required and not present.": "https://www.drupal.org/files/issues/2019-10-23/3056234-10.patch",
-                "Call to a member function getCacheMaxAge() on null in getCacheMaxAge()": "https://www.drupal.org/files/issues/2020-09-08/get_cache_tags_null-3169694-2.patch"
-                
-
-            },
-            "drupal/content_access": {
-                "content access role": "https://www.drupal.org/files/issues/2020-08-28/content_access-role-2782813-25.patch"
-            },
-            "drupal/search_autocomplete": {
-                "value.autocomplete not function": "https://www.drupal.org/files/issues/2021-06-24/value-autocomplete-not-function-3220334-3.patch"
-            }
-        }
-    }
-
->>>>>>> decdd79bdf3458273738f04a4ac40535fb800733
 }
