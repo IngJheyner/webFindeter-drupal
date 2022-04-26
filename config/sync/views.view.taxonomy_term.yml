@@ -7,6 +7,7 @@ dependencies:
     - field.storage.node.body
     - field.storage.node.field_imagen
     - node.type.articulo_blog
+    - taxonomy.vocabulary.blog
   module:
     - blazy
     - node
@@ -708,8 +709,8 @@ display:
           exposed: false
           granularity: second
       arguments:
-        name_1:
-          id: name_1
+        name:
+          id: name
           table: taxonomy_term_field_data
           field: name
           relationship: field_tipo_de_articulo
@@ -718,7 +719,7 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: string
-          default_action: ignore
+          default_action: 'not found'
           exception:
             value: all
             title_enable: false
@@ -740,14 +741,19 @@ display:
             format: default_summary
           specify_validation: true
           validate:
-            type: none
-            fail: ignore
-          validate_options: {  }
+            type: taxonomy_term_name
+            fail: empty
+          validate_options:
+            bundles:
+              blog: blog
+            access: false
+            operation: view
+            transform: true
           glossary: false
           limit: 0
           case: lower
           path_case: lower
-          transform_dash: true
+          transform_dash: false
           break_phrase: false
           add_table: false
           require_value: false
@@ -918,7 +924,7 @@ display:
           field: field_tipo_de_articulo
           relationship: none
           group_type: group
-          admin_label: 'Tipo de Articulo ( Uno )'
+          admin_label: 'field_tipo_de_articulo: Término de taxonomía'
           plugin_id: standard
           required: false
       css_class: 'pageTipoArticulosBlog mt-0 mt-xl-5 container'
@@ -949,7 +955,7 @@ display:
           content: "<h1 class=\"text-center mb-2\">[view:title]</h1>\r\n<p class=\"mb-5 text-muted text-center\"> Más de [view:total-rows] artículos publicados en el sitio.</p>"
           tokenize: true
       display_extenders: {  }
-      path: blog/tipo-articulo/%
+      path: blog/%
     cache_metadata:
       max-age: -1
       contexts:

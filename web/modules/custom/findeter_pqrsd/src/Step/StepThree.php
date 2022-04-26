@@ -59,6 +59,8 @@ class StepThree extends BaseStep {
    * {@inheritdoc}
    */
   public function buildStepFormElements($steps,$form,$form_state) {
+    
+    $var = $form;
 
     // Get the definitions
     $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'pqrsd');
@@ -97,7 +99,7 @@ class StepThree extends BaseStep {
       '#title'           => $definitions['field_pqrsd_archivo']->getLabel(),
       '#upload_validators' => [
         'file_validate_extensions' => [$fileSettings['file_extensions']],
-        'file_validate_size'       => 20971520,
+        'file_validate_size'       => [20971520],
       ]
     ];
 

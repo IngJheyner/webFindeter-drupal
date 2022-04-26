@@ -8,9 +8,11 @@ dependencies:
     - field.storage.node.field_tipo_de_articulo
     - image.style.articulo_blog_
     - node.type.articulo_blog
+    - taxonomy.vocabulary.blog
   module:
     - node
     - svg_image
+    - taxonomy
     - text
     - user
     - views_bootstrap
@@ -454,8 +456,8 @@ display:
       pager:
         type: some
         options:
-          offset: 3
-          items_per_page: 3
+          offset: null
+          items_per_page: 12
       exposed_form:
         type: basic
         options:
