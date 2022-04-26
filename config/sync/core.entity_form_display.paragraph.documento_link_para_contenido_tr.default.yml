@@ -3,6 +3,7 @@ langcode: es
 status: true
 dependencies:
   config:
+    - field.field.paragraph.documento_link_para_contenido_tr.field_name_doc_type_doc_transp
     - field.field.paragraph.documento_link_para_contenido_tr.field_tipo_de_documento
     - field.field.paragraph.documento_link_para_contenido_tr.field_tr_paragr_docu_archi
     - field.field.paragraph.documento_link_para_contenido_tr.field_tr_pargr_enlace_sitio_cont
@@ -15,6 +16,14 @@ targetEntityType: paragraph
 bundle: documento_link_para_contenido_tr
 mode: default
 content:
+  field_name_doc_type_doc_transp:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_tipo_de_documento:
     type: options_select
     weight: 0
@@ -29,8 +38,7 @@ content:
       progress_indicator: throbber
     third_party_settings: {  }
   field_tr_pargr_enlace_sitio_cont:
-    type: link_default
-    weight: 2
+    weight: 3
     region: content
     settings:
       placeholder_url: ''

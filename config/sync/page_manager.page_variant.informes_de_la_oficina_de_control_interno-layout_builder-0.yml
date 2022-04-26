@@ -1,0 +1,104 @@
+uuid: 0d6f24d6-190b-4596-af45-fb98b18e055b
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.informes_de_la_oficina_de_control_interno
+id: informes_de_la_oficina_de_control_interno-layout_builder-0
+label: 'Constructor de diseños.'
+weight: 0
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  label: null
+  weight: 0
+  uuid: 93a00417-1dfd-4d19-9c7d-45b82585c45a
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        91c78d6a-82e0-4cfb-8a36-5937c4abe1de:
+          uuid: 91c78d6a-82e0-4cfb-8a36-5937c4abe1de
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            label_display: visible
+            provider: block_content
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          weight: 0
+          additional: {  }
+        d7cac676-74bf-4fab-9214-8faac98bd4e8:
+          uuid: d7cac676-74bf-4fab-9214-8faac98bd4e8
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-7_2_reportes_de_control_interno'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: none
+          weight: 0
+          additional: {  }
+        3aacf2ce-6711-4e2b-a94b-1670d63ce6e0:
+          uuid: 3aacf2ce-6711-4e2b-a94b-1670d63ce6e0
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
+            follow: false
+            follow_parent: child
+            label_link: false
+            label_type: block
+            level: 1
+            depth: 0
+            expand_all_items: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:2c824b48-d3d7-4364-b37e-6f78bfff832a'
+            suggestion: transparencia_acceso_informacion_sidebar
+          weight: 0
+          additional: {  }
+      third_party_settings: {  }
+page: informes_de_la_oficina_de_control_interno
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

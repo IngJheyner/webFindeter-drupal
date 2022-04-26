@@ -1,0 +1,23 @@
+uuid: 32a72d2e-1d2e-443c-80ff-e798d4f430ec
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.entes_autoridades_que_lo_vigilan
+  module:
+    - text
+id: node.entes_autoridades_que_lo_vigilan.body
+field_name: body
+entity_type: node
+bundle: entes_autoridades_que_lo_vigilan
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

@@ -1,0 +1,30 @@
+uuid: 8d66bbed-b9a5-4ed6-a5d1-3f96ef1291fe
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.instrumentos_de_gestion_de_la_in.body
+    - node.type.instrumentos_de_gestion_de_la_in
+  module:
+    - text
+    - user
+id: node.instrumentos_de_gestion_de_la_in.default
+targetEntityType: node
+bundle: instrumentos_de_gestion_de_la_in
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

@@ -1,0 +1,32 @@
+uuid: b6679e80-5382-4beb-99bd-e145476902ba
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.entes_autoridades_que_lo_vigilan.body
+    - node.type.entes_autoridades_que_lo_vigilan
+  module:
+    - text
+    - user
+id: node.entes_autoridades_que_lo_vigilan.teaser
+targetEntityType: node
+bundle: entes_autoridades_que_lo_vigilan
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

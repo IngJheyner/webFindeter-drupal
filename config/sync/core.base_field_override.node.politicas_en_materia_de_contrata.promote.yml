@@ -1,0 +1,22 @@
+uuid: c22c4bcb-fe1a-46ed-a320-27b41806a67d
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.politicas_en_materia_de_contrata
+id: node.politicas_en_materia_de_contrata.promote
+field_name: promote
+entity_type: node
+bundle: politicas_en_materia_de_contrata
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

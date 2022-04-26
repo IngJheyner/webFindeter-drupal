@@ -30,9 +30,9 @@ id: media.archivos_plan_mejoramiento.field_media_document
 field_name: field_media_document
 entity_type: media
 bundle: archivos_plan_mejoramiento
-label: Archivo
+label: 'Archivo - eliminar'
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
@@ -40,7 +40,7 @@ settings:
   handler: 'default:file'
   handler_settings: {  }
   file_directory: plan-mejoramiento
-  file_extensions: 'txt doc docx pdf'
+  file_extensions: 'txt doc docx pdf zip rar xls'
   max_filesize: '10 mb'
   description_field: false
 field_type: file

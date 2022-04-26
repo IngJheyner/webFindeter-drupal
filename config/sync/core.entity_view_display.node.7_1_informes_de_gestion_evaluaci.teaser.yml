@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.7_1_informes_de_gestion_evaluaci.field_contenido_informes_de_gest
+    - field.field.node.7_1_informes_de_gestion_evaluaci.field_tipo_doc_paragraph
     - node.type.7_1_informes_de_gestion_evaluaci
   module:
     - user
@@ -21,5 +22,6 @@ content:
 hidden:
   addtoany: true
   field_contenido_informes_de_gest: true
+  field_tipo_doc_paragraph: true
   langcode: true
   search_api_excerpt: true

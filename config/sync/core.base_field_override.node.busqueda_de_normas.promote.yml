@@ -1,0 +1,22 @@
+uuid: c2cebf02-9629-4942-8342-eca0462d6ace
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.busqueda_de_normas
+id: node.busqueda_de_normas.promote
+field_name: promote
+entity_type: node
+bundle: busqueda_de_normas
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

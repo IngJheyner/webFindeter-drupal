@@ -1,0 +1,104 @@
+uuid: 92f79953-d9c1-460e-99ae-cc850a4339f1
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.normativa_entidad_autoridad
+id: normativa_entidad_autoridad-layout_builder-0
+label: 'Constructor de diseños.'
+weight: 0
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  label: null
+  weight: 0
+  uuid: 2b3747ec-f21c-402e-b4b6-7a98ecf0a708
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        6e52b0ec-910a-4540-b2b5-4aaab5afa092:
+          uuid: 6e52b0ec-910a-4540-b2b5-4aaab5afa092
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            label_display: visible
+            provider: block_content
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          weight: 0
+          additional: {  }
+        9a72a356-a040-465f-9914-4f6b3cb8176a:
+          uuid: 9a72a356-a040-465f-9914-4f6b3cb8176a
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-normativa_de_la_entidad'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: none
+          weight: 0
+          additional: {  }
+        00c62097-8976-42a8-bffa-5d40e7809b6f:
+          uuid: 00c62097-8976-42a8-bffa-5d40e7809b6f
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
+            follow: false
+            follow_parent: child
+            label_link: false
+            label_type: block
+            level: 1
+            depth: 0
+            expand_all_items: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
+            suggestion: transparencia_acceso_informacion_sidebar
+          weight: 0
+          additional: {  }
+      third_party_settings: {  }
+page: normativa_entidad_autoridad
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }
