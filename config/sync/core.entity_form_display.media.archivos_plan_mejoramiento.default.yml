@@ -14,12 +14,12 @@ bundle: archivos_plan_mejoramiento
 mode: default
 content:
   field_archivo_trans_simple:
+    type: file_generic
     weight: 0
+    region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
-    type: file_generic
-    region: content
 hidden:
   created: true
   field_media_document: true

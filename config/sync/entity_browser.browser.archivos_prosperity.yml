@@ -21,8 +21,13 @@ widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
   0d8a8b78-c50c-4c9d-90e9-c6a2b4508f78:
+    id: dropzonejs_media_entity
+    uuid: 0d8a8b78-c50c-4c9d-90e9-c6a2b4508f78
+    label: 'Biblioteca de Archivos Prosperity Fund.'
+    weight: 1
     settings:
-      media_type: prosperity_archivos
+      submit_text: 'Subir Archivos'
+      auto_select: false
       upload_location: 'public://[date:custom:Y]-[date:custom:m]'
       dropzone_description: 'Suelta los archivos aquí para subirlos'
       max_filesize: 1024M
@@ -33,9 +38,4 @@ widgets:
       resize_quality: !!float 1
       resize_method: contain
       thumbnail_method: contain
-      submit_text: 'Subir Archivos'
-      auto_select: false
-    uuid: 0d8a8b78-c50c-4c9d-90e9-c6a2b4508f78
-    weight: 1
-    label: 'Biblioteca de Archivos Prosperity Fund.'
-    id: dropzonejs_media_entity
+      media_type: prosperity_archivos

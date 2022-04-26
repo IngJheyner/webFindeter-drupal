@@ -6,12 +6,13 @@ dependencies:
     - page_manager.page.transparencia_leyes
 id: transparencia_leyes-layout_builder-0
 label: 'Constructor de diseños.'
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: 32347c6e-8cc5-45cb-9de1-40f28e5231a6
   label: null
   weight: 0
+  uuid: 32347c6e-8cc5-45cb-9de1-40f28e5231a6
   sections:
     -
       layout_id: bs_2col_stacked
@@ -55,50 +56,49 @@ variant_settings:
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
             label: 'Transparencia y acceso a la información pública'
-            provider: block_content
             label_display: visible
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 0
+          additional: {  }
         cf196761-ba38-4ce2-95a6-db0748a4a285:
           uuid: cf196761-ba38-4ce2-95a6-db0748a4a285
           region: left
           configuration:
             id: 'views_block:transparencia_acceso_informacion_publica-leyes_transparencia'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: none
-            context_mapping: {  }
-          additional: {  }
           weight: 0
+          additional: {  }
         6e0b6bcf-ce50-4fae-b5c0-99bb8dd9fe34:
           uuid: 6e0b6bcf-ce50-4fae-b5c0-99bb8dd9fe34
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
             label: 'Transparencia y Acceso a la información Pública'
-            provider: menu_block
             label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
             follow: false
             follow_parent: child
+            label_link: false
+            label_type: block
             level: 1
             depth: 0
             expand_all_items: false
             parent: 'transparencia-acceso-informacion:menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
             suggestion: transparencia_acceso_informacion_sidebar
-            label_type: block
-            label_link: false
-            context_mapping: {  }
-          additional: {  }
           weight: 0
+          additional: {  }
       third_party_settings: {  }
 page: transparencia_leyes
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

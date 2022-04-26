@@ -6,12 +6,13 @@ dependencies:
     - page_manager.page.informes_de_gestion_evaluacion_y_auditoria_
 id: informes_de_gestion_evaluacion_y_auditoria_-layout_builder-0
 label: 'Constructor de diseños.'
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: c154060e-7216-47a2-8f92-84e13449793c
   label: null
   weight: 0
+  uuid: c154060e-7216-47a2-8f92-84e13449793c
   sections:
     -
       layout_id: bs_2col_stacked
@@ -55,50 +56,49 @@ variant_settings:
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
             label: 'Transparencia y acceso a la información pública'
-            provider: block_content
             label_display: visible
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 0
+          additional: {  }
         25b4163d-0a64-498a-b78e-f4bb942b6020:
           uuid: 25b4163d-0a64-498a-b78e-f4bb942b6020
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
             label: 'Transparencia y Acceso a la información Pública'
-            provider: menu_block
             label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
             follow: false
             follow_parent: child
+            label_link: false
+            label_type: block
             level: 1
             depth: 0
             expand_all_items: false
             parent: 'transparencia-acceso-informacion:menu_link_content:2c824b48-d3d7-4364-b37e-6f78bfff832a'
             suggestion: transparencia_acceso_informacion_sidebar
-            label_type: block
-            label_link: false
-            context_mapping: {  }
-          additional: {  }
           weight: 0
+          additional: {  }
         f84c559c-9267-47d2-b710-7f48167adb9f:
           uuid: f84c559c-9267-47d2-b710-7f48167adb9f
           region: left
           configuration:
             id: 'views_block:transparencia_acceso_informacion_publica-7_1_informes_de_gestion_evaluacion_y_auditoria'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: none
-            context_mapping: {  }
-          additional: {  }
           weight: 0
+          additional: {  }
       third_party_settings: {  }
 page: informes_de_gestion_evaluacion_y_auditoria_
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

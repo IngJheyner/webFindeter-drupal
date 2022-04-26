@@ -6,12 +6,13 @@ dependencies:
     - page_manager.page.costos_de_reproduccion
 id: costos_de_reproduccion-layout_builder-0
 label: 'Constructor de diseños.'
+weight: 0
 variant: layout_builder
 variant_settings:
   id: layout_builder
-  uuid: 4fa76d2a-f1e2-4762-9f5d-70285c11a3e1
   label: null
   weight: 0
+  uuid: 4fa76d2a-f1e2-4762-9f5d-70285c11a3e1
   sections:
     -
       layout_id: bs_2col_stacked
@@ -55,50 +56,49 @@ variant_settings:
           configuration:
             id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
             label: 'Transparencia y acceso a la información pública'
-            provider: block_content
             label_display: visible
+            provider: block_content
             status: true
             info: ''
             view_mode: full
             context_mapping: {  }
-          additional: {  }
           weight: 0
+          additional: {  }
         909aac0a-fdf6-4118-b16e-6785d7d8dbb3:
           uuid: 909aac0a-fdf6-4118-b16e-6785d7d8dbb3
           region: left
           configuration:
             id: 'views_block:transparencia_acceso_informacion_publica-costos_de_reproduccion'
             label: ''
-            provider: views
             label_display: '0'
+            provider: views
+            context_mapping: {  }
             views_label: ''
             items_per_page: none
-            context_mapping: {  }
-          additional: {  }
           weight: 0
+          additional: {  }
         f1c309c5-7d36-41d8-9706-fedcd501867d:
           uuid: f1c309c5-7d36-41d8-9706-fedcd501867d
           region: right
           configuration:
             id: 'menu_block:transparencia-acceso-informacion'
             label: 'Transparencia y Acceso a la información Pública'
-            provider: menu_block
             label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
             follow: false
             follow_parent: child
+            label_link: false
+            label_type: block
             level: 1
             depth: 0
             expand_all_items: false
             parent: 'transparencia-acceso-informacion:menu_link_content:9d663ce0-7090-4f10-9bc9-f402051bee86'
             suggestion: transparencia_acceso_informacion_sidebar
-            label_type: block
-            label_link: false
-            context_mapping: {  }
-          additional: {  }
           weight: 0
+          additional: {  }
       third_party_settings: {  }
 page: costos_de_reproduccion
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

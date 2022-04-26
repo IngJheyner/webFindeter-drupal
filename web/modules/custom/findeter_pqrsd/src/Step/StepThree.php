@@ -97,7 +97,7 @@ class StepThree extends BaseStep {
       '#title'           => $definitions['field_pqrsd_archivo']->getLabel(),
       '#upload_validators' => [
         'file_validate_extensions' => [$fileSettings['file_extensions']],
-        'file_validate_size'       => 20971520,
+        'file_validate_size'       => [20971520],
       ]
     ];
 

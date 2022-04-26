@@ -16,9 +16,9 @@
     ],
     "require": {
         "composer/installers": "^1.9",
-        "drupal/core-composer-scaffold": "^9.3",
-        "drupal/core-project-message": "^9.3",
-        "drupal/core-recommended": "^9.3",
+        "drupal/core-composer-scaffold": "9.3.12",
+        "drupal/core-project-message": "9.3.12",
+        "drupal/core-recommended": "9.3.12",
         "cweagans/composer-patches": "^1.7",
         "drupal/addtoany": "^1.14",
         "drupal/admin_toolbar": "^3.0",
@@ -177,6 +177,11 @@
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
             ]
+        },
+        "patches": {
+            "drupal/content_access": {
+                "content access role": "https://www.drupal.org/files/issues/2020-08-28/content_access-role-2782813-25.patch"
+            }
         }
     }
 }

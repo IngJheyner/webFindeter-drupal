@@ -15,7 +15,7 @@ bundle: encabezado_para_pot
 mode: default
 content:
   field_imagen_encabezado_para_sit:
-    weight: 1
+    type: responsive_image
     label: hidden
     settings:
       responsive_image_style: encabezado_interna_pot
@@ -27,7 +27,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
-    type: responsive_image
+    weight: 1
     region: content
 hidden:
   langcode: true
