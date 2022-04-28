@@ -30,13 +30,13 @@ class ApiSmfc{
 
         $data = Json::encode($credentials);
 
-        $signature = strtoupper(Crypt::hmacBase64($data, $secret_key));
+        $hmac = hash_hmac('sha256', utf8_encode($data), utf8_encode("b'$secret_key"),FALSE);
 
-        $hmac = hash_hmac('sha256', $data, $secret_key, FALSE);
-        $hmacc = strtoupper(str_replace(['+', '/', '='], ['-', '_', ''], $hmac));
+        $base =strtoupper($hmac);
+        
+        //$hmacc = strtoupper(str_replace(['+', '/', '='], ['-', '_', ''], $base_64));
         
     }
-
     /**
      * 
      */

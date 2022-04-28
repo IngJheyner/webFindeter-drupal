@@ -67,6 +67,9 @@
           set nombreArchivo = item.content["#markup"]|split('/')
         %}
 
+        {{ kint(nombreArchivo) }}
+        {{ kint(item.content["#markup"]) }}
+
         <td{{ attributes.addClass(classes, 'archivo') }}><a target="_blank" href="{{ item.content }}"><i class="far fa-file"></i> {{ nombreArchivo[5] }}</a></td>
 
       {% endfor %}
