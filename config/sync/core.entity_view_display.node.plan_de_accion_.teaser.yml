@@ -1,0 +1,32 @@
+uuid: 84f22256-fec6-40dd-bad5-8f9c7fe5b1b8
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.plan_de_accion_.body
+    - node.type.plan_de_accion_
+  module:
+    - text
+    - user
+id: node.plan_de_accion_.teaser
+targetEntityType: node
+bundle: plan_de_accion_
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

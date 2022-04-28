@@ -1,0 +1,30 @@
+uuid: 81c2de76-6632-4301-8a65-cb60121d5d2c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.busqueda_de_normas.body
+    - node.type.busqueda_de_normas
+  module:
+    - text
+    - user
+id: node.busqueda_de_normas.default
+targetEntityType: node
+bundle: busqueda_de_normas
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

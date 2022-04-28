@@ -3,6 +3,7 @@ langcode: es
 status: true
 dependencies:
   config:
+    - field.field.paragraph.documento_link_para_contenido_tr.field_name_doc_type_doc_transp
     - field.field.paragraph.documento_link_para_contenido_tr.field_tipo_de_documento
     - field.field.paragraph.documento_link_para_contenido_tr.field_tr_paragr_docu_archi
     - field.field.paragraph.documento_link_para_contenido_tr.field_tr_pargr_enlace_sitio_cont
@@ -15,6 +16,14 @@ targetEntityType: paragraph
 bundle: documento_link_para_contenido_tr
 mode: default
 content:
+  field_name_doc_type_doc_transp:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
   field_tipo_de_documento:
     type: entity_reference_label
     label: above

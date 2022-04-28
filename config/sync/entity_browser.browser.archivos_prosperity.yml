@@ -1,0 +1,41 @@
+uuid: 384d46ab-ed51-463e-9c0d-fe9a109c9b1b
+langcode: es
+status: true
+dependencies:
+  config:
+    - media.type.prosperity_archivos
+  module:
+    - dropzonejs_eb_widget
+    - media
+name: archivos_prosperity
+label: 'Archivos [ Prosperity ]'
+display: modal
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: 'Seleccione los archivos'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  0d8a8b78-c50c-4c9d-90e9-c6a2b4508f78:
+    id: dropzonejs_media_entity
+    uuid: 0d8a8b78-c50c-4c9d-90e9-c6a2b4508f78
+    label: 'Biblioteca de Archivos Prosperity Fund.'
+    weight: 1
+    settings:
+      submit_text: 'Subir Archivos'
+      auto_select: false
+      upload_location: 'public://[date:custom:Y]-[date:custom:m]'
+      dropzone_description: 'Suelta los archivos aquí para subirlos'
+      max_filesize: 1024M
+      extensions: 'jpg jpeg gif png txt doc xls pdf ppt pps odt ods odp'
+      clientside_resize: false
+      resize_width: null
+      resize_height: null
+      resize_quality: !!float 1
+      resize_method: contain
+      thumbnail_method: contain
+      media_type: prosperity_archivos

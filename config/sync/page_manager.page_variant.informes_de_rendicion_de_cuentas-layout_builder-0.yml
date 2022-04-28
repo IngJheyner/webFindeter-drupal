@@ -1,0 +1,104 @@
+uuid: e537f9b9-03b9-489f-b66b-c275749a2de6
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.informes_de_rendicion_de_cuentas
+id: informes_de_rendicion_de_cuentas-layout_builder-0
+label: 'Constructor de diseños.'
+weight: 0
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  label: null
+  weight: 0
+  uuid: 4753d27d-0b3f-4fcb-afef-0d8bbfa72461
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        61fa83f2-bfc3-4fb8-857b-e08f193469a0:
+          uuid: 61fa83f2-bfc3-4fb8-857b-e08f193469a0
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            label_display: visible
+            provider: block_content
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          weight: 0
+          additional: {  }
+        357b224f-e7dc-4815-ba64-6395c8cd8086:
+          uuid: 357b224f-e7dc-4815-ba64-6395c8cd8086
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-informes_de_rendicion_de_cuentas'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: none
+          weight: 0
+          additional: {  }
+        dd1ce0f1-87e6-471c-950a-aed54eb0a96d:
+          uuid: dd1ce0f1-87e6-471c-950a-aed54eb0a96d
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
+            follow: false
+            follow_parent: child
+            label_link: false
+            label_type: block
+            level: 1
+            depth: 0
+            expand_all_items: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:2c824b48-d3d7-4364-b37e-6f78bfff832a'
+            suggestion: transparencia_acceso_informacion_sidebar
+          weight: 0
+          additional: {  }
+      third_party_settings: {  }
+page: informes_de_rendicion_de_cuentas
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

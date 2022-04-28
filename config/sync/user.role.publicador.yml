@@ -6,6 +6,7 @@ dependencies:
     - media.type.audio
     - media.type.document
     - media.type.image
+    - media.type.prosperity_archivos
     - media.type.remote_video
     - media.type.url_youtube_articulo_blog
     - media.type.video
@@ -103,6 +104,8 @@ dependencies:
   module:
     - block
     - block_content
+    - dropzonejs
+    - entity_browser
     - field_ui
     - layout_builder
     - media
@@ -115,6 +118,7 @@ label: Publicador
 weight: 7
 is_admin: null
 permissions:
+  - 'access archivos_prosperity entity browser pages'
   - 'access content overview'
   - 'administer block_content display'
   - 'administer blocks'
@@ -171,6 +175,7 @@ permissions:
   - 'create politica_de_accion_responsable content'
   - 'create preguntas_frecuentes content'
   - 'create productos_servicios content'
+  - 'create prosperity_archivos media'
   - 'create prosperity_fund content'
   - 'create remote_video media'
   - 'create slider_home content'
@@ -212,6 +217,8 @@ permissions:
   - 'create trans_tipo_cont_tramit_servicios content'
   - 'create url_youtube_articulo_blog media'
   - 'create video media'
+  - 'delete own prosperity_archivos media'
+  - 'dropzone upload files'
   - 'edit any 10_10_costos_de_reproduccion content'
   - 'edit any 10_12_informe_de_peticiones_quej content'
   - 'edit any 13_1_politica_de_seguridad_de_la content'
@@ -263,6 +270,7 @@ permissions:
   - 'edit any politica_de_accion_responsable content'
   - 'edit any preguntas_frecuentes content'
   - 'edit any productos_servicios content'
+  - 'edit any prosperity_archivos media'
   - 'edit any prosperity_fund content'
   - 'edit any remote_video media'
   - 'edit any slider_home content'

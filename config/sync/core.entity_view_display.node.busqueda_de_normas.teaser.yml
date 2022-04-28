@@ -1,0 +1,32 @@
+uuid: 8c9b3ec7-6754-40e7-b822-09384bf34ccf
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.busqueda_de_normas.body
+    - node.type.busqueda_de_normas
+  module:
+    - text
+    - user
+id: node.busqueda_de_normas.teaser
+targetEntityType: node
+bundle: busqueda_de_normas
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

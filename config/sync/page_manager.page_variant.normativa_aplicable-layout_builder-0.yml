@@ -1,0 +1,104 @@
+uuid: cab34822-72f3-4d6d-849b-fe03bb74ac8b
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.normativa_aplicable
+id: normativa_aplicable-layout_builder-0
+label: 'Constructor de diseños.'
+weight: 0
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  label: null
+  weight: 0
+  uuid: 7ab4dca3-26c7-4f1b-8e3b-0ba344b98854
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        79af2ec4-3368-41da-806a-7f462c126e9f:
+          uuid: 79af2ec4-3368-41da-806a-7f462c126e9f
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            label_display: visible
+            provider: block_content
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          weight: 0
+          additional: {  }
+        8ffb4c89-ab06-4dff-a0fa-6b20ff12dfda:
+          uuid: 8ffb4c89-ab06-4dff-a0fa-6b20ff12dfda
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-normativa_aplicable'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: none
+          weight: 0
+          additional: {  }
+        a3523d74-1d79-454b-8922-40a80f0f6d19:
+          uuid: a3523d74-1d79-454b-8922-40a80f0f6d19
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
+            follow: false
+            follow_parent: child
+            label_link: false
+            label_type: block
+            level: 1
+            depth: 0
+            expand_all_items: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
+            suggestion: transparencia_acceso_informacion_sidebar
+          weight: 0
+          additional: {  }
+      third_party_settings: {  }
+page: normativa_aplicable
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

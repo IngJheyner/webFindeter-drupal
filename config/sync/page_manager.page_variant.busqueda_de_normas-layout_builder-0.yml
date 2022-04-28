@@ -1,0 +1,104 @@
+uuid: db8b9d80-e77b-48f8-a11a-7e4310dbdeb8
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.busqueda_de_normas
+id: busqueda_de_normas-layout_builder-0
+label: 'Constructor de diseños.'
+weight: 0
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  label: null
+  weight: 0
+  uuid: d4e8a3c8-235c-4261-b98f-68b5d66429da
+  sections:
+    -
+      layout_id: bs_2col_stacked
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: class|mx-0
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: class|px-0
+          left:
+            wrapper: div
+            classes:
+              col-sm-9: col-sm-9
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-3: col-sm-3
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+      components:
+        ee4715d9-32a8-4b1b-979f-a681b516a526:
+          uuid: ee4715d9-32a8-4b1b-979f-a681b516a526
+          region: top
+          configuration:
+            id: 'block_content:2fc5ffea-d6cd-48f9-b30c-759489bd3d96'
+            label: 'Transparencia y acceso a la información pública'
+            label_display: visible
+            provider: block_content
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          weight: 0
+          additional: {  }
+        b3c00bb4-7445-4331-ba27-a18cbf101011:
+          uuid: b3c00bb4-7445-4331-ba27-a18cbf101011
+          region: left
+          configuration:
+            id: 'views_block:transparencia_acceso_informacion_publica-busqueda_de_normas'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: none
+          weight: 0
+          additional: {  }
+        eba1be4a-2ff3-4e87-8cd0-68b7a03eaa6c:
+          uuid: eba1be4a-2ff3-4e87-8cd0-68b7a03eaa6c
+          region: right
+          configuration:
+            id: 'menu_block:transparencia-acceso-informacion'
+            label: 'Transparencia y Acceso a la información Pública'
+            label_display: '0'
+            provider: menu_block
+            context_mapping: {  }
+            follow: false
+            follow_parent: child
+            label_link: false
+            label_type: block
+            level: 1
+            depth: 0
+            expand_all_items: false
+            parent: 'transparencia-acceso-informacion:menu_link_content:06cd6b11-da06-44ab-aa7b-d7a20d1c7b03'
+            suggestion: transparencia_acceso_informacion_sidebar
+          weight: 0
+          additional: {  }
+      third_party_settings: {  }
+page: busqueda_de_normas
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

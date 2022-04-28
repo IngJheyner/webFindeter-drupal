@@ -1,0 +1,30 @@
+uuid: a287e2f5-e08e-4510-b760-5797049e19ec
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.plan_de_accion_.body
+    - node.type.plan_de_accion_
+  module:
+    - text
+    - user
+id: node.plan_de_accion_.default
+targetEntityType: node
+bundle: plan_de_accion_
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

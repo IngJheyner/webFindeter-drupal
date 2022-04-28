@@ -1,0 +1,23 @@
+uuid: 9c18be47-9f66-426f-aef8-7ae1fdea25a0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.normativa_de_la_entidad_o_autori
+  module:
+    - text
+id: node.normativa_de_la_entidad_o_autori.body
+field_name: body
+entity_type: node
+bundle: normativa_de_la_entidad_o_autori
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

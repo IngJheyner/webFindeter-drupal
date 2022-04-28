@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.7_1_informes_de_gestion_evaluaci.field_contenido_informes_de_gest
+    - field.field.node.7_1_informes_de_gestion_evaluaci.field_tipo_doc_paragraph
     - node.type.7_1_informes_de_gestion_evaluaci
   module:
+    - entity_reference_revisions
     - text
     - user
 id: node.7_1_informes_de_gestion_evaluaci.default
@@ -19,6 +21,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
+    region: content
+  field_tipo_doc_paragraph:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 102
     region: content
   links:
     settings: {  }

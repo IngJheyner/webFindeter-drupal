@@ -1,0 +1,22 @@
+uuid: 3e1961f3-7bdd-42f6-ba65-aa4c6be5ca75
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.proyectos_de_inversion
+id: node.proyectos_de_inversion.promote
+field_name: promote
+entity_type: node
+bundle: proyectos_de_inversion
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

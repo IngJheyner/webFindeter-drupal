@@ -1,0 +1,22 @@
+uuid: cc566bba-500d-49d4-b78d-a680ca1e6e30
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.instrumentos_de_gestion_de_la_in
+id: node.instrumentos_de_gestion_de_la_in.promote
+field_name: promote
+entity_type: node
+bundle: instrumentos_de_gestion_de_la_in
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

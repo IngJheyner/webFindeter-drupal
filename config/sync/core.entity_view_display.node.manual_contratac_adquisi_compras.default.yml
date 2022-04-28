@@ -1,0 +1,30 @@
+uuid: aae2c287-c74d-4c6b-9d82-efc3b56a5063
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.manual_contratac_adquisi_compras.body
+    - node.type.manual_contratac_adquisi_compras
+  module:
+    - text
+    - user
+id: node.manual_contratac_adquisi_compras.default
+targetEntityType: node
+bundle: manual_contratac_adquisi_compras
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

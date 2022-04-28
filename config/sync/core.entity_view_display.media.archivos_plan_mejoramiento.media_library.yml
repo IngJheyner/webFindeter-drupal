@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.media_library
+    - field.field.media.archivos_plan_mejoramiento.field_archivo_trans_simple
     - field.field.media.archivos_plan_mejoramiento.field_media_document
     - media.type.archivos_plan_mejoramiento
   module:
@@ -44,6 +45,7 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_archivo_trans_simple: true
   langcode: true
   thumbnail: true
   uid: true

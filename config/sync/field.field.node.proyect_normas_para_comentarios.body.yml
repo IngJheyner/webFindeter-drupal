@@ -1,0 +1,23 @@
+uuid: 48547210-4256-4d8d-8a37-82252067fb05
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.proyect_normas_para_comentarios
+  module:
+    - text
+id: node.proyect_normas_para_comentarios.body
+field_name: body
+entity_type: node
+bundle: proyect_normas_para_comentarios
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary
