@@ -65,12 +65,9 @@
 
         {%
           set nombreArchivo = item.content["#markup"]|split('/')
-        %}
+        %}       
 
-        {{ kint(nombreArchivo) }}
-        {{ kint(item.content["#markup"]) }}
-
-        <td{{ attributes.addClass(classes, 'archivo') }}><a target="_blank" href="{{ item.content }}"><i class="far fa-file"></i> {{ nombreArchivo[5] }}</a></td>
+        <td{{ attributes.addClass(classes, 'archivo') }}><a target="_blank" href="{{ item.content }}"><i class="far fa-file"></i> {{ nombreArchivo[5]|replace({'%20': "-"}) }}</a></td>
 
       {% endfor %}
 
@@ -80,11 +77,14 @@
 
     {% for item in items %}
 
+       {{ drupal_dump(item.content["#markup"]|split('/')) }}
+        {{ kint(item.content["#markup"]) }}
+
       {%
         set nombreArchivo = item.content["#markup"]|split('/')
       %}
 
-      <td{{ attributes.addClass(classes, 'archivo') }}><a target="_blank" href="{{ item.content }}"><i class="far fa-file"></i> {{ nombreArchivo[5]|replace({'%20': "-"}) }}</a></td>
+      <td{{ attributes.addClass(classes, 'archivo') }}><a target="_blank" href="{{ item.content }}"><i class="far fa-file"></i> {{ nombreArchivo[6]|replace({'%20': "-"}) }}</a></td>
 
     {% endfor %}
 

@@ -28,9 +28,9 @@ class ApiSmfc{
 
         $credentials = ["username" => "$user", "password" => "$pass"];
 
-        $data = Json::encode($credentials);
+        $data = json_encode($credentials);
 
-        $hmac = hash_hmac('sha256', utf8_encode($data), utf8_encode("b'$secret_key"),FALSE);
+        $hmac = hash_hmac('sha256', utf8_encode($data), utf8_encode($secret_key),FALSE);
 
         $base =strtoupper($hmac);
         
