@@ -11,6 +11,7 @@ use Drupal\node\Entity\Node;
 use Drupal\file\Entity\File;
 use Drupal\block\Entity\Block;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Datetime\DrupalDateTime;
 
 /**
  * Class AnswerPQRSD.
@@ -40,10 +41,24 @@ class AnswerPQRSD extends FormBase {
     $node = Node::load($nid);
 
     //Se ajusta para que los archivos de respuesta queden en la misma ruta de anexo de radicado.
+    //Si no tiene algun anexo, se guarda el anexo respuesta con la fecha actual y id del peticionario.
     $anexTargetNid = $node->get('field_pqrsd_archivo')->getValue()[0]['target_id'];
-    $anexFile = $fileStorage->load($anexTargetNid);
-    $anexUri = $anexFile->getFileUri();
-    $anexPath = \Drupal::service('file_system')->dirname($anexUri);
+
+    if(is_null($anexTargetNid)){
+
+      $dateTimestamp= strtotime(new DrupalDateTime());
+      $date =  \Drupal::service('date.formatter')->format($dateTimestamp, 'custom', 'Y-m-d');
+      $time =  str_replace(" ", "", (\Drupal::service('date.formatter')->format($dateTimestamp, 'custom', '\T\ H')));
+      $time .= '---'.$node->get('field_pqrsd_numero_id')->getValue()[0]['value'];
+
+      $anexPathResponse = 'public://pqrsd/'.$node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'].'/'.$date.'/'.$time;
+
+    }else{
+      $anexFile = $fileStorage->load($anexTargetNid);
+      $anexUri = $anexFile->getFileUri();
+      $anexPathResponse = \Drupal::service('file_system')->dirname($anexUri);
+    }
+   
 
     // Nid param to store in the new references
     $form['node_id'] = array(
@@ -53,7 +68,7 @@ class AnswerPQRSD extends FormBase {
 
     $form['field_pqrsd_respuesta'] = [
       '#type'  => 'textarea',
-      '#title' => 'Escriba la respuesta allll requerimiento',
+      '#title' => 'Escriba la respuesta al requerimiento',
       '#required' => TRUE,
     ];
  
@@ -62,7 +77,7 @@ class AnswerPQRSD extends FormBase {
       '#type'            => 'managed_file',
       '#cardinality'     => 3,
       '#description'     => 'Puede registrar hasta 4 archivos',
-      '#upload_location' => $anexPath.'/respuesta/',
+      '#upload_location' => $anexPathResponse.'/respuesta/',
       '#multiple'        => TRUE,
       '#title'           => $definitions['field_pqrsd_respuesta_archivos']->getLabel(),
       '#upload_validators' => [
@@ -126,7 +141,7 @@ class AnswerPQRSD extends FormBase {
     $node->field_pqrsd_respuesta[] = $formValues['field_pqrsd_respuesta'];
     $node->field_pqrsd_respuesta_a_favor[] = $formValues['field_pqrsd_respuesta_a_favor'];
     $node->field_pqrsd_fecha_respuesta[] = date('Y-m-d\TH:i:s',strtotime('now'));
-
+    
     $fileStorage = \Drupal::entityTypeManager()->getStorage('file');
 
     foreach($formValues['field_pqrsd_respuesta_archivos'] as $fid){
