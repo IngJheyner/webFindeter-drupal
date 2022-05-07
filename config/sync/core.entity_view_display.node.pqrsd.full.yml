@@ -19,6 +19,7 @@ dependencies:
     - field.field.node.pqrsd.field_pqrsd_fecha_roja
     - field.field.node.pqrsd.field_pqrsd_forma_recepcion
     - field.field.node.pqrsd.field_pqrsd_grupo_etnico
+    - field.field.node.pqrsd.field_pqrsd_instance_reception
     - field.field.node.pqrsd.field_pqrsd_marketing
     - field.field.node.pqrsd.field_pqrsd_medio_respuesta
     - field.field.node.pqrsd.field_pqrsd_motivo
@@ -39,6 +40,7 @@ dependencies:
     - field.field.node.pqrsd.field_pqrsd_respuesta_archivos
     - field.field.node.pqrsd.field_pqrsd_segundo_apellido
     - field.field.node.pqrsd.field_pqrsd_segundo_nombre
+    - field.field.node.pqrsd.field_pqrsd_sexo
     - field.field.node.pqrsd.field_pqrsd_telefono
     - field.field.node.pqrsd.field_pqrsd_tipo_discapacidad
     - field.field.node.pqrsd.field_pqrsd_tipo_documento
@@ -100,6 +102,7 @@ third_party_settings:
         speed: fast
     group_colum_settled_1:
       children:
+        - field_pqrsd_instance_reception
         - field_pqrsd_tipo_peticion
         - field_pqrsd_numero_radicado
         - field_pqrsd_tipo_radicado
@@ -162,6 +165,7 @@ third_party_settings:
       children:
         - field_pqrsd_numero_id
         - field_pqrsd_tipo_documento
+        - field_pqrsd_sexo
         - field_pqrsd_primer_nombre
         - field_pqrsd_segundo_nombre
         - field_pqrsd_primer_apellido
@@ -215,7 +219,7 @@ third_party_settings:
       label: 'Info. Juridica'
       parent_name: group_colum_person_1
       region: content
-      weight: 33
+      weight: 34
       format_type: fieldset
       format_settings:
         classes: ''
@@ -417,7 +421,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 13
+    weight: 14
     region: content
   field_pqrsd_departamento:
     type: entity_reference_label
@@ -434,7 +438,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 23
+    weight: 14
     region: content
   field_pqrsd_direccion:
     type: string
@@ -466,7 +470,7 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 15
+    weight: 16
     region: content
   field_pqrsd_fecha_respuesta:
     type: datetime_default
@@ -484,7 +488,7 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 16
+    weight: 17
     region: content
   field_pqrsd_forma_recepcion:
     type: list_default
@@ -499,6 +503,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 26
+    region: content
+  field_pqrsd_instance_reception:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
     region: content
   field_pqrsd_marketing:
     type: list_default
@@ -560,7 +571,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 21
+    weight: 2
     region: content
   field_pqrsd_otros:
     type: string
@@ -576,7 +587,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 14
+    weight: 15
     region: content
   field_pqrsd_preferencial:
     type: list_default
@@ -591,7 +602,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 31
+    weight: 32
     region: content
   field_pqrsd_primer_nombre:
     type: string
@@ -599,14 +610,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 29
+    weight: 30
     region: content
   field_pqrsd_rango_edad:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 24
+    weight: 5
     region: content
   field_pqrsd_razon_social:
     type: string
@@ -646,7 +657,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 32
+    weight: 33
     region: content
   field_pqrsd_segundo_nombre:
     type: string
@@ -654,7 +665,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 30
+    weight: 31
+    region: content
+  field_pqrsd_sexo:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 29
     region: content
   field_pqrsd_telefono:
     type: string
@@ -690,21 +708,21 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 20
+    weight: 1
     region: content
   field_pqrsd_tipo_radicado:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 22
+    weight: 3
     region: content
   field_pqrsd_tipo_solicitante:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 23
+    weight: 4
     region: content
   links:
     settings: {  }

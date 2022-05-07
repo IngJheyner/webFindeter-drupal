@@ -1,0 +1,23 @@
+uuid: 5fec4cd9-cdd3-4955-9734-252e3a9ea0d6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.feeds_item
+    - taxonomy.vocabulary.colombia_deparments
+  module:
+    - feeds
+id: taxonomy_term.colombia_deparments.feeds_item
+field_name: feeds_item
+entity_type: taxonomy_term
+bundle: colombia_deparments
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

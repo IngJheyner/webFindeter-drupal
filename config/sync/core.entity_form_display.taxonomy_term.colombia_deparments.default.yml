@@ -1,0 +1,41 @@
+uuid: c8747b93-c08e-4c51-84a4-fed58485e291
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.colombia_deparments.feeds_item
+    - field.field.taxonomy_term.colombia_deparments.field_code_dane_dpto
+    - taxonomy.vocabulary.colombia_deparments
+id: taxonomy_term.colombia_deparments.default
+targetEntityType: taxonomy_term
+bundle: colombia_deparments
+mode: default
+content:
+  field_code_dane_dpto:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  description: true
+  feeds_item: true
+  langcode: true
+  path: true

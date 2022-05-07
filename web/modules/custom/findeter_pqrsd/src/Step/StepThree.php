@@ -8,6 +8,8 @@ use Drupal\findeter_pqrsd\Button\StepThreePreviousButton;
 
 use Drupal\findeter_pqrsd\Validator\ValidatorRequired;
 
+use Drupal\Core\Datetime\DrupalDateTime;
+
 use Drupal\Core\Messenger\MessengerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -59,19 +61,39 @@ class StepThree extends BaseStep {
    * {@inheritdoc}
    */
   public function buildStepFormElements($steps,$form,$form_state) {
-    
-    $var = $form;
 
     // Get the definitions
     $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'pqrsd');
 
     $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información del producto</h2>';
 
+    $itemsProduct = $definitions['field_pqrsd_nombre_producto']->getSetting('allowed_values');
+
+    /* ============================================
+    Se muestra valores de producto para findeter o SMFC
+    para SMFC solo si la peticion es una Queja o Reclamo
+    esta cambia en su valor de indice mas no de item, 
+    SMFC numerico y Findeter caracter.
+    =============================================== */
+    //Obtenemos el valor de tipo de radicado
+    $values = $steps[0]->getValues();
+    
+    $optionsProduct = [];
+    $optionsSmfc = [];
+
+    foreach ($itemsProduct as $key => $value) {
+      if(is_numeric($key))
+        $optionsSmfc[$key] = $value;
+      else
+        $optionsProduct[$key] = $value;
+    }
+
     // start col 1
     $formStep['field_pqrsd_nombre_producto'] = [
       '#type'    => 'select',
       '#title'   => $definitions['field_pqrsd_nombre_producto']->getLabel(),
-      '#options' => $definitions['field_pqrsd_nombre_producto']->getSetting('allowed_values'),
+      '#options' => ($values['field_pqrsd_tipo_radicado'] == 'Quejas' || 
+      $values['field_pqrsd_tipo_radicado'] == 'Reclamos') ? $optionsSmfc : $optionsProduct,
       '#empty_option' => '-Seleccione una opción-',
       '#prefix'       => '<div class="row mx-auto form-container"><div class="col-12 col-md-6 form-container-col">'
     ];
@@ -89,7 +111,19 @@ class StepThree extends BaseStep {
       '#attributes' => ['placeholder'=>'Especifique cuál']
     ];
 
+    /* ============================================
+    Moficacion al cargue de anexo del radicado
+    =============================================== */
+    //Obtenemos el valor de tipo de radicado
+    $valuesStepTwo = $steps[2]->getValues();
+
     $fileSettings = $definitions['field_pqrsd_archivo']->getSettings();
+
+    $dateTimestamp= strtotime(new DrupalDateTime());
+    $date =  \Drupal::service('date.formatter')->format($dateTimestamp, 'custom', 'Y-m-d');
+    $time =  str_replace(" ", "", (\Drupal::service('date.formatter')->format($dateTimestamp, 'custom', '\T\ H')));
+
+    $time .= '---'.$valuesStepTwo['field_pqrsd_numero_id'];
 
     // end col 1
     $formStep['field_pqrsd_archivo'] = [
@@ -97,6 +131,7 @@ class StepThree extends BaseStep {
       '#cardinality'     => 3,
       '#multiple'        => TRUE,
       '#title'           => $definitions['field_pqrsd_archivo']->getLabel(),
+      '#upload_location' => 'public://pqrsd/'.$values['field_pqrsd_tipo_radicado'].'/'.$date.'/'.$time.'/',
       '#upload_validators' => [
         'file_validate_extensions' => [$fileSettings['file_extensions']],
         'file_validate_size'       => [20971520],

@@ -32,7 +32,18 @@ class AnswerPQRSD extends FormBase {
 
     $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'pqrsd');
 
+    $fileStorage = \Drupal::entityTypeManager()->getStorage('file');
+
     $form_state->setCached(FALSE);
+
+    //Carga de datos del node
+    $node = Node::load($nid);
+
+    //Se ajusta para que los archivos de respuesta queden en la misma ruta de anexo de radicado.
+    $anexTargetNid = $node->get('field_pqrsd_archivo')->getValue()[0]['target_id'];
+    $anexFile = $fileStorage->load($anexTargetNid);
+    $anexUri = $anexFile->getFileUri();
+    $anexPath = \Drupal::service('file_system')->dirname($anexUri);
 
     // Nid param to store in the new references
     $form['node_id'] = array(
@@ -42,16 +53,16 @@ class AnswerPQRSD extends FormBase {
 
     $form['field_pqrsd_respuesta'] = [
       '#type'  => 'textarea',
-      '#title' => 'Escriba la respuesta al requerimiento',
+      '#title' => 'Escriba la respuesta allll requerimiento',
       '#required' => TRUE,
     ];
-
+ 
     $fileSettings = $definitions['field_pqrsd_respuesta_archivos']->getSettings();
     $form['field_pqrsd_respuesta_archivos'] = [
       '#type'            => 'managed_file',
       '#cardinality'     => 3,
       '#description'     => 'Puede registrar hasta 4 archivos',
-      //'#upload_location' => 'public://'.$fileSettings['file_directory'],
+      '#upload_location' => $anexPath.'/respuesta/',
       '#multiple'        => TRUE,
       '#title'           => $definitions['field_pqrsd_respuesta_archivos']->getLabel(),
       '#upload_validators' => [
@@ -116,12 +127,17 @@ class AnswerPQRSD extends FormBase {
     $node->field_pqrsd_respuesta_a_favor[] = $formValues['field_pqrsd_respuesta_a_favor'];
     $node->field_pqrsd_fecha_respuesta[] = date('Y-m-d\TH:i:s',strtotime('now'));
 
+    $fileStorage = \Drupal::entityTypeManager()->getStorage('file');
+
     foreach($formValues['field_pqrsd_respuesta_archivos'] as $fid){
       $node->field_pqrsd_respuesta_archivos[] = $fid;
 
-      $file = File::load($fid);
+      /*$file = File::load($fid);
       $file->setPermanent();
-      $file->save();
+      $file->save();*/
+      $file = $fileStorage->load($fid);   
+      \Drupal::service('file.usage')->add($file, 'findeter_pqrsd', 'node', $formValues['node_id']);
+
     }
 
     $node->save();    
