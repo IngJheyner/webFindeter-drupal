@@ -123,7 +123,7 @@ class StepThree extends BaseStep {
     $date =  \Drupal::service('date.formatter')->format($dateTimestamp, 'custom', 'Y-m-d');
     $time =  str_replace(" ", "", (\Drupal::service('date.formatter')->format($dateTimestamp, 'custom', '\T\ H')));
 
-    $time .= '---'.$valuesStepTwo['field_pqrsd_numero_id'];
+    $time .= isset($valuesStepTwo['field_pqrsd_numero_id']) ? '---'.$valuesStepTwo['field_pqrsd_numero_id'] : '---NIT'.$valuesStepTwo['field_pqrsd_nit'];
 
     // end col 1
     $formStep['field_pqrsd_archivo'] = [

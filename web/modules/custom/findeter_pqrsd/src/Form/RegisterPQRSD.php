@@ -20,7 +20,7 @@ use Drupal\Core\Entity\EntityTypeManager;
 
 
 use Drupal\node\Entity\Node;
-use Drupal\file\Entity\File;
+//use Drupal\file\Entity\File;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
 
@@ -472,7 +472,8 @@ class RegisterPQRSD extends FormBase {
     if($values['field_pqrsd_tipo_radicado'] == 'Quejas' || 
     $values['field_pqrsd_tipo_radicado'] == 'Reclamos'){
 
-      $newRequest->set('field_pqrsd_numero_radicado',$this->apiSmfc->getTipCodeEntity($numeroRadicado));
+      $numeroRadicado = $this->apiSmfc->getTipCodeEntity($numeroRadicado);
+      $newRequest->set('field_pqrsd_numero_radicado', $numeroRadicado);
 
     }else{
       $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);
@@ -566,22 +567,31 @@ class RegisterPQRSD extends FormBase {
     if($values['field_pqrsd_tipo_radicado'] == 'Quejas' || 
     $values['field_pqrsd_tipo_radicado'] == 'Reclamos'){
 
-      //$this->apiSmfc->postComplaints($values['new_nid']);
-
       /* Se guarda los nid como variables de estado para que despues
       sea registrado en la API SMFC. ==== ====== */
-      //$nid = [];
-      $nid = $this->state->get('findeter_pqrsd.api_smfc_nid_post');
+      $this->state->delete('findeter_pqrsd.api_smfc_nid_post');
+      $nid = $this->state->get('findeter_pqrsd.api_smfc_nid');
       
       if(is_null($nid)){
 
-        $this->state->set('findeter_pqrsd.api_smfc_nid_post', [$values['new_nid']]);
+        $this->state->set('findeter_pqrsd.api_smfc_nid', [
+          [
+          "nid" => $values['new_nid'],
+          "title" => $newRequest->getTitle(),
+          "created" => $newRequest->getCreatedTime(),
+          "smfc" => FALSE,
+          ]
+        ]);
 
       }else{
-
-        $nid[] = $values['new_nid'];
+        $nid[] = [
+        "nid" => $values['new_nid'],
+        "title" => $newRequest->getTitle(),
+        "created" => $newRequest->getCreatedTime(),
+        "smfc" => FALSE,
+        ];
         
-        $this->state->set('findeter_pqrsd.api_smfc_nid_post', $nid);
+        $this->state->set('findeter_pqrsd.api_smfc_nid', $nid);
 
       }
 

@@ -418,7 +418,33 @@ function findeter_pqrsd_cron() {
 
   }
 
-  
+  /* ============================================
+  Enviar radicados de Quejas o Reclamos
+  a la aplicacion API SMFC
+  =============================================== */
+  $stateSmfcNid = \Drupal::service('state')->get('findeter_pqrsd.api_smfc_nid');
+
+  if(!is_null($stateSmfcNid)){
+
+    $apiSmfc = \Drupal::service('api.smfc'); 
+
+    $login = $apiSmfc->login();
+
+    if($login){
+
+      foreach ($stateSmfcNid as $state) {
+        
+        if(date('Y-m-d', $now) !== date('Y-m-d', $state['created'])){
+
+          $apiSmfc->postComplaints($state['nid']);
+          
+        }
+      }
+
+    }
+
+  }
+
 }
 
 
@@ -428,10 +454,9 @@ function findeter_pqrsd_cron() {
  */
 function findeter_pqrsd_preprocess_page(&$variables) {
 
-  $api = \Drupal::service('api.smfc');
+  $apiSmfc = \Drupal::service('api.smfc');
 
   $routeUrl = \Drupal::routeMatch()->getRouteName();
-
 
   if ($routeUrl == 'findeter_pqrsd.confirm_register_pqrsd_admin') {
     $variables['#attached']['library'][] = 'findeter_pqrsd/admin_pages';

@@ -30,15 +30,40 @@ use Drupal\Core\Messenger\MessengerInterface;
 
 class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
 
+    /**
+     * Credenciales y valores para acceder a la API SMFC.
+     *@see Drupal\findeter_pqrsd\findeter_pqrsd.services
+     */
     private $credentials;
-
     private $secretKey;
     protected $tipEntity;
     protected $codeEntity;
 
     //Servicios
+
+    /**
+     * @var use Drupal\Core\Http\ClientFactory
+     *  - Propiedad que hereda desde
+     * @see Drupal\findeter_pqrsd\Api\ApiSmfcHttp $httpClientFactory;
+     */
+
+    /**
+     * @var Drupal\Core\Logger\LoggerChannelFactoryInterface
+     * - Propiedad que hereda desde
+     * @see Drupal\findeter_pqrsd\Api\ApiSmfcHttp $logger;
+     */
+
+    /**
+     * @var Drupal\Core\Entity\EntityTypeManagerInterface
+     */
     protected $entityTypeManager;
+    /**
+    * @var Drupal\Core\Datetime\DateFormatterInterface $dateFormatter
+    */
     protected $dateFormatter;
+    /**
+     * @var Drupal\Core\Messenger\MessengerInterface $messenger
+     */
     protected $messenger;
 
     public function __construct($credentials, ClientFactory $http_client_factory, LoggerChannelFactoryInterface $logger,
@@ -62,7 +87,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
 
         //$this->login();
         //$this->refreshToken();
-        //$this->postComplaints(228);
+        //$this->postComplaints(258);
        
     }
 
@@ -139,135 +164,145 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
      */
     public function postComplaints(int $nid): void{
 
-        $login = $this->login();
+        //Carga de informacion del nodo por medio de su $nid
+        $nodeStorage = $this->entityTypeManager->getStorage('node')->load($nid);
 
-        if($login){
-            //Carga de informacion del nodo por medio de su $nid
-            $nodeStorage = $this->entityTypeManager->getStorage('node')->load($nid);
+        //Carga de informacion taxonomia
+        $termStorage = $this->entityTypeManager->getStorage('taxonomy_term');
 
-            //Carga de informacion taxonomia
-            $termStorage = $this->entityTypeManager->getStorage('taxonomy_term');
+        //Codigo de Radicado(Queja o Reclamos) ===== ===== 
+        $codComplaints = $nodeStorage->get("field_pqrsd_numero_radicado")->getValue()[0]['value'];
 
-            //Codigo de Radicado(Queja o Reclamos) ===== ===== 
-            $codComplaints = $nodeStorage->get("field_pqrsd_numero_radicado")->getValue()[0]['value'];
+        //Codigo de Depto Dane ===== =====
+        $deptTargetId = $nodeStorage->get("field_pqrsd_departamento")->getValue()[0]['target_id'];
 
-            //Codigo de Depto Dane ===== =====
-            $deptTargetId = $nodeStorage->get("field_pqrsd_departamento")->getValue()[0]['target_id'];
+        $deptValue = $termStorage->load($deptTargetId);
 
-            $deptValue = $termStorage->load($deptTargetId);
+        $deptCodeDane = $deptValue->get("field_code_dane_dpto")->getValue()[0]['value'];
 
-            $deptCodeDane = $deptValue->get("field_code_dane_dpto")->getValue()[0]['value'];
+        //Codigo Mpio. Dane ===== ===== 
+        $mpioTargetId = $nodeStorage->get('field_pqrsd_municipio')->getValue()[0]['target_id'];
 
-            //Codigo Mpio. Dane ===== ===== 
-            $mpioTargetId = $nodeStorage->get('field_pqrsd_municipio')->getValue()[0]['target_id'];
+        $mpioValue = $termStorage->load($mpioTargetId);
 
-            $mpioValue = $termStorage->load($mpioTargetId);
+        $mpioCodeDane = $mpioValue->get("field_code_dane_dpto")->getValue()[0]['value'];
 
-            $mpioCodeDane = $mpioValue->get("field_code_dane_dpto")->getValue()[0]['value'];
+        //Producto ===== =====
+        $codProduct = $nodeStorage->get("field_pqrsd_nombre_producto")->getValue()[0]['value'];
 
-            //Producto ===== =====
-            $codProduct = $nodeStorage->get("field_pqrsd_nombre_producto")->getValue()[0]['value'];
+        //Fecha de creacion ===== ===== */
+        $createdTimeStamp = $nodeStorage->get("created")->getValue()[0]['value'];
 
-            //Fecha de creacion ===== ===== */
-            $createdTimeStamp = $nodeStorage->get("created")->getValue()[0]['value'];
+        $created =  str_replace(" ", "", ($this->dateFormatter->format($createdTimeStamp, 'custom', 'Y-m-d \T\ H:i:s')));
 
-            $created =  str_replace(" ", "", ($this->dateFormatter->format($createdTimeStamp, 'custom', 'Y-m-d \T\ H:i:s')));
+        // Nombres y Apellidos ===== =====
+        $names = $nodeStorage->get("field_pqrsd_primer_nombre")->getValue()[0]['value'];
 
-            // Nombres y Apellidos ===== =====
-            $names = $nodeStorage->get("field_pqrsd_primer_nombre")->getValue()[0]['value'];
+        if(isset($nodeStorage->get("field_pqrsd_segundo_nombre")->getValue()[0]['value']))
+            $names .= " ".$nodeStorage->get("field_pqrsd_segundo_nombre")->getValue()[0]['value'];
+        
+        $names .= " ".$nodeStorage->get("field_pqrsd_primer_apellido")->getValue()[0]['value'];
+        
+        if(isset($nodeStorage->get("field_pqrsd_segundo_apellido")->getValue()[0]['value']))
+            $names .= " ".$nodeStorage->get("field_pqrsd_segundo_apellido")->getValue()[0]['value'];
+        
+        //Tipo de solicitante o persona field_pqrsd_tipo_solicitante
+        $typApplicant = $nodeStorage->get("field_pqrsd_tipo_solicitante")->getValue()[0]['value'];
+        
+        //Tipo de documento si es persona juridica por defecto es 4
+        if($typApplicant == 2){
+            $typDocument = 3;
+            $numDocument = $nodeStorage->get("field_pqrsd_nit")->getValue()[0]['value'];
+        }else{
+            $typDocument = $nodeStorage->get("field_pqrsd_tipo_documento")->getValue()[0]['value'];
+            $numDocument = $nodeStorage->get("field_pqrsd_numero_id")->getValue()[0]['value'];
+        }
 
-            if(isset($nodeStorage->get("field_pqrsd_segundo_nombre")->getValue()[0]['value']))
-                $names .= " ".$nodeStorage->get("field_pqrsd_segundo_nombre")->getValue()[0]['value'];
+        //Instancia de recepcion
+        $instanceRecep = $nodeStorage->get("field_pqrsd_instance_reception")->getValue()[0]['value'];
+
+        //Punto de recepcion o forma de recepcion
+        $formRecep = $nodeStorage->get("field_pqrsd_forma_recepcion")->getValue()[0]['value'];
+
+        if($formRecep == "electronico")
+            $formRecep = 1;
             
-            $names .= " ".$nodeStorage->get("field_pqrsd_primer_apellido")->getValue()[0]['value'];
-            
-            if(isset($nodeStorage->get("field_pqrsd_segundo_apellido")->getValue()[0]['value']))
-                $names .= " ".$nodeStorage->get("field_pqrsd_segundo_apellido")->getValue()[0]['value'];
-            
-            //Tipo de solicitante o persona field_pqrsd_tipo_solicitante
-            $typApplicant = $nodeStorage->get("field_pqrsd_tipo_solicitante")->getValue()[0]['value'];
-            
-            //Tipo de documento si es persona juridica por defecto es 4
-            if($typApplicant == 2){
-                $typDocument = 3;
-                $numDocument = $nodeStorage->get("field_pqrsd_nit")->getValue()[0]['value'];
-            }else{
-                $typDocument = $nodeStorage->get("field_pqrsd_tipo_documento")->getValue()[0]['value'];
-                $numDocument = $nodeStorage->get("field_pqrsd_numero_id")->getValue()[0]['value'];
-            }
+        //Descripcion de solicitud field_pqrsd_descripcion
+        $DescriptionSolic = $nodeStorage->get("field_pqrsd_descripcion")->getValue()[0]['value'];
 
-            //Instancia de recepcion
-            $instanceRecep = $nodeStorage->get("field_pqrsd_instance_reception")->getValue()[0]['value'];
+        //Anexo archivos para la queja
+        $anexFileComplaintsFile = $nodeStorage->get("field_pqrsd_archivo")->getValue();
 
-            //Punto de recepcion o forma de recepcion
-            $formRecep = $nodeStorage->get("field_pqrsd_forma_recepcion")->getValue()[0]['value'];
+        if(sizeof($anexFileComplaintsFile))
+            $anexFileComplaints = "true";
+        else
+            $anexFileComplaints = "false";
 
-            if($formRecep == "electronico")
-                $formRecep = 1;
-                
-            //Descripcion de solicitud field_pqrsd_descripcion
-            $DescriptionSolic = $nodeStorage->get("field_pqrsd_descripcion")->getValue()[0]['value'];
+        $data = '{"tipo_entidad": "'.$this->tipEntity.'", '.
+            '"entidad_cod": "'.$this->codeEntity.'", '.
+            '"codigo_queja": "'.$codComplaints.'", '.
+            '"codigo_pais": "170", '.
+            '"departamento_cod": "'.$deptCodeDane.'", '.
+            '"municipio_cod": "'.$mpioCodeDane.'", '.
+            '"canal_cod": null, '.
+            '"producto_cod": "'.$codProduct.'", '.
+            '"macro_motivo_cod": "914", '.
+            '"fecha_creacion": "'.$created.'", '.
+            '"nombres": "'.strtoupper($names).'", '.
+            '"tipo_id_CF": "'.$typDocument.'", '.
+            '"numero_id_CF": "'.$numDocument.'", '.
+            '"tipo_persona": "'.$typApplicant.'", '.
+            '"insta_recepcion": "'.$instanceRecep.'", '.
+            '"punto_recepcion": "'.$formRecep.'", '.
+            '"admision": "9", '.
+            '"texto_queja": "'.$DescriptionSolic.'", '.
+            '"anexo_queja": "'.$anexFileComplaints.'", '.
+            '"ente_control": null}';
 
-            //Anexo archivos para la queja
-            $anexFileComplaintsFile = $nodeStorage->get("field_pqrsd_archivo")->getValue();
+        //Firma encrypt sha256 en funcion de hmac.===== ===== 
+        $signature = strtoupper(hash_hmac('sha256',$data,$this->secretKey,FALSE));
 
-            if(sizeof($anexFileComplaintsFile))
-                $anexFileComplaints = "true";
-            else
-                $anexFileComplaints = "false";
+        //Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service===== ===== 
+        $response = $this->httpClient($signature, $data, 'queja/');
 
-            $data = '{"tipo_entidad": "'.$this->tipEntity.'", '.
-                '"entidad_cod": "'.$this->codeEntity.'", '.
-                '"codigo_queja": "'.$codComplaints.'", '.
-                '"codigo_pais": "170", '.
-                '"departamento_cod": "'.$deptCodeDane.'", '.
-                '"municipio_cod": "'.$mpioCodeDane.'", '.
-                '"canal_cod": null, '.
-                '"producto_cod": "'.$codProduct.'", '.
-                '"macro_motivo_cod": "905", '.
-                '"fecha_creacion": "'.$created.'", '.
-                '"nombres": "'.strtoupper($names).'", '.
-                '"tipo_id_CF": "'.$typDocument.'", '.
-                '"numero_id_CF": "'.$numDocument.'", '.
-                '"tipo_persona": "'.$typApplicant.'", '.
-                '"insta_recepcion": "'.$instanceRecep.'", '.
-                '"punto_recepcion": "'.$formRecep.'", '.
-                '"admision": "9", '.
-                '"texto_queja": "'.$DescriptionSolic.'", '.
-                '"anexo_queja": "'.$anexFileComplaints.'", '.
-                '"ente_control": null}';
+        if(isset($response['code'])){
 
-            //Firma encrypt sha256 en funcion de hmac.===== ===== 
-            $signature = strtoupper(hash_hmac('sha256',$data,$this->secretKey,FALSE));
+            $this->logger->get('API SMFC')->warning("Code: %code Mensaje crear radicado: %message <br> Se ha producido un error al crear radicado No. %settled como cliente web services en el sistema <strong> API SMFC.", ['%code' => $response['code'], '%message' => $response['message'], '%settled' => $codComplaints]);
 
-            //Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service===== ===== 
-            /*$response = $this->httpClient($signature, $data, 'queja/');
+        }else{
 
-            if(isset($response['code'])){
-
-                $this->messenger->addError(t('Se ha producido un error al crear el radicado No. %settled como cliente web services en el sistema<strong>API SMFC:</strong><br><blockquote>Codigo: %code<br> Mensaje: %mensseger</blockquote>', ['%code' => $response['code'], '%mensseger' => $response['mensseger'], '%settled' => $codComplaints]));
-
-            }else{
-
-
-
-                $this->messenger->addStatus(t('Se ha creado la queja o reclamo con radicado No. %settled como cliente web services en el sistema <strong> API SMFC.', ['%settled' => $response['codigo_queja']]));
-            }*/
-            
             if($anexFileComplaints == "true"){
 
                 $file_storage = $this->entityTypeManager->getStorage('file');
 
                 foreach ($anexFileComplaintsFile as $file) {
 
-                    $anexFile = $file_storage->load($file['target_id']);
+                    if(sizeof($file)){
+                        $anexFile = $file_storage->load($file['target_id']);
 
-                    $anexFileUri = $anexFile->getFileUri();
+                        /* Se crea una variable de tipo string fomentado a uno de tipo objeto. ===== ===== */
+                        $dataSignature = '{"type": "'.$anexFile->getMimeType().'", '.
+                        '"codigo_queja": "'.$codComplaints.'"}';
+
+                        //Firma encrypt sha256 en funcion de hmac.===== ===== 
+                        $signature = strtoupper(hash_hmac('sha256',$dataSignature,$this->secretKey,FALSE));
+
+                        $data = ['file' => $anexFile->getFileUri(), 'type' => $anexFile->getMimeType(), 'code' => $codComplaints];
+
+                        //Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service===== ===== 
+                        $response = $this->httpClient($signature, $data, 'storage/');
+
+                        if(isset($response['code'])){
+
+                            $this->logger->get('API SMFC')->warning("Code: %code Mensaje anexo radicado: %message <br> Se ha producido un error al crear el anexo del radicado No. %settled como cliente web services en el sistema <strong> API SMFC.", ['%code' => $response['code'], '%message' => $response['message'], '%settled' => $codComplaints]);
+
+                        }
+
+                    }
 
                 }
 
-            }            
-            
+            }
         }
 
     }
