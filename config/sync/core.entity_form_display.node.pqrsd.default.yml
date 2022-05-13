@@ -52,6 +52,7 @@ dependencies:
     - datetime
     - field_group
     - file
+    - select2
 third_party_settings:
   field_group:
     group_container:
@@ -341,10 +342,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_motivo:
-    type: options_select
+    type: select2
     weight: 7
     region: content
-    settings: {  }
+    settings:
+      width: 100%
     third_party_settings: {  }
   field_pqrsd_municipio:
     type: entity_reference_autocomplete

@@ -7,6 +7,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Ajax\InvokeCommand;
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Render\Element\Date;
 use Drupal\views\Views;
 use Drupal\views\ViewExecutable;
@@ -47,7 +48,11 @@ function findeter_pqrsd_help($route_name, RouteMatchInterface $route_match) {
 * @author Sandi <email@email.com>
 */
 function getTaxonomyTermsForm($tid){
-  $child_tids = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('colombia_deparments', $tid, 1, false);
+
+  if(is_array($tid))
+    $child_tids = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('colombia_deparments', $tid[0]['target_id'], 1, false);
+  else
+    $child_tids = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('colombia_deparments', $tid, 1, false);
 
   $options = array();
   foreach ($child_tids as $term) {
@@ -65,16 +70,17 @@ function callBackDeparment(array &$form, FormStateInterface $form_state) {
 
   $element= $form_state->getTriggeringElement()["#source"];
 
-
   $form_state->setRebuild();
 
   $parent_tid = $form_state->getValue('field_pqrsd_departamento'); // the parent term id
-  $municipalityOptions = getTaxonomyTermsForm($parent_tid);
+  //$municipalityOptions = getTaxonomyTermsForm($parent_tid);
 
   if($element == 'admin'){
     $elem = $form['info_person']['field_pqrsd_municipio'];
+    $municipalityOptions = getTaxonomyTermsForm($parent_tid[0]['target_id']);
   }else{
     $elem = $form['wrapper']['content-fields']['field_pqrsd_municipio'];
+    $municipalityOptions = getTaxonomyTermsForm($parent_tid);
   }
 
 
@@ -190,7 +196,6 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
     $form['#attached']['library'][] = 'findeter_pqrsd/admin_pages';
     $form['#attached']['library'][] = 'findeter_pqrsd/classy-dropbutton';
   }
-
   /* ============================================
   REPORTES
   -Se crea los campos fecha para generar el formato 379
@@ -468,13 +473,15 @@ function findeter_pqrsd_preprocess_page(&$variables) {
 
 }
 
-
 /**
  * Build all elements for register/update PQRSD
  * @author Sandi <email@email.com>
  */
 function buildPQRSDform(){
   $form = [];
+
+  $nowTimeStamp = \Drupal::time()->getCurrentTime();
+  $date = date('Y-m-d', $nowTimeStamp);
 
   $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'pqrsd');
 
@@ -489,18 +496,18 @@ function buildPQRSDform(){
   $arrayFields['info_radicado']['field_pqrsd_tipo_discapacidad'] = 'close required';
 
   $arrayFields['info_person']['title_detail'] = 'Información de la persona';
-  $arrayFields['info_person']['field_pqrsd_numero_id'] = 'open';
-  $arrayFields['info_person']['field_pqrsd_tipo_documento'] = '';
-  $arrayFields['info_person']['field_pqrsd_primer_nombre'] = '';
+  $arrayFields['info_person']['field_pqrsd_numero_id'] = 'open required';
+  $arrayFields['info_person']['field_pqrsd_tipo_documento'] = 'required';
+  $arrayFields['info_person']['field_pqrsd_primer_nombre'] = 'required';
   $arrayFields['info_person']['field_pqrsd_segundo_nombre'] = '';
-  $arrayFields['info_person']['field_pqrsd_primer_apellido'] = '';
+  $arrayFields['info_person']['field_pqrsd_primer_apellido'] = 'required';
   $arrayFields['info_person']['field_pqrsd_segundo_apellido'] = 'close';
   $arrayFields['info_person']['field_pqrsd_direccion'] = 'open';
   $arrayFields['info_person']['field_pqrsd_departamento'] = '';
   $arrayFields['info_person']['field_pqrsd_municipio'] = '';
   $arrayFields['info_person']['field_pqrsd_telefono'] = '';
   $arrayFields['info_person']['field_pqrsd_fax'] = '';
-  $arrayFields['info_person']['field_pqrsd_email'] = '';
+  $arrayFields['info_person']['field_pqrsd_email'] = 'required';
   $arrayFields['info_person']['field_pqrsd_nit'] = '';
   $arrayFields['info_person']['field_pqrsd_razon_social'] = '';
   $arrayFields['info_person']['field_pqrsd_tipo_empresa'] = 'close';
@@ -508,7 +515,8 @@ function buildPQRSDform(){
   $arrayFields['info_product']['title_detail'] = 'Información del producto';
   $arrayFields['info_product']['field_pqrsd_nombre_producto'] = 'open required';
   $arrayFields['info_product']['field_pqrsd_archivo'] = '';
-  $arrayFields['info_product']['field_pqrsd_motivo'] = '';
+  $arrayFields['info_product']['field_pqrsd_archivo_container'] = 'field-pqrsd-archivo-container';
+  $arrayFields['info_product']['field_pqrsd_motivo'] = 'required';
   $arrayFields['info_product']['field_pqrsd_otros'] = 'close';
   $arrayFields['info_product']['field_pqrsd_descripcion'] = 'column required';
 
@@ -569,17 +577,16 @@ function buildPQRSDform(){
             break;
 
             case 'file':
-              $fileSettings = $definitions[$idField]->getSettings();
-
               $form[$idDetail][$idField]['#type'] = 'managed_file';
-              $form[$idDetail][$idField]['#cardinality'] = 3;
               $form[$idDetail][$idField]['#multiple'] = true;
               $form[$idDetail][$idField]['#title'] = $definitions[$idField]->getLabel();
-              $form[$idDetail][$idField]['#upload_validators'] = [
-                'file_validate_extensions' => [$fileSettings['file_extensions']],
-                'file_validate_size'       => 20971520,
-              ];
               $form[$idDetail][$idField]['#description'] = $definitions[$idField]->getDescription();
+              $form[$idDetail][$idField]['#upload_location'] = 'public://pqrsd/Admin/'.$date;
+              $form[$idDetail][$idField]['#upload_validators'] = [
+                'file_validate_extensions' => [\Drupal::service('api.smfc')->getExtFile()],
+                'file_validate_size'       => [20971520],
+              ];
+              $form[$idDetail][$idField]['#limit_validation_errors'] = [];
             break;
 
             case 'string_long':
@@ -637,6 +644,13 @@ function buildPQRSDform(){
 
             case 'required':
               $form[$idDetail][$idField]['#required'] = true;
+            break;$arrayFields['info_product']['field_pqrsd_archivo'] = '';
+
+            case 'field-pqrsd-archivo-container':
+              $form[$idDetail][$idField]['field_pqrsd_archivo_container'] = [
+                '#type' => 'container',
+                '#attributes' => ['id' => 'field-pqrsd-archivo-container']
+              ];
             break;
 
             default:
@@ -651,6 +665,44 @@ function buildPQRSDform(){
 
   }
 
+  /* ============================================
+  Se altera las opciones en tipo de persona
+  Se utiliza para obtener los items dependiendo del tipo
+  de peticion para findeter o SMFC(Queja o Reclamo)
+  =============================================== */
+  $optionsTypPerson = $definitions['field_pqrsd_tipo_solicitante']->getSetting('allowed_values');
+  $form['info_radicado']['field_pqrsd_tipo_solicitante']['#attributes']= ['disabled' => 'disabled'];
+
+  $optionsTypDocum = $definitions['field_pqrsd_tipo_documento']->getSetting('allowed_values');
+  $form['info_person']['field_pqrsd_tipo_documento']['#attributes']= ['disabled' => 'disabled'];
+
+  $optionsProduct = $definitions['field_pqrsd_nombre_producto']->getSetting('allowed_values');
+  $form['info_product']['field_pqrsd_nombre_producto']['#attributes']= ['disabled' => 'disabled'];
+
+  $optionsMotive = $definitions['field_pqrsd_motivo']->getSetting('allowed_values');
+  $form['info_product']['field_pqrsd_motivo']['#attributes']= ['disabled' => 'disabled'];
+
+  $optionsFormRecep = $definitions['field_pqrsd_forma_recepcion']->getSetting('allowed_values');
+  $form['info_admin']['field_pqrsd_forma_recepcion']['#attributes']= ['disabled' => 'disabled'];
+
+  $form['#attached']['drupalSettings']['optionsFields'] = [    
+    [
+      '#edit-field-pqrsd-tipo-solicitante' => $optionsTypPerson
+    ],
+    [
+      '#edit-field-pqrsd-tipo-documento' => $optionsTypDocum
+    ],
+    [
+      '#edit-field-pqrsd-nombre-producto' => $optionsProduct
+    ],
+    [
+      '#edit-field-pqrsd-motivo' => $optionsMotive
+    ],
+    [
+      '#edit-field-pqrsd-forma-recepcion' => $optionsFormRecep
+    ],
+  ];
+
   //limit "Número identificacion" field
   $form['info_person']['field_pqrsd_numero_id']['#size'] = 10;
   $form['info_person']['field_pqrsd_numero_id']['#maxlength'] = 10;
@@ -661,7 +713,7 @@ function buildPQRSDform(){
   // define values and parameters for Department/municipalities
   $deparmentOptions = getTaxonomyTermsForm(0);
 
-  $form['info_person']['field_pqrsd_departamento']['#type'] = 'select';
+  $form['info_person']['field_pqrsd_departamento']['#type'] = 'select2';
   $form['info_person']['field_pqrsd_departamento']['#options'] = $deparmentOptions;
   $form['info_person']['field_pqrsd_departamento']['#empty_option'] = '-Seleccione una opción-';
   $form['info_person']['field_pqrsd_departamento']['#default_value'] = NULL;
@@ -673,12 +725,18 @@ function buildPQRSDform(){
       'message' => 'Recupersando municipios...',
     ],
   ];
+  $form['info_person']['field_pqrsd_departamento']['#select2'] = ['allowClear' => FALSE];
 
-  $form['info_person']['field_pqrsd_municipio']['#type'] = 'select';
+  $form['info_person']['field_pqrsd_municipio']['#type'] = 'select2';
   $form['info_person']['field_pqrsd_municipio']['#prefix'] = '<div id="output-municipalities">';
   $form['info_person']['field_pqrsd_municipio']['#suffix'] = '</div>';
-  $form['info_person']['field_pqrsd_municipio']['#empty_option'] = '-Seleccione una opción-';
-  $form['info_person']['field_pqrsd_municipio']['#default_value'] = NULL;
+  //$form['info_person']['field_pqrsd_municipio']['#empty_option'] = '-Seleccione una opción-';
+  //$form['info_person']['field_pqrsd_municipio']['#default_value'] = NULL;
+  $form['info_person']['field_pqrsd_municipio']['#select2'] = ['allowClear' => FALSE];
+
+  //Informacion motivo select2
+  $form['info_product']['field_pqrsd_motivo']['#type'] = 'select2';
+  $form['info_product']['field_pqrsd_motivo']['#select2'] = ['allowClear' => FALSE];
 
   // change type of field for "Medio de respuesta" field
   $form['info_admin']['field_pqrsd_medio_respuesta']['#type'] = 'radios';

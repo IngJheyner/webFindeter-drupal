@@ -15,6 +15,11 @@ interface ApiSmfcInterface{
     public function getTipCodeEntity(string $num_settled): string;
 
     /**
+     * Agregar extensiones de archivos que acepta la API SMFC
+     * @return string $xtension
+     */
+    public function getExtFile(): string;
+    /**
      * Login
      * Used to enter SMFC system and get access token
      * El sistema de login se ejecuta cada 12hrs mediante el cron

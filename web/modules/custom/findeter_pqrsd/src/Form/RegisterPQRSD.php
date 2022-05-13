@@ -468,7 +468,8 @@ class RegisterPQRSD extends FormBase {
     $newRequest->set('title', 'Radicado: '.$numeroRadicado.'.'.date('U'));
 
     // set "# radicado"
-    /*// Si es un radicado de tipo Queja, se antepone el codigo de entidad de findeter para SMFC ===== ===== */
+    /* Si es un radicado de tipo Queja, se antepone el codigo de entidad de findeter para SMFC 
+    @author 3desarrollo===== ===== */
     if($values['field_pqrsd_tipo_radicado'] == 'Quejas' || 
     $values['field_pqrsd_tipo_radicado'] == 'Reclamos'){
 
@@ -569,7 +570,6 @@ class RegisterPQRSD extends FormBase {
 
       /* Se guarda los nid como variables de estado para que despues
       sea registrado en la API SMFC. ==== ====== */
-      $this->state->delete('findeter_pqrsd.api_smfc_nid_post');
       $nid = $this->state->get('findeter_pqrsd.api_smfc_nid');
       
       if(is_null($nid)){
@@ -594,7 +594,6 @@ class RegisterPQRSD extends FormBase {
         $this->state->set('findeter_pqrsd.api_smfc_nid', $nid);
 
       }
-
     }
 
   }

@@ -87,7 +87,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
 
         //$this->login();
         //$this->refreshToken();
-        //$this->postComplaints(258);
+        //$this->postComplaints(262);
        
     }
 
@@ -96,6 +96,14 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
      */
     public function getTipCodeEntity(string $num_settled): string{
         return $this->tipEntity.$this->codeEntity.$num_settled;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getExtFile(): string{
+
+        return 'pdf jpg png mp4 docx doc xls bmp mp3 msg jpeg xlsx zip';
     }
 
     /**
@@ -190,6 +198,9 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
         //Producto ===== =====
         $codProduct = $nodeStorage->get("field_pqrsd_nombre_producto")->getValue()[0]['value'];
 
+        //Motivo
+        $codMotive = $nodeStorage->get("field_pqrsd_motivo")->getValue()[0]['value'];
+
         //Fecha de creacion ===== ===== */
         $createdTimeStamp = $nodeStorage->get("created")->getValue()[0]['value'];
 
@@ -246,7 +257,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
             '"municipio_cod": "'.$mpioCodeDane.'", '.
             '"canal_cod": null, '.
             '"producto_cod": "'.$codProduct.'", '.
-            '"macro_motivo_cod": "914", '.
+            '"macro_motivo_cod": "'.$codMotive.'", '.
             '"fecha_creacion": "'.$created.'", '.
             '"nombres": "'.strtoupper($names).'", '.
             '"tipo_id_CF": "'.$typDocument.'", '.

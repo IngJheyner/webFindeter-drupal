@@ -5,12 +5,79 @@
 
             $(document, context).once('findeterUserFormRequest ').each(function() {
 
+                /*===========================================
+                Pasar valores
+                Dependiendo del tipo de radicado se caragan valores
+                SMFC(Queja o Reclamo)
+                =============================================*/
+                loadOptionsField = (petition, element) => {
+
+                    let item = [];
+                    let itemSmfc = [];
+                    $.map(element, function(valueField, nameField) {
+
+                        field = document.querySelector(nameField);
+                        length = field.options.length;
+                        while(length--){
+                          field.remove(length);
+                        }
+                        field.appendChild(new Option('-Seleccione una opción-', ''));
+                        field.removeAttribute('disabled');
+                        field.classList.remove('form-select');
+                        
+                        $.map(valueField, function(element, index) {
+
+                            if(isNaN(index))
+                                item.push({index: index, value: element});
+                            else
+                                itemSmfc.push({index: index, value: element});
+                        });
+                    });
+
+                    if(petition){
+                        $.map(itemSmfc, function(element, index) {
+                            field.appendChild(new Option(element.value, element.index));                            
+                        });
+
+                    }else{
+                        $.map(item, function(element, index) {
+                            field.appendChild(new Option(element.value, element.index));                            
+                        });
+                    }
+                };
+
+                $('#edit-field-pqrsd-tipo-radicado').on('change', function() {
+
+                    if (this.value == 'Peticiones') {
+                        $('.form-item-field-pqrsd-tipo-peticion').fadeIn();
+                    } else {
+                        $('.form-item-field-pqrsd-tipo-peticion').fadeOut();
+                    }
+
+                    /* ===== ===== Preguntamos que tipo de peticion, carga de algunos valores para SMFC===== ===== */
+                    let TypPetition = (this.value == 'Quejas' || this.value == 'Reclamos') ? true : false;
+
+                    $.map(settings.optionsFields, function(element, index) {
+                        loadOptionsField(TypPetition, element);
+                    });
+
+                    if(!TypPetition){
+                        document.querySelector('#edit-field-pqrsd-nit').removeAttribute('required');                        
+                    }else{
+                        document.querySelector('#edit-field-pqrsd-nit').setAttribute('required', 'required');
+                    }
+                });
+
                 $.fn.afterLocation = function(argument) {
+
                     if ($('#register-pqrsd-admin').length) {
-                        console.log('inside location');
+                        //console.log('inside location');
+
                         var typeForm = $('#edit-field-pqrsd-tipo-solicitante option:selected').val();
-                        console.log(typeForm, 'option selected');
-                        if (typeForm == 'juridica') {
+
+                        //console.log(typeForm, 'option selected');
+
+                        if (typeForm == 'juridica' || typeForm == '2') {
                             console.log('if');
                             $('.form-item-field-pqrsd-nit').fadeIn();
                             $('.form-item-field-pqrsd-razon-social').fadeIn();
@@ -214,7 +281,7 @@
             $('.form-item-field-pqrsd-primer-apellido label').addClass('js-form-required form-required');
             $('.form-item-field-pqrsd-direccion label').addClass('js-form-required form-required');
             $('.form-item-field-pqrsd-departamento label').addClass('js-form-required form-required');
-            $('.form-item-field-pqrsd-municipalidadlabel').addClass('js-form-required form-required');
+            $('.form-item-field-pqrsd-municipalidad label').addClass('js-form-required form-required');
             $('.form-item-field-pqrsd-telefono label').addClass('js-form-required form-required');
             $('.form-item-field-pqrsd-email label').addClass('js-form-required form-required');
             $('.form-item-field-pqrsd-nit label').addClass('js-form-required form-required');
@@ -237,17 +304,6 @@
 
             $("#edit-field-pqrsd-autorizacion").prop("checked", true);
 
-
-            $('#edit-field-pqrsd-tipo-radicado').on('change', function() {
-                if (this.value == 'Peticiones') {
-                    $('.form-item-field-pqrsd-tipo-peticion').fadeIn();
-                } else {
-                    $('.form-item-field-pqrsd-tipo-peticion').fadeOut();
-                }
-            });
-
-
-
             $('#edit-field-pqrsd-tipo-solicitante').on('change', function() {
                 if (this.value == 'anonimo') {
                     $('#edit-info-person').fadeOut();
@@ -255,14 +311,16 @@
                     $('#edit-info-person').fadeIn();
                 }
 
-                if (this.value == 'juridica') {
+                if (this.value == 'juridica' || this.value == '2') {
                     $('.form-item-field-pqrsd-nit').fadeIn();
                     $('.form-item-field-pqrsd-razon-social').fadeIn();
                     $('.form-item-field-pqrsd-tipo-empresa').fadeIn();
+                    document.querySelector('#edit-field-pqrsd-nit').setAttribute('required', 'required'); 
                 } else {
                     $('.form-item-field-pqrsd-nit').fadeOut();
                     $('.form-item-field-pqrsd-razon-social').fadeOut();
                     $('.form-item-field-pqrsd-tipo-empresa').fadeOut();
+                    document.querySelector('#edit-field-pqrsd-nit').removeAttribute('required'); 
                 }
             });
 

@@ -202,7 +202,7 @@ class StepTwo extends BaseStep {
     $deparmentOptions = getTaxonomyTermsForm(0);
 
     $formStep['field_pqrsd_departamento'] = [
-      '#type'    => 'select',
+      '#type'    => 'select2',
       '#title'   => $definitions['field_pqrsd_departamento']->getLabel(),
       '#options' => $deparmentOptions,
       '#source'  => 'steps',
@@ -214,6 +214,9 @@ class StepTwo extends BaseStep {
         ],
       ],
       '#empty_option'   => '-Seleccione una opción-',
+      '#select2' => [
+        'allowClear' => FALSE,
+      ],
     ];
 
     $departmentValue = false;
@@ -224,11 +227,14 @@ class StepTwo extends BaseStep {
     }
 
     $formStep['field_pqrsd_municipio'] = [
-      '#type'      => 'select',
+      '#type'      => 'select2',
       '#title'     => $definitions['field_pqrsd_municipio']->getLabel(),
       '#prefix'    => '<div id="output-municipalities">',
       '#suffix'    => '</div>',
       '#empty_option' => '-Seleccione una opción-',
+      '#select2' => [
+        'allowClear' => FALSE,
+      ],
     ];
 
     if ($departmentValue) {
