@@ -43,60 +43,6 @@ function findeter_pqrsd_help($route_name, RouteMatchInterface $route_match) {
   }
 }
 
-/**
-* Create an array with the taxonomy terms
-* @author Sandi <email@email.com>
-*/
-function getTaxonomyTermsForm($tid){
-
-  if(is_array($tid))
-    $child_tids = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('colombia_deparments', $tid[0]['target_id'], 1, false);
-  else
-    $child_tids = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('colombia_deparments', $tid, 1, false);
-
-  $options = array();
-  foreach ($child_tids as $term) {
-    $options[$term->tid] = $term->name;
-  }
-  return $options;
-}
-
-
-/**
-* Callback deparment select ajax event
-* @author Sandi <email@email.com>
-*/
-function callBackDeparment(array &$form, FormStateInterface $form_state) {
-
-  $element= $form_state->getTriggeringElement()["#source"];
-
-  $form_state->setRebuild();
-
-  $parent_tid = $form_state->getValue('field_pqrsd_departamento'); // the parent term id
-  //$municipalityOptions = getTaxonomyTermsForm($parent_tid);
-
-  if($element == 'admin'){
-    $elem = $form['info_person']['field_pqrsd_municipio'];
-    $municipalityOptions = getTaxonomyTermsForm($parent_tid[0]['target_id']);
-  }else{
-    $elem = $form['wrapper']['content-fields']['field_pqrsd_municipio'];
-    $municipalityOptions = getTaxonomyTermsForm($parent_tid);
-  }
-
-
-  $elem['#options'] = $municipalityOptions;
-  $renderer = \Drupal::service('renderer');
-  $renderedField = $renderer->render($elem);
-
-  $response = new AjaxResponse();
-
-
-  $response->addCommand(new InvokeCommand(NULL, 'afterLocation', ['Reloading page!']));
-  $response->addCommand(new ReplaceCommand('#output-municipalities', $renderedField));
-
-  return $response;
-}
-
 
 /**
  * Define behavior of date red/orange for each scene
@@ -474,6 +420,79 @@ function findeter_pqrsd_preprocess_page(&$variables) {
 }
 
 /**
+* Create an array with the taxonomy terms
+* @author Sandi <email@email.com>
+*/
+function getTaxonomyTermsForm($tid){
+
+  if(is_array($tid))
+    $child_tids = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('colombia_deparments', $tid[0]['target_id'], 1, false);
+  else
+    $child_tids = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('colombia_deparments', $tid, 1, false);
+
+  $options = array();
+  foreach ($child_tids as $term) {
+    $options[$term->tid] = $term->name;
+  }
+  return $options;
+}
+
+
+/**
+* Callback deparment select ajax event
+* @author Sandi <email@email.com>
+*/
+function callBackDeparment(array &$form, FormStateInterface $form_state) {
+
+  //return $form['output-municipalities'];
+  $element= $form_state->getTriggeringElement()["#source"];
+
+  $form_state->setRebuild();
+
+  $parent_tid = $form_state->getValue('field_pqrsd_departamento'); // the parent term id
+  //$municipalityOptions = getTaxonomyTermsForm($parent_tid);
+
+  if($element == 'admin'){
+
+    //Campo pilot para obtener los valores de municipio
+    // y estos ser guardados en el campo hidden
+    $form['info_person']['field_pqrsd_municipio_container']['field_pqrsd_municipio_select'] = [
+      '#type' => 'select2',
+      '#title' => 'Municipios:',
+      '#required' => TRUE,
+      '#options' => getTaxonomyTermsForm($parent_tid[0]['target_id']),
+      '#select2' => [
+        ['allowClear' => FALSE],
+      ],
+      '#attributes' => ['id' => 'field-pqrsd-municipio-select'],
+    ];
+
+    return $form['info_person']['field_pqrsd_municipio_container'];
+
+    //$elem = $form['info_person']['field_pqrsd_municipio']['field_pqrsd_municipio'];
+    //$municipalityOptions = getTaxonomyTermsForm($parent_tid[0]['target_id']);
+
+  }else{
+
+    $elem = $form['wrapper']['content-fields']['field_pqrsd_municipio'];
+
+    $municipalityOptions = getTaxonomyTermsForm($parent_tid);
+     $elem['#options'] = $municipalityOptions;
+    $renderer = \Drupal::service('renderer');
+    $renderedField = $renderer->render($elem);
+
+    $response = new AjaxResponse();
+
+
+    //$response->addCommand(new InvokeCommand(NULL, 'afterLocation', ['Reloading page!']));
+    $response->addCommand(new ReplaceCommand('#output-municipalities', $renderedField));
+
+    return $response;
+  }
+
+}
+
+/**
  * Build all elements for register/update PQRSD
  * @author Sandi <email@email.com>
  */
@@ -504,6 +523,7 @@ function buildPQRSDform(){
   $arrayFields['info_person']['field_pqrsd_segundo_apellido'] = 'close';
   $arrayFields['info_person']['field_pqrsd_direccion'] = 'open';
   $arrayFields['info_person']['field_pqrsd_departamento'] = '';
+  $arrayFields['info_person']['field_pqrsd_municipio_container'] = '';
   $arrayFields['info_person']['field_pqrsd_municipio'] = '';
   $arrayFields['info_person']['field_pqrsd_telefono'] = '';
   $arrayFields['info_person']['field_pqrsd_fax'] = '';
@@ -515,7 +535,6 @@ function buildPQRSDform(){
   $arrayFields['info_product']['title_detail'] = 'Información del producto';
   $arrayFields['info_product']['field_pqrsd_nombre_producto'] = 'open required';
   $arrayFields['info_product']['field_pqrsd_archivo'] = '';
-  $arrayFields['info_product']['field_pqrsd_archivo_container'] = 'field-pqrsd-archivo-container';
   $arrayFields['info_product']['field_pqrsd_motivo'] = 'required';
   $arrayFields['info_product']['field_pqrsd_otros'] = 'close';
   $arrayFields['info_product']['field_pqrsd_descripcion'] = 'column required';
@@ -581,7 +600,7 @@ function buildPQRSDform(){
               $form[$idDetail][$idField]['#multiple'] = true;
               $form[$idDetail][$idField]['#title'] = $definitions[$idField]->getLabel();
               $form[$idDetail][$idField]['#description'] = $definitions[$idField]->getDescription();
-              $form[$idDetail][$idField]['#upload_location'] = 'public://pqrsd/Admin/'.$date;
+              $form[$idDetail][$idField]['#upload_location'] = 'private://pqrsd/Admin/'.$date;
               $form[$idDetail][$idField]['#upload_validators'] = [
                 'file_validate_extensions' => [\Drupal::service('api.smfc')->getExtFile()],
                 'file_validate_size'       => [20971520],
@@ -645,13 +664,6 @@ function buildPQRSDform(){
             case 'required':
               $form[$idDetail][$idField]['#required'] = true;
             break;$arrayFields['info_product']['field_pqrsd_archivo'] = '';
-
-            case 'field-pqrsd-archivo-container':
-              $form[$idDetail][$idField]['field_pqrsd_archivo_container'] = [
-                '#type' => 'container',
-                '#attributes' => ['id' => 'field-pqrsd-archivo-container']
-              ];
-            break;
 
             default:
             break;
@@ -721,18 +733,28 @@ function buildPQRSDform(){
   $form['info_person']['field_pqrsd_departamento']['#ajax'] = [
     'callback'  => 'callBackDeparment',
     'event'     => 'change',
+    'wrapper' => 'field-pqrsd-municipio-container',
     'progress'  => [
       'message' => 'Recupersando municipios...',
     ],
   ];
   $form['info_person']['field_pqrsd_departamento']['#select2'] = ['allowClear' => FALSE];
 
-  $form['info_person']['field_pqrsd_municipio']['#type'] = 'select2';
+
+  /*$form['info_person']['field_pqrsd_municipio']['#type'] = 'select2';
   $form['info_person']['field_pqrsd_municipio']['#prefix'] = '<div id="output-municipalities">';
   $form['info_person']['field_pqrsd_municipio']['#suffix'] = '</div>';
-  //$form['info_person']['field_pqrsd_municipio']['#empty_option'] = '-Seleccione una opción-';
-  //$form['info_person']['field_pqrsd_municipio']['#default_value'] = NULL;
-  $form['info_person']['field_pqrsd_municipio']['#select2'] = ['allowClear' => FALSE];
+  $form['info_person']['field_pqrsd_municipio']['#empty_option'] = '-Seleccione una opción-';
+  $form['info_person']['field_pqrsd_municipio']['#default_value'] = !empty($form_state->getValue('field_pqrsd_municipio')) ? $form_state->getValue('field_pqrsd_municipio') : '';
+  $form['info_person']['field_pqrsd_municipio']['#select2'] = ['allowClear' => FALSE];*/
+  $form['info_person']['field_pqrsd_municipio_container']['#type'] = 'container';
+  $form['info_person']['field_pqrsd_municipio_container']['#attributes'] = ['id' => 'field-pqrsd-municipio-container'];
+
+  //Campo municipio que toma valores del campo pilot creado en
+  //funcion @see callBackDeparment
+  $form['info_person']['field_pqrsd_municipio']['#type'] = 'hidden';
+  $form['info_person']['field_pqrsd_municipio']['#default_value'] = '';
+  $form['info_person']['field_pqrsd_municipio']['#attributes'] = ['id' => 'field-pqrsd-municipio'];
 
   //Informacion motivo select2
   $form['info_product']['field_pqrsd_motivo']['#type'] = 'select2';

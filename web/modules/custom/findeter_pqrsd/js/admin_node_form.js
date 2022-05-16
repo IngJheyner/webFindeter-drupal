@@ -68,6 +68,10 @@
                     }
                 });
 
+                $('#field-pqrsd-municipio-select').on('change', function(){
+                    console.log($(this).val())
+                });
+
                 $.fn.afterLocation = function(argument) {
 
                     if ($('#register-pqrsd-admin').length) {
@@ -257,6 +261,14 @@
                     });
 
                 }
+            });
+
+            /*===========================================
+            Se crea un campo pilot para obtener valores de
+            municipio y este psarlo al campo hidden para ser guardado
+            =============================================*/
+            $('#field-pqrsd-municipio-select').on('change', function(){
+                $('#field-pqrsd-municipio').val(($(this).val()));
             });
 
             // click inside modal link name, close the modal and fill the text input

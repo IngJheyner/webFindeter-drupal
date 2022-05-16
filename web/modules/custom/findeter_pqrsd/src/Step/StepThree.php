@@ -176,7 +176,7 @@ class StepThree extends BaseStep {
       '#cardinality'     => 3,
       '#multiple'        => TRUE,
       '#title'           => $definitions['field_pqrsd_archivo']->getLabel(),
-      '#upload_location' => 'public://pqrsd/'.$this->valuesStepZero['field_pqrsd_tipo_radicado'].'/'.$date.'/'.$time.'/',
+      '#upload_location' => 'private://pqrsd/'.$this->valuesStepZero['field_pqrsd_tipo_radicado'].'/'.$date.'/'.$time.'/',
       '#upload_validators' => [
         'file_validate_extensions' => [($this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Quejas' || 
         $this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Reclamos') ? \Drupal::service('api.smfc')->getExtFile() : $fileSettings['file_extensions']],

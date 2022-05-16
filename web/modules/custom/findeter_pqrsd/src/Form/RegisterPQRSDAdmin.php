@@ -39,14 +39,36 @@ class RegisterPQRSDAdmin extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
+    
     // see findeter_pqrsd.module    
     $form = buildPQRSDform();
 
+    /*$valueUser = $form_state->getUserInput();
+
+    if(!empty($form_state->getValue('field_pqrsd_archivo'))){
+
+      $nowTimeStamp = \Drupal::time()->getCurrentTime();
+      $date = date('Y-m-d', $nowTimeStamp);
+      $nidHours = 'T'.date('H', $nowTimeStamp).'---'.$valueUser['field_pqrsd_numero_id'];
+      // Get the definitions
+      $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'pqrsd');
+      $fileSettings = $definitions['field_pqrsd_archivo']->getSettings();
+
+      $form['info_product']['field_pqrsd_archivo']['#upload_location'] = 'private://pqrsd/'.$valueUser['field_pqrsd_tipo_radicado'].'/'.$date.'/'.$nidHours.'/';
+        
+      $form['info_product']['field_pqrsd_archivo']['#upload_validators'] = [
+        'file_validate_extensions' => [($valueUser['field_pqrsd_tipo_radicado'] == 'Quejas' || 
+        $valueUser['field_pqrsd_tipo_radicado'] == 'Reclamos') ? \Drupal::service('api.smfc')->getExtFile() : $fileSettings['file_extensions']],
+        'file_validate_size'       => [20971520],
+      ];
+
+    }*/
+
     $departmentValue = false;
     
-    $departmentValue = $form_state->getUserInput('field_pqrsd_departamento');
+    $departmentValue = $form_state->getValue('field_pqrsd_departamento');
     if ($departmentValue) {
-      $form['info_person']['field_pqrsd_municipio']['#options'] = getTaxonomyTermsForm($departmentValue);
+      $form['info_person']['field_pqrsd_municipio_container']['field_pqrsd_municipio_select']['#options'] = getTaxonomyTermsForm($departmentValue);
     }
     
     return $form;
