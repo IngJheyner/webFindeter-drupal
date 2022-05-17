@@ -157,6 +157,13 @@ class StepTwo extends BaseStep {
       '#empty_option' => '-Seleccione una opción-'
     ];
 
+    $formStep['field_pqrsd_lgtbi'] = [
+      '#type'    => 'select',
+      '#title'   => $definitions['field_pqrsd_lgtbi']->getLabel(),
+      '#options' => $definitions['field_pqrsd_lgtbi']->getSetting('allowed_values'),
+      '#empty_option' => '-Seleccione una opción-'
+    ];
+
     $formStep['field_pqrsd_primer_nombre'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_pqrsd_primer_nombre']->getLabel(),
@@ -277,6 +284,7 @@ class StepTwo extends BaseStep {
       'field_pqrsd_numero_id',
       'field_pqrsd_tipo_documento',
       'field_pqrsd_sexo',
+      'field_pqrsd_lgtbi',
       'field_pqrsd_primer_nombre',
       'field_pqrsd_segundo_nombre',
       'field_pqrsd_primer_apellido',
@@ -313,6 +321,9 @@ class StepTwo extends BaseStep {
       ],
       'field_pqrsd_sexo' => [
         new ValidatorNaturalRequester("El sexo es requerido"),
+      ],
+      'field_pqrsd_lgtbi' => [
+        new ValidatorNaturalRequester("Lgtbi es requerido"),
       ],
       'field_pqrsd_primer_nombre' => [
         new ValidatorRequired("Primer nombre es requerido"),

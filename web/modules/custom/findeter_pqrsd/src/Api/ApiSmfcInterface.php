@@ -38,6 +38,14 @@ interface ApiSmfcInterface{
      * @param $nid 
      *  - parametro $nid con argumento de identificacion del nodo.
      */
-    public function postComplaints(int $nid): void;
+    public function postComplaints(int $nid): bool;
+
+    /**
+     * PUT Quejas
+     * Se actualiza valores en las quejas registradas en el sistema SMFC
+     * @param $nid 
+     *  - parametro $nid con argumento de identificacion del nodo.
+     */
+    public function putComplaints(int $nid): void;
 
 }

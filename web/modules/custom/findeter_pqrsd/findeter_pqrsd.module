@@ -387,15 +387,14 @@ function findeter_pqrsd_cron() {
         
         if(date('Y-m-d', $now) !== date('Y-m-d', $state['created'])){
 
-          $apiSmfc->postComplaints($state['nid']);
+          if($state['smfc'] === FALSE){
+            $post = $apiSmfc->postComplaints($state['nid']);
+          }
           
         }
       }
-
     }
-
   }
-
 }
 
 

@@ -1,0 +1,40 @@
+uuid: c33f7837-560f-44d7-b834-c021390153f9
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_pqrsd_entes_control
+field_name: field_pqrsd_entes_control
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: Procuraduria
+    -
+      value: '2'
+      label: Contraloria
+    -
+      value: '3'
+      label: 'Defensoria del pueblo'
+    -
+      value: '4'
+      label: Personeria
+    -
+      value: '99'
+      label: Otros
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -88,6 +88,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
         //$this->login();
         //$this->refreshToken();
         //$this->postComplaints(262);
+        //$this->putComplaints(275);
        
     }
 
@@ -170,7 +171,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
     /**
      * @inheritDoc
      */
-    public function postComplaints(int $nid): void{
+    public function postComplaints(int $nid): bool{
 
         //Carga de informacion del nodo por medio de su $nid
         $nodeStorage = $this->entityTypeManager->getStorage('node')->load($nid);
@@ -280,6 +281,8 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
 
             $this->logger->get('API SMFC')->warning("Code: %code Mensaje crear radicado: %message <br> Se ha producido un error al crear radicado No. %settled como cliente web services en el sistema <strong> API SMFC.", ['%code' => $response['code'], '%message' => $response['message'], '%settled' => $codComplaints]);
 
+            return FALSE;
+
         }else{
 
             if($anexFileComplaints == "true"){
@@ -314,8 +317,68 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
                 }
 
             }
+
+            return TRUE;
         }
 
     }
-    
+
+    /**
+     * @inheritDoc
+     */
+    public function putComplaints(int $nid): void{
+
+        //Carga de informacion del nodo por medio de su $nid
+        $nodeStorage = $this->entityTypeManager->getStorage('node')->load($nid);
+
+        if(isset($nodeStorage->get('field_pqrsd_respuesta')->getValue()[0]['value'])){
+
+            //Codigo de Radicado(Queja o Reclamos) ===== ===== 
+            $codComplaints = $nodeStorage->get("field_pqrsd_numero_radicado")->getValue()[0]['value'];
+
+            //Sexo
+            $sexo = $nodeStorage->get("field_pqrsd_sexo")->getValue()[0]['value'];
+
+            //lgbti
+            $lgtbi = $nodeStorage->get("field_pqrsd_lgtbi")->getValue()[0]['value'];
+
+            //Producto ===== =====
+            $codProduct = $nodeStorage->get("field_pqrsd_nombre_producto")->getValue()[0]['value'];
+
+            //Motivo
+            $codMotive = $nodeStorage->get("field_pqrsd_motivo")->getValue()[0]['value'];
+
+            //Anexo archivos para la queja
+            $anexFileComplaintsFile = $nodeStorage->get("field_pqrsd_archivo")->getValue();
+
+            if(sizeof($anexFileComplaintsFile))
+                $anexFileComplaints = "true";
+            else
+                $anexFileComplaints = "false";
+            
+            $data = '{"codigo_queja": "'.$codComplaints.'", '.
+                '"sexo": "'.$sexo.'", '.
+                '"lgbtiq": "'.$lgtbi.'", '.
+                '"condicion_especial": 98, '.
+                '"canal_cod": null, '.
+                '"producto_cod": "'.$codProduct.'", '.
+                '"macro_motivo_cod": "'.$codMotive.'", '.
+                '"estado_cod": 3, '.
+                '"fecha_actualizacion": "2022-03-02T06:23:06", '.
+                '"producto_digital": 2, '.
+                '"a_favor_de": null, '.
+                '"aceptacion_queja": null, './/Verificar depende del momento 1?
+                '"rectificacion_queja": null, './/Verificar depende del momento 1?
+                '"desistimiento_queja": null, './/Verificar
+                '"prorroga_queja": null, './/Verificar
+                '"admision": "9", './/Verificar depende del momento 1?
+                '"documentacion_rta_final": true, '.
+                '"anexo_queja": true, '.
+                '"fecha_cierre": "2022-03-02T06:23:06", '.
+                '"tutela": 2, './/Verificar
+                '"ente_control": null, '.
+                '"marcacion": null, '.
+                '"queja_expres": 2}';//Verificar
+        }
+    }
 }

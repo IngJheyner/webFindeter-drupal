@@ -82,8 +82,30 @@ class AnswerPQRSD extends FormBase {
       '#title'           => $definitions['field_pqrsd_respuesta_archivos']->getLabel(),
       '#upload_validators' => [
         'file_validate_extensions' => [$fileSettings['file_extensions']],
-      ]
+      ],
+      '#required' => ($node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Quejas" || $node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Reclamos") ? TRUE : FALSE,
     ];
+
+    //Se agrega nuevos campos para enviar a la API SMFC(tutela y ente de control)
+    if($node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Quejas" || $node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Reclamos"){
+
+      $form['field_pqrsd_tutela'] = [
+        '#type'    => 'select',
+        '#title'   => $definitions['field_pqrsd_tutela']->getLabel(),
+        '#options' => $definitions['field_pqrsd_tutela']->getSetting('allowed_values'),
+        '#empty_option' => '-Seleccione una opción-',
+        '#required' => TRUE,
+      ];
+
+      $form['field_pqrsd_entes_control'] = [
+        '#type'    => 'select',
+        '#title'   => $definitions['field_pqrsd_entes_control']->getLabel(),
+        '#options' => $definitions['field_pqrsd_entes_control']->getSetting('allowed_values'),
+        '#empty_option' => '-Seleccione una opción-',
+        '#required' => TRUE,
+      ];
+
+    }
 
     $form['field_pqrsd_respuesta_a_favor'] = [
       '#type'    => 'radios',
@@ -141,6 +163,8 @@ class AnswerPQRSD extends FormBase {
     $node->field_pqrsd_respuesta[] = $formValues['field_pqrsd_respuesta'];
     $node->field_pqrsd_respuesta_a_favor[] = $formValues['field_pqrsd_respuesta_a_favor'];
     $node->field_pqrsd_fecha_respuesta[] = date('Y-m-d\TH:i:s',strtotime('now'));
+    $node->field_pqrsd_tutela[] = $formValues['field_pqrsd_tutela'];
+    $node->field_pqrsd_entes_control[] = $formValues['field_pqrsd_entes_control'];
     
     $fileStorage = \Drupal::entityTypeManager()->getStorage('file');
 
