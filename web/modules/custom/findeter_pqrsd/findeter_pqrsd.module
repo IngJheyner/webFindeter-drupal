@@ -149,6 +149,48 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
 
   if($form['#id'] == 'views-exposed-form-pqrsd-page-2'){
 
+    /* ============================================
+    Informacion para sincronizar en la API SMFC
+    =============================================== */
+    $stateSmfcNid = \Drupal::service('state')->get('findeter_pqrsd.api_smfc_nid');
+
+    $rowSmfc = [];
+    $total = 0;
+    foreach ($stateSmfcNid as $key => $value) {
+      $total++;
+      $rowSmfc[] = [
+        $key+1,
+        $stateSmfcNid[$key]['title'],
+        $stateSmfcNid[$key]['smfc'] ? Markup::create('<span style="width:20px; height:20px" class="green">Si</span>') : Markup::create('<span>- - -</span>'),
+        $stateSmfcNid[$key]['smfc'] ? Markup::create('<span>En espera...</span>') : Markup::create('<span>- - -</span>'),
+      ];
+    }
+    $form['container_api_smfc'] = [
+      '#type' => 'details',
+      '#title' => 'API SMFC',
+      '#open' =>$total != 0 ? TRUE : FALSE,
+    ];
+
+    //La siguiente información muestra radicados de Quejas o Reclamos que están a la espera de ser sincronizados con la
+    $form['container_api_smfc']['description'] = [
+      '#type' => 'item',
+      '#markup' => '<p>'.
+      t('The following information shows filings of Complaints or Claims that are waiting to be synchronized with the API Smart Supervision SMFC').'</p>',
+    ];
+
+    $form['container_api_smfc']['table_smfc'] = [
+      '#type' => 'table',
+      '#header' => [t('No.'), t('Title'), t('POST'), t('PUT')],
+      '#rows' => $rowSmfc,
+      '#empty' => t('No results found'),
+      '#attributes' => ['class' => ['views-view-table']],
+      '#caption' => t('Sync: @total', ['@total' => $total]),
+    ];
+
+    /* ============================================
+    Informe 379
+    =============================================== */
+
     $form['container_date'] = [
       '#type' => 'details',
       '#title' => 'Reporte 379',
@@ -369,30 +411,53 @@ function findeter_pqrsd_cron() {
 
   }
 
-  /* ============================================
+   /* ============================================
   Enviar radicados de Quejas o Reclamos
   a la aplicacion API SMFC
   =============================================== */
   $stateSmfcNid = \Drupal::service('state')->get('findeter_pqrsd.api_smfc_nid');
 
-  if(!is_null($stateSmfcNid)){
+  if(!is_null($stateSmfcNid) && !empty($stateSmfcNid)){
 
     $apiSmfc = \Drupal::service('api.smfc'); 
-
+    $nid = [];
     $login = $apiSmfc->login();
 
     if($login){
 
-      foreach ($stateSmfcNid as $state) {
+      foreach ($stateSmfcNid as $key => $state) {
         
+        $nid[$key] = [
+          "nid" => $state['nid'],
+          "title" => $state['title'],
+          "created" => $state['created'],
+        ];
+
         if(date('Y-m-d', $now) !== date('Y-m-d', $state['created'])){
 
           if($state['smfc'] === FALSE){
+
             $post = $apiSmfc->postComplaints($state['nid']);
+            //$post = TRUE;
+            
+            $post ? $nid[$key]["smfc"] = TRUE : $nid[$key]["smfc"] = FALSE;
+             
+          }else{
+
+            $put = $apiSmfc->putComplaints($state['nid']);
+            
+            if(!$put)
+              $nid[$key]["smfc"] = TRUE;
+            else
+              unset($nid[$key]);
           }
           
+        }else{
+          $nid[$key]["smfc"] = FALSE;
         }
       }
+
+      \Drupal::service('state')->set('findeter_pqrsd.api_smfc_nid', $nid);
     }
   }
 }

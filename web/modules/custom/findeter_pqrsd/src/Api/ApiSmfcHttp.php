@@ -38,7 +38,7 @@ class ApiSmfcHttp{
      *  - /trazo url
      * @return array $response
      */
-    public function httpClient($signature, $data, $endpoint): array{ 
+    public function httpClient($signature, $data, $endpoint, $method = NULL): array{ 
 
         try {            
             /**
@@ -94,17 +94,20 @@ class ApiSmfcHttp{
 
                 break;*/
 
-                /* ===== ===== Crear Queja o Reclamo ===== ===== */
+                /* ===== ===== Crear o actualizar Queja o Reclamo ===== ===== */
                 case 'queja/':
 
-                    $response = $client->request('POST', $endpoint, [
+                    $method ??= 'POST';//Se valida el metodo de envio
+                    $param = isset($data['code']) ? $data['code'].'/' : '';//Si viene algun parametro para actualizacion del radicado
+
+                    $response = $client->request($method, $endpoint.$param, [
                         'headers' => [
                             'X-SFC-Signature' => $signature,
                             'Content-Type' => 'application/json',
                             'Accept' => 'application/json',
                             'Authorization' => 'Bearer '.$tokens['access'],
                         ],
-                        'body' => $data,
+                        'body' => $data['data'] ?? $data,
                     ]);
 
                     if($response->getStatusCode() == '201'){
@@ -115,6 +118,13 @@ class ApiSmfcHttp{
 
                         return $dataResponse;
 
+                    }else if($response->getStatusCode() == '200'){
+
+                        $dataResponse = Json::decode($response->getBody());
+
+                        $this->logger->get('API SMFC')->info("Code: %code Mensaje: %message, Se ha actualizado la queja o reclamo con radicado No. %settled como cliente web services en el sistema <strong> API SMFC.", ['%code' => $response->getStatusCode(), '%message' => $response->getReasonPhrase(), '%settled' => $dataResponse['codigo_queja']]);
+
+                        return $dataResponse;
                     }
 
                 break;

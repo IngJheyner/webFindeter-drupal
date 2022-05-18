@@ -87,8 +87,8 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
 
         //$this->login();
         //$this->refreshToken();
-        //$this->postComplaints(262);
-        //$this->putComplaints(275);
+        //$this->postComplaints(277);
+        //$this->putComplaints(277);
        
     }
 
@@ -172,6 +172,8 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
      * @inheritDoc
      */
     public function postComplaints(int $nid): bool{
+
+        //$this->login();
 
         //Carga de informacion del nodo por medio de su $nid
         $nodeStorage = $this->entityTypeManager->getStorage('node')->load($nid);
@@ -318,6 +320,10 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
 
             }
 
+            //Guardamos el valor API SMFC para el radicado e informamos su estado.
+            $nodeStorage->field_pqrsd_api_smfc->value = 'enviado';
+            $nodeStorage->save();
+         
             return TRUE;
         }
 
@@ -326,7 +332,9 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
     /**
      * @inheritDoc
      */
-    public function putComplaints(int $nid): void{
+    public function putComplaints(int $nid): bool{
+
+        //$this->login();
 
         //Carga de informacion del nodo por medio de su $nid
         $nodeStorage = $this->entityTypeManager->getStorage('node')->load($nid);
@@ -348,37 +356,100 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
             //Motivo
             $codMotive = $nodeStorage->get("field_pqrsd_motivo")->getValue()[0]['value'];
 
-            //Anexo archivos para la queja
-            $anexFileComplaintsFile = $nodeStorage->get("field_pqrsd_archivo")->getValue();
+            //Fecha de cierre y de actualizacion
+            $dateResponse = $nodeStorage->get("field_pqrsd_fecha_respuesta")->getValue()[0]['value'];
 
-            if(sizeof($anexFileComplaintsFile))
-                $anexFileComplaints = "true";
-            else
-                $anexFileComplaints = "false";
+            //A favor de
+            $infavorof = $nodeStorage->get("field_pqrsd_respuesta_a_favor")->getValue()[0]['value'];
+
+            $infavorof = $infavorof === "findeter" ? 1 : 3;
+
+            //Anexo respuesta de la queja o reclamo
+            $anexFileResponseFile = $nodeStorage->get("field_pqrsd_respuesta_archivos")->getValue();
+
+            //Tutela
+            $wardShip = $nodeStorage->get("field_pqrsd_tutela")->getValue()[0]['value'];
+
+            //Ente de control
+            $entityControl = $nodeStorage->get("field_pqrsd_entes_control")->getValue()[0]['value'];
             
-            $data = '{"codigo_queja": "'.$codComplaints.'", '.
+            $dataSignature = '{"codigo_queja": "'.$codComplaints.'", '.
                 '"sexo": "'.$sexo.'", '.
                 '"lgbtiq": "'.$lgtbi.'", '.
-                '"condicion_especial": 98, '.
+                '"condicion_especial": "98", '.
                 '"canal_cod": null, '.
                 '"producto_cod": "'.$codProduct.'", '.
                 '"macro_motivo_cod": "'.$codMotive.'", '.
-                '"estado_cod": 3, '.
-                '"fecha_actualizacion": "2022-03-02T06:23:06", '.
-                '"producto_digital": 2, '.
-                '"a_favor_de": null, '.
-                '"aceptacion_queja": null, './/Verificar depende del momento 1?
-                '"rectificacion_queja": null, './/Verificar depende del momento 1?
-                '"desistimiento_queja": null, './/Verificar
-                '"prorroga_queja": null, './/Verificar
-                '"admision": "9", './/Verificar depende del momento 1?
+                '"estado_cod": "4", '.
+                '"fecha_actualizacion": "'.$dateResponse.'", '.
+                '"producto_digital": "2", '.
+                '"a_favor_de": "'.$infavorof.'", '.
+                '"aceptacion_queja": null, '.
+                '"rectificacion_queja": null, '.
+                '"desistimiento_queja": null, '.
+                '"prorroga_queja": null, '.
+                '"admision": "9", '.
                 '"documentacion_rta_final": true, '.
                 '"anexo_queja": true, '.
-                '"fecha_cierre": "2022-03-02T06:23:06", '.
-                '"tutela": 2, './/Verificar
-                '"ente_control": null, '.
+                '"fecha_cierre": "'.$dateResponse.'", '.
+                '"tutela": "'.$wardShip.'", '.
+                '"ente_control": "'.$entityControl.'", '.
                 '"marcacion": null, '.
-                '"queja_expres": 2}';//Verificar
+                '"queja_expres": "2"}';
+            
+            //Firma encrypt sha256 en funcion de hmac.===== ===== 
+            $signature = strtoupper(hash_hmac('sha256',$dataSignature,$this->secretKey,FALSE));
+
+            //Se envia la data para poder validar algunos valores
+            $data = ['code' => $codComplaints, 'data' => $dataSignature];
+
+            //Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service===== ===== 
+            $response = $this->httpClient($signature, $data, 'queja/', 'PUT');
+
+            if(isset($response['code'])){
+
+                $this->logger->get('API SMFC')->warning("Code: %code Mensaje crear radicado: %message <br> Se ha producido un error al crear radicado No. %settled como cliente web services en el sistema <strong> API SMFC.", ['%code' => $response['code'], '%message' => $response['message'], '%settled' => $codComplaints]);
+    
+                return FALSE;
+    
+            }else{
+
+                $file_storage = $this->entityTypeManager->getStorage('file');
+
+                foreach ($anexFileResponseFile as $file) {
+
+                    if(sizeof($file)){
+                        $anexFile = $file_storage->load($file['target_id']);
+
+                        /* Se crea una variable de tipo string fomentado a uno de tipo objeto. ===== ===== */
+                        $dataSignature = '{"type": "'.$anexFile->getMimeType().'", '.
+                        '"codigo_queja": "'.$codComplaints.'"}';
+
+                        //Firma encrypt sha256 en funcion de hmac.===== ===== 
+                        $signature = strtoupper(hash_hmac('sha256',$dataSignature,$this->secretKey,FALSE));
+
+                        $data = ['file' => $anexFile->getFileUri(), 'type' => $anexFile->getMimeType(), 'code' => $codComplaints];
+
+                        //Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service===== ===== 
+                        $response = $this->httpClient($signature, $data, 'storage/');
+
+                        if(isset($response['code'])){
+
+                            $this->logger->get('API SMFC')->warning("Code: %code Mensaje anexo respuesta radicado: %message <br> Se ha producido un error al crear el anexo de respuesta radicado No. %settled como cliente web services en el sistema <strong> API SMFC.", ['%code' => $response['code'], '%message' => $response['message'], '%settled' => $codComplaints]);
+
+                            return FALSE;
+
+                        }
+
+                    }
+
+                }
+             
+                return TRUE;
+            }
+            
+        }else{
+            return FALSE;
         }
     }
 }

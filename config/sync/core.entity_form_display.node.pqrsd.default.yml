@@ -3,6 +3,7 @@ langcode: es
 status: true
 dependencies:
   config:
+    - field.field.node.pqrsd.field_pqrsd_api_smfc
     - field.field.node.pqrsd.field_pqrsd_archivo
     - field.field.node.pqrsd.field_pqrsd_asignaciones
     - field.field.node.pqrsd.field_pqrsd_autorizacion
@@ -211,6 +212,22 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
+    group_api_smfc:
+      children:
+        - field_pqrsd_api_smfc
+      label: 'API SMFC'
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: true
+        description: "Este radicado esta sincronizado con la API Smart Supervision de la Superintedencia Fincanciera de Colombia.\r\n<strong>Nota:</strong> No modificar ni actualizar esta opcion."
+        required_fields: true
+        weight: 5
 id: node.pqrsd.default
 targetEntityType: node
 bundle: pqrsd
@@ -219,6 +236,12 @@ content:
   created:
     type: datetime_timestamp
     weight: 19
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_pqrsd_api_smfc:
+    type: options_select
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }

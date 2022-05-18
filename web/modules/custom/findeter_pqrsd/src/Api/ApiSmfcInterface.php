@@ -46,6 +46,6 @@ interface ApiSmfcInterface{
      * @param $nid 
      *  - parametro $nid con argumento de identificacion del nodo.
      */
-    public function putComplaints(int $nid): void;
+    public function putComplaints(int $nid): bool;
 
 }

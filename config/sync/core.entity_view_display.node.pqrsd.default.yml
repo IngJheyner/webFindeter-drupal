@@ -3,6 +3,7 @@ langcode: es
 status: true
 dependencies:
   config:
+    - field.field.node.pqrsd.field_pqrsd_api_smfc
     - field.field.node.pqrsd.field_pqrsd_archivo
     - field.field.node.pqrsd.field_pqrsd_asignaciones
     - field.field.node.pqrsd.field_pqrsd_autorizacion
@@ -52,12 +53,20 @@ dependencies:
     - field.field.node.pqrsd.field_pqrsd_tutela
     - node.type.pqrsd
   module:
+    - options
     - user
 id: node.pqrsd.default
 targetEntityType: node
 bundle: pqrsd
 mode: default
-content: {  }
+content:
+  field_pqrsd_api_smfc:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   addtoany: true
   field_pqrsd_archivo: true

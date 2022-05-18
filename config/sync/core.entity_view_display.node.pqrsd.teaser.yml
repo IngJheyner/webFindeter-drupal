@@ -4,6 +4,7 @@ status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.pqrsd.field_pqrsd_api_smfc
     - field.field.node.pqrsd.field_pqrsd_archivo
     - field.field.node.pqrsd.field_pqrsd_asignaciones
     - field.field.node.pqrsd.field_pqrsd_autorizacion
@@ -66,6 +67,7 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_pqrsd_api_smfc: true
   field_pqrsd_archivo: true
   field_pqrsd_asignaciones: true
   field_pqrsd_autorizacion: true

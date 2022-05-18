@@ -572,7 +572,7 @@ class RegisterPQRSD extends FormBase {
       sea registrado en la API SMFC. ==== ====== */
       $nid = $this->state->get('findeter_pqrsd.api_smfc_nid');
       
-      if(is_null($nid)){
+      if(is_null($nid) || empty($nid)){
 
         $this->state->set('findeter_pqrsd.api_smfc_nid', [
           [
