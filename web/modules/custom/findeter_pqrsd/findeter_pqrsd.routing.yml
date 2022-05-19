@@ -127,3 +127,12 @@ findeter_pqrsd.export_format_379:
     _title: 'Reporte formato 379'
   requirements:
     _user_is_logged_in: 'TRUE'
+
+#Consultar y registrar la creacion de Quejas desde la API SMFC
+findeter_pqrsd.consult_complaints_smfc:
+  path: '/admin/consult-complaints-smfc'
+  defaults:
+    _controller: '\Drupal\findeter_pqrsd\Controller\ActionComplaintsSmfcController::consultComplaints'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+    _custom_access: '\Drupal\findeter_pqrsd\Controller\UserControl::access'

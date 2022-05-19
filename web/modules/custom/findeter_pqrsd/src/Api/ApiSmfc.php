@@ -10,6 +10,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\findeter_pqrsd\Api\ApiSmfcHttp;
 use Drupal\findeter_pqrsd\Api\ApiSmfcInterface;
 use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\Core\TypedData\Plugin\DataType\Any;
 
 /**
  * Service used to create a client web service for the SMFC REST API
@@ -167,6 +168,11 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
 
         /*}        
     }*/
+
+    /**
+     * @inheritDoc
+     */
+    public function getComplaints(): bool{ return true; }
 
     /**
      * @inheritDoc
@@ -452,4 +458,4 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
             return FALSE;
         }
     }
-}
+}`

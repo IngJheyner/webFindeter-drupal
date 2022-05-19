@@ -30,7 +30,14 @@ interface ApiSmfcInterface{
      * RefreshToken
      * Actualizar la variable de estado token para una nueva peticion pasado los 30min.
      */
+
     //public function refreshToken(): void;
+
+    /**
+     * GET Quejas
+     * Recibir quejas del sistema SMFC
+     */
+    public function getComplaints(): bool;
 
     /**
      * POST Quejas

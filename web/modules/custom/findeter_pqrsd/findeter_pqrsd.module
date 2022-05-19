@@ -187,6 +187,24 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
       '#caption' => t('Sync: @total', ['@total' => $total]),
     ];
 
+    $urlActionPqrsdSmfc = Url::fromRoute('findeter_pqrsd.consult_complaints_smfc');
+
+    $urlActionPqrsdSmfcOptions = [
+      'attributes' => ['class' => ['button button--primary']],
+    ];
+
+    $urlActionPqrsdSmfc->setOptions($urlActionPqrsdSmfcOptions);
+
+    $ActionPqrsdSmfc = Link::fromTextAndUrl(t('
+    Consult and register'), $urlActionPqrsdSmfc);
+
+    //La siguiente información consulta y registra los pqrsd disponibles desde la API SMFC
+    $form['container_api_smfc']['description_consult'] = [
+      '#type' => 'item',
+      '#markup' => '<p><br>'.
+      t('You can consult and register the Complaints or Claims available in Smart Supervision API SMFC, the results will be displayed in the API SMFC table and will be waiting for a response.').'</p>'.$ActionPqrsdSmfc->toString().'',//Puedes consultar y registrar las Quejas o Reclamos disponibles en Smart Supervision, Los resultados se visualizaran en la tabla API SMFC y estaran a la espera de una respuesta.
+    ];
+
     /* ============================================
     Informe 379
     =============================================== */
