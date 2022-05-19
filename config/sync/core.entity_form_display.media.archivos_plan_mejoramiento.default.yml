@@ -3,13 +3,23 @@ langcode: es
 status: true
 dependencies:
   config:
+    - field.field.media.archivos_plan_mejoramiento.field_archivo_trans_simple
     - field.field.media.archivos_plan_mejoramiento.field_media_document
     - media.type.archivos_plan_mejoramiento
+  module:
+    - file
 id: media.archivos_plan_mejoramiento.default
 targetEntityType: media
 bundle: archivos_plan_mejoramiento
 mode: default
-content: {  }
+content:
+  field_archivo_trans_simple:
+    type: file_generic
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
 hidden:
   created: true
   field_media_document: true

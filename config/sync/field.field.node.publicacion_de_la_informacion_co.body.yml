@@ -1,0 +1,23 @@
+uuid: 49cdba46-7de8-4473-8024-731854c5db51
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.publicacion_de_la_informacion_co
+  module:
+    - text
+id: node.publicacion_de_la_informacion_co.body
+field_name: body
+entity_type: node
+bundle: publicacion_de_la_informacion_co
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

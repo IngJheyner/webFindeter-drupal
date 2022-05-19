@@ -1699,7 +1699,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: false
-          content: "<div class=\"float-right m-2 text-white\">\r\n<a href=\"/historial-de-convocatorias\" class=\"text-white\"><i class=\"fa fa-history\" aria-hidden=\"true\"></i> {{ 'Historial'|t }}</a> |\r\n<a href=\"/convocatorias/ultimas-actualizaciones\" class=\"text-white\"><i class=\"fa fa-refresh\" aria-hidden=\"true\"></i> {{ 'Últimas actualizaciones'|t }}</a>\r\n</div>"
+          content: "<div class=\"titulos mb-4\" id=\"cont\">\r\n\r\n    <div class=\"d-flex\">\r\n\r\n        <figure class=\"icono pr-2\">\r\n            <img src=\"/themes/custom/webfinde/images/iconos/Iconos-transparencia/icono-3.png\">\r\n        </figure>\r\n    \r\n        <h2 class=\"font-weight-bold pl-2\">{{ \"3. Contratación\"|t }}</h2>\r\n\r\n    </div>  \r\n    \r\n    <h3 class=\"font-weight-bold text-dark\">{{ \"3.2.2 Convocatorias \"|t }}</h3>\r\n\r\n</div>\r\n\r\n<div class=\"float-right m-2 text-white\">\r\n<a href=\"/historial-de-convocatorias\" class=\"text-white\"><i class=\"fa fa-history\" aria-hidden=\"true\"></i> {{ 'Historial'|t }}</a> |\r\n<a href=\"/convocatorias/ultimas-actualizaciones\" class=\"text-white\"><i class=\"fa fa-refresh\" aria-hidden=\"true\"></i> {{ 'Últimas actualizaciones'|t }}</a>\r\n</div>\r\n"
           tokenize: true
       footer:
         result:
@@ -2099,9 +2099,22 @@ display:
         style: false
         row: false
         fields: false
+        header: false
         footer: false
       use_ajax: true
       display_description: 'Se muestra para usuarios autenticados'
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: false
+          content: "<div class=\"titulos mb-4\" id=\"cont\">\r\n\r\n    <div class=\"d-flex\">\r\n\r\n        <figure class=\"icono pr-2\">\r\n            <img src=\"/themes/custom/webfinde/images/iconos/Iconos-transparencia/icono-3.png\">\r\n        </figure>\r\n    \r\n        <h2 class=\"font-weight-bold pl-2\">{{ \"3. Contratación\"|t }}</h2>\r\n\r\n    </div>  \r\n    \r\n    <h3 class=\"font-weight-bold text-dark\">{{ \"3.2.2 Convocatorias \"|t }}</h3>\r\n\r\n</div>"
+          tokenize: true
       footer:
         result:
           id: result

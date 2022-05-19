@@ -1,0 +1,21 @@
+uuid: 2cd499d2-f831-4b9c-a3bf-7d706fd86142
+langcode: es
+status: true
+dependencies:
+  config:
+    - image.style.max_1300x1300
+    - image.style.max_2600x2600
+id: encabezado_interna_pot
+label: Encabezado_interna_pot
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: ' (min-width:100%) 1000vw, auto'
+      sizes_image_styles:
+        - max_2600x2600
+        - '_original image_'
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: max_1300x1300

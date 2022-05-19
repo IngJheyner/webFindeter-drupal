@@ -1,0 +1,22 @@
+uuid: 8d398565-f3b2-492b-906e-b8d615d2ee08
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.plan_de_accion_
+id: node.plan_de_accion_.promote
+field_name: promote
+entity_type: node
+bundle: plan_de_accion_
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

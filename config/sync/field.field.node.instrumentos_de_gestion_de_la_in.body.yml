@@ -1,0 +1,23 @@
+uuid: e6f5fd3e-de27-4230-a851-831eb64499ba
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.instrumentos_de_gestion_de_la_in
+  module:
+    - text
+id: node.instrumentos_de_gestion_de_la_in.body
+field_name: body
+entity_type: node
+bundle: instrumentos_de_gestion_de_la_in
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

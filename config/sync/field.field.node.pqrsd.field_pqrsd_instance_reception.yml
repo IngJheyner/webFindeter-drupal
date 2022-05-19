@@ -1,0 +1,21 @@
+uuid: 14f37702-8dbd-4154-b851-2b1fd58f545e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pqrsd_instance_reception
+    - node.type.pqrsd
+  module:
+    - options
+id: node.pqrsd.field_pqrsd_instance_reception
+field_name: field_pqrsd_instance_reception
+entity_type: node
+bundle: pqrsd
+label: 'Instancia de recepción'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -292,7 +292,7 @@
                                     tbodyrespDocu += '<tr class="rowfilt">'
                                         +'<td>'+num+'</td>'
                                         +'<td>'+ element.documento +'</td>'
-                                        +'<td>'+element.fecha.split("T")[0] +'</td>'
+                                        +'<td>'+element.Fecha_Publicacion.split("T")[0] +'</td>'
                                         +'<td>'+element.nom_archivo +'</td>'
                                         +'<td> <a href="../../controller/controller.php?funcion=descarga&amp;nombre='+element.nom_archivo+'"> Descargar </a></td>'
 
@@ -304,7 +304,7 @@
                                 tbodyrespDocu += '<tr class="rowfilt">'
                                         +'<td>1</td>'
                                         +'<td>'+ data.Registro.documento +'</td>'
-                                        +'<td>'+data.Registro.fecha.split("T")[0] +'</td>'
+                                        +'<td>'+data.Registro.Fecha_Publicacion.split("T")[0] +'</td>'
                                         +'<td>'+data.Registro.nom_archivo +'</td>'
                                         +'<td> <a href="../../controller/controller.php?funcion=descarga&amp;nombre='+data.Registro.nom_archivo+'"> Descargar </a></td>'
                                     +'</tr>';

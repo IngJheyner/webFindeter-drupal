@@ -1,0 +1,31 @@
+uuid: 5ee45587-3d18-41aa-986e-a093c8af3925
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_pqrsd_tutela
+field_name: field_pqrsd_tutela
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: 'La queja o reclamo tiene asociada una acción de tutela.'
+    -
+      value: '2'
+      label: 'No aplica'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

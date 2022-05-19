@@ -1,0 +1,32 @@
+uuid: 737ebf47-3bf1-45ac-a733-564678c19eb7
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.politicas_en_materia_de_contrata.body
+    - node.type.politicas_en_materia_de_contrata
+  module:
+    - text
+    - user
+id: node.politicas_en_materia_de_contrata.teaser
+targetEntityType: node
+bundle: politicas_en_materia_de_contrata
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

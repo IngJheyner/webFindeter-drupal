@@ -1,0 +1,32 @@
+uuid: a3394477-0423-44d3-b600-d537f19524c7
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.proyectos_de_inversion.body
+    - node.type.proyectos_de_inversion
+  module:
+    - text
+    - user
+id: node.proyectos_de_inversion.teaser
+targetEntityType: node
+bundle: proyectos_de_inversion
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

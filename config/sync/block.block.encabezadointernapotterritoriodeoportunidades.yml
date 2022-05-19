@@ -1,0 +1,31 @@
+uuid: 2026ac26-43ac-4eb4-bc22-6c241012c70b
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:encabezado_para_pot:ea495d8f-617a-446f-8e24-3547c0b71459'
+  module:
+    - block_content
+    - system
+  theme:
+    - webfinde
+id: encabezadointernapotterritoriodeoportunidades
+theme: webfinde
+region: region_A
+weight: 0
+provider: null
+plugin: 'block_content:ea495d8f-617a-446f-8e24-3547c0b71459'
+settings:
+  id: 'block_content:ea495d8f-617a-446f-8e24-3547c0b71459'
+  label: 'Encabezado [ interna POT - territorio de oportunidades]'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /territorio-de-oportunidades

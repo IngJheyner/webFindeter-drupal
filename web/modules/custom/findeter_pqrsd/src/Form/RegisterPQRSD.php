@@ -14,12 +14,17 @@ use Drupal\findeter_pqrsd\Step\StepsEnum;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\views\Ajax\ScrollTopCommand;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\State\StateInterface;
+use Drupal\file\FileUsage\DatabaseFileUsageBackend;
+use Drupal\Core\Entity\EntityTypeManager;
 
 
 use Drupal\node\Entity\Node;
-use Drupal\file\Entity\File;
+//use Drupal\file\Entity\File;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
+
+use Drupal\findeter_pqrsd\Api\ApiSmfcInterface;
 
 /**
  * Provides multi step ajax example form.
@@ -57,14 +62,46 @@ class RegisterPQRSD extends FormBase {
    */
   protected $messenger;
 
+    /**
+   * API SMFC servicio.
+   *
+   * @var \Drupal\findeter_pqrsd\Api\ApiSmfcInterface
+   */
+  protected $apiSmfc;
+
+  /**
+   * logger dblog.
+   *
+   * @var Drupal\Core\State\StateInterface
+   */
+  protected $state;
+
+  /**
+   * Crear archivo permanete en file.usage.
+   *
+   * @var Drupal\file\FileUsage\DatabaseFileUsageBackend $fileUsage
+   */
+  protected $fileUsage;
+  
+   /**
+   * Propiedad de tipos de entidades.
+   *
+   * @var Drupal\Core\Entity\EntityTypeManager $entityTypeManager;
+   */
+  protected $entityTypeManager;
+
   /**
    * {@inheritdoc}
    */
-  public function __construct(MessengerInterface $messenger) {
+  public function __construct(MessengerInterface $messenger, ApiSmfcInterface $api_smfc, StateInterface $state, DatabaseFileUsageBackend $file_usage, EntityTypeManager $entity_type_manager) {
     $this->stepId = StepsEnum::STEP_ZERO;
     // StepManager class needs those two arguments
     $this->stepManager = new StepManager($messenger);
     $this->messenger = $messenger;
+    $this->apiSmfc = $api_smfc;
+    $this->state = $state;
+    $this->fileUsage = $file_usage;
+    $this->entityTypeManager = $entity_type_manager;
   }
 
   /**
@@ -72,7 +109,11 @@ class RegisterPQRSD extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('messenger')
+      $container->get('messenger'),
+      $container->get('api.smfc'),
+      $container->get('state'),
+      $container->get('file.usage'),
+      $container->get('entity_type.manager')
     );
   }
 
@@ -374,6 +415,8 @@ class RegisterPQRSD extends FormBase {
 
     //to retrive all values at one single array
     $values = [];
+    //FileSotorage que se carga a la entidad de tipo file
+    $fileStorageArray = [];
     foreach($steps as $step){
       foreach($step->getValues() as $field=>$value){
 
@@ -398,11 +441,20 @@ class RegisterPQRSD extends FormBase {
 
         // store all files
         if($field == 'field_pqrsd_archivo'){
-          foreach($value as $fid){
+
+          $fileStorage = $this->entityTypeManager->getStorage('file');
+
+          foreach($value as $key=>$fid){
             if (!empty($fid)) {
-              $file = File::load($fid);
+
+              /*$file = File::load($fid);
               $file->setPermanent();
-              $file->save();
+              $file->save();*/
+              $file = $fileStorage->load($fid);
+
+              //Se agegra el file entidad al arreglo filestorage declarado antes del ciclo for
+              $fileStorageArray[$key] = $file;
+              
             }
           }
         }
@@ -416,7 +468,17 @@ class RegisterPQRSD extends FormBase {
     $newRequest->set('title', 'Radicado: '.$numeroRadicado.'.'.date('U'));
 
     // set "# radicado"
-    $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);
+    /* Si es un radicado de tipo Queja, se antepone el codigo de entidad de findeter para SMFC 
+    @author 3desarrollo===== ===== */
+    if($values['field_pqrsd_tipo_radicado'] == 'Quejas' || 
+    $values['field_pqrsd_tipo_radicado'] == 'Reclamos'){
+
+      $numeroRadicado = $this->apiSmfc->getTipCodeEntity($numeroRadicado);
+      $newRequest->set('field_pqrsd_numero_radicado', $numeroRadicado);
+
+    }else{
+      $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);
+    }    
 
     $config = $this->config('findeter_pqrsd.admin');
 
@@ -433,12 +495,23 @@ class RegisterPQRSD extends FormBase {
     $newRequest->set('field_pqrsd_fecha_roja', $datesConfigure['red']);
     $newRequest->set('field_pqrsd_fecha_naranja', $datesConfigure['orange']);
 
-    // set "# radicado"
-    $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);
+    //Instancia de recepcion @author 3desarrollo
+    //Por defecto 2. Entidad
+    $newRequest->set('field_pqrsd_instance_reception', 2);
+
+    /* set "# radicado"
+    $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);*/
 
     $newRequest->enforceIsNew();
     $newRequest->save();
 
+    /* Se agrega como archivos gestionados a file.usage  ===== ===== */
+    foreach($fileStorageArray as $file){
+
+      $this->fileUsage->add($file, 'findeter_pqrsd', 'node', $newRequest->id());
+           
+    }
+     
     // send email
     if(isset($values['field_pqrsd_email']) && $values['field_pqrsd_email'] != ''){
 
@@ -485,6 +558,44 @@ class RegisterPQRSD extends FormBase {
     $values['pqrsd_numero_radicado'] = $numeroRadicado;
 
     $this->step->setValues($values);
+
+    /* ============================================
+    Se envia la peticion de PQRSD al sistema SMFC
+    siempre y cuando el tipo de radicado sea una
+    Queja o Reclamo.
+    @author 3ddesarrollo
+    =============================================== */
+    if($values['field_pqrsd_tipo_radicado'] == 'Quejas' || 
+    $values['field_pqrsd_tipo_radicado'] == 'Reclamos'){
+
+      /* Se guarda los nid como variables de estado para que despues
+      sea registrado en la API SMFC. ==== ====== */
+      $nid = $this->state->get('findeter_pqrsd.api_smfc_nid');
+      
+      if(is_null($nid) || empty($nid)){
+
+        $this->state->set('findeter_pqrsd.api_smfc_nid', [
+          [
+          "nid" => $values['new_nid'],
+          "title" => $newRequest->getTitle(),
+          "created" => $newRequest->getCreatedTime(),
+          "smfc" => FALSE,
+          ]
+        ]);
+
+      }else{
+        $nid[] = [
+        "nid" => $values['new_nid'],
+        "title" => $newRequest->getTitle(),
+        "created" => $newRequest->getCreatedTime(),
+        "smfc" => FALSE,
+        ];
+        
+        $this->state->set('findeter_pqrsd.api_smfc_nid', $nid);
+
+      }
+    }
+
   }
 
 }

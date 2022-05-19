@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.7_1_informes_de_gestion_evaluaci.field_contenido_informes_de_gest
+    - field.field.node.7_1_informes_de_gestion_evaluaci.field_tipo_doc_paragraph
     - node.type.7_1_informes_de_gestion_evaluaci
   module:
+    - paragraphs
     - path
     - text
 id: node.7_1_informes_de_gestion_evaluaci.default
@@ -26,6 +28,18 @@ content:
     settings:
       rows: 5
       placeholder: ''
+    third_party_settings: {  }
+  field_tipo_doc_paragraph:
+    type: entity_reference_paragraphs
+    weight: 122
+    region: content
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
     third_party_settings: {  }
   langcode:
     type: language_select

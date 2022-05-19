@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.search_result
+    - field.field.node.pqrsd.field_pqrsd_api_smfc
     - field.field.node.pqrsd.field_pqrsd_archivo
     - field.field.node.pqrsd.field_pqrsd_asignaciones
     - field.field.node.pqrsd.field_pqrsd_autorizacion
@@ -13,12 +14,15 @@ dependencies:
     - field.field.node.pqrsd.field_pqrsd_descripcion
     - field.field.node.pqrsd.field_pqrsd_direccion
     - field.field.node.pqrsd.field_pqrsd_email
+    - field.field.node.pqrsd.field_pqrsd_entes_control
     - field.field.node.pqrsd.field_pqrsd_fax
     - field.field.node.pqrsd.field_pqrsd_fecha_naranja
     - field.field.node.pqrsd.field_pqrsd_fecha_respuesta
     - field.field.node.pqrsd.field_pqrsd_fecha_roja
     - field.field.node.pqrsd.field_pqrsd_forma_recepcion
     - field.field.node.pqrsd.field_pqrsd_grupo_etnico
+    - field.field.node.pqrsd.field_pqrsd_instance_reception
+    - field.field.node.pqrsd.field_pqrsd_lgtbi
     - field.field.node.pqrsd.field_pqrsd_marketing
     - field.field.node.pqrsd.field_pqrsd_medio_respuesta
     - field.field.node.pqrsd.field_pqrsd_motivo
@@ -39,6 +43,7 @@ dependencies:
     - field.field.node.pqrsd.field_pqrsd_respuesta_archivos
     - field.field.node.pqrsd.field_pqrsd_segundo_apellido
     - field.field.node.pqrsd.field_pqrsd_segundo_nombre
+    - field.field.node.pqrsd.field_pqrsd_sexo
     - field.field.node.pqrsd.field_pqrsd_telefono
     - field.field.node.pqrsd.field_pqrsd_tipo_discapacidad
     - field.field.node.pqrsd.field_pqrsd_tipo_documento
@@ -46,6 +51,7 @@ dependencies:
     - field.field.node.pqrsd.field_pqrsd_tipo_peticion
     - field.field.node.pqrsd.field_pqrsd_tipo_radicado
     - field.field.node.pqrsd.field_pqrsd_tipo_solicitante
+    - field.field.node.pqrsd.field_pqrsd_tutela
     - node.type.pqrsd
   module:
     - layout_builder
@@ -69,6 +75,7 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_pqrsd_api_smfc: true
   field_pqrsd_archivo: true
   field_pqrsd_asignaciones: true
   field_pqrsd_autorizacion: true
@@ -78,12 +85,15 @@ hidden:
   field_pqrsd_descripcion: true
   field_pqrsd_direccion: true
   field_pqrsd_email: true
+  field_pqrsd_entes_control: true
   field_pqrsd_fax: true
   field_pqrsd_fecha_naranja: true
   field_pqrsd_fecha_respuesta: true
   field_pqrsd_fecha_roja: true
   field_pqrsd_forma_recepcion: true
   field_pqrsd_grupo_etnico: true
+  field_pqrsd_instance_reception: true
+  field_pqrsd_lgtbi: true
   field_pqrsd_marketing: true
   field_pqrsd_medio_respuesta: true
   field_pqrsd_motivo: true
@@ -103,6 +113,7 @@ hidden:
   field_pqrsd_respuesta_archivos: true
   field_pqrsd_segundo_apellido: true
   field_pqrsd_segundo_nombre: true
+  field_pqrsd_sexo: true
   field_pqrsd_telefono: true
   field_pqrsd_tipo_discapacidad: true
   field_pqrsd_tipo_documento: true
@@ -110,5 +121,6 @@ hidden:
   field_pqrsd_tipo_peticion: true
   field_pqrsd_tipo_radicado: true
   field_pqrsd_tipo_solicitante: true
+  field_pqrsd_tutela: true
   langcode: true
   links: true

@@ -1,0 +1,30 @@
+uuid: eb3813b5-336d-48ee-9425-aaa82c579861
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.proyect_normas_para_comentarios.body
+    - node.type.proyect_normas_para_comentarios
+  module:
+    - text
+    - user
+id: node.proyect_normas_para_comentarios.default
+targetEntityType: node
+bundle: proyect_normas_para_comentarios
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

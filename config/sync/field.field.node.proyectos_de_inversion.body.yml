@@ -1,0 +1,23 @@
+uuid: 8ebc3382-ddcd-4706-aa11-0e84b0578d23
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.proyectos_de_inversion
+  module:
+    - text
+id: node.proyectos_de_inversion.body
+field_name: body
+entity_type: node
+bundle: proyectos_de_inversion
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

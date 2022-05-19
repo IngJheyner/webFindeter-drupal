@@ -1,0 +1,21 @@
+uuid: 08b415aa-1d2b-4156-985c-dab5e754b520
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pqrsd_entes_control
+    - node.type.pqrsd
+  module:
+    - options
+id: node.pqrsd.field_pqrsd_entes_control
+field_name: field_pqrsd_entes_control
+entity_type: node
+bundle: pqrsd
+label: 'Entes de control'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
