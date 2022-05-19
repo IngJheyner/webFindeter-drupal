@@ -129,7 +129,8 @@
             "wikimedia/composer-merge-plugin": true,
             "zaporylie/composer-drupal-optimizations": true,
             "drupal/console-extend-plugin": true,
-            "oomphinc/composer-installers-extender": true
+            "oomphinc/composer-installers-extender": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
     "extra": {
@@ -194,7 +195,11 @@
         "patches": {
             "drupal/core": {
                 "Notice: Undefined index: value in Drupal\\views\\Plugin\\views\\filter\\NumericFilter->acceptExposedInput()": "https://www.drupal.org/files/issues/2020-06-04/2825860-exposed-filter-notice-38.patch",
-                "Exposed date filter leads to a notice": "https://www.drupal.org/files/issues/2020-11-12/2811887-53.patch"
+                "Exposed date filter leads to a notice": "https://www.drupal.org/files/issues/2020-11-12/2811887-53.patch",
+                "The entity:user context is required and not present.": "https://www.drupal.org/files/issues/2019-10-23/3056234-10.patch",
+                "Call to a member function getCacheMaxAge() on null in getCacheMaxAge()": "https://www.drupal.org/files/issues/2020-09-08/get_cache_tags_null-3169694-2.patch",
+                "TypeError: Argument 1 passed to Drupal/views/Plugin/views/field/EntityOperations::getEntityTranslation() must implement interface Drupal/Core/Entity/EntityInterface, null given": "https://www.drupal.org/files/issues/2021-01-21/3105003-9.patch",
+                "Multiple usages of FieldPluginBase::getEntity do not check for NULL, leading to WSOD": "https://www.drupal.org/files/issues/2021-01-06/3007424-108.patch"
             },
             "drupal/content_access": {
                 "content access role": "https://www.drupal.org/files/issues/2020-08-28/content_access-role-2782813-25.patch"
