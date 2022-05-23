@@ -154,6 +154,9 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
     =============================================== */
     $stateSmfcNid = \Drupal::service('state')->get('findeter_pqrsd.api_smfc_nid');
 
+    //Validamos si existen datos para importar o registrar.
+    $dataState = \Drupal::service('state')->get('findeter_pqrsd.api_smfc_data');
+
     $rowSmfc = [];
     $total = 0;
     foreach ($stateSmfcNid as $key => $value) {
@@ -168,7 +171,7 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
     $form['container_api_smfc'] = [
       '#type' => 'details',
       '#title' => 'API SMFC',
-      '#open' =>$total != 0 ? TRUE : FALSE,
+      '#open' =>$total != 0 || !empty($dataState) ? TRUE : FALSE,
     ];
 
     //La siguiente información muestra radicados de Quejas o Reclamos que están a la espera de ser sincronizados con la
@@ -187,6 +190,7 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
       '#caption' => t('Sync: @total', ['@total' => $total]),
     ];
 
+    //Construimos la ruta para el controlador
     $urlActionPqrsdSmfc = Url::fromRoute('findeter_pqrsd.consult_complaints_smfc');
 
     $urlActionPqrsdSmfcOptions = [
@@ -195,16 +199,26 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
 
     $urlActionPqrsdSmfc->setOptions($urlActionPqrsdSmfcOptions);
 
-    $ActionPqrsdSmfc = Link::fromTextAndUrl(t('
-    Consult and register'), $urlActionPqrsdSmfc);
+    $ActionPqrsdSmfc = Link::fromTextAndUrl(is_null($dataState) || empty($dataState) ? t('Consult and register') : t('Register data'), $urlActionPqrsdSmfc);
 
-    //La siguiente información consulta y registra los pqrsd disponibles desde la API SMFC
-    $form['container_api_smfc']['description_consult'] = [
+     //La siguiente información consulta y registra los pqrsd disponibles desde la API SMFC
+     $form['container_api_smfc']['description_consult'] = [
       '#type' => 'item',
       '#markup' => '<p><br>'.
       t('You can consult and register the Complaints or Claims available in Smart Supervision API SMFC, the results will be displayed in the API SMFC table and will be waiting for a response.').'</p>'.$ActionPqrsdSmfc->toString().'',//Puedes consultar y registrar las Quejas o Reclamos disponibles en Smart Supervision, Los resultados se visualizaran en la tabla API SMFC y estaran a la espera de una respuesta.
     ];
 
+    if(!is_null($dataState) || !empty($dataState)){
+      //Mostramos un mensaje si existen datos para registrar y hacer la accion respectiva
+      $form['container_api_smfc']['data_register'] = [
+        '#type' => 'item',
+        '#markup' => '<p>'.
+        t('<strong>Information:</strong> There are @num data to register as type of filings Complaints. Click on <em>Register data</em> to perform the action', ['@num' => count($dataState)]).'</p>',
+      ];
+
+      \Drupal::messenger()->addMessage(t('<strong>Information:</strong> There are @num data to register as type of filings Complaints. Click on <em>Register data</em> to perform the action', ['@num' => count($dataState)]), 'info');
+    }
+    
     /* ============================================
     Informe 379
     =============================================== */

@@ -36,8 +36,16 @@ interface ApiSmfcInterface{
     /**
      * GET Quejas
      * Recibir quejas del sistema SMFC
+     * @param Batch.inic $context
      */
-    public function getComplaints(): bool;
+    public function getComplaints($context);
+
+     /**
+     * ACK Quejas
+     * Enviar codigo de quejas recibidas al sistema SMFC
+     * @param Batch.inic $context
+     */
+    public function ackComplaints($context);
 
     /**
      * POST Quejas
