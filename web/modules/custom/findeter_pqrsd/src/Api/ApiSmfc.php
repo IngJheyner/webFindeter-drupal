@@ -630,7 +630,8 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
 
         //Se tiene que validar que la fecha de cierre no sea igual a la fecha actual
         $now = $this->dateFormatter->format(strtotime(new DrupalDateTime()), 'custom', 'Y-m-d');
-        $dateResponseAft = $this->dateFormatter->format(strtotime(new DrupalDateTime($nodeStorage->get("field_pqrsd_fecha_respuesta")->getValue()[0]['value'])),'custom', 'Y-m-d');;        
+        
+        $dateResponseAft = isset($nodeStorage->get("field_pqrsd_fecha_respuesta")->getValue()[0]['value']) ?$this->dateFormatter->format(strtotime(new DrupalDateTime($nodeStorage->get("field_pqrsd_fecha_respuesta")->getValue()[0]['value'])),'custom', 'Y-m-d') : $now;       
 
         if(isset($nodeStorage->get('field_pqrsd_respuesta')->getValue()[0]['value']) && $now !== $dateResponseAft){
 
