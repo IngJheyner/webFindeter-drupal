@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "59804c645e25bae2ab46f0a576e35342",
+    "content-hash": "cde36c3151b4d2d9de76b46fcc982e10",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -6913,6 +6913,75 @@
                 "source": "https://cgit.drupalcode.org/pathauto",
                 "issues": "https://www.drupal.org/project/issues/pathauto",
                 "documentation": "https://www.drupal.org/docs/8/modules/pathauto"
+            }
+        },
+        {
+            "name": "drupal/potx",
+            "version": "1.0.0-alpha1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/potx.git",
+                "reference": "8.x-1.0-alpha1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/potx-8.x-1.0-alpha1.zip",
+                "reference": "8.x-1.0-alpha1",
+                "shasum": "5004effc09642c0f93cdfba5fa941933ebc60863"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-alpha1",
+                    "datestamp": "1599562051",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL"
+            ],
+            "authors": [
+                {
+                    "name": "Gábor Hojtsy",
+                    "homepage": "https://www.drupal.org/user/4166"
+                },
+                {
+                    "name": "SebCorbin",
+                    "homepage": "https://www.drupal.org/user/412171"
+                },
+                {
+                    "name": "crawleyhost",
+                    "homepage": "https://www.drupal.org/user/3636059"
+                },
+                {
+                    "name": "fmitchell",
+                    "homepage": "https://www.drupal.org/user/213574"
+                },
+                {
+                    "name": "herom",
+                    "homepage": "https://www.drupal.org/user/1866898"
+                },
+                {
+                    "name": "penyaskito",
+                    "homepage": "https://www.drupal.org/user/959536"
+                }
+            ],
+            "description": "Translation template extractor",
+            "homepage": "https://www.drupal.org/project/potx",
+            "support": {
+                "source": "https://git.drupalcode.org/project/potx"
             }
         },
         {
@@ -15683,6 +15752,7 @@
         "drupal/high_contrast": 10,
         "drupal/inline_entity_form": 5,
         "drupal/page_manager": 10,
+        "drupal/potx": 15,
         "drupal/slick_extras": 5,
         "drupal/webform": 15
     },

@@ -10,7 +10,7 @@ dependencies:
 _core:
   default_config_hash: qEFCGJZmfPO8q5G05QiqwLQcMxrQ7PaLQMmF3nt3iMY
 id: feeds_feed
-label: Feeds
+label: 'Canales de noticias'
 module: views
 description: ''
 tag: ''
@@ -23,7 +23,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Feeds
+      title: 'Canales de noticias'
       fields:
         feeds_feed_bulk_form:
           id: feeds_feed_bulk_form
@@ -75,7 +75,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: 'With selection'
+          action_title: 'Con selección'
           include_exclude: exclude
           selected_actions: {  }
         title:
@@ -350,7 +350,7 @@ display:
           entity_type: feeds_feed
           entity_field: imported
           plugin_id: field
-          label: Imported
+          label: Importado
           exclude: false
           alter:
             alter_text: false
@@ -724,7 +724,7 @@ display:
       path: admin/content/feed
       menu:
         type: normal
-        title: Feeds
+        title: 'Canales de noticias'
         description: ''
         weight: 0
         expanded: false

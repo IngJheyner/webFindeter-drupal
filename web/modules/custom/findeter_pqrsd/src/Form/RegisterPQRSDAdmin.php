@@ -220,13 +220,13 @@ class RegisterPQRSDAdmin extends FormBase {
         }
         elseif (is_string($tag)) {
           //drupal_set_message("A term selected, tid = $tag");
-          $this->messenger()->addMessage($this->t("A term selected, tid = $tag"), 'warning');
+          $this->messenger()->addMessage($this->t("A term selected, tid = %tag", ['%tag' => $tag]), 'warning');
         }
         elseif (isset($tag['entity']) && ($tag['entity'] instanceof Term)) {
           $entity = $tag['entity'];
           $entity->save();
           //drupal_set_message("A new term : " . $entity->id() . " : " . $entity->label());
-          $this->messenger()->addMessage($this->t("A new term : " . $entity->id() . " : " . $entity->label()));
+          $this->messenger()->addMessage($this->t("A new term : %term_id : %term_label",['%term_id' => $entity->id(), '%term_label' => $entity->label()]));
         }
       }
 
