@@ -424,11 +424,12 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
             //Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service===== ===== 
             $response = $this->httpClient($signature, 'POST', 'complaint/ack', $data);
 
-            if(isset($response['code'])){
+            if(isset($response['code']) && $response['code'] != '504'){
 
                 $context['finished'] = 1;
                 $context['message'] = t('ACK failed process 2.');
-                $context['results']['error']['error_ack']['error'] = t('<p><strong>Import failed.</strong><br><br>An error has occurred in the sending of data received through the ACK function, for more information contact the system administrator<p>');//Ha ocurrido en error en el envio de datos rebidos mediante la funcion ACK, para más información contacte al administrador del sistema
+                $context['results']['error']['error_ack']['error'] = t('<p><strong>Import failed ACK.</strong><br><br>An error has occurred in the sending of data received through the ACK function, for more information contact the system administrator<p>');//Ha ocurrido en error en el envio de datos rebidos mediante la funcion ACK, para más información contacte al administrador del sistema
+                $this->state->set('findeter_pqrsd.api_smfc_data', null);
 
             }else{
 
@@ -437,9 +438,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
                 if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
                     $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
                 }
-            }
-
-            
+            }            
 
         }else{
 

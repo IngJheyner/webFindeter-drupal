@@ -58,7 +58,7 @@ function defineDatesSemaphore($values){
   if(isset($values['field_pqrsd_preferencial']) && $values['field_pqrsd_preferencial'] == 'congresista'){
     $addDays = $peticion['all'];
   }else{
-    if($values['field_pqrsd_tipo_radicado'] == 'Peticiones'){
+    if(isset($values['field_pqrsd_tipo_radicado']) && $values['field_pqrsd_tipo_radicado'] == 'Peticiones'){
       $typeRequest = $values['field_pqrsd_tipo_peticion'];
       if(isset($peticion[$typeRequest])){
         $addDays = $peticion[$typeRequest];
@@ -159,14 +159,17 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
 
     $rowSmfc = [];
     $total = 0;
-    foreach ($stateSmfcNid as $key => $value) {
-      $total++;
-      $rowSmfc[] = [
-        $key+1,
-        $stateSmfcNid[$key]['title'],
-        $stateSmfcNid[$key]['smfc'] ? Markup::create('<span style="width:20px; height:20px" class="green">Si</span>') : Markup::create('<span>- - -</span>'),
-        $stateSmfcNid[$key]['smfc'] ? Markup::create('<span>En espera...</span>') : Markup::create('<span>- - -</span>'),
-      ];
+
+    if(!empty($stateSmfcNid) || !is_null($stateSmfcNid)){
+      foreach ($stateSmfcNid as $key => $value) {
+        $total++;
+        $rowSmfc[] = [
+          $key+1,
+          $stateSmfcNid[$key]['title'],
+          $stateSmfcNid[$key]['smfc'] ? Markup::create('<span style="width:20px; height:20px" class="green">Si</span>') : Markup::create('<span>- - -</span>'),
+          $stateSmfcNid[$key]['smfc'] ? Markup::create('<span>En espera...</span>') : Markup::create('<span>- - -</span>'),
+        ];
+      }
     }
     $form['container_api_smfc'] = [
       '#type' => 'details',
