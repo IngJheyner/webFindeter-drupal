@@ -466,6 +466,7 @@ function findeter_pqrsd_cron() {
           "nid" => $state['nid'],
           "title" => $state['title'],
           "created" => $state['created'],
+          "smfc" => $state['smfc']
         ];
 
         if(date('Y-m-d', $now) !== date('Y-m-d', $state['created'])){
@@ -487,8 +488,6 @@ function findeter_pqrsd_cron() {
               unset($nid[$key]);
           }
           
-        }else{
-          $nid[$key]["smfc"] = FALSE;
         }
       }
 
