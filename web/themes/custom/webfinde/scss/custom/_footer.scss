@@ -74,21 +74,17 @@ div.barraLateral {
     top: 30%;
     transform: translate(0, 30%);
     background: var.$color-secundario;
-    padding: 1em;
-    #block-contraste {
-        border-bottom: 2px solid white;
-        padding: 0 0 0.5em 0;
-        >form>#edit-toggle-link {
-            outline: none;
-            text-indent: -9000px;
-            display: block;
-            background: url('../images/iconos/contraste.svg') no-repeat;
-            background-position: 50% 0;
-            width: 45px;
-            height: 55px;
-        }
-        margin-bottom: 1rem;
+    padding: 1em;   
+    #high-contrast {
+        outline: none;
+        text-indent: -9000px;
+        display: block;
+        background: url('../images/iconos/contraste.svg') no-repeat;
+        background-position: 50% 0;
+        width: 45px;
+        height: 55px;
     }
+       
     #block-redimensionar-texto .content div:nth-child(1) {
         border-bottom: 2px solid white;
         padding: 0 0 0.5em 0;

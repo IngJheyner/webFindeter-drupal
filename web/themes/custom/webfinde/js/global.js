@@ -545,6 +545,21 @@
                     fontSize($(this).attr('operador'));
                 });
 
+                /*===========================================
+                CONTRASTE
+                =============================================*/
+                const contrast = element => {
+                    element.addEventListener('click', () => {
+                        if ($('html').hasClass('contrasteweb')) {
+                        $('html').removeClass('contrasteweb');
+                        } else {
+                        $('html').addClass('contrasteweb');
+                        }
+                    })
+                }
+
+                contrast(document.getElementById('high-contrast'));
+
 
             });//each context
 

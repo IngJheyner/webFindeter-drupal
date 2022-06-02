@@ -2431,12 +2431,7 @@ div.barraLateral {
   background: #296294;
   padding: 1em;
 }
-div.barraLateral #block-contraste {
-  border-bottom: 2px solid white;
-  padding: 0 0 0.5em 0;
-  margin-bottom: 1rem;
-}
-div.barraLateral #block-contraste > form > #edit-toggle-link {
+div.barraLateral #high-contrast {
   outline: none;
   text-indent: -9000px;
   display: block;
@@ -4485,6 +4480,13 @@ section.headerCalendario div.encabezado h1.tituloEncabezado {
   section.headerCalendario div.encabezado h1.tituloEncabezado {
     font-size: 3rem;
   }
+}
+
+/* ===== ===== HIGTHCONTRAST ===== ===== */
+.contrasteweb {
+  mix-blend-mode: difference;
+  filter: none;
+  background: #FFF;
 }
 
 /* ===== ===== MECANISMO CONTACTO ===== ===== */

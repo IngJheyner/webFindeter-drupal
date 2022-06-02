@@ -232,8 +232,9 @@ BTNES DE BARRA DE ACCESIBILIDAD - FONT SIZE, CONTRASTE
 
 <div class="barraLateral d-none d-lg-block">
 
-  {{ drupal_entity('block', 'contraste', check_access=false) }}
-  {#{ drupal_entity('block', 'redimensionar_texto', check_access=false) }#}
+  <div class="text-center mb-3">
+    <a href="javascript:;" class="changer text-white" id="high-contrast"></a>
+  </div>
   <div class="text-center mb-3">
     <a href="javascript:;" class="changer text-white" operador="suma" id="text_resize_increase"><sup>+</sup><i class="fas fa-font"></i></a>
   </div>

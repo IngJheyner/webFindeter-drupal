@@ -435,6 +435,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
 
                 // Informar al motor por lotes que no hemos terminado,
                 // y proporcionar una estimación del nivel de finalización que alcanzamos.
+                $context['message'] = t('ACK process.');
                 if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
                     $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
                 }
@@ -670,8 +671,8 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
             $dataSignature = '{"codigo_queja": "'.$codComplaints.'", '.
                 '"sexo": "'.$sexo.'", '.
                 '"lgbtiq": "'.$lgtbi.'", '.
-                '"condicion_especial": "98", '.
-                '"canal_cod": null, '.
+                '"condicion_especial": "98", '. //
+                '"canal_cod": null, '. //
                 '"producto_cod": "'.$codProduct.'", '.
                 '"macro_motivo_cod": "'.$codMotive.'", '.
                 '"estado_cod": "4", '.
@@ -680,7 +681,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
                 '"a_favor_de": "'.$infavorof.'", '.
                 '"aceptacion_queja": null, '.
                 '"rectificacion_queja": null, '.
-                '"desistimiento_queja": null, '.
+                '"desistimiento_queja": null, '. //
                 '"prorroga_queja": null, '.
                 '"admision": "9", '.
                 '"documentacion_rta_final": true, '.
@@ -689,7 +690,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
                 '"tutela": "'.$wardShip.'", '.
                 '"ente_control": "'.$entityControl.'", '.
                 '"marcacion": null, '.
-                '"queja_expres": "2"}';
+                '"queja_expres": "2"}';//
             
             //Firma encrypt sha256 en funcion de hmac.===== ===== 
             $signature = strtoupper(hash_hmac('sha256',$dataSignature,$this->secretKey,FALSE));

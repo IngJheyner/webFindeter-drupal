@@ -281,7 +281,11 @@ class ActionComplaintsSmfcController extends ControllerBase {
 
           }else{
 
-            $newRequest->set('field_pqrsd_primer_nombre', $value['nombres']);
+            if($value['tipo_id_CF'] == 3){
+              $newRequest->set('field_pqrsd_razon_social', $value['nombres']);
+            }else{
+              $newRequest->set('field_pqrsd_primer_nombre', $value['nombres']);
+            }           
 
           }
 
@@ -345,6 +349,21 @@ class ActionComplaintsSmfcController extends ControllerBase {
             $newRequest->set('field_pqrsd_email', $value['correo']);
           }
 
+          //Direccion
+          if(!isset($value['direccion'])){
+
+            //Se agregan los valores a la variable resultado para ser mostrados.
+            $context['results']['error_save'][] = $value;
+            //Actualizar el progreso de informacion.
+            $context['sandbox']['progress']++;
+
+            throw new \Exception (t("An error occurred while saving the node direccion. Complaint code: @code", ['@code' => $value['codigo_queja']]));
+            //Ocurrió un error al guardar la direccion del nodo. Código de queja:
+
+          }else{
+            $newRequest->set('field_pqrsd_direccion', $value['direccion']);
+          }
+
           //Producto
           $itemsProduct = $definitions['field_pqrsd_nombre_producto']->getSetting('allowed_values');
 
@@ -362,6 +381,20 @@ class ActionComplaintsSmfcController extends ControllerBase {
             $newRequest->set('field_pqrsd_nombre_producto', $value['producto_cod']);
           }
 
+          //Descripcion de solicitud
+          if(!isset($value['texto_queja'])){
+
+            //Se agregan los valores a la variable resultado para ser mostrados.
+            $context['results']['error_save'][] = $value;
+            //Actualizar el progreso de informacion.
+            $context['sandbox']['progress']++;
+
+            throw new \Exception (t("An error occurred while saving the node texto_queja. Complaint code: @code", ['@code' => $value['codigo_queja']]));
+            //Ocurrió un error al guardar la fecha del nodo. Código de queja:
+
+          }else{
+            $newRequest->set('field_pqrsd_descripcion', $value['texto_queja']);
+          }
           //archivos
 
           //FileSotorage que se carga a la entidad de tipo file
