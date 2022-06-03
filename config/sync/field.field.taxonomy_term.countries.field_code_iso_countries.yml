@@ -1,0 +1,19 @@
+uuid: 0bcc6e13-2b48-4394-ad80-1d11132b6c52
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_code_iso_countries
+    - taxonomy.vocabulary.countries
+id: taxonomy_term.countries.field_code_iso_countries
+field_name: field_code_iso_countries
+entity_type: taxonomy_term
+bundle: countries
+label: 'Codigo ISO 3166'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

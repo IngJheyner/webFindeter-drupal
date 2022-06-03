@@ -503,7 +503,7 @@ function findeter_pqrsd_cron() {
  */
 function findeter_pqrsd_preprocess_page(&$variables) {
 
-  $apiSmfc = \Drupal::service('api.smfc');
+  //$apiSmfc = \Drupal::service('api.smfc');
 
   $routeUrl = \Drupal::routeMatch()->getRouteName();
 

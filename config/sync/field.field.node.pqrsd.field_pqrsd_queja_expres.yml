@@ -1,0 +1,21 @@
+uuid: 692092c6-fa10-44f4-8b3a-dba9fe5bc746
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pqrsd_queja_expres
+    - node.type.pqrsd
+  module:
+    - options
+id: node.pqrsd.field_pqrsd_queja_expres
+field_name: field_pqrsd_queja_expres
+entity_type: node
+bundle: pqrsd
+label: 'Queja expres'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

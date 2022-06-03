@@ -289,19 +289,30 @@ class ActionComplaintsSmfcController extends ControllerBase {
 
           }
 
-          //Departamento
-          if (!isset($value['departamento_cod'])) {
+          //Pais
+          if (!isset($value['codigo_pais'])) {
 
             //Se agregan los valores a la variable resultado para ser mostrados.
             $context['results']['error_save'][] = $value;
             //Actualizar el progreso de informacion.
             $context['sandbox']['progress']++;
 
-            throw new \Exception (t("An error occurred while saving the node departamento_cod. Complaint code: @code", ['@code' => $value['codigo_queja']]));
-            //Ocurrió un error al guardar la fecha del nodo. Código de queja:
+            throw new \Exception (t("An error occurred while saving the node codigo_pais. Complaint code: @code", ['@code' => $value['codigo_queja']]));
+            //Ocurrió un error al guardar el pais del nodo. Código de queja:
 
           } else {
             
+            $query = \Drupal::entityQuery('taxonomy_term');
+            $query->condition('field_code_iso_countries', $value['codigo_pais']);
+            $tids = $query->execute();
+
+            $newRequest->set('field_paises_pqrsd', $tids);
+
+          }
+
+          //Departamento
+          if(!is_null($value['departamento_cod'])){
+
             $query = \Drupal::entityQuery('taxonomy_term');
             $query->condition('field_code_dane_dpto', $value['departamento_cod']);
             $tids = $query->execute();
@@ -309,30 +320,32 @@ class ActionComplaintsSmfcController extends ControllerBase {
             $newRequest->set('field_pqrsd_departamento', $tids);
 
           }
-
+          
           //Municipio
-          if (!isset($value['municipio_cod'])) {
-
-            //Se agregan los valores a la variable resultado para ser mostrados.
-            $context['results']['error_save'][] = $value;
-            //Actualizar el progreso de informacion.
-            $context['sandbox']['progress']++;
-
-            throw new \Exception (t("An error occurred while saving the node municipio_cod. Complaint code: @code", ['@code' => $value['codigo_queja']]));
-            //Ocurrió un error al guardar la fecha del nodo. Código de queja:
-
-          } else {
+          if(!is_null($value['municipio_cod'])){
             
             $query = \Drupal::entityQuery('taxonomy_term');
             $query->condition('field_code_dane_dpto', $value['municipio_cod']);
             $tids = $query->execute();
 
             $newRequest->set('field_pqrsd_municipio', $tids);
-
+            
           }
 
-          //Telefono 
-          $newRequest->set('field_pqrsd_telefono', $value['telefono'] ??= '');
+          //Telefono
+          if(!isset($value['telefono'])){
+
+            //Se agregan los valores a la variable resultado para ser mostrados.
+            $context['results']['error_save'][] = $value;
+            //Actualizar el progreso de informacion.
+            $context['sandbox']['progress']++;
+
+            throw new \Exception (t("An error occurred while saving the node telefono. Complaint code: @code", ['@code' => $value['codigo_queja']]));
+            //Ocurrió un error al guardar la fecha del nodo. Código de queja:
+
+          }else{
+            $newRequest->set('field_pqrsd_telefono', $value['telefono']);
+          }
 
           //Correo
           if(!isset($value['correo'])){
@@ -395,8 +408,8 @@ class ActionComplaintsSmfcController extends ControllerBase {
           }else{
             $newRequest->set('field_pqrsd_descripcion', $value['texto_queja']);
           }
-          //archivos
 
+          //archivos
           //FileSotorage que se carga a la entidad de tipo file
           $fileStorageArray = [];
 
@@ -428,8 +441,88 @@ class ActionComplaintsSmfcController extends ControllerBase {
             $newRequest->set('field_pqrsd_motivo', $value['macro_motivo_cod']);
           }
 
+          //Canal
+          if(!isset($value['canal_cod'])){
+
+            //Se agregan los valores a la variable resultado para ser mostrados.
+            $context['results']['error_save'][] = $value;
+            //Actualizar el progreso de informacion.
+            $context['sandbox']['progress']++;
+
+            throw new \Exception (t("An error occurred while saving the node canal_cod. Complaint code: @code", ['@code' => $value['codigo_queja']]));
+            //Ocurrió un error al guardar la fecha del nodo. Código de queja:
+
+          }else{
+            $newRequest->set('field_pqrsd_canal', $value['canal_cod']);
+          }
+
           //canal de recepcion
           $newRequest->set('field_pqrsd_canal_recepcion', 'web');
+
+          //Condicion especial
+          if(!isset($value['condicion_especial'])){
+
+            //Se agregan los valores a la variable resultado para ser mostrados.
+            $context['results']['error_save'][] = $value;
+            //Actualizar el progreso de informacion.
+            $context['sandbox']['progress']++;
+
+            throw new \Exception (t("An error occurred while saving the node condicion_especial. Complaint code: @code", ['@code' => $value['codigo_queja']]));
+            //Ocurrió un error al guardar la fecha del nodo. Código de queja:
+
+          }else{
+            $newRequest->set('field_pqrsd_condicion_especial', $value['condicion_especial']);
+          }
+
+          //Tutela
+          if(!isset($value['tutela'])){
+
+            //Se agregan los valores a la variable resultado para ser mostrados.
+            $context['results']['error_save'][] = $value;
+            //Actualizar el progreso de informacion.
+            $context['sandbox']['progress']++;
+
+            throw new \Exception (t("An error occurred while saving the node tutela. Complaint code: @code", ['@code' => $value['codigo_queja']]));
+            //Ocurrió un error al guardar la fecha del nodo. Código de queja:
+
+          }else{
+            $newRequest->set('field_pqrsd_tutela', $value['tutela']);
+          }
+
+          //Entes de control
+          if(!is_null($value['ente_control'])){            
+            $newRequest->set('field_pqrsd_entes_control', $value['ente_control']);            
+          }
+
+          //Desistimiento queja
+          if(!isset($value['desistimiento_queja'])){
+
+            //Se agregan los valores a la variable resultado para ser mostrados.
+            $context['results']['error_save'][] = $value;
+            //Actualizar el progreso de informacion.
+            $context['sandbox']['progress']++;
+
+            throw new \Exception (t("An error occurred while saving the node desistimiento_queja. Complaint code: @code", ['@code' => $value['codigo_queja']]));
+            //Ocurrió un error al guardar la fecha del nodo. Código de queja:
+
+          }else{
+            $newRequest->set('field_pqrsd_desistimiento_queja', $value['desistimiento_queja']);
+          }
+
+          //Queja express
+          if(!isset($value['queja_expres'])){
+
+            //Se agregan los valores a la variable resultado para ser mostrados.
+            $context['results']['error_save'][] = $value;
+            //Actualizar el progreso de informacion.
+            $context['sandbox']['progress']++;
+
+            throw new \Exception (t("An error occurred while saving the node queja_expres. Complaint code: @code", ['@code' => $value['codigo_queja']]));
+            //Ocurrió un error al guardar la fecha del nodo. Código de queja:
+
+          }else{
+            $newRequest->set('field_pqrsd_queja_expres', $value['queja_expres']);
+          }
 
           //Medio de respuesta
           $newRequest->set('field_pqrsd_medio_respuesta', 'email');
@@ -493,6 +586,9 @@ class ActionComplaintsSmfcController extends ControllerBase {
       if(is_null($nid) || empty($nid)){
 
         isset($context['results']['save']) ? $state->set('findeter_pqrsd.api_smfc_nid', $context['results']['save']) : $state->set('findeter_pqrsd.api_smfc_nid', null);
+
+        if(!isset($context['results']['error_save']))
+          $state->set('findeter_pqrsd.api_smfc_data', null);
 
       }else{
 

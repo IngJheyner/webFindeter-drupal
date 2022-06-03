@@ -1,0 +1,82 @@
+uuid: 98c81b24-a073-4a32-a16f-68704808b260
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_pqrsd_canal
+field_name: field_pqrsd_canal
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: 'Aplicaciones móviles'
+    -
+      value: '2'
+      label: 'Cajeros automáticos administrados'
+    -
+      value: '3'
+      label: 'Cajeros automáticos no propios'
+    -
+      value: '4'
+      label: 'Cajeros automáticos propios'
+    -
+      value: '5'
+      label: 'Centro de atención telefónica (Call center/Contac center)'
+    -
+      value: '6'
+      label: 'Asistente virtual'
+    -
+      value: '7'
+      label: 'Corresponsales digitales propios'
+    -
+      value: '8'
+      label: 'Corresponsales digitales tercerizados'
+    -
+      value: '9'
+      label: 'Corresponsales físicos propios'
+    -
+      value: '10'
+      label: 'Corresponsales físicos tercerizados'
+    -
+      value: '11'
+      label: 'Corresponsales móviles propios'
+    -
+      value: '12'
+      label: 'Corresponsales móviles tercerizados'
+    -
+      value: '13'
+      label: Internet
+    -
+      value: '14'
+      label: Oficinas
+    -
+      value: '15'
+      label: 'POS administrados'
+    -
+      value: '16'
+      label: 'POS no propios'
+    -
+      value: '17'
+      label: 'POS propios'
+    -
+      value: '18'
+      label: 'Sistema de acceso remoto para clientes (RAS)'
+    -
+      value: '19'
+      label: 'Sistema de Audio Respuesta (IVR)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

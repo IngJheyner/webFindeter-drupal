@@ -1,0 +1,29 @@
+uuid: f3d021af-8176-42d0-ad2a-f8083d7553bb
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paises_pqrsd
+    - node.type.pqrsd
+    - taxonomy.vocabulary.countries
+id: node.pqrsd.field_paises_pqrsd
+field_name: field_paises_pqrsd
+entity_type: node
+bundle: pqrsd
+label: Pais
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      countries: countries
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

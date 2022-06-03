@@ -1,0 +1,21 @@
+uuid: a2271621-a8ca-4ff8-8954-6b09abf9d835
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pqrsd_canal
+    - node.type.pqrsd
+  module:
+    - options
+id: node.pqrsd.field_pqrsd_canal
+field_name: field_pqrsd_canal
+entity_type: node
+bundle: pqrsd
+label: Canal
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

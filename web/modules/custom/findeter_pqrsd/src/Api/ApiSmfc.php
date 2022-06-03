@@ -102,7 +102,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
         //$this->login();
         //$this->refreshToken();
         //$this->postComplaints(277);
-        //$this->putComplaints(278);
+        //$this->putComplaints(374);
        
     }
 
@@ -667,12 +667,24 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
 
             //Ente de control
             $entityControl = $nodeStorage->get("field_pqrsd_entes_control")->getValue()[0]['value'];
+
+            //Condicion especial           
+            $conditionSpecial = isset($nodeStorage->get('field_pqrsd_condicion_especial')->getValue()[0]['value']) ? $nodeStorage->get("field_pqrsd_condicion_especial")->getValue()[0]['value'] : 98;
             
+            //Canal
+            $canal = isset($nodeStorage->get('field_pqrsd_canal')->getValue()[0]['value']) ? $nodeStorage->get("field_pqrsd_canal")->getValue()[0]['value'] : null;
+
+            //Desistimiento
+            $withdrawal = isset($nodeStorage->get('field_pqrsd_desistimiento_queja')->getValue()[0]['value']) ? $nodeStorage->get("field_pqrsd_desistimiento_queja")->getValue()[0]['value'] : null;
+
+            //Queja expres           
+            $complaintsExpress = isset($nodeStorage->get('field_pqrsd_queja_expres')->getValue()[0]['value']) ? $nodeStorage->get("field_pqrsd_queja_expres")->getValue()[0]['value'] : 2;
+
             $dataSignature = '{"codigo_queja": "'.$codComplaints.'", '.
                 '"sexo": "'.$sexo.'", '.
                 '"lgbtiq": "'.$lgtbi.'", '.
-                '"condicion_especial": "98", '. //
-                '"canal_cod": null, '. //
+                '"condicion_especial": "'.$conditionSpecial.'", '. //
+                '"canal_cod": "'.$canal.'", '. //
                 '"producto_cod": "'.$codProduct.'", '.
                 '"macro_motivo_cod": "'.$codMotive.'", '.
                 '"estado_cod": "4", '.
@@ -681,7 +693,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
                 '"a_favor_de": "'.$infavorof.'", '.
                 '"aceptacion_queja": null, '.
                 '"rectificacion_queja": null, '.
-                '"desistimiento_queja": null, '. //
+                '"desistimiento_queja": "'.$withdrawal.'", '. //
                 '"prorroga_queja": null, '.
                 '"admision": "9", '.
                 '"documentacion_rta_final": true, '.
@@ -690,7 +702,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
                 '"tutela": "'.$wardShip.'", '.
                 '"ente_control": "'.$entityControl.'", '.
                 '"marcacion": null, '.
-                '"queja_expres": "2"}';//
+                '"queja_expres": "'.$complaintsExpress.'"}';//
             
             //Firma encrypt sha256 en funcion de hmac.===== ===== 
             $signature = strtoupper(hash_hmac('sha256',$dataSignature,$this->secretKey,FALSE));

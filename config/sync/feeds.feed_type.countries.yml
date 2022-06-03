@@ -1,0 +1,63 @@
+uuid: f46099c7-98bf-4d18-8e22-544342e7717c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.countries.field_code_iso_countries
+    - taxonomy.vocabulary.countries
+  module:
+    - taxonomy
+label: Paises
+id: countries
+description: 'Se importa paises con norma iso 3166 para PQRSD'
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'private://feeds/paises'
+parser: csv
+parser_configuration:
+  delimiter: ;
+  no_headers: false
+  line_limit: 100
+processor: 'entity:taxonomy_term'
+processor_configuration:
+  values:
+    vid: countries
+  langcode: es
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  code_iso_countries:
+    value: codigo
+    label: codigo
+    machine_name: code_iso_countries
+    type: csv
+  countries:
+    value: pais
+    label: pais
+    machine_name: countries
+    type: csv
+mappings:
+  -
+    target: field_code_iso_countries
+    map:
+      value: code_iso_countries
+    settings:
+      language: null
+    unique:
+      value: '1'
+  -
+    target: name
+    map:
+      value: countries
+    settings:
+      language: null
+    unique: {  }

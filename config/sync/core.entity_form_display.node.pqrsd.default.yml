@@ -3,14 +3,18 @@ langcode: es
 status: true
 dependencies:
   config:
+    - field.field.node.pqrsd.field_paises_pqrsd
     - field.field.node.pqrsd.field_pqrsd_api_smfc
     - field.field.node.pqrsd.field_pqrsd_archivo
     - field.field.node.pqrsd.field_pqrsd_asignaciones
     - field.field.node.pqrsd.field_pqrsd_autorizacion
+    - field.field.node.pqrsd.field_pqrsd_canal
     - field.field.node.pqrsd.field_pqrsd_canal_recepcion
     - field.field.node.pqrsd.field_pqrsd_comentario_traslado
+    - field.field.node.pqrsd.field_pqrsd_condicion_especial
     - field.field.node.pqrsd.field_pqrsd_departamento
     - field.field.node.pqrsd.field_pqrsd_descripcion
+    - field.field.node.pqrsd.field_pqrsd_desistimiento_queja
     - field.field.node.pqrsd.field_pqrsd_direccion
     - field.field.node.pqrsd.field_pqrsd_email
     - field.field.node.pqrsd.field_pqrsd_entes_control
@@ -35,6 +39,7 @@ dependencies:
     - field.field.node.pqrsd.field_pqrsd_preferencial
     - field.field.node.pqrsd.field_pqrsd_primer_apellido
     - field.field.node.pqrsd.field_pqrsd_primer_nombre
+    - field.field.node.pqrsd.field_pqrsd_queja_expres
     - field.field.node.pqrsd.field_pqrsd_rango_edad
     - field.field.node.pqrsd.field_pqrsd_razon_social
     - field.field.node.pqrsd.field_pqrsd_respuesta
@@ -84,11 +89,14 @@ third_party_settings:
         - field_pqrsd_tipo_peticion
         - field_pqrsd_numero_radicado
         - field_pqrsd_tipo_radicado
+        - field_pqrsd_queja_expres
+        - field_pqrsd_desistimiento_queja
         - field_pqrsd_tipo_solicitante
         - field_pqrsd_rango_edad
         - field_pqrsd_grupo_etnico
         - field_pqrsd_preferencial
         - field_pqrsd_tipo_discapacidad
+        - field_pqrsd_condicion_especial
         - created
         - status
       label: 'Info. Radicado'
@@ -115,6 +123,7 @@ third_party_settings:
         - field_pqrsd_segundo_apellido
         - group_info_juridica
         - field_pqrsd_direccion
+        - field_paises_pqrsd
         - field_pqrsd_departamento
         - field_pqrsd_municipio
         - field_pqrsd_telefono
@@ -140,7 +149,7 @@ third_party_settings:
       label: 'Info. Juridica'
       region: content
       parent_name: group_info_persona
-      weight: 13
+      weight: 14
       format_type: details
       format_settings:
         classes: ''
@@ -170,6 +179,7 @@ third_party_settings:
         required_fields: true
     group_info_administrativa:
       children:
+        - field_pqrsd_canal
         - field_pqrsd_canal_recepcion
         - field_pqrsd_medio_respuesta
         - field_pqrsd_forma_recepcion
@@ -203,7 +213,7 @@ third_party_settings:
       label: 'Info. Respuesta'
       region: content
       parent_name: group_container
-      weight: 20
+      weight: 9
       format_type: tab
       format_settings:
         classes: ''
@@ -235,9 +245,19 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 19
+    weight: 22
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_paises_pqrsd:
+    type: entity_reference_autocomplete
+    weight: 16
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_pqrsd_api_smfc:
     type: options_select
@@ -247,14 +267,14 @@ content:
     third_party_settings: {  }
   field_pqrsd_archivo:
     type: file_generic
-    weight: 5
+    weight: 4
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_pqrsd_asignaciones:
     type: string_textfield
-    weight: 8
+    weight: 16
     region: content
     settings:
       size: 60
@@ -262,27 +282,39 @@ content:
     third_party_settings: {  }
   field_pqrsd_autorizacion:
     type: options_select
-    weight: 6
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_pqrsd_canal:
+    type: options_select
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_canal_recepcion:
     type: options_select
-    weight: 3
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_comentario_traslado:
     type: string_textfield
-    weight: 9
+    weight: 17
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_pqrsd_condicion_especial:
+    type: options_select
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_pqrsd_departamento:
     type: entity_reference_autocomplete
-    weight: 15
+    weight: 17
     region: content
     settings:
       match_operator: CONTAINS
@@ -292,15 +324,21 @@ content:
     third_party_settings: {  }
   field_pqrsd_descripcion:
     type: string_textarea
-    weight: 6
+    weight: 5
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_pqrsd_desistimiento_queja:
+    type: options_select
+    weight: 15
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_pqrsd_direccion:
     type: string_textfield
-    weight: 14
+    weight: 15
     region: content
     settings:
       size: 60
@@ -308,7 +346,7 @@ content:
     third_party_settings: {  }
   field_pqrsd_email:
     type: email_default
-    weight: 19
+    weight: 21
     region: content
     settings:
       placeholder: ''
@@ -316,13 +354,13 @@ content:
     third_party_settings: {  }
   field_pqrsd_entes_control:
     type: options_select
-    weight: 15
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_fax:
     type: string_textfield
-    weight: 18
+    weight: 20
     region: content
     settings:
       size: 60
@@ -330,31 +368,31 @@ content:
     third_party_settings: {  }
   field_pqrsd_fecha_naranja:
     type: datetime_default
-    weight: 12
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_fecha_respuesta:
     type: datetime_default
-    weight: 18
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_fecha_roja:
     type: datetime_default
-    weight: 13
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_forma_recepcion:
     type: options_select
-    weight: 5
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_grupo_etnico:
     type: options_select
-    weight: 16
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -366,32 +404,32 @@ content:
     third_party_settings: {  }
   field_pqrsd_lgtbi:
     type: options_select
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_marketing:
     type: options_select
-    weight: 7
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_medio_respuesta:
     type: options_select
-    weight: 4
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_motivo:
     type: select2
-    weight: 7
+    weight: 6
     region: content
     settings:
       width: 100%
     third_party_settings: {  }
   field_pqrsd_municipio:
     type: entity_reference_autocomplete
-    weight: 16
+    weight: 18
     region: content
     settings:
       match_operator: CONTAINS
@@ -439,7 +477,7 @@ content:
     third_party_settings: {  }
   field_pqrsd_palabras_clave:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 18
     region: content
     settings:
       match_operator: CONTAINS
@@ -449,13 +487,13 @@ content:
     third_party_settings: {  }
   field_pqrsd_preferencial:
     type: options_select
-    weight: 17
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_primer_apellido:
     type: string_textfield
-    weight: 11
+    weight: 12
     region: content
     settings:
       size: 60
@@ -463,15 +501,21 @@ content:
     third_party_settings: {  }
   field_pqrsd_primer_nombre:
     type: string_textfield
-    weight: 9
+    weight: 10
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_pqrsd_queja_expres:
+    type: options_select
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_pqrsd_rango_edad:
     type: options_select
-    weight: 15
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -493,20 +537,20 @@ content:
     third_party_settings: {  }
   field_pqrsd_respuesta_a_favor:
     type: options_select
-    weight: 17
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_respuesta_archivos:
     type: file_generic
-    weight: 16
+    weight: 17
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_pqrsd_segundo_apellido:
     type: string_textfield
-    weight: 12
+    weight: 13
     region: content
     settings:
       size: 60
@@ -514,7 +558,7 @@ content:
     third_party_settings: {  }
   field_pqrsd_segundo_nombre:
     type: string_textfield
-    weight: 10
+    weight: 11
     region: content
     settings:
       size: 60
@@ -528,7 +572,7 @@ content:
     third_party_settings: {  }
   field_pqrsd_telefono:
     type: string_textfield
-    weight: 17
+    weight: 19
     region: content
     settings:
       size: 60
@@ -536,7 +580,7 @@ content:
     third_party_settings: {  }
   field_pqrsd_tipo_discapacidad:
     type: options_select
-    weight: 18
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -566,19 +610,19 @@ content:
     third_party_settings: {  }
   field_pqrsd_tipo_solicitante:
     type: options_select
-    weight: 14
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_tutela:
     type: options_select
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 20
+    weight: 23
     region: content
     settings:
       display_label: true

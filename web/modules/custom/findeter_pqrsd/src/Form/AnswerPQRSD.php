@@ -42,7 +42,7 @@ class AnswerPQRSD extends FormBase {
 
     //Se ajusta para que los archivos de respuesta queden en la misma ruta de anexo de radicado.
     //Si no tiene algun anexo, se guarda el anexo respuesta con la fecha actual y id del peticionario.
-    $anexTargetNid = $node->get('field_pqrsd_archivo')->getValue()[0]['target_id'];
+    $anexTargetNid = $node->get('field_pqrsd_archivo')->getValue()[0]['target_id'] ??= null;
 
     if(is_null($anexTargetNid)){
 
@@ -94,6 +94,7 @@ class AnswerPQRSD extends FormBase {
         '#title'   => $definitions['field_pqrsd_tutela']->getLabel(),
         '#options' => $definitions['field_pqrsd_tutela']->getSetting('allowed_values'),
         '#empty_option' => '-Seleccione una opción-',
+        '#default_value' => $node->get('field_pqrsd_tutela')->getValue()[0]['value'] ??= '',
         '#required' => TRUE,
       ];
 
@@ -102,6 +103,7 @@ class AnswerPQRSD extends FormBase {
         '#title'   => $definitions['field_pqrsd_entes_control']->getLabel(),
         '#options' => $definitions['field_pqrsd_entes_control']->getSetting('allowed_values'),
         '#empty_option' => '-Seleccione una opción-',
+        '#default_value' => $node->get('field_pqrsd_entes_control')->getValue()[0]['value'] ??= '',
         '#required' => TRUE,
       ];
 

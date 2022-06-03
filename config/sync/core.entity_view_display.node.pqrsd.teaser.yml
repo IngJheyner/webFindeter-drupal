@@ -4,14 +4,18 @@ status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.pqrsd.field_paises_pqrsd
     - field.field.node.pqrsd.field_pqrsd_api_smfc
     - field.field.node.pqrsd.field_pqrsd_archivo
     - field.field.node.pqrsd.field_pqrsd_asignaciones
     - field.field.node.pqrsd.field_pqrsd_autorizacion
+    - field.field.node.pqrsd.field_pqrsd_canal
     - field.field.node.pqrsd.field_pqrsd_canal_recepcion
     - field.field.node.pqrsd.field_pqrsd_comentario_traslado
+    - field.field.node.pqrsd.field_pqrsd_condicion_especial
     - field.field.node.pqrsd.field_pqrsd_departamento
     - field.field.node.pqrsd.field_pqrsd_descripcion
+    - field.field.node.pqrsd.field_pqrsd_desistimiento_queja
     - field.field.node.pqrsd.field_pqrsd_direccion
     - field.field.node.pqrsd.field_pqrsd_email
     - field.field.node.pqrsd.field_pqrsd_entes_control
@@ -36,6 +40,7 @@ dependencies:
     - field.field.node.pqrsd.field_pqrsd_preferencial
     - field.field.node.pqrsd.field_pqrsd_primer_apellido
     - field.field.node.pqrsd.field_pqrsd_primer_nombre
+    - field.field.node.pqrsd.field_pqrsd_queja_expres
     - field.field.node.pqrsd.field_pqrsd_rango_edad
     - field.field.node.pqrsd.field_pqrsd_razon_social
     - field.field.node.pqrsd.field_pqrsd_respuesta
@@ -67,14 +72,18 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_paises_pqrsd: true
   field_pqrsd_api_smfc: true
   field_pqrsd_archivo: true
   field_pqrsd_asignaciones: true
   field_pqrsd_autorizacion: true
+  field_pqrsd_canal: true
   field_pqrsd_canal_recepcion: true
   field_pqrsd_comentario_traslado: true
+  field_pqrsd_condicion_especial: true
   field_pqrsd_departamento: true
   field_pqrsd_descripcion: true
+  field_pqrsd_desistimiento_queja: true
   field_pqrsd_direccion: true
   field_pqrsd_email: true
   field_pqrsd_entes_control: true
@@ -99,6 +108,7 @@ hidden:
   field_pqrsd_preferencial: true
   field_pqrsd_primer_apellido: true
   field_pqrsd_primer_nombre: true
+  field_pqrsd_queja_expres: true
   field_pqrsd_rango_edad: true
   field_pqrsd_razon_social: true
   field_pqrsd_respuesta: true
