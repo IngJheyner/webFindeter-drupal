@@ -27,6 +27,7 @@ dependencies:
     - field.field.node.pqrsd.field_pqrsd_grupo_etnico
     - field.field.node.pqrsd.field_pqrsd_instance_reception
     - field.field.node.pqrsd.field_pqrsd_lgtbi
+    - field.field.node.pqrsd.field_pqrsd_macro_motivo
     - field.field.node.pqrsd.field_pqrsd_marketing
     - field.field.node.pqrsd.field_pqrsd_medio_respuesta
     - field.field.node.pqrsd.field_pqrsd_motivo
@@ -260,6 +261,7 @@ third_party_settings:
       children:
         - field_pqrsd_nombre_producto
         - field_pqrsd_archivo
+        - field_pqrsd_macro_motivo
         - field_pqrsd_motivo
         - field_pqrsd_otros
       label: 'columna 1'
@@ -365,7 +367,7 @@ third_party_settings:
       label: 'Info. Respuesta'
       parent_name: group_info_container
       region: content
-      weight: 5
+      weight: 6
       format_type: details
       format_settings:
         classes: ''
@@ -433,7 +435,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 19
+    weight: 18
     region: content
   field_pqrsd_canal:
     type: list_default
@@ -550,7 +552,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 16
+    weight: 17
     region: content
   field_pqrsd_grupo_etnico:
     type: list_default
@@ -573,12 +575,19 @@ content:
     third_party_settings: {  }
     weight: 30
     region: content
+  field_pqrsd_macro_motivo:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 23
+    region: content
   field_pqrsd_marketing:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 20
+    weight: 19
     region: content
   field_pqrsd_medio_respuesta:
     type: list_default
@@ -592,7 +601,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 25
+    weight: 24
     region: content
   field_pqrsd_municipio:
     type: entity_reference_label
@@ -641,7 +650,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 26
+    weight: 25
     region: content
   field_pqrsd_palabras_clave:
     type: entity_reference_label

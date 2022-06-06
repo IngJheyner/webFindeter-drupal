@@ -978,6 +978,16 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
     if($view->current_display == 'page_1' || $view->current_display == 'page_2'){
 
+      if($field->field == 'field_pqrsd_numero_radicado'){
+
+        if(isset($row->_entity->get('field_pqrsd_api_smfc')->getValue()[0]['value']) && $row->_entity->get('field_pqrsd_api_smfc')->getValue()[0]['value'] == 'recibido'){
+
+          $variables['output'] = ['#markup' => '<img src="https://pbs.twimg.com/media/Dgu0bCeXUAAQdkT?format=jpg&name=small" onerror="this.remove();"> '.$row->_entity->get('field_pqrsd_numero_radicado')->getValue()[0]['value']];
+
+        }
+
+      }
+
       if($field->field == 'field_pqrsd_respuesta'){
         if($variables['output'] == ''){
           $variables['output'] = 'Abierta asignada a: '.strip_tags($view->field['uid']->original_value);

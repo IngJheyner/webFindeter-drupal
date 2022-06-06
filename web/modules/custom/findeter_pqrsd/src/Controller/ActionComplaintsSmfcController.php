@@ -426,8 +426,8 @@ class ActionComplaintsSmfcController extends ControllerBase {
             }
           }
           
-          //motivo
-          $itemsMotive = $definitions['field_pqrsd_motivo']->getSetting('allowed_values');
+          //Macro motivo
+          $itemsMotive = $definitions['field_pqrsd_macro_motivo']->getSetting('allowed_values');
           
           if(!isset($value['macro_motivo_cod']) || !array_key_exists($value['macro_motivo_cod'], $itemsMotive)){
             //Se agregan los valores a la variable resultado para ser mostrados.
@@ -438,7 +438,7 @@ class ActionComplaintsSmfcController extends ControllerBase {
             throw new \Exception (t("An error occurred while saving the node macro_motivo_cod, The most possible cause is that the import motive code @code_motive does not match the code registered in the pqrsd system. Complaint code: @code", ['@code_motive' => $value['macro_motivo_cod'], '@code' => $value['codigo_queja']]));
             //Ocurrió un error al guardar la fecha del nodo, La causa mas posible es que el codigo del motivo de importacion no coincida con el codigo registrado en el sistema pqrsd. Código de queja:
           }else{
-            $newRequest->set('field_pqrsd_motivo', $value['macro_motivo_cod']);
+            $newRequest->set('field_pqrsd_macro_motivo', $value['macro_motivo_cod']);
           }
 
           //Canal

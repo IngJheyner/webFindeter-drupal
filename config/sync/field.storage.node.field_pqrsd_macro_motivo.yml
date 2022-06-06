@@ -1,0 +1,265 @@
+uuid: 6fe6d4a4-67bd-47b6-8598-14d770e8ea64
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_pqrsd_macro_motivo
+field_name: field_pqrsd_macro_motivo
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: 'TRATO INADECUADO EN LOS CANALES DE ATENCIÓN O PROVEEDORES'
+    -
+      value: '2'
+      label: 'FALLAS O NO DISPONIBILIDAD DE CANALES DE PRESTACIÓN DE SERVICIOS'
+    -
+      value: '3'
+      label: 'COBROS POR OPERACIONES FALLIDAS EN CAJEROS ELECTRÓNICOS'
+    -
+      value: '4'
+      label: 'COBROS POR CONSULTA DE SALDOS O DESCARGA DE EXTRACTOS EN PLATAFORMAS ELECTRÓNICAS'
+    -
+      value: '5'
+      label: 'PUBLICIDAD ENGAÑOSA'
+    -
+      value: '6'
+      label: 'INFORMACIÓN O ASESORÍA IMPRECISA, INOPORTUNA, INCOMPLETA O CAMBIO DE ASESOR'
+    -
+      value: '7'
+      label: 'DIFICULTAD EN COMUNICACIÓN CON LA ENTIDAD'
+    -
+      value: '8'
+      label: 'ERROR, FALTA DE CLARIDAD, INCUMPLIMIENTO O CAMBIOS EN LOS TÉRMINOS DEL CONTRATO O PÓLIZA'
+    -
+      value: '9'
+      label: 'SUPLANTACIÓN O FRAUDE'
+    -
+      value: '10'
+      label: 'INCONFORMIDAD CON EL  OTORGAMIENTO O PAGO DE SUBSIDIOS'
+    -
+      value: '11'
+      label: 'VINCULACIÓN A PRODUCTOS NO SOLICTADA O AUTORIZADA'
+    -
+      value: '12'
+      label: 'OBLIGACIÓN DE ADQUIRIR UN PRODUCTO PARA PRESTACIÓN DE OTRO'
+    -
+      value: '13'
+      label: 'BLOQUEOS, NO CANCELACIÓN O CANCELACIÓN NO SOLICITADA DE LOS PRODUCTOS'
+    -
+      value: '14'
+      label: 'PROBLEMAS CON DÉBITO AUTOMÁTICO'
+    -
+      value: '15'
+      label: 'PROBLEMAS CON ENTREGA O CONTENIDO DE DOCUMENTACIÓN, EXTRACTOS O CERTIFICADOS'
+    -
+      value: '16'
+      label: 'PROBLEMAS CON LA DEVOLUCIÓN DE SALDOS, APORTES O PRIMAS'
+    -
+      value: '17'
+      label: 'NEGACIÓN INJUSTIFICADA A LA APERTURA DEL PRODUCTO'
+    -
+      value: '18'
+      label: 'PROBLEMAS CON LA ATENCIÓN DE QUEJAS O RECLAMOS ANTE ENTIDADES VIGILADAS'
+    -
+      value: '19'
+      label: 'PROBLEMAS RELACIONADOS CON CENTRALES DE RIESGO Y/O TRATAMIENTO DE DATOS PERSONALES'
+    -
+      value: '20'
+      label: 'PROBLEMAS CON PAGOS O TRANSACCIONES MAL APLICADAS, NO RECONOCIDAS O DEMORADAS'
+    -
+      value: '21'
+      label: 'PROBLEMAS CON GARANTÍAS'
+    -
+      value: '22'
+      label: 'APLICACIÓN DE IMPUESTOS'
+    -
+      value: '23'
+      label: 'INCOSISTENCIAS EN EL MOVIMIENTO O SALDO TOTAL DEL PRODUCTO, DESCUENTOS O COBROS INJUSTIFICADOS O INOPORTUNOS'
+    -
+      value: '24'
+      label: 'PROBLEMAS CON PORTAFOLIOS DE INVERSIÓN'
+    -
+      value: '25'
+      label: 'DEMORAS EN LA VINCULACIÓN O ACTIVACIÓN DE PRODUCTOS'
+    -
+      value: '26'
+      label: 'INCONFORMIDAD CON LOS ACUERDOS DE PAGO'
+    -
+      value: '27'
+      label: 'RETIRO COMPLETO DEL DEPÓSITO'
+    -
+      value: '28'
+      label: 'INCONFORMIDAD CON EL PROCESO DE EMBARGO'
+    -
+      value: '29'
+      label: 'INCONFORMIDAD CON LA APLICACIÓN DE TASAS DE INTERÉS O LIQUIDACIÓN'
+    -
+      value: '30'
+      label: 'INCONFORMIDADES CON EL PROCESO DE COBRANZA'
+    -
+      value: '31'
+      label: 'APERTURA DE CUENTAS DE CAMPAÑAS POLÍTICAS'
+    -
+      value: '32'
+      label: 'INCONFORMIDADES CON LA INFORMACIÓN RELACIONADA CON PAQUETES MÍNIMOS'
+    -
+      value: '33'
+      label: 'INCONSISTENCIAS O DEMORA EN EL PROCESO DE AFILIACIÓN O TRASLADOS'
+    -
+      value: '34'
+      label: 'INCONFORMIDAD CON EL PROCESO DE DOBLE ASESORÍA'
+    -
+      value: '35'
+      label: 'INCONFORMIDAD CON EL PAGO, ACREDITACIÓN O IDENTIFICACIÓN O APLIACIÓN DE APORTES'
+    -
+      value: '36'
+      label: 'INCONFONFORMIDAD CON LA ENTREGA DEL CÁLCULO ACTUARIAL'
+    -
+      value: '37'
+      label: 'INCONFORMIDAD CON EL PROCESO DE RETIRO DE APORTES O CESANTÍAS'
+    -
+      value: '38'
+      label: 'INCONSISTENCIAS O NO ENTREGA DE LA HISTORIA LABORAL'
+    -
+      value: '39'
+      label: 'INCONSISTENCIAS O DEMORA EN EL PROCESO DEL BONO PENSIONAL'
+    -
+      value: '40'
+      label: 'INCONFORMIDAD CON EL RECONOCIMIENTO DE PRESTACIONES ECONÓMICAS'
+    -
+      value: '41'
+      label: 'INCONVENIENTES CON EL PROCESO DE RETRACTO'
+    -
+      value: '42'
+      label: 'INCONFORMIDAD EN EL PROCESO DE ANULACIONES DE AFILIACIÓN O TRASLADO'
+    -
+      value: '43'
+      label: 'INCONFORMIDAD O DEMORAS EN EL RECONOCIMIENTO DE LA MESADA PENSIONAL'
+    -
+      value: '44'
+      label: 'NO PROCESAMIENTO OPORTUNO DE NOVEDADES'
+    -
+      value: '45'
+      label: 'DEFICIENCIAS EN EL PROCESO DE CALIFICACIÓN DEL ESTADO DE INVALIDEZ'
+    -
+      value: '46'
+      label: 'INCONFORMIDAD CON EL PROCESO DE RECONOCIMIENTO O PAGO DE INCAPACIDADES'
+    -
+      value: '47'
+      label: 'INCONFORMIDAD CON RECOMPOSICIÓN DE PORTAFOLIO O RENDIMIENTOS'
+    -
+      value: '48'
+      label: 'INCONFORMIDAD CON RECOMPOSICIÓN DE PORTAFOLIO O RENDIMIENTOS'
+    -
+      value: '49'
+      label: 'INCONFORMIDAD CON RECOMPOSICIÓN DE PORTAFOLIO O RENDIMIENTOS'
+    -
+      value: '50'
+      label: 'INCONSISTENCIAS O FALTA DE PAGO DE LA CLÁUSULLA PENAL POR DEMORA DEL PROYECTO INMOBILIARIO'
+    -
+      value: '51'
+      label: 'INCUMPLIMIENTO DEL DEBER DE RENDICIÓN DE CUENTAS'
+    -
+      value: '52'
+      label: 'INCONSISTENCIAS EN LA COMPRA, INTERCAMBIO, TRANSFERENCIA, TRASPASO O REDENCIÓN'
+    -
+      value: '53'
+      label: 'DESVALORIZACIÓN DE LOS ACTIVOS'
+    -
+      value: '54'
+      label: 'INCONVENIENTES CON EL PAGO DE DIVIDENDOS'
+    -
+      value: '55'
+      label: 'INCONVENIENTES CON LA COLOCACIÓN Y ADJUDICACIÓN DE VALORES'
+    -
+      value: '56'
+      label: 'INCUMPLIMIENTO EN LA INSTRUCCIÓN DEL CLIENTE'
+    -
+      value: '57'
+      label: 'INDEBIDA CLASIFICACIÓN DEL PERFIL DE RIESGO'
+    -
+      value: '58'
+      label: 'PRÁCTICAS INADECUADAS DE CONDUCTAS DEL MERCADO'
+    -
+      value: '59'
+      label: 'RETENCIÓN POR PARTE DEL EMISOR'
+    -
+      value: '60'
+      label: 'PÉRDIDA O DESVALORIZACIÓN DE LA UNIDAD'
+    -
+      value: '61'
+      label: 'INCUMPLIMIENTOI DE INVERSIONES CON POLÍTICAS DEFINIDAS'
+    -
+      value: '62'
+      label: 'INCONFORMIDADES CON EL PROCESO DE EMISIÓN DE LA PÓLIZA'
+    -
+      value: '63'
+      label: 'DEMORA, NO REALIZACIÓN O ERROR DE MODIFICACIÓN DE FINANCIACIÓN DE LA PÓLIZA O'
+    -
+      value: '64'
+      label: 'DEMORA O NO DEVOLUCIÓN DE PRIMA O APORTE'
+    -
+      value: '65'
+      label: 'INCONFORMIDAD CON LA ATENCIÓN DEL SINIESTRO'
+    -
+      value: '66'
+      label: 'INCONFORMIDADES CON LA DEFINICIÓN Y/O EL PROCESO DE PAGO DE LA INDEMNIZACIÓN'
+    -
+      value: '67'
+      label: 'NO PRESTACIÓN O DEMORA DEL SERVICIO O INCONFORMIDAD CON EL SERVICIO PRESTADO'
+    -
+      value: '68'
+      label: 'INCONFORMIDAD CON EL DICTÁMEN DE CALIFICACIÓN DE PÉRDIDA DE LA CAPACIDAD LABORAL O ENFERMEDAD GRAVE'
+    -
+      value: '69'
+      label: 'INCONFORMIDAD CON LA AUTORIZACIÓN, DEFINICIÓN, DICTÁMEN O DIAGNÓSTICO'
+    -
+      value: '70'
+      label: 'INCONFORMIDAD CON LA AUTORIZACIÓN, DEFINICIÓN, DICTÁMEN O DIAGNÓSTICO'
+    -
+      value: '71'
+      label: 'INCONFORMIDADES RELACIONADAS CON TÍTULOS'
+    -
+      value: '72'
+      label: 'INCONFORMIDAD CON PROCESO DE MODIFICACIÓN DE LA PÓLIZA'
+    -
+      value: '73'
+      label: 'INCONFORMIDAD CON NOVEDADES EN LA ACTUALIZACIÓN DEL INGRESO O RETIRO'
+    -
+      value: '74'
+      label: 'INCONFORMIDAD POR EL NO REGISTRO EN EL SISTEMA'
+    -
+      value: '75'
+      label: 'REPORTE DE PAGO DESACTUALIZADO'
+    -
+      value: '76'
+      label: 'ERROR EN LA LIQUIDACIÓN O PAGO ERRÓNEO'
+    -
+      value: '77'
+      label: 'INCONFORMIDAD CON EL PROCESO DE DISPERSIÓN DE APORTES'
+    -
+      value: '78'
+      label: 'INCONFOMRIDAD CON EL PROCESO DE COBRANZA DE APORTES'
+    -
+      value: '79'
+      label: 'INCONDORMIDAD CON EL PROCESO DE SOLICITUD DE INFORMACIÓN  HISTÓRICA'
+    -
+      value: '99'
+      label: OTROS
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -86,8 +86,29 @@ class AnswerPQRSD extends FormBase {
       '#required' => ($node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Quejas" || $node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Reclamos") ? TRUE : FALSE,
     ];
 
-    //Se agrega nuevos campos para enviar a la API SMFC(tutela y ente de control)
+    //Se agrega nuevos campos para enviar a la API SMFC(motivo tutela y ente de control)
     if($node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Quejas" || $node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Reclamos"){
+
+      $itemReason = $definitions['field_pqrsd_motivo']->getSetting('allowed_values');
+
+      $optionsReasonSmfc = [];
+
+      foreach ($itemReason as $key => $value) {
+        if(is_numeric($key))
+          $optionsReasonSmfc[$key] = $value;
+      }
+
+      $form['field_pqrsd_motivo'] = [
+        '#type'    => 'select2',
+        '#title'   => $definitions['field_pqrsd_motivo']->getLabel(),
+        '#options' => $optionsReasonSmfc,
+        '#empty_option' => '-Seleccione una opción-',
+        '#default_value' => $node->get('field_pqrsd_motivo')->getValue()[0]['value'] ??= '',
+        '#select2' => [
+          'allowClear' => FALSE,
+        ],
+        '#required' => TRUE,
+      ];
 
       $form['field_pqrsd_tutela'] = [
         '#type'    => 'select',
