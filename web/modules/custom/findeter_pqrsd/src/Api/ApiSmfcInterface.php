@@ -19,6 +19,7 @@ interface ApiSmfcInterface{
      * @return string $xtension
      */
     public function getExtFile(): string;
+    
     /**
      * Login
      * Used to enter SMFC system and get access token
@@ -34,6 +35,7 @@ interface ApiSmfcInterface{
     //public function refreshToken(): void;
 
     /**
+     * Momento 1.
      * GET Quejas
      * Recibir quejas del sistema SMFC
      * @param Batch.inic $context
@@ -41,6 +43,7 @@ interface ApiSmfcInterface{
     public function getComplaints($context);
 
      /**
+     * Momento 1.
      * ACK Quejas
      * Enviar codigo de quejas recibidas al sistema SMFC
      * @param Batch.inic $context
@@ -48,6 +51,7 @@ interface ApiSmfcInterface{
     public function ackComplaints($context);
 
     /**
+     * Momento 2.
      * POST Quejas
      * Envio de quejas al sistema SMFC
      * @param $nid 
@@ -56,6 +60,7 @@ interface ApiSmfcInterface{
     public function postComplaints(int $nid): bool;
 
     /**
+     * Momento 3.
      * PUT Quejas
      * Se actualiza valores en las quejas registradas en el sistema SMFC
      * @param $nid 

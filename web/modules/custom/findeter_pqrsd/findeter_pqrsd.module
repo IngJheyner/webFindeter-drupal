@@ -982,7 +982,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
         if(isset($row->_entity->get('field_pqrsd_api_smfc')->getValue()[0]['value']) && $row->_entity->get('field_pqrsd_api_smfc')->getValue()[0]['value'] == 'recibido'){
 
-          $variables['output'] = ['#markup' => '<img src="https://pbs.twimg.com/media/Dgu0bCeXUAAQdkT?format=jpg&name=small" onerror="this.remove();"> '.$row->_entity->get('field_pqrsd_numero_radicado')->getValue()[0]['value']];
+          $variables['output'] = ['#markup' => '<img src="https://pbs.twimg.com/media/Dgu0bCeXUAAQdkT?format=jpg&name=small" onerror="this.remove();" style="width:178px"> '.$row->_entity->get('field_pqrsd_numero_radicado')->getValue()[0]['value']];
 
         }
 
@@ -1004,7 +1004,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
           'class'               => ['use-ajax'],
           'data-dialog-type'    => ['modal'],
           'data-dialog'         => ['modal'],
-          'data-dialog-options' => ['{"width":800}'],
+          'data-dialog-options' => ['{"width":1000}'],
         ];
 
         $htmlOutput = '';
@@ -1525,3 +1525,4 @@ function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
     }
   }
 }
+
