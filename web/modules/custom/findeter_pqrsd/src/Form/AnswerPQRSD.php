@@ -31,11 +31,11 @@ class AnswerPQRSD extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, $nid = NULL) {
 
+    $form_state->setCached(FALSE);
+
     $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'pqrsd');
 
     $fileStorage = \Drupal::entityTypeManager()->getStorage('file');
-
-    $form_state->setCached(FALSE);
 
     //Carga de datos del node
     $node = Node::load($nid);
@@ -58,7 +58,6 @@ class AnswerPQRSD extends FormBase {
       $anexUri = $anexFile->getFileUri();
       $anexPathResponse = \Drupal::service('file_system')->dirname($anexUri);
     }
-   
 
     // Nid param to store in the new references
     $form['node_id'] = array(
@@ -137,7 +136,6 @@ class AnswerPQRSD extends FormBase {
       '#empty_option' => '-Seleccione una opción-',
       '#required' => TRUE,
     ];
-
 
     // Submit with ajax event that after the operation, close the modal
     $form['submit'] = [

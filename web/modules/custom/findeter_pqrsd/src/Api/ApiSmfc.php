@@ -11,6 +11,7 @@ use Drupal\Core\File\FileSystemInterface;
 use Drupal\findeter_pqrsd\Api\ApiSmfcHttp;
 use Drupal\findeter_pqrsd\Api\ApiSmfcInterface;
 use Drupal\file\FileRepositoryInterface;
+use Drupal\file\FileUsage\FileUsageInterface;
 
 /**
  * Service used to create a client web service for the SMFC REST API
@@ -31,6 +32,7 @@ use Drupal\file\FileRepositoryInterface;
  * @param DateFormatterInterface $date_formatter
  * @param FileSystemInterface $file_system
  * @param FileRepositoryInterface $file_repository
+ * @param FileUsageInterface $file_usage
  */
 
 class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
@@ -79,8 +81,13 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
      */
     protected $fileRepository;
 
+    /**
+     * @var Drupal\file\FileUsage\FileUsageInterface $fileUsage
+     */
+    protected $fileUsage;
+
     public function __construct($credentials, ClientFactory $http_client_factory, LoggerChannelFactoryInterface $logger,
-    StateInterface $state, EntityTypeManagerInterface $entity_type_manager, DateFormatterInterface $date_formatter, FileSystemInterface $file_system, FileRepositoryInterface $file_repository){
+    StateInterface $state, EntityTypeManagerInterface $entity_type_manager, DateFormatterInterface $date_formatter, FileSystemInterface $file_system, FileRepositoryInterface $file_repository, FileUsageInterface $file_usage){
 
         /* ===== ===== Credenciales de acceso ===== ===== */
         $this->credentials = $credentials;   
@@ -98,6 +105,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
         $this->dateFormatter = $date_formatter;
         $this->fileSystem = $file_system;
         $this->fileRepository = $file_repository;
+        $this->fileUsage = $file_usage;
 
         //$this->login();
         //$this->refreshToken();
@@ -243,35 +251,56 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
                                     //A veces, el anexo_queja es true y trae archivos vacios o nulos; hacemos una validacion para no entrar en la iteraccion
                                     if($responseFile['count'] != 0){
 
+                                        //Consultamos para obtener el nid del node con numero de radicado.
+                                        $queryNode = \Drupal::entityQuery('node');
+
+                                        $queryNode->condition('type', 'pqrsd');
+
+                                        $queryNode->condition('field_pqrsd_numero_radicado', $value['codigo_queja']);
+                                        
+                                        $nidNode = $queryNode->execute();
+
                                         //Iteramos los resultados de los archivos
                                         foreach ($responseFile['results'] as $keyF => $files) {
 
-                                            //Los siguientes datos, como la fecha, hora y documentos se tratan para construir la ruta donde va ir guardado el archivo, este se guarda como archivo gestionado TEMPORAL.
-                                            $date = $this->dateFormatter->format(strtotime(new DrupalDateTime()), 'custom', 'Y-m-d');
-                                            $hour = $this->dateFormatter->format(strtotime(new DrupalDateTime()), 'custom', 'H');
+                                            if(empty($nidNode)){//Se valida que no sea un archivo nuevo adjunto a un radicado existente
 
-                                            $numDoc = $value['tipo_id_CF'] == 3 ? 'NIT'.$value['numero_id_CF'] : $value['numero_id_CF'];
+                                                //Los siguientes datos, como la fecha, hora y documentos se tratan para construir la ruta donde va ir guardado el archivo, este se guarda como archivo gestionado TEMPORAL.
+                                                $date = $this->dateFormatter->format(strtotime(new DrupalDateTime()), 'custom', 'Y-m-d');
+                                                $hour = $this->dateFormatter->format(strtotime(new DrupalDateTime()), 'custom', 'H');
 
-                                            //Directorio y ruta final donde va ir el archivo
-                                            $directory = "private://pqrsd/Quejas/$date/T$hour"."---$numDoc";
+                                                $numDoc = $value['tipo_id_CF'] == 3 ? 'NIT'.$value['numero_id_CF'] : $value['numero_id_CF'];
 
-                                            //Se obtiene la traza del nombre del archivo con parametros de la uri
-                                            $basenameUri = $this->fileSystem->basename($files['file']);
+                                                //Directorio y ruta final donde va ir el archivo
+                                                $directory = "private://pqrsd/Quejas/$date/T$hour"."---$numDoc";
 
-                                            //Se divide en partes el basename para obtener por completo el nombre del archivo y su extension
-                                            $nameFile = explode('?', $basenameUri);
+                                                //Se obtiene la traza del nombre del archivo con parametros de la uri
+                                                $basenameUri = $this->fileSystem->basename($files['file']);
 
-                                            //Se crea el directorio donde va ir alojado los archivos
-                                            $this->fileSystem->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY);
+                                                //Se divide en partes el basename para obtener por completo el nombre del archivo y su extension
+                                                $nameFile = explode('?', $basenameUri);
 
-                                            //Se crea el archivo como una nueva entidad 
-                                            $fileEntity=$this->fileRepository->writedata(file_get_contents($files['file']), $directory.'/'.$nameFile[0], FileSystemInterface::EXISTS_RENAME);
+                                                //Se crea el directorio donde va ir alojado los archivos
+                                                $this->fileSystem->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY);
 
-                                            //Se extrae el nuevo identificador del archivo
-                                            $fid = $fileEntity->id();
+                                                //Se crea el archivo como una nueva entidad 
+                                                $fileEntity=$this->fileRepository->writedata(file_get_contents($files['file']), $directory.'/'.$nameFile[0], FileSystemInterface::EXISTS_RENAME);
 
-                                            //Se agrega un nuevo indice a $value con los fid del nuevo archivo agregado al sitio
-                                            $value['archivos_fid'][$keyF] = $fid;
+                                                //Se extrae el nuevo identificador del archivo
+                                                $fid = $fileEntity->id();
+
+                                                //Se agrega un nuevo indice a $value con los fid del nuevo archivo agregado al sitio
+                                                $value['archivos_fid'][$keyF] = $fid;
+
+                                            }else{
+
+                                                //Se actualiza los archivos anexos a este radicado ya registrado
+                                                $this->referenceFileAnex(current($nidNode), $files);
+
+                                                //Se agrega un nuevo indice a $value con el valor de ser actualizado el nuevo archivo agregado al sitio
+                                                $value['radicado_update'] = 'update_files';
+
+                                            }
                                         }
                                         
                                     }
@@ -758,5 +787,63 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface{
         }else{
             return FALSE;
         }
+    }
+
+    /**
+     * Complementario al momento 1.
+     * Funcionalidad de referencia si existen nuevos archivos para el radicado
+     * desde la API SMFC
+     * @param $nid 
+     * @param $files
+     */
+    public function referenceFileAnex($nid, $files){
+
+        //Entidad de tipo node
+        $nodeStorage = $this->entityTypeManager->getStorage('node');
+        $node = $nodeStorage->load($nid);
+
+        //Entidad de tipo file
+        $fileStorage = $this->entityTypeManager->getStorage('file');
+
+        //Si no tiene algun anexo, se guarda el anexo respuesta con la fecha actual y id del peticionario.
+        $anexTargetNid = $node->get('field_pqrsd_archivo')->getValue()[0]['target_id'] ??= null;
+
+        if(is_null($anexTargetNid)){
+
+            $dateTimestamp= strtotime(new DrupalDateTime());
+            $date =  $this->dateFormatter->format($dateTimestamp, 'custom', 'Y-m-d');
+            $time =  str_replace(" ", "", ($this->dateFormatter->format($dateTimestamp, 'custom', '\T\ H')));
+            $time .= '---'.$node->get('field_pqrsd_numero_id')->getValue()[0]['value'];
+
+            $anexPathResponse = 'public://pqrsd/'.$node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'].'/'.$date.'/'.$time;
+
+        }else{
+
+            $anexFile = $fileStorage->load($anexTargetNid);
+            $anexUri = $anexFile->getFileUri();
+            $anexPathResponse = $this->fileSystem->dirname($anexUri);
+
+        }
+
+        //Se obtiene la traza del nombre del archivo con parametros de la uri
+        $basenameUri = $this->fileSystem->basename($files['file']);
+
+        //Se divide en partes el basename para obtener por completo el nombre del archivo y su extension
+        $nameFile = explode('?', $basenameUri);
+
+        //Se crea el directorio donde va ir alojado los archivos
+        $this->fileSystem->prepareDirectory($anexPathResponse, FileSystemInterface::CREATE_DIRECTORY);
+
+        //Se crea el archivo como una nueva entidad 
+        $fileEntity = $this->fileRepository->writedata(file_get_contents($files['file']), $anexPathResponse.'/'.$nameFile[0], FileSystemInterface::EXISTS_RENAME);
+
+        //Guardamos el nuevo archivo
+        $node->field_pqrsd_archivo[] = $fileEntity->id();
+
+        $this->fileUsage->add($fileEntity, 'findeter_pqrsd', 'node', $nid);
+
+        //Se guarda los cambios
+        $node->save();
+
     }
 }

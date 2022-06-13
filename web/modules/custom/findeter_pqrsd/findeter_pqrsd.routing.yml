@@ -136,3 +136,22 @@ findeter_pqrsd.consult_complaints_smfc:
   requirements:
     _user_is_logged_in: 'TRUE'
     _custom_access: '\Drupal\findeter_pqrsd\Controller\UserControl::access'
+
+#Mostrar estadisticas de los PQRSD en forma de grafica
+findeter_pqrsd.reports_statistics:
+  path: '/admin/reporte-estadistica-pqrsd'
+  defaults:
+    _title: 'Estadisticas PQRSD'
+    _controller: '\Drupal\findeter_pqrsd\Controller\ReportsPqrsdController::statistics'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+    _custom_access: '\Drupal\findeter_pqrsd\Controller\UserControl::access'
+
+#Mostrar resultados de PQRSD en la tabla de reportes
+findeter_pqrsd.reports_results_data_table:
+  path: '/admin/ajax/link-callback-results-data-table'
+  defaults:
+    _controller: '\Drupal\findeter_pqrsd\Controller\ReportsPqrsdController::resultsDataTable'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+    _custom_access: '\Drupal\findeter_pqrsd\Controller\UserControl::access'
