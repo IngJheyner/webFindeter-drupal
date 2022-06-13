@@ -13,8 +13,13 @@ findeter_pqrsd.register:
   title: 'Registrar PQRSD'
   base_route: view.pqrsd.page_1
   weight: 10
+findeter_pqrsd.statistics:
+  route_name: findeter_pqrsd.reports_statistics
+  title: 'Estadisticas'
+  base_route: view.pqrsd.page_1
+  weight: 15
 findeter_pqrsd.config:
   route_name: findeter_pqrsd.admin_module
   title: 'Configuración'
   base_route: view.pqrsd.page_1
-  weight: 15
+  weight: 20

@@ -1230,15 +1230,7 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables, &$form) {
     $urlReporteXlsx = $urlReporteXlsx->toRenderable();
     $urlFormato379 = $urlFormato379->toRenderable();
 
-    $variables['form']['actions']['#suffix'] = Markup::create('
-        <div class="list-charts" style="margin-top: 1rem">
-      <div class="chart-container"><canvas id="time-chart"></canvas></div>
-      <div class="chart-container"><canvas id="tipo-radicado-chart"></canvas></div>
-      <div class="chart-container"><canvas id="tipo-solicitante-chart"></canvas></div>
-      <div class="chart-container"><canvas id="tipo-producto-chart"></canvas></div>
-      <div class="chart-container"><canvas id="canal-recepcion-chart"></canvas></div>
-      <div class="chart-container"><canvas id="forma-recepcion-chart"></canvas></div>
-        </div>'.render($urlReporteXlsx).render($urlFormato379));
+    $variables['form']['actions']['#suffix'] = render($urlReporteXlsx).''.render($urlFormato379);
   }
   /* ============================================
   PAGE ESTADOS DE PQRSD FILTER
@@ -1320,21 +1312,88 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
 
   }
 
-  /* ============================================
-  FILTRAR PQRSD SI EL ROL DE USUARIO ES PQRSD DENUNCIAS
-  =============================================== */
   /**
    * @author user 3ddesarrollo <3ddesarrollo@3dstudioweb.com>
    */
   if($view->storage->id()== 'pqrsd'  && ($display_id == 'page_1' || $display_id == 'page_2')){
+
       //dump($view);
      // if user is admin, remove argument to show all nodes
+     // FILTRAR PQRSD SI EL ROL DE USUARIO ES PQRSD DENUNCIAS
      if(in_array('pqrsd_denuncias',$rolesUser)){
       
       $type_settled = $view->display_handler->options['filters']['field_pqrsd_tipo_radicado_value']['value'];
       $settled_filter = array_diff($type_settled, ['Peticiones', 'Quejas', 'Reclamos', 'Sugerencias']);
       $view->display_handler->options['filters']['field_pqrsd_tipo_radicado_value']['value'] = $settled_filter;
     }
+
+    //Vista de reportes
+    if($display_id == 'page_2'){
+
+      //Construimos un tag de tipo link para traer los datos en la tabla resultados
+      $link = [
+        '#type' => 'link',
+        '#title' => 'Mostrar resultados PQRSD.',
+        '#url' => Url::fromRoute('findeter_pqrsd.reports_results_data_table'),
+        '#attributes' => [
+          'class' => ['use-ajax'],
+        ],
+      ];
+
+      //Agregamos el link para ser visualizado como fila en la tabla
+      $rows[] = [ '#rows' => [
+          'data' => \Drupal::service('renderer')->render($link),
+          '#colspan' => 10,
+        ]
+      ];
+
+      //Tabla de resultados
+      $buildTable = [
+        'container' => [
+          '#type' => 'container',
+          '#attributes' => [
+            'id'=> "results-table-reports",
+          ],         
+          'table' => [
+            '#theme' => 'table',
+            '#rows' => $rows,
+            '#weight' => 1,
+            '#prefix' => '<br><hr><h3>Tabla resumen de resultados</h3>',
+            '#sticky' => TRUE,
+            '#header' => [
+              'Tipo',
+              'Recibidas',
+              'Pendientes por resolver',
+              'Aprobadas a favor del consumidor financiero',
+              'Aprobadas a favor de la entidad',
+              'Trámites concluidos (cerrados)',
+              'Resultas a tiempo',
+              'Vencidas',
+              'Solicitud acceso información pública',
+              'Solicitudes trasladas a otra institución'
+            ],
+          ],
+        ],
+      ];
+      
+      //Agegamos un campo text_custom para visualizar la tabla en el pie de pagina
+      $options = array(
+        'id' => 'area_text_custom',
+        'table' => 'views',
+        'field' => 'area_text_custom',
+        'relationship' => 'none',
+        'group_type' => 'none',
+        'admin_label' => '',
+        'empty' => TRUE,
+        'tokenize' => FALSE,
+        'content' => \Drupal::service('renderer')->render($buildTable),
+        'plugin_id' => 'text_custom',
+      );
+
+      //Creamos un pie de pagina en la vista que muestre la tabla resultados
+      $view->setHandler($display_id, 'footer', 'area_text_custom', $options);
+    }
+   
   }
 }
 
@@ -1346,176 +1405,6 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
  */
 function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
 
-  $spanishMonths['January'] = 'Enero';
-  $spanishMonths['February'] = 'Febrero';
-  $spanishMonths['March'] = 'Marzo';
-  $spanishMonths['April'] = 'Abril';
-  $spanishMonths['May'] = 'Mayo';
-  $spanishMonths['June'] = 'Junio';
-  $spanishMonths['July'] = 'Julio';
-  $spanishMonths['August'] = 'Agosto';
-  $spanishMonths['September'] = 'Septiembre';
-  $spanishMonths['October'] = 'Octubre';
-  $spanishMonths['November'] = 'Noviembre';
-  $spanishMonths['December'] = 'Diciembre';
-
-  $tipoRadicados = ['Peticiones','Quejas','Reclamos','Sugerencias','Denuncias','Total'];
-
-  foreach($tipoRadicados as $tr){
-    $mResume[$tr]['name'] = $tr;
-    $mResume[$tr]['recibidas'] = 0;
-    $mResume[$tr]['por_resolver'] = 0;
-    $mResume[$tr]['favor_consumidor'] = 0;
-    $mResume[$tr]['favor_entidad'] = 0;
-    $mResume[$tr]['cerrados'] = 0;
-    $mResume[$tr]['cerrado_a_tiempo'] = 0;
-    $mResume[$tr]['vencidas'] = 0;
-    $mResume[$tr]['info_publica'] = 0;
-    $mResume[$tr]['trasladadas'] = 0;
-  }
-
-  if($view->id() == 'pqrsd' && $view->current_display == 'page_2'){
-
-    $data = [];
-
-    $query = \Drupal::entityQuery('node')
-                ->condition('type', 'pqrsd')
-                ->execute();
-
-    foreach ($query as $nid) {
-
-      $node = Node::load($nid);
-
-      /* ===== ===== CHARTS GRAFICOS ===== ===== */
-      //define data for general chart
-      $month = date('F',$node->get('created')->value);
-      $month = $spanishMonths[$month];
-
-      if(!isset($data['monthly'][$month])){
-        $data['monthly'][$month] = 0;
-      }
-      $data['monthly'][$month]++;
-
-      //define data for "Tipo radicado" field.
-      $tipoRadicado = $node->get('field_pqrsd_tipo_radicado')->value;
-
-      if(!isset($data['tipoRadicado'][$tipoRadicado])){
-        $data['tipoRadicado'][$tipoRadicado] = 0;
-      }
-      $data['tipoRadicado'][$tipoRadicado]++;
-
-      // define data for "Tipo solicitante" field
-      $tipoSolicitante = $node->get('field_pqrsd_tipo_solicitante')->value;
-      if(!isset($data['tipoSolicitante'][$tipoSolicitante])){
-        $data['tipoSolicitante'][$tipoSolicitante] = 0;
-      }
-      $data['tipoSolicitante'][$tipoSolicitante]++;
-
-      // define data for "Tipo producto" field
-      $tipoProducto = $node->get('field_pqrsd_nombre_producto')->value;
-      if(!isset($data['tipoProducto'][$tipoProducto])){
-        $data['tipoProducto'][$tipoProducto] = 0;
-      }
-      $data['tipoProducto'][$tipoProducto]++;
-
-      // define data for "Canal recepción" field
-      $canalRecepcion = $node->get('field_pqrsd_canal_recepcion')->value;
-      if(!isset($data['canalRecepcion'][$canalRecepcion])){
-        $data['canalRecepcion'][$canalRecepcion] = 0;
-      }
-      $data['canalRecepcion'][$canalRecepcion]++;
-
-      // define data for "Forma recepción" field
-      $formaRecepcion = $node->get('field_pqrsd_forma_recepcion')->value;
-      if(!isset($data['formaRecepcion'][$formaRecepcion])){
-        $data['formaRecepcion'][$formaRecepcion] = 0;
-      }
-      $data['formaRecepcion'][$formaRecepcion]++;
-
-      /* ===== ===== TABLA DE RESULTADOS ===== ===== */
-      $now = strtotime('today');
-      $fOrange = strtotime($node->get('field_pqrsd_fecha_naranja')->value);
-      $fRed = strtotime($node->get('field_pqrsd_fecha_roja')->value);
-      $fAnswer = strtotime($node->get('field_pqrsd_fecha_respuesta')->value);
-
-      // PQRSD cerradas/abiertas
-      $mResume[$tipoRadicado]['name'] = $tipoRadicado;
-      $mResume[$tipoRadicado]['recibidas'] = $data['tipoRadicado'][$tipoRadicado];
-
-      if($node->get('field_pqrsd_respuesta')->value == ''){
-
-        $mResume[$tipoRadicado]['por_resolver']++;
-
-        if($now > $fRed){
-          $mResume[$tipoRadicado]['vencidas']++;
-        }
-      }else{
-
-        $mResume[$tipoRadicado]['cerrados']++;
-
-        if($node->get('field_pqrsd_respuesta_a_favor')->value == 'findeter'){
-          $mResume[$tipoRadicado]['favor_entidad']++;
-        }
-
-        if($node->get('field_pqrsd_respuesta_a_favor')->value == 'consumidor'){
-          $mResume[$tipoRadicado]['favor_consumidor']++;
-        }
-
-        if($fAnswer < $fRed){
-          $mResume[$tipoRadicado]['cerrado_a_tiempo']++;
-        }
-
-        if( strpos($node->get('field_pqrsd_respuesta')->value, 'PQRSD Trasladada a:') ){
-          $mResume[$tipoRadicado]['trasladadas']++;
-        }
-
-      }
-
-      if($node->get('field_pqrsd_tipo_peticion')->value == 'publica') {
-        $mResume[$tipoRadicado]['info_publica']++;
-      }
-
-    }
-
-    foreach ($mResume as $tR=>$values){
-      if($tR != 'Total'){
-        $mResume['Total']['recibidas'] += $values['recibidas'];
-        $mResume['Total']['por_resolver'] += $values['por_resolver'];
-        $mResume['Total']['favor_consumidor'] += $values['favor_consumidor'];
-        $mResume['Total']['favor_entidad'] += $values['favor_entidad'];
-        $mResume['Total']['cerrados'] += $values['cerrados'];
-        $mResume['Total']['cerrado_a_tiempo'] += $values['cerrado_a_tiempo'];
-        $mResume['Total']['vencidas'] += $values['vencidas'];
-        $mResume['Total']['info_publica'] += $values['info_publica'];
-        $mResume['Total']['trasladadas'] += $values['trasladadas'];
-      }
-    }
-
-    $buildTable = array(
-      '#theme' => 'table',
-      '#rows' => $mResume,
-      '#weight' => 1,
-      '#prefix' => '<hr><h3>Tabla resumen de resultados</h3>',
-      '#header' => [
-        'Tipo',
-        'Recibidas',
-        'Pendientes por resolver',
-        'Aprobadas a favor del consumidor financiero',
-        'Aprobadas a favor de la entidad',
-        'Trámites concluidos (cerrados)',
-        'Resultas a tiempo',
-        'Vencidas',
-        'Solicitud acceso información pública',
-        'Solicitudes trasladas a otra institución'
-      ],
-    );
-
-    $view->element['#attached']['drupalSettings']['pqrsdReports'] = $data;
-    $view->element['mResume'] = $buildTable;
-    //dump($view->element);
-
-  }
-
   /* ============================================
   RENDERIZADO DE ESTADO DE RADICADO
   =============================================== */
@@ -1524,5 +1413,5 @@ function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
       $view->result = [];
     }
   }
-}
 
+}
