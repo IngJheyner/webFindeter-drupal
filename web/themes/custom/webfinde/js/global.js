@@ -15,6 +15,13 @@
             $(document, context).once('webfinde').each( function() {
 
                 /*===========================================
+                Desactovar google analitycs siempre y cuando se acepten 
+                terminos y politicas RGPD (Reglamento General de Protección de Datos). 
+                =============================================*/
+                if (!Drupal.eu_cookie_compliance.hasAgreed()){
+                    window['ga-disable-UA-xxxx-1'] = true;
+                }
+                /*===========================================
                 MENU SIDEBAR MOVIL
                 =============================================*/
                 //$("section.menuMovil nav").attr("id", "sidebar");

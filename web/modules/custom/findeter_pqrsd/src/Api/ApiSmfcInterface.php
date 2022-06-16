@@ -5,12 +5,16 @@ namespace Drupal\findeter_pqrsd\Api;
  * @author 3ddesarrollo
  */
 
-interface ApiSmfcInterface{
+interface ApiSmfcInterface
+{
 
     /**
-     * Retorna el numero de entidad para ser guardado junto con el numero de radicado para SMFC
+     * Retorna el numero de entidad para ser guardado
+     * junto con el numero de radicado para SMFC
+     *
      * @param $num_settled numero de radicado de la queja
-     * @return $num_code_entity
+     *
+     * @return mixed
      */
     public function getTipCodeEntity(string $num_settled): string;
 
@@ -19,7 +23,7 @@ interface ApiSmfcInterface{
      * @return string $xtension
      */
     public function getExtFile(): string;
-    
+
     /**
      * Login
      * Used to enter SMFC system and get access token
@@ -54,7 +58,7 @@ interface ApiSmfcInterface{
      * Momento 2.
      * POST Quejas
      * Envio de quejas al sistema SMFC
-     * @param $nid 
+     * @param $nid
      *  - parametro $nid con argumento de identificacion del nodo.
      */
     public function postComplaints(int $nid): bool;
@@ -63,7 +67,7 @@ interface ApiSmfcInterface{
      * Momento 3.
      * PUT Quejas
      * Se actualiza valores en las quejas registradas en el sistema SMFC
-     * @param $nid 
+     * @param $nid
      *  - parametro $nid con argumento de identificacion del nodo.
      */
     public function putComplaints(int $nid): bool;

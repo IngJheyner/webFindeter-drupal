@@ -9,11 +9,19 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
+use Drupal\Core\Render\RendererInterface;
+use Drupal\Core\Cache\CacheBackendInterface;
+use Drupal\Core\Language\LanguageManagerInterface;
+use Drupal\Core\Cache\Cache;
 
 /**
  * Returns responses for Findeter PQRSD Manager routes.
  * @author 3ddesarrollo <email@email.com>
  * @param EntityFieldManagerInterface $field_manager
+ * @param EntityTypeManager $entity_type_manager;
+ * @param RendererInterface $render;
+ * @param CacheBackendInterface $cache;
+ * @param LanguageManagerInterface $language;
  */
 class ReportsPqrsdController extends ControllerBase {
 
@@ -27,26 +35,137 @@ class ReportsPqrsdController extends ControllerBase {
    */
   protected $entityTypeManager;
 
-  public function __construct(EntityFieldManagerInterface $field_manager, EntityTypeManager $entity_type_manager){
+  /**
+   * @var RendererInterface $render;
+   */
+  protected $render;
+
+  /**
+   * @var CacheBackendInterface $cache;
+   */
+  protected $cache;
+
+   /**
+   * @var LanguageManagerInterface $language;
+   */
+  protected $languageManager;
+  
+  public function __construct(EntityFieldManagerInterface $field_manager, EntityTypeManager $entity_type_manager, RendererInterface $render, LanguageManagerInterface $language_manager, CacheBackendInterface $cache){
 
     $this->fieldManager = $field_manager;
     $this->entityTypeManager = $entity_type_manager;
+    $this->render = $render;
+    $this->languageManager = $language_manager;
+    $this->cache = $cache;
 
   }
 
-  public static function create(ContainerInterface $container)
-  {
+  public static function create(ContainerInterface $container){
     return new static(
      $container->get('entity_field.manager'),
-     $container->get('entity_type.manager')
+     $container->get('entity_type.manager'),
+     $container->get('renderer'),
+     $container->get('language_manager'),
+     $container->get('cache.default')
     );
   }
 
   /**
-   * Builds the response.
+   * Estadistica de PQRSD en graficos.
+   * @return render $build
    */
   public function statistics() {
 
+    //Creamos variables de inicializacion en tiempo y valores como el cid de cache creado en cache.default
+    $startTime = microtime(TRUE);
+    $cid = 'findeter_pqrsd_statistics:' .$this->languageManager->getCurrentLanguage()->getId();
+    $data = NULL;
+    $fromCache = FALSE;
+    
+    //Validacion de cache, sino ejecutamos la funcion para generar una nueva consulta
+    if($cache = $this->cache->get($cid)){
+      $data = $cache->data;
+      $fromCache = TRUE;
+    }else{
+      $data = $this->statisticsData();
+      $this->cache->set($cid, $data, Cache::PERMANENT, ['node_list:pqrsd']);
+    }
+
+    $endTime = microtime(TRUE);
+    $duration = $endTime - $startTime;
+
+    if(empty($data)){
+
+      $messageString = [
+        '#markup' => '<h3>'.$this->t('No results found').'</h3>',
+      ];
+
+    }else{
+
+      $messageString[] = [
+        '#markup' => $this->t('<h3>'.$this->t('Info. Cached:').'</h3>'),
+      ];
+
+      $messageString[] = [
+        '#markup' => $this->t('Execution time: @time ms', ['@time' => number_format($duration * 1000, 2),])
+      ];
+
+      $messageString[] = [
+        '#markup' => $this->t('<br>Source: @source', ['@source' => !$fromCache ? $this->t('Database query') : $this->t('Cache')])
+      ];
+
+      if($fromCache){
+
+        $cacheTimeStamp = \Drupal::service('date.formatter')->format($cache->created, 'short');
+
+        $messageString[] = [
+          '#markup' => $this->t('<br>Cache time @cacheTime', ['@cacheTime' => $cacheTimeStamp]),
+        ];
+
+      }
+
+      $build['charts-graph'] = [
+        '#type' => 'item',
+        '#markup' => Markup::create('
+          <div class="list-charts">
+            <div class="chart-container"><canvas id="time-chart"></canvas></div>
+            <div class="chart-container"><canvas id="tipo-radicado-chart"></canvas></div>
+            <div class="chart-container"><canvas id="tipo-solicitante-chart"></canvas></div>
+            <div class="chart-container"><canvas id="tipo-producto-chart"></canvas></div>
+            <div class="chart-container"><canvas id="canal-recepcion-chart"></canvas></div>
+            <div class="chart-container"><canvas id="forma-recepcion-chart"></canvas></div></div>'),
+        'stringData' => [
+          '#type' => 'html_tag',
+          '#tag' => 'p',
+          '#value' => $this->render->render($messageString),
+        ],
+        '#attached' => [
+          'drupalSettings' => [
+            'pqrsdReports' => $data,
+          ],
+          'library' => [
+            'findeter_pqrsd/admin_pages',
+          ]
+        ],
+        '#cache' => [
+          'max-age' => 0,
+          'tags' => ['node_list:pqrsd'],
+        ],
+      ];
+
+    }
+
+    return $build;
+
+  }
+
+  /**
+   * Funcion que genera la consulta y reconstruye la data para ser tratada 
+   * @return $data con la consulta generada
+   */
+  public function statisticsData(){
+
+    //Arraglo con los meses del anio
     $spanishMonths['January'] = 'Enero';
     $spanishMonths['February'] = 'Febrero';
     $spanishMonths['March'] = 'Marzo';
@@ -97,12 +216,11 @@ class ReportsPqrsdController extends ControllerBase {
 
     $nodeStorage = $this->entityTypeManager->getStorage('node');
 
-    foreach ($query as $nid){
+    $nodeArray = $nodeStorage->loadMultiple($query);//Cargamos lo nid de nodos pqrsd
 
-      //Cargamos cada uno de los nodos con su correspondiete datos o valor
-      $node = $nodeStorage->load($nid);
+    foreach ($nodeArray as $node) {
 
-      /* ===== ===== Definimos valores para los graficos charts ===== ===== */
+      /* ===== ===== Definimos valores para los graficos charts ===== ===== */    
 
       //Registro mensula de radicados
       $month = date('F',$node->get('created')->value);
@@ -181,33 +299,12 @@ class ReportsPqrsdController extends ControllerBase {
     
     $data['formaRecepcion'] = $FormRecepValue;
 
-    $build['charts-graph'] = [
-      '#type' => 'item',
-      '#markup' => Markup::create('
-        <div class="list-charts">
-          <div class="chart-container"><canvas id="time-chart"></canvas></div>
-          <div class="chart-container"><canvas id="tipo-radicado-chart"></canvas></div>
-          <div class="chart-container"><canvas id="tipo-solicitante-chart"></canvas></div>
-          <div class="chart-container"><canvas id="tipo-producto-chart"></canvas></div>
-          <div class="chart-container"><canvas id="canal-recepcion-chart"></canvas></div>
-          <div class="chart-container"><canvas id="forma-recepcion-chart"></canvas></div>
-        '),
-      '#attached' => [
-        'drupalSettings' => [
-          'pqrsdReports' => $data,
-        ],
-        'library' => [
-          'findeter_pqrsd/admin_pages',
-        ]
-      ],
-    ];
-
-    return $build;
+    return $data;
 
   }
 
   /**
-   * Builds the response.
+   * Se muestra resultados de PQRSD en la tabla reportes
    */
   public function resultsDataTable() {
 
@@ -238,9 +335,9 @@ class ReportsPqrsdController extends ControllerBase {
                 ->condition('type', 'pqrsd')
                 ->execute();
 
-    foreach ($query as $nid) {
+    $nodeArray = $nodeStorage->loadMultiple($query);//Cargamos lo nid de nodos pqrsd
 
-      $node = $nodeStorage->load($nid);//Cargamos lo nid de nodos pqrsd
+    foreach ($nodeArray as $node) {      
 
       //define data for "Tipo radicado" field.
       $tipoRadicado = $node->get('field_pqrsd_tipo_radicado')->value;
@@ -342,7 +439,7 @@ class ReportsPqrsdController extends ControllerBase {
 
     $response->addCommand(new ReplaceCommand(
       '#results-table-reports',
-      \Drupal::service('renderer')->render($buildTable),
+      $this->render->render($buildTable),
     ));
 
     return $response;
