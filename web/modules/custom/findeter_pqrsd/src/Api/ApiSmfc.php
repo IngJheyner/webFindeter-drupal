@@ -42,28 +42,28 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
   /**
    * API Findeter.
    *
-   * @var Drupal\findeter_pqrsd\Api
+   * @var array
    */
   protected $credentials;
 
   /**
    * API Findeter.
    *
-   * @var Drupal\findeter_pqrsd\Api
+   * @var string
    */
   protected $secretKey;
 
   /**
    * API Findeter.
    *
-   * @var Drupal\findeter_pqrsd\Api
+   * @var string
    */
   protected $tipEntity;
 
   /**
    * API Findeter.
    *
-   * @var Drupal\findeter_pqrsd\Api
+   * @var string
    */
   protected $codeEntity;
 
