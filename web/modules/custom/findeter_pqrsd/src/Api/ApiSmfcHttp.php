@@ -134,7 +134,12 @@ class ApiSmfcHttp {
 
             $dataResponse = Json::decode($response->getBody());
 
-            $this->logger->get('API SMFC')->info("Code: %code Mensaje: %message, Se ha creado la queja o reclamo con radicado No. %settled como cliente web services en el sistema <strong> API SMFC.", ['%code' => $response->getStatusCode(), '%message' => $response->getReasonPhrase(), '%settled' => $dataResponse['codigo_queja']]);
+            $this->logger->get('API SMFC')->info("Code: %code Mensaje: %message, Se ha creado la queja o reclamo con radicado No. %settled como cliente web services en el sistema <strong> API SMFC.",
+            [
+              '%code' => $response->getStatusCode(),
+              '%message' => $response->getReasonPhrase(),
+              '%settled' => $dataResponse['codigo_queja']
+            ]);
 
             return $dataResponse;
 
@@ -144,7 +149,12 @@ class ApiSmfcHttp {
             $dataResponse = Json::decode($response->getBody());
 
             if ($method === 'PUT') {
-              $this->logger->get('API SMFC')->info("Code: %code Mensaje: %message, Se ha actualizado la queja o reclamo con radicado No. %settled como cliente web services en el sistema <strong> API SMFC.", ['%code' => $response->getStatusCode(), '%message' => $response->getReasonPhrase(), '%settled' => $dataResponse['codigo_queja']]);
+              $this->logger->get('API SMFC')->info("Code: %code Mensaje: %message, Se ha actualizado la queja o reclamo con radicado No. %settled como cliente web services en el sistema <strong> API SMFC.",
+              [
+                '%code' => $response->getStatusCode(),
+                '%message' => $response->getReasonPhrase(),
+                '%settled' => $dataResponse['codigo_queja']
+              ]);
             }
             return $dataResponse;
           }
@@ -228,7 +238,11 @@ class ApiSmfcHttp {
     }
     catch (RequestException $e) {
 
-      $this->logger->get('API SMFC')->error("Código: %code Mensaje: %message", ['%code' => $e->getCode(), '%message' => $e->getResponse()->getBody()->getContents()]);
+      $this->logger->get('API SMFC')->error("Código: %code Mensaje: %message",
+      [
+        '%code' => $e->getCode(),
+        '%message' => $e->getResponse()->getBody()->getContents()
+      ]);
 
       return [
         "code" => $e->getCode(),

@@ -14,7 +14,7 @@ use Drupal\views\ViewExecutable;
 use Drupal\Core\Render\Markup;
 use Drupal\node\Entity\Node;
 
-use Drupal\findeter_pqrsd\Holidays\holidaysPQRSD;
+use Drupal\findeter_pqrsd\Holidays\HolidaysPqrsd;
 use PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Days;
 
 /**
@@ -103,24 +103,27 @@ function _getBussinesDays($addDays, $day_answer = FALSE){
   // loop for X days
   for($i=0; $i<$addDays; $i++){
 
-      // add 1 day to timestamp
-      $addDay = 86400;
+    // add 1 day to timestamp
+    $addDay = 86400;
 
-      // get what day it is next day
-      $nextDay = date('w', ($timeStamp+$addDay));
-      $day = date('d', $timeStamp);
-      $mounth = date('m', $timeStamp);
+    // get what day it is next day
+    $nextDay = date('w', ($timeStamp+$addDay));
+    $day = date('d', $timeStamp);
+    $mounth = date('m', $timeStamp);
+    $year = date('Y', $timeStamp);
 
-      $holiDays = new holidaysPQRSD(date('Y', $timeStamp));
-      //$feriado = $holiDays->isHoliDays('22', '03'); //Validar fecha de un dia feriado.
-      $feriado = $holiDays->isHoliDays($day, $mounth); //Validar fecha de un dia feriado.
+    $holiDays = new HolidaysPqrsd(\Drupal::service('http_client_factory'), \Drupal::service('state'),
+    \Drupal::service('logger.factory'));
 
-      // if it's Saturday or Sunday get $i-1
-      if(($nextDay == 0 || $nextDay == 6) || $feriado) {
-          $day_answer == FALSE ? $i-- : $tot_day_answer++;
-      }
-      // modify timestamp, add 1 day
-      $timeStamp = $timeStamp+$addDay;
+    // Validar fecha de un dia feriado.
+    $feriado = $holiDays->isHoliDays($year, $mounth, $day);
+
+    // if it's Saturday or Sunday get $i-1
+    if(($nextDay == 0 || $nextDay == 6) || $feriado) {
+        $day_answer == FALSE ? $i-- : $tot_day_answer++;
+    }
+    // modify timestamp, add 1 day
+    $timeStamp = $timeStamp+$addDay;
 
   }
 
@@ -221,7 +224,7 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
 
       \Drupal::messenger()->addMessage(t('<strong>Information:</strong> There are @num data to register as type of filings Complaints. Click on <em>Register data</em> to perform the action', ['@num' => count($dataState)]), 'info');
     }
-    
+
     /* ============================================
     Informe 379
     =============================================== */
@@ -326,7 +329,7 @@ function generarNumeroRadicado($type){
 
   $nid = array_values($query);
   $node = Node::load($nid[0]);
-  
+
   $number_settled = $node->get('field_pqrsd_numero_radicado')->value;
   $secuencialNumber = preg_split('/[A-Z]/', $number_settled);
 
@@ -339,7 +342,7 @@ function generarNumeroRadicado($type){
 
   $secuencialNumber[1]++;
   $numeroRadicado = date('Ymd',\Drupal::time()->getCurrentTime());
-  $numeroRadicado .= $type[0].$secuencialNumber[1];  
+  $numeroRadicado .= $type[0].$secuencialNumber[1];
 
   //$config->set('number_settled', $secuencialNumber)->save();
 
@@ -454,14 +457,14 @@ function findeter_pqrsd_cron() {
 
   if(!is_null($stateSmfcNid) && !empty($stateSmfcNid)){
 
-    $apiSmfc = \Drupal::service('api.smfc'); 
+    $apiSmfc = \Drupal::service('api.smfc');
     $nid = [];
     $login = $apiSmfc->login();
 
     if($login){
 
       foreach ($stateSmfcNid as $key => $state) {
-        
+
         $nid[$key] = [
           "nid" => $state['nid'],
           "title" => $state['title'],
@@ -475,19 +478,19 @@ function findeter_pqrsd_cron() {
 
             $post = $apiSmfc->postComplaints($state['nid']);
             //$post = TRUE;
-            
+
             $post ? $nid[$key]["smfc"] = TRUE : $nid[$key]["smfc"] = FALSE;
-             
+
           }else{
 
             $put = $apiSmfc->putComplaints($state['nid']);
-            
+
             if(!$put)
               $nid[$key]["smfc"] = TRUE;
             else
               unset($nid[$key]);
           }
-          
+
         }
       }
 
@@ -795,7 +798,7 @@ function buildPQRSDform(){
   $optionsFormRecep = $definitions['field_pqrsd_forma_recepcion']->getSetting('allowed_values');
   $form['info_admin']['field_pqrsd_forma_recepcion']['#attributes']= ['disabled' => 'disabled'];
 
-  $form['#attached']['drupalSettings']['optionsFields'] = [    
+  $form['#attached']['drupalSettings']['optionsFields'] = [
     [
       '#edit-field-pqrsd-tipo-solicitante' => $optionsTypPerson
     ],
@@ -970,7 +973,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
   $view = $variables['view'];
   $field = $variables['field'];
   $row = $variables['row'];
-  
+
   $currentUser = \Drupal::currentUser();
   $rolesUser = $currentUser->getRoles();
 
@@ -1171,7 +1174,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 function findeter_pqrsd_preprocess_views_exposed_form(&$variables, &$form) {
 
   if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-1'){
-    
+
     // for exposed user request filters, join all inputs in two fieldsets
     $variables['form']['id_radicado']['#prefix'] = '
       <div class="seven-details col-1">
@@ -1266,7 +1269,7 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
   $rolesUser = $currentUser->getRoles();
   $args[0] = $currentUser->id();
 
-  if($view->storage->id()== 'pqrsd' && ($display_id == 'page_1' || $display_id == 'page_2')){    
+  if($view->storage->id()== 'pqrsd' && ($display_id == 'page_1' || $display_id == 'page_2')){
 
     // if user is admin, remove argument to show all nodes
     if(in_array('administrator',$rolesUser) || in_array('auditor_pqrsd',$rolesUser) || in_array('pqrsd_denuncias',$rolesUser)){
@@ -1285,7 +1288,7 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
   if($view->storage->id()== 'pqrsd' && $display_id == 'reporte_excel_pqrsd'){
 
     if($args[0] != '1'){
-      
+
       $argus = explode("&", $args[0]);
       $param = [];
 
@@ -1321,7 +1324,7 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
      // if user is admin, remove argument to show all nodes
      // FILTRAR PQRSD SI EL ROL DE USUARIO ES PQRSD DENUNCIAS
      if(in_array('pqrsd_denuncias',$rolesUser)){
-      
+
       $type_settled = $view->display_handler->options['filters']['field_pqrsd_tipo_radicado_value']['value'];
       $settled_filter = array_diff($type_settled, ['Peticiones', 'Quejas', 'Reclamos', 'Sugerencias']);
       $view->display_handler->options['filters']['field_pqrsd_tipo_radicado_value']['value'] = $settled_filter;
@@ -1353,7 +1356,7 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
           '#type' => 'container',
           '#attributes' => [
             'id'=> "results-table-reports",
-          ],         
+          ],
           'table' => [
             '#theme' => 'table',
             '#rows' => $rows,
@@ -1375,7 +1378,7 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
           ],
         ],
       ];
-      
+
       //Agegamos un campo text_custom para visualizar la tabla en el pie de pagina
       $options = array(
         'id' => 'area_text_custom',
@@ -1393,7 +1396,7 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
       //Creamos un pie de pagina en la vista que muestre la tabla resultados
       $view->setHandler($display_id, 'footer', 'area_text_custom', $options);
     }
-   
+
   }
 }
 
