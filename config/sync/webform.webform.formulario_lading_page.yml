@@ -40,11 +40,10 @@ elements: |-
   columna_2:
     '#type': webform_flexbox
     '#align_items': center
-    cedula_lading_page:
-      '#type': number
-      '#title': Cédula
+    email_lading_page:
+      '#type': email
+      '#title': Email
       '#title_display': before
-      '#size': '9'
       '#autocomplete': ''
       '#required': true
     celular_lading_page:
@@ -60,12 +59,19 @@ elements: |-
       '#international_initial_country': CO
   columna_3:
     '#type': webform_flexbox
-    email_lading_page:
-      '#type': email
-      '#title': Email
+    cedula_lading_page:
+      '#type': number
+      '#title': 'Cédula / NIT'
       '#title_display': before
+      '#size': '9'
       '#autocomplete': ''
       '#required': true
+    razon_social_lading_page:
+      '#type': textfield
+      '#title': 'Razón social'
+  columna_4:
+    '#type': webform_flexbox
+    '#align_items': center
     departamento_lading_page:
       '#type': webform_term_select
       '#title': Departamento
@@ -79,9 +85,6 @@ elements: |-
       '#breadcrumb_delimiter': '-'
       '#tree_delimiter': ''
       '#depth': 2
-  columna_4:
-    '#type': webform_flexbox
-    '#align_items': center
     producto_servicio_lading_page:
       '#type': webform_entity_select
       '#title': 'Producto y/o Servicio'
@@ -92,15 +95,31 @@ elements: |-
       '#selection_settings':
         target_bundles:
           productos_servicios: productos_servicios
+  columna_5:
+    '#type': webform_flexbox
     sector_lading_page:
       '#type': webform_select_other
-      '#title': Sector
+      '#title': 'Tipo de sector'
       '#title_display': before
       '#options':
-        publico: Publico
-        privado: Privado
+        transporte: Transporte
+        medio_ambiente: 'Medio ambiente'
+        salud: Salud
+        telecomunicaciones: Telecomunicaciones
+        desarrollo_urbano: 'Desarrollo urbano y vivienda'
+        agua_potable: 'Agua potable y saneamiento básico'
+        educación: Educación
+        saneamiento_fiscal: 'Saneamiento fiscal'
+        energetico: Energético
+        turismo: Turismo
+        industrias_creativas: 'Industrias creativas, culturales y economía naranja'
+        deporte_recreación: 'Deporte y recreación'
       '#other__option_label': 'Otro, cuál:'
       '#required': true
+  terminos_lading_page:
+    '#type': checkbox
+    '#title': 'Acepto términos y condiciones'
+    '#required': true
   actions:
     '#type': webform_actions
     '#title': 'Submit button(s)'
