@@ -452,7 +452,7 @@ function findeter_pqrsd_cron() {
    /* ============================================
   Enviar radicados de Quejas o Reclamos
   a la aplicacion API SMFC
-  =============================================== */
+  ===============================================
   $stateSmfcNid = \Drupal::service('state')->get('findeter_pqrsd.api_smfc_nid');
 
   if(!is_null($stateSmfcNid) && !empty($stateSmfcNid)){
@@ -496,7 +496,7 @@ function findeter_pqrsd_cron() {
 
       \Drupal::service('state')->set('findeter_pqrsd.api_smfc_nid', $nid);
     }
-  }
+  }*/
 }
 
 

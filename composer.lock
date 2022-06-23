@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "963e6e406b0f3b7e6d39409918b54db8",
+    "content-hash": "a8fcd307d058e6c5735b4f29a9c8f56a",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2075,6 +2075,59 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/addtoany",
                 "issues": "https://www.drupal.org/project/issues/addtoany"
+            }
+        },
+        {
+            "name": "drupal/admin_audit_trail",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/admin_audit_trail.git",
+                "reference": "1.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/admin_audit_trail-1.0.0.zip",
+                "reference": "1.0.0",
+                "shasum": "c0e0ccccfcb65812aa49ba7eff234815bff387a4"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "require-dev": {
+                "drupal/redirect": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0",
+                    "datestamp": "1647684254",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Vardot",
+                    "homepage": "https://www.drupal.org/vardot",
+                    "role": "Maintenance for D8 and D9 versions"
+                },
+                {
+                    "name": "Rajab Natshah",
+                    "homepage": "https://www.drupal.org/user/1414312"
+                }
+            ],
+            "description": "This module track logs of specific events that you'd like to review.",
+            "homepage": "https://www.drupal.org/project/admin_audit_trail",
+            "support": {
+                "source": "http://cgit.drupalcode.org/admin_audit_trail",
+                "issues": "https://www.drupal.org/project/issues/admin_audit_trail"
             }
         },
         {
