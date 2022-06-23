@@ -16,8 +16,8 @@ dependencies:
     - node.type.noticias_home
   module:
     - field_formatter_class
-    - image
     - layout_builder
+    - svg_image
     - text
     - user
 third_party_settings:
@@ -47,6 +47,12 @@ content:
     settings:
       image_link: ''
       image_style: noticias_home
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
     third_party_settings:
       field_formatter_class:
         class: ''

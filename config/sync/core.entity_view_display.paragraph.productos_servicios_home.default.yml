@@ -11,8 +11,8 @@ dependencies:
     - field.field.paragraph.productos_servicios_home.field_titulo
     - paragraphs.paragraphs_type.productos_servicios_home
   module:
-    - image
     - link
+    - svg_image
     - text
 id: paragraph.productos_servicios_home.default
 targetEntityType: paragraph
@@ -52,6 +52,12 @@ content:
     settings:
       image_link: ''
       image_style: productos_y_servicios_fondo_home
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
     third_party_settings: {  }
     weight: 3
     region: content
@@ -61,6 +67,12 @@ content:
     settings:
       image_link: ''
       image_style: ''
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
     third_party_settings: {  }
     weight: 4
     region: content

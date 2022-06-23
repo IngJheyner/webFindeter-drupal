@@ -8,7 +8,7 @@ dependencies:
     - paragraphs.paragraphs_type.ps_contenido_items_internos
   module:
     - entity_reference_revisions
-    - image
+    - svg_image
 id: paragraph.ps_contenido_items_internos.default
 targetEntityType: paragraph
 bundle: ps_contenido_items_internos
@@ -29,6 +29,12 @@ content:
     settings:
       image_link: ''
       image_style: ''
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
     third_party_settings: {  }
     weight: 0
     region: content
