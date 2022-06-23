@@ -9,7 +9,7 @@ dependencies:
     - node.type.tipo_cont_investor_relations
   module:
     - entity_reference_revisions
-    - image
+    - svg_image
     - text
     - user
 id: node.tipo_cont_investor_relations.default
@@ -30,6 +30,12 @@ content:
     settings:
       image_link: ''
       image_style: ''
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
     third_party_settings: {  }
     weight: 102
     region: content

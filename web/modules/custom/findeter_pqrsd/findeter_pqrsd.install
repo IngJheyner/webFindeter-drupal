@@ -72,4 +72,11 @@ function findeter_pqrsd_install() {
  */
 function findeter_pqrsd_uninstall() {
 
+  //Eliminar variables de estado para la API SMFC
+  $keyState = ['findeter_pqrsd.api_smfc_data', 'findeter_pqrsd.api_smfc_nid', 'findeter_pqrsd.api_smfc_token'];
+  \Drupal::service('state')->deleteMultiple($keyState);
+
+  //Eliminar cache.default statics
+  \Drupal::service('cache.default')->delete('findeter_pqrsd_statistics:es');
+  
 }

@@ -8,23 +8,20 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\Core\Messenger\MessengerInterface;
+
 use Drupal\findeter_pqrsd\Manager\StepManager;
 use Drupal\findeter_pqrsd\Step\StepsEnum;
+use Drupal\findeter_pqrsd\Api\ApiSmfcInterface;
 
-use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\views\Ajax\ScrollTopCommand;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\State\StateInterface;
 use Drupal\file\FileUsage\DatabaseFileUsageBackend;
 use Drupal\Core\Entity\EntityTypeManager;
-
-
 use Drupal\node\Entity\Node;
-//use Drupal\file\Entity\File;
 use Drupal\Core\Url;
-use Drupal\Core\Link;
-
-use Drupal\findeter_pqrsd\Api\ApiSmfcInterface;
+use Drupal\Core\Cache\Cache;
 
 /**
  * Provides multi step ajax example form.
@@ -501,9 +498,11 @@ class RegisterPQRSD extends FormBase {
 
     /* set "# radicado"
     $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);*/
+    Cache::invalidateTags(['node_list:pqrsd']);//Invalidamos las tags creadas en la cache con cid findeter_pqrsd_statistics y que tengas este tag asociado
 
     $newRequest->enforceIsNew();
     $newRequest->save();
+    
 
     /* Se agrega como archivos gestionados a file.usage  ===== ===== */
     foreach($fileStorageArray as $file){

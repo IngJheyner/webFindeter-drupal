@@ -9,7 +9,7 @@ dependencies:
     - image.style.medium
     - media.type.prosperity_archivos
   module:
-    - image
+    - svg_image
 id: media.prosperity_archivos.media_library
 targetEntityType: media
 bundle: prosperity_archivos
@@ -21,6 +21,12 @@ content:
     settings:
       image_link: ''
       image_style: medium
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
     third_party_settings: {  }
     weight: 0
     region: content

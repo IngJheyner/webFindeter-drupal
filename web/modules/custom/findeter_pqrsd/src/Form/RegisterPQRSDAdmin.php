@@ -9,6 +9,7 @@ use Drupal\node\Entity\Node;
 use Drupal\file\Entity\File;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\Core\Link;
+use Drupal\Core\Cache\Cache;
 
 class RegisterPQRSDAdmin extends FormBase {
 
@@ -324,6 +325,7 @@ class RegisterPQRSDAdmin extends FormBase {
     // asign the last user retrived lines up
     $newRequest->uid = $user->id();
 
+    Cache::invalidateTags(['node_list:pqrsd']);//Invalidamos las tags creadas en la cache con cid findeter_pqrsd_statistics y que tengas este tag asociado
     $newRequest->enforceIsNew();
     $newRequest->save();
 

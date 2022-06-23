@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.politica_de_accion_responsable.field_img_politi_accion_respon
     - node.type.politica_de_accion_responsable
   module:
-    - image
+    - svg_image
     - text
     - user
 id: node.politica_de_accion_responsable.default
@@ -28,6 +28,12 @@ content:
     settings:
       image_link: ''
       image_style: ''
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
     third_party_settings: {  }
     weight: 102
     region: content

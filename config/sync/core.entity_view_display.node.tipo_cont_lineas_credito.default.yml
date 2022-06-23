@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.tipo_cont_lineas_credito.field_img_enca_lineas_credito
     - node.type.tipo_cont_lineas_credito
   module:
-    - image
+    - svg_image
     - text
     - user
 id: node.tipo_cont_lineas_credito.default
@@ -28,6 +28,12 @@ content:
     settings:
       image_link: ''
       image_style: ''
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
     third_party_settings: {  }
     weight: 102
     region: content

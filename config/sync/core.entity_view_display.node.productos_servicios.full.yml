@@ -15,8 +15,8 @@ dependencies:
     - node.type.productos_servicios
   module:
     - entity_reference_revisions
-    - image
     - layout_builder
+    - svg_image
     - text
     - user
 third_party_settings:
@@ -48,6 +48,12 @@ content:
     settings:
       image_link: ''
       image_style: ps_img_portada_interna
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
     third_party_settings:
       field_formatter_class:
         class: ''
@@ -59,6 +65,12 @@ content:
     settings:
       image_link: ''
       image_style: ''
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
     third_party_settings: {  }
     weight: 0
     region: content

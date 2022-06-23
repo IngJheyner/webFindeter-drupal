@@ -10,6 +10,7 @@ dependencies:
     - node.type.noticias_home
     - taxonomy.vocabulary.noticias_home_
   module:
+    - blazy
     - node
     - svg_image
     - text
@@ -505,7 +506,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: false
-          content: "<h1 class=\"mb-2\">[view:title]</h1>\r\n<p class=\"mb-5 text-muted text-center\"> Más de [view:total-rows] noticias publicados en el sitio.</p>"
+          content: '<p class="mb-5 text-muted text-center"> Más de [view:total-rows] noticias publicados en el sitio.</p>'
           tokenize: true
       footer: {  }
       display_extenders: {  }
@@ -520,8 +521,8 @@ display:
       tags:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_img_noticia_home'
-  block_1:
-    id: block_1
+  block_news_all:
+    id: block_news_all
     display_title: 'Todas las Noticias'
     display_plugin: block
     position: 1
@@ -640,9 +641,19 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: image_url
+          type: blazy
           settings:
-            image_style: ''
+            caption:
+              title: '0'
+              alt: '0'
+            background: false
+            loading: ''
+            preload: true
+            responsive_image_style: ''
+            image_style: articulo_blog_
+            media_switch: ''
+            ratio: ''
+            thumbnail_style: ''
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -848,7 +859,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ view_node }}\"><img src=\"{{ field_img_noticia_home }}\" class=\"img-fluid\"></a>\r\n\r\n<h6 class=\"text-center mx-auto my-3 font-weight-bold titulo\">{{ title  }}</h6>\r\n\r\n<a href=\"{{ view_node }}\" class=\"font-weight-bold body\">{{ body }}</a>\r\n\r\n<div class=\"text-center mx-auto my-3\">\r\n<small class=\"text-muted d-inline-block\">{{ created }}</small>\r\n</div>"
+            text: "<a href=\"{{ view_node }}\">{{ field_img_noticia_home }}</a>\r\n\r\n<h6 class=\"text-center mx-auto my-3 font-weight-bold titulo\">{{ title  }}</h6>\r\n\r\n<a href=\"{{ view_node }}\" class=\"font-weight-bold body\">{{ body }}</a>\r\n\r\n<div class=\"text-center mx-auto my-3\">\r\n<small class=\"text-muted d-inline-block\">{{ created }}</small>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -885,9 +896,27 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
+      style:
+        type: views_bootstrap_grid
+        options:
+          grouping: {  }
+          row_class: 'grid-item mb-3 mb-md-5'
+          default_row_class: false
+          col_xs: col-12
+          col_sm: col-sm-6
+          col_md: col-md-4
+          col_lg: col-lg-4
+          col_xl: col-xl-4
+      row:
+        type: fields
+        options: {  }
       defaults:
+        css_class: false
         use_ajax: false
+        style: false
+        row: false
         fields: false
+      css_class: pageNoticias
       use_ajax: true
       display_description: ''
       display_extenders: {  }

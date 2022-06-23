@@ -75,9 +75,9 @@ class StepTwo extends BaseStep {
     //values previous step
     $values = $steps[1]->getValues();
 
-    if($values['field_pqrsd_tipo_solicitante'] == 'juridica' 
+    if($values['field_pqrsd_tipo_solicitante'] == 'juridica'
     || $values['field_pqrsd_tipo_solicitante'] == "2"){
-      $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información básica: 
+      $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información básica:
                                       <p class="text-dark font-weight-bold">Persona jurídica</p></h2>';
 
       // start col 1
@@ -106,10 +106,10 @@ class StepTwo extends BaseStep {
     }else{
 
       if($values['field_pqrsd_tipo_solicitante'] == "1")
-        $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información básica: 
+        $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información básica:
                                         <p class="text-dark font-weight-bold">Persona Natural</p></h2>';
       else
-        $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información básica: 
+        $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información básica:
         <p class="text-dark font-weight-bold">Persona '.$values['field_pqrsd_tipo_solicitante'].'</p></h2>';
 
       // start col 1
@@ -124,7 +124,7 @@ class StepTwo extends BaseStep {
       /* ============================================
       Se muestra valores de tipo de documento para findeter o SMFC.
       para SMFC solo si la peticion es una Queja o Reclamo
-      esta cambia en su valor de indice mas no de item, 
+      esta cambia en su valor de indice mas no de item,
       SMFC numerico y Findeter caracter.
       =============================================== */
       $valuesData = $steps[0]->getValues();
@@ -144,7 +144,7 @@ class StepTwo extends BaseStep {
       $formStep['field_pqrsd_tipo_documento'] = [
         '#type'    => 'select',
         '#title'   => $definitions['field_pqrsd_tipo_documento']->getLabel(),
-        '#options' => ($valuesData['field_pqrsd_tipo_radicado'] == 'Quejas' || 
+        '#options' => ($valuesData['field_pqrsd_tipo_radicado'] == 'Quejas' ||
         $valuesData['field_pqrsd_tipo_radicado'] == 'Reclamos') ? $optionsTipDocSmfc : $optionsTipDoc
       ];
 
@@ -190,7 +190,7 @@ class StepTwo extends BaseStep {
       '#suffix'       => '</div>'
     ];
 
-    if($values['field_pqrsd_tipo_solicitante'] == 'juridica' 
+    if($values['field_pqrsd_tipo_solicitante'] == 'juridica'
     || $values['field_pqrsd_tipo_solicitante'] == "2"){
       $formStep['field_pqrsd_primer_nombre']['#title'] .= ' del representante legal';
       $formStep['field_pqrsd_segundo_nombre']['#title'] .= ' del representante legal';
@@ -214,7 +214,7 @@ class StepTwo extends BaseStep {
       '#options' => $deparmentOptions,
       '#source'  => 'steps',
       '#ajax'    => [
-        'callback'  => 'callBackDeparment', 
+        'callback'  => 'callBackDeparment',
         'event'     => 'change',
         'progress'  => [
           'message' => 'Recuperando municipios...',
@@ -259,7 +259,7 @@ class StepTwo extends BaseStep {
       '#title'      => $definitions['field_pqrsd_fax']->getLabel(),
       '#attributes' => ['placeholder'=>'Ej: 4354555']
     ];
-    
+
     // end col 2
     $formStep['field_pqrsd_email'] = [
       '#type'       => 'email',
@@ -267,7 +267,7 @@ class StepTwo extends BaseStep {
       '#attributes' => ['placeholder'=>'Ej: correo@gmail.com'],
       '#suffix'     => '</div></div>'
     ];
-    
+
     return $formStep;
   }
 
