@@ -81,6 +81,7 @@
         "drupal/readonlymode": "^1.1",
         "drupal/recaptcha": "^3.0",
         "drupal/redirect": "^1.6",
+        "drupal/redis": "1.5",
         "drupal/search_api": "^1.17",
         "drupal/search_autocomplete": "^2.0",
         "drupal/seckit": "^2.0",
@@ -113,6 +114,7 @@
         "mikehaertl/phpwkhtmltopdf": "^2.4",
         "npm-asset/select2": "^4.0",
         "oomphinc/composer-installers-extender": "^2.0",
+        "predis/predis": "^2.0",
         "vlucas/phpdotenv": "^4.0",
         "webflo/drupal-finder": "^1.0.0",
         "wikimedia/composer-merge-plugin": "^2.0",
@@ -210,7 +212,10 @@
             },
             "drupal/sqlsrv": {
                 "Call to a member function fetchField() on null": "https://www.drupal.org/files/issues/2022-06-18/sqlsrv-undefined-key-return-3291199-4.patch"
-            }
+            },            
+            "drupal/redis": {
+                "Default lifetime for permanent TTL": "https://www.drupal.org/files/issues/2020-09-23/redis-default_permanent_ttl-2944938.patch"
+            }    
         }
     }
 }
