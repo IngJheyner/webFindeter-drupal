@@ -3,13 +3,13 @@ langcode: es
 status: open
 dependencies:
   module:
-    - honeypot
+    - antibot
   enforced:
     module:
       - webform
 third_party_settings:
-  honeypot:
-    time_restriction: true
+  antibot:
+    antibot: true
 _core:
   default_config_hash: ywLzu4PKup4MjhKzlVPqWyRXPu5co-ou5hySnaWh6Uc
 weight: 0

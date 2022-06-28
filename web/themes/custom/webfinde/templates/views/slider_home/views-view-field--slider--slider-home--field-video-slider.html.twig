@@ -19,6 +19,16 @@
  */
 #}
 
+{% set type =  output|split('.') %}
+
+{% if type[1] == 'mp4' %}
+
 <video webkit-playsinline="" data-covervideo-video="" playsinline="" loop="" muted="muted" autoplay="" width="100%" id="videoHome">
     <source src="{{ output -}}" type="video/mp4">
 </video>
+
+{% else %}
+
+<img src="{{ output }}" width="100%">
+
+{% endif %}
