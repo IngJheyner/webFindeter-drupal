@@ -981,21 +981,11 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
     if($view->current_display == 'page_1' || $view->current_display == 'page_2'){
 
-      if($field->field == 'field_pqrsd_numero_radicado'){
-
-        if(isset($row->_entity->get('field_pqrsd_api_smfc')->getValue()[0]['value']) && $row->_entity->get('field_pqrsd_api_smfc')->getValue()[0]['value'] == 'recibido'){
-
-          $variables['output'] = ['#markup' => '<img src="https://pbs.twimg.com/media/Dgu0bCeXUAAQdkT?format=jpg&name=small" onerror="this.remove();" style="width:178px"> '.$row->_entity->get('field_pqrsd_numero_radicado')->getValue()[0]['value']];
-
-        }
-
-      }
-
       if($field->field == 'field_pqrsd_respuesta'){
         if($variables['output'] == ''){
-          $variables['output'] = 'Abierta asignada a: '.strip_tags($view->field['uid']->original_value);
+          $variables['output'] = "Abierta asignada a: ";
         }else{
-          $variables['output'] = 'Cerrada por: '.strip_tags($view->field['uid']->original_value);
+          $variables['output'] = "Cerrada por: ";
         }
       }
 
@@ -1195,6 +1185,7 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
       <div class="seven-details col-1">
         <strong>Buscar PQRSD:</strong>
         <div class="seven-details__summary">';
+
     $variables['form']['palabras-clave']['#suffix'] = '</div></div>';
 
     $variables['form']['created_wrapper']['#prefix'] = '
@@ -1267,10 +1258,10 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
   //retrive logued user info
   $currentUser = \Drupal::currentUser();
   $rolesUser = $currentUser->getRoles();
-  $args[0] = $currentUser->id();
+
 
   if($view->storage->id()== 'pqrsd' && ($display_id == 'page_1' || $display_id == 'page_2')){
-
+    $args[0] = $currentUser->id();
     // if user is admin, remove argument to show all nodes
     if(in_array('administrator',$rolesUser) || in_array('auditor_pqrsd',$rolesUser) || in_array('pqrsd_denuncias',$rolesUser)){
       unset($args[0]);
@@ -1287,7 +1278,9 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
    */
   if($view->storage->id()== 'pqrsd' && $display_id == 'reporte_excel_pqrsd'){
 
-    if($args[0] != '1'){
+    if($args[0] != 'filter'){
+
+      $uid = \Drupal::request()->getPathInfo();
 
       $argus = explode("&", $args[0]);
       $param = [];
@@ -1297,10 +1290,10 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
         array_push($param, $sep[1]);
       }
 
-      if(!empty($param[6]) && !empty($param[7])){
+      if(!empty($param[8]) && !empty($param[9])){
 
-        $fechaMin = date('Y-m-d', strtotime($param[6]));
-        $fechaMax = date('Y-m-d', strtotime($param[7]));
+        $fechaMin = date('Y-m-d', strtotime($param[8]));
+        $fechaMax = date('Y-m-d', strtotime($param[9]));
 
         $view->display_handler->options['filters']['created']['value']['min'] = $fechaMin;
         $view->display_handler->options['filters']['created']['value']['max'] = $fechaMax;
@@ -1331,6 +1324,7 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
     }
 
     //Vista de reportes
+    //Sale un errror en el preview de la propia vista por el render... en desarrollo
     if($display_id == 'page_2'){
 
       //Construimos un tag de tipo link para traer los datos en la tabla resultados
@@ -1417,4 +1411,27 @@ function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
     }
   }
 
+}
+
+/**
+ * Implements hook_form_views_exposed_form_alter()
+ *
+ */
+function findeter_pqrsd_form_views_exposed_form_alter(&$form, FormStateInterface $form_state) {
+
+  if($form['#id'] == 'views-exposed-form-pqrsd-page-2' || $form['#id'] == 'views-exposed-form-pqrsd-page-1') {
+
+    if(isset($form['created_wrapper'])){
+
+      $form['created_wrapper']['created']['min'] = [
+        '#title' => "Min",
+        '#type' => 'date',
+      ];
+
+      $form['created_wrapper']['created']['max'] = [
+        '#title' => "Max",
+        '#type' => 'date',
+      ];
+    }
+  }
 }

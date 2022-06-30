@@ -24,7 +24,7 @@
                         field.appendChild(new Option('-Seleccione una opción-', ''));
                         field.removeAttribute('disabled');
                         field.classList.remove('form-select');
-                        
+
                         $.map(valueField, function(element, index) {
 
                             if(isNaN(index))
@@ -36,12 +36,12 @@
 
                     if(petition){
                         $.map(itemSmfc, function(element, index) {
-                            field.appendChild(new Option(element.value, element.index));                            
+                            field.appendChild(new Option(element.value, element.index));
                         });
 
                     }else{
                         $.map(item, function(element, index) {
-                            field.appendChild(new Option(element.value, element.index));                            
+                            field.appendChild(new Option(element.value, element.index));
                         });
                     }
                 };
@@ -62,7 +62,7 @@
                     });
 
                     if(!TypPetition){
-                        document.querySelector('#edit-field-pqrsd-nit').removeAttribute('required');                        
+                        document.querySelector('#edit-field-pqrsd-nit').removeAttribute('required');
                     }else{
                         document.querySelector('#edit-field-pqrsd-nit').setAttribute('required', 'required');
                     }
@@ -95,8 +95,8 @@
                     }
                 };
 
-                $('#edit-created-min').before('<input id="datepicker-min" type="text" placeholder="F. Inicio" class="form-element"/>');
-                $('#edit-created-max').before('<input id="datepicker-max" type="text" placeholder="F. Fin" class="form-element"/>');
+                /*$('#edit-created-min').before('<input id="datepicker-min" type="text" placeholder="F. Inicio" class="form-element"/>');
+                $('#edit-created-max').before('<input id="datepicker-max" type="text" placeholder="F. Fin" class="form-element"/>');*/
 
                 /*$("#datepicker-min").datepicker({
                     dateFormat: "dd-mm-yy",
@@ -327,12 +327,12 @@
                     $('.form-item-field-pqrsd-nit').fadeIn();
                     $('.form-item-field-pqrsd-razon-social').fadeIn();
                     $('.form-item-field-pqrsd-tipo-empresa').fadeIn();
-                    document.querySelector('#edit-field-pqrsd-nit').setAttribute('required', 'required'); 
+                    document.querySelector('#edit-field-pqrsd-nit').setAttribute('required', 'required');
                 } else {
                     $('.form-item-field-pqrsd-nit').fadeOut();
                     $('.form-item-field-pqrsd-razon-social').fadeOut();
                     $('.form-item-field-pqrsd-tipo-empresa').fadeOut();
-                    document.querySelector('#edit-field-pqrsd-nit').removeAttribute('required'); 
+                    document.querySelector('#edit-field-pqrsd-nit').removeAttribute('required');
                 }
             });
 
