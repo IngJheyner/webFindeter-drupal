@@ -59,15 +59,13 @@
 
     <div{{ attributes.addClass(classes, 'field__items aqui') }}>
 
-    <!--/system/files/convocatorias/PAF-JU-O-045-2020/NUEVO.pdf-->
-
       {% for item in items %}
 
         {%
           set nombreArchivo = item.content["#markup"]|split('/')
-        %}
+        %}       
 
-        <td{{ attributes.addClass(classes, 'archivo') }}><a target="_blank" href="{{ item.content }}"><i class="far fa-file"></i> {{ nombreArchivo[5] }}</a></td>
+        <td{{ attributes.addClass(classes, 'archivo') }}><a target="_blank" href="{{ item.content }}"><i class="far fa-file"></i> {{ nombreArchivo[5]|replace({'%20': "-"}) }}</a></td>
 
       {% endfor %}
 
