@@ -7,13 +7,14 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Ajax\InvokeCommand;
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Render\Element\Date;
 use Drupal\views\Views;
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Render\Markup;
 use Drupal\node\Entity\Node;
 
-use Drupal\findeter_pqrsd\Holidays\holidaysPQRSD;
+use Drupal\findeter_pqrsd\Holidays\HolidaysPqrsd;
 use PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Days;
 
 /**
@@ -42,55 +43,6 @@ function findeter_pqrsd_help($route_name, RouteMatchInterface $route_match) {
   }
 }
 
-/**
-* Create an array with the taxonomy terms
-* @author Sandi <email@email.com>
-*/
-function getTaxonomyTermsForm($tid){
-  $child_tids = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('colombia_deparments', $tid, 1, false);
-
-  $options = array();
-  foreach ($child_tids as $term) {
-    $options[$term->tid] = $term->name;
-  }
-  return $options;
-}
-
-
-/**
-* Callback deparment select ajax event
-* @author Sandi <email@email.com>
-*/
-function callBackDeparment(array &$form, FormStateInterface $form_state) {
-
-  $element= $form_state->getTriggeringElement()["#source"];
-
-
-  $form_state->setRebuild();
-
-  $parent_tid = $form_state->getValue('field_pqrsd_departamento'); // the parent term id
-  $municipalityOptions = getTaxonomyTermsForm($parent_tid);
-
-  if($element == 'admin'){
-    $elem = $form['info_person']['field_pqrsd_municipio'];
-  }else{
-    $elem = $form['wrapper']['content-fields']['field_pqrsd_municipio'];
-  }
-
-
-  $elem['#options'] = $municipalityOptions;
-  $renderer = \Drupal::service('renderer');
-  $renderedField = $renderer->render($elem);
-
-  $response = new AjaxResponse();
-
-
-  $response->addCommand(new InvokeCommand(NULL, 'afterLocation', ['Reloading page!']));
-  $response->addCommand(new ReplaceCommand('#output-municipalities', $renderedField));
-
-  return $response;
-}
-
 
 /**
  * Define behavior of date red/orange for each scene
@@ -106,7 +58,7 @@ function defineDatesSemaphore($values){
   if(isset($values['field_pqrsd_preferencial']) && $values['field_pqrsd_preferencial'] == 'congresista'){
     $addDays = $peticion['all'];
   }else{
-    if($values['field_pqrsd_tipo_radicado'] == 'Peticiones'){
+    if(isset($values['field_pqrsd_tipo_radicado']) && $values['field_pqrsd_tipo_radicado'] == 'Peticiones'){
       $typeRequest = $values['field_pqrsd_tipo_peticion'];
       if(isset($peticion[$typeRequest])){
         $addDays = $peticion[$typeRequest];
@@ -151,24 +103,27 @@ function _getBussinesDays($addDays, $day_answer = FALSE){
   // loop for X days
   for($i=0; $i<$addDays; $i++){
 
-      // add 1 day to timestamp
-      $addDay = 86400;
+    // add 1 day to timestamp
+    $addDay = 86400;
 
-      // get what day it is next day
-      $nextDay = date('w', ($timeStamp+$addDay));
-      $day = date('d', $timeStamp);
-      $mounth = date('m', $timeStamp);
+    // get what day it is next day
+    $nextDay = date('w', ($timeStamp+$addDay));
+    $day = date('d', $timeStamp);
+    $mounth = date('m', $timeStamp);
+    $year = date('Y', $timeStamp);
 
-      $holiDays = new holidaysPQRSD(date('Y', $timeStamp));
-      //$feriado = $holiDays->isHoliDays('22', '03'); //Validar fecha de un dia feriado.
-      $feriado = $holiDays->isHoliDays($day, $mounth); //Validar fecha de un dia feriado.
+    $holiDays = new HolidaysPqrsd(\Drupal::service('http_client_factory'), \Drupal::service('state'),
+    \Drupal::service('logger.factory'));
 
-      // if it's Saturday or Sunday get $i-1
-      if(($nextDay == 0 || $nextDay == 6) || $feriado) {
-          $day_answer == FALSE ? $i-- : $tot_day_answer++;
-      }
-      // modify timestamp, add 1 day
-      $timeStamp = $timeStamp+$addDay;
+    // Validar fecha de un dia feriado.
+    $feriado = $holiDays->isHoliDays($year, $mounth, $day);
+
+    // if it's Saturday or Sunday get $i-1
+    if(($nextDay == 0 || $nextDay == 6) || $feriado) {
+        $day_answer == FALSE ? $i-- : $tot_day_answer++;
+    }
+    // modify timestamp, add 1 day
+    $timeStamp = $timeStamp+$addDay;
 
   }
 
@@ -190,13 +145,89 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
     $form['#attached']['library'][] = 'findeter_pqrsd/admin_pages';
     $form['#attached']['library'][] = 'findeter_pqrsd/classy-dropbutton';
   }
-
   /* ============================================
   REPORTES
   -Se crea los campos fecha para generar el formato 379
   =============================================== */
 
   if($form['#id'] == 'views-exposed-form-pqrsd-page-2'){
+
+    /* ============================================
+    Informacion para sincronizar en la API SMFC
+    =============================================== */
+    $stateSmfcNid = \Drupal::service('state')->get('findeter_pqrsd.api_smfc_nid');
+
+    //Validamos si existen datos para importar o registrar.
+    $dataState = \Drupal::service('state')->get('findeter_pqrsd.api_smfc_data');
+
+    $rowSmfc = [];
+    $total = 0;
+
+    if(!empty($stateSmfcNid) || !is_null($stateSmfcNid)){
+      foreach ($stateSmfcNid as $key => $value) {
+        $total++;
+        $rowSmfc[] = [
+          $key+1,
+          $stateSmfcNid[$key]['title'],
+          $stateSmfcNid[$key]['smfc'] ? Markup::create('<span style="width:20px; height:20px" class="green">Si</span>') : Markup::create('<span>- - -</span>'),
+          $stateSmfcNid[$key]['smfc'] ? Markup::create('<span>En espera...</span>') : Markup::create('<span>- - -</span>'),
+        ];
+      }
+    }
+    $form['container_api_smfc'] = [
+      '#type' => 'details',
+      '#title' => 'API SMFC',
+      '#open' =>$total != 0 || !empty($dataState) ? TRUE : FALSE,
+    ];
+
+    //La siguiente información muestra radicados de Quejas o Reclamos que están a la espera de ser sincronizados con la
+    $form['container_api_smfc']['description'] = [
+      '#type' => 'item',
+      '#markup' => '<p>'.
+      t('The following information shows filings of Complaints or Claims that are waiting to be synchronized with the API Smart Supervision SMFC').'</p>',
+    ];
+
+    $form['container_api_smfc']['table_smfc'] = [
+      '#type' => 'table',
+      '#header' => [t('No.'), t('Title'), t('POST'), t('PUT')],
+      '#rows' => $rowSmfc,
+      '#empty' => t('No results found'),
+      '#attributes' => ['class' => ['views-view-table']],
+      '#caption' => t('Sync: @total', ['@total' => $total]),
+    ];
+
+    //Construimos la ruta para el controlador
+    $urlActionPqrsdSmfc = Url::fromRoute('findeter_pqrsd.consult_complaints_smfc');
+
+    $urlActionPqrsdSmfcOptions = [
+      'attributes' => ['class' => ['button button--primary']],
+    ];
+
+    $urlActionPqrsdSmfc->setOptions($urlActionPqrsdSmfcOptions);
+
+    $ActionPqrsdSmfc = Link::fromTextAndUrl(is_null($dataState) || empty($dataState) ? t('Consult and register') : t('Register data'), $urlActionPqrsdSmfc);
+
+     //La siguiente información consulta y registra los pqrsd disponibles desde la API SMFC
+     $form['container_api_smfc']['description_consult'] = [
+      '#type' => 'item',
+      '#markup' => '<p><br>'.
+      t('You can consult and register the Complaints or Claims available in Smart Supervision API SMFC, the results will be displayed in the API SMFC table and will be waiting for a response.').'</p>'.$ActionPqrsdSmfc->toString().'',//Puedes consultar y registrar las Quejas o Reclamos disponibles en Smart Supervision, Los resultados se visualizaran en la tabla API SMFC y estaran a la espera de una respuesta.
+    ];
+
+    if(!is_null($dataState) || !empty($dataState)){
+      //Mostramos un mensaje si existen datos para registrar y hacer la accion respectiva
+      $form['container_api_smfc']['data_register'] = [
+        '#type' => 'item',
+        '#markup' => '<p>'.
+        t('<strong>Information:</strong> There are @num data to register as type of filings Complaints. Click on <em>Register data</em> to perform the action', ['@num' => count($dataState)]).'</p>',
+      ];
+
+      \Drupal::messenger()->addMessage(t('<strong>Information:</strong> There are @num data to register as type of filings Complaints. Click on <em>Register data</em> to perform the action', ['@num' => count($dataState)]), 'info');
+    }
+
+    /* ============================================
+    Informe 379
+    =============================================== */
 
     $form['container_date'] = [
       '#type' => 'details',
@@ -298,7 +329,7 @@ function generarNumeroRadicado($type){
 
   $nid = array_values($query);
   $node = Node::load($nid[0]);
-  
+
   $number_settled = $node->get('field_pqrsd_numero_radicado')->value;
   $secuencialNumber = preg_split('/[A-Z]/', $number_settled);
 
@@ -311,7 +342,7 @@ function generarNumeroRadicado($type){
 
   $secuencialNumber[1]++;
   $numeroRadicado = date('Ymd',\Drupal::time()->getCurrentTime());
-  $numeroRadicado .= $type[0].$secuencialNumber[1];  
+  $numeroRadicado .= $type[0].$secuencialNumber[1];
 
   //$config->set('number_settled', $secuencialNumber)->save();
 
@@ -418,7 +449,54 @@ function findeter_pqrsd_cron() {
 
   }
 
-  
+   /* ============================================
+  Enviar radicados de Quejas o Reclamos
+  a la aplicacion API SMFC
+  ===============================================
+  $stateSmfcNid = \Drupal::service('state')->get('findeter_pqrsd.api_smfc_nid');
+
+  if(!is_null($stateSmfcNid) && !empty($stateSmfcNid)){
+
+    $apiSmfc = \Drupal::service('api.smfc');
+    $nid = [];
+    $login = $apiSmfc->login();
+
+    if($login){
+
+      foreach ($stateSmfcNid as $key => $state) {
+
+        $nid[$key] = [
+          "nid" => $state['nid'],
+          "title" => $state['title'],
+          "created" => $state['created'],
+          "smfc" => $state['smfc']
+        ];
+
+        if(date('Y-m-d', $now) !== date('Y-m-d', $state['created'])){
+
+          if($state['smfc'] === FALSE){
+
+            $post = $apiSmfc->postComplaints($state['nid']);
+            //$post = TRUE;
+
+            $post ? $nid[$key]["smfc"] = TRUE : $nid[$key]["smfc"] = FALSE;
+
+          }else{
+
+            $put = $apiSmfc->putComplaints($state['nid']);
+
+            if(!$put)
+              $nid[$key]["smfc"] = TRUE;
+            else
+              unset($nid[$key]);
+          }
+
+        }
+      }
+
+      \Drupal::service('state')->set('findeter_pqrsd.api_smfc_nid', $nid);
+    }
+  }*/
 }
 
 
@@ -428,8 +506,9 @@ function findeter_pqrsd_cron() {
  */
 function findeter_pqrsd_preprocess_page(&$variables) {
 
-  $routeUrl = \Drupal::routeMatch()->getRouteName();
+  //$apiSmfc = \Drupal::service('api.smfc');
 
+  $routeUrl = \Drupal::routeMatch()->getRouteName();
 
   if ($routeUrl == 'findeter_pqrsd.confirm_register_pqrsd_admin') {
     $variables['#attached']['library'][] = 'findeter_pqrsd/admin_pages';
@@ -441,6 +520,78 @@ function findeter_pqrsd_preprocess_page(&$variables) {
 
 }
 
+/**
+* Create an array with the taxonomy terms
+* @author Sandi <email@email.com>
+*/
+function getTaxonomyTermsForm($tid){
+
+  if(is_array($tid))
+    $child_tids = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('colombia_deparments', $tid[0]['target_id'], 1, false);
+  else
+    $child_tids = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('colombia_deparments', $tid, 1, false);
+
+  $options = array();
+  foreach ($child_tids as $term) {
+    $options[$term->tid] = $term->name;
+  }
+  return $options;
+}
+
+
+/**
+* Callback deparment select ajax event
+* @author Sandi <email@email.com>
+*/
+function callBackDeparment(array &$form, FormStateInterface $form_state) {
+
+  //return $form['output-municipalities'];
+  $element= $form_state->getTriggeringElement()["#source"];
+
+  $form_state->setRebuild();
+
+  $parent_tid = $form_state->getValue('field_pqrsd_departamento'); // the parent term id
+  //$municipalityOptions = getTaxonomyTermsForm($parent_tid);
+
+  if($element == 'admin'){
+
+    //Campo pilot para obtener los valores de municipio
+    // y estos ser guardados en el campo hidden
+    $form['info_person']['field_pqrsd_municipio_container']['field_pqrsd_municipio_select'] = [
+      '#type' => 'select2',
+      '#title' => 'Municipios:',
+      '#required' => TRUE,
+      '#options' => getTaxonomyTermsForm($parent_tid[0]['target_id']),
+      '#select2' => [
+        ['allowClear' => FALSE],
+      ],
+      '#attributes' => ['id' => 'field-pqrsd-municipio-select'],
+    ];
+
+    return $form['info_person']['field_pqrsd_municipio_container'];
+
+    //$elem = $form['info_person']['field_pqrsd_municipio']['field_pqrsd_municipio'];
+    //$municipalityOptions = getTaxonomyTermsForm($parent_tid[0]['target_id']);
+
+  }else{
+
+    $elem = $form['wrapper']['content-fields']['field_pqrsd_municipio'];
+
+    $municipalityOptions = getTaxonomyTermsForm($parent_tid);
+     $elem['#options'] = $municipalityOptions;
+    $renderer = \Drupal::service('renderer');
+    $renderedField = $renderer->render($elem);
+
+    $response = new AjaxResponse();
+
+
+    //$response->addCommand(new InvokeCommand(NULL, 'afterLocation', ['Reloading page!']));
+    $response->addCommand(new ReplaceCommand('#output-municipalities', $renderedField));
+
+    return $response;
+  }
+
+}
 
 /**
  * Build all elements for register/update PQRSD
@@ -448,6 +599,9 @@ function findeter_pqrsd_preprocess_page(&$variables) {
  */
 function buildPQRSDform(){
   $form = [];
+
+  $nowTimeStamp = \Drupal::time()->getCurrentTime();
+  $date = date('Y-m-d', $nowTimeStamp);
 
   $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'pqrsd');
 
@@ -462,18 +616,19 @@ function buildPQRSDform(){
   $arrayFields['info_radicado']['field_pqrsd_tipo_discapacidad'] = 'close required';
 
   $arrayFields['info_person']['title_detail'] = 'Información de la persona';
-  $arrayFields['info_person']['field_pqrsd_numero_id'] = 'open';
-  $arrayFields['info_person']['field_pqrsd_tipo_documento'] = '';
-  $arrayFields['info_person']['field_pqrsd_primer_nombre'] = '';
+  $arrayFields['info_person']['field_pqrsd_numero_id'] = 'open required';
+  $arrayFields['info_person']['field_pqrsd_tipo_documento'] = 'required';
+  $arrayFields['info_person']['field_pqrsd_primer_nombre'] = 'required';
   $arrayFields['info_person']['field_pqrsd_segundo_nombre'] = '';
-  $arrayFields['info_person']['field_pqrsd_primer_apellido'] = '';
+  $arrayFields['info_person']['field_pqrsd_primer_apellido'] = 'required';
   $arrayFields['info_person']['field_pqrsd_segundo_apellido'] = 'close';
   $arrayFields['info_person']['field_pqrsd_direccion'] = 'open';
   $arrayFields['info_person']['field_pqrsd_departamento'] = '';
+  $arrayFields['info_person']['field_pqrsd_municipio_container'] = '';
   $arrayFields['info_person']['field_pqrsd_municipio'] = '';
   $arrayFields['info_person']['field_pqrsd_telefono'] = '';
   $arrayFields['info_person']['field_pqrsd_fax'] = '';
-  $arrayFields['info_person']['field_pqrsd_email'] = '';
+  $arrayFields['info_person']['field_pqrsd_email'] = 'required';
   $arrayFields['info_person']['field_pqrsd_nit'] = '';
   $arrayFields['info_person']['field_pqrsd_razon_social'] = '';
   $arrayFields['info_person']['field_pqrsd_tipo_empresa'] = 'close';
@@ -481,7 +636,7 @@ function buildPQRSDform(){
   $arrayFields['info_product']['title_detail'] = 'Información del producto';
   $arrayFields['info_product']['field_pqrsd_nombre_producto'] = 'open required';
   $arrayFields['info_product']['field_pqrsd_archivo'] = '';
-  $arrayFields['info_product']['field_pqrsd_motivo'] = '';
+  $arrayFields['info_product']['field_pqrsd_motivo'] = 'required';
   $arrayFields['info_product']['field_pqrsd_otros'] = 'close';
   $arrayFields['info_product']['field_pqrsd_descripcion'] = 'column required';
 
@@ -542,17 +697,16 @@ function buildPQRSDform(){
             break;
 
             case 'file':
-              $fileSettings = $definitions[$idField]->getSettings();
-
               $form[$idDetail][$idField]['#type'] = 'managed_file';
-              $form[$idDetail][$idField]['#cardinality'] = 3;
               $form[$idDetail][$idField]['#multiple'] = true;
               $form[$idDetail][$idField]['#title'] = $definitions[$idField]->getLabel();
-              $form[$idDetail][$idField]['#upload_validators'] = [
-                'file_validate_extensions' => [$fileSettings['file_extensions']],
-                'file_validate_size'       => 20971520,
-              ];
               $form[$idDetail][$idField]['#description'] = $definitions[$idField]->getDescription();
+              $form[$idDetail][$idField]['#upload_location'] = 'private://pqrsd/Admin/'.$date;
+              $form[$idDetail][$idField]['#upload_validators'] = [
+                'file_validate_extensions' => [\Drupal::service('api.smfc')->getExtFile()],
+                'file_validate_size'       => [20971520],
+              ];
+              $form[$idDetail][$idField]['#limit_validation_errors'] = [];
             break;
 
             case 'string_long':
@@ -610,7 +764,7 @@ function buildPQRSDform(){
 
             case 'required':
               $form[$idDetail][$idField]['#required'] = true;
-            break;
+            break;$arrayFields['info_product']['field_pqrsd_archivo'] = '';
 
             default:
             break;
@@ -624,6 +778,44 @@ function buildPQRSDform(){
 
   }
 
+  /* ============================================
+  Se altera las opciones en tipo de persona
+  Se utiliza para obtener los items dependiendo del tipo
+  de peticion para findeter o SMFC(Queja o Reclamo)
+  =============================================== */
+  $optionsTypPerson = $definitions['field_pqrsd_tipo_solicitante']->getSetting('allowed_values');
+  $form['info_radicado']['field_pqrsd_tipo_solicitante']['#attributes']= ['disabled' => 'disabled'];
+
+  $optionsTypDocum = $definitions['field_pqrsd_tipo_documento']->getSetting('allowed_values');
+  $form['info_person']['field_pqrsd_tipo_documento']['#attributes']= ['disabled' => 'disabled'];
+
+  $optionsProduct = $definitions['field_pqrsd_nombre_producto']->getSetting('allowed_values');
+  $form['info_product']['field_pqrsd_nombre_producto']['#attributes']= ['disabled' => 'disabled'];
+
+  $optionsMotive = $definitions['field_pqrsd_motivo']->getSetting('allowed_values');
+  $form['info_product']['field_pqrsd_motivo']['#attributes']= ['disabled' => 'disabled'];
+
+  $optionsFormRecep = $definitions['field_pqrsd_forma_recepcion']->getSetting('allowed_values');
+  $form['info_admin']['field_pqrsd_forma_recepcion']['#attributes']= ['disabled' => 'disabled'];
+
+  $form['#attached']['drupalSettings']['optionsFields'] = [
+    [
+      '#edit-field-pqrsd-tipo-solicitante' => $optionsTypPerson
+    ],
+    [
+      '#edit-field-pqrsd-tipo-documento' => $optionsTypDocum
+    ],
+    [
+      '#edit-field-pqrsd-nombre-producto' => $optionsProduct
+    ],
+    [
+      '#edit-field-pqrsd-motivo' => $optionsMotive
+    ],
+    [
+      '#edit-field-pqrsd-forma-recepcion' => $optionsFormRecep
+    ],
+  ];
+
   //limit "Número identificacion" field
   $form['info_person']['field_pqrsd_numero_id']['#size'] = 10;
   $form['info_person']['field_pqrsd_numero_id']['#maxlength'] = 10;
@@ -634,7 +826,7 @@ function buildPQRSDform(){
   // define values and parameters for Department/municipalities
   $deparmentOptions = getTaxonomyTermsForm(0);
 
-  $form['info_person']['field_pqrsd_departamento']['#type'] = 'select';
+  $form['info_person']['field_pqrsd_departamento']['#type'] = 'select2';
   $form['info_person']['field_pqrsd_departamento']['#options'] = $deparmentOptions;
   $form['info_person']['field_pqrsd_departamento']['#empty_option'] = '-Seleccione una opción-';
   $form['info_person']['field_pqrsd_departamento']['#default_value'] = NULL;
@@ -642,16 +834,32 @@ function buildPQRSDform(){
   $form['info_person']['field_pqrsd_departamento']['#ajax'] = [
     'callback'  => 'callBackDeparment',
     'event'     => 'change',
+    'wrapper' => 'field-pqrsd-municipio-container',
     'progress'  => [
       'message' => 'Recupersando municipios...',
     ],
   ];
+  $form['info_person']['field_pqrsd_departamento']['#select2'] = ['allowClear' => FALSE];
 
-  $form['info_person']['field_pqrsd_municipio']['#type'] = 'select';
+
+  /*$form['info_person']['field_pqrsd_municipio']['#type'] = 'select2';
   $form['info_person']['field_pqrsd_municipio']['#prefix'] = '<div id="output-municipalities">';
   $form['info_person']['field_pqrsd_municipio']['#suffix'] = '</div>';
   $form['info_person']['field_pqrsd_municipio']['#empty_option'] = '-Seleccione una opción-';
-  $form['info_person']['field_pqrsd_municipio']['#default_value'] = NULL;
+  $form['info_person']['field_pqrsd_municipio']['#default_value'] = !empty($form_state->getValue('field_pqrsd_municipio')) ? $form_state->getValue('field_pqrsd_municipio') : '';
+  $form['info_person']['field_pqrsd_municipio']['#select2'] = ['allowClear' => FALSE];*/
+  $form['info_person']['field_pqrsd_municipio_container']['#type'] = 'container';
+  $form['info_person']['field_pqrsd_municipio_container']['#attributes'] = ['id' => 'field-pqrsd-municipio-container'];
+
+  //Campo municipio que toma valores del campo pilot creado en
+  //funcion @see callBackDeparment
+  $form['info_person']['field_pqrsd_municipio']['#type'] = 'hidden';
+  $form['info_person']['field_pqrsd_municipio']['#default_value'] = '';
+  $form['info_person']['field_pqrsd_municipio']['#attributes'] = ['id' => 'field-pqrsd-municipio'];
+
+  //Informacion motivo select2
+  $form['info_product']['field_pqrsd_motivo']['#type'] = 'select2';
+  $form['info_product']['field_pqrsd_motivo']['#select2'] = ['allowClear' => FALSE];
 
   // change type of field for "Medio de respuesta" field
   $form['info_admin']['field_pqrsd_medio_respuesta']['#type'] = 'radios';
@@ -765,7 +973,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
   $view = $variables['view'];
   $field = $variables['field'];
   $row = $variables['row'];
-  
+
   $currentUser = \Drupal::currentUser();
   $rolesUser = $currentUser->getRoles();
 
@@ -775,9 +983,9 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
       if($field->field == 'field_pqrsd_respuesta'){
         if($variables['output'] == ''){
-          $variables['output'] = 'Abierta asignada a: '.strip_tags($view->field['uid']->original_value);
+          $variables['output'] = "Abierta asignada a: ";
         }else{
-          $variables['output'] = 'Cerrada por: '.strip_tags($view->field['uid']->original_value);
+          $variables['output'] = "Cerrada por: ";
         }
       }
 
@@ -789,7 +997,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
           'class'               => ['use-ajax'],
           'data-dialog-type'    => ['modal'],
           'data-dialog'         => ['modal'],
-          'data-dialog-options' => ['{"width":800}'],
+          'data-dialog-options' => ['{"width":1000}'],
         ];
 
         $htmlOutput = '';
@@ -953,10 +1161,10 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
  * @author user 3ddesarrollo <3ddesarrollo@3dstudioweb.com>
  * @author Sandi <email@email.com>
 */
-function findeter_pqrsd_preprocess_views_exposed_form(&$variables, &$form) {
+function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
 
   if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-1'){
-    
+
     // for exposed user request filters, join all inputs in two fieldsets
     $variables['form']['id_radicado']['#prefix'] = '
       <div class="seven-details col-1">
@@ -977,6 +1185,7 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables, &$form) {
       <div class="seven-details col-1">
         <strong>Buscar PQRSD:</strong>
         <div class="seven-details__summary">';
+
     $variables['form']['palabras-clave']['#suffix'] = '</div></div>';
 
     $variables['form']['created_wrapper']['#prefix'] = '
@@ -1015,15 +1224,7 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables, &$form) {
     $urlReporteXlsx = $urlReporteXlsx->toRenderable();
     $urlFormato379 = $urlFormato379->toRenderable();
 
-    $variables['form']['actions']['#suffix'] = Markup::create('
-        <div class="list-charts" style="margin-top: 1rem">
-      <div class="chart-container"><canvas id="time-chart"></canvas></div>
-      <div class="chart-container"><canvas id="tipo-radicado-chart"></canvas></div>
-      <div class="chart-container"><canvas id="tipo-solicitante-chart"></canvas></div>
-      <div class="chart-container"><canvas id="tipo-producto-chart"></canvas></div>
-      <div class="chart-container"><canvas id="canal-recepcion-chart"></canvas></div>
-      <div class="chart-container"><canvas id="forma-recepcion-chart"></canvas></div>
-        </div>'.render($urlReporteXlsx).render($urlFormato379));
+    $variables['form']['actions']['#suffix'] = render($urlReporteXlsx).''.render($urlFormato379);
   }
   /* ============================================
   PAGE ESTADOS DE PQRSD FILTER
@@ -1057,10 +1258,10 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
   //retrive logued user info
   $currentUser = \Drupal::currentUser();
   $rolesUser = $currentUser->getRoles();
-  $args[0] = $currentUser->id();
 
-  if($view->storage->id()== 'pqrsd' && ($display_id == 'page_1' || $display_id == 'page_2')){    
 
+  if($view->storage->id()== 'pqrsd' && ($display_id == 'page_1' || $display_id == 'page_2')){
+    $args[0] = $currentUser->id();
     // if user is admin, remove argument to show all nodes
     if(in_array('administrator',$rolesUser) || in_array('auditor_pqrsd',$rolesUser) || in_array('pqrsd_denuncias',$rolesUser)){
       unset($args[0]);
@@ -1077,8 +1278,10 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
    */
   if($view->storage->id()== 'pqrsd' && $display_id == 'reporte_excel_pqrsd'){
 
-    if($args[0] != '1'){
-      
+    if($args[0] != 'filter'){
+
+      $uid = \Drupal::request()->getPathInfo();
+
       $argus = explode("&", $args[0]);
       $param = [];
 
@@ -1087,10 +1290,10 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
         array_push($param, $sep[1]);
       }
 
-      if(!empty($param[6]) && !empty($param[7])){
+      if(!empty($param[8]) && !empty($param[9])){
 
-        $fechaMin = date('Y-m-d', strtotime($param[6]));
-        $fechaMax = date('Y-m-d', strtotime($param[7]));
+        $fechaMin = date('Y-m-d', strtotime($param[8]));
+        $fechaMax = date('Y-m-d', strtotime($param[9]));
 
         $view->display_handler->options['filters']['created']['value']['min'] = $fechaMin;
         $view->display_handler->options['filters']['created']['value']['max'] = $fechaMax;
@@ -1105,21 +1308,89 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
 
   }
 
-  /* ============================================
-  FILTRAR PQRSD SI EL ROL DE USUARIO ES PQRSD DENUNCIAS
-  =============================================== */
   /**
    * @author user 3ddesarrollo <3ddesarrollo@3dstudioweb.com>
    */
   if($view->storage->id()== 'pqrsd'  && ($display_id == 'page_1' || $display_id == 'page_2')){
+
       //dump($view);
      // if user is admin, remove argument to show all nodes
+     // FILTRAR PQRSD SI EL ROL DE USUARIO ES PQRSD DENUNCIAS
      if(in_array('pqrsd_denuncias',$rolesUser)){
-      
+
       $type_settled = $view->display_handler->options['filters']['field_pqrsd_tipo_radicado_value']['value'];
       $settled_filter = array_diff($type_settled, ['Peticiones', 'Quejas', 'Reclamos', 'Sugerencias']);
       $view->display_handler->options['filters']['field_pqrsd_tipo_radicado_value']['value'] = $settled_filter;
     }
+
+    //Vista de reportes
+    //Sale un errror en el preview de la propia vista por el render... en desarrollo
+    if($display_id == 'page_2'){
+
+      //Construimos un tag de tipo link para traer los datos en la tabla resultados
+      $link = [
+        '#type' => 'link',
+        '#title' => 'Mostrar resultados PQRSD.',
+        '#url' => Url::fromRoute('findeter_pqrsd.reports_results_data_table'),
+        '#attributes' => [
+          'class' => ['use-ajax'],
+        ],
+      ];
+
+      //Agregamos el link para ser visualizado como fila en la tabla
+      $rows[] = [ '#rows' => [
+          'data' => \Drupal::service('renderer')->render($link),
+          '#colspan' => 10,
+        ]
+      ];
+
+      //Tabla de resultados
+      $buildTable = [
+        'container' => [
+          '#type' => 'container',
+          '#attributes' => [
+            'id'=> "results-table-reports",
+          ],
+          'table' => [
+            '#theme' => 'table',
+            '#rows' => $rows,
+            '#weight' => 1,
+            '#prefix' => '<br><hr><h3>Tabla resumen de resultados</h3>',
+            '#sticky' => TRUE,
+            '#header' => [
+              'Tipo',
+              'Recibidas',
+              'Pendientes por resolver',
+              'Aprobadas a favor del consumidor financiero',
+              'Aprobadas a favor de la entidad',
+              'Trámites concluidos (cerrados)',
+              'Resultas a tiempo',
+              'Vencidas',
+              'Solicitud acceso información pública',
+              'Solicitudes trasladas a otra institución'
+            ],
+          ],
+        ],
+      ];
+
+      //Agegamos un campo text_custom para visualizar la tabla en el pie de pagina
+      $options = array(
+        'id' => 'area_text_custom',
+        'table' => 'views',
+        'field' => 'area_text_custom',
+        'relationship' => 'none',
+        'group_type' => 'none',
+        'admin_label' => '',
+        'empty' => TRUE,
+        'tokenize' => FALSE,
+        'content' => \Drupal::service('renderer')->render($buildTable),
+        'plugin_id' => 'text_custom',
+      );
+
+      //Creamos un pie de pagina en la vista que muestre la tabla resultados
+      $view->setHandler($display_id, 'footer', 'area_text_custom', $options);
+    }
+
   }
 }
 
@@ -1131,182 +1402,36 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
  */
 function findeter_pqrsd_views_pre_render(\Drupal\views\ViewExecutable $view) {
 
-  $spanishMonths['January'] = 'Enero';
-  $spanishMonths['February'] = 'Febrero';
-  $spanishMonths['March'] = 'Marzo';
-  $spanishMonths['April'] = 'Abril';
-  $spanishMonths['May'] = 'Mayo';
-  $spanishMonths['June'] = 'Junio';
-  $spanishMonths['July'] = 'Julio';
-  $spanishMonths['August'] = 'Agosto';
-  $spanishMonths['September'] = 'Septiembre';
-  $spanishMonths['October'] = 'Octubre';
-  $spanishMonths['November'] = 'Noviembre';
-  $spanishMonths['December'] = 'Diciembre';
-
-  $tipoRadicados = ['Peticiones','Quejas','Reclamos','Sugerencias','Denuncias','Total'];
-
-  foreach($tipoRadicados as $tr){
-    $mResume[$tr]['name'] = $tr;
-    $mResume[$tr]['recibidas'] = 0;
-    $mResume[$tr]['por_resolver'] = 0;
-    $mResume[$tr]['favor_consumidor'] = 0;
-    $mResume[$tr]['favor_entidad'] = 0;
-    $mResume[$tr]['cerrados'] = 0;
-    $mResume[$tr]['cerrado_a_tiempo'] = 0;
-    $mResume[$tr]['vencidas'] = 0;
-    $mResume[$tr]['info_publica'] = 0;
-    $mResume[$tr]['trasladadas'] = 0;
-  }
-
-  if($view->id() == 'pqrsd' && $view->current_display == 'page_2'){
-
-    $data = [];
-
-    $query = \Drupal::entityQuery('node')
-                ->condition('type', 'pqrsd')
-                ->execute();
-
-    foreach ($query as $nid) {
-
-      $node = Node::load($nid);
-
-      /* ===== ===== CHARTS GRAFICOS ===== ===== */
-      //define data for general chart
-      $month = date('F',$node->get('created')->value);
-      $month = $spanishMonths[$month];
-
-      if(!isset($data['monthly'][$month])){
-        $data['monthly'][$month] = 0;
-      }
-      $data['monthly'][$month]++;
-
-      //define data for "Tipo radicado" field.
-      $tipoRadicado = $node->get('field_pqrsd_tipo_radicado')->value;
-
-      if(!isset($data['tipoRadicado'][$tipoRadicado])){
-        $data['tipoRadicado'][$tipoRadicado] = 0;
-      }
-      $data['tipoRadicado'][$tipoRadicado]++;
-
-      // define data for "Tipo solicitante" field
-      $tipoSolicitante = $node->get('field_pqrsd_tipo_solicitante')->value;
-      if(!isset($data['tipoSolicitante'][$tipoSolicitante])){
-        $data['tipoSolicitante'][$tipoSolicitante] = 0;
-      }
-      $data['tipoSolicitante'][$tipoSolicitante]++;
-
-      // define data for "Tipo producto" field
-      $tipoProducto = $node->get('field_pqrsd_nombre_producto')->value;
-      if(!isset($data['tipoProducto'][$tipoProducto])){
-        $data['tipoProducto'][$tipoProducto] = 0;
-      }
-      $data['tipoProducto'][$tipoProducto]++;
-
-      // define data for "Canal recepción" field
-      $canalRecepcion = $node->get('field_pqrsd_canal_recepcion')->value;
-      if(!isset($data['canalRecepcion'][$canalRecepcion])){
-        $data['canalRecepcion'][$canalRecepcion] = 0;
-      }
-      $data['canalRecepcion'][$canalRecepcion]++;
-
-      // define data for "Forma recepción" field
-      $formaRecepcion = $node->get('field_pqrsd_forma_recepcion')->value;
-      if(!isset($data['formaRecepcion'][$formaRecepcion])){
-        $data['formaRecepcion'][$formaRecepcion] = 0;
-      }
-      $data['formaRecepcion'][$formaRecepcion]++;
-
-      /* ===== ===== TABLA DE RESULTADOS ===== ===== */
-      $now = strtotime('today');
-      $fOrange = strtotime($node->get('field_pqrsd_fecha_naranja')->value);
-      $fRed = strtotime($node->get('field_pqrsd_fecha_roja')->value);
-      $fAnswer = strtotime($node->get('field_pqrsd_fecha_respuesta')->value);
-
-      // PQRSD cerradas/abiertas
-      $mResume[$tipoRadicado]['name'] = $tipoRadicado;
-      $mResume[$tipoRadicado]['recibidas'] = $data['tipoRadicado'][$tipoRadicado];
-
-      if($node->get('field_pqrsd_respuesta')->value == ''){
-
-        $mResume[$tipoRadicado]['por_resolver']++;
-
-        if($now > $fRed){
-          $mResume[$tipoRadicado]['vencidas']++;
-        }
-      }else{
-
-        $mResume[$tipoRadicado]['cerrados']++;
-
-        if($node->get('field_pqrsd_respuesta_a_favor')->value == 'findeter'){
-          $mResume[$tipoRadicado]['favor_entidad']++;
-        }
-
-        if($node->get('field_pqrsd_respuesta_a_favor')->value == 'consumidor'){
-          $mResume[$tipoRadicado]['favor_consumidor']++;
-        }
-
-        if($fAnswer < $fRed){
-          $mResume[$tipoRadicado]['cerrado_a_tiempo']++;
-        }
-
-        if( strpos($node->get('field_pqrsd_respuesta')->value, 'PQRSD Trasladada a:') ){
-          $mResume[$tipoRadicado]['trasladadas']++;
-        }
-
-      }
-
-      if($node->get('field_pqrsd_tipo_peticion')->value == 'publica') {
-        $mResume[$tipoRadicado]['info_publica']++;
-      }
-
-    }
-
-    foreach ($mResume as $tR=>$values){
-      if($tR != 'Total'){
-        $mResume['Total']['recibidas'] += $values['recibidas'];
-        $mResume['Total']['por_resolver'] += $values['por_resolver'];
-        $mResume['Total']['favor_consumidor'] += $values['favor_consumidor'];
-        $mResume['Total']['favor_entidad'] += $values['favor_entidad'];
-        $mResume['Total']['cerrados'] += $values['cerrados'];
-        $mResume['Total']['cerrado_a_tiempo'] += $values['cerrado_a_tiempo'];
-        $mResume['Total']['vencidas'] += $values['vencidas'];
-        $mResume['Total']['info_publica'] += $values['info_publica'];
-        $mResume['Total']['trasladadas'] += $values['trasladadas'];
-      }
-    }
-
-    $buildTable = array(
-      '#theme' => 'table',
-      '#rows' => $mResume,
-      '#weight' => 1,
-      '#prefix' => '<hr><h3>Tabla resumen de resultados</h3>',
-      '#header' => [
-        'Tipo',
-        'Recibidas',
-        'Pendientes por resolver',
-        'Aprobadas a favor del consumidor financiero',
-        'Aprobadas a favor de la entidad',
-        'Trámites concluidos (cerrados)',
-        'Resultas a tiempo',
-        'Vencidas',
-        'Solicitud acceso información pública',
-        'Solicitudes trasladas a otra institución'
-      ],
-    );
-
-    $view->element['#attached']['drupalSettings']['pqrsdReports'] = $data;
-    $view->element['mResume'] = $buildTable;
-    //dump($view->element);
-
-  }
-
   /* ============================================
   RENDERIZADO DE ESTADO DE RADICADO
   =============================================== */
   if($view->id() == 'pqrsd' && $view->current_display == 'page_3'){
     if(empty($view->filter['field_pqrsd_numero_radicado_value']->value)){
       $view->result = [];
+    }
+  }
+
+}
+
+/**
+ * Implements hook_form_views_exposed_form_alter()
+ *
+ */
+function findeter_pqrsd_form_views_exposed_form_alter(&$form, FormStateInterface $form_state) {
+
+  if($form['#id'] == 'views-exposed-form-pqrsd-page-2' || $form['#id'] == 'views-exposed-form-pqrsd-page-1') {
+
+    if(isset($form['created_wrapper'])){
+
+      $form['created_wrapper']['created']['min'] = [
+        '#title' => "Min",
+        '#type' => 'date',
+      ];
+
+      $form['created_wrapper']['created']['max'] = [
+        '#title' => "Max",
+        '#type' => 'date',
+      ];
     }
   }
 }

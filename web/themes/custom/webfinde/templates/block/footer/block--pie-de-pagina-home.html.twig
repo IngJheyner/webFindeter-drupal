@@ -187,7 +187,7 @@
           {# ===== ===== PiePagina ===== ===== #}
           <div class="col-12 col-md-6 piePagina mt-5">
 
-            <a href="/transparencia-y-acceso-a-la-informacion-publica/politicas-de-seguridad-de-la-informacion/terminos-y-condiciones-de-uso-del-portal">Políticas de uso</a>
+            <a href="/transparencia-y-acceso-a-la-informacion-publica/entes-y-autoridades-que-lo-vigilan">Políticas de uso</a>
             <p class="text-white"> Copyright &#9400; | {{ "now"|date("Y") }}</p>
 
           </div>
@@ -232,8 +232,9 @@ BTNES DE BARRA DE ACCESIBILIDAD - FONT SIZE, CONTRASTE
 
 <div class="barraLateral d-none d-lg-block">
 
-  {{ drupal_entity('block', 'contraste', check_access=false) }}
-  {#{ drupal_entity('block', 'redimensionar_texto', check_access=false) }#}
+  <div class="text-center mb-3">
+    <a href="javascript:;" class="changer text-white" id="high-contrast"></a>
+  </div>
   <div class="text-center mb-3">
     <a href="javascript:;" class="changer text-white" operador="suma" id="text_resize_increase"><sup>+</sup><i class="fas fa-font"></i></a>
   </div>

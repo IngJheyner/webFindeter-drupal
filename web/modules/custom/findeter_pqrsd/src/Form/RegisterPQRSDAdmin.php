@@ -9,6 +9,7 @@ use Drupal\node\Entity\Node;
 use Drupal\file\Entity\File;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\Core\Link;
+use Drupal\Core\Cache\Cache;
 
 class RegisterPQRSDAdmin extends FormBase {
 
@@ -39,20 +40,38 @@ class RegisterPQRSDAdmin extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    // see findeter_pqrsd.module
+    
+    // see findeter_pqrsd.module    
     $form = buildPQRSDform();
 
+    /*$valueUser = $form_state->getUserInput();
+
+    if(!empty($form_state->getValue('field_pqrsd_archivo'))){
+
+      $nowTimeStamp = \Drupal::time()->getCurrentTime();
+      $date = date('Y-m-d', $nowTimeStamp);
+      $nidHours = 'T'.date('H', $nowTimeStamp).'---'.$valueUser['field_pqrsd_numero_id'];
+      // Get the definitions
+      $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'pqrsd');
+      $fileSettings = $definitions['field_pqrsd_archivo']->getSettings();
+
+      $form['info_product']['field_pqrsd_archivo']['#upload_location'] = 'private://pqrsd/'.$valueUser['field_pqrsd_tipo_radicado'].'/'.$date.'/'.$nidHours.'/';
+        
+      $form['info_product']['field_pqrsd_archivo']['#upload_validators'] = [
+        'file_validate_extensions' => [($valueUser['field_pqrsd_tipo_radicado'] == 'Quejas' || 
+        $valueUser['field_pqrsd_tipo_radicado'] == 'Reclamos') ? \Drupal::service('api.smfc')->getExtFile() : $fileSettings['file_extensions']],
+        'file_validate_size'       => [20971520],
+      ];
+
+    }*/
+
     $departmentValue = false;
-    if($form_state->getValue('field_pqrsd_departamento') != ''){
-      $departmentValue = $form_state->getValue('field_pqrsd_departamento');
-    }
-
+    
+    $departmentValue = $form_state->getValue('field_pqrsd_departamento');
     if ($departmentValue) {
-      $form['info_person']['field_pqrsd_municipio']['#options'] = getTaxonomyTermsForm($departmentValue);
-    }else{
-      $form['info_person']['field_pqrsd_municipio']['#options'] = [];
+      $form['info_person']['field_pqrsd_municipio_container']['field_pqrsd_municipio_select']['#options'] = getTaxonomyTermsForm($departmentValue);
     }
-
+    
     return $form;
 
   }
@@ -125,7 +144,7 @@ class RegisterPQRSDAdmin extends FormBase {
         }
       }
 
-      if($typeRequester == 'juridica'){
+      if($typeRequester == 'juridica' || $typeRequester == '2'){
 
         if($form_state->getValue('field_pqrsd_nit') == ''){
           $form_state->setErrorByName('field_pqrsd_nit', 'Debe ingresar el NIT');
@@ -161,6 +180,9 @@ class RegisterPQRSDAdmin extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
     $mailManager = \Drupal::service('plugin.manager.mail');
+    $apiSmfc = \Drupal::service('api.smfc');
+    $entityTypeManager = \Drupal::service('entity_type.manager');
+    $fileUsage = \Drupal::service('file.usage');
 
     //define new node of content type
     $newRequest = Node::create(['type' => 'pqrsd']);
@@ -171,10 +193,24 @@ class RegisterPQRSDAdmin extends FormBase {
     $newRequest->set('title', 'Radicado: '.$numeroRadicado.'.'.date('U'));
 
     // set "# radicado"
-    $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);
+    /*// Si es un radicado de tipo Queja, se antepone el codigo de entidad de findeter para SMFC ===== ===== */
+    if($form_state->getValue('field_pqrsd_tipo_radicado') == 'Quejas' || 
+    $form_state->getValue('field_pqrsd_tipo_radicado') == 'Reclamos'){
+
+      $numeroRadicado = $apiSmfc->getTipCodeEntity($numeroRadicado);
+      $newRequest->set('field_pqrsd_numero_radicado', $numeroRadicado);
+
+    }else{
+      $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);
+    } 
+
+    // set "# radicado"
+    //$newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);
 
 
     $values = $form_state->getValues();
+    //FileSotorage que se carga a la entidad de tipo file
+    $fileStorageArray = [];
     foreach($values as $key=>$value){
 
       if($key == 'field_pqrsd_palabras_clave'){
@@ -185,13 +221,13 @@ class RegisterPQRSDAdmin extends FormBase {
         }
         elseif (is_string($tag)) {
           //drupal_set_message("A term selected, tid = $tag");
-          $this->messenger()->addMessage($this->t("A term selected, tid = $tag"), 'warning');
+          $this->messenger()->addMessage($this->t("A term selected, tid = %tag", ['%tag' => $tag]), 'warning');
         }
         elseif (isset($tag['entity']) && ($tag['entity'] instanceof Term)) {
           $entity = $tag['entity'];
           $entity->save();
           //drupal_set_message("A new term : " . $entity->id() . " : " . $entity->label());
-          $this->messenger()->addMessage($this->t("A new term : " . $entity->id() . " : " . $entity->label()));
+          $this->messenger()->addMessage($this->t("A new term : %term_id : %term_label",['%term_id' => $entity->id(), '%term_label' => $entity->label()]));
         }
       }
 
@@ -203,12 +239,21 @@ class RegisterPQRSDAdmin extends FormBase {
 
       // store all files
       if($key == 'field_pqrsd_archivo' && !empty($value)){
+
+        $fileStorage = $entityTypeManager->getStorage('file');
+
         foreach($value as $fid){
+
           if (!empty($fid)) {
-            $file = File::load($fid);
+            /*$file = File::load($fid);
             $file->setPermanent();
-            $file->save();
+            $file->save();*/
+            $file = $fileStorage->load($fid);
+
+            //Se agegra el file entidad al arreglo filestorage declarado antes del ciclo for
+            $fileStorageArray[$key] = $file;
           }
+
         }
       }
 
@@ -223,6 +268,10 @@ class RegisterPQRSDAdmin extends FormBase {
     $datesConfigure = defineDatesSemaphore($values);
     $newRequest->set('field_pqrsd_fecha_roja', $datesConfigure['red']);
     $newRequest->set('field_pqrsd_fecha_naranja', $datesConfigure['orange']);
+
+    //Instancia de recepcion @author 3desarrollo
+    //Por defecto 2. Entidad
+    $newRequest->set('field_pqrsd_instance_reception', 2);
 
     // retrive user id from text form field
     if($usrAsignField != ''){
@@ -276,8 +325,16 @@ class RegisterPQRSDAdmin extends FormBase {
     // asign the last user retrived lines up
     $newRequest->uid = $user->id();
 
+    Cache::invalidateTags(['node_list:pqrsd']);//Invalidamos las tags creadas en la cache con cid findeter_pqrsd_statistics y que tengas este tag asociado
     $newRequest->enforceIsNew();
     $newRequest->save();
+
+    /* Se agrega como archivos gestionados a file.usage  ===== ===== */
+    foreach($fileStorageArray as $file){
+
+      $fileUsage->add($file, 'findeter_pqrsd', 'node', $newRequest->id());
+           
+    }
 
     $url = Url::fromRoute('findeter_pqrsd.confirm_register_pqrsd_admin',['operation'=>'create','nid'=>$newRequest->id()]);
     $form_state->setRedirectUrl($url);
@@ -312,6 +369,44 @@ class RegisterPQRSDAdmin extends FormBase {
 
       if($result['result'] !== true){
         \Drupal::messenger()->addError('Ocurrió un problema al enviar el correo.');
+      }
+    }
+
+    /* ============================================
+    Se envia la peticion de PQRSD al sistema SMFC
+    siempre y cuando el tipo de radicado sea una
+    Queja o Reclamo.
+    @author 3ddesarrollo
+    =============================================== */
+    if($form_state->getValue('field_pqrsd_tipo_radicado') == 'Quejas' || 
+    $form_state->getValue('field_pqrsd_tipo_radicado') == 'Reclamos'){
+
+      /* Se guarda los nid como variables de estado para que despues
+      sea registrado en la API SMFC. ==== ====== */
+      $state = \Drupal::service('state');
+      $nid = $state->get('findeter_pqrsd.api_smfc_nid');
+      
+      if(is_null($nid)){
+
+        $state->set('findeter_pqrsd.api_smfc_nid', [
+          [
+          "nid" => $newRequest->id(),
+          "title" => $newRequest->getTitle(),
+          "created" => $newRequest->getCreatedTime(),
+          "smfc" => FALSE,
+          ]
+        ]);
+
+      }else{
+        $nid[] = [
+        "nid" => $newRequest->id(),
+        "title" => $newRequest->getTitle(),
+        "created" => $newRequest->getCreatedTime(),
+        "smfc" => FALSE,
+        ];
+        
+        $state->set('findeter_pqrsd.api_smfc_nid', $nid);
+
       }
     }
 

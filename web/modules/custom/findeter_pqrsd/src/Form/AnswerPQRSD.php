@@ -11,6 +11,7 @@ use Drupal\node\Entity\Node;
 use Drupal\file\Entity\File;
 use Drupal\block\Entity\Block;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Datetime\DrupalDateTime;
 
 /**
  * Class AnswerPQRSD.
@@ -30,9 +31,33 @@ class AnswerPQRSD extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, $nid = NULL) {
 
+    $form_state->setCached(FALSE);
+
     $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'pqrsd');
 
-    $form_state->setCached(FALSE);
+    $fileStorage = \Drupal::entityTypeManager()->getStorage('file');
+
+    //Carga de datos del node
+    $node = Node::load($nid);
+
+    //Se ajusta para que los archivos de respuesta queden en la misma ruta de anexo de radicado.
+    //Si no tiene algun anexo, se guarda el anexo respuesta con la fecha actual y id del peticionario.
+    $anexTargetNid = $node->get('field_pqrsd_archivo')->getValue()[0]['target_id'] ??= null;
+
+    if(is_null($anexTargetNid)){
+
+      $dateTimestamp= strtotime(new DrupalDateTime());
+      $date =  \Drupal::service('date.formatter')->format($dateTimestamp, 'custom', 'Y-m-d');
+      $time =  str_replace(" ", "", (\Drupal::service('date.formatter')->format($dateTimestamp, 'custom', '\T\ H')));
+      $time .= '---'.$node->get('field_pqrsd_numero_id')->getValue()[0]['value'];
+
+      $anexPathResponse = 'public://pqrsd/'.$node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'].'/'.$date.'/'.$time;
+
+    }else{
+      $anexFile = $fileStorage->load($anexTargetNid);
+      $anexUri = $anexFile->getFileUri();
+      $anexPathResponse = \Drupal::service('file_system')->dirname($anexUri);
+    }
 
     // Nid param to store in the new references
     $form['node_id'] = array(
@@ -45,19 +70,64 @@ class AnswerPQRSD extends FormBase {
       '#title' => 'Escriba la respuesta al requerimiento',
       '#required' => TRUE,
     ];
-
+ 
     $fileSettings = $definitions['field_pqrsd_respuesta_archivos']->getSettings();
     $form['field_pqrsd_respuesta_archivos'] = [
       '#type'            => 'managed_file',
       '#cardinality'     => 3,
       '#description'     => 'Puede registrar hasta 4 archivos',
-      //'#upload_location' => 'public://'.$fileSettings['file_directory'],
+      '#upload_location' => $anexPathResponse.'/respuesta/',
       '#multiple'        => TRUE,
       '#title'           => $definitions['field_pqrsd_respuesta_archivos']->getLabel(),
       '#upload_validators' => [
         'file_validate_extensions' => [$fileSettings['file_extensions']],
-      ]
+      ],
+      '#required' => ($node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Quejas" || $node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Reclamos") ? TRUE : FALSE,
     ];
+
+    //Se agrega nuevos campos para enviar a la API SMFC(motivo tutela y ente de control)
+    if($node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Quejas" || $node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Reclamos"){
+
+      $itemReason = $definitions['field_pqrsd_motivo']->getSetting('allowed_values');
+
+      $optionsReasonSmfc = [];
+
+      foreach ($itemReason as $key => $value) {
+        if(is_numeric($key))
+          $optionsReasonSmfc[$key] = $value;
+      }
+
+      $form['field_pqrsd_motivo'] = [
+        '#type'    => 'select2',
+        '#title'   => $definitions['field_pqrsd_motivo']->getLabel(),
+        '#options' => $optionsReasonSmfc,
+        '#empty_option' => '-Seleccione una opción-',
+        '#default_value' => $node->get('field_pqrsd_motivo')->getValue()[0]['value'] ??= '',
+        '#select2' => [
+          'allowClear' => FALSE,
+        ],
+        '#required' => TRUE,
+      ];
+
+      $form['field_pqrsd_tutela'] = [
+        '#type'    => 'select',
+        '#title'   => $definitions['field_pqrsd_tutela']->getLabel(),
+        '#options' => $definitions['field_pqrsd_tutela']->getSetting('allowed_values'),
+        '#empty_option' => '-Seleccione una opción-',
+        '#default_value' => $node->get('field_pqrsd_tutela')->getValue()[0]['value'] ??= '',
+        '#required' => TRUE,
+      ];
+
+      $form['field_pqrsd_entes_control'] = [
+        '#type'    => 'select',
+        '#title'   => $definitions['field_pqrsd_entes_control']->getLabel(),
+        '#options' => $definitions['field_pqrsd_entes_control']->getSetting('allowed_values'),
+        '#empty_option' => '-Seleccione una opción-',
+        '#default_value' => $node->get('field_pqrsd_entes_control')->getValue()[0]['value'] ??= '',
+        '#required' => TRUE,
+      ];
+
+    }
 
     $form['field_pqrsd_respuesta_a_favor'] = [
       '#type'    => 'radios',
@@ -66,7 +136,6 @@ class AnswerPQRSD extends FormBase {
       '#empty_option' => '-Seleccione una opción-',
       '#required' => TRUE,
     ];
-
 
     // Submit with ajax event that after the operation, close the modal
     $form['submit'] = [
@@ -115,13 +184,20 @@ class AnswerPQRSD extends FormBase {
     $node->field_pqrsd_respuesta[] = $formValues['field_pqrsd_respuesta'];
     $node->field_pqrsd_respuesta_a_favor[] = $formValues['field_pqrsd_respuesta_a_favor'];
     $node->field_pqrsd_fecha_respuesta[] = date('Y-m-d\TH:i:s',strtotime('now'));
+    $node->field_pqrsd_tutela[] = $formValues['field_pqrsd_tutela'];
+    $node->field_pqrsd_entes_control[] = $formValues['field_pqrsd_entes_control'];
+    
+    $fileStorage = \Drupal::entityTypeManager()->getStorage('file');
 
     foreach($formValues['field_pqrsd_respuesta_archivos'] as $fid){
       $node->field_pqrsd_respuesta_archivos[] = $fid;
 
-      $file = File::load($fid);
+      /*$file = File::load($fid);
       $file->setPermanent();
-      $file->save();
+      $file->save();*/
+      $file = $fileStorage->load($fid);   
+      \Drupal::service('file.usage')->add($file, 'findeter_pqrsd', 'node', $formValues['node_id']);
+
     }
 
     $node->save();    

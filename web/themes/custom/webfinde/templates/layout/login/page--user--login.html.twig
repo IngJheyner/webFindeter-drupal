@@ -43,14 +43,14 @@
  */
 #}
 {%
-set nav_classes = 'navbar navbar-expand-lg' ~ 
+set nav_classes = 'navbar navbar-expand-lg' ~
   (b4_navbar_schema != 'none' ? " navbar-#{b4_navbar_schema}" : ' ') ~
   (b4_navbar_schema != 'none' ? (b4_navbar_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
   (b4_navbar_bg_schema != 'none' ? " bg-#{b4_navbar_bg_schema}" : ' ')
 %}
 
 {%
-set footer_classes = ' ' ~ 
+set footer_classes = ' ' ~
   (b4_footer_schema != 'none' ? " footer-#{b4_footer_schema}" : ' ') ~
   (b4_footer_schema != 'none' ? (b4_footer_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
   (b4_footer_bg_schema != 'none' ? " bg-#{b4_footer_bg_schema}" : ' ')
@@ -63,7 +63,17 @@ HEADER(ENCABEZADO)
 
   <header class="container-fluid p-0">
 
-    {{ page.region_A }}  
+    {{ page.region_A }}
+
+    <div class="encabezadoLogin">
+      <figure class="w-100">
+        <img onerror='this.remove();' src='/themes/custom/webfinde/images/iconos/fondo_cabezote.png' class="img-fluid w-100" class="img-fluid w-100">
+      </figure>
+      <div class="encabezado container">
+        <h1 class="tituloEncabezado mt-3">{{ "Login"|t }}</h1>
+      </div>
+      {{ drupal_breadcrumb() }}
+    </div>
 
   </header>
 
@@ -83,26 +93,33 @@ RENDERIZAR FORMULARIO LADING PAGE
 
     <section class="container-fluid p-0">
 
-      <div class="container my-3 my-md-5"> 
+      <div class="container my-3 my-md-5">
 
-        {{ page.region_B }}
+        <div class="login mx-lg-5 px-lg-5">
+          <div class='login-container mx-2 p-2 mx-lg-5 p-lg-5 shadow rounded'>
+           {{ drupal_messages() }}
+           <h3>Iniciar sesión</h3>
+           <small>{{ "Ingrese con los datos suministrados por el administrador del sistema."|t}}</small>
+            {{ page.region_B }}
+          </div>
+        </div>
 
       </div>
 
     </section>
 
-  {% endif %}  
+  {% endif %}
 
 </main>
 
 {# ============================================
 PIE DE PAGINA
 =============================================== #}
-{% if page.region_I %}
+{% if page.region_D %}
 
   <footer>
 
-    {{ page.region_I }}
+    {{ page.region_D }}
 
   </footer>
 

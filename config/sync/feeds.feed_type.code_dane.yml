@@ -1,0 +1,68 @@
+uuid: 2751a319-54a4-4599-ad85-a2f21ed0d8bf
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.colombia_deparments.field_code_dane_dpto
+    - taxonomy.vocabulary.colombia_deparments
+  module:
+    - taxonomy
+label: 'Codigo Dane'
+id: code_dane
+description: 'Se cargas el codigo de Dane para Depto Y Mpio.'
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'private://feeds/depto_mpio'
+parser: csv
+parser_configuration:
+  delimiter: ;
+  no_headers: false
+  line_limit: 100
+processor: 'entity:taxonomy_term'
+processor_configuration:
+  values:
+    vid: colombia_deparments
+  langcode: es
+  insert_new: 0
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  code_dane:
+    value: codigo_dane
+    label: codigo_dane
+    machine_name: code_dane
+    type: csv
+  name_depto_mpio:
+    value: nombre
+    label: nombre
+    machine_name: name_depto_mpio
+    type: csv
+  name_relation:
+    value: nombre_relacion
+    label: nombre_relacion
+    machine_name: name_relation
+    type: csv
+mappings:
+  -
+    target: name
+    map:
+      value: name_depto_mpio
+    settings:
+      language: null
+    unique:
+      value: '1'
+  -
+    target: field_code_dane_dpto
+    map:
+      value: code_dane
+    settings:
+      language: null
+    unique: {  }

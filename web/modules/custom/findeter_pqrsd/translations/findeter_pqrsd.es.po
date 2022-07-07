@@ -1,0 +1,531 @@
+# $Id$
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  modules/custom/findeter_pqrsd/findeter_pqrsd.views.inc: n/a
+#  modules/custom/findeter_pqrsd/findeter_pqrsd.module: n/a
+#  modules/custom/findeter_pqrsd/findeter_pqrsd.info.yml: n/a
+#  modules/custom/findeter_pqrsd/findeter_pqrsd.links.menu.yml: n/a
+#  modules/custom/findeter_pqrsd/findeter_pqrsd.links.task.yml: n/a
+#  modules/custom/findeter_pqrsd/findeter_pqrsd.routing.yml: n/a
+#  modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php: n/a
+#  modules/custom/findeter_pqrsd/src/Api/ApiSmfcHttp.php: n/a
+#  modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php: n/a
+#  modules/custom/findeter_pqrsd/src/Controller/CreatePDF.php: n/a
+#  modules/custom/findeter_pqrsd/src/Form/RegisterPQRSD.php: n/a
+#  modules/custom/findeter_pqrsd/src/Form/StatusPQRSD.php: n/a
+#  modules/custom/findeter_pqrsd/src/Form/RegisterPQRSDAdmin.php: n/a
+#  modules/custom/findeter_pqrsd/src/Plugin/views/field/DiasTranscurridosRespuesta.php: n/a
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2022-05-26 17:31+0000\n"
+"PO-Revision-Date: 2022-05-26 15:45-0500\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"Language: es_CO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.views.inc:7;9
+msgid "Dias transcurridos"
+msgstr "Dias transcurridos"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.views.inc:10
+msgid "Dias transcurridos al momento de dar respuesta PQRSD"
+msgstr "Dias transcurridos al momento de dar respuesta PQRSD"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.module:184
+msgid ""
+"The following information shows filings of Complaints or Claims that are "
+"waiting to be synchronized with the API Smart Supervision SMFC"
+msgstr ""
+"La siguiente información muestra las presentaciones de Quejas o "
+"Reclamaciones que están a la espera de ser sincronizadas con la API Smart "
+"Supervision SMFC"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.module:189
+msgid "No."
+msgstr "No."
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.module:189
+msgid "Title"
+msgstr "Título"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.module:189
+msgid "POST"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.module:189
+msgid "PUT"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.module:191
+msgid "No results found"
+msgstr "No se han encontrado resultados"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.module:193
+msgid "Sync: @total"
+msgstr "Sincronización: @total"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.module:205
+msgid "Consult and register"
+msgstr "Consultar y registrar"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.module:205
+msgid "Register data"
+msgstr "Registrar datos"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.module:211
+msgid ""
+"You can consult and register the Complaints or Claims available in Smart "
+"Supervision API SMFC, the results will be displayed in the API SMFC table "
+"and will be waiting for a response."
+msgstr ""
+"Puede consultar y registrar las Quejas disponibles en Smart Supervision API "
+"SMFC, los resultados se mostrarán en la tabla y estarán a la espera de una "
+"respuesta."
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.module:219;222
+msgid ""
+"<strong>Information:</strong> There are @num data to register as type of "
+"filings Complaints. Click on <em>Register data</em> to perform the action"
+msgstr ""
+"<strong>Información:</strong> Hay @num de datos para registrar como tipo de "
+"presentación Denuncias. Haga clic en <em>Registrar datos</em> para realizar "
+"la acción"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.module:242
+msgid "Fecha creación"
+msgstr "Fecha creación"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.module:243;252
+msgid "Trimestral"
+msgstr "Trimestral"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.module:251
+msgid "<br>"
+msgstr "<br>"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.info.yml:0
+msgid "Findeter PQRSD Manager"
+msgstr "Findeter PQRSD Manager"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.info.yml:0
+msgid ""
+"Definir formularios particulares, funciones y panales de administración para "
+"manejar las PQRSD registradas"
+msgstr ""
+"Definir formularios particulares, funciones y panales de administración para "
+"manejar las PQRSD registradas"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.info.yml:0
+msgid "Findeter"
+msgstr "Findeter"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.links.menu.yml:0
+msgid "PQRSD Admin"
+msgstr "PQRSD Admin"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.links.task.yml:0
+msgid "Dashboard"
+msgstr "Panel"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.links.task.yml:0
+msgid "Reportes"
+msgstr "Reportes"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.links.task.yml:0
+msgid "Registrar PQRSD"
+msgstr "Registrar PQRSD"
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.links.task.yml:0
+msgid "Configuración"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.routing.yml:0
+msgid "Registro de petición de usuarios"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.routing.yml:0
+msgid "Asignar requerimiento"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.routing.yml:0
+msgid "Transferir requerimiento"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.routing.yml:0
+msgid "Responder requerimiento"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.routing.yml:0
+msgid "Crear PDF"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.routing.yml:0
+msgid "Administración módulo PQRSD"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.routing.yml:0;0
+msgid "Registro de PQRSD"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.routing.yml:0
+msgid "Actualizar registro de PQRSD"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.routing.yml:0;0
+msgid "Registro/Actualización de PQRSD"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.routing.yml:0
+msgid "Lista de usuarios para asignar"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.routing.yml:0
+msgid "Consulta de estado de radicado"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/findeter_pqrsd.routing.yml:0
+msgid "Reporte formato 379"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:203
+msgid "Import failed."
+msgstr "Importación fallida."
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:204
+msgid ""
+"<p><strong>Import failed.</strong><br><br>There was an error in the import "
+"of complaints from the SuperIntedencia Financiera de Colombia, for more "
+"information contact the system administrator<p>"
+msgstr ""
+"<p><strong>Importación fallida.</strong><br><br>Hubo un error en la "
+"importación de quejas de la Superintendencia Financiera de Colombia, para "
+"mayor información comunicarse con el administrador del sistema<p>"
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:238
+msgid "File import error."
+msgstr "Error de importación de archivos."
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:239
+msgid ""
+"<p><strong>File import error.</strong><br><br>There was an error in the "
+"import of complaints in the file section from the SuperFinanciera de "
+"Colombia, for more information contact the system administrator<p>"
+msgstr ""
+"<p><strong>Error en la importación de archivos.</strong><br><br>Hubo un "
+"error en la importación de Quejas en la sección de archivos de la "
+"SuperIntendencia de Colombia, para mayor información comunicarse con el "
+"administrador del sistema<p>"
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:309
+msgid "Import failed next."
+msgstr "La importación falló next."
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:310
+msgid ""
+"<p><strong>Import failed next.</strong><br><br>There was an error in the "
+"import of complaints from the SuperIntedencia Financiera de Colombia, for "
+"more information contact the system administrator<p>"
+msgstr ""
+"<p><strong>Importación fallida next.</strong><br><br>Hubo un error en la "
+"importación de Quejas de la Superintendencia Financiera de Colombia, para "
+"mayor información comunicarse con el administrador del sistema<p>"
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:319
+msgid ""
+"<strong>SuperIntendencia Financiera De Colombia:</strong> Importando @num "
+"quejas para findeter"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:362
+msgid "No results were found to import in the SMFC API."
+msgstr "No se encontraron resultados para importar en la API de SMFC."
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:363
+msgid "<strong>Findeter: </strong>Querying the SMFC API..."
+msgstr "<strong>Findeter: </strong>Consultando en la API SMFC..."
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:373
+msgid "Connection error."
+msgstr "Error de conexión."
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:374
+msgid ""
+"<p><strong>Connection error</strong><br><br>An error occurred when trying to "
+"connect with the SMFC API, for more information contact the system "
+"administrator<p>"
+msgstr ""
+"<p><strong>Error de conexión</strong><br><br>Ocurrió un error al intentar "
+"conectarse con la API SMFC, para más información contacte con el "
+"administrador del sistema<p>"
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:406
+msgid ""
+"<strong>Findeter:</strong> Sending @num complaints through the ACK function "
+"to the SuperIntendencia Financiera De Colombia"
+msgstr ""
+"<strong>Findeter:</strong> Envío de @num Quejas a través de la función ACK a "
+"la Superintendencia Financiera De Colombia"
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:430
+msgid "ACK failed process 2."
+msgstr "Proceso fallido ACK 2."
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:431
+msgid ""
+"<p><strong>Import failed ACK.</strong><br><br>An error has occurred in the "
+"sending of data received through the ACK function, for more information "
+"contact the system administrator<p>"
+msgstr ""
+"<p><strong>Importación fallida ACK.</strong><br><br>Se ha producido un error "
+"en el envío de los datos recibidos a través de la función ACK, para más "
+"información contactar con el administrador del sistema<p>"
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:447
+msgid ""
+"<strong>Superintendencia Financiera de Colombia: </strong>No results found."
+msgstr ""
+"<strong>Superintendencia Financiera de Colombia: </strong>No se encontraron "
+"resultados."
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:451
+msgid "Interrupting process 2."
+msgstr "Proceso de interrupción 2."
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:452
+msgid ""
+"<p><strong>Process interruption.</strong><br><br>All processes have been "
+"interrupted by some error caused in the import.<p>"
+msgstr ""
+"<p><strong>Interrupción del proceso.</strong><br><br>Todos los procesos han "
+"sido interrumpidos por algún error causado en la importación.<p>"
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:573
+msgid ""
+"Code: %code Mensaje crear radicado: %message <br> Se ha producido un error "
+"al crear radicado No. %settled como cliente web services en el sistema "
+"<strong> API SMFC."
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:602
+msgid ""
+"Code: %code Mensaje anexo radicado: %message <br> Se ha producido un error "
+"al crear el anexo del radicado No. %settled como cliente web services en el "
+"sistema <strong> API SMFC."
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:705
+msgid ""
+"Code: %code Mensaje actualizacion de radicado: %message <br> Se ha producido "
+"un error al actualizar radicado No. %settled como cliente web services en el "
+"sistema <strong> API SMFC."
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfc.php:732
+msgid ""
+"Code: %code Mensaje anexo respuesta radicado: %message <br> Se ha producido "
+"un error al crear el anexo de respuesta radicado No. %settled como cliente "
+"web services en el sistema <strong> API SMFC."
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfcHttp.php:121
+msgid ""
+"Code: %code Mensaje: %message, Se ha creado la queja o reclamo con radicado "
+"No. %settled como cliente web services en el sistema <strong> API SMFC."
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfcHttp.php:130
+msgid ""
+"Code: %code Mensaje: %message, Se ha actualizado la queja o reclamo con "
+"radicado No. %settled como cliente web services en el sistema <strong> API "
+"SMFC."
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfcHttp.php:177
+msgid ""
+"Code: %code Mensaje: %message, Se ha creado el anexo con ID %id, radicado "
+"No. %settled cliente web services en el sistema <strong> API SMFC."
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Api/ApiSmfcHttp.php:213
+msgid "Código: %code Mensaje: %message"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:49;76
+msgid "Exporting"
+msgstr "Exportando"
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:62;83
+msgid "Smart Supervison API SMFC"
+msgstr "Smart Supervision API SMFC"
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:63;84
+msgid "Starting import."
+msgstr "Iniciando importación."
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:64;85
+msgid "processing @current out of @total."
+msgstr "procesando @current de @total."
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:65;86
+msgid "An error was encountered importing the data."
+msgstr "Se encontró un error al importar los datos."
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:180
+msgid "An error occurred while saving the node title. Complaint code: @code"
+msgstr ""
+"Ocurrió un error al guardar el título de tipo Queja. No. radicado: @code"
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:196
+msgid "An error occurred while saving the node date. Complaint code: @code"
+msgstr ""
+"Ocurrió un error al guardar la fecha de creación de tipo Queja. No. "
+"radicado: @code"
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:215
+msgid ""
+"An error occurred while saving the node tipo_solicitante, tipo_id_CF o "
+"numero_id_CF. Complaint code: @code"
+msgstr ""
+"Ocurrió un error al guardar el tipo_solicitante, tipo_id_CF o numero_id_CF "
+"de tipo Queja. No. radicado: @code"
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:245
+msgid "An error occurred while saving the node sexo. Complaint code: @code"
+msgstr "Ocurrió un error al guardar el sexo de tipo Queja. No. radicado: @code"
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:262
+msgid "An error occurred while saving the node lgbtiq. Complaint code: @code"
+msgstr ""
+"Ocurrió un error al guardar el lgbtiq de tipo Queja. No. radicado: @code"
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:279
+msgid "An error occurred while saving the node nombres. Complaint code: @code"
+msgstr ""
+"Ocurrió un error al guardar los nombres de tipo Queja. No. radicado: @code"
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:296
+msgid ""
+"An error occurred while saving the node departamento_cod. Complaint code: "
+"@code"
+msgstr ""
+"Ocurrió un error al guardar el departamento_cod de tipo Queja. No. radicado: "
+"@code"
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:317
+msgid ""
+"An error occurred while saving the node municipio_cod. Complaint code: @code"
+msgstr ""
+"Ocurrió un error al guardar el municipio_cod de tipo Queja. No. radicado: "
+"@code"
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:341
+msgid "An error occurred while saving the node correo. Complaint code: @code"
+msgstr ""
+"Ocurrió un error al guardar el correo de tipo Queja. No. radicado: @code"
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:358
+msgid ""
+"An error occurred while saving the node producto_cod, The most possible "
+"cause is that the import product code @code_product does not match the code "
+"registered in the pqrsd system. Complaint code: @code"
+msgstr ""
+"Ocurrió un error al guardar el product_cod de tipo Queja, la causa más "
+"posible es que el código de producto de importación @code_product no "
+"coincide con el código registrado en el sistema pqrsd. No. radicado: @code"
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:392
+msgid ""
+"An error occurred while saving the node macro_motivo_cod, The most possible "
+"cause is that the import motive code @code_motive does not match the code "
+"registered in the pqrsd system. Complaint code: @code"
+msgstr ""
+"Ocurrió un error al guardar el macro_motivo_cod de tipo Queja, la causa más "
+"posible es que el código del motivo de importación @code_motive no coincida "
+"con el código registrado en el sistema pqrsd. No. radicado: @code"
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:485
+msgid ""
+"<strong>Findeter: </strong>:( Oops! something happened: @num complaints with "
+"@num_err errors in the log."
+msgstr ""
+"<strong>Findeter: </strong>:( ¡Ups! Algo sucedió: se procesaron @num quejas "
+"con @num_err errores en el registro."
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:490
+msgid ""
+"<strong>Findeter: </strong>:) Good! @num complaints have been registered as "
+"pqrsd in the system."
+msgstr ""
+"<strong>Findeter: </strong>:) ¡Bien! Se han registrado @num Quejas como "
+"pqrsd en el sistema."
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:493
+msgid ""
+"<strong>Findeter: </strong>:( Whoops! Something happened! Errors have "
+"occurred in all logs."
+msgstr ""
+"<strong>Findeter: </strong>:( ¡Vaya! ¡Ha ocurrido algo! Se han producido "
+"errores en todos los registros."
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:505
+msgid "<strong>Findeter: </strong>Ending..."
+msgstr "<strong>Findeter: </strong>finalizando…."
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:539
+msgid "The import and registration process is finished:<br><br>1: Errors: <strong> @num_error </strong><br>2: Registered: <strong> @num_reg </strong><br>Note: If you see errors greater than zero, contact the system administrator for more information."
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:562
+msgid ""
+"An error occurred while processing %error_operation with arguments: "
+"@arguments"
+msgstr ""
+"Ocurrió un error al procesar %error_operation con argumentos: @arguments"
+
+#: modules/custom/findeter_pqrsd/src/Controller/ActionComplaintsSmfcController.php:446
+msgid "Registro data: Codigo queja %code Mensaje: %message"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Controller/CreatePDF.php:75;150
+msgid "Implement method: hello with parameter(s): $nid"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Form/RegisterPQRSD.php:274
+#: modules/custom/findeter_pqrsd/src/Form/StatusPQRSD.php:176
+msgid "Status message"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Form/RegisterPQRSD.php:275
+#: modules/custom/findeter_pqrsd/src/Form/StatusPQRSD.php:177
+msgid "Error message"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Form/RegisterPQRSD.php:276
+#: modules/custom/findeter_pqrsd/src/Form/StatusPQRSD.php:178
+msgid "Warning message"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Form/RegisterPQRSDAdmin.php:219
+msgid "Tag is empty, nothing to do"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Form/RegisterPQRSDAdmin.php:223
+msgid "A term selected, tid = %tag"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Form/RegisterPQRSDAdmin.php:229
+msgid "A new term : %term_id : %term_label"
+msgstr ""
+
+#: modules/custom/findeter_pqrsd/src/Plugin/views/field/DiasTranscurridosRespuesta.php:82
+msgid "@days dias."
+msgstr ""

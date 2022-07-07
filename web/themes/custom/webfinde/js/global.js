@@ -15,6 +15,13 @@
             $(document, context).once('webfinde').each( function() {
 
                 /*===========================================
+                Desactovar google analitycs siempre y cuando se acepten 
+                terminos y politicas RGPD (Reglamento General de Protección de Datos). 
+                =============================================*/
+                /*if (!Drupal.eu_cookie_compliance.hasAgreed()){
+                    window['ga-disable-UA-xxxx-1'] = true;
+                }*/
+                /*===========================================
                 MENU SIDEBAR MOVIL
                 =============================================*/
                 //$("section.menuMovil nav").attr("id", "sidebar");
@@ -544,6 +551,21 @@
                 $("#text_resize_decrease, #text_resize_increase").on('click', function(){
                     fontSize($(this).attr('operador'));
                 });
+
+                /*===========================================
+                CONTRASTE
+                =============================================*/
+                const contrast = element => {
+                    element.addEventListener('click', () => {
+                        if ($('html').hasClass('contrasteweb')) {
+                        $('html').removeClass('contrasteweb');
+                        } else {
+                        $('html').addClass('contrasteweb');
+                        }
+                    })
+                }
+
+                contrast(document.getElementById('high-contrast'));
 
 
             });//each context

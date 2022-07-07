@@ -1,0 +1,21 @@
+uuid: a18b1783-51e2-48c3-9fe7-a7b371675e43
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pqrsd_desistimiento_queja
+    - node.type.pqrsd
+  module:
+    - options
+id: node.pqrsd.field_pqrsd_desistimiento_queja
+field_name: field_pqrsd_desistimiento_queja
+entity_type: node
+bundle: pqrsd
+label: 'Desistimiento queja'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

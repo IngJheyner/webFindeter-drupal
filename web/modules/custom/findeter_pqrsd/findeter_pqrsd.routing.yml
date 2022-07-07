@@ -111,19 +111,48 @@ findeter_pqrsd.expor_report_pdf:
   path: '/report-to-pdf/{filter}'
   defaults:
     _controller: '\Drupal\findeter_pqrsd\Controller\CreatePDF::reportToPdf'
-    _title: 'Registro/Actualización de PQRSD'    
+    _title: 'Registro/Actualización de PQRSD'
   requirements:
     _user_is_logged_in: 'TRUE'
 
 findeter_pqrsd.expor_report_excel:
-  path: '/reporte-excel-pqrsd/{filter}'
+  path: '/admin/reporte-excel-pqrsd/{filter}'
   requirements:
     _user_is_logged_in: 'TRUE'
 
 findeter_pqrsd.export_format_379:
-  path: '/reporte-formato-379'
+  path: '/admin/reporte-formato-379'
   defaults:
     _controller: '\Drupal\findeter_pqrsd\Controller\CreateTxt379::reportFormat379'
     _title: 'Reporte formato 379'
   requirements:
     _user_is_logged_in: 'TRUE'
+    _role: 'pqrsd_administrador+administrator'
+
+#Consultar y registrar la creacion de Quejas desde la API SMFC
+findeter_pqrsd.consult_complaints_smfc:
+  path: '/admin/consult-complaints-smfc'
+  defaults:
+    _controller: '\Drupal\findeter_pqrsd\Controller\ActionComplaintsSmfcController::consultComplaints'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+    _role: 'pqrsd_administrador+administrator'
+
+#Mostrar estadisticas de los PQRSD en forma de grafica
+findeter_pqrsd.reports_statistics:
+  path: '/admin/reporte-estadistica-pqrsd'
+  defaults:
+    _title: 'Estadisticas PQRSD'
+    _controller: '\Drupal\findeter_pqrsd\Controller\ReportsPqrsdController::statistics'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+    _custom_access: '\Drupal\findeter_pqrsd\Controller\UserControl::access'
+
+#Mostrar resultados de PQRSD en la tabla de reportes
+findeter_pqrsd.reports_results_data_table:
+  path: '/admin/ajax/link-callback-results-data-table'
+  defaults:
+    _controller: '\Drupal\findeter_pqrsd\Controller\ReportsPqrsdController::resultsDataTable'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+    _custom_access: '\Drupal\findeter_pqrsd\Controller\UserControl::access'

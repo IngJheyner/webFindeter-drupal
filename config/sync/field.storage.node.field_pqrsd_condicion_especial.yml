@@ -1,0 +1,82 @@
+uuid: 2cf358ab-800d-4abd-89a8-d524cc87a106
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_pqrsd_condicion_especial
+field_name: field_pqrsd_condicion_especial
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: 'Adulto mayor'
+    -
+      value: '2'
+      label: Pensionado
+    -
+      value: '3'
+      label: 'Receptor de subsidio'
+    -
+      value: '4'
+      label: 'Discapacidad auditiva'
+    -
+      value: '5'
+      label: 'Discapacidad física'
+    -
+      value: '6'
+      label: 'Menor de edad'
+    -
+      value: '7'
+      label: Indígena
+    -
+      value: '8'
+      label: 'Mujer embarazada'
+    -
+      value: '9'
+      label: Reinsertado
+    -
+      value: '10'
+      label: 'Víctima del conflicto armado'
+    -
+      value: '11'
+      label: Afrocolombiano
+    -
+      value: '12'
+      label: Desplazado
+    -
+      value: '13'
+      label: 'Madre cabeza de familia'
+    -
+      value: '14'
+      label: Sordomudo
+    -
+      value: '15'
+      label: 'Discapacidad cognitiva'
+    -
+      value: '16'
+      label: 'Discapacidad visual'
+    -
+      value: '17'
+      label: Periodista
+    -
+      value: '90'
+      label: Otra
+    -
+      value: '98'
+      label: 'No aplica'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

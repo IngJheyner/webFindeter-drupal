@@ -1,0 +1,21 @@
+uuid: 538dda58-f9bc-44d7-9a66-044f6c11c291
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pqrsd_macro_motivo
+    - node.type.pqrsd
+  module:
+    - options
+id: node.pqrsd.field_pqrsd_macro_motivo
+field_name: field_pqrsd_macro_motivo
+entity_type: node
+bundle: pqrsd
+label: 'Macro Motivo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

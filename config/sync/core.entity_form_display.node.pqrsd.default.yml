@@ -3,21 +3,30 @@ langcode: es
 status: true
 dependencies:
   config:
+    - field.field.node.pqrsd.field_paises_pqrsd
+    - field.field.node.pqrsd.field_pqrsd_api_smfc
     - field.field.node.pqrsd.field_pqrsd_archivo
     - field.field.node.pqrsd.field_pqrsd_asignaciones
     - field.field.node.pqrsd.field_pqrsd_autorizacion
+    - field.field.node.pqrsd.field_pqrsd_canal
     - field.field.node.pqrsd.field_pqrsd_canal_recepcion
     - field.field.node.pqrsd.field_pqrsd_comentario_traslado
+    - field.field.node.pqrsd.field_pqrsd_condicion_especial
     - field.field.node.pqrsd.field_pqrsd_departamento
     - field.field.node.pqrsd.field_pqrsd_descripcion
+    - field.field.node.pqrsd.field_pqrsd_desistimiento_queja
     - field.field.node.pqrsd.field_pqrsd_direccion
     - field.field.node.pqrsd.field_pqrsd_email
+    - field.field.node.pqrsd.field_pqrsd_entes_control
     - field.field.node.pqrsd.field_pqrsd_fax
     - field.field.node.pqrsd.field_pqrsd_fecha_naranja
     - field.field.node.pqrsd.field_pqrsd_fecha_respuesta
     - field.field.node.pqrsd.field_pqrsd_fecha_roja
     - field.field.node.pqrsd.field_pqrsd_forma_recepcion
     - field.field.node.pqrsd.field_pqrsd_grupo_etnico
+    - field.field.node.pqrsd.field_pqrsd_instance_reception
+    - field.field.node.pqrsd.field_pqrsd_lgtbi
+    - field.field.node.pqrsd.field_pqrsd_macro_motivo
     - field.field.node.pqrsd.field_pqrsd_marketing
     - field.field.node.pqrsd.field_pqrsd_medio_respuesta
     - field.field.node.pqrsd.field_pqrsd_motivo
@@ -31,6 +40,7 @@ dependencies:
     - field.field.node.pqrsd.field_pqrsd_preferencial
     - field.field.node.pqrsd.field_pqrsd_primer_apellido
     - field.field.node.pqrsd.field_pqrsd_primer_nombre
+    - field.field.node.pqrsd.field_pqrsd_queja_expres
     - field.field.node.pqrsd.field_pqrsd_rango_edad
     - field.field.node.pqrsd.field_pqrsd_razon_social
     - field.field.node.pqrsd.field_pqrsd_respuesta
@@ -38,6 +48,7 @@ dependencies:
     - field.field.node.pqrsd.field_pqrsd_respuesta_archivos
     - field.field.node.pqrsd.field_pqrsd_segundo_apellido
     - field.field.node.pqrsd.field_pqrsd_segundo_nombre
+    - field.field.node.pqrsd.field_pqrsd_sexo
     - field.field.node.pqrsd.field_pqrsd_telefono
     - field.field.node.pqrsd.field_pqrsd_tipo_discapacidad
     - field.field.node.pqrsd.field_pqrsd_tipo_documento
@@ -45,11 +56,190 @@ dependencies:
     - field.field.node.pqrsd.field_pqrsd_tipo_peticion
     - field.field.node.pqrsd.field_pqrsd_tipo_radicado
     - field.field.node.pqrsd.field_pqrsd_tipo_solicitante
+    - field.field.node.pqrsd.field_pqrsd_tutela
     - node.type.pqrsd
   module:
     - datetime
+    - field_group
     - file
-    - path
+    - select2
+third_party_settings:
+  field_group:
+    group_container:
+      children:
+        - group_info_radicado
+        - group_info_persona
+        - group_info_producto
+        - group_info_administrativa
+        - group_info_respuesta
+      label: Contenido
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: horizontal
+        width_breakpoint: 640
+    group_info_radicado:
+      children:
+        - title
+        - field_pqrsd_instance_reception
+        - field_pqrsd_tipo_peticion
+        - field_pqrsd_numero_radicado
+        - field_pqrsd_tipo_radicado
+        - field_pqrsd_queja_expres
+        - field_pqrsd_desistimiento_queja
+        - field_pqrsd_tipo_solicitante
+        - field_pqrsd_rango_edad
+        - field_pqrsd_grupo_etnico
+        - field_pqrsd_preferencial
+        - field_pqrsd_tipo_discapacidad
+        - field_pqrsd_condicion_especial
+        - created
+        - status
+      label: 'Info. Radicado'
+      region: content
+      parent_name: group_container
+      weight: 4
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_info_persona:
+      children:
+        - field_pqrsd_numero_id
+        - field_pqrsd_tipo_documento
+        - field_pqrsd_sexo
+        - field_pqrsd_lgtbi
+        - field_pqrsd_primer_nombre
+        - field_pqrsd_segundo_nombre
+        - field_pqrsd_primer_apellido
+        - field_pqrsd_segundo_apellido
+        - group_info_juridica
+        - field_pqrsd_direccion
+        - field_paises_pqrsd
+        - field_pqrsd_departamento
+        - field_pqrsd_municipio
+        - field_pqrsd_telefono
+        - field_pqrsd_fax
+        - field_pqrsd_email
+      label: 'Info. Persona'
+      region: content
+      parent_name: group_container
+      weight: 5
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_info_juridica:
+      children:
+        - field_pqrsd_tipo_empresa
+        - field_pqrsd_nit
+        - field_pqrsd_razon_social
+      label: 'Info. Juridica'
+      region: content
+      parent_name: group_info_persona
+      weight: 14
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_info_producto:
+      children:
+        - field_pqrsd_nombre_producto
+        - field_pqrsd_archivo
+        - field_pqrsd_descripcion
+        - field_pqrsd_macro_motivo
+        - field_pqrsd_motivo
+        - field_pqrsd_otros
+      label: 'Info. Producto'
+      region: content
+      parent_name: group_container
+      weight: 6
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_info_administrativa:
+      children:
+        - field_pqrsd_canal
+        - field_pqrsd_canal_recepcion
+        - field_pqrsd_medio_respuesta
+        - field_pqrsd_forma_recepcion
+        - field_pqrsd_autorizacion
+        - field_pqrsd_marketing
+        - field_pqrsd_asignaciones
+        - field_pqrsd_comentario_traslado
+        - field_pqrsd_palabras_clave
+        - field_pqrsd_fecha_naranja
+        - field_pqrsd_fecha_roja
+      label: 'Info. Administrativa'
+      region: content
+      parent_name: group_container
+      weight: 7
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_info_respuesta:
+      children:
+        - field_pqrsd_respuesta
+        - field_pqrsd_tutela
+        - field_pqrsd_entes_control
+        - field_pqrsd_respuesta_archivos
+        - field_pqrsd_respuesta_a_favor
+        - field_pqrsd_fecha_respuesta
+      label: 'Info. Respuesta'
+      region: content
+      parent_name: group_container
+      weight: 9
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_api_smfc:
+      children:
+        - field_pqrsd_api_smfc
+      label: 'API SMFC'
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: true
+        description: "Este radicado esta sincronizado con la API Smart Supervision de la Superintedencia Fincanciera de Colombia.\r\n<strong>Nota:</strong> No modificar ni actualizar esta opcion."
+        required_fields: true
+        weight: 5
 id: node.pqrsd.default
 targetEntityType: node
 bundle: pqrsd
@@ -57,20 +247,36 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 3
+    weight: 22
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_paises_pqrsd:
+    type: entity_reference_autocomplete
+    weight: 16
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pqrsd_api_smfc:
+    type: options_select
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_archivo:
     type: file_generic
-    weight: 8
+    weight: 13
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_pqrsd_asignaciones:
     type: string_textfield
-    weight: 9
+    weight: 16
     region: content
     settings:
       size: 60
@@ -78,27 +284,39 @@ content:
     third_party_settings: {  }
   field_pqrsd_autorizacion:
     type: options_select
-    weight: 11
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_pqrsd_canal:
+    type: options_select
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_canal_recepcion:
     type: options_select
-    weight: 12
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_comentario_traslado:
     type: string_textfield
-    weight: 47
+    weight: 17
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_pqrsd_condicion_especial:
+    type: options_select
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_pqrsd_departamento:
     type: entity_reference_autocomplete
-    weight: 14
+    weight: 17
     region: content
     settings:
       match_operator: CONTAINS
@@ -108,15 +326,21 @@ content:
     third_party_settings: {  }
   field_pqrsd_descripcion:
     type: string_textarea
-    weight: 15
+    weight: 14
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_pqrsd_desistimiento_queja:
+    type: options_select
+    weight: 15
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_pqrsd_direccion:
     type: string_textfield
-    weight: 16
+    weight: 15
     region: content
     settings:
       size: 60
@@ -124,15 +348,21 @@ content:
     third_party_settings: {  }
   field_pqrsd_email:
     type: email_default
-    weight: 13
+    weight: 21
     region: content
     settings:
       placeholder: ''
       size: 60
     third_party_settings: {  }
+  field_pqrsd_entes_control:
+    type: options_select
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_pqrsd_fax:
     type: string_textfield
-    weight: 17
+    weight: 20
     region: content
     settings:
       size: 60
@@ -140,55 +370,74 @@ content:
     third_party_settings: {  }
   field_pqrsd_fecha_naranja:
     type: datetime_default
-    weight: 42
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_fecha_respuesta:
     type: datetime_default
-    weight: 46
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_fecha_roja:
     type: datetime_default
-    weight: 43
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_forma_recepcion:
     type: options_select
-    weight: 18
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_grupo_etnico:
     type: options_select
-    weight: 40
+    weight: 18
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_pqrsd_instance_reception:
+    type: options_select
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_pqrsd_lgtbi:
+    type: options_select
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_pqrsd_macro_motivo:
+    type: options_select
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_marketing:
     type: options_select
-    weight: 19
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_medio_respuesta:
     type: options_select
-    weight: 20
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_motivo:
-    type: options_select
-    weight: 21
+    type: select2
+    weight: 16
     region: content
-    settings: {  }
+    settings:
+      width: 100%
     third_party_settings: {  }
   field_pqrsd_municipio:
     type: entity_reference_autocomplete
-    weight: 22
+    weight: 18
     region: content
     settings:
       match_operator: CONTAINS
@@ -198,7 +447,7 @@ content:
     third_party_settings: {  }
   field_pqrsd_nit:
     type: string_textfield
-    weight: 23
+    weight: 3
     region: content
     settings:
       size: 60
@@ -206,13 +455,13 @@ content:
     third_party_settings: {  }
   field_pqrsd_nombre_producto:
     type: options_select
-    weight: 24
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_numero_id:
     type: string_textfield
-    weight: 25
+    weight: 5
     region: content
     settings:
       size: 60
@@ -220,7 +469,7 @@ content:
     third_party_settings: {  }
   field_pqrsd_numero_radicado:
     type: string_textfield
-    weight: 45
+    weight: 12
     region: content
     settings:
       size: 60
@@ -228,7 +477,7 @@ content:
     third_party_settings: {  }
   field_pqrsd_otros:
     type: string_textfield
-    weight: 26
+    weight: 17
     region: content
     settings:
       size: 60
@@ -236,7 +485,7 @@ content:
     third_party_settings: {  }
   field_pqrsd_palabras_clave:
     type: entity_reference_autocomplete
-    weight: 27
+    weight: 18
     region: content
     settings:
       match_operator: CONTAINS
@@ -246,13 +495,13 @@ content:
     third_party_settings: {  }
   field_pqrsd_preferencial:
     type: options_select
-    weight: 10
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_primer_apellido:
     type: string_textfield
-    weight: 28
+    weight: 12
     region: content
     settings:
       size: 60
@@ -260,21 +509,27 @@ content:
     third_party_settings: {  }
   field_pqrsd_primer_nombre:
     type: string_textfield
-    weight: 29
+    weight: 10
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_pqrsd_queja_expres:
+    type: options_select
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_pqrsd_rango_edad:
     type: options_select
-    weight: 30
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_razon_social:
     type: string_textfield
-    weight: 31
+    weight: 5
     region: content
     settings:
       size: 60
@@ -282,22 +537,28 @@ content:
     third_party_settings: {  }
   field_pqrsd_respuesta:
     type: string_textarea
-    weight: 44
+    weight: 13
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_pqrsd_respuesta_a_favor:
+    type: options_select
+    weight: 18
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_pqrsd_respuesta_archivos:
     type: file_generic
-    weight: 49
+    weight: 17
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_pqrsd_segundo_apellido:
     type: string_textfield
-    weight: 32
+    weight: 13
     region: content
     settings:
       size: 60
@@ -305,15 +566,21 @@ content:
     third_party_settings: {  }
   field_pqrsd_segundo_nombre:
     type: string_textfield
-    weight: 33
+    weight: 11
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_pqrsd_sexo:
+    type: options_select
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_pqrsd_telefono:
     type: string_textfield
-    weight: 34
+    weight: 19
     region: content
     settings:
       size: 60
@@ -321,96 +588,65 @@ content:
     third_party_settings: {  }
   field_pqrsd_tipo_discapacidad:
     type: options_select
-    weight: 41
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_tipo_documento:
     type: options_select
-    weight: 39
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_tipo_empresa:
     type: options_select
-    weight: 35
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_tipo_peticion:
     type: options_select
-    weight: 36
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_tipo_radicado:
     type: options_select
-    weight: 37
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_tipo_solicitante:
     type: options_select
-    weight: 38
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
-  langcode:
-    type: language_select
-    weight: 1
-    region: content
-    settings:
-      include_locked: true
-    third_party_settings: {  }
-  path:
-    type: path
-    weight: 6
+  field_pqrsd_tutela:
+    type: options_select
+    weight: 15
     region: content
     settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    weight: 4
-    region: content
-    settings:
-      display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 7
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    weight: 5
+    weight: 23
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: 9
     region: content
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 2
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  url_redirects:
-    weight: 48
-    region: content
-    settings: {  }
     third_party_settings: {  }
 hidden:
-  field_pqrsd_respuesta_a_favor: true
+  langcode: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true
+  url_redirects: true

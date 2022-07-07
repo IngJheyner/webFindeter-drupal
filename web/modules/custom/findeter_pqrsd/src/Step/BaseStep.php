@@ -2,7 +2,6 @@
 
 namespace Drupal\findeter_pqrsd\Step;
 
-
 /**
  * Class BaseStep.
  *

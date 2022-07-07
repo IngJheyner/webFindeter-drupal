@@ -1,0 +1,21 @@
+uuid: 4dd44810-3747-47d9-bd43-2604f40be694
+langcode: es
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_code_dane_dpto
+field_name: field_code_dane_dpto
+entity_type: taxonomy_term
+type: string
+settings:
+  max_length: 15
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

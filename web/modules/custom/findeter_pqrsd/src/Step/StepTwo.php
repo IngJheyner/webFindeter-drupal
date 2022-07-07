@@ -11,6 +11,7 @@ use Drupal\findeter_pqrsd\Validator\ValidatorEmail;
 use Drupal\findeter_pqrsd\Validator\ValidatorNumber;
 use Drupal\findeter_pqrsd\Validator\ValidatorLegalRequester;
 use Drupal\findeter_pqrsd\Validator\ValidatorNaturalRequester;
+use Drupal\findeter_pqrsd\Validator\ValidatorCharacterSpecial;
 
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
@@ -74,8 +75,9 @@ class StepTwo extends BaseStep {
     //values previous step
     $values = $steps[1]->getValues();
 
-    if($values['field_pqrsd_tipo_solicitante'] == 'juridica'){
-      $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información básica: 
+    if($values['field_pqrsd_tipo_solicitante'] == 'juridica'
+    || $values['field_pqrsd_tipo_solicitante'] == "2"){
+      $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información básica:
                                       <p class="text-dark font-weight-bold">Persona jurídica</p></h2>';
 
       // start col 1
@@ -102,8 +104,13 @@ class StepTwo extends BaseStep {
       ];
 
     }else{
-      $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información básica: 
-                                        <p class="text-dark font-weight-bold">Persona '.$values['field_pqrsd_tipo_solicitante'].'</p></h2>';
+
+      if($values['field_pqrsd_tipo_solicitante'] == "1")
+        $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información básica:
+                                        <p class="text-dark font-weight-bold">Persona Natural</p></h2>';
+      else
+        $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información básica:
+        <p class="text-dark font-weight-bold">Persona '.$values['field_pqrsd_tipo_solicitante'].'</p></h2>';
 
       // start col 1
       $formStep['field_pqrsd_numero_id'] = [
@@ -114,13 +121,48 @@ class StepTwo extends BaseStep {
         '#prefix'     => '<div class="row mx-auto form-container"><div class="col-12 col-md-6 form-container-col">'
       ];
 
+      /* ============================================
+      Se muestra valores de tipo de documento para findeter o SMFC.
+      para SMFC solo si la peticion es una Queja o Reclamo
+      esta cambia en su valor de indice mas no de item,
+      SMFC numerico y Findeter caracter.
+      =============================================== */
+      $valuesData = $steps[0]->getValues();
+      //Obtenemos el valor de tipo de radicado
+      $itemTipDoc = $definitions['field_pqrsd_tipo_documento']->getSetting('allowed_values');
+
+      $optionsTipDoc = [];
+      $optionsTipDocSmfc = [];
+
+      foreach ($itemTipDoc as $key => $value) {
+        if(is_numeric($key))
+          $optionsTipDocSmfc[$key] = $value;
+        else
+          $optionsTipDoc[$key] = $value;
+      }
+
       $formStep['field_pqrsd_tipo_documento'] = [
         '#type'    => 'select',
         '#title'   => $definitions['field_pqrsd_tipo_documento']->getLabel(),
-        '#options' => $definitions['field_pqrsd_tipo_documento']->getSetting('allowed_values')
+        '#options' => ($valuesData['field_pqrsd_tipo_radicado'] == 'Quejas' ||
+        $valuesData['field_pqrsd_tipo_radicado'] == 'Reclamos') ? $optionsTipDocSmfc : $optionsTipDoc
       ];
 
     }
+
+    $formStep['field_pqrsd_sexo'] = [
+      '#type'    => 'select',
+      '#title'   => $definitions['field_pqrsd_sexo']->getLabel(),
+      '#options' => $definitions['field_pqrsd_sexo']->getSetting('allowed_values'),
+      '#empty_option' => '-Seleccione una opción-'
+    ];
+
+    $formStep['field_pqrsd_lgtbi'] = [
+      '#type'    => 'select',
+      '#title'   => $definitions['field_pqrsd_lgtbi']->getLabel(),
+      '#options' => $definitions['field_pqrsd_lgtbi']->getSetting('allowed_values'),
+      '#empty_option' => '-Seleccione una opción-'
+    ];
 
     $formStep['field_pqrsd_primer_nombre'] = [
       '#type'       => 'textfield',
@@ -148,7 +190,8 @@ class StepTwo extends BaseStep {
       '#suffix'       => '</div>'
     ];
 
-    if($values['field_pqrsd_tipo_solicitante'] == 'juridica'){
+    if($values['field_pqrsd_tipo_solicitante'] == 'juridica'
+    || $values['field_pqrsd_tipo_solicitante'] == "2"){
       $formStep['field_pqrsd_primer_nombre']['#title'] .= ' del representante legal';
       $formStep['field_pqrsd_segundo_nombre']['#title'] .= ' del representante legal';
       $formStep['field_pqrsd_primer_apellido']['#title'] .= ' del representante legal';
@@ -166,18 +209,21 @@ class StepTwo extends BaseStep {
     $deparmentOptions = getTaxonomyTermsForm(0);
 
     $formStep['field_pqrsd_departamento'] = [
-      '#type'    => 'select',
+      '#type'    => 'select2',
       '#title'   => $definitions['field_pqrsd_departamento']->getLabel(),
       '#options' => $deparmentOptions,
       '#source'  => 'steps',
       '#ajax'    => [
-        'callback'  => 'callBackDeparment', 
+        'callback'  => 'callBackDeparment',
         'event'     => 'change',
         'progress'  => [
           'message' => 'Recuperando municipios...',
         ],
       ],
       '#empty_option'   => '-Seleccione una opción-',
+      '#select2' => [
+        'allowClear' => FALSE,
+      ],
     ];
 
     $departmentValue = false;
@@ -188,11 +234,14 @@ class StepTwo extends BaseStep {
     }
 
     $formStep['field_pqrsd_municipio'] = [
-      '#type'      => 'select',
+      '#type'      => 'select2',
       '#title'     => $definitions['field_pqrsd_municipio']->getLabel(),
       '#prefix'    => '<div id="output-municipalities">',
       '#suffix'    => '</div>',
       '#empty_option' => '-Seleccione una opción-',
+      '#select2' => [
+        'allowClear' => FALSE,
+      ],
     ];
 
     if ($departmentValue) {
@@ -210,7 +259,7 @@ class StepTwo extends BaseStep {
       '#title'      => $definitions['field_pqrsd_fax']->getLabel(),
       '#attributes' => ['placeholder'=>'Ej: 4354555']
     ];
-    
+
     // end col 2
     $formStep['field_pqrsd_email'] = [
       '#type'       => 'email',
@@ -218,7 +267,7 @@ class StepTwo extends BaseStep {
       '#attributes' => ['placeholder'=>'Ej: correo@gmail.com'],
       '#suffix'     => '</div></div>'
     ];
-    
+
     return $formStep;
   }
 
@@ -234,6 +283,8 @@ class StepTwo extends BaseStep {
       'field_pqrsd_tipo_empresa',
       'field_pqrsd_numero_id',
       'field_pqrsd_tipo_documento',
+      'field_pqrsd_sexo',
+      'field_pqrsd_lgtbi',
       'field_pqrsd_primer_nombre',
       'field_pqrsd_segundo_nombre',
       'field_pqrsd_primer_apellido',
@@ -268,11 +319,25 @@ class StepTwo extends BaseStep {
       'field_pqrsd_tipo_documento' => [
         new ValidatorNaturalRequester("Tipo documento ID es requerido"),
       ],
+      'field_pqrsd_sexo' => [
+        new ValidatorNaturalRequester("El sexo es requerido"),
+      ],
+      'field_pqrsd_lgtbi' => [
+        new ValidatorNaturalRequester("Lgtbi es requerido"),
+      ],
       'field_pqrsd_primer_nombre' => [
         new ValidatorRequired("Primer nombre es requerido"),
+        new ValidatorCharacterSpecial("Primer nombre: No se permite caracteres especiales ni números."),
+      ],
+      'field_pqrsd_segundo_nombre' => [
+        new ValidatorCharacterSpecial("Segundo nombre: No se permite caracteres especiales ni números."),
       ],
       'field_pqrsd_primer_apellido' => [
         new ValidatorRequired("Primer apellido es requerido"),
+        new ValidatorCharacterSpecial("Primer apellido: No se permite caracteres especiales ni números."),
+      ],
+      'field_pqrsd_segundo_apellido' => [
+        new ValidatorCharacterSpecial("Segundo apellido: No se permite caracteres especiales ni números."),
       ],
       'field_pqrsd_direccion' => [
         new ValidatorRequired("Dirección correspondencia es requerido"),

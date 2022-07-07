@@ -2431,12 +2431,7 @@ div.barraLateral {
   background: #296294;
   padding: 1em;
 }
-div.barraLateral #block-contraste {
-  border-bottom: 2px solid white;
-  padding: 0 0 0.5em 0;
-  margin-bottom: 1rem;
-}
-div.barraLateral #block-contraste > form > #edit-toggle-link {
+div.barraLateral #high-contrast {
   outline: none;
   text-indent: -9000px;
   display: block;
@@ -4397,19 +4392,19 @@ ENCABEZADO
 /* ==============================
 CUSTOM TITULOS
 ============================== */
-div.login figure {
+div.encabezadoLogin figure {
   position: absolute;
   z-index: -1;
   transform: translate(0, -14rem);
   height: 23rem;
 }
-div.login figure img {
+div.encabezadoLogin figure img {
   height: 100%;
 }
-div.login div.encabezado {
+div.encabezadoLogin div.encabezado {
   height: 7rem;
 }
-div.login div.encabezado h1.tituloEncabezado {
+div.encabezadoLogin div.encabezado h1.tituloEncabezado {
   text-shadow: 1px 1px 2px black;
   color: white;
   font-size: 3.5rem;
@@ -4422,17 +4417,17 @@ div.login div.encabezado h1.tituloEncabezado {
   /*MOVIL VERTICAL(sm 320px)*/
 }
 @media (max-width: 575.98px) {
-  div.login div.encabezado h1.tituloEncabezado {
+  div.encabezadoLogin div.encabezado h1.tituloEncabezado {
     font-size: 2.5rem;
   }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
-  div.login div.encabezado h1.tituloEncabezado {
+  div.encabezadoLogin div.encabezado h1.tituloEncabezado {
     font-size: 3rem;
   }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
-  div.login div.encabezado h1.tituloEncabezado {
+  div.encabezadoLogin div.encabezado h1.tituloEncabezado {
     font-size: 3rem;
   }
 }
@@ -4485,6 +4480,13 @@ section.headerCalendario div.encabezado h1.tituloEncabezado {
   section.headerCalendario div.encabezado h1.tituloEncabezado {
     font-size: 3rem;
   }
+}
+
+/* ===== ===== HIGTHCONTRAST ===== ===== */
+.contrasteweb {
+  mix-blend-mode: difference;
+  filter: none;
+  background: #FFF;
 }
 
 /* ===== ===== MECANISMO CONTACTO ===== ===== */

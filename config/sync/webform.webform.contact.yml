@@ -3,13 +3,13 @@ langcode: es
 status: open
 dependencies:
   module:
-    - honeypot
+    - antibot
   enforced:
     module:
       - webform
 third_party_settings:
-  honeypot:
-    time_restriction: true
+  antibot:
+    antibot: true
 _core:
   default_config_hash: ywLzu4PKup4MjhKzlVPqWyRXPu5co-ou5hySnaWh6Uc
 weight: 0
@@ -188,7 +188,7 @@ settings:
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
   confirmation_type: inline
-  confirmation_url: '<front>'
+  confirmation_url: /transparencia-y-acceso-a-la-informacion-publica/ley-1581-de-2012-proteccion-de-datos-personales
   confirmation_title: Mensaje.
   confirmation_message: "<span style=\"font-size:11pt\"><span style=\"line-height:107%\"><span style=\"font-family:Calibri,sans-serif\">Gracias por comentar en nuestra p&aacute;gina web, tu inquietud o mensaje ser&aacute; respondido en los pr&oacute;ximos d&iacute;as.</span></span></span><br />\r\n&nbsp;"
   confirmation_attributes:

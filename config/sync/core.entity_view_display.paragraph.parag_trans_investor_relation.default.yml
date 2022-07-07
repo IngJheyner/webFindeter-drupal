@@ -8,7 +8,7 @@ dependencies:
     - field.field.paragraph.parag_trans_investor_relation.field_url_inves_rela_content_tab
     - paragraphs.paragraphs_type.parag_trans_investor_relation
   module:
-    - image
+    - svg_image
 id: paragraph.parag_trans_investor_relation.default
 targetEntityType: paragraph
 bundle: parag_trans_investor_relation
@@ -20,6 +20,12 @@ content:
     settings:
       image_link: ''
       image_style: ''
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
     third_party_settings: {  }
     weight: 0
     region: content

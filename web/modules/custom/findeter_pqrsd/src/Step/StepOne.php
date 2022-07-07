@@ -70,11 +70,32 @@ class StepOne extends BaseStep {
     
     $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Seleccione la manera como desea radicar su solicitud</h2>';
 
+    /* ============================================
+    Se muestra valores de tipo solicitante para findeter o SMFC
+    para SMFC solo si la peticion es una Queja o Reclamo
+    esta cambia en su valor de indice mas no de item, 
+    SMFC numerico y Findeter caracter.
+    =============================================== */
+    $itemTipSolic = $definitions['field_pqrsd_tipo_solicitante']->getSetting('allowed_values');
+    //Obtenemos el valor de tipo de radicado
+    $values = $steps[0]->getValues();
+    
+    $optionsTipSolic = [];
+    $optionsTipSolicSmfc = [];
+
+    foreach ($itemTipSolic as $key => $value) {
+      if(is_numeric($key))
+        $optionsTipSolicSmfc[$key] = $value;
+      else
+        $optionsTipSolic[$key] = $value;
+    }
+
     // start first col
     $formStep['field_pqrsd_tipo_solicitante'] = [
       '#type'         => 'select',
       '#title'        => $definitions['field_pqrsd_tipo_solicitante']->getLabel(),
-      '#options'      => $definitions['field_pqrsd_tipo_solicitante']->getSetting('allowed_values'),
+      '#options'      => ($values['field_pqrsd_tipo_radicado'] == 'Quejas' || 
+      $values['field_pqrsd_tipo_radicado'] == 'Reclamos') ? $optionsTipSolicSmfc : $optionsTipSolic,
       '#empty_option' => '-Seleccione una opción-',
       '#prefix'       => '<div class="row mx-auto form-container"><div class="col-12 col-md-6 form-container-col">'
     ];
