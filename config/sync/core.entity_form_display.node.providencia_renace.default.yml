@@ -1,0 +1,504 @@
+uuid: fbdbb52c-281b-4a48-8106-52dfad8977e3
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.providencia_renace.body
+    - field.field.node.providencia_renace.field_article_pr
+    - field.field.node.providencia_renace.field_image_grid_a
+    - field.field.node.providencia_renace.field_image_grid_d
+    - field.field.node.providencia_renace.field_images_juxtapose_pr
+    - field.field.node.providencia_renace.field_images_to_share
+    - field.field.node.providencia_renace.field_images_video_info_pr
+    - field.field.node.providencia_renace.field_info_grid_b
+    - field.field.node.providencia_renace.field_info_grid_c_pr
+    - field.field.node.providencia_renace.field_info_links_great_works_pr
+    - field.field.node.providencia_renace.field_links_great_obr_pr
+    - field.field.node.providencia_renace.field_links_share_pr
+    - field.field.node.providencia_renace.field_slider_pr
+    - field.field.node.providencia_renace.field_summary_pr
+    - field.field.node.providencia_renace.field_url_grid_b_pr
+    - field.field.node.providencia_renace.field_url_grid_c_pr
+    - field.field.node.providencia_renace.field_url_juxtaposejs_pr
+    - image.style.thumbnail
+    - node.type.providencia_renace
+  module:
+    - entity_browser_entity_form
+    - field_group
+    - inline_entity_form
+    - link
+    - paragraphs
+    - path
+    - svg_image
+third_party_settings:
+  field_group:
+    group_group_pr:
+      children:
+        - group_informacion
+        - group_header_slider_pr
+        - group_summary_featured
+        - group_articulos
+        - group_multimedia_pr
+        - group_share
+      label: 'Group PR'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        direction: horizontal
+        width_breakpoint: 640
+    group_informacion:
+      children:
+        - title
+        - uid
+        - created
+        - langcode
+        - path
+        - status
+      label: Informacion
+      region: content
+      parent_name: group_group_pr
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_header_slider_pr:
+      children:
+        - field_slider_pr
+      label: 'Encabezado Slider'
+      region: content
+      parent_name: group_group_pr
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_summary_featured:
+      children:
+        - group_interna_sumario_y_destacad
+      label: 'Sumario y Destacados'
+      region: content
+      parent_name: group_group_pr
+      weight: 22
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_interna_sumario_y_destacad:
+      children:
+        - group_summary_interna
+        - group_destacados_internas
+      label: 'Interna sumario y destacados'
+      region: content
+      parent_name: group_summary_featured
+      weight: 20
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: vertical
+        width_breakpoint: 640
+    group_summary_interna:
+      children:
+        - field_summary_pr
+      label: Sumario
+      region: content
+      parent_name: group_interna_sumario_y_destacad
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_destacados_internas:
+      children:
+        - group_info_grilla_a
+        - group_info_grid_b
+        - group_info_grid_c
+        - group_info_grid_d
+      label: Destacados
+      region: content
+      parent_name: group_interna_sumario_y_destacad
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+        direction: vertical
+        width_breakpoint: 640
+    group_info_grid_b:
+      children:
+        - field_info_grid_b
+        - field_url_grid_b_pr
+      label: 'Info Grid B'
+      region: content
+      parent_name: group_destacados_internas
+      weight: 21
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_info_grid_c:
+      children:
+        - field_info_grid_c_pr
+        - field_url_grid_c_pr
+      label: 'Info Grid C'
+      region: content
+      parent_name: group_destacados_internas
+      weight: 22
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_info_grilla_a:
+      children:
+        - field_image_grid_a
+      label: 'Info. Grilla A'
+      region: content
+      parent_name: group_destacados_internas
+      weight: 20
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        weight: 0
+    group_info_grid_d:
+      children:
+        - field_image_grid_d
+      label: 'Info Grid D'
+      region: content
+      parent_name: group_destacados_internas
+      weight: 23
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_articulos:
+      children:
+        - field_article_pr
+      label: Articulos
+      region: content
+      parent_name: group_group_pr
+      weight: 23
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_multimedia_pr:
+      children:
+        - field_info_links_great_works_pr
+        - group_juxtapose_js
+        - field_images_video_info_pr
+        - field_links_great_obr_pr
+      label: Multimedia
+      region: content
+      parent_name: group_group_pr
+      weight: 24
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_juxtapose_js:
+      children:
+        - field_images_juxtapose_pr
+        - field_url_juxtaposejs_pr
+      label: 'Juxtapose JS'
+      region: content
+      parent_name: group_multimedia_pr
+      weight: 35
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: 'El siguiente campo es la visualizacion de efecto antes y despues de una imagen utilizando la libreria JuxtaposeJS.'
+        required_fields: true
+        open: 0
+    group_share:
+      children:
+        - group_images_links_share
+      label: Share
+      region: content
+      parent_name: group_group_pr
+      weight: 25
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_images_links_share:
+      children:
+        - field_images_to_share
+        - field_links_share_pr
+      label: 'Imagenes y enlaces'
+      region: content
+      parent_name: group_share
+      weight: 20
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: 'Deben ir en el mismo orden en la cual se van creando para tener consistencia en imagen y enlace.'
+        required_fields: true
+id: node.providencia_renace.default
+targetEntityType: node
+bundle: providencia_renace
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_article_pr:
+    type: inline_entity_form_complex
+    weight: 33
+    region: content
+    settings:
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings: {  }
+  field_image_grid_a:
+    type: image_image
+    weight: 21
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_image_grid_d:
+    type: image_image
+    weight: 32
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_images_juxtapose_pr:
+    type: image_image
+    weight: 35
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_images_to_share:
+    type: image_image
+    weight: 21
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_images_video_info_pr:
+    type: image_image
+    weight: 36
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_info_grid_b:
+    type: string_textfield
+    weight: 30
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_info_grid_c_pr:
+    type: string_textfield
+    weight: 30
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_info_links_great_works_pr:
+    type: string_textfield
+    weight: 34
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_links_great_obr_pr:
+    type: link_default
+    weight: 37
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_links_share_pr:
+    type: link_default
+    weight: 22
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_slider_pr:
+    type: inline_entity_form_complex
+    weight: 1
+    region: content
+    settings:
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: _none
+  field_summary_pr:
+    type: entity_reference_paragraphs
+    weight: 21
+    region: content
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: slider_pr
+    third_party_settings: {  }
+  field_url_grid_b_pr:
+    type: link_default
+    weight: 31
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_url_grid_c_pr:
+    type: link_default
+    weight: 31
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_url_juxtaposejs_pr:
+    type: link_default
+    weight: 36
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 4
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  promote: true
+  sticky: true

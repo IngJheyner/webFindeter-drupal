@@ -1,0 +1,23 @@
+uuid: 484a93cd-0c89-4196-be73-208462601f81
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.providencia_renace
+  module:
+    - text
+id: node.providencia_renace.body
+field_name: body
+entity_type: node
+bundle: providencia_renace
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

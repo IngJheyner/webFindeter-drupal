@@ -1,0 +1,286 @@
+uuid: 7b6fcdd5-5e17-468f-b258-87d028409d5d
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.providencia_renace.body
+    - field.field.node.providencia_renace.field_article_pr
+    - field.field.node.providencia_renace.field_image_grid_a
+    - field.field.node.providencia_renace.field_image_grid_d
+    - field.field.node.providencia_renace.field_images_juxtapose_pr
+    - field.field.node.providencia_renace.field_images_to_share
+    - field.field.node.providencia_renace.field_images_video_info_pr
+    - field.field.node.providencia_renace.field_info_grid_b
+    - field.field.node.providencia_renace.field_info_grid_c_pr
+    - field.field.node.providencia_renace.field_info_links_great_works_pr
+    - field.field.node.providencia_renace.field_links_great_obr_pr
+    - field.field.node.providencia_renace.field_links_share_pr
+    - field.field.node.providencia_renace.field_slider_pr
+    - field.field.node.providencia_renace.field_summary_pr
+    - field.field.node.providencia_renace.field_url_grid_b_pr
+    - field.field.node.providencia_renace.field_url_grid_c_pr
+    - field.field.node.providencia_renace.field_url_juxtaposejs_pr
+    - image.style.noticias_home
+    - node.type.providencia_renace
+  module:
+    - field_formatter_class
+    - layout_builder
+    - link
+    - slick
+    - svg_image
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.providencia_renace.full
+targetEntityType: node
+bundle: providencia_renace
+mode: full
+content:
+  field_image_grid_a:
+    type: slick_image
+    label: hidden
+    settings:
+      caption:
+        title: '0'
+        alt: '0'
+      optionset: default
+      layout: center
+      view_mode: ''
+      cache: 0
+      skin: fullwidth
+      lazy: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: ''
+      preload: false
+      responsive_image_style: ''
+      box_style: ''
+      image_style: noticias_home
+      media_switch: ''
+      ratio: ''
+      thumbnail_style: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      overridables:
+        arrows: arrows
+        draggable: draggable
+        autoplay: '0'
+        dots: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      optionset_thumbnail: ''
+      skin_thumbnail: ''
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: true
+      skin_arrows: ''
+      skin_dots: ''
+      use_theme_field: false
+      preserve_keys: false
+      visible_items: null
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 0
+    region: content
+  field_image_grid_d:
+    type: slick_image
+    label: hidden
+    settings:
+      caption:
+        title: '0'
+        alt: '0'
+      optionset: default
+      layout: center
+      view_mode: ''
+      cache: 0
+      skin: fullwidth
+      lazy: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: ''
+      preload: false
+      responsive_image_style: ''
+      box_style: ''
+      image_style: noticias_home
+      media_switch: ''
+      ratio: ''
+      thumbnail_style: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      overridables:
+        arrows: arrows
+        draggable: draggable
+        autoplay: '0'
+        dots: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      optionset_thumbnail: ''
+      skin_thumbnail: ''
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: true
+      skin_arrows: ''
+      skin_dots: ''
+      use_theme_field: false
+      preserve_keys: false
+      visible_items: null
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 5
+    region: content
+  field_images_juxtapose_pr:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_images_to_share:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_images_video_info_pr:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_info_grid_b:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_info_grid_c_pr:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_info_links_great_works_pr:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_links_great_obr_pr:
+    type: link_separate
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_links_share_pr:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_url_grid_b_pr:
+    type: link_separate
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_url_grid_c_pr:
+    type: link_separate
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_url_juxtaposejs_pr:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 8
+    region: content
+hidden:
+  addtoany: true
+  body: true
+  field_article_pr: true
+  field_slider_pr: true
+  field_summary_pr: true
+  langcode: true
+  links: true

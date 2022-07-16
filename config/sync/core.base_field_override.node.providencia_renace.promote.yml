@@ -1,0 +1,22 @@
+uuid: c39f95f6-d489-417c-b492-5e01cba463b6
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.providencia_renace
+id: node.providencia_renace.promote
+field_name: promote
+entity_type: node
+bundle: providencia_renace
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

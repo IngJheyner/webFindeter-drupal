@@ -154,7 +154,9 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
     // Credenciales de acceso.
     $this->credentials = $credentials;
 
-    $this->secretKey = $this->credentials[0]["secret_key"];
+    // Se pasa la llave secreta de forma arbitraria, ya que por un caracter % no dejo pasar el string desde el contenedor del servicio.
+    $this->secretKey = $this->credentials[0]["user"] == 'elondono@findeter.gov.co' ? 'tnx#cuuhn#ux15h5km_gey34u49m)=$ia*6mcr=o!8m1i8xp=w' : '0w=z)uo*ujlgwksjouz-uwbhih0@a=vn5jx(oi0er(!-fu4h^%';
+
     $this->uri = $this->credentials[0]["uri"];
     $this->tipEntity = $this->credentials[0]['tip_entity'];
     $this->codeEntity = $this->credentials[0]['code_entity'];
@@ -668,6 +670,27 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
       '"texto_queja": "'.$DescriptionSolic.'", '.
       '"anexo_queja": "'.$anexFileComplaints.'", '.
       '"ente_control": null}';
+
+    /*$data = '{"tipo_entidad": "'.$this->tipEntity.'", '.
+      '"entidad_cod": "'.$this->codeEntity.'", '.
+      '"codigo_queja": "22220220505Q602", '.
+      '"codigo_pais": "170", '.
+      '"departamento_cod": "05", '.
+      '"municipio_cod": "05002", '.
+      '"canal_cod": null, '.
+      '"producto_cod": "202", '.
+      '"macro_motivo_cod": "107", '.
+      '"fecha_creacion": "2022-05-04T22:03:32", '.
+      '"nombres": "INDIGENA ÉÁVARGAS &* INDIGENAÑ", '.
+      '"tipo_id_CF": "1", '.
+      '"numero_id_CF": "10215", '.
+      '"tipo_persona": "1", '.
+      '"insta_recepcion": "2", '.
+      '"punto_recepcion": "1", '.
+      '"admision": "9", '.
+      '"texto_queja": "adsadas", '.
+      '"anexo_queja": "false", '.
+      '"ente_control": null}';*/
 
     // Firma encrypt sha256 en funcion de hmac.
     $signature = strtoupper(hash_hmac('sha256', $data, $this->secretKey, FALSE));

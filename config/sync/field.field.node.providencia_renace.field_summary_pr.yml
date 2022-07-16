@@ -1,0 +1,64 @@
+uuid: 18fbfd0a-f813-4e47-82e4-7e45a3d1e8e7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary_pr
+    - node.type.providencia_renace
+    - paragraphs.paragraphs_type.slider_pr
+  module:
+    - entity_reference_revisions
+id: node.providencia_renace.field_summary_pr
+field_name: field_summary_pr
+entity_type: node
+bundle: providencia_renace
+label: Sumario
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      slider_pr: slider_pr
+    negate: 0
+    target_bundles_drag_drop:
+      cifras_porque_findeter_pot:
+        weight: 13
+        enabled: false
+      documento_link_para_contenido_tr:
+        weight: 14
+        enabled: false
+      findeter_en_cifras_home:
+        weight: 15
+        enabled: false
+      parag_cont_grill_segu_inform:
+        weight: 16
+        enabled: false
+      parag_trans_investor_relation:
+        weight: 17
+        enabled: false
+      productos_servicios_home:
+        weight: 18
+        enabled: false
+      ps_contenido_items_internos:
+        weight: 19
+        enabled: false
+      ps_grillas_internas:
+        weight: 20
+        enabled: false
+      servicios_findeter_pot:
+        weight: 21
+        enabled: false
+      slider_pr:
+        weight: 22
+        enabled: true
+      tabs_productos_servicio:
+        weight: 23
+        enabled: false
+      titulo_tipo_de_documento_o_link_:
+        weight: 24
+        enabled: false
+field_type: entity_reference_revisions

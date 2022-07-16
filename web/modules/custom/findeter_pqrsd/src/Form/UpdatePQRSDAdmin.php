@@ -41,7 +41,7 @@ class UpdatePQRSDAdmin extends FormBase {
     $storage = \Drupal::entityTypeManager()->getStorage('node');
     $node = $storage->load($nid);
 
-    // see findeter_pqrsd.module
+    // See findeter_pqrsd.module.
     $form = buildPQRSDform();
 
     $form['nid'] = [
@@ -59,7 +59,9 @@ class UpdatePQRSDAdmin extends FormBase {
     }
 
     if ($departmentValue) {
+      //$form['info_person']['field_pqrsd_municipio_container']['field_pqrsd_municipio_select']['#options'] = getTaxonomyTermsForm($departmentValue);
       $form['info_person']['field_pqrsd_municipio']['#options'] = getTaxonomyTermsForm($departmentValue);
+
     }else{
       $form['info_person']['field_pqrsd_municipio']['#options'] = [];
     }
@@ -68,13 +70,17 @@ class UpdatePQRSDAdmin extends FormBase {
     $fieldSets[] = 'info_person';
     $fieldSets[] = 'info_product';
     $fieldSets[] = 'info_admin';
-    
+
     foreach($fieldSets as $fieldSet){
       $formFieldSet = $form[$fieldSet];
 
       foreach($formFieldSet as $id=>$fieldForm){
 
-        if(strpos($id,'#') === false && $id != 'field_asign'){
+        if(strpos($id,'#') === false &&
+        ($id != 'field_asign' &&
+        $id != 'field_pqrsd_municipio_container' &&
+        $id != 'field_pqrsd_archivo')) {
+
           if(!empty($node->get($id)->getValue())){
             if(isset($node->get($id)->getValue()[0]['value'])){
               $form[$fieldSet ][$id]['#default_value'] = $node->get($id)->getValue()[0]['value'];
@@ -88,12 +94,12 @@ class UpdatePQRSDAdmin extends FormBase {
               }else{
                 $form[$fieldSet ][$id]['#default_value'] = $node->get($id)->getValue()[0]['target_id'];
               }
-              
+
             }
 
           }
         }
-    
+
       }
     }
 
@@ -107,17 +113,17 @@ class UpdatePQRSDAdmin extends FormBase {
           '#weight' => 100
         ];
     }
-    
+
     return $form;
 
   }
 
   /**
    * Validate the title and the checkbox of the form
-   * 
+   *
    * @param array $form
    * @param \Drupal\Core\Form\FormStateInterface $form_state
-   * 
+   *
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     parent::validateForm($form, $form_state);
@@ -155,7 +161,7 @@ class UpdatePQRSDAdmin extends FormBase {
       if($form_state->getValue('field_pqrsd_direccion') == ''){
         $form_state->setErrorByName('field_pqrsd_direccion', 'Debe ingresar la Dirección correspondencia');
       }
-      
+
       if($form_state->getValue('field_pqrsd_departamento') == ''){
         $form_state->setErrorByName('field_pqrsd_departamento', 'Debe seleccionar el Departamento');
       }
@@ -199,7 +205,7 @@ class UpdatePQRSDAdmin extends FormBase {
         }
 
       }
-      
+
     }
 
   }
@@ -251,10 +257,10 @@ class UpdatePQRSDAdmin extends FormBase {
     }
 
     $node->save();
-    
-    $url = Url::fromRoute('findeter_pqrsd.confirm_register_pqrsd',['operation'=>'update','nid'=>$form_state->getValue('nid')]);
+
+    $url = Url::fromRoute('findeter_pqrsd.confirm_register_pqrsd_admin',['operation'=>'update','nid'=>$form_state->getValue('nid')]);
     $form_state->setRedirectUrl($url);
 
-  } 
+  }
 
 }

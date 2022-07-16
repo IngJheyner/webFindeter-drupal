@@ -1,0 +1,57 @@
+uuid: 7af5b1af-85e1-4d9c-ae61-61859806edb4
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_images_to_share
+    - node.type.providencia_renace
+  module:
+    - filefield_paths
+    - image
+third_party_settings:
+  filefield_paths:
+    enabled: false
+    file_path:
+      value: '[date:custom:Y]-[date:custom:m]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+id: node.providencia_renace.field_images_to_share
+field_name: field_images_to_share
+entity_type: node
+bundle: providencia_renace
+label: 'Images to Share'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: webfinde/images/providencia_renace/share
+  file_extensions: 'png gif jpg jpeg svg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

@@ -29,7 +29,13 @@ dependencies:
     - field.field.node.pot.field_trayectoria_pot
     - node.type.pot
   module:
+    - bootstrap_layouts
+    - layout_builder
     - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
 id: node.pot.default
 targetEntityType: node
 bundle: pot

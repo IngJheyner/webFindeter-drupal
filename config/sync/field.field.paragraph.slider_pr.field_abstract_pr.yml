@@ -1,0 +1,21 @@
+uuid: c549d63d-f1e7-4ed5-a4b7-e55db2aff9f1
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_abstract_pr
+    - paragraphs.paragraphs_type.slider_pr
+  module:
+    - text
+id: paragraph.slider_pr.field_abstract_pr
+field_name: field_abstract_pr
+entity_type: paragraph
+bundle: slider_pr
+label: 'Resumen o descripcion'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

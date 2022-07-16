@@ -378,19 +378,10 @@ class ActionComplaintsSmfcController extends ControllerBase {
             }
 
             // Direccion.
-            if (!isset($value['direccion'])) {
+            if (isset($value['direccion'])) {
 
-              // Se agregan los valores a la variable resultado para ser mostrados.
-              $context['results']['error_save'][] = $value;
-              // Actualizar el progreso de informacion.
-              $context['sandbox']['progress']++;
-
-              throw new \Exception(t("An error occurred while saving the node direccion. Complaint code: @code", ['@code' => $value['codigo_queja']]));
-              // Ocurrió un error al guardar la direccion del nodo. Código de queja:
-
-            }
-            else {
               $newRequest->set('field_pqrsd_direccion', $value['direccion']);
+
             }
 
             // Producto.

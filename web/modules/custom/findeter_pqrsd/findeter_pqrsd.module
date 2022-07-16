@@ -452,16 +452,16 @@ function findeter_pqrsd_cron() {
    /* ============================================
   Enviar radicados de Quejas o Reclamos
   a la aplicacion API SMFC
-  ===============================================
+  ===============================================*/
   $stateSmfcNid = \Drupal::service('state')->get('findeter_pqrsd.api_smfc_nid');
 
-  if(!is_null($stateSmfcNid) && !empty($stateSmfcNid)){
+  if(!is_null($stateSmfcNid) && !empty($stateSmfcNid)) {
 
     $apiSmfc = \Drupal::service('api.smfc');
     $nid = [];
     $login = $apiSmfc->login();
 
-    if($login){
+    if($login) {
 
       foreach ($stateSmfcNid as $key => $state) {
 
@@ -472,16 +472,17 @@ function findeter_pqrsd_cron() {
           "smfc" => $state['smfc']
         ];
 
-        if(date('Y-m-d', $now) !== date('Y-m-d', $state['created'])){
+        if(date('Y-m-d', $now) !== date('Y-m-d', $state['created'])) {
 
-          if($state['smfc'] === FALSE){
+          if($state['smfc'] === FALSE) {
 
             $post = $apiSmfc->postComplaints($state['nid']);
             //$post = TRUE;
 
             $post ? $nid[$key]["smfc"] = TRUE : $nid[$key]["smfc"] = FALSE;
 
-          }else{
+          }
+          else {
 
             $put = $apiSmfc->putComplaints($state['nid']);
 
@@ -496,7 +497,7 @@ function findeter_pqrsd_cron() {
 
       \Drupal::service('state')->set('findeter_pqrsd.api_smfc_nid', $nid);
     }
-  }*/
+  }
 }
 
 

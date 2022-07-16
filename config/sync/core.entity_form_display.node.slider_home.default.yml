@@ -4,9 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.slider_home.body
-    - field.field.node.slider_home.field_image
-    - field.field.node.slider_home.field_slider_multimedia
-    - field.field.node.slider_home.field_slider_video_html
+    - field.field.node.slider_home.field_send_content_home_slider
     - field.field.node.slider_home.field_video_slider
     - node.type.slider_home
   module:
@@ -50,6 +48,7 @@ third_party_settings:
         required_fields: true
     group_contenido:
       children:
+        - field_send_content_home_slider
         - body
         - group_multimedia
       label: Contenido
@@ -69,7 +68,7 @@ third_party_settings:
       label: Multimedia
       region: content
       parent_name: group_contenido
-      weight: 3
+      weight: 28
       format_type: fieldset
       format_settings:
         classes: ''
@@ -84,7 +83,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 2
+    weight: 27
     region: content
     settings:
       rows: 9
@@ -97,6 +96,13 @@ content:
     weight: 4
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_send_content_home_slider:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_video_slider:
     type: media_library_widget
@@ -144,9 +150,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
-  field_image: true
-  field_slider_multimedia: true
-  field_slider_video_html: true
   promote: true
   sticky: true
   url_redirects: true
