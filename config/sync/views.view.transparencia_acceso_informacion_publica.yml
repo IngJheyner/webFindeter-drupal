@@ -16906,7 +16906,20 @@ display:
         fields: false
         filters: false
         filter_groups: false
+        header: false
       display_description: '2.3 Proyectos de normas para comentarios.'
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: false
+          content: "<div class=\"titulos mb-4\" id=\"cont\">\r\n\r\n    <div class=\"d-flex\">\r\n\r\n        <figure class=\"icono pr-2\">\r\n            <img src=\"/themes/custom/webfinde/images/iconos/Iconos-transparencia/icono-3.png\">\r\n        </figure>\r\n    \r\n        <h2 class=\"font-weight-bold pl-2\">{{ \"2. Normativa. \"|t }}</h2>\r\n\r\n    </div>  \r\n    \r\n    <h3 class=\"font-weight-bold text-dark\">{{ title }}</h3>\r\n\r\n</div>"
+          tokenize: true
       display_extenders: {  }
     cache_metadata:
       max-age: -1

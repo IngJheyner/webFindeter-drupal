@@ -5,7 +5,7 @@ roles: 'administrator,colaborador'
 semaphore:
   none:
     logic: 'bussines days'
-    orange: '8'
+    orange: '9'
     red: '15'
     title: 'Quejas, reclamos, sugerencias y denuncias'
     condition:
@@ -20,31 +20,31 @@ semaphore:
       - '<b>Tipo de petición:</b> Solicitud de interés general'
   particular:
     logic: 'business days'
-    orange: '20'
-    red: '30'
+    orange: '9'
+    red: '15'
     title: 'Solicitud de interés particular'
     condition:
       - '<b>Tipo de radicado:</b> Peticiones'
       - '<b>Tipo de petición:</b> Solicitud de interés particular'
   informacion:
     logic: 'business days'
-    orange: '15'
-    red: '20'
+    orange: '5'
+    red: '10'
     title: 'Solicitud de documentos, copias, información'
     condition:
       - '<b>Tipo de radicado:</b> Peticiones'
       - '<b>Tipo de petición:</b> Solicitud de documentos, copias, información'
   publica:
     logic: 'business days'
-    orange: '15'
-    red: '20'
+    orange: '5'
+    red: '10'
     title: 'Solicitud de información pública'
     condition:
       - '<b>Tipo de radicado:</b> Peticiones'
       - '<b>Tipo de petición:</b> Solicitud de información pública'
   traslado:
     logic: 'business days'
-    orange: '8'
+    orange: '5'
     red: '10'
     title: 'Solicitud por traslado de otras entidades'
     condition:
@@ -52,15 +52,15 @@ semaphore:
       - '<b>Tipo de petición:</b> Solicitud por traslado de otras entidades'
   cargo:
     logic: 'business days'
-    orange: '25'
-    red: '35'
+    orange: '17'
+    red: '30'
     title: 'Solicitud de información relacionada al cargo'
     condition:
       - '<b>Tipo de radicado:</b> Peticiones'
       - '<b>Tipo de petición:</b> Solicitud de información relacionada al cargo'
   camaras:
     logic: 'calendar days'
-    orange: '8'
+    orange: '5'
     red: '10'
     title: 'Solicitud de información de camaras legislativas'
     condition:
@@ -68,7 +68,7 @@ semaphore:
       - '<b>Tipo de petición:</b> Solicitud de información de camaras legislativas'
   asesoria:
     logic: 'business days'
-    orange: '20'
+    orange: '25'
     red: '30'
     title: 'Solicitud de asesorias y capacitación'
     condition:
@@ -76,7 +76,7 @@ semaphore:
       - '<b>Tipo de petición:</b> Solicitud de asesorias y capacitación'
   irrespetuosa:
     logic: 'business days'
-    orange: '8'
+    orange: '5'
     red: '10'
     title: 'Solicitudes irrespetuosas, oscuras o reiterativas'
     condition:
@@ -84,7 +84,7 @@ semaphore:
       - '<b>Tipo de petición:</b> Solicitudes irrespetuosas, oscuras o reiterativas'
   incompleta|1:
     logic: 'business days'
-    orange: '8'
+    orange: '5'
     red: '10'
     title: 'Solicitud incompleta'
     condition:
@@ -93,7 +93,7 @@ semaphore:
       - '<b>Opción de extensión:</b> No seleccionada'
   incompleta|2:
     logic: 'business days'
-    orange: '20'
+    orange: '17'
     red: '30'
     title: 'Solicitud incompleta (extendida)'
     condition:
