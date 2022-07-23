@@ -4526,7 +4526,7 @@ display:
           keyboard: 1
           ride: 1
           navigation: 0
-          indicators: 0
+          indicators: 1
           pause: 0
           use_caption: 1
           wrap: 1
@@ -4693,10 +4693,10 @@ display:
           type: image
           settings:
             image_link: ''
-            image_style: ''
+            image_style: noticias_home
             svg_attributes:
               width: 355
-              height: 250
+              height: 245
             svg_render_as_image: true
             image_loading:
               attribute: lazy
@@ -4789,7 +4789,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"d-flex\">\r\n  <div>\r\n    {{ field_image_pr }}\r\n  </div>\r\n\r\n  <div class=\"m-5\">\r\n    <a href=\"{{ field_links_slide_pr }}\" target=\"_blank\" class=\"text-dark\">{{ field_abstract_pr }}</a>\r\n  </div>\r\n\r\n</div>"
+            text: "<div class=\"d-flex\">\r\n  <div>\r\n    {{ field_image_pr }}\r\n  </div>\r\n\r\n  <div class=\"m-5\">\r\n    <a href=\"{{ field_links_slide_pr }}\" target=\"_blank\" class=\"text-dark\">{{ field_abstract_pr }}</a>\r\n  </div>\r\n\r\n</div>\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -4826,6 +4826,10 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
+      access:
+        type: perm
+        options:
+          perm: 'access content'
       arguments: {  }
       filters:
         type_1:
@@ -4894,6 +4898,7 @@ display:
         type: fields
         options: {  }
       defaults:
+        access: false
         title: false
         css_class: false
         style: false
@@ -4926,7 +4931,7 @@ display:
       css_class: slider-summary
       display_description: ''
       display_extenders: {  }
-      block_description: 'Slider [ Home ]'
+      block_description: 'Slider [ PR ]'
     cache_metadata:
       max-age: -1
       contexts:
