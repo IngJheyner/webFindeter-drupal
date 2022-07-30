@@ -136,7 +136,26 @@
       <div class="summary pt-5">
 
         {# ===== ===== SLIDER SUMMARY ===== ===== #}
-        {{ drupal_view('slider','slider_summary_pr') }}
+        {#{ drupal_view('slider','slider_summary_pr') }#}
+        <div id="sliderSummary" class="carousel slide slider-summary" data-ride="carousel">
+          <ol class="carousel-indicators">
+             {% for key, value in content.field_summary_pr %}
+              {% if key matches '/^\\d+$/' %}
+                 <li data-target="#sliderSummary" data-slide-to="{{ key }}" class="{{ key == 0 ? 'active' : '' }}"></li>
+              {% endif %}
+            {% endfor %}
+
+          </ol>
+          <div class="carousel-inner">
+            {% for key, value in content.field_summary_pr %}
+              {% if key matches '/^\\d+$/' %}
+                <div class="carousel-item {{ key == 0 ? 'active' : '' }}">
+                {{ content.field_summary_pr[key] }}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
 
       </div>
 
@@ -233,9 +252,9 @@
     </section>
 
     {# ============================================
-    SECCION E
+    SECCION D
     =============================================== #}
-    <section class="seccion-d my-5 pt-5 container">
+    <section class="seccion-d my-5 pt-5 container" id="seccion-d">
 
       <h2 class="display-4 text-center">{{ content.field_info_links_great_works_pr[0] }}</h2>
 
@@ -271,7 +290,7 @@
     <hr>
 
     {# ============================================
-    SECCION F
+    SECCION E
     =============================================== #}
     <section class="seccion-e my-5 container">
       <div class="d-flex">
