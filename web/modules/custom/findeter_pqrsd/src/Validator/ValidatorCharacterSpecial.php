@@ -9,15 +9,16 @@ namespace Drupal\findeter_pqrsd\Validator;
  */
 class ValidatorCharacterSpecial extends BaseValidator {
 
-    /**
-     * @inheritDoc
-     */
-    public function validates($value,$allValues) {
-        if($value != ''){
-            return preg_match('/^[a-zA-Z\sñáéíóúÁÉÍÓÚ]+$/', $value);            
-        }else{
-            return true;
-        }
+  /**
+   * Se valida caracteres especialees.
+   */
+  public function validates($value, $allValues) {
+    if ($value != '') {
+      return preg_match('/^[a-zA-Z\sñáéíóúÁÉÍÓÚÑ]+$/', $value);
     }
+    else {
+      return TRUE;
+    }
+  }
 
 }

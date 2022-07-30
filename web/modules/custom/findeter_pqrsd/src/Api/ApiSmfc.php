@@ -638,7 +638,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
     }
 
     // Descripcion de solicitud field_pqrsd_descripcion.
-    $DescriptionSolic = $nodeStorage->get("field_pqrsd_descripcion")->getValue()[0]['value'];
+    $descriptionSolic = $nodeStorage->get("field_pqrsd_descripcion")->getValue()[0]['value'];
 
     // Anexo archivos para la queja.
     $anexFileComplaintsFile = $nodeStorage->get("field_pqrsd_archivo")->getValue();
@@ -656,7 +656,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
       '"codigo_pais": "170", '.
       '"departamento_cod": "'.$deptCodeDane.'", '.
       '"municipio_cod": "'.$mpioCodeDane.'", '.
-      '"canal_cod": null, '.
+      '"canal_cod": "13", '.
       '"producto_cod": "'.$codProduct.'", '.
       '"macro_motivo_cod": "'.$codMotive.'", '.
       '"fecha_creacion": "'.$created.'", '.
@@ -667,7 +667,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
       '"insta_recepcion": "'.$instanceRecep.'", '.
       '"punto_recepcion": "'.$formRecep.'", '.
       '"admision": "9", '.
-      '"texto_queja": "'.$DescriptionSolic.'", '.
+      '"texto_queja": "'.$descriptionSolic.'", '.
       '"anexo_queja": "'.$anexFileComplaints.'", '.
       '"ente_control": null}';
 

@@ -6,8 +6,10 @@ dependencies:
     - core.entity_view_mode.node.full
     - field.field.node.providencia_renace.body
     - field.field.node.providencia_renace.field_article_pr
+    - field.field.node.providencia_renace.field_image_banner_pr
     - field.field.node.providencia_renace.field_image_grid_a
     - field.field.node.providencia_renace.field_image_grid_d
+    - field.field.node.providencia_renace.field_image_url_banner_pr
     - field.field.node.providencia_renace.field_images_juxtapose_pr
     - field.field.node.providencia_renace.field_images_to_share
     - field.field.node.providencia_renace.field_images_video_info_pr
@@ -40,6 +42,21 @@ targetEntityType: node
 bundle: providencia_renace
 mode: full
 content:
+  field_image_banner_pr:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 14
+    region: content
   field_image_grid_a:
     type: slick_image
     label: hidden
@@ -147,6 +164,18 @@ content:
       field_formatter_class:
         class: ''
     weight: 5
+    region: content
+  field_image_url_banner_pr:
+    type: link_separate
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 15
     region: content
   field_images_juxtapose_pr:
     type: image

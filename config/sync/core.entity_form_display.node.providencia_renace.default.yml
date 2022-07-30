@@ -5,8 +5,10 @@ dependencies:
   config:
     - field.field.node.providencia_renace.body
     - field.field.node.providencia_renace.field_article_pr
+    - field.field.node.providencia_renace.field_image_banner_pr
     - field.field.node.providencia_renace.field_image_grid_a
     - field.field.node.providencia_renace.field_image_grid_d
+    - field.field.node.providencia_renace.field_image_url_banner_pr
     - field.field.node.providencia_renace.field_images_juxtapose_pr
     - field.field.node.providencia_renace.field_images_to_share
     - field.field.node.providencia_renace.field_images_video_info_pr
@@ -264,6 +266,8 @@ third_party_settings:
     group_share:
       children:
         - group_images_links_share
+        - field_image_url_banner_pr
+        - field_image_banner_pr
       label: Share
       region: content
       parent_name: group_group_pr
@@ -320,6 +324,14 @@ content:
       collapsed: false
       revision: false
     third_party_settings: {  }
+  field_image_banner_pr:
+    type: image_image
+    weight: 22
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
   field_image_grid_a:
     type: image_image
     weight: 21
@@ -335,6 +347,14 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_image_url_banner_pr:
+    type: link_default
+    weight: 21
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   field_images_juxtapose_pr:
     type: image_image

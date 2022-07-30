@@ -79,11 +79,11 @@
 %}
 
 {%
-  set urlGovCo = drupal_field('field_url_govco_header', 'block_content', 3)
+  set urlGovCo = drupal_field('field_url_govco_header', 'block_content', 4)
 %}
 
 {%
-  set urlImage = drupal_field('field_img_govco_encabezado_home', 'block_content', 3)
+  set urlImage = drupal_field('field_img_govco_encabezado_home', 'block_content', 4)
 %}
 
 <article{{ attributes.addClass(classes) }}>
@@ -295,6 +295,10 @@
           {% endif %}
         {% endfor %}
       </div>
+
+      <figure class="mt-4">
+        <a href="{{ content.field_image_url_banner_pr[0]['#url'] }}" target="_blank"><img onerror='this.remove();' src="{{ file_url(content.field_image_banner_pr[0]['#item'].entity.uri.value) }}" class="img-fluid"/></a>
+      </figure>
     </section>
   </div>
 </article>
