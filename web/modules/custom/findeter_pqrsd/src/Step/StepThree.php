@@ -13,6 +13,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
 
 use Drupal\Core\Messenger\MessengerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\findeter_pqrsd\Validator\ValidatorCharacterSpecial;
 
 /**
  * Class StepThree.
@@ -70,18 +71,18 @@ class StepThree extends BaseStep {
     $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'pqrsd');
 
     $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información del producto</h2>';
-   
+
     /* ============================================
     Se muestra valores de producto para findeter o SMFC
     para SMFC solo si la peticion es una Queja o Reclamo
-    esta cambia en su valor de indice mas no de item, 
+    esta cambia en su valor de indice mas no de item,
     SMFC numerico y Findeter caracter.
     =============================================== */
     $itemsProduct = $definitions['field_pqrsd_nombre_producto']->getSetting('allowed_values');
 
     //Obtenemos el valor de tipo de radicado
     $this->valuesStepZero = $steps[0]->getValues();
-    
+
     $optionsProduct = [];
     $optionsSmfc = [];
 
@@ -96,7 +97,7 @@ class StepThree extends BaseStep {
     $formStep['field_pqrsd_nombre_producto'] = [
       '#type'    => 'select',
       '#title'   => $definitions['field_pqrsd_nombre_producto']->getLabel(),
-      '#options' => ($this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Quejas' || 
+      '#options' => ($this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Quejas' ||
       $this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Reclamos') ? $optionsSmfc : $optionsProduct,
       '#empty_option' => '-Seleccione una opción-',
       '#prefix'       => '<div class="row mx-auto form-container"><div class="col-12 col-md-6 form-container-col">'
@@ -105,7 +106,7 @@ class StepThree extends BaseStep {
     /* ============================================
     Se muestra valores de motivos para findeter o SMFC
     para SMFC solo si la peticion es una Queja o Reclamo
-    esta cambia en su valor de indice mas no de item, 
+    esta cambia en su valor de indice mas no de item,
     SMFC numerico y Findeter caracter.
     =============================================== */
     $itemReason = $definitions['field_pqrsd_motivo']->getSetting('allowed_values');
@@ -120,7 +121,7 @@ class StepThree extends BaseStep {
         $optionsReason[$key] = $value;
     }
 
-    if($this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Quejas' || 
+    if($this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Quejas' ||
     $this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Reclamos'){
 
       $formStep['container_reason'] = [
@@ -148,7 +149,7 @@ class StepThree extends BaseStep {
           'allowClear' => FALSE,
         ],
       ];
-    }    
+    }
 
     $formStep['field_pqrsd_otros'] = [
       '#type'       => 'textfield',
@@ -178,7 +179,7 @@ class StepThree extends BaseStep {
       '#title'           => $definitions['field_pqrsd_archivo']->getLabel(),
       '#upload_location' => 'private://pqrsd/'.$this->valuesStepZero['field_pqrsd_tipo_radicado'].'/'.$date.'/'.$time.'/',
       '#upload_validators' => [
-        'file_validate_extensions' => [($this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Quejas' || 
+        'file_validate_extensions' => [($this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Quejas' ||
         $this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Reclamos') ? \Drupal::service('api.smfc')->getExtFile() : $fileSettings['file_extensions']],
         'file_validate_size'       => [20971520],
       ]
@@ -216,8 +217,8 @@ class StepThree extends BaseStep {
    */
   public function getFieldsValidators() {
 
-    if($this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Quejas' || 
-    $this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Reclamos'){
+    if ($this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Quejas' ||
+    $this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Reclamos') {
       return [
         'field_pqrsd_nombre_producto' => [
           new ValidatorRequired("Nombre del producto es requerido"),
@@ -227,9 +228,11 @@ class StepThree extends BaseStep {
         ],
         'field_pqrsd_descripcion' => [
           new ValidatorRequired("Descripción de su solicitud es requerido"),
+          new ValidatorCharacterSpecial("Descripción: No se permite caracteres especiales ni números."),
         ],
       ];
-    }else{
+    }
+    else {
       return [
         'field_pqrsd_nombre_producto' => [
           new ValidatorRequired("Nombre del producto es requerido"),
@@ -239,7 +242,7 @@ class StepThree extends BaseStep {
         ],
       ];
     }
-   
+
   }
 
 }

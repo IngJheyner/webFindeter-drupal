@@ -116,7 +116,10 @@ function _getBussinesDays($addDays, $day_answer = FALSE){
     \Drupal::service('logger.factory'));
 
     // Validar fecha de un dia feriado.
-    $feriado = $holiDays->isHoliDays($year, $mounth, $day);
+    $feriado = FALSE;
+    if (!$day_answer) {
+      $feriado = $holiDays->isHoliDays($year, $mounth, $day);
+    }
 
     // if it's Saturday or Sunday get $i-1
     if(($nextDay == 0 || $nextDay == 6) || $feriado) {

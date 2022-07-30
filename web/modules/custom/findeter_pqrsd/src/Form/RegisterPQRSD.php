@@ -79,7 +79,7 @@ class RegisterPQRSD extends FormBase {
    * @var Drupal\file\FileUsage\DatabaseFileUsageBackend $fileUsage
    */
   protected $fileUsage;
-  
+
    /**
    * Propiedad de tipos de entidades.
    *
@@ -193,7 +193,7 @@ class RegisterPQRSD extends FormBase {
     $form['wrapper']['actions']['#attributes'] = ['class'=>['row','justify-content-center', 'my-5']];
 
     $buttons = $this->step->getButtons();
-    
+
     foreach ($buttons as $button) {
 
       $form['wrapper']['actions'][$button->getKey()] = $button->build();
@@ -451,7 +451,7 @@ class RegisterPQRSD extends FormBase {
 
               //Se agegra el file entidad al arreglo filestorage declarado antes del ciclo for
               $fileStorageArray[$key] = $file;
-              
+
             }
           }
         }
@@ -465,9 +465,9 @@ class RegisterPQRSD extends FormBase {
     $newRequest->set('title', 'Radicado: '.$numeroRadicado.'.'.date('U'));
 
     // set "# radicado"
-    /* Si es un radicado de tipo Queja, se antepone el codigo de entidad de findeter para SMFC 
+    /* Si es un radicado de tipo Queja, se antepone el codigo de entidad de findeter para SMFC
     @author 3desarrollo===== ===== */
-    if($values['field_pqrsd_tipo_radicado'] == 'Quejas' || 
+    if($values['field_pqrsd_tipo_radicado'] == 'Quejas' ||
     $values['field_pqrsd_tipo_radicado'] == 'Reclamos'){
 
       $numeroRadicado = $this->apiSmfc->getTipCodeEntity($numeroRadicado);
@@ -475,7 +475,7 @@ class RegisterPQRSD extends FormBase {
 
     }else{
       $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);
-    }    
+    }
 
     $config = $this->config('findeter_pqrsd.admin');
 
@@ -502,15 +502,15 @@ class RegisterPQRSD extends FormBase {
 
     $newRequest->enforceIsNew();
     $newRequest->save();
-    
+
 
     /* Se agrega como archivos gestionados a file.usage  ===== ===== */
     foreach($fileStorageArray as $file){
 
       $this->fileUsage->add($file, 'findeter_pqrsd', 'node', $newRequest->id());
-           
+
     }
-     
+
     // send email
     if(isset($values['field_pqrsd_email']) && $values['field_pqrsd_email'] != ''){
 
@@ -528,7 +528,7 @@ class RegisterPQRSD extends FormBase {
       $mailBody[] = '<p>De antemano queremos agradecerle por haberse puesto en contacto con nosotros a traves del sistema de atención al usuario. Su opinión es muy importante para nosotros.</p>';
 
       $mailBody[] = '<p>Le informamos que su solicitud ha sido registrada satisfactoriamente con el código de radicado:<br><strong>'.$numeroRadicado.'</strong></p>';
-      
+
       $mailBody[] = '<p>Con este código podrá <a href="https://www.findeter.gov.co/estado-pqrsd">ingresar</a> para consultar el estado de la misma y si es el caso ampliar o enviar información adicional</p>';
 
       $mailBody[] = '<hr>';
@@ -564,13 +564,13 @@ class RegisterPQRSD extends FormBase {
     Queja o Reclamo.
     @author 3ddesarrollo
     =============================================== */
-    if($values['field_pqrsd_tipo_radicado'] == 'Quejas' || 
+    if($values['field_pqrsd_tipo_radicado'] == 'Quejas' ||
     $values['field_pqrsd_tipo_radicado'] == 'Reclamos'){
 
       /* Se guarda los nid como variables de estado para que despues
       sea registrado en la API SMFC. ==== ====== */
       $nid = $this->state->get('findeter_pqrsd.api_smfc_nid');
-      
+
       if(is_null($nid) || empty($nid)){
 
         $this->state->set('findeter_pqrsd.api_smfc_nid', [
@@ -589,7 +589,7 @@ class RegisterPQRSD extends FormBase {
         "created" => $newRequest->getCreatedTime(),
         "smfc" => FALSE,
         ];
-        
+
         $this->state->set('findeter_pqrsd.api_smfc_nid', $nid);
 
       }
