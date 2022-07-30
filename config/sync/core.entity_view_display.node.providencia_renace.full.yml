@@ -24,6 +24,7 @@ dependencies:
     - image.style.noticias_home
     - node.type.providencia_renace
   module:
+    - entity_reference_revisions
     - field_formatter_class
     - layout_builder
     - link
@@ -164,7 +165,7 @@ content:
     region: content
   field_images_to_share:
     type: image
-    label: above
+    label: hidden
     settings:
       image_link: ''
       image_style: ''
@@ -230,7 +231,7 @@ content:
     region: content
   field_links_share_pr:
     type: link
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -239,6 +240,15 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 12
+    region: content
+  field_summary_pr:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 13
     region: content
   field_url_grid_b_pr:
     type: link_separate
@@ -281,6 +291,5 @@ hidden:
   body: true
   field_article_pr: true
   field_slider_pr: true
-  field_summary_pr: true
   langcode: true
   links: true
