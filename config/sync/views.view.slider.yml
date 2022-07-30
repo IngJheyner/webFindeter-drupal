@@ -4526,7 +4526,7 @@ display:
           keyboard: 1
           ride: 1
           navigation: 0
-          indicators: 0
+          indicators: 1
           pause: 0
           use_caption: 1
           wrap: 1
@@ -4693,10 +4693,10 @@ display:
           type: image
           settings:
             image_link: ''
-            image_style: ''
+            image_style: noticias_home
             svg_attributes:
               width: 355
-              height: 250
+              height: 245
             svg_render_as_image: true
             image_loading:
               attribute: lazy
@@ -4826,6 +4826,10 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
+      access:
+        type: perm
+        options:
+          perm: 'access content'
       arguments: {  }
       filters:
         type_1:
@@ -4894,6 +4898,7 @@ display:
         type: fields
         options: {  }
       defaults:
+        access: false
         title: false
         css_class: false
         style: false
