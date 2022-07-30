@@ -228,6 +228,13 @@
     {# ============================================
     SECCION D
     =============================================== #}
+    <section class="seccion-a container-fluid px-0">
+      <img src="{{ file_url(node.field_imagen_fullwidth_providenc.entity.fileuri) }}" width="100%">
+    </section>
+
+    {# ============================================
+    SECCION E
+    =============================================== #}
     <section class="seccion-d my-5 pt-5 container">
 
       <h2 class="display-4 text-center">{{ content.field_info_links_great_works_pr[0] }}</h2>
@@ -240,7 +247,7 @@
           <iframe frameborder="0" class="juxtapose" width="100%" height="370"
           src="{{ content.field_url_juxtaposejs_pr[0]['#url'] }}">
           </iframe>
-          <a href="{{ content.field_links_great_obr_pr[0]['#uri'] }}" class="btn btn-primary btn-lg btn-block text-white">{{ content.field_links_great_obr_pr[0]['#title'] }}</a>
+          <a href="{{ content.field_links_great_obr_pr[0]['#url'] }}" class="btn btn-primary btn-lg btn-block text-white">{{ content.field_links_great_obr_pr[0]['#title'] }}</a>
 
         </div>
 
@@ -248,14 +255,14 @@
         <div class="col-4">
 
            <img onerror='this.remove();' src="{{ file_url(content.field_images_video_info_pr[0]['#item'].entity.uri.value) }}" class="img-fluid"/>
-           <a href="{{ content.field_links_great_obr_pr[1]['#uri'] }}" class="btn btn-primary btn-lg btn-block text-white mt-2">{{ content.field_links_great_obr_pr[1]['#title'] }}</a>
+           <a href="{{ content.field_links_great_obr_pr[1]['#url'] }}" class="btn btn-primary btn-lg btn-block text-white mt-2">{{ content.field_links_great_obr_pr[1]['#title'] }}</a>
 
         </div>
 
         {# ===== ===== Infografia ===== ===== #}
         <div class="col-4">
           <img onerror='this.remove();' src="{{ file_url(content.field_images_video_info_pr[1]['#item'].entity.uri.value) }}" class="img-fluid"/>
-          <a href="{{ content.field_links_great_obr_pr[2]['#uri'] }}" class="btn btn-primary btn-lg btn-block text-white mt-2">{{ content.field_links_great_obr_pr[2]['#title'] }}</a>
+          <a href="{{ content.field_links_great_obr_pr[2]['#url'] }}" class="btn btn-primary btn-lg btn-block text-white mt-2">{{ content.field_links_great_obr_pr[2]['#title'] }}</a>
         </div>
 
       </div>
@@ -264,7 +271,7 @@
     <hr>
 
     {# ============================================
-    SECCION E
+    SECCION F
     =============================================== #}
     <section class="seccion-e my-5 container">
       <div class="d-flex">
