@@ -154,7 +154,9 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
     // Credenciales de acceso.
     $this->credentials = $credentials;
 
-    $this->secretKey = $this->credentials[0]["secret_key"];
+    // Se pasa la llave secreta de forma arbitraria, ya que por un caracter % no dejo pasar el string desde el contenedor del servicio.
+    $this->secretKey = $this->credentials[0]["user"] == 'elondono@findeter.gov.co' ? 'tnx#cuuhn#ux15h5km_gey34u49m)=$ia*6mcr=o!8m1i8xp=w' : '0w=z)uo*ujlgwksjouz-uwbhih0@a=vn5jx(oi0er(!-fu4h^%';
+    
     $this->uri = $this->credentials[0]["uri"];
     $this->tipEntity = $this->credentials[0]['tip_entity'];
     $this->codeEntity = $this->credentials[0]['code_entity'];
