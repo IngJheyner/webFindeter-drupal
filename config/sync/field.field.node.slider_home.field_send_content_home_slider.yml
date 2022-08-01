@@ -1,0 +1,23 @@
+uuid: cb56af3e-2706-4771-843c-26fbd3550d92
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_send_content_home_slider
+    - node.type.slider_home
+id: node.slider_home.field_send_content_home_slider
+field_name: field_send_content_home_slider
+entity_type: node
+bundle: slider_home
+label: '¿Desea enviar el contenido a la pagina principal?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'true'
+  off_label: 'false'
+field_type: boolean

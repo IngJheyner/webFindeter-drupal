@@ -1,0 +1,59 @@
+uuid: c40a9fda-0fe1-465a-b9e3-d7f2ebd994be
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slider_pr.field_abstract_pr
+    - field.field.paragraph.slider_pr.field_image_pr
+    - field.field.paragraph.slider_pr.field_links_slide_pr
+    - image.style.noticias_home
+    - paragraphs.paragraphs_type.slider_pr
+  module:
+    - field_formatter_class
+    - link
+    - svg_image
+    - text
+id: paragraph.slider_pr.default
+targetEntityType: paragraph
+bundle: slider_pr
+mode: default
+content:
+  field_abstract_pr:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_image_pr:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: noticias_home
+      svg_attributes:
+        width: 355
+        height: 250
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 1
+    region: content
+  field_links_slide_pr:
+    type: link_separate
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: true
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 2
+    region: content
+hidden: {  }

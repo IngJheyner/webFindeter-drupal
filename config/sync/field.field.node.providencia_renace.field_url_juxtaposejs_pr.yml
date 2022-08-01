@@ -1,0 +1,23 @@
+uuid: 673cfe00-f043-4f65-95fc-48d36238bb4d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_url_juxtaposejs_pr
+    - node.type.providencia_renace
+  module:
+    - link
+id: node.providencia_renace.field_url_juxtaposejs_pr
+field_name: field_url_juxtaposejs_pr
+entity_type: node
+bundle: providencia_renace
+label: 'Url JuxtaposeJS'
+description: "- Utiliza el siguiente enlace para crear el la url o ruta que genera el JuxtaposeJS <strong>https://juxtapose.knightlab.com/#make</strong><br>\r\n- Copie la ruta relativa de las imagenes cargadas en el campo anterior<strong>Imagenes JuxtaposeJS</strong><br>\r\n- Utilice cada una de las opciones expuestas las mas importantes URL Izq. y URL der. las demas puedes dejarlas en blanco.<br>\r\n- En opciones solo seleccione Mostrar etiqueta y animar, la demas la puedes dejar deseleccionadas.<br>\r\n- Click en <strong>Publicar</strong> copie y pegue la url que esta en Compartir Enlace<br>"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

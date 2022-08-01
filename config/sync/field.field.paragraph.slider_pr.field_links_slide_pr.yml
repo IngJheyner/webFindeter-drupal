@@ -1,0 +1,23 @@
+uuid: e32f350e-1f9e-4e64-8dd9-98aed276a537
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_links_slide_pr
+    - paragraphs.paragraphs_type.slider_pr
+  module:
+    - link
+id: paragraph.slider_pr.field_links_slide_pr
+field_name: field_links_slide_pr
+entity_type: paragraph
+bundle: slider_pr
+label: Enlace
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

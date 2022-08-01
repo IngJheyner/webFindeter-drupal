@@ -1,0 +1,29 @@
+uuid: 0c90fbe3-1028-4d6c-89cd-7d33b6e87ee1
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_slider_pr
+    - node.type.providencia_renace
+    - node.type.slider_home
+id: node.providencia_renace.field_slider_pr
+field_name: field_slider_pr
+entity_type: node
+bundle: providencia_renace
+label: Slider
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      slider_home: slider_home
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

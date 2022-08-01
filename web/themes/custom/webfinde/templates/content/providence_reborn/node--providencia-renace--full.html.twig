@@ -1,0 +1,311 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - node.getCreatedTime() will return the node creation timestamp.
+ *   - node.hasField('field_example') returns TRUE if the node bundle includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   - node.isPublished() will return whether the node is published or not.
+ *   Calling other methods, such as node.delete(), will result in an exception.
+ *   See \Drupal\node\Entity\Node for a full list of public properties and
+ *   methods for the node object.
+ * - label: (optional) The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: (optional) Themed creation date field.
+ * - author_name: (optional) Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_node()
+ *
+ */
+#}
+{%
+  set classes = [
+    'node pr',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+{%
+  set urlGovCo = drupal_field('field_url_govco_header', 'block_content', 4)
+%}
+
+{%
+  set urlImage = drupal_field('field_img_govco_encabezado_home', 'block_content', 4)
+%}
+
+<article{{ attributes.addClass(classes) }}>
+
+  <div{{ content_attributes.addClass('node__content') }}>
+
+    {# ============================================
+    SECCION A
+    =============================================== #}
+    <section class="seccion-a container-fluid px-0">
+
+      {# ===== ===== MENU GOV CO ===== ===== #}
+      <div class="row m-0 menuGovCo">
+
+        {# ===== ===== Img govco ===== ===== #}
+        <div class="col-3 px-0 text-center d-none d-xl-block govCo">
+
+          <a href="{{ urlGovCo[0]['#title'] }}" target="_blank" tabindex="1">
+            <img onerror='this.remove();' src="{{ file_url(urlImage[0]['#item'].entity.uri.value) }}" class="img-fluid mt-2 mt-lg-0" />
+          </a>
+
+        </div>
+
+        {# ===== ===== Img Logo ===== ===== #}
+        <div class="col-9 col-sm-6 col-md-4 col-lg-3 pt-1 px-0 d-xl-none text-center govCo">
+
+          <a href="{{ url('<front>') }}"><img onerror='this.remove();' src="" class="img-fluid" /></a>
+
+        </div>
+
+        <div class="col-2 col-sm-3 col-md-5 col-lg-9 pr-0 d-none d-md-block">
+
+          {{ drupal_menu('menu-govco') }}
+
+        </div>
+
+      </div>
+
+      {# ===== ===== SLIDER IMAGE O VIDEO ===== ===== #}
+      {{ drupal_view('slider','slider_pr') }}
+
+    </section>
+
+
+    {# ============================================
+    SECCION B
+    =============================================== #}
+    <section class="seccion-b my-5 container">
+
+      <div class="summary pt-5">
+
+        {# ===== ===== SLIDER SUMMARY ===== ===== #}
+        {#{ drupal_view('slider','slider_summary_pr') }#}
+        <div id="sliderSummary" class="carousel slide slider-summary" data-ride="carousel">
+          <ol class="carousel-indicators">
+             {% for key, value in content.field_summary_pr %}
+              {% if key matches '/^\\d+$/' %}
+                 <li data-target="#sliderSummary" data-slide-to="{{ key }}" class="{{ key == 0 ? 'active' : '' }}"></li>
+              {% endif %}
+            {% endfor %}
+
+          </ol>
+          <div class="carousel-inner">
+            {% for key, value in content.field_summary_pr %}
+              {% if key matches '/^\\d+$/' %}
+                <div class="carousel-item {{ key == 0 ? 'active' : '' }}">
+                {{ content.field_summary_pr[key] }}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+
+      <div class="grid-container mt-5 pt-5">
+
+        {# ===== ===== Info. Grid A ===== ===== #}
+        <div class="grid-item">
+          {{ content.field_image_grid_a }}
+        </div>
+
+        {# ===== ===== Info. Grid B ===== ===== #}
+        <div class="grid-item p-4 shadow">
+
+          <h2>
+            {{ content.field_info_grid_b[0]}}
+            <br><br>
+            <a href="{{ content.field_url_grid_b_pr[0]['#url_title'] }}" class="btn btn-primary text-white">{{ content.field_url_grid_b_pr[0]['#title'] }}</a>
+          </h2>
+
+        </div>
+
+        {# ===== ===== Twitter ===== ===== #}
+        <div class="grid-item">
+
+          <div class="twitter" id="twitter" role="tabpanel" aria-labelledby="twitter-tab">
+
+            <a class="twitter-timeline" data-lang="es"
+            data-height="460"
+            data-chrome="nofooter noborders noheader"
+            data-cards="hidden"
+            {#data-tweet-limit="1"#}
+            href="https://twitter.com/Findeter?ref_src=twsrc%5Etfw">Tweets by Findeter</a>
+
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+          </div>
+
+        </div>
+
+        <div class="grid-item p-4 shadow">
+          <h2>
+            {{ content.field_info_grid_c_pr[0]}}
+            <br><br>
+            <a href="{{ content.field_url_grid_c_pr[0]['#url_title'] }}" class="btn btn-primary text-white">{{ content.field_url_grid_c_pr[0]['#title'] }}</a>
+          </h2>
+        </div>
+        {# ===== ===== Info. Grid D ===== ===== #}
+        <div class="grid-item">
+          {{ content.field_image_grid_d }}
+        </div>
+
+      </div>
+
+    </section>
+
+    {# ============================================
+    SECCION C
+    =============================================== #}
+    <section class="seccion-c my-5 pt-5">
+      <div class="casosExito">
+        <div class="container">
+          <div class="contenido">
+
+            <div class="encabezado d-flex">
+
+              <h1 class="flex-fill text-white">{{ 'Experiencia'|t }}</h1>
+              <div class="flex-fill pt-3">
+                <!--a href="#" class="text-white float-right">Todos los casos</a-->
+              </div>
+
+            </div>
+
+            <h1 class="mt-5 tituloCaso"></h1>
+            <p class="text-white mt-3 descripcionCaso"></p>
+            <button class="btn btn-default btn-lg mt-2 enlace text-dark" tabindex="1"
+            data-toggle="modal"
+            data-target="#modalTrayectoria">
+            {{ 'Ampliar información'|t }}</button>
+
+          </div>
+
+          {# ===== ===== ARTICULOS PR===== ===== #}
+          {{ drupal_view('slider','article_pr') }}
+
+        </div>
+      </div>
+    </section>
+
+    {# ============================================
+    SECCION D
+    =============================================== #}
+    <section class="seccion-a container-fluid px-0">
+      <img src="{{ file_url(node.field_imagen_fullwidth_providenc.entity.fileuri) }}" width="100%">
+    </section>
+
+    {# ============================================
+    SECCION D
+    =============================================== #}
+    <section class="seccion-d my-5 pt-5 container" id="seccion-d">
+
+      <h2 class="display-4 text-center">{{ content.field_info_links_great_works_pr[0] }}</h2>
+
+      <div class="row mt-4 pt-4">
+
+        {# ===== ===== Galeria de obras ===== ===== #}
+        <div class="col-4">
+
+          <iframe frameborder="0" class="juxtapose" width="100%" height="370"
+          src="{{ content.field_url_juxtaposejs_pr[0]['#url'] }}">
+          </iframe>
+          <a href="{{ content.field_links_great_obr_pr[0]['#url'] }}" class="btn btn-primary btn-lg btn-block text-white">{{ content.field_links_great_obr_pr[0]['#title'] }}</a>
+
+        </div>
+
+        {# ===== ===== Galeria de videos ===== ===== #}
+        <div class="col-4">
+
+           <img onerror='this.remove();' src="{{ file_url(content.field_images_video_info_pr[0]['#item'].entity.uri.value) }}" class="img-fluid"/>
+           <a href="{{ content.field_links_great_obr_pr[1]['#url'] }}" class="btn btn-primary btn-lg btn-block text-white mt-2">{{ content.field_links_great_obr_pr[1]['#title'] }}</a>
+
+        </div>
+
+        {# ===== ===== Infografia ===== ===== #}
+        <div class="col-4">
+          <img onerror='this.remove();' src="{{ file_url(content.field_images_video_info_pr[1]['#item'].entity.uri.value) }}" class="img-fluid"/>
+          <a href="{{ content.field_links_great_obr_pr[2]['#url'] }}" class="btn btn-primary btn-lg btn-block text-white mt-2">{{ content.field_links_great_obr_pr[2]['#title'] }}</a>
+        </div>
+
+      </div>
+    </section>
+
+    <hr>
+
+    {# ============================================
+    SECCION E
+    =============================================== #}
+    <section class="seccion-e my-5 container">
+      <div class="d-flex">
+        {% for key, value in content.field_images_to_share %}
+          {% if key matches '/^\\d+$/' %}
+            <div>
+            <a href="{{ content.field_links_share_pr[key]['#url'] }}" class="mx-4" target="_blank"><img onerror='this.remove();' src="{{ file_url(content.field_images_to_share[key]['#item'].entity.uri.value) }}" class="img-fluid"/></a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <figure class="mt-4">
+        <a href="{{ content.field_image_url_banner_pr[0]['#url'] }}" target="_blank"><img onerror='this.remove();' src="{{ file_url(content.field_image_banner_pr[0]['#item'].entity.uri.value) }}" class="img-fluid"/></a>
+      </figure>
+    </section>
+  </div>
+</article>

@@ -40,8 +40,8 @@ class RegisterPQRSDAdmin extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    
-    // see findeter_pqrsd.module    
+
+    // see findeter_pqrsd.module
     $form = buildPQRSDform();
 
     /*$valueUser = $form_state->getUserInput();
@@ -56,9 +56,9 @@ class RegisterPQRSDAdmin extends FormBase {
       $fileSettings = $definitions['field_pqrsd_archivo']->getSettings();
 
       $form['info_product']['field_pqrsd_archivo']['#upload_location'] = 'private://pqrsd/'.$valueUser['field_pqrsd_tipo_radicado'].'/'.$date.'/'.$nidHours.'/';
-        
+
       $form['info_product']['field_pqrsd_archivo']['#upload_validators'] = [
-        'file_validate_extensions' => [($valueUser['field_pqrsd_tipo_radicado'] == 'Quejas' || 
+        'file_validate_extensions' => [($valueUser['field_pqrsd_tipo_radicado'] == 'Quejas' ||
         $valueUser['field_pqrsd_tipo_radicado'] == 'Reclamos') ? \Drupal::service('api.smfc')->getExtFile() : $fileSettings['file_extensions']],
         'file_validate_size'       => [20971520],
       ];
@@ -66,12 +66,12 @@ class RegisterPQRSDAdmin extends FormBase {
     }*/
 
     $departmentValue = false;
-    
+
     $departmentValue = $form_state->getValue('field_pqrsd_departamento');
     if ($departmentValue) {
       $form['info_person']['field_pqrsd_municipio_container']['field_pqrsd_municipio_select']['#options'] = getTaxonomyTermsForm($departmentValue);
     }
-    
+
     return $form;
 
   }
@@ -194,7 +194,7 @@ class RegisterPQRSDAdmin extends FormBase {
 
     // set "# radicado"
     /*// Si es un radicado de tipo Queja, se antepone el codigo de entidad de findeter para SMFC ===== ===== */
-    if($form_state->getValue('field_pqrsd_tipo_radicado') == 'Quejas' || 
+    if($form_state->getValue('field_pqrsd_tipo_radicado') == 'Quejas' ||
     $form_state->getValue('field_pqrsd_tipo_radicado') == 'Reclamos'){
 
       $numeroRadicado = $apiSmfc->getTipCodeEntity($numeroRadicado);
@@ -202,7 +202,7 @@ class RegisterPQRSDAdmin extends FormBase {
 
     }else{
       $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);
-    } 
+    }
 
     // set "# radicado"
     //$newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);
@@ -333,7 +333,7 @@ class RegisterPQRSDAdmin extends FormBase {
     foreach($fileStorageArray as $file){
 
       $fileUsage->add($file, 'findeter_pqrsd', 'node', $newRequest->id());
-           
+
     }
 
     $url = Url::fromRoute('findeter_pqrsd.confirm_register_pqrsd_admin',['operation'=>'create','nid'=>$newRequest->id()]);
@@ -352,7 +352,7 @@ class RegisterPQRSDAdmin extends FormBase {
 
       $mailBody[] = '<p>Reciba un cordial saludo de parte de Findeter.</p>';
       $mailBody[] = '<p>De antemano queremos agradecerle por haberse puesto en contacto con nosotros a traves del sistema de atención al usuario. Su opinión es muy importante para nosotros.</p>';
-      $mailBody[] = '<p>Le informamos que su solicitud ha sido registrada satisfactoriamente con el código de radicado:<br><strong>'.$numeroRadicado.'</strong></p>';      
+      $mailBody[] = '<p>Le informamos que su solicitud ha sido registrada satisfactoriamente con el código de radicado:<br><strong>'.$numeroRadicado.'</strong></p>';
       $mailBody[] = '<p>Con este código podrá <a href="https://www.findeter.gov.co/estado-pqrsd">ingresar</a> para consultar el estado de la misma y si es el caso ampliar o enviar información adicional</p>';
       $mailBody[] = '<hr>';
       $mailBody[] = 'Cordialmente,';
@@ -378,14 +378,14 @@ class RegisterPQRSDAdmin extends FormBase {
     Queja o Reclamo.
     @author 3ddesarrollo
     =============================================== */
-    if($form_state->getValue('field_pqrsd_tipo_radicado') == 'Quejas' || 
+    if($form_state->getValue('field_pqrsd_tipo_radicado') == 'Quejas' ||
     $form_state->getValue('field_pqrsd_tipo_radicado') == 'Reclamos'){
 
       /* Se guarda los nid como variables de estado para que despues
       sea registrado en la API SMFC. ==== ====== */
       $state = \Drupal::service('state');
       $nid = $state->get('findeter_pqrsd.api_smfc_nid');
-      
+
       if(is_null($nid)){
 
         $state->set('findeter_pqrsd.api_smfc_nid', [
@@ -404,7 +404,7 @@ class RegisterPQRSDAdmin extends FormBase {
         "created" => $newRequest->getCreatedTime(),
         "smfc" => FALSE,
         ];
-        
+
         $state->set('findeter_pqrsd.api_smfc_nid', $nid);
 
       }

@@ -1,0 +1,29 @@
+uuid: c1a7a000-b78d-411d-ab78-f6397b3797f0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_article_pr
+    - node.type.casos_de_exito_home
+    - node.type.providencia_renace
+id: node.providencia_renace.field_article_pr
+field_name: field_article_pr
+entity_type: node
+bundle: providencia_renace
+label: Articulos
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      casos_de_exito_home: casos_de_exito_home
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

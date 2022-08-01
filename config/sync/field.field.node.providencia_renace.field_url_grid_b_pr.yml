@@ -1,0 +1,28 @@
+uuid: dad4331e-82b4-466f-91e3-6fcdd600781f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_url_grid_b_pr
+    - node.type.providencia_renace
+  module:
+    - link
+id: node.providencia_renace.field_url_grid_b_pr
+field_name: field_url_grid_b_pr
+entity_type: node
+bundle: providencia_renace
+label: 'Url. Grilla B'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    attributes: {  }
+    uri: 'internal:/providencia-renace#seccion-d'
+    title: 'Ingrese aquí'
+    options: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

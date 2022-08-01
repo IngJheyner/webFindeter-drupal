@@ -1,0 +1,46 @@
+uuid: 07bdda0d-c194-4f07-b660-a84d1bc0352b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slider_pr.field_abstract_pr
+    - field.field.paragraph.slider_pr.field_image_pr
+    - field.field.paragraph.slider_pr.field_links_slide_pr
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.slider_pr
+  module:
+    - link
+    - svg_image
+    - text
+id: paragraph.slider_pr.default
+targetEntityType: paragraph
+bundle: slider_pr
+mode: default
+content:
+  field_abstract_pr:
+    type: text_textarea
+    weight: 0
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_image_pr:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_links_slide_pr:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
