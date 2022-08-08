@@ -488,6 +488,7 @@ function findeter_pqrsd_cron() {
           else {
 
             $put = $apiSmfc->putComplaints($state['nid']);
+            //$put = TRUE;
 
             if(!$put)
               $nid[$key]["smfc"] = TRUE;
