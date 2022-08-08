@@ -4260,19 +4260,16 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        field_slider_pr_target_id:
-          id: field_slider_pr_target_id
-          table: node__field_slider_pr
-          field: field_slider_pr_target_id
+        field_send_content_home_slider_value:
+          id: field_send_content_home_slider_value
+          table: node__field_send_content_home_slider
+          field: field_send_content_home_slider_value
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: numeric
-          operator: empty
-          value:
-            min: ''
-            max: ''
-            value: ''
+          plugin_id: boolean
+          operator: '='
+          value: '1'
           group: 1
           exposed: false
           expose:
@@ -4289,9 +4286,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -4336,17 +4330,7 @@ display:
         arguments: false
         filters: false
         filter_groups: false
-      relationships:
-        reverse__node__field_slider_pr:
-          id: reverse__node__field_slider_pr
-          table: node_field_data
-          field: reverse__node__field_slider_pr
-          relationship: none
-          group_type: group
-          admin_label: field_slider_pr
-          entity_type: node
-          plugin_id: entity_reverse
-          required: false
+      relationships: {  }
       css_class: 'd-none d-md-block sliderHome'
       display_description: ''
       display_extenders: {  }
