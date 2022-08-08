@@ -190,7 +190,7 @@ class ApiSmfcHttp {
           $response = $client->request($method, $endpoint, [
             'headers' => [
               'X-SFC-Signature' => $signature,
-              'Content-Type' => isset($data['newEnpoint']) ? 'application/json' : "multipart/form-data; boundary='{$boundary->getBoundary()}'",
+              'Content-Type' => isset($data['newEnpoint']) ? 'application/json' : "multipart/form-data; boundary={$boundary->getBoundary()}",
               'Authorization' => "Bearer {$tokens['access']}",
             ],
             'body' => isset($data['newEnpoint']) ? NULL : new MultipartStream($multipart, $boundary),

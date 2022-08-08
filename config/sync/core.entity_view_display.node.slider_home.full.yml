@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.slider_home.body
+    - field.field.node.slider_home.field_link_slider
     - field.field.node.slider_home.field_send_content_home_slider
     - field.field.node.slider_home.field_video_slider
     - node.type.slider_home
@@ -28,6 +29,7 @@ content:
 hidden:
   addtoany: true
   body: true
+  field_link_slider: true
   field_send_content_home_slider: true
   field_video_slider: true
   langcode: true

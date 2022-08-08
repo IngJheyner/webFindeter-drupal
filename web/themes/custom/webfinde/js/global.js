@@ -15,8 +15,8 @@
             $(document, context).once('webfinde').each( function() {
 
                 /*===========================================
-                Desactovar google analitycs siempre y cuando se acepten 
-                terminos y politicas RGPD (Reglamento General de Protección de Datos). 
+                Desactovar google analitycs siempre y cuando se acepten
+                terminos y politicas RGPD (Reglamento General de Protección de Datos).
                 =============================================*/
                 /*if (!Drupal.eu_cookie_compliance.hasAgreed()){
                     window['ga-disable-UA-xxxx-1'] = true;
@@ -407,9 +407,9 @@
                     });
 
                     $(".convocatoriaCiudadano form .form-actions a").on('click', function() {
-                        
+
                         if (activarBusqueda === false) {
-                            
+
                             $(".convocatoriaCiudadano form .form--inline div:nth-child(5)").slideDown("slow");
                             $(".convocatoriaCiudadano form .form--inline div:nth-child(6)").slideDown("slow");
                             $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").slideDown("slow");
@@ -417,9 +417,9 @@
                             $(".convocatoriaCiudadano form .form--inline div:nth-child(9)").slideDown("slow");
                             $(".convocatoriaCiudadano form .form--inline fieldset").slideDown("slow");
                             activarBusqueda = true;
-                            
+
                         } else {
-                            
+
                             $(".convocatoriaCiudadano form .form--inline div:nth-child(5)").slideUp("slow");
                             $(".convocatoriaCiudadano form .form--inline div:nth-child(6)").slideUp("slow");
                             $(".convocatoriaCiudadano form .form--inline div:nth-child(7)").slideUp("slow");
@@ -471,10 +471,10 @@
                     }
                     else if ( arguments.length === 2 ) {
                         locale = 'en';
-                    }                 
+                    }
                     return function ( d, type, row ) {
                         var m = window.moment( d, from, locale, true );
-                 
+
                         // Order and type get a number value from Moment, everything else
                         // sees the rendered value
                         return m.format( type === 'sort' || type === 'type' ? 'x' : to );
@@ -579,11 +579,11 @@
 
                 if($(gridDefecto).attr('imgFondo') !== undefined){
                     $("div.casosExito").css({ 'background': 'url("' + $(gridDefecto).attr('imgFondo') + '")' });
-                }                
+                }
 
                 $("div.casosExito div.contenido h1.tituloCaso").html($(gridDefecto).attr('titulo'));
                 $("div.casosExito div.contenido p.descripcionCaso").html($(gridDefecto).attr('descripcion'));
-                //$("div.casosExito div.contenido a.enlace").attr("href", $(gridDefecto).attr('enlace'));
+                $("div.casosExito div.contenido a.enlace").attr("href", $(gridDefecto).attr('enlace'));
 
                 if ($(gridDefecto).attr('contenido') != "") {
                     $("div.casosExito div.contenido div#modalTrayectoria h5").html($(gridDefecto).attr('titulo'));

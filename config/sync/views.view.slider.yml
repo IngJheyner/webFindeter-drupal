@@ -8,6 +8,7 @@ dependencies:
     - field.storage.node.field_img_fondo_caso_exito
     - field.storage.node.field_img_noticia_home
     - field.storage.node.field_img_slider_pot
+    - field.storage.node.field_link_slider
     - field.storage.node.field_ruta_caso_exito
     - field.storage.node.field_tipo_noticia
     - field.storage.node.field_trayectoria_pot
@@ -813,7 +814,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"contenidoSlider\">\r\n{{ field_img_carrusel_caso_exito }}\r\n<a\r\ndescripcion=\"{{ body }}\"\r\ncontenido=\"{{ body_1|e('html')}}\"\r\nimgFondo=\"{{ field_img_fondo_caso_exito }}\"\r\ntitulo=\"{{ title_1 }}\"\r\n>\r\n{{ title }}\r\n</a>\r\n</div>"
+            text: "<div class=\"contenidoSlider\">\r\n{{ field_img_carrusel_caso_exito }}\r\n<a\r\ndescripcion=\"{{ body }}\"\r\ncontenido=\"{{ body_1|e('html')}}\"\r\nimgFondo=\"{{ field_img_fondo_caso_exito }}\"\r\ntitulo=\"{{ title_1 }}\"\r\nenlace=\"{{ field_ruta_caso_exito }}\"\r\n>\r\n{{ title }}\r\n</a>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -4113,6 +4114,73 @@ display:
     position: 1
     display_options:
       fields:
+        field_link_slider:
+          id: field_link_slider
+          table: node__field_link_slider
+          field: field_link_slider
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: true
+            path: ''
+            absolute: true
+            external: true
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: uri
+          type: link
+          settings:
+            trim_length: 300
+            url_only: true
+            url_plain: true
+            rel: '0'
+            target: '0'
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         field_video_slider:
           id: field_video_slider
           table: node__field_video_slider
@@ -4125,7 +4193,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: 'sites/default/files/webfinde/videos/slider_home/{{ field_video_slider }}'
+            text: 'sites/default/files/webfinde/videos/slider_home/{{field_video_slider}}'
             make_link: false
             path: ''
             absolute: false
@@ -4176,6 +4244,23 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created
+          exposed: false
+          granularity: second
       arguments: {  }
       filters:
         status:
@@ -4327,6 +4412,7 @@ display:
         row: false
         relationships: false
         fields: false
+        sorts: false
         arguments: false
         filters: false
         filter_groups: false
@@ -4343,6 +4429,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:field.storage.node.field_link_slider'
         - 'config:field.storage.node.field_video_slider'
   slider_pr:
     id: slider_pr
@@ -4351,6 +4438,73 @@ display:
     position: 1
     display_options:
       fields:
+        field_link_slider:
+          id: field_link_slider
+          table: node__field_link_slider
+          field: field_link_slider
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: uri
+          type: link
+          settings:
+            trim_length: 80
+            url_only: true
+            url_plain: true
+            rel: '0'
+            target: '0'
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         field_video_slider:
           id: field_video_slider
           table: node__field_video_slider
@@ -4553,6 +4707,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:field.storage.node.field_link_slider'
         - 'config:field.storage.node.field_video_slider'
   slider_summary_pr:
     id: slider_summary_pr

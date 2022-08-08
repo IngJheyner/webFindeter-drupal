@@ -173,7 +173,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
     // $this->login();
     // $this->refreshToken();
     // $this->postComplaints(277);
-    // $this->putComplaints(374);
+    // $this->putComplaints(403);
 
   }
 
@@ -802,7 +802,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
       $conditionSpecial = isset($nodeStorage->get('field_pqrsd_condicion_especial')->getValue()[0]['value']) ? $nodeStorage->get("field_pqrsd_condicion_especial")->getValue()[0]['value'] : 98;
 
       // Canal.
-      $canal = isset($nodeStorage->get('field_pqrsd_canal')->getValue()[0]['value']) ? $nodeStorage->get("field_pqrsd_canal")->getValue()[0]['value'] : NULL;
+      $canal = isset($nodeStorage->get('field_pqrsd_canal')->getValue()[0]['value']) ? $nodeStorage->get("field_pqrsd_canal")->getValue()[0]['value'] : "13";
 
       // Desistimiento.
       $withdrawal = isset($nodeStorage->get('field_pqrsd_desistimiento_queja')->getValue()[0]['value']) ? $nodeStorage->get("field_pqrsd_desistimiento_queja")->getValue()[0]['value'] : NULL;
@@ -845,7 +845,12 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
 
       if (isset($response['code'])) {
 
-        $this->logger->get('API SMFC')->warning("Code: %code Mensaje actualizacion de radicado: %message <br> Se ha producido un error al actualizar radicado No. %settled como cliente web services en el sistema <strong> API SMFC.", ['%code' => $response['code'], '%message' => $response['message'], '%settled' => $codComplaints]);
+        $this->logger->get('API SMFC')->warning("Code: %code Mensaje actualizacion de radicado: %message <br> Se ha producido un error al actualizar radicado No. %settled como cliente web services en el sistema <strong> API SMFC.",
+        [
+          '%code' => $response['code'],
+          '%message' => $response['message'],
+          '%settled' => $codComplaints
+        ]);
 
         return FALSE;
 
@@ -874,7 +879,12 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
 
             if (isset($response['code'])) {
 
-              $this->logger->get('API SMFC')->warning("Code: %code Mensaje anexo respuesta radicado: %message <br> Se ha producido un error al crear el anexo de respuesta radicado No. %settled como cliente web services en el sistema <strong> API SMFC.", ['%code' => $response['code'], '%message' => $response['message'], '%settled' => $codComplaints]);
+              $this->logger->get('API SMFC')->warning("Code: %code Mensaje anexo respuesta radicado: %message <br> Se ha producido un error al crear el anexo de respuesta radicado No. %settled como cliente web services en el sistema <strong> API SMFC.",
+              [
+                '%code' => $response['code'],
+                '%message' => $response['message'],
+                '%settled' => $codComplaints
+              ]);
 
               return FALSE;
 
