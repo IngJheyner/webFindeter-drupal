@@ -121,8 +121,8 @@ class StepThree extends BaseStep {
         $optionsReason[$key] = $value;
     }
 
-    if($this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Quejas' ||
-    $this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Reclamos'){
+    if ($this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Quejas' ||
+    $this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Reclamos') {
 
       $formStep['container_reason'] = [
         '#type' => 'container',
@@ -139,7 +139,8 @@ class StepThree extends BaseStep {
         ],
       ];
 
-    }else{
+    }
+    else {
       $formStep['field_pqrsd_motivo'] = [
         '#type'    => 'select',
         '#title'   => $definitions['field_pqrsd_motivo']->getLabel(),
@@ -154,7 +155,7 @@ class StepThree extends BaseStep {
     $formStep['field_pqrsd_otros'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_pqrsd_otros']->getLabel(),
-      '#attributes' => ['placeholder'=>'Especifique cuál']
+      '#attributes' => ['placeholder' => 'Especifique cuál']
     ];
 
     /* ============================================
@@ -165,19 +166,19 @@ class StepThree extends BaseStep {
 
     $fileSettings = $definitions['field_pqrsd_archivo']->getSettings();
 
-    $dateTimestamp= strtotime(new DrupalDateTime());
-    $date =  \Drupal::service('date.formatter')->format($dateTimestamp, 'custom', 'Y-m-d');
-    $time =  str_replace(" ", "", (\Drupal::service('date.formatter')->format($dateTimestamp, 'custom', '\T\ H')));
+    $dateTimestamp = strtotime(new DrupalDateTime());
+    $date = \Drupal::service('date.formatter')->format($dateTimestamp, 'custom', 'Y-m-d');
+    $time = str_replace(" ", "", (\Drupal::service('date.formatter')->format($dateTimestamp, 'custom', '\T\ H')));
 
     $time .= isset($valuesStepTwo['field_pqrsd_numero_id']) ? '---'.$valuesStepTwo['field_pqrsd_numero_id'] : '---NIT'.$valuesStepTwo['field_pqrsd_nit'];
 
-    // end col 1
+    // End col 1.
     $formStep['field_pqrsd_archivo'] = [
       '#type'            => 'managed_file',
       '#cardinality'     => 3,
       '#multiple'        => TRUE,
       '#title'           => $definitions['field_pqrsd_archivo']->getLabel(),
-      '#upload_location' => 'private://pqrsd/'.$this->valuesStepZero['field_pqrsd_tipo_radicado'].'/'.$date.'/'.$time.'/',
+      '#upload_location' => "private://pqrsd/{$this->valuesStepZero['field_pqrsd_tipo_radicado']}/$date/$time/",
       '#upload_validators' => [
         'file_validate_extensions' => [($this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Quejas' ||
         $this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Reclamos') ? \Drupal::service('api.smfc')->getExtFile() : $fileSettings['file_extensions']],
@@ -185,12 +186,12 @@ class StepThree extends BaseStep {
       ]
     ];
 
-    // start/end col 1
+    // Start/end col 1.
     $formStep['field_pqrsd_descripcion'] = [
       '#type'        => 'textarea',
       '#maxlength'   => 3500,
       '#title'       => $definitions['field_pqrsd_descripcion']->getLabel(),
-      '#attributes'  => ['placeholder'=>'Escriba el detalle de su Petición, Queja, Reclamo, Sugerencia o Denuncia.','id'=>'edit-field-request-description'],
+      '#attributes'  => ['placeholder' => 'Escriba el detalle de su Petición, Queja, Reclamo, Sugerencia o Denuncia.','id'=>'edit-field-request-description'],
       '#description' => '<div>Puede ingresar hasta un máximo de 3500 caracteres. <br>Caracteres ingresados: <span class="counter-char">-</span>, máximo 3500 caracteres.</div>',
       '#prefix'      => '</div><div class="col-12 col-md-6 form-container-col">',
       '#suffix'      => '</div></div>'
@@ -229,7 +230,7 @@ class StepThree extends BaseStep {
         'field_pqrsd_descripcion' => [
           new ValidatorRequired("Descripción de su solicitud es requerido"),
           new ValidatorCharacterSpecial("Descripción: No se permite caracteres especiales ni números."),
-        ],
+        ]
       ];
     }
     else {

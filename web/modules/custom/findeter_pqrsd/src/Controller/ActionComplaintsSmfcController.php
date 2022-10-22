@@ -346,18 +346,7 @@ class ActionComplaintsSmfcController extends ControllerBase {
             }
 
             // Telefono.
-            if (!isset($value['telefono'])) {
-
-              // Se agregan los valores a la variable resultado para ser mostrados.
-              $context['results']['error_save'][] = $value;
-              // Actualizar el progreso de informacion.
-              $context['sandbox']['progress']++;
-
-              throw new \Exception(t("An error occurred while saving the node telefono. Complaint code: @code", ['@code' => $value['codigo_queja']]));
-              // Ocurrió un error al guardar la fecha del nodo. Código de queja:
-
-            }
-            else {
+            if (!is_null($value['telefono'])) {
               $newRequest->set('field_pqrsd_telefono', $value['telefono']);
             }
 
