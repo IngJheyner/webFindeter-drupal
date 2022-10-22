@@ -62,12 +62,12 @@ class StepFour extends BaseStep {
   /**
    * {@inheritdoc}
    */
-  public function buildStepFormElements($steps,$form,$form_state) {
+  public function buildStepFormElements($steps, $form, $form_state) {
 
-    // Get the definitions
+    // Get the definitions.
     $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'pqrsd');
 
-    // used as a container. It close with suffix attribute in the last element in this step
+    // Used as a container. It close with suffix attribute in the last element in this step.
     $formStep['content_fields'] = [
       '#type'       => 'container',
       '#attributes' => ['class' => ['row']],
@@ -76,22 +76,20 @@ class StepFour extends BaseStep {
 
     $values = $steps[1]->getValues();
 
-    // just for anonimous, take these fields
-    if($values['field_pqrsd_tipo_solicitante'] == 'anonimo'){
+    // Just for anonimous, take these fields.
+    if ($values['field_pqrsd_tipo_solicitante'] == 'anonimo') {
 
       $formStep['title_anonimous']['#markup'] = '<h2 class="text-center mt-4 mb-5">¿Usted desea ser notificado frente al trámite de esta solicitud?</h2>';
 
       $formStep['field_qprsd_answer_channel_anonimous'] = [
         '#type'          => 'radios',
-        '#validate'      => true,
-        '#options'       => [0=>'Si',1=>'No'],
+        '#validate'      => TRUE,
+        '#options'       => [0 => 'Si', 1 => 'No'],
         '#default_value' => 1,
-        '#attributes'    => ['id' => ['field-contact-answer-channel-anonimous']
-        ],
+        '#attributes'    => ['id' => ['field-contact-answer-channel-anonimous']],
       ];
 
     }
-    
     $formStep['title'] = [
       '#markup' => '<h2 class="text-center mt-4 mb-5">Seleccione el canal por medio del cual le gustaría recibir la respuesta a su solicitud</h2>',
       '#prefix' => '<div id="no-anonimous">'
@@ -120,7 +118,6 @@ class StepFour extends BaseStep {
 
     return $formStep;
   }
-
 
   /**
    * {@inheritdoc}

@@ -158,7 +158,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
     // Se pasa la llave secreta.
     $this->secretKey = Settings::get('api_smfc_key');
 
-    $this->uri = $this->credentials[0]["uri"];
+    $this->uri = Settings::get('api_smfc_uri');
     $this->tipEntity = $this->credentials[0]['tip_entity'];
     $this->codeEntity = $this->credentials[0]['code_entity'];
 
@@ -358,7 +358,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
                     }
                     else {
                       // Se actualiza los archivos anexos a este radicado ya registrado.
-                      $this->_referenceFileAnex(current($nidNode), $files);
+                      $this->referenceFileAnex(current($nidNode), $files);
 
                       // Se agrega un nuevo indice a $value con el valor de ser actualizado el nuevo archivo agregado al sitio.
                       $value['radicado_update'] = 'update_files';
@@ -985,7 +985,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
    * @param mixed $files
    *   Files.
    */
-  public function _referenceFileAnex($nid, $files) {
+  public function referenceFileAnex($nid, $files) {
 
     // Entidad de tipo node.
     $nodeStorage = $this->entityTypeManager->getStorage('node');

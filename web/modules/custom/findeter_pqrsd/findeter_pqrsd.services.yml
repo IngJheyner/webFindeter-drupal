@@ -4,4 +4,4 @@ services:
     arguments: ["%api.credentials%", '@http_client_factory', '@logger.factory', '@state', '@entity_type.manager', '@date.formatter', '@file_system', '@file.repository', '@file.usage']
 parameters:
   api.credentials:
-    - {uri: 'https://qasmart.superfinanciera.gov.co/api/', tip_entity: '22', code_entity: '2'}
+    - {tip_entity: '22', code_entity: '2'}

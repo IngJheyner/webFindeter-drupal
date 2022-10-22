@@ -115,10 +115,12 @@ class StepThree extends BaseStep {
     $optionsReasonSmfc = [];
 
     foreach ($itemReason as $key => $value) {
-      if(is_numeric($key))
+      if (is_numeric($key)) {
         $optionsReasonSmfc[$key] = $value;
-      else
+      }
+      else {
         $optionsReason[$key] = $value;
+      }
     }
 
     if ($this->valuesStepZero['field_pqrsd_tipo_radicado'] == 'Quejas' ||
@@ -161,7 +163,7 @@ class StepThree extends BaseStep {
     /* ============================================
     Moficacion al cargue de anexo del radicado
     =============================================== */
-    //Obtenemos el valor de numero ID
+    // Obtenemos el valor de numero ID.
     $valuesStepTwo = $steps[2]->getValues();
 
     $fileSettings = $definitions['field_pqrsd_archivo']->getSettings();
@@ -191,7 +193,10 @@ class StepThree extends BaseStep {
       '#type'        => 'textarea',
       '#maxlength'   => 3500,
       '#title'       => $definitions['field_pqrsd_descripcion']->getLabel(),
-      '#attributes'  => ['placeholder' => 'Escriba el detalle de su Petición, Queja, Reclamo, Sugerencia o Denuncia.','id'=>'edit-field-request-description'],
+      '#attributes'  => [
+        'placeholder' => 'Escriba el detalle de su Petición, Queja, Reclamo, Sugerencia o Denuncia.',
+        'id' => 'edit-field-request-description'
+      ],
       '#description' => '<div>Puede ingresar hasta un máximo de 3500 caracteres. <br>Caracteres ingresados: <span class="counter-char">-</span>, máximo 3500 caracteres.</div>',
       '#prefix'      => '</div><div class="col-12 col-md-6 form-container-col">',
       '#suffix'      => '</div></div>'
