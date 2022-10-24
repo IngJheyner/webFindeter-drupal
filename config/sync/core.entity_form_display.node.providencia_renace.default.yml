@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.providencia_renace.body
     - field.field.node.providencia_renace.field_article_pr
+    - field.field.node.providencia_renace.field_enlace_de_infografia
     - field.field.node.providencia_renace.field_image_banner_pr
     - field.field.node.providencia_renace.field_image_grid_a
     - field.field.node.providencia_renace.field_image_grid_d
@@ -301,6 +302,7 @@ third_party_settings:
     group_infografia:
       children:
         - field_imagen_fullwidth_providenc
+        - field_enlace_de_infografia
       label: Infografia
       region: content
       parent_name: group_group_pr
@@ -340,6 +342,14 @@ content:
       collapsible: false
       collapsed: false
       revision: false
+    third_party_settings: {  }
+  field_enlace_de_infografia:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   field_image_banner_pr:
     type: image_image

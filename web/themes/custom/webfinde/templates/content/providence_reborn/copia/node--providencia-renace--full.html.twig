@@ -138,6 +138,14 @@
         {# ===== ===== SLIDER SUMMARY ===== ===== #}
         {#{ drupal_view('slider','slider_summary_pr') }#}
         <div id="sliderSummary" class="carousel slide slider-summary" data-ride="carousel">
+          <ol class="carousel-indicators">
+             {% for key, value in content.field_summary_pr %}
+              {% if key matches '/^\\d+$/' %}
+                 <li data-target="#sliderSummary" data-slide-to="{{ key }}" class="{{ key == 0 ? 'active' : '' }}"></li>
+              {% endif %}
+            {% endfor %}
+
+          </ol>
           <div class="carousel-inner">
             {% for key, value in content.field_summary_pr %}
               {% if key matches '/^\\d+$/' %}
@@ -147,65 +155,58 @@
               {% endif %}
             {% endfor %}
           </div>
-          <div class="row" style="display: inline-block; margin-top: 50px !important;">
-            <ol class="carousel-indicators">
-              {% for key, value in content.field_summary_pr %}
-                {% if key matches '/^\\d+$/' %}
-                  <li data-target="#sliderSummary" data-slide-to="{{ key }}" class="{{ key == 0 ? 'active' : '' }}"></li>
-                {% endif %}
-              {% endfor %}
-            </ol>
-          </div>
         </div>
 
       </div>
-      <div class="row">
-       <div class="col-md-8">
-        <div class="row mb-4">
-          {# ===== ===== Info. Grid A ===== ===== #}
-            <div class="col-md-6">
-              {{ content.field_image_grid_a }}
-            </div>
 
-          {# ===== ===== Info. Grid B ===== ===== #}
-          <div class="col-md-6 p-4 shadow">
-            <h2>
-              {{ content.field_info_grid_b[0]}}
-              <br><br>
-              <a href="{{ content.field_url_grid_b_pr[0]['#url_title'] }}" class="btn btn-primary text-white">{{ content.field_url_grid_b_pr[0]['#title'] }}</a>
-            </h2>
-          </div>
+      <div class="grid-container mt-5 pt-5">
+
+        {# ===== ===== Info. Grid A ===== ===== #}
+        <div class="grid-item">
+          {{ content.field_image_grid_a }}
         </div>
-        <div class="row mb-4">
-          <div class="col-md-6 p-4 shadow">
-            <h2>
-              {{ content.field_info_grid_c_pr[0]}}
-              <br><br>
-              <a href="{{ content.field_url_grid_c_pr[0]['#url_title'] }}" class="btn btn-primary text-white">{{ content.field_url_grid_c_pr[0]['#title'] }}</a>
-            </h2>
-          </div>
-          {# ===== ===== Info. Grid D ===== ===== #}
-          <div class="col-md-6">
-            {{ content.field_image_grid_d }}
-          </div>
+
+        {# ===== ===== Info. Grid B ===== ===== #}
+        <div class="grid-item p-4 shadow">
+
+          <h2>
+            {{ content.field_info_grid_b[0]}}
+            <br><br>
+            <a href="{{ content.field_url_grid_b_pr[0]['#url_title'] }}" class="btn btn-primary text-white">{{ content.field_url_grid_b_pr[0]['#title'] }}</a>
+          </h2>
+
         </div>
-       </div>
-       <div class="col-md-4">
-        <div class="row mt-5 d-flex justify-content-center">
-          {# ===== ===== Twitter ===== ===== #}
-            <div class="twitter" id="twitter" role="tabpanel" aria-labelledby="twitter-tab">
 
-              <a class="twitter-timeline" data-lang="es"
-              data-height="460"
-              data-chrome="nofooter noborders noheader"
-              data-cards="hidden"
-              {#data-tweet-limit="1"#}
-              href="https://twitter.com/Findeter?ref_src=twsrc%5Etfw">Tweets by Findeter</a>
+        {# ===== ===== Twitter ===== ===== #}
+        <div class="grid-item">
 
-              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-        </div> 
-       </div>
+          <div class="twitter" id="twitter" role="tabpanel" aria-labelledby="twitter-tab">
+
+            <a class="twitter-timeline" data-lang="es"
+            data-height="460"
+            data-chrome="nofooter noborders noheader"
+            data-cards="hidden"
+            {#data-tweet-limit="1"#}
+            href="https://twitter.com/Findeter?ref_src=twsrc%5Etfw">Tweets by Findeter</a>
+
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+          </div>
+
+        </div>
+
+        <div class="grid-item p-4 shadow">
+          <h2>
+            {{ content.field_info_grid_c_pr[0]}}
+            <br><br>
+            <a href="{{ content.field_url_grid_c_pr[0]['#url_title'] }}" class="btn btn-primary text-white">{{ content.field_url_grid_c_pr[0]['#title'] }}</a>
+          </h2>
+        </div>
+        {# ===== ===== Info. Grid D ===== ===== #}
+        <div class="grid-item">
+          {{ content.field_image_grid_d }}
+        </div>
+
       </div>
 
     </section>
@@ -219,7 +220,8 @@
           <div class="contenido">
 
             <div class="encabezado d-flex">
-              <h1 class="flex-fill text-white">{{ 'Memorias de la reconstrucción'|t }}</h1>
+
+              <h1 class="flex-fill text-white">{{ 'Experiencia'|t }}</h1>
               <div class="flex-fill pt-3">
                 <!--a href="#" class="text-white float-right">Todos los casos</a-->
               </div>
@@ -228,8 +230,10 @@
 
             <h1 class="mt-5 tituloCaso"></h1>
             <p class="text-white mt-3 descripcionCaso"></p>
-            <a class="btn btn-default btn-lg mt-2 enlace text-dark" target="_blank">
-            {{ 'Ampliar información'|t }}</a>
+            <button class="btn btn-default btn-lg mt-2 enlace text-dark" tabindex="1"
+            data-toggle="modal"
+            data-target="#modalTrayectoria">
+            {{ 'Ampliar información'|t }}</button>
 
           </div>
 
@@ -244,13 +248,11 @@
     SECCION D
     =============================================== #}
     <section class="seccion-a container-fluid px-0">
-      <a href="{{ node.field_enlace_de_infografia.0.url }}">    
-        <img src="{{ file_url(node.field_imagen_fullwidth_providenc.entity.fileuri) }}" width="100%">
-      </a>
+      <img src="{{ file_url(node.field_imagen_fullwidth_providenc.entity.fileuri) }}" width="100%">
     </section>
 
     {# ============================================
-    SECCION E
+    SECCION D
     =============================================== #}
     <section class="seccion-d my-5 pt-5 container" id="seccion-d">
 
@@ -259,7 +261,7 @@
       <div class="row mt-4 pt-4">
 
         {# ===== ===== Galeria de obras ===== ===== #}
-        <div class="col-md-4 col-sm-12">
+        <div class="col-4">
 
           <iframe frameborder="0" class="juxtapose" width="100%" height="370"
           src="{{ content.field_url_juxtaposejs_pr[0]['#url'] }}">
@@ -269,7 +271,7 @@
         </div>
 
         {# ===== ===== Galeria de videos ===== ===== #}
-        <div class="col-md-4 col-sm-12">
+        <div class="col-4">
 
            <img onerror='this.remove();' src="{{ file_url(content.field_images_video_info_pr[0]['#item'].entity.uri.value) }}" class="img-fluid"/>
            <a href="{{ content.field_links_great_obr_pr[1]['#url'] }}" class="btn btn-primary btn-lg btn-block text-white mt-2">{{ content.field_links_great_obr_pr[1]['#title'] }}</a>
@@ -277,7 +279,7 @@
         </div>
 
         {# ===== ===== Infografia ===== ===== #}
-        <div class="col-md-4 col-sm-12">
+        <div class="col-4">
           <img onerror='this.remove();' src="{{ file_url(content.field_images_video_info_pr[1]['#item'].entity.uri.value) }}" class="img-fluid"/>
           <a href="{{ content.field_links_great_obr_pr[2]['#url'] }}" class="btn btn-primary btn-lg btn-block text-white mt-2">{{ content.field_links_great_obr_pr[2]['#title'] }}</a>
         </div>
@@ -288,7 +290,7 @@
     <hr>
 
     {# ============================================
-    SECCION F
+    SECCION E
     =============================================== #}
     <section class="seccion-e my-5 container">
       <div class="d-flex">
