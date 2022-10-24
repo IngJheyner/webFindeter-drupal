@@ -4,10 +4,11 @@
  * Configuracion y modificacion de funciones y preprocesos en formularios, entidades del sitio. Findeter
  */
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\devel\Plugin\Devel\Dumper\Kint;
 use Drupal\user\Entity\User;
 
 /**
- * Implements hook_cron().
+ * Implements findeter_webfinde_cron().
  * @author 3ddesarrollo <email@email.com>
  */
 function findeter_webfinde_cron() {
@@ -59,11 +60,14 @@ function findeter_webfinde_form_alter(&$form, FormStateInterface $form_state, $f
 
   }
 
+  if ($form['#id'] == 'node-convocatorias-edit-form') {
+    $form['title']['widget'][0]['value']['#attributes']['readonly'] = 'readonly';
+  }
+
 }
 
-function findeter_webfinde_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) { 
+function findeter_webfinde_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
   $rolesUser = \Drupal::currentUser()->getRoles();
-
   /* ============================================
   ARCHIVOS CONVOCATORIAS MEDIA
   =============================================== */
@@ -71,4 +75,3 @@ function findeter_webfinde_inline_entity_form_entity_form_alter(&$entity_form, &
     hide($entity_form['created']);
   }
 }
-

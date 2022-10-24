@@ -3,8 +3,12 @@ langcode: es
 status: true
 dependencies:
   module:
+    - field_permissions
     - node
     - taxonomy
+third_party_settings:
+  field_permissions:
+    permission_type: custom
 id: node.field_convcatoria_programa
 field_name: field_convcatoria_programa
 entity_type: node
