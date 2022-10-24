@@ -19,16 +19,22 @@
  */
 #}
 
+
+{#{ drupal_dump(field) }#}
+
 {% set type =  output|split('.') %}
+
+{% set link = field.last_tokens["{{ field_link_slider }}"] is empty ? '#' : field.last_tokens["{{ field_link_slider }}"] %}
+
+{% set target = field.last_tokens["{{ field_link_slider }}"] is empty ? '' : "target='_blank'" %}
 
 {% if type[1] == 'mp4' %}
 
-<video webkit-playsinline="" data-covervideo-video="" playsinline="" loop="" muted="muted" autoplay="" width="100%" id="videoHome">
-    <source src="{{ output -}}" type="video/mp4">
+<a href="{{ link }}" {{ target }}><video webkit-playsinline="" data-covervideo-video="" playsinline="" loop="" muted="muted" autoplay="" width="100%" id="videoHome">
+    <source src="{{ output -}}" type="video/mp4"></a>
 </video>
 
 {% else %}
-
-<img src="{{ output }}" width="100%">
+<a href="{{ link }}" {{ target }}><img src="{{ output }}" width="100%"></a>
 
 {% endif %}

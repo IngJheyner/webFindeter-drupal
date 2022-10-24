@@ -190,7 +190,7 @@ class ApiSmfcHttp {
           $response = $client->request($method, $endpoint, [
             'headers' => [
               'X-SFC-Signature' => $signature,
-              'Content-Type' => isset($data['newEnpoint']) ? 'application/json' : "multipart/form-data; boundary='{$boundary->getBoundary()}'",
+              'Content-Type' => isset($data['newEnpoint']) ? 'application/json' : "multipart/form-data; boundary={$boundary->getBoundary()}",
               'Authorization' => "Bearer {$tokens['access']}",
             ],
             'body' => isset($data['newEnpoint']) ? NULL : new MultipartStream($multipart, $boundary),
@@ -200,7 +200,13 @@ class ApiSmfcHttp {
 
             $dataResponse = Json::decode($response->getBody());
 
-            $this->logger->get('API SMFC')->info("Code: %code Mensaje: %message, Se ha creado el anexo con ID %id, radicado No. %settled cliente web services en el sistema <strong> API SMFC.", ['%code' => $response->getStatusCode(), '%message' => $response->getReasonPhrase(), '%settled' => $dataResponse['codigo_queja'], '%id' => $dataResponse['id']]);
+            $this->logger->get('API SMFC')->info("Code: %code Mensaje: %message, Se ha creado el anexo con ID %id, radicado No. %settled cliente web services en el sistema <strong> API SMFC.",
+            [
+              '%code' => $response->getStatusCode(),
+              '%message' => $response->getReasonPhrase(),
+              '%settled' => $dataResponse['codigo_queja'],
+              '%id' => $dataResponse['id']
+            ]);
 
             return $dataResponse;
 

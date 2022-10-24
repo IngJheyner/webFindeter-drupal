@@ -136,7 +136,6 @@ function _getBussinesDays($addDays, $day_answer = FALSE){
   return $day_answer ? $res_day_answer  : $timeStamp;
 }
 
-
 /**
  * Implements hook_form_alter
  * @author user 3ddesarrollo <3ddesarrollo@3dstudioweb.com>
@@ -488,6 +487,7 @@ function findeter_pqrsd_cron() {
           else {
 
             $put = $apiSmfc->putComplaints($state['nid']);
+            //$put = TRUE;
 
             if(!$put)
               $nid[$key]["smfc"] = TRUE;
@@ -510,7 +510,7 @@ function findeter_pqrsd_cron() {
  */
 function findeter_pqrsd_preprocess_page(&$variables) {
 
-  //$apiSmfc = \Drupal::service('api.smfc');
+  // $apiSmfc = \Drupal::service('api.smfc');
 
   $routeUrl = \Drupal::routeMatch()->getRouteName();
 

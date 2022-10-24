@@ -82,7 +82,7 @@ class AnswerPQRSD extends FormBase {
       '#multiple'        => TRUE,
       '#title'           => $definitions['field_pqrsd_respuesta_archivos']->getLabel(),
       '#upload_validators' => [
-        'file_validate_extensions' => [$fileSettings['file_extensions']],
+        'file_validate_extensions' => ($node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Quejas" || $node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Reclamos") ? \Drupal::service('api.smfc')->getExtFile() : [$fileSettings['file_extensions']],
       ],
       '#required' => ($node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Quejas" || $node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Reclamos") ? TRUE : FALSE,
     ];
@@ -159,7 +159,6 @@ class AnswerPQRSD extends FormBase {
   }
 
   /**
-   * To validate values of the form
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
@@ -194,7 +193,7 @@ class AnswerPQRSD extends FormBase {
 
       $node->field_pqrsd_respuesta[] = $formValues['field_pqrsd_respuesta'];
       $node->field_pqrsd_respuesta_a_favor[] = $formValues['field_pqrsd_respuesta_a_favor'];
-      $node->field_pqrsd_fecha_respuesta[] = date('Y-m-d\TH:i:s',strtotime('now'));
+      $node->field_pqrsd_fecha_respuesta[] = date('Y-m-d\TH:i:s', strtotime('now'));
       $node->field_pqrsd_tutela[] = $formValues['field_pqrsd_tutela'];
       $node->field_pqrsd_entes_control[] = $formValues['field_pqrsd_entes_control'];
 
@@ -219,17 +218,15 @@ class AnswerPQRSD extends FormBase {
         $mailManager = \Drupal::service('plugin.manager.mail');
         $module = 'findeter_pqrsd';
         $key = 'answer_pqrsd';
-        //$to = $form_state->getValue('field_pqrsd_email');
+        // $to = $form_state->getValue('field_pqrsd_email');
         $to = $node->get('field_pqrsd_email')->getValue()[0]['value'];
 
         $mailBody[] = '<p>Reciba un cordial saludo de parte de Findeter.</p>';
-        $mailBody[] = '<p>Le informamos que hemos dado respuesta la PQRSD con número: <b>'.$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'].'</b></p><br><br>
+        $mailBody[] = "<p>Le informamos que hemos dado respuesta la PQRSD con número: <b>{$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value']}</b></p><br><br>";
+        $mailBody[] = "<div class='numero-radicado'><strong>Estimado usuario: </strong><br>
+        <blockquote>{$node->get('field_pqrsd_respuesta')->getValue()[0]['value']}</blockquote>";
 
-        ';
-        $mailBody[] = '<div class="numero-radicado"><strong>Estimado usuario: </strong><br>
-        <blockquote>'.$node->get('field_pqrsd_respuesta')->getValue()[0]['value'] .'</blockquote>';
-
-        if(sizeof($formValues['field_pqrsd_respuesta_archivos'])){
+        if (sizeof($formValues['field_pqrsd_respuesta_archivos'])) {
           $mailBody[] = '<p><strong>Nota:</strong> La respuesta a este radicado tiene <u>archivos adjuntos</u>, consulta con el numero de radicado asignado en el siguiente <a href="https://www.findeter.gov.co/estado-pqrsd">enlace</a></p>';
         }
 

@@ -7,6 +7,7 @@ dependencies:
   module:
     - dropzonejs
     - entity_browser
+    - field_permissions
     - node
     - system
 id: c_modificador
@@ -15,11 +16,44 @@ weight: 6
 is_admin: null
 permissions:
   - 'access entity_browser_archivos_convocatorias entity browser pages'
+  - 'create body'
+  - 'create field_convcatoria_contractual'
+  - 'create field_convcatoria_contratacion'
+  - 'create field_convcatoria_departamento'
+  - 'create field_convcatoria_email_proceso'
+  - 'create field_convcatoria_forma_pago'
+  - 'create field_convcatoria_moneda'
+  - 'create field_convcatoria_objeto'
+  - 'create field_convcatoria_presupuesto'
+  - 'create field_convcatoria_programa'
+  - 'create field_convcatoria_tipo_compra'
   - 'delete any convocatorias content'
   - 'delete own convocatorias content'
   - 'dropzone upload files'
   - 'edit any convocatorias content'
+  - 'edit body'
+  - 'edit field_convcatoria_contractual'
+  - 'edit field_convcatoria_contratacion'
+  - 'edit field_convcatoria_departamento'
+  - 'edit field_convcatoria_email_proceso'
+  - 'edit field_convcatoria_forma_pago'
+  - 'edit field_convcatoria_moneda'
+  - 'edit field_convcatoria_objeto'
+  - 'edit field_convcatoria_presupuesto'
+  - 'edit field_convcatoria_programa'
+  - 'edit field_convcatoria_tipo_compra'
+  - 'edit own body'
   - 'edit own convocatorias content'
+  - 'edit own field_convcatoria_contractual'
+  - 'edit own field_convcatoria_contratacion'
+  - 'edit own field_convcatoria_departamento'
+  - 'edit own field_convcatoria_email_proceso'
+  - 'edit own field_convcatoria_forma_pago'
+  - 'edit own field_convcatoria_moneda'
+  - 'edit own field_convcatoria_objeto'
+  - 'edit own field_convcatoria_presupuesto'
+  - 'edit own field_convcatoria_programa'
+  - 'edit own field_convcatoria_tipo_compra'
   - 'revert convocatorias revisions'
   - 'view convocatorias revisions'
   - 'view the administration theme'
