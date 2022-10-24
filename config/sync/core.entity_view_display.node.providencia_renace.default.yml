@@ -5,11 +5,12 @@ dependencies:
   config:
     - field.field.node.providencia_renace.body
     - field.field.node.providencia_renace.field_article_pr
+    - field.field.node.providencia_renace.field_enlace_de_infografia
     - field.field.node.providencia_renace.field_image_banner_pr
     - field.field.node.providencia_renace.field_image_grid_a
     - field.field.node.providencia_renace.field_image_grid_d
-    - field.field.node.providencia_renace.field_imagen_fullwidth_providenc
     - field.field.node.providencia_renace.field_image_url_banner_pr
+    - field.field.node.providencia_renace.field_imagen_fullwidth_providenc
     - field.field.node.providencia_renace.field_images_juxtapose_pr
     - field.field.node.providencia_renace.field_images_to_share
     - field.field.node.providencia_renace.field_images_video_info_pr
@@ -45,12 +46,13 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
 hidden:
   addtoany: true
   body: true
   field_article_pr: true
+  field_enlace_de_infografia: true
   field_image_banner_pr: true
   field_image_grid_a: true
   field_image_grid_d: true

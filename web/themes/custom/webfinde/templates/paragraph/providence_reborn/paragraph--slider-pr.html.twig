@@ -51,11 +51,11 @@
   <div{{ attributes.addClass(classes) }}>
 
     {% block content %}
-      <div class="d-flex">
-        <div>
+      <div class="row">
+        <div class="col-md-4">
           {{ content.field_image_pr }}
         </div>
-        <div class="m-5">
+        <div class="col-md-8">
           <a href="{{ content.field_links_slide_pr[0]['#url_title'] }}" target="_blank" class="text-dark">
             {{ content.field_abstract_pr[0] }}
           </a>

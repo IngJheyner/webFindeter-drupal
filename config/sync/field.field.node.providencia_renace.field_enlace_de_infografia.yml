@@ -1,0 +1,23 @@
+uuid: 8288d5da-5a50-4c31-bd7a-c2fa9d68d3ba
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_enlace_de_infografia
+    - node.type.providencia_renace
+  module:
+    - link
+id: node.providencia_renace.field_enlace_de_infografia
+field_name: field_enlace_de_infografia
+entity_type: node
+bundle: providencia_renace
+label: 'Enlace de infografia'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link
