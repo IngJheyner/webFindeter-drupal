@@ -175,7 +175,8 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
     // $this->login();
     // $this->refreshToken();
     // $this->postComplaints(406);
-    // $this->putComplaints(405);
+    // $this->putComplaints(410);
+    // $this->getUpdateInfoUserComplaints();
 
   }
 
@@ -327,7 +328,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
 
                   // Iteramos los resultados de los archivos.
                   foreach ($responseFile['results'] as $keyF => $files) {
-                    // Se valida que no sea un archivo nuevo adjunto a un radicado existente.
+                    // Se valida que no sea un archivo nuevo adjunto a un radicado existente diferente a una replica.
                     if (empty($nidNode)) {
                       // Los siguientes datos, como la fecha, hora y documentos se tratan para construir la ruta donde va ir guardado el archivo, este se guarda como archivo gestionado TEMPORAL.
                       $date = $this->dateFormatter->format(strtotime(new DrupalDateTime()), 'custom', 'Y-m-d');
@@ -822,10 +823,10 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
       $codComplaints = $nodeStorage->get("field_pqrsd_numero_radicado")->getValue()[0]['value'];
 
       // Sexo.
-      $sexo = $nodeStorage->get("field_pqrsd_sexo")->getValue()[0]['value'];
+      $sexo = isset($nodeStorage->get('field_pqrsd_sexo')->getValue()[0]['value']) ? $nodeStorage->get("field_pqrsd_sexo")->getValue()[0]['value'] : NULL;
 
       // lgbti.
-      $lgtbi = $nodeStorage->get("field_pqrsd_lgtbi")->getValue()[0]['value'];
+      $lgtbi = isset($nodeStorage->get('field_pqrsd_lgtbi')->getValue()[0]['value']) ? $nodeStorage->get("field_pqrsd_lgtbi")->getValue()[0]['value'] : 2;
 
       // Producto.
       $codProduct = $nodeStorage->get("field_pqrsd_nombre_producto")->getValue()[0]['value'];
@@ -1034,6 +1035,126 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
 
     // Se guarda los cambios.
     $node->save();
+
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  public function getUpdateInfoUserComplaints():bool {
+
+    // Firma encrypt sha256 en funcion de hmac.
+    $signature = strtoupper(hash_hmac('sha256', "{$this->uri}usuarios/info/", $this->secretKey, FALSE));
+
+    // Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service.
+    $response = $this->httpClient($signature, 'GET', 'usuarios/info/');
+
+    if (isset($response['code'])) {
+
+      $this->logger->get('API SMFC')->warning("Informacion de usuarios: Se ha producido un error al importar la informacion de edicion de usuarios del sistema SMFC. <br> ");
+
+      return FALSE;
+
+    }
+    else {
+
+      if ($response['count'] !== 0) {
+
+        // Storage node.
+        $nodeStorage = $this->entityTypeManager->getStorage('node');
+
+        // Iteramos por informacion de usuario que se haya importado.
+        foreach ($response['results'] as $key => $value) {
+
+          $number_id_CF = $value['tipo_id_CF'] === 3 ? 'field_pqrsd_nit' : 'field_pqrsd_numero_id';
+
+          // Cargamos quejas o reclamos de usuarios que cumplan con el nit expuesto por SMFC.
+          $pqrsds = $nodeStorage->loadByProperties([
+            'type' => 'pqrsd',
+            $number_id_CF => $value['numero_id_CF'],
+          ]);
+
+          // Actualizamos informacion de todo usuario que tenga quejas o reclamos creados en el sistema.
+          // y que cumpla con el criterio de consulta anterior.
+          foreach ($pqrsds as $pqrsd) {
+
+            // Nombres.
+            if ($value['tipo_id_CF'] !== 3) {
+              $names = "{$value['nombre']} {$value['apellido']}";
+              $pqrsd->set('field_pqrsd_primer_nombre', $names);
+            }
+
+            // Correo.
+            $pqrsd->set('field_pqrsd_email', $value['correo']);
+
+            // Telefono.
+            $pqrsd->set('field_pqrsd_telefono', $value['telefono']);
+
+            // Razon social.
+            if (!empty($value['razon_social'])) {
+              $pqrsd->set('field_pqrsd_razon_social', $value['razon_social']);
+            }
+
+            // Direccion.
+            if (!is_null($value['direccion'])) {
+              $pqrsd->set('field_pqrsd_direccion', $value['direccion']);
+            }
+
+            // Departamento.
+            if (!is_null($value['departamento_cod'])) {
+
+              $query = \Drupal::entityQuery('taxonomy_term');
+              $query->condition('field_code_dane_dpto', $value['departamento_cod']);
+              $tids = $query->execute();
+
+              $pqrsd->set('field_pqrsd_departamento', $tids);
+
+            }
+
+            // Municipio.
+            if (!is_null($value['municipio_cod'])) {
+
+              $query = \Drupal::entityQuery('taxonomy_term');
+              $query->condition('field_code_dane_dpto', $value['municipio_cod']);
+              $tids = $query->execute();
+
+              $pqrsd->set('field_pqrsd_municipio', $tids);
+
+            }
+
+            // Guardar el pqrsd con edicion de usuario.
+            $pqrsd->save();
+          }
+        }
+
+        // Enviamos el ACK de los nit de usuarios actualizados.
+        $i = 0;
+        $data = '{'.
+          '"numero_id_CF": [';
+
+        while ($i < count($response['results'])) {
+          $data .= ($i + 1) !== count($response['results']) ? '"'.$response['results'][$i]['numero_id_CF'].'", ' : '"'.$response['results'][$i]['numero_id_CF'].'"';
+          $i++;
+        }
+
+        $data .= ']}';
+
+        // Firma encrypt sha256 en funcion de hmac.
+        $signature = strtoupper(hash_hmac('sha256', $data, $this->secretKey, FALSE));
+
+        // Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service.
+        $response = $this->httpClient($signature, 'POST', 'usuarios/ack/', $data);
+
+        if (isset($response['code']) && $response['code'] != '504') {
+
+          $this->logger->get('API SMFC')->warning("Informacion de usuarios ACK: Se ha producido un error al enviar los nit de usuarios actualizados al sistema SMFC. <br> ");
+
+          return FALSE;
+
+        }
+      }
+      return TRUE;
+    }
 
   }
 

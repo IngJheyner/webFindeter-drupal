@@ -486,13 +486,18 @@ function findeter_pqrsd_cron() {
           }
           else {
 
-            $put = $apiSmfc->putComplaints($state['nid']);
-            //$put = TRUE;
+            // Consultamos si hay informacion de usuarios para actualizar.
+            $putUpdbUser = $apiSmfc->getUpdateInfoUserComplaints();
 
-            if(!$put)
-              $nid[$key]["smfc"] = TRUE;
-            else
-              unset($nid[$key]);
+            if($putUpdbUser) {
+              $put = $apiSmfc->putComplaints($state['nid']);
+              //$put = TRUE;
+
+              if(!$put)
+                $nid[$key]["smfc"] = TRUE;
+              else
+                unset($nid[$key]);
+            }
           }
 
         }
@@ -510,7 +515,7 @@ function findeter_pqrsd_cron() {
  */
 function findeter_pqrsd_preprocess_page(&$variables) {
 
-  // $apiSmfc = \Drupal::service('api.smfc');
+  //$apiSmfc = \Drupal::service('api.smfc');
 
   $routeUrl = \Drupal::routeMatch()->getRouteName();
 

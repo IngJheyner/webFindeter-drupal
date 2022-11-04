@@ -151,6 +151,7 @@ class ActionComplaintsSmfcController extends ControllerBase {
       =============================================== */
       $state = \Drupal::service('state');
       $data = $state->get('findeter_pqrsd.api_smfc_data');
+      $dataNid = $state->get('findeter_pqrsd.api_smfc_nid');
 
       /* ============================================
       Logger
@@ -164,9 +165,9 @@ class ActionComplaintsSmfcController extends ControllerBase {
         $context['sandbox']['max'] = count($data);
       }
 
-      foreach ($data as $key => $value) {
+      foreach ($data as $value) {
 
-        if (!isset($value['radicado_update'])) {
+        if (!isset($value['radicado_update']) && $value['desistimiento_queja'] === 2) {
 
           try {
 
@@ -243,36 +244,12 @@ class ActionComplaintsSmfcController extends ControllerBase {
             }
 
             // Sexo.
-            if (!isset($value['sexo'])) {
-
-              // Se agregan los valores a la variable resultado para ser mostrados.
-              $context['results']['error_save'][] = $value;
-              // Actualizar el progreso de informacion.
-              $context['sandbox']['progress']++;
-
-              throw new \Exception(t("An error occurred while saving the node sexo. Complaint code: @code", ['@code' => $value['codigo_queja']]));
-              // Ocurrió un error al guardar la fecha del nodo. Código de queja:
-
-            }
-            else {
-
+            if (isset($value['sexo'])) {
               $newRequest->set('field_pqrsd_sexo', $value['sexo']);
-
             }
 
             // lgbtiq.
-            if (!isset($value['lgbtiq'])) {
-
-              // Se agregan los valores a la variable resultado para ser mostrados.
-              $context['results']['error_save'][] = $value;
-              // Actualizar el progreso de informacion.
-              $context['sandbox']['progress']++;
-
-              throw new \Exception(t("An error occurred while saving the node lgbtiq. Complaint code: @code", ['@code' => $value['codigo_queja']]));
-              // Ocurrió un error al guardar la fecha del nodo. Código de queja:
-
-            }
-            else {
+            if (isset($value['lgbtiq'])) {
 
               $newRequest->set('field_pqrsd_lgtbi', $value['lgbtiq']);
 
@@ -449,18 +426,7 @@ class ActionComplaintsSmfcController extends ControllerBase {
             }
 
             // Canal.
-            if (!isset($value['canal_cod'])) {
-
-              // Se agregan los valores a la variable resultado para ser mostrados.
-              $context['results']['error_save'][] = $value;
-              // Actualizar el progreso de informacion.
-              $context['sandbox']['progress']++;
-
-              throw new \Exception(t("An error occurred while saving the node canal_cod. Complaint code: @code", ['@code' => $value['codigo_queja']]));
-              // Ocurrió un error al guardar la fecha del nodo. Código de queja:
-
-            }
-            else {
+            if (isset($value['canal_cod'])) {
               $newRequest->set('field_pqrsd_canal', $value['canal_cod']);
             }
 
@@ -468,18 +434,7 @@ class ActionComplaintsSmfcController extends ControllerBase {
             $newRequest->set('field_pqrsd_canal_recepcion', 'web');
 
             // Condicion especial.
-            if (!isset($value['condicion_especial'])) {
-
-              // Se agregan los valores a la variable resultado para ser mostrados.
-              $context['results']['error_save'][] = $value;
-              // Actualizar el progreso de informacion.
-              $context['sandbox']['progress']++;
-
-              throw new \Exception(t("An error occurred while saving the node condicion_especial. Complaint code: @code", ['@code' => $value['codigo_queja']]));
-              // Ocurrió un error al guardar la fecha del nodo. Código de queja:
-
-            }
-            else {
+            if (isset($value['condicion_especial'])) {
               $newRequest->set('field_pqrsd_condicion_especial', $value['condicion_especial']);
             }
 
@@ -599,12 +554,37 @@ class ActionComplaintsSmfcController extends ControllerBase {
 
         }
         else {
+
+          if ($value['desistimiento_queja'] === 1) {
+
+            // Cargamos quejas o reclamos con el numero de radicado.
+            $pqrsds = $nodeStorage->loadByProperties([
+              'type' => 'pqrsd',
+              'field_pqrsd_numero_radicado' => $value['codigo_queja'],
+            ]);
+
+            if (!empty($pqrsds)) {
+
+              foreach ($pqrsds as $key => $pqrsd) {
+
+                // Se guarda un mensaje en la respuesta que indique el desistimento de la queja.
+                $pqrsd->set('field_pqrsd_respuesta', 'La Queja o Reclamo ha sido desistida por parte del usuario en SMFC. desistimiento_queja: 1');
+
+                // Se quita de la variable de estado para no ser enviado a la SMFC.
+                $dataNidKey = array_search($key, array_column($dataNid, 'nid'));
+                unset($dataNid[$dataNidKey]);
+                $state->set('findeter_pqrsd.api_smfc_nid', $dataNid);
+                // Guardar el pqrsd.
+                $pqrsd->save();
+              }
+            }
+          }
           // Si el codigo de radicado viene por data pero no ha sido procesado para guardar, es por que en algun proceso se ha llamado para ser actualizado.
           // Actualizar el progreso de informacion.
           $context['sandbox']['progress']++;
-          $context['message'] = t('<strong>Findeter:</strong> The Complaint with File No. has been updated @code.', ['@code' => $value['codigo_queja']]);
 
-          \Drupal::messenger()->addMessage(t('<strong>Findeter: The Complaint with File No. has been updated @code.</strong>', ['@code' => $value['codigo_queja']]));
+          $context['message'] = t('<strong>Findeter:</strong> La queja o reclamo @code ha sido actualizada.', ['@code' => $value['codigo_queja']]);
+          \Drupal::messenger()->addMessage(t('<strong>Findeter: La queja o reclamo @code ha sido actualizada..</strong>', ['@code' => $value['codigo_queja']]));
           // Se ha actualizado la Queja con No. de radicado.
 
         }
