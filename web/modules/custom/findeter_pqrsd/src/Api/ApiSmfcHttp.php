@@ -109,6 +109,7 @@ class ApiSmfcHttp {
 
         /* ===== ===== Crear o actualizar Queja o Reclamo ===== ===== */
         case 'queja/':
+        case 'usuarios/info/':
 
           if (isset($data['newEndpoint'])) {
             $endpoint = $data['newEndpoint'];
@@ -221,6 +222,7 @@ class ApiSmfcHttp {
 
         /* ===== ===== Enviar recibidos por la funcion ACK ===== ===== */
         case 'complaint/ack':
+        case 'usuarios/ack/':
 
           $response = $client->request($method, $endpoint, [
             'headers' => [

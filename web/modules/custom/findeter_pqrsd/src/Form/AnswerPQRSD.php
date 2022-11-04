@@ -82,7 +82,7 @@ class AnswerPQRSD extends FormBase {
       '#multiple'        => TRUE,
       '#title'           => $definitions['field_pqrsd_respuesta_archivos']->getLabel(),
       '#upload_validators' => [
-        'file_validate_extensions' => ($node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Quejas" || $node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Reclamos") ? \Drupal::service('api.smfc')->getExtFile() : [$fileSettings['file_extensions']],
+        'file_validate_extensions' => ($node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Quejas" || $node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Reclamos") ? [\Drupal::service('api.smfc')->getExtFile()] : [$fileSettings['file_extensions']],
       ],
       '#required' => ($node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Quejas" || $node->get('field_pqrsd_tipo_radicado')->getValue()[0]['value'] == "Reclamos") ? TRUE : FALSE,
     ];
@@ -196,6 +196,7 @@ class AnswerPQRSD extends FormBase {
       $node->field_pqrsd_fecha_respuesta[] = date('Y-m-d\TH:i:s', strtotime('now'));
       $node->field_pqrsd_tutela[] = $formValues['field_pqrsd_tutela'];
       $node->field_pqrsd_entes_control[] = $formValues['field_pqrsd_entes_control'];
+      $node->field_pqrsd_motivo[] = $formValues['field_pqrsd_motivo'];
 
       $fileStorage = \Drupal::entityTypeManager()->getStorage('file');
 
