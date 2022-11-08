@@ -34,26 +34,23 @@ function findeter_webfinde_cron() {
  */
 
 function findeter_webfinde_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
   $rolesUser = \Drupal::currentUser()->getRoles();
-  //dpm($form);
   /* ============================================
   CONVOCATORIAS
   =============================================== */
   if($form['#id'] == 'node-convocatorias-form' || $form['#id'] == 'node-convocatorias-edit-form'){
 
-    /* ============================================
-    CONVOCATORIAS
-    =============================================== */
     $form['#attached']['library'][] = 'findeter_webfinde/global-scripts';
 
-    $rol = "";
+    $dataRemoveSumbit = "";
 
-    if(in_array('abogado',$rolesUser)){
+    if(in_array('abogado',$rolesUser) || in_array('c_vicetecnica', $rolesUser)){
 
-      $rol = 'abogado';
+      $dataRemoveSumbit = 'data-remove-sumbit';
 
       $form['#attributes'] = array(
-        'rol' => $rol,
+        'data-remove-sumbit' => $dataRemoveSumbit,
       );
 
     }
@@ -75,3 +72,4 @@ function findeter_webfinde_inline_entity_form_entity_form_alter(&$entity_form, &
     hide($entity_form['created']);
   }
 }
+
