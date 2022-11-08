@@ -12,6 +12,16 @@
 
       $(document, context).once('convocatorias').each(function() {
 
+        const removeInputSubmit = function () {
+          let dataRemoveSumbit = $("form#node-convocatorias-edit-form").attr('data-remove-sumbit');
+
+          if (dataRemoveSumbit !== undefined) {
+            $(".entities-list.entity-type--media div.form-wrapper input[type='submit']").remove();
+          }
+        }
+
+        removeInputSubmit();
+
         let codigoProceso = '';
 
         $("form#node-convocatorias-form input[id='edit-field-convcatoria-archivos-entity-browser-entity-browser-open-modal'], form#node-convocatorias-edit-form input[id='edit-field-convcatoria-archivos-entity-browser-entity-browser-open-modal'] ").on('click', function() {
@@ -20,8 +30,11 @@
 
           $(document, context).ajaxStop(function() {
 
-              let iframe = '';
+            let iframe = '';
 
+            let iframesNull = document.querySelector('iframe#entity_browser_iframe_entity_browser_archivos_convocatorias');
+
+            if(iframesNull) {
               document.querySelector('iframe#entity_browser_iframe_entity_browser_archivos_convocatorias').onload = function(e) {
 
                   iframe = document.querySelector('iframe#entity_browser_iframe_entity_browser_archivos_convocatorias').contentWindow.document;
@@ -41,32 +54,25 @@
 
                   $(uploadFile).on('click', function() {
                       iframe.getElementById('edit-group-file-conv').removeAttribute('open');
-
                   });
 
                   iframe.getElementById('edit-group-file-conv').addEventListener('click', function() {
-                      let newFiles = iframe.getElementById('ief-dropzone-upload');
+                    let newFiles = iframe.getElementById('ief-dropzone-upload');
 
-                      $(newFiles).children('div.form-wrapper').each(function(idx, el) {
+                    $(newFiles).children('div.form-wrapper').each(function(idx, el) {
 
-                          $(el).children('fieldset').children('div.fieldset-wrapper').children('div.field--name-field-convcatoria-ruta-archivo').children().children('input').val(codigoProceso);
+                      $(el).children('fieldset').children('div.fieldset-wrapper').children('div.field--name-field-convcatoria-ruta-archivo').children().children('input').val(codigoProceso);
 
 
-                          $(el).children('fieldset').children('div.fieldset-wrapper').children('div.field--name-field-convcatoria-ruta-archivo').css('display', 'none');
+                      $(el).children('fieldset').children('div.fieldset-wrapper').children('div.field--name-field-convcatoria-ruta-archivo').css('display', 'none');
 
-                      });
+                    });
                   });
-
               }
+            }
+            removeInputSubmit();
           })
-
         });
-
-        let rolAbogado = $("form#node-convocatorias-edit-form").attr('rol');
-
-        if (rolAbogado !== undefined) {
-            $("#edit-field-convcatoria-archivos-current div.form-wrapper input[type='submit']").remove();
-        }        
 
       });
     }
