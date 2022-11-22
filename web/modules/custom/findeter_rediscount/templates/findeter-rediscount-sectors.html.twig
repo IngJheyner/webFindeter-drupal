@@ -1,0 +1,89 @@
+{#
+/**
+ * @file
+ * Default theme implemnetation for 'findeter_rediscount_sectors'.
+ *
+ * Disponibles variables:
+ * - data
+ *  Arreglo que trae los datos del sector.
+*/
+#}
+
+<section class="sectors mt-5">
+
+  <h3 class="text-center">Conozca los {{ count }} sectores que financia Findeter</h3>
+
+{#{ kint(data) }#}
+
+  <div class="sectors-icon mt-4" id="sectors-icon">
+
+    {% for value in data %}
+
+      <div class="sectors-icon__item text-center" nid="{{ value.nid }}">
+        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="{{ value.title }}">
+          <img src="{{ file_url(value.icon) }}" width="80" height="80" class="mx-auto icon"/>
+          <img src="{{ file_url(value.icon_secon) }}" width="80" height="80" class="mx-auto iconSecond"/>
+        </a>
+      </div>
+
+    {% endfor %}
+
+  </div>
+
+  <div class="sectors-info mt-4">
+
+    {% for value in data %}
+
+      {% if loop.first %}
+
+        <div class="row">
+
+          <div class="col-5">
+
+            <h5 class="titles mb-3">{{ value.title }}</h5>
+            <p class="description">{{ value.description }}</p>
+
+          </div>
+
+          <div class="col-7 images">
+
+            <figure class="w-100 d-block text-center">
+              <img src="{{ file_url(value.image) }}" class="img-fluid mx-auto" width="400">
+            </figure>
+
+          </div>
+
+          <div class="col-12 mt-3 more-info">
+
+            <h4 class="text-center mb-3 subtitle">Conozca los subsectores financiables por findeter</h4>
+
+            <div class="more-info__nav">
+
+              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
+                  {% for key, subsectors in value.subsectors %}
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link btn-block {{ loop.first ? 'active': '' }}" id="pills-subsectors-{{ key }}-tab" data-toggle="pill" data-target="#subsectors-{{ key }}" type="button" role="tab" aria-controls="subsectors-{{ key }}" aria-selected="true">{{ subsectors.title }}</button>
+                    </li>
+                  {% endfor %}
+
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+                {% for key, subsectors in value.subsectors %}
+                  <div class="tab-pane fade {{ loop.first ? 'show active': '' }}" id="subsectors-{{ key }}" role="tabpanel" aria-labelledby="pills-subsectors-{{ key }}-tab">{{ subsectors.description|raw }}</div>
+                {% endfor %}
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      {% endif %}
+
+    {% endfor %}
+
+  </div>
+
+</section>

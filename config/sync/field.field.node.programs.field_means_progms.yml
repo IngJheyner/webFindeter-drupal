@@ -1,0 +1,21 @@
+uuid: c5ee7853-835d-4ef3-ad3a-4cfce350a913
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_means_progms
+    - node.type.programs
+  module:
+    - options
+id: node.programs.field_means_progms
+field_name: field_means_progms
+entity_type: node
+bundle: programs
+label: 'Uso de los recursos'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

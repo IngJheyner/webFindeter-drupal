@@ -1,0 +1,19 @@
+uuid: dba03dae-8e0b-4dd7-9a97-8389a989f5e2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_interest_rate_prgms
+    - node.type.lines_credit
+id: node.lines_credit.field_interest_rate_prgms
+field_name: field_interest_rate_prgms
+entity_type: node
+bundle: lines_credit
+label: 'Tasa de interés al intermediario'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

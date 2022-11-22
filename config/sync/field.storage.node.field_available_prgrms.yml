@@ -1,0 +1,31 @@
+uuid: e9ef1990-f282-44b8-8384-195cf5833d9d
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_available_prgrms
+field_name: field_available_prgrms
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: disponible
+      label: Disponible
+    -
+      value: agotado
+      label: Agotado
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,22 @@
+uuid: 23d04b8c-329f-4048-861e-5d5ca85200ea
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: line_credit
+label: 'Lineas de Credito'
+type: 'canonical_entities:node'
+pattern: 'lineas-de-credito/[node:title]'
+selection_criteria:
+  0b0ffb36-3ac0-411b-a6b4-cd38c68fe6cb:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 0b0ffb36-3ac0-411b-a6b4-cd38c68fe6cb
+    context_mapping:
+      node: node
+    bundles:
+      lines_credit: lines_credit
+selection_logic: and
+weight: -5
+relationships: {  }

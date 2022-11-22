@@ -1,0 +1,22 @@
+uuid: ba07a1a3-f793-406c-9efb-8f3066508f46
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.sectors_rediscount
+id: node.sectors_rediscount.sticky
+field_name: sticky
+entity_type: node
+bundle: sectors_rediscount
+label: 'Fijo al comienzo de las listas'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

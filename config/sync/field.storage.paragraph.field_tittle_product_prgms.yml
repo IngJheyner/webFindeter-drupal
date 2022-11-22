@@ -1,0 +1,25 @@
+uuid: 561d467b-0a99-43a3-ba78-26daf7666a43
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: paragraph.field_tittle_product_prgms
+field_name: field_tittle_product_prgms
+entity_type: paragraph
+type: string
+settings:
+  max_length: 200
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

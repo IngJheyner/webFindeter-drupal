@@ -1,0 +1,316 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - node.getCreatedTime() will return the node creation timestamp.
+ *   - node.hasField('field_example') returns TRUE if the node bundle includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   - node.isPublished() will return whether the node is published or not.
+ *   Calling other methods, such as node.delete(), will result in an exception.
+ *   See \Drupal\node\Entity\Node for a full list of public properties and
+ *   methods for the node object.
+ * - label: (optional) The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: (optional) Themed creation date field.
+ * - author_name: (optional) Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_node()
+ *
+ */
+#}
+
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'rediscount',
+    'lines-credit',
+  ]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+  {#{ kint(content) }#}
+
+  {# ============================================
+  MENU GOV CO
+  =============================================== #}
+  <div class="row m-0 menuGovCo mb-5">
+
+    {# ===== ===== Img govco ===== ===== #}
+    <div class="col-3 px-0 text-center d-none d-xl-block govCo">
+
+      <a href="{{ urlGovCo[0]['#title'] }}" target="_blank" tabindex="1">
+        <img onerror='this.remove();' src="{{ file_url(urlImage[0]['#item'].entity.uri.value) }}" class="img-fluid mt-2 mt-lg-0" />
+      </a>
+
+    </div>
+
+    {# ===== ===== Img Logo ===== ===== #}
+    <div class="col-9 col-sm-6 col-md-4 col-lg-3 pt-1 px-0 d-xl-none text-center govCo">
+
+      <a href="{{ url('<front>') }}"><img onerror='this.remove();' src="" class="img-fluid" /></a>
+
+    </div>
+
+    <div class="col-2 col-sm-3 col-md-5 col-lg-9 pr-0 d-none d-md-block">
+
+      {{ drupal_menu('menu-govco') }}
+
+    </div>
+
+  </div>
+
+  <div{{ content_attributes.addClass('node__content container my-5') }}>
+
+    {# ============================================
+    TITULO
+    =============================================== #}
+    <h1{{ title_attributes }} class="title text-white text-center p-3">
+      {{ label.0 }}
+    </h1>
+
+    {# ============================================
+    INFORMACION DETALLADA
+    =============================================== #}
+    <section class="info-details-lines-credit">
+
+      {# ===== ===== SUBTITULO ===== ===== #}
+      <h4 class="text-justify mx-md-5 px-md-5 my-5">
+        <strong>{{ content.field_subtitle_prgms.0 }}</strong>
+      </h4>
+
+      {# ===== ===== INFORMACION DETALLADA ===== ===== #}
+      <div class="d-flex flex-column flex-lg-row">
+
+        {# ===== ===== CUPOS ===== ===== #}
+        <div class="align-self-lg-center py-3 info-tasses">
+
+          {# ===== ===== TITULO E INFORMACION DE CUPOS ===== ===== #}
+          <p class="text-center my-3 text-white">
+            <strong>{{ label.0 }}</strong><br>
+            <strong>Cupo disponible</strong><br>
+          </p>
+
+          {# ===== ===== CUPOS DISPONIBLES ===== ===== #}
+          <p class="info-tasses__space-available mx-auto text-white text-center">{{ content.field_space_available_prgms.0 }}</p>
+
+          <div class="text-white mt-5 d-flex flex-column flex-lg-row">
+
+            {# ===== ===== TASA DE INTERES ===== ===== #}
+            <div class="w-50 d-flex px-3 mb-4 mb-lg-0 info-tasses__interest_rate">
+
+              <img src="/themes/custom/webfinde/images/iconos/redescuento/iconos-02.svg" width="40" height="40">
+
+              <p><strong>Tasa de interes al intermediario: </strong><br>
+              {{ content.field_interest_rate_prgms.0 }}</p>
+            </div>
+
+            {# ===== ===== PAZOS ===== ===== #}
+            <div class="w-50 d-flex px-3 info-tasses__term">
+
+              <img src="/themes/custom/webfinde/images/iconos/redescuento/iconos-03.svg" width="40" height="40">
+
+              <p><strong>Plazo: </strong><br>
+              {{ content.field_term_prgms.0 }}</p>
+            </div>
+
+          </div>
+        </div>
+
+        {# ===== ===== BENEFICIOS ===== ===== #}
+        <div class="ml-lg-4 mt-5 mt-lg-0 flex-shrink-1 info-benefits">
+
+          <div class="d-flex mb-2">
+
+            <img src="/themes/custom/webfinde/images/iconos/redescuento/iconos-04.svg" width="40" height="40">
+
+            <div class="info-benefits__item ml-3">
+
+              <h5>Beneficios</h5>
+              <h5>Vigencia</h5>
+              <p>
+                  Hasta el {{ content.field_date_validity_prgms.0 }} {{ content.field_validity_prgms.0 }}
+              </p>
+
+            </div>
+
+          </div>
+          <div class="d-flex mb-2">
+
+            <img src="/themes/custom/webfinde/images/iconos/redescuento/iconos-05.svg" width="40" height="40">
+
+            <div class="info-benefits__item ml-3">
+              <h5>Uso de los recursos</h5>
+              <p>{{ content.field_means_progms.0 }}</p>
+            </div>
+
+          </div>
+
+          <div class="d-flex mb-2">
+
+            <img src="/themes/custom/webfinde/images/iconos/redescuento/iconos-06.svg" width="40" height="40">
+
+            <div class="info-benefits__item ml-3">
+
+              <h5>Margen Intermediacion</h5>
+              <p>{{ content.field_margin_prgms.0 }}</p>
+
+            </div>
+
+          </div>
+
+          <div class="d-flex mb-2">
+
+            <img src="/themes/custom/webfinde/images/iconos/redescuento/iconos-07.svg" width="40" height="40">
+
+             <div class="info-benefits__item ml-3">
+
+              <h5>Sector Elegible</h5>
+
+              <p>{{ content.field_sector_prgms.0 }}</p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    {# ============================================
+    INFORMACION DEL PRODUCTO
+    =============================================== #}
+    <section class="info-product-lines-credit mt-5">
+
+      <h4 class="text-center"><strong>Informacion del producto</strong></h4>
+
+      <div class="row mt-5 pill-tabs-product">
+
+        <div class="col-12 col-md-3">
+
+          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+            {% for key, value in node.field_info_product_linecredit %}
+
+              <button class="nav-link {{ loop.first ? 'active': '' }}" id="info-product-{{ key }}-tab" data-toggle="pill" data-target="#info-product-{{ key }}" type="button" role="tab" aria-controls="info-product-{{ key }}" aria-selected="true">{{ content.field_info_product_linecredit[key]['#paragraph'].field_tittle_product_prgms.value }}</button>
+
+            {% endfor %}
+
+          </div>
+        </div>
+
+        <div class="col-12 col-md-9 mt-4 mt-md-0">
+
+          <div class="tab-content" id="v-pills-tabContent">
+
+            {% for key, value in node.field_info_product_linecredit %}
+
+             <div class="tab-pane fade p-3 p-lg-5 {{ loop.first ? 'active show': '' }}" id="info-product-{{ key }}" role="tabpanel" aria-labelledby="info-product-{{ key }}-tab">
+
+              {{ content.field_info_product_linecredit[key]['#paragraph'].field_description_prgms.value|raw   }}
+
+             </div>
+
+            {% endfor %}
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    {# ============================================
+    LINEAS CON RECURSOS DE COOPERACION INTERNACIONAL
+    =============================================== #}
+    <section class="info-lines-recourses-international mt-5 p-3">
+
+      <h2 class="text-center text-white">Lineas con recursos de cooperación internacional</h2>
+
+      <div class="row mt-4 px-5 py-3">
+
+        {% for key, value in node.field_programs_linecredit %}
+          <div class="col-4 col-card">
+            {{ content.field_programs_linecredit[key] }}
+          </div>
+        {% endfor %}
+
+      </div>
+
+    </section>
+
+    {# ============================================
+    PASOS PARA ACCEDER A UN CREDITO FINDETER Y FORMULARIO
+    =============================================== #}
+    <section class="access-credit-findeter mt-5">
+
+      <h2 class="text-center py-5">¿Cómo acceder a un crédito de Findeter?</h2>
+
+      <ul class="step-info">
+
+        {% for key, value in node.field_steps_access_credit_prgms %}
+         <li class="step-info-item {{ loop.first ? 'active': '' }}">{{ content.field_steps_access_credit_prgms[key] }}</li>
+        {% endfor %}
+
+      </ul>
+
+    </section>
+  </div>
+
+</article>

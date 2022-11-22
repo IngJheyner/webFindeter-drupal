@@ -1,0 +1,23 @@
+uuid: 6b8bb8f7-ed44-4c4b-8cf5-fffc8aa9d32b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_available_prgrms
+    - node.type.programs
+  module:
+    - options
+id: node.programs.field_available_prgrms
+field_name: field_available_prgrms
+entity_type: node
+bundle: programs
+label: 'Disponible o Agotado'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: disponible
+default_value_callback: ''
+settings: {  }
+field_type: list_string

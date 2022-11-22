@@ -92,9 +92,6 @@ interface ApiSmfcInterface {
    *
    * GET INFO. ACTUALIZADA DE USUARIOS
    * Se actualiza la informacion editada del usuario desde el sistema SMFC.
-   *
-   * @param int $nid
-   *   - Parametro $nid con argumento de identificacion del nodo.
    */
   public function getUpdateInfoUserComplaints(): bool;
 

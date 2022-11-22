@@ -1,0 +1,7 @@
+findeter_rediscount.sectors_info:
+  path: '/findeter-rediscount/sectorsinfo/{nid}'
+  defaults:
+    _controller: '\Drupal\findeter_rediscount\Controller\FindeterRediscountController::sectorsInfo'
+  methods:  [GET]
+  requirements:
+    _permission: 'access content'

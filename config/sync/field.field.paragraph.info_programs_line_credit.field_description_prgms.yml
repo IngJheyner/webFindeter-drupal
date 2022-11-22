@@ -1,0 +1,21 @@
+uuid: 2bf329a5-3d31-4b0e-a4e3-1a07619d77c6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description_prgms
+    - paragraphs.paragraphs_type.info_programs_line_credit
+  module:
+    - text
+id: paragraph.info_programs_line_credit.field_description_prgms
+field_name: field_description_prgms
+entity_type: paragraph
+bundle: info_programs_line_credit
+label: Descripción
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

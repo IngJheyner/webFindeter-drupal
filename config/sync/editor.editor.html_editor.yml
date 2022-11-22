@@ -59,7 +59,11 @@ settings:
           name: HTML
           items:
             - Source
-  plugins: {  }
+            - Templates
+  plugins:
+    templates:
+      template_path: ''
+      replace_content: 0
 image_upload:
   status: true
   scheme: public

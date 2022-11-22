@@ -1,0 +1,23 @@
+uuid: 2f05dd02-2b42-4d23-bd13-5e7de17e2a13
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_available_prgrms
+    - node.type.lines_credit
+  module:
+    - options
+id: node.lines_credit.field_available_prgrms
+field_name: field_available_prgrms
+entity_type: node
+bundle: lines_credit
+label: 'Disponible o Agotado'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: disponible
+default_value_callback: ''
+settings: {  }
+field_type: list_string

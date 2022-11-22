@@ -1,0 +1,29 @@
+uuid: 7dfd22c7-d7e0-4e0e-87fb-6acf1c3a4f0d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_field_sector_prgms
+    - node.type.lines_credit
+    - node.type.sectors_rediscount
+id: node.lines_credit.field_field_sector_prgms
+field_name: field_field_sector_prgms
+entity_type: node
+bundle: lines_credit
+label: 'Sector elegible'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      sectors_rediscount: sectors_rediscount
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

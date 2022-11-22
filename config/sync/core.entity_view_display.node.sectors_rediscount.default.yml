@@ -1,0 +1,89 @@
+uuid: 8305a086-c8ae-4200-9096-c923e67afb3d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.sectors_rediscount.field_description_sector
+    - field.field.node.sectors_rediscount.field_icon_second_sector
+    - field.field.node.sectors_rediscount.field_icon_sector
+    - field.field.node.sectors_rediscount.field_image_sector
+    - field.field.node.sectors_rediscount.field_subsectors_rediscount
+    - node.type.sectors_rediscount
+  module:
+    - entity_reference_revisions
+    - svg_image
+    - user
+id: node.sectors_rediscount.default
+targetEntityType: node
+bundle: sectors_rediscount
+mode: default
+content:
+  field_description_sector:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_icon_second_sector:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_icon_sector:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_image_sector:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_subsectors_rediscount:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

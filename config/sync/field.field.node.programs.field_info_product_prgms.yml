@@ -1,0 +1,67 @@
+uuid: fb3f75c6-886f-4e84-8623-30bab0fa69d8
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_info_product_prgms
+    - node.type.programs
+    - paragraphs.paragraphs_type.info_programs_line_credit
+  module:
+    - entity_reference_revisions
+id: node.programs.field_info_product_prgms
+field_name: field_info_product_prgms
+entity_type: node
+bundle: programs
+label: 'Información de producto'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      info_programs_line_credit: info_programs_line_credit
+    negate: 0
+    target_bundles_drag_drop:
+      cifras_porque_findeter_pot:
+        weight: 14
+        enabled: false
+      documento_link_para_contenido_tr:
+        weight: 15
+        enabled: false
+      findeter_en_cifras_home:
+        weight: 16
+        enabled: false
+      info_programs_line_credit:
+        weight: 17
+        enabled: true
+      parag_cont_grill_segu_inform:
+        weight: 18
+        enabled: false
+      parag_trans_investor_relation:
+        weight: 19
+        enabled: false
+      productos_servicios_home:
+        weight: 20
+        enabled: false
+      ps_contenido_items_internos:
+        weight: 21
+        enabled: false
+      ps_grillas_internas:
+        weight: 22
+        enabled: false
+      servicios_findeter_pot:
+        weight: 23
+        enabled: false
+      slider_pr:
+        weight: 24
+        enabled: false
+      tabs_productos_servicio:
+        weight: 25
+        enabled: false
+      titulo_tipo_de_documento_o_link_:
+        weight: 26
+        enabled: false
+field_type: entity_reference_revisions

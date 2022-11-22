@@ -1,0 +1,75 @@
+uuid: bd1c86b3-02f2-41f2-b0e7-5794c83e8608
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.programs.field_available_prgrms
+    - field.field.node.programs.field_beneficiaries_prgms
+    - field.field.node.programs.field_date_validity_prgms
+    - field.field.node.programs.field_field_sector_prgms
+    - field.field.node.programs.field_image_prgms
+    - field.field.node.programs.field_info_product_prgms
+    - field.field.node.programs.field_interest_rate_prgms
+    - field.field.node.programs.field_margin_prgms
+    - field.field.node.programs.field_means_progms
+    - field.field.node.programs.field_space_available_prgms
+    - field.field.node.programs.field_steps_access_credit_prgms
+    - field.field.node.programs.field_subtitle_prgms
+    - field.field.node.programs.field_term_prgms
+    - field.field.node.programs.field_validity_prgms
+    - node.type.programs
+  module:
+    - svg_image
+    - user
+id: node.programs.teaser
+targetEntityType: node
+bundle: programs
+mode: teaser
+content:
+  field_image_prgms:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_interest_rate_prgms:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_term_prgms:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  addtoany: true
+  field_available_prgrms: true
+  field_beneficiaries_prgms: true
+  field_date_validity_prgms: true
+  field_field_sector_prgms: true
+  field_info_product_prgms: true
+  field_margin_prgms: true
+  field_means_progms: true
+  field_space_available_prgms: true
+  field_steps_access_credit_prgms: true
+  field_subtitle_prgms: true
+  field_validity_prgms: true
+  langcode: true
+  links: true
