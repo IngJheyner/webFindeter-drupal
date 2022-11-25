@@ -1,0 +1,14 @@
+uuid: e0e9b610-9826-4dc1-a4a3-b1043dfe3f07
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.c_vicepresidencia
+  module:
+    - user
+id: user_remove_role_action.c_vicepresidencia
+label: 'Elimina el rol C-VicePresidencia al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: c_vicepresidencia

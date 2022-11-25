@@ -1,0 +1,26 @@
+uuid: 650494c3-2a8e-4a67-9c7b-871baaec5c8f
+langcode: es
+status: true
+dependencies:
+  config:
+    - media.type.mltdia_convcatoria_archivo
+    - node.type.convocatorias
+  module:
+    - dropzonejs
+    - entity_browser
+    - field_ui
+    - media
+    - node
+    - system
+id: c_vicepresidencia
+label: C-ViceTécnica
+weight: 11
+is_admin: null
+permissions:
+  - 'access entity_browser_archivos_convocatorias entity browser pages'
+  - 'administer display modes'
+  - 'create mltdia_convcatoria_archivo media'
+  - 'dropzone upload files'
+  - 'edit any convocatorias content'
+  - 'view convocatorias revisions'
+  - 'view the administration theme'
