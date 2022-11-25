@@ -1,0 +1,14 @@
+uuid: d6b94384-697e-4468-844f-9eeb0015c72e
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.c_vicetecnica
+  module:
+    - user
+id: user_remove_role_action.c_vicetecnica
+label: 'Elimina el rol C-ViceTécnica al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: c_vicetecnica

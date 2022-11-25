@@ -109,6 +109,7 @@ class ApiSmfcHttp {
 
         /* ===== ===== Crear o actualizar Queja o Reclamo ===== ===== */
         case 'queja/':
+        case 'usuarios/info/':
 
           if (isset($data['newEndpoint'])) {
             $endpoint = $data['newEndpoint'];
@@ -200,7 +201,13 @@ class ApiSmfcHttp {
 
             $dataResponse = Json::decode($response->getBody());
 
-            $this->logger->get('API SMFC')->info("Code: %code Mensaje: %message, Se ha creado el anexo con ID %id, radicado No. %settled cliente web services en el sistema <strong> API SMFC.", ['%code' => $response->getStatusCode(), '%message' => $response->getReasonPhrase(), '%settled' => $dataResponse['codigo_queja'], '%id' => $dataResponse['id']]);
+            $this->logger->get('API SMFC')->info("Code: %code Mensaje: %message, Se ha creado el anexo con ID %id, radicado No. %settled cliente web services en el sistema <strong> API SMFC.",
+            [
+              '%code' => $response->getStatusCode(),
+              '%message' => $response->getReasonPhrase(),
+              '%settled' => $dataResponse['codigo_queja'],
+              '%id' => $dataResponse['id']
+            ]);
 
             return $dataResponse;
 
@@ -215,6 +222,7 @@ class ApiSmfcHttp {
 
         /* ===== ===== Enviar recibidos por la funcion ACK ===== ===== */
         case 'complaint/ack':
+        case 'usuarios/ack/':
 
           $response = $client->request($method, $endpoint, [
             'headers' => [

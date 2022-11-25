@@ -136,7 +136,6 @@ function _getBussinesDays($addDays, $day_answer = FALSE){
   return $day_answer ? $res_day_answer  : $timeStamp;
 }
 
-
 /**
  * Implements hook_form_alter
  * @author user 3ddesarrollo <3ddesarrollo@3dstudioweb.com>
@@ -487,13 +486,18 @@ function findeter_pqrsd_cron() {
           }
           else {
 
-            $put = $apiSmfc->putComplaints($state['nid']);
-            //$put = TRUE;
+            // Consultamos si hay informacion de usuarios para actualizar.
+            $putUpdbUser = $apiSmfc->getUpdateInfoUserComplaints();
 
-            if(!$put)
-              $nid[$key]["smfc"] = TRUE;
-            else
-              unset($nid[$key]);
+            if($putUpdbUser) {
+              $put = $apiSmfc->putComplaints($state['nid']);
+              //$put = TRUE;
+
+              if(!$put)
+                $nid[$key]["smfc"] = TRUE;
+              else
+                unset($nid[$key]);
+            }
           }
 
         }

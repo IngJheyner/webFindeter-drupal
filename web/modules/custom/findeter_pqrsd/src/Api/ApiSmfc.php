@@ -9,6 +9,7 @@ use Drupal\Core\State\StateInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\File\FileSystemInterface;
+use Drupal\Core\Site\Settings;
 
 use Drupal\findeter_pqrsd\Api\ApiSmfcHttp;
 use Drupal\findeter_pqrsd\Api\ApiSmfcInterface;
@@ -154,9 +155,10 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
     // Credenciales de acceso.
     $this->credentials = $credentials;
 
-    // Se pasa la llave secreta de forma arbitraria, ya que por un caracter % no dejo pasar el string desde el contenedor del servicio.
-    $this->secretKey = $this->credentials[0]["user"] == 'elondono@findeter.gov.co' ? 'tnx#cuuhn#ux15h5km_gey34u49m)=$ia*6mcr=o!8m1i8xp=w' : '0w=z)uo*ujlgwksjouz-uwbhih0@a=vn5jx(oi0er(!-fu4h^%';
-    $this->uri = $this->credentials[0]["uri"];
+    // Se pasa la llave secreta.
+    $this->secretKey = Settings::get('api_smfc_key');
+
+    $this->uri = Settings::get('api_smfc_uri');
     $this->tipEntity = $this->credentials[0]['tip_entity'];
     $this->codeEntity = $this->credentials[0]['code_entity'];
 
@@ -172,8 +174,9 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
 
     // $this->login();
     // $this->refreshToken();
-    // $this->postComplaints(277);
-    // $this->putComplaints(403);
+    // $this->postComplaints(406);
+    // $this->putComplaints(410);
+    // $this->getUpdateInfoUserComplaints();
 
   }
 
@@ -188,7 +191,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
    * {@inheritDoc}
    */
   public function getExtFile():string {
-    return 'pdf jpg png mp4 docx doc xls bmp mp3 msg jpeg xlsx zip';
+    return 'pdf jpg png mp4 docx doc xls bmp mp3 msg jpeg xlsx';
   }
 
   /**
@@ -197,8 +200,8 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
   public function login():bool {
 
     // Se pasan las credencias de usuario y contrasenia.
-    $user = $this->credentials[0]["user"];
-    $pass = $this->credentials[0]["pass"];
+    $user = Settings::get('api_smfc_user');
+    $pass = Settings::get('api_smfc_pass');
 
     // Se crea una variable de tipo string fomentado a uno de tipo objeto.
     $data = '{"username": "'.$user.'", '.
@@ -325,7 +328,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
 
                   // Iteramos los resultados de los archivos.
                   foreach ($responseFile['results'] as $keyF => $files) {
-                    // Se valida que no sea un archivo nuevo adjunto a un radicado existente.
+                    // Se valida que no sea un archivo nuevo adjunto a un radicado existente diferente a una replica.
                     if (empty($nidNode)) {
                       // Los siguientes datos, como la fecha, hora y documentos se tratan para construir la ruta donde va ir guardado el archivo, este se guarda como archivo gestionado TEMPORAL.
                       $date = $this->dateFormatter->format(strtotime(new DrupalDateTime()), 'custom', 'Y-m-d');
@@ -486,18 +489,49 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
 
       // Inicializamos valores.
       $dataState = $this->state->get('findeter_pqrsd.api_smfc_data');
-      $i = 0;
+      $ix = 0;
+
+      // Se define un arreglo para agrupar por registros de 100.
+      $pageSend = ceil(count($dataState) / 100);
+      $dataPage = [];
 
       if (!isset($context['sandbox']['progress'])) {
         $context['sandbox']['progress'] = 0;
         $context['results'] = [];
-        $context['sandbox']['max'] = count($dataState);
+        $context['sandbox']['max'] = $pageSend;
       }
 
-      $data = '{'.
-        '"pqrs": [';
+      for ($i = 0; $i < $pageSend; $i++) {
 
-      while ($i < count($dataState)) {
+        $data = '{'.
+          '"pqrs": [';
+
+        while ($ix < count($dataState)) {
+
+          if (count($dataState) > 100) {
+
+            if (count($dataState) !== ($ix + 1)) {
+              $data .= ($ix + 1) % 100 !== 0 ? '"'.$dataState[$ix]['codigo_queja'].'", ' : '"'.$dataState[$ix]['codigo_queja'].'"';
+            }
+            else {
+              $data .= '"'.$dataState[$ix]['codigo_queja'].'"';
+            }
+          }
+          else {
+            $data .= ($ix + 1) !== count($dataState) ? '"'.$dataState[$ix]['codigo_queja'].'", ' : '"'.$dataState[$ix]['codigo_queja'].'"';
+          }
+
+          // Se itera solo los primeros 100 registros siguientes al iterador pageSend.
+          $ix++;
+          if (is_int($ix / 100)) {
+            break;
+          }
+        }
+        $data .= ']}';
+        $dataPage[$i] = $data;
+      }
+
+      foreach ($dataPage as $key => $data) {
 
         // Actualizar el progreso de informacion.
         $context['sandbox']['progress']++;
@@ -505,45 +539,34 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
         // Mostramos el mensaje.
         $context['message'] = t('<strong>Findeter:</strong> Sending @num complaints through the ACK function to the SuperIntendencia Financiera De Colombia', ['@num' => count($context['results']) + 1]);
 
-        if (($i + 1) != count($dataState)) {
-          $data .= '"'.$dataState[$i]['codigo_queja'].'", ';
-        }
-        else {
-          $data .= '"'.$dataState[$i]['codigo_queja'].'"';
-        }
+        // Firma encrypt sha256 en funcion de hmac.
+        $signature = strtoupper(hash_hmac('sha256', $data, $this->secretKey, FALSE));
+
+        // Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service.
+        $response = $this->httpClient($signature, 'POST', 'complaint/ack', $data);
 
         // Se agregan los valores a la variable resultado para ser mostrados.
-        $context['results'][] = $i;
-        $i++;
-      }
+        $context['results'][] = $key;
 
-      $data .= ']}';
+        if (isset($response['code']) && $response['code'] != '504') {
 
-      // Firma encrypt sha256 en funcion de hmac.
-      $signature = strtoupper(hash_hmac('sha256', $data, $this->secretKey, FALSE));
+          $context['finished'] = 1;
+          $context['message'] = t('ACK failed process 2.');
+          $context['results']['error']['error_ack']['error'] = t('<p><strong>Import failed ACK.</strong><br><br>An error has occurred in the sending of data received through the ACK function, for more information contact the system administrator<p>');
+          // Ha ocurrido en error en el envio de datos rebidos mediante la funcion ACK, para más información contacte al administrador del sistema.
+          $this->state->set('findeter_pqrsd.api_smfc_data', NULL);
 
-      // Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service.
-      $response = $this->httpClient($signature, 'POST', 'complaint/ack', $data);
+        }
+        else {
 
-      if (isset($response['code']) && $response['code'] != '504') {
-
-        $context['finished'] = 1;
-        $context['message'] = t('ACK failed process 2.');
-        $context['results']['error']['error_ack']['error'] = t('<p><strong>Import failed ACK.</strong><br><br>An error has occurred in the sending of data received through the ACK function, for more information contact the system administrator<p>');
-        // Ha ocurrido en error en el envio de datos rebidos mediante la funcion ACK, para más información contacte al administrador del sistema.
-        $this->state->set('findeter_pqrsd.api_smfc_data', NULL);
-
-      }
-      else {
-
-        // Informar al motor por lotes que no hemos terminado,
-        // y proporcionar una estimación del nivel de finalización que alcanzamos.
-        $context['message'] = t('ACK process.');
-        if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
-          $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+          // Informar al motor por lotes que no hemos terminado,
+          // y proporcionar una estimación del nivel de finalización que alcanzamos.
+          $context['message'] = t('ACK process.');
+          if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+            $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+          }
         }
       }
-
     }
     elseif (isset($context['results']['empty'])) {
       $context['message'] = t('<strong>Superintendencia Financiera de Colombia: </strong>No results found.');
@@ -604,7 +627,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
     $names = $nodeStorage->get("field_pqrsd_primer_nombre")->getValue()[0]['value'];
 
     if (isset($nodeStorage->get("field_pqrsd_segundo_nombre")->getValue()[0]['value'])) {
-      $names .= " ".$nodeStorage->get("field_pqrsd_segundo_nombre")->getValue()[0]['value'];
+      $names .= " ".$nodeStorage->get('field_pqrsd_segundo_nombre')->getValue()[0]['value'];
     }
 
     $names .= " ".$nodeStorage->get("field_pqrsd_primer_apellido")->getValue()[0]['value'];
@@ -642,7 +665,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
     // Anexo archivos para la queja.
     $anexFileComplaintsFile = $nodeStorage->get("field_pqrsd_archivo")->getValue();
 
-    if (sizeof($anexFileComplaintsFile)) {
+    if (count($anexFileComplaintsFile)) {
       $anexFileComplaints = "true";
     }
     else {
@@ -712,9 +735,31 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
 
         foreach ($anexFileComplaintsFile as $file) {
 
-          if (sizeof($file)) {
+          if (count($file)) {
 
             $anexFile = $file_storage->load($file['target_id']);
+
+            if (strlen($anexFile->getFilename()) > 150) {
+
+              // Recortamos el nombre del archivo a 150 caracteres.
+              $strgFile = file_get_contents($anexFile->getFileUri());
+
+              $anexExt = pathinfo($anexFile->getFilename(), PATHINFO_EXTENSION);
+              $anexSubtrName = substr($anexFile->getFilename(), 0, 150);
+
+              $anexName = "{$this->fileSystem->dirname($anexFile->getFileUri())}/{$anexSubtrName}.$anexExt";
+
+              if (file_put_contents($anexName, $strgFile) == FALSE) {
+
+                $this->logger->get('API SMFC')->warning("Code:FILE CHARACTER Mensaje crear radicado: Edicion de archivo a 150 caracteres.  <br> Se ha producido un error al crear radicado No. %settled como cliente web services en el sistema <strong> API SMFC.", ['%settled' => $codComplaints]);
+
+                return FALSE;
+              }
+
+            }
+            else {
+              $anexName = $anexFile->getFileUri();
+            }
 
             // Se crea una variable de tipo string fomentado a uno de tipo objeto.
             $dataSignature = '{"type": "'.$anexFile->getMimeType().'", '.
@@ -723,14 +768,22 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
             // Firma encrypt sha256 en funcion de hmac.
             $signature = strtoupper(hash_hmac('sha256', $dataSignature, $this->secretKey, FALSE));
 
-            $data = ['file' => $anexFile->getFileUri(), 'type' => $anexFile->getMimeType(), 'code' => $codComplaints];
+            $data = [
+              'file' => $anexName,
+              'type' => $anexFile->getMimeType(),
+              'code' => $codComplaints
+            ];
 
             // Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service.
             $response = $this->httpClient($signature, 'POST', 'storage/', $data);
 
             if (isset($response['code'])) {
 
-              $this->logger->get('API SMFC')->warning("Code: %code Mensaje anexo radicado: %message <br> Se ha producido un error al crear el anexo del radicado No. %settled como cliente web services en el sistema <strong> API SMFC.", ['%code' => $response['code'], '%message' => $response['message'], '%settled' => $codComplaints]);
+              $this->logger->get('API SMFC')->warning("Code: %code Mensaje anexo radicado: %message <br> Se ha producido un error al crear el anexo del radicado No. %settled como cliente web services en el sistema <strong> API SMFC.", [
+                '%code' => $response['code'],
+                '%message' => $response['message'],
+                '%settled' => $codComplaints
+              ]);
 
             }
 
@@ -770,10 +823,10 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
       $codComplaints = $nodeStorage->get("field_pqrsd_numero_radicado")->getValue()[0]['value'];
 
       // Sexo.
-      $sexo = $nodeStorage->get("field_pqrsd_sexo")->getValue()[0]['value'];
+      $sexo = isset($nodeStorage->get('field_pqrsd_sexo')->getValue()[0]['value']) ? $nodeStorage->get("field_pqrsd_sexo")->getValue()[0]['value'] : NULL;
 
       // lgbti.
-      $lgtbi = $nodeStorage->get("field_pqrsd_lgtbi")->getValue()[0]['value'];
+      $lgtbi = isset($nodeStorage->get('field_pqrsd_lgtbi')->getValue()[0]['value']) ? $nodeStorage->get("field_pqrsd_lgtbi")->getValue()[0]['value'] : 2;
 
       // Producto.
       $codProduct = $nodeStorage->get("field_pqrsd_nombre_producto")->getValue()[0]['value'];
@@ -810,93 +863,115 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
       // Queja expres.
       $complaintsExpress = isset($nodeStorage->get('field_pqrsd_queja_expres')->getValue()[0]['value']) ? $nodeStorage->get("field_pqrsd_queja_expres")->getValue()[0]['value'] : 2;
 
-      $dataSignature = '{"codigo_queja": "'.$codComplaints.'", '.
-        '"sexo": "'.$sexo.'", '.
-        '"lgbtiq": "'.$lgtbi.'", '.
-        '"condicion_especial": "'.$conditionSpecial.'", '. //
-        '"canal_cod": "'.$canal.'", '. //
-        '"producto_cod": "'.$codProduct.'", '.
-        '"macro_motivo_cod": "'.$codMotive.'", '.
-        '"estado_cod": "4", '.
-        '"fecha_actualizacion": "'.$dateResponse.'", '.
-        '"producto_digital": "2", '.
-        '"a_favor_de": "'.$infavorof.'", '.
-        '"aceptacion_queja": null, '.
-        '"rectificacion_queja": null, '.
-        '"desistimiento_queja": "'.$withdrawal.'", '. //
-        '"prorroga_queja": null, '.
-        '"admision": "9", '.
-        '"documentacion_rta_final": true, '.
-        '"anexo_queja": true, '.
-        '"fecha_cierre": "'.$dateResponse.'", '.
-        '"tutela": "'.$wardShip.'", '.
-        '"ente_control": "'.$entityControl.'", '.
-        '"marcacion": null, '.
-        '"queja_expres": "'.$complaintsExpress.'"}';//
+      $file_storage = $this->entityTypeManager->getStorage('file');
 
-      // Firma encrypt sha256 en funcion de hmac.
-      $signature = strtoupper(hash_hmac('sha256', $dataSignature, $this->secretKey, FALSE));
+      /* =============================================================================================================
+      SE CARGA PREVIAMENTE TODOS LOS ARCHIVOS COMO RESPUESTA FINAL, YA QUE EL SISTEMA SOLO PERMITE ENVIAR UNA RESPUESTA DE QUEJA O RECLAMO UNA VEZ SE HAYA DILIGENCIADO POR PARTE DE LA AGENCIA; EL SISTEMA NO TIENE UNA OPCION DE REPLICA O DESISTIMIENTO EN EL FLUJO DE TRABAJO COMO DEMANDA EL SFC.
+      SE CIERRA POR COMPLETO LA QUEJA O RECLAMO.
+      =============================================================================================================== */
+      foreach ($anexFileResponseFile as $file) {
 
-      // Se envia la data para poder validar algunos valores.
-      $data = ['code' => $codComplaints, 'data' => $dataSignature];
+        $anexFile = $file_storage->load($file['target_id']);
 
-      // Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service.
-      $response = $this->httpClient($signature, 'PUT', 'queja/', $data);
+        // Editamos el nombre del archivo como sufijo Resp_final_sfc.
+        $anexExt = pathinfo($anexFile->getFilename(), PATHINFO_EXTENSION);
+        $strgFile = file_get_contents($anexFile->getFileUri());
 
-      if (isset($response['code'])) {
+        $anexReplaceName = str_replace(".$anexExt", "_RESP_FINAL_SFC", $anexFile->getFilename());
+        $anexName = "{$this->fileSystem->dirname($anexFile->getFileUri())}/{$anexReplaceName}.$anexExt";
 
-        $this->logger->get('API SMFC')->warning("Code: %code Mensaje actualizacion de radicado: %message <br> Se ha producido un error al actualizar radicado No. %settled como cliente web services en el sistema <strong> API SMFC.",
-        [
-          '%code' => $response['code'],
-          '%message' => $response['message'],
-          '%settled' => $codComplaints
-        ]);
+        // Recortamos el nombre del archivo a 150STR si el archivo supera el numero de caracteres.
+        if (strlen($anexName) > 150) {
 
-        return FALSE;
-
-      }
-      else {
-
-        $file_storage = $this->entityTypeManager->getStorage('file');
-
-        foreach ($anexFileResponseFile as $file) {
-
-          if (sizeof($file)) {
-
-            $anexFile = $file_storage->load($file['target_id']);
-
-            // Se crea una variable de tipo string fomentado a uno de tipo objeto.
-            $dataSignature = '{"type": "'.$anexFile->getMimeType().'", '.
-            '"codigo_queja": "'.$codComplaints.'"}';
-
-            // Firma encrypt sha256 en funcion de hmac.
-            $signature = strtoupper(hash_hmac('sha256', $dataSignature, $this->secretKey, FALSE));
-
-            $data = ['file' => $anexFile->getFileUri(), 'type' => $anexFile->getMimeType(), 'code' => $codComplaints];
-
-            // Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service.
-            $response = $this->httpClient($signature, 'POST', 'storage/', $data);
-
-            if (isset($response['code'])) {
-
-              $this->logger->get('API SMFC')->warning("Code: %code Mensaje anexo respuesta radicado: %message <br> Se ha producido un error al crear el anexo de respuesta radicado No. %settled como cliente web services en el sistema <strong> API SMFC.",
-              [
-                '%code' => $response['code'],
-                '%message' => $response['message'],
-                '%settled' => $codComplaints
-              ]);
-
-              return FALSE;
-
-            }
-
-          }
+          $anexSubtrName = substr($anexFile->getFilename(), 0, 130);
+          $anexName = "{$this->fileSystem->dirname($anexFile->getFileUri())}/{$anexSubtrName}_RESP_FINAL_SFC.$anexExt";
 
         }
 
-        return TRUE;
-      }
+        if (file_put_contents($anexName, $strgFile) == FALSE) {
+          return FALSE;
+        }
 
+        // Se crea una variable de tipo string fomentado a uno de tipo objeto.
+        $dataSignature = '{"type": "'.$anexFile->getMimeType().'", '.
+        '"codigo_queja": "'.$codComplaints.'"}';
+
+        // Firma encrypt sha256 en funcion de hmac.
+        $signature = strtoupper(hash_hmac('sha256', $dataSignature, $this->secretKey, FALSE));
+
+        $data = [
+          'file' => $anexName,
+          'type' => $anexFile->getMimeType(),
+          'code' => $codComplaints
+        ];
+
+        // Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service.
+        $response = $this->httpClient($signature, 'POST', 'storage/', $data);
+
+        if (isset($response['code'])) {
+
+          $this->logger->get('API SMFC')->warning("Code: %code Mensaje anexo respuesta radicado: %message <br> Se ha producido un error al crear el anexo de respuesta radicado No. %settled como cliente web services en el sistema <strong> API SMFC.",
+          [
+            '%code' => $response['code'],
+            '%message' => $response['message'],
+            '%settled' => $codComplaints
+          ]);
+
+          return FALSE;
+
+        }
+        else {
+
+          $dataSignature = '{"codigo_queja": "'.$codComplaints.'", '.
+            '"sexo": "'.$sexo.'", '.
+            '"lgbtiq": "'.$lgtbi.'", '.
+            '"condicion_especial": "'.$conditionSpecial.'", '. //
+            '"canal_cod": "'.$canal.'", '. //
+            '"producto_cod": "'.$codProduct.'", '.
+            '"macro_motivo_cod": "'.$codMotive.'", '.
+            '"estado_cod": "4", '.
+            '"fecha_actualizacion": "'.$dateResponse.'", '.
+            '"producto_digital": "2", '.
+            '"a_favor_de": "'.$infavorof.'", '.
+            '"aceptacion_queja": null, '.
+            '"rectificacion_queja": null, '.
+            '"desistimiento_queja": "'.$withdrawal.'", '. //
+            '"prorroga_queja": null, '.
+            '"admision": "9", '.
+            '"documentacion_rta_final": true, '.
+            '"anexo_queja": true, '.
+            '"fecha_cierre": "'.$dateResponse.'", '.
+            '"tutela": "'.$wardShip.'", '.
+            '"ente_control": "'.$entityControl.'", '.
+            '"marcacion": null, '.
+            '"queja_expres": "'.$complaintsExpress.'"}';
+
+          // Firma encrypt sha256 en funcion de hmac.
+          $signature = strtoupper(hash_hmac('sha256', $dataSignature, $this->secretKey, FALSE));
+
+          // Se envia la data para poder validar algunos valores.
+          $data = ['code' => $codComplaints, 'data' => $dataSignature];
+
+          // Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service.
+          $response = $this->httpClient($signature, 'PUT', 'queja/', $data);
+
+          if (isset($response['code'])) {
+
+            $this->logger->get('API SMFC')->warning("Code: %code Mensaje actualizacion de radicado: %message <br> Se ha producido un error al actualizar radicado No. %settled como cliente web services en el sistema <strong> API SMFC.",
+            [
+              '%code' => $response['code'],
+              '%message' => $response['message'],
+              '%settled' => $codComplaints
+            ]);
+
+            return FALSE;
+
+          }
+          else {
+            return TRUE;
+          }
+        }
+      }
     }
     else {
       return FALSE;
@@ -960,6 +1035,126 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
 
     // Se guarda los cambios.
     $node->save();
+
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  public function getUpdateInfoUserComplaints():bool {
+
+    // Firma encrypt sha256 en funcion de hmac.
+    $signature = strtoupper(hash_hmac('sha256', "{$this->uri}usuarios/info/", $this->secretKey, FALSE));
+
+    // Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service.
+    $response = $this->httpClient($signature, 'GET', 'usuarios/info/');
+
+    if (isset($response['code'])) {
+
+      $this->logger->get('API SMFC')->warning("Informacion de usuarios: Se ha producido un error al importar la informacion de edicion de usuarios del sistema SMFC. <br> ");
+
+      return FALSE;
+
+    }
+    else {
+
+      if ($response['count'] !== 0) {
+
+        // Storage node.
+        $nodeStorage = $this->entityTypeManager->getStorage('node');
+
+        // Iteramos por informacion de usuario que se haya importado.
+        foreach ($response['results'] as $key => $value) {
+
+          $number_id_CF = $value['tipo_id_CF'] === 3 ? 'field_pqrsd_nit' : 'field_pqrsd_numero_id';
+
+          // Cargamos quejas o reclamos de usuarios que cumplan con el nit expuesto por SMFC.
+          $pqrsds = $nodeStorage->loadByProperties([
+            'type' => 'pqrsd',
+            $number_id_CF => $value['numero_id_CF'],
+          ]);
+
+          // Actualizamos informacion de todo usuario que tenga quejas o reclamos creados en el sistema.
+          // y que cumpla con el criterio de consulta anterior.
+          foreach ($pqrsds as $pqrsd) {
+
+            // Nombres.
+            if ($value['tipo_id_CF'] !== 3) {
+              $names = "{$value['nombre']} {$value['apellido']}";
+              $pqrsd->set('field_pqrsd_primer_nombre', $names);
+            }
+
+            // Correo.
+            $pqrsd->set('field_pqrsd_email', $value['correo']);
+
+            // Telefono.
+            $pqrsd->set('field_pqrsd_telefono', $value['telefono']);
+
+            // Razon social.
+            if (!empty($value['razon_social'])) {
+              $pqrsd->set('field_pqrsd_razon_social', $value['razon_social']);
+            }
+
+            // Direccion.
+            if (!is_null($value['direccion'])) {
+              $pqrsd->set('field_pqrsd_direccion', $value['direccion']);
+            }
+
+            // Departamento.
+            if (!is_null($value['departamento_cod'])) {
+
+              $query = \Drupal::entityQuery('taxonomy_term');
+              $query->condition('field_code_dane_dpto', $value['departamento_cod']);
+              $tids = $query->execute();
+
+              $pqrsd->set('field_pqrsd_departamento', $tids);
+
+            }
+
+            // Municipio.
+            if (!is_null($value['municipio_cod'])) {
+
+              $query = \Drupal::entityQuery('taxonomy_term');
+              $query->condition('field_code_dane_dpto', $value['municipio_cod']);
+              $tids = $query->execute();
+
+              $pqrsd->set('field_pqrsd_municipio', $tids);
+
+            }
+
+            // Guardar el pqrsd con edicion de usuario.
+            $pqrsd->save();
+          }
+        }
+
+        // Enviamos el ACK de los nit de usuarios actualizados.
+        $i = 0;
+        $data = '{'.
+          '"numero_id_CF": [';
+
+        while ($i < count($response['results'])) {
+          $data .= ($i + 1) !== count($response['results']) ? '"'.$response['results'][$i]['numero_id_CF'].'", ' : '"'.$response['results'][$i]['numero_id_CF'].'"';
+          $i++;
+        }
+
+        $data .= ']}';
+
+        // Firma encrypt sha256 en funcion de hmac.
+        $signature = strtoupper(hash_hmac('sha256', $data, $this->secretKey, FALSE));
+
+        // Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service.
+        $response = $this->httpClient($signature, 'POST', 'usuarios/ack/', $data);
+
+        if (isset($response['code']) && $response['code'] != '504') {
+
+          $this->logger->get('API SMFC')->warning("Informacion de usuarios ACK: Se ha producido un error al enviar los nit de usuarios actualizados al sistema SMFC. <br> ");
+
+          return FALSE;
+
+        }
+      }
+      return TRUE;
+    }
 
   }
 

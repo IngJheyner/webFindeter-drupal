@@ -1,0 +1,14 @@
+uuid: 4434fa39-6e49-4b6b-8749-c6054bbac17a
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.c_vicetecnica
+  module:
+    - user
+id: user_add_role_action.c_vicetecnica
+label: 'Añade el rol C-ViceTécnica al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: c_vicetecnica

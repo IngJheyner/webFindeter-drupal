@@ -1,0 +1,28 @@
+uuid: 4c14726f-2b05-4d41-b12c-350b54a47a8b
+langcode: es
+status: true
+dependencies:
+  config:
+    - media.type.mltdia_convcatoria_archivo
+    - node.type.convocatorias
+    - node.type.tip_cont_historial_convocat
+  module:
+    - dropzonejs
+    - entity_browser
+    - media
+    - node
+id: c_vicetecnica
+label: C-ViceTécnica
+weight: 11
+is_admin: null
+permissions:
+  - 'access entity_browser_archivos_convocatorias entity browser pages'
+  - 'create mltdia_convcatoria_archivo media'
+  - 'delete own mltdia_convcatoria_archivo media'
+  - 'dropzone upload files'
+  - 'edit any convocatorias content'
+  - 'edit any tip_cont_historial_convocat content'
+  - 'edit own convocatorias content'
+  - 'edit own tip_cont_historial_convocat content'
+  - 'view convocatorias revisions'
+  - 'view tip_cont_historial_convocat revisions'
