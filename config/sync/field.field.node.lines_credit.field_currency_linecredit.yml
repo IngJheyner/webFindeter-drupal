@@ -1,20 +1,20 @@
-uuid: 6832ee29-2149-45ba-b069-46f65a144897
+uuid: 41d698e4-7038-459e-a541-85f368ebff72
 langcode: es
 status: true
 dependencies:
   config:
-    - field.storage.node.field_means_progms
+    - field.storage.node.field_currency_linecredit
     - node.type.lines_credit
   module:
     - options
-id: node.lines_credit.field_means_progms
-field_name: field_means_progms
+id: node.lines_credit.field_currency_linecredit
+field_name: field_currency_linecredit
 entity_type: node
 bundle: lines_credit
-label: 'Uso de los recursos'
+label: Moneda
 description: ''
 required: true
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }

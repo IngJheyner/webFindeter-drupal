@@ -5,8 +5,10 @@ dependencies:
   config:
     - field.field.node.lines_credit.field_available_prgrms
     - field.field.node.lines_credit.field_beneficiaries_prgms
+    - field.field.node.lines_credit.field_currency_linecredit
     - field.field.node.lines_credit.field_date_validity_prgms
     - field.field.node.lines_credit.field_field_sector_prgms
+    - field.field.node.lines_credit.field_image_prgms
     - field.field.node.lines_credit.field_info_product_linecredit
     - field.field.node.lines_credit.field_interest_rate_prgms
     - field.field.node.lines_credit.field_margin_prgms
@@ -16,13 +18,16 @@ dependencies:
     - field.field.node.lines_credit.field_steps_access_credit_prgms
     - field.field.node.lines_credit.field_subtitle_prgms
     - field.field.node.lines_credit.field_term_prgms
+    - field.field.node.lines_credit.field_type_beneficiary_lincredit
     - field.field.node.lines_credit.field_validity_prgms
+    - image.style.thumbnail
     - node.type.lines_credit
   module:
     - datetime
     - field_group
     - paragraphs
     - path
+    - svg_image
 third_party_settings:
   field_group:
     group_group_tabs:
@@ -46,11 +51,12 @@ third_party_settings:
       children:
         - title
         - field_available_prgrms
+        - field_image_prgms
         - field_subtitle_prgms
-        - field_space_available_prgms
+        - group_quota_coin
         - field_interest_rate_prgms
         - field_term_prgms
-        - field_beneficiaries_prgms
+        - group_type_beneficiary
         - group_vigencia
         - field_means_progms
         - field_margin_prgms
@@ -108,7 +114,7 @@ third_party_settings:
       label: 'Paso para acceder a un credito de Findeter'
       region: content
       parent_name: group_group_tabs
-      weight: 4
+      weight: 5
       format_type: tab
       format_settings:
         classes: ''
@@ -122,6 +128,36 @@ third_party_settings:
         - field_date_validity_prgms
         - field_validity_prgms
       label: Vigencia
+      region: content
+      parent_name: group_info
+      weight: 10
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_quota_coin:
+      children:
+        - field_space_available_prgms
+        - field_currency_linecredit
+      label: 'Cupo Moneda'
+      region: content
+      parent_name: group_info
+      weight: 5
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_type_beneficiary:
+      children:
+        - field_type_beneficiary_lincredit
+        - field_beneficiaries_prgms
+      label: 'Tipo Beneficiario'
       region: content
       parent_name: group_info
       weight: 8
@@ -139,7 +175,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 14
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -151,11 +187,17 @@ content:
     third_party_settings: {  }
   field_beneficiaries_prgms:
     type: string_textarea
-    weight: 7
+    weight: 28
     region: content
     settings:
       rows: 2
       placeholder: ''
+    third_party_settings: {  }
+  field_currency_linecredit:
+    type: options_select
+    weight: 7
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_date_validity_prgms:
     type: datetime_default
@@ -164,14 +206,18 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_field_sector_prgms:
-    type: entity_reference_autocomplete
-    weight: 11
+    type: options_buttons
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_image_prgms:
+    type: image_image
+    weight: 3
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
   field_info_product_linecredit:
     type: paragraphs
@@ -193,7 +239,7 @@ content:
     third_party_settings: {  }
   field_interest_rate_prgms:
     type: string_textfield
-    weight: 5
+    weight: 6
     region: content
     settings:
       size: 60
@@ -201,7 +247,7 @@ content:
     third_party_settings: {  }
   field_margin_prgms:
     type: string_textfield
-    weight: 10
+    weight: 12
     region: content
     settings:
       size: 60
@@ -209,7 +255,7 @@ content:
     third_party_settings: {  }
   field_means_progms:
     type: options_select
-    weight: 9
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -225,7 +271,7 @@ content:
     third_party_settings: {  }
   field_space_available_prgms:
     type: string_textfield
-    weight: 4
+    weight: 6
     region: content
     settings:
       size: 60
@@ -241,7 +287,7 @@ content:
     third_party_settings: {  }
   field_subtitle_prgms:
     type: string_textfield
-    weight: 3
+    weight: 4
     region: content
     settings:
       size: 60
@@ -249,15 +295,21 @@ content:
     third_party_settings: {  }
   field_term_prgms:
     type: string_textfield
-    weight: 6
+    weight: 7
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_type_beneficiary_lincredit:
+    type: options_select
+    weight: 27
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_validity_prgms:
     type: string_textfield
-    weight: 8
+    weight: 9
     region: content
     settings:
       size: 60
@@ -265,20 +317,20 @@ content:
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 12
+    weight: 14
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 15
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 16
+    weight: 18
     region: content
     settings:
       display_label: true
@@ -293,7 +345,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 13
+    weight: 15
     region: content
     settings:
       match_operator: CONTAINS

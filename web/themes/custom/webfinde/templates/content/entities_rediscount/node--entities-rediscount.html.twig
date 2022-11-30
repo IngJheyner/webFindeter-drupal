@@ -83,12 +83,18 @@
 {{ attach_library('slick/slick.theme') }} #}
 {{ attach_library('findeter_rediscount/rediscount') }}
 
+{%
+  set pathUrl = [
+    '/entidades-financieras',
+  ]
+%}
+
 <div{{ attributes.addClass(classes) }}>
 
   {# ============================================
   MENU GOV CO
   =============================================== #}
-  <div class="row m-0 menuGovCo mb-5">
+  <div class="row m-0 menuGovCo mb-md-5">
 
     {# ===== ===== Img govco ===== ===== #}
     <div class="col-3 px-0 text-center d-none d-xl-block govCo">
@@ -114,14 +120,16 @@
 
   </div>
 
-  <div class="container my-5">
-    {# ============================================
-    TITULO
-    =============================================== #}
+  {# ============================================
+  TITULO
+  =============================================== #}
+  <div class="container px-0 px-md-2">
     <h1{{ title_attributes }} class="title text-white text-center p-3">
       {{ label.0 }}
     </h1>
+  </div>
 
+  <div class="container my-5">
     {# ============================================
     MENU
     =============================================== #}
@@ -132,9 +140,9 @@
     {# ============================================
     INFORMACION DE USO REDESCUENTO
     =============================================== #}
-    <section class="info-uses-rediscount mt-5">
+    <section class="info-uses-rediscount mt-5" id="uso-redescuento">
 
-      <div>
+      <div class="description">
 
         {{ content.field_description_entities.0 }}
 
@@ -142,7 +150,7 @@
 
       <div class="row">
 
-        <div class="col-8">
+        <div class="col-12 col-md-8">
 
           <div class="row mt-5 pill-tabs-product">
 
@@ -181,23 +189,45 @@
 
         </div>
 
-        <div class="col-4">
+        <div class="col-12 col-md-4 mt-4 mt-md-0">
         video
         </div>
 
       </div>
 
+      <div class="btn-more text-center mt-4"><a href="#" class="btn btn-primary text-white">Consulte con un gerente de cuenta</a></div>
+
     </section>
 
+    {% if path('<current>') not in pathUrl %}
+      {# ============================================
+      SECTORES
+      =============================================== #}
+      {{ drupal_block('findeter_rediscount_sectors') }}
+    {% endif %}
+
     {# ============================================
-    SECTORES
+    FILTRO LINEA DE CREDITO
     =============================================== #}
-    {{ drupal_block('findeter_rediscount_sectors') }}
+    <section id="lineas-de-credito">
+      {{ drupal_view('rediscount', 'filter_line_credit')}}
+    </section>
+
+    {% if path('<current>') in pathUrl %}
+      {# ============================================
+      TABLA LINEA DE CREDITO
+      =============================================== #}
+      <section id="comparativo">{{ drupal_view('rediscount', 'table_line_credit')}}</section>
+      {# ============================================
+      SECTORES
+      =============================================== #}
+      {{ drupal_block('findeter_rediscount_sectors') }}
+    {% endif %}
 
     {# ============================================
     PASOS PARA ACCEDER A UN CREDITO FINDETER Y FORMULARIO
     =============================================== #}
-    <section class="access-credit-findeter mt-5">
+    <section class="access-credit-findeter mt-5" id="paso-a-paso">
 
       <h2 class="text-center py-5">¿Cómo acceder a un crédito de Findeter?</h2>
 
@@ -214,7 +244,7 @@
     {# ============================================
     INFORMACION DE INTERES
     =============================================== #}
-    <section class="info-interest p-5">
+    <section class="info-interest p-3 p-md-5" id="condiciones">
 
       <h2 class="text-center text-white mb-4">Información de interes</h2>
 
@@ -228,7 +258,7 @@
 
         <div class="tab-content" id="v-pills-tabContent">
           {% for key, value in node.field_info_interest_entities %}
-          <div class="tab-pane fade p-4 {{ loop.first ? 'active show': '' }}" id="info-interest-{{ key }}" role="tabpanel" aria-labelledby="info-interest-{{ key }}-tab">
+          <div class="tab-pane fade p-2 p-md-4 {{ loop.first ? 'active show': '' }}" id="info-interest-{{ key }}" role="tabpanel" aria-labelledby="info-interest-{{ key }}-tab">
             {{ content.field_info_interest_entities[key]['#paragraph'].field_description_prgms.value|raw   }}
           </div>
           {% endfor %}
@@ -242,6 +272,9 @@
     BANCOS
     =============================================== #}
     {{ drupal_view('rediscount', 'banks_entities_1') }}
+
+    {# mobile #}
+    {{ drupal_view('rediscount', 'banks_entities_2') }}
 
   </div>
 

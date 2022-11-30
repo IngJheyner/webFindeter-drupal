@@ -129,10 +129,10 @@
         }
       }
 
-      div.btn-more > a{
-        background: var.$color-gradient-primary !important;
-        border-radius: 1rem;
-      }
+      // div.btn-more > a{
+      //   background: var.$color-gradient-primary !important;
+      //   border-radius: 1rem;
+      // }
 
     }
   }
@@ -263,12 +263,12 @@
   .banks-rediscount{
     div.slick {
       ul{
-        padding-inline: 80px;
-
+        margin-inline: 25px;
         li div.images-slick{
           height: 100px;
           img {
             height: 100%;
+            margin-inline: auto;
           }
         }
       }
@@ -277,6 +277,88 @@
         color: var.$color-primario;
       }
     }
+  }
+
+  /* ==============================
+  FILTRO LINEA DE CREDITO
+  ============================== */
+  form#views-exposed-form-rediscount-filter-line-credit{
+    border: 2px solid rgba(153, 213, 239, 1);
+    border-radius: 2rem;
+    padding: 1rem;
+    details.form-item{
+
+      float: none;
+      border: 1px solid rgba(153, 213, 239, 0.2);
+      margin-block: 0;
+
+      summary{
+        display: initial;
+        position: relative;
+        width: 100%;
+        &::after{
+          position: absolute;
+          right: .5rem;
+        }
+        &[aria-expanded='false']::after{
+          content: "+";
+        }
+
+        &[aria-expanded='true']::after{
+          content: "-";
+        }
+      }
+
+      fieldset{
+        margin-block: 0;
+        legend{
+          display: none;
+        }
+
+        input[type='checkbox'] {
+          height: 20px;
+          width: 20px;
+          margin-top: .1rem;
+        }
+
+        label{
+          color: var.$color-secundario;
+          margin-left: .5rem;
+        }
+      }
+
+    }
+  }
+
+  div.card{
+    div.card-images{
+      position: relative;
+      img.icon{
+        position: absolute;
+        right: 0.5rem;
+        top: 0.5rem;
+      }
+    }
+  }
+
+  /* ==============================
+  TABLA LINEA DE CREDITO
+  ============================== */
+  table.table-line-credit{
+
+    tr.row-even {
+      background: var.$color-rgb-primary;
+    }
+
+    td.column-odd {
+      background: var.$color-rgb-primary;
+    }
+
+    td.column-even {
+      background: var.$color-quinario;
+    }
+
+
   }
 
 
@@ -315,6 +397,30 @@
     animation: fade-in 2s forwards;
   }
 
+  /* ==============================
+  BUTTON
+  ============================== */
+  div.btn-more a{
+    // background: var.$color-gradient-primary !important;
+    border-radius: 1rem;
+    // background-position-x: 150%;
+    background-color: var.$color-primario !important;
+    background-image: linear-gradient(
+      -60deg,
+      transparent, transparent 40%,
+      #ffffff44 40%, #ffffff44 60%,
+      transparent 60%, transparent 100%
+    );
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    background-position-x: 150%;
+
+    &:hover{
+      background-position-x: -150%;
+      transition: background-position-x 600ms;
+    }
+  }
+
 }
 
 /* ==============================
@@ -322,9 +428,35 @@ MEDIA QUERY
 ============================== */
 
 @include media-query.media(xs) {
-  div.info-tasses__interest_rate,
-  div.info-tasses__term{
-    width: 100% !important;
+  .rediscount{
+
+    div.info-tasses__interest_rate,
+    div.info-tasses__term{
+      width: 100% !important;
+    }
+
+    div.sectors-info{
+    .more-info {
+      .more-info__nav {
+        ul{
+          li {
+            flex-basis: max(170px);
+          }
+        }
+      }
+    }
+    }
+
+    .banks-rediscount{
+      div.slick {
+        ul{
+          margin-inline: 0;
+          li{
+            width: 100%;
+          }
+        }
+      }
+    }
   }
 }
 

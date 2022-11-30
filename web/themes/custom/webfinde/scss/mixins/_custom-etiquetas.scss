@@ -97,6 +97,7 @@ STEPS INFO
     ul.step-info {
       counter-reset: step;
       display: flex;
+      justify-content: space-evenly;
       padding: 0;
       margin: 0;
 
@@ -111,6 +112,7 @@ STEPS INFO
         list-style-type: none;
         position: relative;
         text-align: center;
+        flex-basis: 20%;
 
         &::before{
           content: counter(step);

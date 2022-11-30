@@ -4,7 +4,7 @@
  *
  */
 
-(function ($, Drupal) {
+(function ($, Drupal, drupalSettings) {
 
   'use strict';
 
@@ -12,14 +12,29 @@
 
     attach: function (context, settings) {
 
-      $('#sectors-icon').not('.slick-initialized').slick({
-        infinite: true,
-        slidesToShow: 6,
-        slidesToScroll: 6,
-      });
-      $('[data-toggle="tooltip"]').tooltip();
       $(document, context).once('.rediscount').each(function() {
 
+        const widthWindow = () =>  $(window).width() < 480 ? true : false;
+
+        $('#sectors-icon').not('.slick-initialized').slick({
+          infinite: true,
+          slidesToShow: 6,
+          slidesToScroll: 6,
+          dots: true,
+          mobileFirst: widthWindow(),
+          responsive: [
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                arrows: false
+              }
+            }
+          ],
+        });
+
+        $('[data-toggle="tooltip"]').tooltip();
         /*===========================================
         SECTORES
         =============================================*/
@@ -130,7 +145,9 @@
             iconSecond.classList.toggle('d-block');
           });
         });
+
       });
+
     }
   };
 })(jQuery, Drupal);

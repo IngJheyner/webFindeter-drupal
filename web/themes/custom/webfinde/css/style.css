@@ -79,6 +79,10 @@ ESTILOS GLOBALES
   font-family: "Roboto", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   color: #296294;
 }
@@ -4801,6 +4805,7 @@ STEPS INFO
 .rediscount ul.step-info {
   counter-reset: step;
   display: flex;
+  justify-content: space-evenly;
   padding: 0;
   margin: 0;
   /* ==============================
@@ -4817,6 +4822,7 @@ STEPS INFO
   list-style-type: none;
   position: relative;
   text-align: center;
+  flex-basis: 20%;
 }
 .rediscount ul.step-info li::before {
   content: counter(step);
@@ -4886,7 +4892,16 @@ STEPS INFO
   BANCOS
   ============================== */
   /* ==============================
+  FILTRO LINEA DE CREDITO
+  ============================== */
+  /* ==============================
+  TABLA LINEA DE CREDITO
+  ============================== */
+  /* ==============================
   SEKELETON PRELOADER
+  ============================== */
+  /* ==============================
+  BUTTON
   ============================== */
 }
 .rediscount .title {
@@ -4982,10 +4997,6 @@ STEPS INFO
   transform: scale(1.1, 1.1);
   transition: 1s all;
 }
-.rediscount .info-lines-recourses-international div.card-body div.btn-more > a {
-  background: linear-gradient(90deg, rgb(18, 47, 109) 5%, rgb(61, 99, 171) 50%, rgb(61, 99, 171) 50%, rgb(18, 47, 109) 100%) !important;
-  border-radius: 1rem;
-}
 .rediscount div.sectors-icon div.sectors-icon__item img {
   transition: 0.5s ease;
 }
@@ -5073,16 +5084,74 @@ STEPS INFO
   border-radius: 2rem;
 }
 .rediscount .banks-rediscount div.slick ul {
-  padding-inline: 80px;
+  margin-inline: 25px;
 }
 .rediscount .banks-rediscount div.slick ul li div.images-slick {
   height: 100px;
 }
 .rediscount .banks-rediscount div.slick ul li div.images-slick img {
   height: 100%;
+  margin-inline: auto;
 }
 .rediscount .banks-rediscount div.slick .slick-arrow::before {
   color: #112d6a;
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit {
+  border: 2px solid rgb(153, 213, 239);
+  border-radius: 2rem;
+  padding: 1rem;
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit details.form-item {
+  float: none;
+  border: 1px solid rgba(153, 213, 239, 0.2);
+  margin-block: 0;
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit details.form-item summary {
+  display: initial;
+  position: relative;
+  width: 100%;
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit details.form-item summary::after {
+  position: absolute;
+  right: 0.5rem;
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit details.form-item summary[aria-expanded=false]::after {
+  content: "+";
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit details.form-item summary[aria-expanded=true]::after {
+  content: "-";
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit details.form-item fieldset {
+  margin-block: 0;
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit details.form-item fieldset legend {
+  display: none;
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit details.form-item fieldset input[type=checkbox] {
+  height: 20px;
+  width: 20px;
+  margin-top: 0.1rem;
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit details.form-item fieldset label {
+  color: #296294;
+  margin-left: 0.5rem;
+}
+.rediscount div.card div.card-images {
+  position: relative;
+}
+.rediscount div.card div.card-images img.icon {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+.rediscount table.table-line-credit tr.row-even {
+  background: rgba(153, 213, 239, 0.2);
+}
+.rediscount table.table-line-credit td.column-odd {
+  background: rgba(153, 213, 239, 0.2);
+}
+.rediscount table.table-line-credit td.column-even {
+  background: #e5e5e5;
 }
 .rediscount .card-skeleton {
   width: 100%;
@@ -5115,15 +5184,36 @@ STEPS INFO
   opacity: 0;
   animation: fade-in 2s forwards;
 }
+.rediscount div.btn-more a {
+  border-radius: 1rem;
+  background-color: #112d6a !important;
+  background-image: linear-gradient(-60deg, transparent, transparent 40%, rgba(255, 255, 255, 0.2666666667) 40%, rgba(255, 255, 255, 0.2666666667) 60%, transparent 60%, transparent 100%);
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  background-position-x: 150%;
+}
+.rediscount div.btn-more a:hover {
+  background-position-x: -150%;
+  transition: background-position-x 600ms;
+}
 
 /* ==============================
 MEDIA QUERY
 ============================== */
 /*MOVIL VERTICAL(sm 320px)*/
 @media (max-width: 575.98px) {
-  div.info-tasses__interest_rate,
-div.info-tasses__term {
+  .rediscount div.info-tasses__interest_rate,
+.rediscount div.info-tasses__term {
     width: 100% !important;
+  }
+  .rediscount div.sectors-info .more-info .more-info__nav ul li {
+    flex-basis: 170px;
+  }
+  .rediscount .banks-rediscount div.slick ul {
+    margin-inline: 0;
+  }
+  .rediscount .banks-rediscount div.slick ul li {
+    width: 100%;
   }
 }
 /*MOVIL VERTICAL(sm 320px)*/

@@ -6,8 +6,10 @@ dependencies:
     - core.entity_view_mode.node.full
     - field.field.node.lines_credit.field_available_prgrms
     - field.field.node.lines_credit.field_beneficiaries_prgms
+    - field.field.node.lines_credit.field_currency_linecredit
     - field.field.node.lines_credit.field_date_validity_prgms
     - field.field.node.lines_credit.field_field_sector_prgms
+    - field.field.node.lines_credit.field_image_prgms
     - field.field.node.lines_credit.field_info_product_linecredit
     - field.field.node.lines_credit.field_interest_rate_prgms
     - field.field.node.lines_credit.field_margin_prgms
@@ -17,6 +19,7 @@ dependencies:
     - field.field.node.lines_credit.field_steps_access_credit_prgms
     - field.field.node.lines_credit.field_subtitle_prgms
     - field.field.node.lines_credit.field_term_prgms
+    - field.field.node.lines_credit.field_type_beneficiary_lincredit
     - field.field.node.lines_credit.field_validity_prgms
     - node.type.lines_credit
   module:
@@ -158,4 +161,7 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_currency_linecredit: true
+  field_image_prgms: true
+  field_type_beneficiary_lincredit: true
   langcode: true
