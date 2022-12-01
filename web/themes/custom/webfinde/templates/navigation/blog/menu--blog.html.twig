@@ -28,56 +28,76 @@
 
 {% macro menu_links(items, attributes, menu_level) %}
 
+
   {% import _self as menus %}
 
   {% if items %}
-
     {% if menu_level == 0 %}
-
-<ul{{ attributes.addClass(['nav navbar-nav justify-content-center']) }}>
-
-  {% else %}
-
-<ul>
-
-  {% endif %}
+      <ul{{ attributes.addClass(['nav navbar-nav justify-content-center']) }}>
+    {% else %}
+      <ul>
+    {% endif %}
 
   {% for item in items %}
+    {% if menu_level == 0 %}
+      {%
+        set classes_link = [
+        'nav-link',
+        item.is_expanded ? 'dropdown-toggle',
+        item.is_collapsed ? 'dropdown-toggle',
+        item.in_active_trail ? 'active',
+        ]
+      %}
+    {% else %}
+      {%
+        set classes_link = [
+        'dropdown-item',
+        item.is_expanded ? 'dropdown-toggle',
+        item.is_collapsed ? 'dropdown-toggle',
+        item.in_active_trail ? 'active',
+        ]
+      %}
+    {% endif %}
 
-    {%
-      set classes_link = [
-      'nav-link',
-      item.is_expanded ? 'dropdown-toggle',
-      item.is_collapsed ? 'dropdown-toggle',
-      item.in_active_trail ? 'active',
-    ]
-    %}
-    
-    <li{{ item.attributes.addClass('nav-item') }}>
+    {% if menu_level == 0 %}
+      {% if item.below %}
+        <li{{ item.attributes.addClass('nav-item dropdown') }}>
+      {% else %}
+        <li{{ item.attributes.addClass('nav-item') }}>
+      {% endif %}
+    {% endif %}
 
+    {% if menu_level == 0 %}
       {% if loop.first %}
-
         {% autoescape 'html' %} 
           {{ '<i class="text-white fas fa-home"></i> '}} {{ link(item.title, item.url, {'class': 'nav-link d-inline-block'}) }}
         {% endautoescape %}              
-
       {% else %}
 
-        {{ link(item.title, item.url, { 'class': classes_link }) }}
-
+        {% if item.below %}
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           {{ item.title }}
+          </a>
+        {% else %}
+          {{ link(item.title, item.url, { 'class': classes_link }) }}
+        {% endif %}
+        
       {% endif %}
-
       {% if item.below %}
-
-        {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        </div>
       {% endif %}
+    {% else %}
+        {{ link(item.title, item.url, { 'class': classes_link }) }}
+    {% endif %}
 
     </li>
 
   {% endfor %}
-
+{% if menu_level == 0 %}
 </ul>
+{% endif %}
 
   {% endif %}
 
