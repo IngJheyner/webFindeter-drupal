@@ -14,8 +14,11 @@ use Drupal\views\ViewExecutable;
 use Drupal\Core\Render\Markup;
 use Drupal\node\Entity\Node;
 
-use Drupal\findeter_pqrsd\Holidays\HolidaysPqrsd;
+// use Drupal\findeter_pqrsd\Holidays\HolidaysPqrsd;
 use PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Days;
+
+use Cmixin\BusinessDay;
+use Carbon\Carbon;
 
 /**
  * Implements hook_help().
@@ -100,6 +103,10 @@ function _getBussinesDays($addDays, $day_answer = FALSE){
 
   $tot_day_answer = 0; //Conteo de dias habiles para la respuesta
 
+  // Validar fecha de un dia feriado.
+  BusinessDay::enable('Carbon\Carbon');
+  Carbon::setHolidaysRegion('co');
+
   // loop for X days
   for($i=0; $i<$addDays; $i++){
 
@@ -112,17 +119,18 @@ function _getBussinesDays($addDays, $day_answer = FALSE){
     $mounth = date('m', $timeStamp);
     $year = date('Y', $timeStamp);
 
-    $holiDays = new HolidaysPqrsd(\Drupal::service('http_client_factory'), \Drupal::service('state'),
-    \Drupal::service('logger.factory'));
+    // $holiDays = new HolidaysPqrsd(\Drupal::service('http_client_factory'), \Drupal::service('state'),
+    // \Drupal::service('logger.factory'));
 
     // Validar fecha de un dia feriado.
-    $feriado = FALSE;
+    $holiDays = FALSE;
     if (!$day_answer) {
-      $feriado = $holiDays->isHoliDays($year, $mounth, $day);
+      $holiDays = Carbon::parse("$year-$mounth-$day")->isHoliday();
+      // $holiDays = Carbon::parse("2022-07-20")->isHoliday();
     }
 
     // if it's Saturday or Sunday get $i-1
-    if(($nextDay == 0 || $nextDay == 6) || $feriado) {
+    if(($nextDay == 0 || $nextDay == 6) || $holiDays) {
         $day_answer == FALSE ? $i-- : $tot_day_answer++;
     }
     // modify timestamp, add 1 day
@@ -516,7 +524,6 @@ function findeter_pqrsd_cron() {
 function findeter_pqrsd_preprocess_page(&$variables) {
 
   //$apiSmfc = \Drupal::service('api.smfc');
-
   $routeUrl = \Drupal::routeMatch()->getRouteName();
 
   if ($routeUrl == 'findeter_pqrsd.confirm_register_pqrsd_admin') {
