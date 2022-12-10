@@ -24,7 +24,7 @@ use Drupal\entity_browser\Plugin\Field\FieldWidget\EntityReferenceBrowserWidget;
  */
 class StepOne extends BaseStep {
 
-  // property to show messages
+  // Property to show messages.
   private $messenger;
 
   /**
@@ -63,68 +63,69 @@ class StepOne extends BaseStep {
   /**
    * {@inheritdoc}
    */
-  public function buildStepFormElements($steps,$form,$form_state) {
-    
-    // Get data field definitions of content type
+  public function buildStepFormElements($steps, $form, $form_state) {
+
+    // Get data field definitions of content type.
     $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'pqrsd');
-    
+
     $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Seleccione la manera como desea radicar su solicitud</h2>';
 
     /* ============================================
     Se muestra valores de tipo solicitante para findeter o SMFC
     para SMFC solo si la peticion es una Queja o Reclamo
-    esta cambia en su valor de indice mas no de item, 
+    esta cambia en su valor de indice mas no de item,
     SMFC numerico y Findeter caracter.
     =============================================== */
     $itemTipSolic = $definitions['field_pqrsd_tipo_solicitante']->getSetting('allowed_values');
-    //Obtenemos el valor de tipo de radicado
+    // Obtenemos el valor de tipo de radicado.
     $values = $steps[0]->getValues();
-    
+
     $optionsTipSolic = [];
     $optionsTipSolicSmfc = [];
 
     foreach ($itemTipSolic as $key => $value) {
-      if(is_numeric($key))
+      if (is_numeric($key)) {
         $optionsTipSolicSmfc[$key] = $value;
-      else
+      }
+      else {
         $optionsTipSolic[$key] = $value;
+      }
     }
 
-    // start first col
+    // Start first col.
     $formStep['field_pqrsd_tipo_solicitante'] = [
       '#type'         => 'select',
       '#title'        => $definitions['field_pqrsd_tipo_solicitante']->getLabel(),
-      '#options'      => ($values['field_pqrsd_tipo_radicado'] == 'Quejas' || 
+      '#options'      => ($values['field_pqrsd_tipo_radicado'] == 'Quejas' ||
       $values['field_pqrsd_tipo_radicado'] == 'Reclamos') ? $optionsTipSolicSmfc : $optionsTipSolic,
       '#empty_option' => '-Seleccione una opción-',
       '#prefix'       => '<div class="row mx-auto form-container"><div class="col-12 col-md-6 form-container-col">'
     ];
 
-
-    $showPeticiones = false;
-    if(isset($steps[0])){
+    $showPeticiones = FALSE;
+    if (isset($steps[0])) {
       $valuesZeroStep = $steps[0]->getValues();
-      if($valuesZeroStep['field_pqrsd_tipo_radicado'] == 'Peticiones'){
-        $showPeticiones = true;
+      if ($valuesZeroStep['field_pqrsd_tipo_radicado'] == 'Peticiones') {
+        $showPeticiones = TRUE;
       }
-    }else{
+    }
+    else {
       $firstSubmit = $form_state->getTriggeringElement();
-      if($firstSubmit['#value'] == 'Peticiones'){
-        $showPeticiones = true;
+      if ($firstSubmit['#value'] == 'Peticiones') {
+        $showPeticiones = TRUE;
       }
     }
 
-
-    if($showPeticiones){
+    if ($showPeticiones) {
       $typeRequestValues = $definitions['field_pqrsd_tipo_peticion']->getSetting('allowed_values');
-      // these options is just for administrator role
+      // These options is just for administrator role.
       unset($typeRequestValues['traslado']);
       unset($typeRequestValues['cargo']);
       unset($typeRequestValues['camaras']);
       unset($typeRequestValues['asesoria']);
       unset($typeRequestValues['irrespetuosa']);
       unset($typeRequestValues['incompleta']);
-      
+
       $formStep['field_pqrsd_tipo_peticion'] = [
         '#type'         => 'select',
         '#title'        => $definitions['field_pqrsd_tipo_peticion']->getLabel(),
@@ -132,9 +133,8 @@ class StepOne extends BaseStep {
         '#empty_option' => '-Seleccione una opción-'
       ];
     }
-    
 
-    // end first col
+    // End first col.
     $formStep['field_pqrsd_tipo_discapacidad'] = [
       '#type'         => 'select',
       '#title'        => $definitions['field_pqrsd_tipo_discapacidad']->getLabel(),
@@ -143,7 +143,7 @@ class StepOne extends BaseStep {
       '#suffix'       => '</div>'
     ];
 
-    // start second col
+    // Start second col.
     $formStep['field_pqrsd_grupo_etnico'] = [
       '#type'         => 'select',
       '#title'        => $definitions['field_pqrsd_grupo_etnico']->getLabel(),
@@ -152,13 +152,13 @@ class StepOne extends BaseStep {
       '#prefix'       => '<div class="col-12 col-md-6 form-container-col">'
     ];
 
-    // end second col
+    // End second col.
     $formStep['field_pqrsd_preferencial'] = [
       '#type'         => 'select',
       '#title'        => $definitions['field_pqrsd_preferencial']->getLabel(),
       '#options'      => $definitions['field_pqrsd_preferencial']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
-      //'#suffix'       => '</div>'
+      // '#suffix'       => '</div>'
     ];
 
     $formStep['field_pqrsd_rango_edad'] = [
@@ -166,14 +166,13 @@ class StepOne extends BaseStep {
       '#title'        => $definitions['field_pqrsd_rango_edad']->getLabel(),
       '#options'      => $definitions['field_pqrsd_rango_edad']->getSetting('allowed_values'),
       '#empty_option' => '-Seleccione una opción-',
-      //'#prefix'       => '<div class="col-12">',
+      // '#prefix'       => '<div class="col-12">',
       '#suffix'       => '</div></div>'
     ];
-    
+
     return $formStep;
 
   }
-
 
   /**
    * {@inheritdoc}
@@ -188,7 +187,6 @@ class StepOne extends BaseStep {
       'field_pqrsd_rango_edad'
     ];
   }
-
 
   /**
    * {@inheritdoc}

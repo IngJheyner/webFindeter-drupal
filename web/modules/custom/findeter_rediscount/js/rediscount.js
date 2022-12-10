@@ -78,7 +78,7 @@
 
             let nid = el.getAttribute('nid');
 
-            fetch(`/findeter-rediscount/sectorsinfo/${nid}`, {
+            fetch('/findeter-rediscount/sectorsinfo/'+nid, {
               method: "GET",
             })
             .then(response => {
@@ -99,28 +99,20 @@
 
               title.textContent = data.sectors.title;
               description.textContent = data.sectors.description;
+              image.setAttribute('src', data.sectors.image);
 
-              image.setAttribute('src', `${data.sectors.image}`)
+              let moreNavHTML = "";
+              let moreContentHTML = "";
 
-              let moreNavHTML = '';
-              let moreContentHTML = '';
               data.sectors.subsectors.map((sect, idx) => {
-                moreNavHTML += `<li class="nav-item" role="presentation">
-                <button class="nav-link btn-block ${ idx === 0 ? 'active': '' }"
-                id="pills-subsectors-${ idx }-tab"
-                data-toggle="pill"
-                data-target="#subsectors-${ idx }"
-                type="button" role="tab"
-                aria-controls="subsectors-${ idx }"
-                aria-selected="true">${ sect.title }</button>
-                </li>`;
 
-                moreContentHTML += `<div
-                class="tab-pane fade ${ idx === 0 ? 'show active': '' }"
-                id="subsectors-${ idx }"
-                role="tabpanel"
-                aria-labelledby="pills-subsectors-${ idx }-tab">${ sect.description }</div>`;
-                // console.log(idx[0]);
+                let active = idx === 0 ? "active" : "";
+                let showActive = idx === 0 ? 'show active': "";
+
+                moreNavHTML += '<li class="nav-item" role="presentation"><button class="nav-link btn-block '+ active +'" id="pills-subsectors-'+ idx +'-tab" data-toggle="pill" data-target="#subsectors-'+ idx +'" type="button" role="tab" aria-controls="subsectors-'+ idx +'" aria-selected="true">'+ sect.title +'</button></li>';
+
+                moreContentHTML += '<div class="tab-pane fade '+ showActive +'" id="subsectors-'+ idx +'" role="tabpanel" aria-labelledby="pills-subsectors-'+ idx +'-tab">'+ sect.description +'</div>';
+
               });
 
               moreNav.innerHTML = moreNavHTML;

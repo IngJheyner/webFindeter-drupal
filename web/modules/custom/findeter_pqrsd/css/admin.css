@@ -146,7 +146,7 @@ form#views-exposed-form-pqrsd-page-2{
 .list-charts{
   margin-top: 1rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(800px, 900px));
+  grid-template-columns: repeat(auto-fill, minmax(500px, 750px));
   grid-gap: 10px;
 }
 .chart-container{
@@ -155,10 +155,23 @@ form#views-exposed-form-pqrsd-page-2{
   padding: 5px;
   background-color: #fff;
 }
-#tipo-solicitante-chart,
+
+.chart-container:nth-child(3){
+  max-height: 600px;
+}
+
+time#time-period {
+  font-size: 15px;
+  font-weight: bold;
+
+}
+div.ajax-progress-throbber{
+  display: none;
+}
+/*#tipo-solicitante-chart,
 #tipo-radicado-chart{
   width: 200px;
-}
+}*/
 .export-link{
   margin: 15px;
   border: 1px solid #ccc;

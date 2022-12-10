@@ -940,7 +940,8 @@ function buildPQRSDform(){
  * Function to send an email when a PQRSD has been asigned
  * @author Sandi <email@email.com>
  */
-function sendNotificationAsign($user,$node){
+function sendNotificationAsign($user, $node){
+
   $mailManager = \Drupal::service('plugin.manager.mail');
   $module = 'findeter_pqrsd';
   $key = 'asigned_pqrsd';
@@ -976,6 +977,11 @@ function sendNotificationAsign($user,$node){
   $send = true;
 
   $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+
+  \Drupal::messenger()->addStatus(t('Se ha asignado el radicado No. @radicado al usuario @user', [
+    '@radicado' => $node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'],
+    '@user' => $user->getAccountName(),
+  ]));
 }
 
 

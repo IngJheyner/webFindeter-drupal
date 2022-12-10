@@ -100,6 +100,14 @@ semaphore:
       - '<b>Tipo de radicado:</b> Peticiones'
       - '<b>Tipo de petición:</b> Solicitud incompleta'
       - '<b>Opción de extensión:</b> Seleccionada'
+  consulta:
+    logic: 'business days'
+    orange: '9'
+    red: '15'
+    title: 'Solicitud de consulta'
+    condition:
+      - '<b>Tipo de radicado:</b> Peticiones'
+      - '<b>Tipo de petición:</b> Solicitud de consulta'
   all:
     logic: 'calendar days'
     orange: '3'
