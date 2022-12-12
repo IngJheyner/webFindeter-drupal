@@ -1361,7 +1361,7 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
 
       //Agregamos el link para ser visualizado como fila en la tabla
       $rows[] = [ '#rows' => [
-          'data' => \Drupal::service('renderer')->render($link),
+          'data' => \Drupal::service('renderer')->renderRoot($link),
           '#colspan' => 10,
         ]
       ];
@@ -1405,7 +1405,7 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
         'admin_label' => '',
         'empty' => TRUE,
         'tokenize' => FALSE,
-        'content' => \Drupal::service('renderer')->render($buildTable),
+        'content' => \Drupal::service('renderer')->renderRoot($buildTable),
         'plugin_id' => 'text_custom',
       );
 
