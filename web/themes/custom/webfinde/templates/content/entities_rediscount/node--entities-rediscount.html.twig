@@ -219,6 +219,40 @@
       =============================================== #}
       <section id="comparativo">{{ drupal_view('rediscount', 'table_line_credit')}}</section>
       {# ============================================
+      CONSULTA CIIU
+      =============================================== #}
+      <section class="ciiu mt-5">
+       <div class="row">
+        <div class="col-6 search-ciiu p-4">
+
+          <p class="h3 text-center text-white">CIIU financiables por Findeter:</p>
+
+          {{ drupal_form('Drupal\\findeter_rediscount\\Form\\CiiuForm') }}
+
+          <div id="response-search-ciiu"></div>
+
+          <div class="loader">
+            <div class="sub"></div>
+            <div class="sub"></div>
+            <div class="sub"></div>
+          </div>
+
+          <ul class="text-white mt-3">
+           <li>Esta información podrá variar y debe ser consultada según el proyecto a financiar.</li>
+           <li>Clasificación Industrial Internacional Uniforme.</li>
+          </ul>
+
+          <div class="btn-more text-center mt-3"><a class="btn btn-primary">Consulte con un gerente de cuenta</a></div>
+
+        </div>
+        <div class="col-6 image-ciiu pl-0">
+          <picture>
+            <img src="/themes/custom/webfinde/images/iconos/redescuento/ciiu_images.jpg" class="img-fluid"/>
+          </picture>
+        </div>
+       </div>
+      </section>
+      {# ============================================
       SECTORES
       =============================================== #}
       {{ drupal_block('findeter_rediscount_sectors') }}

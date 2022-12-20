@@ -5,3 +5,11 @@ findeter_rediscount.sectors_info:
   methods:  [GET]
   requirements:
     _permission: 'access content'
+
+findeter_rediscount.search_code_ciiu:
+  path: '/findeter-rediscount/search-code-ciiu/{code}'
+  defaults:
+    _controller: '\Drupal\findeter_rediscount\Controller\FindeterRediscountController::searchCodeCiiu'
+  methods:  [GET]
+  requirements:
+    _permission: 'access content'

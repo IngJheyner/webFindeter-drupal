@@ -350,7 +350,7 @@
 
       }
 
-      $(document, context).once('findeter-pqrsd-filter-statistics').each(function() {
+      $(document, context).once('#findeter-pqrsd-filter-statistics').each(function() {
 
         chartsGraphics();
         const exportLinkPdf = document.querySelector('a#send-pdf');

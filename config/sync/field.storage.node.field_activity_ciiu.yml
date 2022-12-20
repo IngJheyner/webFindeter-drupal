@@ -1,25 +1,25 @@
-uuid: 321ab674-d338-4361-bb4d-20dfde43fc38
+uuid: 7164d08e-7096-4c8a-b7c5-f9fbe57c86f9
 langcode: es
 status: true
 dependencies:
   module:
     - field_permissions
     - node
-    - text
 third_party_settings:
   field_permissions:
     permission_type: public
-_core:
-  default_config_hash: EBUo7qOWqaiZaQ_RC9sLY5IoDKphS34v77VIHSACmVY
-id: node.body
-field_name: body
+id: node.field_activity_ciiu
+field_name: field_activity_ciiu
 entity_type: node
-type: text_with_summary
-settings: {  }
-module: text
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
 locked: false
 cardinality: 1
 translatable: true
 indexes: {  }
-persist_with_no_fields: true
+persist_with_no_fields: false
 custom_storage: false

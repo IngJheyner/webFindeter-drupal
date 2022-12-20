@@ -1005,9 +1005,9 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
       if($field->field == 'field_pqrsd_respuesta'){
         if($variables['output'] == ''){
-          $variables['output'] = "Abierta asignada a: ";
+          $variables['output'] = ['#markup' => "<p class='text-open'>Abierta asignada a: </p>"];
         }else{
-          $variables['output'] = "Cerrada por: ";
+          $variables['output'] = ['#markup' => "<p class='text-close'>Cerrada por: </p>"];
         }
       }
 
@@ -1020,6 +1020,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
           'data-dialog-type'    => ['modal'],
           'data-dialog'         => ['modal'],
           'data-dialog-options' => ['{"width":1000}'],
+          'data-ajax-progress' => ['throbber'],
         ];
 
         $htmlOutput = '';

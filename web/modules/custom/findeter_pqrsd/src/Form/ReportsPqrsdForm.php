@@ -25,7 +25,7 @@ class ReportsPqrsdForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    // $form['#attributes']['method'] = 'get';
+    $form['#attached']['library'][] = 'findeter_pqrsd/reports_charts';
 
     $form['filter_group'] = [
       '#type' => 'fieldset',

@@ -3,6 +3,8 @@ langcode: es
 status: true
 dependencies:
   config:
+    - field.storage.node.field_entities_transfer_pqrsd
+    - field.storage.node.field_pqrsd_api_smfc
     - field.storage.node.field_pqrsd_asignaciones
     - field.storage.node.field_pqrsd_canal_recepcion
     - field.storage.node.field_pqrsd_departamento
@@ -2425,23 +2427,23 @@ display:
           row_class: ''
           default_row_class: true
           columns:
-            nid: nid
+            counter: counter
             field_pqrsd_preferencial: field_pqrsd_preferencial
             field_pqrsd_numero_radicado: field_pqrsd_numero_radicado
             created: created
             field_pqrsd_fecha_roja: field_pqrsd_fecha_roja
             field_pqrsd_tipo_radicado: field_pqrsd_tipo_radicado
-            field_pqrsd_email: field_pqrsd_email
-            field_pqrsd_departamento: field_pqrsd_departamento
-            field_pqrsd_direccion: field_pqrsd_direccion
-            field_pqrsd_municipio: field_pqrsd_municipio
-            field_pqrsd_numero_id: field_pqrsd_numero_id
-            field_pqrsd_fax: field_pqrsd_fax
-            field_pqrsd_primer_apellido: field_pqrsd_primer_apellido
             field_pqrsd_primer_nombre: field_pqrsd_primer_nombre
-            field_pqrsd_segundo_apellido: field_pqrsd_segundo_apellido
             field_pqrsd_segundo_nombre: field_pqrsd_segundo_nombre
+            field_pqrsd_primer_apellido: field_pqrsd_primer_apellido
+            field_pqrsd_segundo_apellido: field_pqrsd_segundo_apellido
+            field_pqrsd_numero_id: field_pqrsd_numero_id
+            field_pqrsd_email: field_pqrsd_email
             field_pqrsd_telefono: field_pqrsd_telefono
+            field_pqrsd_fax: field_pqrsd_fax
+            field_pqrsd_direccion: field_pqrsd_direccion
+            field_pqrsd_departamento: field_pqrsd_departamento
+            field_pqrsd_municipio: field_pqrsd_municipio
             nothing: nothing
             field_pqrsd_tipo_solicitante: field_pqrsd_tipo_solicitante
             field_pqrsd_descripcion: field_pqrsd_descripcion
@@ -2451,11 +2453,14 @@ display:
             field_pqrsd_fecha_naranja: field_pqrsd_fecha_naranja
             field_pqrsd_respuesta: field_pqrsd_respuesta
             uid: field_pqrsd_respuesta
-            field_pqrsd_tipo_peticion: field_pqrsd_tipo_peticion
             field_dependencia_usuarios: field_pqrsd_respuesta
+            field_entities_transfer_pqrsd: field_pqrsd_respuesta
+            nid: nid
+            view_node: view_node
+            field_pqrsd_api_smfc: field_pqrsd_numero_radicado
           default: '-1'
           info:
-            nid:
+            counter:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -2497,63 +2502,7 @@ display:
               separator: ''
               empty_column: false
               responsive: priority-low
-            field_pqrsd_email:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_departamento:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_direccion:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_municipio:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_numero_id:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_fax:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_primer_apellido:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             field_pqrsd_primer_nombre:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_segundo_apellido:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -2567,8 +2516,64 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            field_pqrsd_primer_apellido:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_segundo_apellido:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_numero_id:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_email:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             field_pqrsd_telefono:
               sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_fax:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_direccion:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_departamento:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_municipio:
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -2635,14 +2640,35 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_pqrsd_tipo_peticion:
+            field_dependencia_usuarios:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_dependencia_usuarios:
+            field_entities_transfer_pqrsd:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            view_node:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_api_smfc:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -3997,6 +4023,68 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_pqrsd_api_smfc:
+          id: field_pqrsd_api_smfc
+          table: node__field_pqrsd_api_smfc
+          field: field_pqrsd_api_smfc
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: true
+          empty_zero: true
+          hide_alter_empty: false
+          click_sort_column: value
+          type: list_key
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         field_pqrsd_numero_radicado:
           id: field_pqrsd_numero_radicado
           table: node__field_pqrsd_numero_radicado
@@ -4008,8 +4096,8 @@ display:
           label: '# Radicado'
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "{% if field_pqrsd_api_smfc == 'recibido' %}\r\n<img src=\"/modules/custom/findeter_pqrsd/css/images/SFC.svg\">{{ field_pqrsd_numero_radicado }}\r\n{% else %}\r\n<span class=\"icon-sfc-send\"></span>{{ field_pqrsd_numero_radicado }}\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -5430,6 +5518,197 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: uid
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_dependencia_usuarios:
+          id: field_dependencia_usuarios
+          table: user__field_dependencia_usuarios
+          field: field_dependencia_usuarios
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<p><strong>Dependencia: </strong>{{ field_dependencia_usuarios }}</p>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_entities_transfer_pqrsd:
+          id: field_entities_transfer_pqrsd
+          table: node__field_entities_transfer_pqrsd
+          field: field_entities_transfer_pqrsd
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<p class="text-transfer"><strong>PQRSD Trasladada a: </strong> {{ field_entities_transfer_pqrsd }}</p>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         nid:
           id: nid
           table: node_field_data
@@ -5496,71 +5775,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        uid:
-          id: uid
-          table: node_field_data
-          field: uid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: uid
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         view_node:
           id: view_node
           table: node
@@ -5614,69 +5828,6 @@ display:
           text: vista
           output_url_as_text: false
           absolute: false
-        field_dependencia_usuarios:
-          id: field_dependencia_usuarios
-          table: user__field_dependencia_usuarios
-          field: field_dependencia_usuarios
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: '<p><strong>Dependencia: </strong>{{ field_dependencia_usuarios }}</p>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: '0'
-          element_class: ''
-          element_label_type: '0'
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: '0'
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
       pager:
         type: full
         options:
@@ -6446,6 +6597,8 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
+        - 'config:field.storage.node.field_entities_transfer_pqrsd'
+        - 'config:field.storage.node.field_pqrsd_api_smfc'
         - 'config:field.storage.node.field_pqrsd_canal_recepcion'
         - 'config:field.storage.node.field_pqrsd_departamento'
         - 'config:field.storage.node.field_pqrsd_descripcion'
@@ -6604,6 +6757,68 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_pqrsd_api_smfc:
+          id: field_pqrsd_api_smfc
+          table: node__field_pqrsd_api_smfc
+          field: field_pqrsd_api_smfc
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_key
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         field_pqrsd_numero_radicado:
           id: field_pqrsd_numero_radicado
           table: node__field_pqrsd_numero_radicado
@@ -6615,8 +6830,8 @@ display:
           label: '# Radicado'
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "{% if field_pqrsd_api_smfc == 'recibido' %}\r\n<img src=\"/modules/custom/findeter_pqrsd/css/images/SFC.svg\">{{ field_pqrsd_numero_radicado }}\r\n{% else %}\r\n<span class=\"icon-sfc-send\"></span>{{ field_pqrsd_numero_radicado }}\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -8227,6 +8442,69 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_entities_transfer_pqrsd:
+          id: field_entities_transfer_pqrsd
+          table: node__field_entities_transfer_pqrsd
+          field: field_entities_transfer_pqrsd
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<p class="text-transfer"><strong>PQRSD Trasladada a: </strong> {{ field_entities_transfer_pqrsd }}</p>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
       pager:
         type: full
         options:
@@ -9050,6 +9328,8 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
+        - 'config:field.storage.node.field_entities_transfer_pqrsd'
+        - 'config:field.storage.node.field_pqrsd_api_smfc'
         - 'config:field.storage.node.field_pqrsd_canal_recepcion'
         - 'config:field.storage.node.field_pqrsd_departamento'
         - 'config:field.storage.node.field_pqrsd_descripcion'
@@ -9943,6 +10223,7 @@ display:
         fields: false
         arguments: false
         access: false
+        relationships: false
       filter_groups:
         operator: AND
         groups:
@@ -11430,6 +11711,69 @@ display:
           empty_zero: 0
           hide_alter_empty: 0
           plugin_id: custom
+        field_dependencia_usuarios:
+          id: field_dependencia_usuarios
+          table: user__field_dependencia_usuarios
+          field: field_dependencia_usuarios
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: 1
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: 0
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: 0
+          plugin_id: field
         field_pqrsd_asignaciones:
           id: field_pqrsd_asignaciones
           table: node__field_pqrsd_asignaciones
@@ -11440,8 +11784,8 @@ display:
           label: Asignaciones
           exclude: 0
           alter:
-            alter_text: 0
-            text: ''
+            alter_text: 1
+            text: '{{ field_pqrsd_asignaciones }} {{ field_dependencia_usuarios }}'
             make_link: 0
             path: ''
             absolute: 0
@@ -11741,6 +12085,18 @@ display:
           role:
             administrator: administrator
             pqrsd_administrador: pqrsd_administrador
+      relationships:
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: Usuario
+          required: 0
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
@@ -11774,3 +12130,4 @@ display:
         - 'config:field.storage.node.field_pqrsd_tipo_peticion'
         - 'config:field.storage.node.field_pqrsd_tipo_radicado'
         - 'config:field.storage.node.field_pqrsd_tipo_solicitante'
+        - 'config:field.storage.user.field_dependencia_usuarios'

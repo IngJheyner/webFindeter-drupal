@@ -12,6 +12,17 @@ admin_pages:
       css/admin.css: {}
   js:
     js/admin_node_form.js: {}
+  dependencies:
+    - core/jquery
+#    - core/jquery.ui.datepicker
+
+# Pagina de estadisticas charts list
+reports_charts:
+  version: 1.x.1
+  css:
+    theme:
+      css/reports_chart.css: {}
+  js:
     js/chart/src/Chart.js: {}
     js/chart/src/Chart.min.js: {}
     js/reports_chart.js: {}
@@ -20,7 +31,7 @@ admin_pages:
     /libraries/html2canvas/dist/html2canvas.min.js: {}
   dependencies:
     - core/jquery
-#    - core/jquery.ui.datepicker
+
 classy-dropbutton:
   css:
     component:

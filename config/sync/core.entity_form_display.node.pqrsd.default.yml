@@ -3,6 +3,7 @@ langcode: es
 status: true
 dependencies:
   config:
+    - field.field.node.pqrsd.field_entities_transfer_pqrsd
     - field.field.node.pqrsd.field_paises_pqrsd
     - field.field.node.pqrsd.field_pqrsd_api_smfc
     - field.field.node.pqrsd.field_pqrsd_archivo
@@ -188,6 +189,7 @@ third_party_settings:
         - field_pqrsd_autorizacion
         - field_pqrsd_marketing
         - field_pqrsd_asignaciones
+        - field_entities_transfer_pqrsd
         - field_pqrsd_comentario_traslado
         - field_pqrsd_palabras_clave
         - field_pqrsd_fecha_naranja
@@ -251,6 +253,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_entities_transfer_pqrsd:
+    type: string_textfield
+    weight: 16
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_paises_pqrsd:
     type: entity_reference_autocomplete
     weight: 16
@@ -276,7 +286,7 @@ content:
     third_party_settings: {  }
   field_pqrsd_asignaciones:
     type: string_textfield
-    weight: 16
+    weight: 15
     region: content
     settings:
       size: 60
@@ -284,7 +294,7 @@ content:
     third_party_settings: {  }
   field_pqrsd_autorizacion:
     type: options_select
-    weight: 14
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -388,7 +398,7 @@ content:
     third_party_settings: {  }
   field_pqrsd_forma_recepcion:
     type: options_select
-    weight: 13
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -418,13 +428,13 @@ content:
     third_party_settings: {  }
   field_pqrsd_marketing:
     type: options_select
-    weight: 15
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pqrsd_medio_respuesta:
     type: options_select
-    weight: 12
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -1,0 +1,32 @@
+uuid: 91db9852-c43a-45ef-bc82-ef5dd794608e
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ciiu_rediscount.feeds_item
+    - field.field.node.ciiu_rediscount.field_activity_ciiu
+    - field.field.node.ciiu_rediscount.field_bankables_ciiu
+    - field.field.node.ciiu_rediscount.field_observations_ciiu
+    - field.field.node.ciiu_rediscount.field_sectors_ciiu
+    - node.type.ciiu_rediscount
+  module:
+    - user
+id: node.ciiu_rediscount.teaser
+targetEntityType: node
+bundle: ciiu_rediscount
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  feeds_item: true
+  field_activity_ciiu: true
+  field_bankables_ciiu: true
+  field_observations_ciiu: true
+  field_sectors_ciiu: true
+  langcode: true
