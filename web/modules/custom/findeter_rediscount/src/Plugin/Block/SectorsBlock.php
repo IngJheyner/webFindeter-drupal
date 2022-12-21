@@ -82,7 +82,7 @@ class SectorsBlock extends BlockBase implements ContainerFactoryPluginInterface 
         'icon_secon' => $iconSecond->getFileUri(),
         'title' => $node->getTitle(),
         'description' => $node->get('field_description_sector')->value,
-        'image' => $image->getFileUri(),
+        'image' => is_null($image) ? '' : $image->getFileUri(),
         'subsectors' => $subsectors,
       ];
 

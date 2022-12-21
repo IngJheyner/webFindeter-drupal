@@ -7,41 +7,15 @@ dependencies:
     - field.field.node.banks_rediscount.field_text_alternative_bank
     - node.type.banks_rediscount
   module:
-    - svg_image
-    - text
     - user
 id: node.banks_rediscount.default
 targetEntityType: node
 bundle: banks_rediscount
 mode: default
-content:
-  field_icon_bank:
-    type: image
-    label: above
-    settings:
-      image_link: ''
-      image_style: ''
-      svg_attributes:
-        width: null
-        height: null
-      svg_render_as_image: true
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 101
-    region: content
-  field_text_alternative_bank:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 102
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 100
-    region: content
+content: {  }
 hidden:
   addtoany: true
+  field_icon_bank: true
+  field_text_alternative_bank: true
   langcode: true
+  links: true

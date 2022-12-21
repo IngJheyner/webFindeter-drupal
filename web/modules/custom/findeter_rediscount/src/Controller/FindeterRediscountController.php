@@ -53,7 +53,7 @@ class FindeterRediscountController extends ControllerBase {
 
     $subsectors = [];
     $subsectorsItems = $sectors->get('field_subsectors_rediscount')->referencedEntities();
-
+    
     foreach ($subsectorsItems as $keyItem => $paragraph) {
 
       $subsectors[$keyItem] = [
@@ -67,7 +67,7 @@ class FindeterRediscountController extends ControllerBase {
     $data = [
       'title' => $sectors->getTitle(),
       'description' => $sectors->get('field_description_sector')->value,
-      'image' => file_create_url($image->getFileUri()),
+      'image' => is_null($image) ? '' : file_create_url($image->getFileUri()),
       'subsectors' => $subsectors,
     ];
 
