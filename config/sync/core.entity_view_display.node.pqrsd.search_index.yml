@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.search_index
+    - field.field.node.pqrsd.field_entities_transfer_pqrsd
     - field.field.node.pqrsd.field_paises_pqrsd
     - field.field.node.pqrsd.field_pqrsd_api_smfc
     - field.field.node.pqrsd.field_pqrsd_archivo
@@ -81,6 +82,7 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_entities_transfer_pqrsd: true
   field_paises_pqrsd: true
   field_pqrsd_api_smfc: true
   field_pqrsd_archivo: true

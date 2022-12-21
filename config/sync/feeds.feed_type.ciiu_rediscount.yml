@@ -1,0 +1,115 @@
+uuid: 8f132bf9-0b28-4363-b34a-df89e3c6ee20
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.base_field_override.node.ciiu_rediscount.title
+    - field.field.node.ciiu_rediscount.field_activity_ciiu
+    - field.field.node.ciiu_rediscount.field_bankables_ciiu
+    - field.field.node.ciiu_rediscount.field_observations_ciiu
+    - field.field.node.ciiu_rediscount.field_sectors_ciiu
+    - node.type.ciiu_rediscount
+  module:
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      d394235f-3729-4c4e-b9e2-e105ff3f0a04:
+        separator: ','
+        limit: null
+        uuid: d394235f-3729-4c4e-b9e2-e105ff3f0a04
+        plugin: explode
+        source: sectors_ciiu
+        weight: 0
+        label: Explode
+label: 'CIIU Redescuento'
+id: ciiu_rediscount
+description: 'Se agrega los codigos de ciiu de redescuento para ser consultados en la pagina de entindades financieras'
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'private://feeds/ciiu'
+parser: csv
+parser_configuration:
+  delimiter: ;
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: ciiu_rediscount
+  langcode: es
+  insert_new: 1
+  update_existing: 1
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: true
+  owner_id: 0
+custom_sources:
+  code_ciiu:
+    value: codigo
+    label: codigo
+    machine_name: code_ciiu
+    type: csv
+  activity_ciiu:
+    value: actividad
+    label: actividad
+    machine_name: activity_ciiu
+    type: csv
+  sectors_ciiu:
+    value: sectores
+    label: sectores
+    machine_name: sectors_ciiu
+    type: csv
+  observations_ciiu:
+    value: observaciones
+    label: observaciones
+    machine_name: observations_ciiu
+    type: csv
+  bankables_ciiu:
+    value: financiables
+    label: financiables
+    machine_name: bankables_ciiu
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: code_ciiu
+    settings:
+      language: null
+    unique:
+      value: '1'
+  -
+    target: field_activity_ciiu
+    map:
+      value: activity_ciiu
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_sectors_ciiu
+    map:
+      target_id: sectors_ciiu
+    settings:
+      language: null
+      reference_by: title
+      autocreate: false
+      feeds_item: false
+  -
+    target: field_observations_ciiu
+    map:
+      value: observations_ciiu
+    settings:
+      language: null
+  -
+    target: field_bankables_ciiu
+    map:
+      value: bankables_ciiu
+    settings:
+      language: null

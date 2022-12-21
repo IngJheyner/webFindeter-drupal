@@ -37,7 +37,7 @@ class AdminModule extends ConfigFormBase {
 
     $form['intro']['#markup'] = '<p>Este formulario permite administrar las parámetros esenciales para el funcionamiento de los formularios de Findeter (PQRSD).</p>';
 
-    // Asign user
+    // Asign user.
     $form['user-fieldset'] = [
       '#type'        => 'fieldset',
       '#title'       => 'Asignación de formularios',
@@ -53,7 +53,7 @@ class AdminModule extends ConfigFormBase {
 
     $users = $userStorage->loadMultiple($uids);
     $usersAsOptions = [];
-    foreach($users as $uid=>$usr){
+    foreach ($users as $uid => $usr) {
       $usersAsOptions[$uid] = $usr->getAccountName();
     }
 
@@ -67,89 +67,95 @@ class AdminModule extends ConfigFormBase {
 
     $roles = Role::loadMultiple();
     $rolesAsOptions = [];
-    foreach($roles as $idRol=>$rol){
+    foreach ($roles as $idRol => $rol) {
       $rolesAsOptions[$idRol] = $rol->label();
     }
     unset($rolesAsOptions['anonymous']);
 
-    $rolesSelected = explode(',',$config->get('roles'));
+    $rolesSelected = explode(',', $config->get('roles'));
 
     $form['user-fieldset']['roles'] = [
       '#type'          => 'checkboxes',
       '#options'       => $rolesAsOptions,
-      '#required'      => true,
+      '#required'      => TRUE,
       '#default_value' => $rolesSelected,
       '#title'         => 'Roles de usuario permitidos',
       '#description'   => 'Seleccione los roles de usuario que estarán permitidos para reasignar los formularios (Solo los usuarios que tengan alguno de estos roles seleccionados, estarán habilitados para reasignar los formularios).<br>Si ninguno está seleccionado, todos los roles se tomarán en cuenta para la asignación.'
     ];
 
-    // Allowed user roles
-    $form['node-display'] = array(
+    // Allowed user roles.
+    $form['node-display'] = [
       '#type'        => 'fieldset',
       '#title'       => 'Exportación a PDF',
       '#collapsible' => TRUE,
       '#collapsed'   => FALSE,
-    );
+    ];
 
-    //$viewModes = \Drupal::entityManager()->getViewModes('node');
+    // $viewModes = \Drupal::entityManager()->getViewModes('node');
     $viewModes = \Drupal::service('entity_display.repository')->getViewModes('node');
     $viewModesAsOption = [];
-    foreach($viewModes as $idMode=>$viewMode){
+    foreach ($viewModes as $idMode => $viewMode) {
       $viewModesAsOption[$idMode] = $viewMode['label'];
     }
 
-    $form['node-display']['view_mode'] = array(
+    $form['node-display']['view_mode'] = [
       '#type'          => 'select',
       '#options'       => $viewModesAsOption,
-      '#required'      => true,
+      '#required'      => TRUE,
       '#default_value' => $config->get('view_mode'),
       '#title'         => '"Display mode" para exportación',
       '#description'   => 'De la lista anterior, seleccione el display mode del tipo de contenido <i>"Solicitud usuario"</i> que se usará para exportar a PDF. <br> Puede consultar las opciones de cada display mode haciendo <a href="/admin/structure/types/manage/user_request/display">click aquí</a>'
-    );
+    ];
 
     $module_handler = \Drupal::service('module_handler');
     $module_path = $module_handler->getModule('findeter_pqrsd')->getPath();
-    $module_path .='/css/pdf.css';
-    if($config->get('css_path') == ''){
+    $module_path .= '/css/pdf.css';
+
+    if ($config->get('css_path') == '') {
       $defaultCss = $module_path;
-    }else{
+    }
+    else {
       $defaultCss = $config->get('css_path');
     }
-    $form['node-display']['css_path'] = array(
+    $form['node-display']['css_path'] = [
       '#type'          => 'textfield',
       '#title'         => 'Hoja de estilo exportación a PDF',
       '#default_value' => $defaultCss,
-      '#required'      => true,
-      '#description'   => 'Defina la ruta absoluta a la hoja de estilo que se usará para la exportación de los formularios. La ruta de la hora de estilos por defecto es: <i>'.$module_path.'</i>'
-    );
+      '#required'      => TRUE,
+      '#description'   => "Defina la ruta absoluta a la hoja de estilo que se usará para la exportación de los formularios. La ruta de la hora de estilos por defecto es: <i>$module_path</i>"
+    ];
 
-
-    // Allowed user roles
-    $form['semaphore'] = array(
+    // Allowed user roles.
+    $form['semaphore'] = [
       '#type'        => 'fieldset',
       '#title'       => 'Valores de semáforo',
       '#collapsible' => TRUE,
       '#collapsed'   => FALSE,
-    );
+    ];
 
-
-    $form['semaphore']['tabla'] = array(
+    $form['semaphore']['tabla'] = [
       '#type' => 'table',
-      '#header' => ['Tipo','Tiempo alerta (naranja)','Tiempo caducidad (rojo)','Condición','Tipos de dias'],
+      '#header' => [
+        'Tipo',
+        'Tiempo alerta (naranja)',
+        'Tiempo caducidad (rojo)',
+        'Condición',
+        'Tipos de dias'
+      ],
 
-    );
+    ];
 
     foreach ($config->get('semaphore') as $id => $semaphoreItem) {
 
-      $form['semaphore']['tabla'][$id]['type'] = array(
+      $form['semaphore']['tabla'][$id]['type'] = [
         '#markup' => $semaphoreItem['title'],
-      );
+      ];
       $form['semaphore']['tabla'][$id]['orange'] = [
         '#type'          => 'textfield',
         '#title'         => 'Naranja',
         '#size'          => 5,
         '#maxlength'     => 5,
-        '#required'      => true,
+        '#required'      => TRUE,
         '#default_value' => $semaphoreItem['orange']
       ];
       $form['semaphore']['tabla'][$id]['red'] = [
@@ -157,20 +163,20 @@ class AdminModule extends ConfigFormBase {
         '#title'         => 'Rojo',
         '#size'          => 5,
         '#maxlength'     => 5,
-        '#required'      => true,
+        '#required'      => TRUE,
         '#default_value' => $semaphoreItem['red']
       ];
-      $form['semaphore']['tabla'][$id]['contition'] = array(
-        '#markup' => implode('<br>',$semaphoreItem['condition']),
-      );
+      $form['semaphore']['tabla'][$id]['contition'] = [
+        '#markup' => implode('<br>', $semaphoreItem['condition']),
+      ];
 
       $typeDays = 'Días hábiles';
-      if($semaphoreItem['logic']=='calendar days'){
+      if ($semaphoreItem['logic'] == 'calendar days') {
         $typeDays = 'Días calendario';
       }
-      $form['semaphore']['tabla'][$id]['type-days'] = array(
+      $form['semaphore']['tabla'][$id]['type-days'] = [
         '#markup' => $typeDays,
-      );
+      ];
     }
 
     return parent::buildForm($form, $form_state);
@@ -186,17 +192,17 @@ class AdminModule extends ConfigFormBase {
     // Get the value stored in the config.
     $config = $this->config('findeter_pqrsd.admin');
 
-    // collect selected roles
+    // Collect selected roles.
     $roles = [];
-    foreach($form_state->getValue('roles') as $rolAllowed){
-      if($rolAllowed !== 0){
+    foreach ($form_state->getValue('roles') as $rolAllowed) {
+      if ($rolAllowed !== 0) {
         $roles[] = $rolAllowed;
       }
     }
 
-    // collect new values semaphore matrix
+    // Collect new values semaphore matrix.
     $matrixSemaphore = $config->get('semaphore');
-    foreach($form_state->getValue('tabla') as $id=>$item){
+    foreach ($form_state->getValue('tabla') as $id => $item) {
       $matrixSemaphore[$id]['orange'] = $item['orange'];
       $matrixSemaphore[$id]['red'] = $item['red'];
     }
@@ -206,7 +212,7 @@ class AdminModule extends ConfigFormBase {
       ->set('view_mode', trim($form_state->getValue('view_mode')))
       ->set('css_path', trim($form_state->getValue('css_path')))
       ->set('semaphore', $matrixSemaphore)
-      ->set('roles', implode(',',$roles))
+      ->set('roles', implode(',', $roles))
       ->save();
 
   }

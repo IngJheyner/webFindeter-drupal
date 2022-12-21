@@ -67,8 +67,6 @@
   padding: 1rem;
 }
 
-
-
 .views-exposed-form .form-actions{
   width: 100%;
 }
@@ -141,12 +139,30 @@ form#views-exposed-form-pqrsd-page-2{
 .views-view-table .days-left{
   text-align: center;
 }
-
+.views-view-table .text-close{
+  color: #0358B6;
+  font-weight: bold;
+  margin: 0;
+}
+.views-view-table .text-open{
+  color: #F67701;
+  font-weight: bold;
+  margin: 0;
+}
+.views-view-table .text-transfer::before{
+  content: '';
+  background: url('images/transferir.svg');
+  height: 24px;
+  width: 24px;
+  background-size: 24px;
+  display: inline-block;
+  margin-right: 5px;
+}
 /*Report styles*/
-.list-charts{
+/* .list-charts{
   margin-top: 1rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(800px, 900px));
+  grid-template-columns: repeat(auto-fill, minmax(500px, 750px));
   grid-gap: 10px;
 }
 .chart-container{
@@ -155,10 +171,23 @@ form#views-exposed-form-pqrsd-page-2{
   padding: 5px;
   background-color: #fff;
 }
-#tipo-solicitante-chart,
+
+.chart-container:nth-child(3){
+  max-height: 600px;
+}
+
+time#time-period {
+  font-size: 15px;
+  font-weight: bold;
+
+}
+div.ajax-progress-throbber{
+  display: none;
+} */
+/*#tipo-solicitante-chart,
 #tipo-radicado-chart{
   width: 200px;
-}
+}*/
 .export-link{
   margin: 15px;
   border: 1px solid #ccc;

@@ -13,6 +13,10 @@ use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Cache\Cache;
+use Drupal\Core\Form\FormBuilderInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Dompdf\Dompdf;
+use Drupal\Core\Url;
 
 /**
  * Returns responses for Findeter PQRSD Manager routes.
@@ -57,6 +61,13 @@ class ReportsPqrsdController extends ControllerBase {
   protected $languageManager;
 
   /**
+   * FormBuilder.
+   *
+   * @var Drupal\Core\Form\FormBuilderInterface
+   */
+  protected $formBuilder;
+
+  /**
    * Servicios.
    *
    * @param Drupal\Core\Entity\EntityFieldManagerInterface $field_manager
@@ -69,14 +80,17 @@ class ReportsPqrsdController extends ControllerBase {
    *   LanguageManager.
    * @param Drupal\Core\Cache\CacheBackendInterface $cache
    *   Cache.
+   * @param Drupal\Core\Form\FormBuilderInterface $form_builder
+   *   Form Builder.
    */
-  public function __construct(EntityFieldManagerInterface $field_manager, EntityTypeManager $entity_type_manager, RendererInterface $render, LanguageManagerInterface $language_manager, CacheBackendInterface $cache) {
+  public function __construct(EntityFieldManagerInterface $field_manager, EntityTypeManager $entity_type_manager, RendererInterface $render, LanguageManagerInterface $language_manager, CacheBackendInterface $cache, FormBuilderInterface $form_builder) {
 
     $this->fieldManager = $field_manager;
     $this->entityTypeManager = $entity_type_manager;
     $this->render = $render;
     $this->languageManager = $language_manager;
     $this->cache = $cache;
+    $this->formBuilder = $form_builder;
 
   }
 
@@ -95,7 +109,8 @@ class ReportsPqrsdController extends ControllerBase {
      $container->get('entity_type.manager'),
      $container->get('renderer'),
      $container->get('language_manager'),
-     $container->get('cache.default')
+     $container->get('cache.default'),
+     $container->get('form_builder')
     );
   }
 
@@ -105,8 +120,8 @@ class ReportsPqrsdController extends ControllerBase {
    * @return mixed
    *   Return render html.
    */
-  public function statistics() {
-
+  public function statistics(Request $request) {
+    // dump($request->request->get('message'));
     // Creamos variables de inicializacion en tiempo y valores como el cid de cache creado en cache.default.
     $startTime = microtime(TRUE);
     $cid = "findeter_pqrsd_statistics: {$this->languageManager->getCurrentLanguage()->getId()}";
@@ -114,13 +129,15 @@ class ReportsPqrsdController extends ControllerBase {
     $fromCache = FALSE;
 
     // Validacion de cache, sino ejecutamos la funcion para generar una nueva consulta.
-    if ($cache = $this->cache->get($cid)) {
+    if (($cache = $this->cache->get($cid)) && is_null($request->request->get('start_date'))) {
       $data = $cache->data;
       $fromCache = TRUE;
     }
     else {
-      $data = $this->statisticsData();
-      $this->cache->set($cid, $data, Cache::PERMANENT, ['node_list:pqrsd']);
+      $data = $this->statisticsData($request);
+      if (is_null($request->request->get('start_date'))) {
+        $this->cache->set($cid, $data, Cache::PERMANENT, ['node_list:pqrsd']);
+      }
     }
 
     $endTime = microtime(TRUE);
@@ -160,20 +177,63 @@ class ReportsPqrsdController extends ControllerBase {
 
       }
 
-      $build['charts-graph'] = [
+      // Formulario de filtro para estadisticas.
+      $form = $this->formBuilder->getForm('Drupal\findeter_pqrsd\Form\ReportsPqrsdForm');
+
+      $build[]['form-filter'] = [
+        '#type' => 'html_tag',
+        '#tag' => 'div',
+        '#value' => $this->render->render($form),
+        '#weight' => 0,
+      ];
+
+      // Definir peridod de fechas consultas.
+      if (is_null($request->request->get('start_date'))) {
+
+        $start_date = date("d-m-Y", strtotime('first day of January', time()));
+        $finished_date = date("d-m-Y", \Drupal::time()->getCurrentTime());
+
+      }
+      else {
+        $start_date = date("d-m-Y", strtotime($request->request->get('start_date')['date']));
+        $finished_date = date("d-m-Y", strtotime($request->request->get('finished_date')['date']));
+      }
+
+      $build[]['charts-graph'] = [
         '#type' => 'item',
         '#markup' => Markup::create('
+          <time id="time-period"> Periodo '.$start_date.' al '.$finished_date.'</time>
           <div class="list-charts">
-            <div class="chart-container"><canvas id="time-chart"></canvas></div>
-            <div class="chart-container"><canvas id="tipo-radicado-chart"></canvas></div>
-            <div class="chart-container"><canvas id="tipo-solicitante-chart"></canvas></div>
-            <div class="chart-container"><canvas id="tipo-producto-chart"></canvas></div>
-            <div class="chart-container"><canvas id="canal-recepcion-chart"></canvas></div>
-            <div class="chart-container"><canvas id="forma-recepcion-chart"></canvas></div></div>'),
+            <div class="chart-container">
+              <canvas id="time-chart"></canvas>
+              <table id="time-chart"><thead><tr><th>Mes</th><th>Total</th></tr></thead><tbody></tbody></table>
+            </div>
+            <div class="chart-container">
+              <canvas id="tipo-radicado-chart"></canvas>
+              <table id="tipo-radicado-chart"><thead><tr><th>Tipo de Radicado</th><th>Total</th></tr></thead><tbody></tbody></table>
+            </div>
+            <div class="chart-container">
+              <canvas id="tipo-solicitante-chart"></canvas>
+              <table id="tipo-solicitante-chart"><thead><tr><th>Tipo de Solicitante</th><th>Total</th></tr></thead><tbody></tbody></table>
+            </div>
+            <div class="chart-container" id="tipo-producto-chart">
+              <canvas id="tipo-producto-chart"></canvas>
+              <table id="tipo-producto-chart"><thead><tr><th>Tipo de Producto</th><th>Total</th></tr></thead><tbody></tbody></table>
+            </div>
+            <div class="chart-container">
+              <canvas id="canal-recepcion-chart"></canvas>
+              <table id="canal-recepcion-chart"><thead><tr><th>Canal de Recepcion</th><th>Total</th></tr></thead><tbody></tbody></table>
+            </div>
+            <div class="chart-container">
+              <canvas id="forma-recepcion-chart"></canvas>
+              <table id="forma-recepcion-chart"><thead><tr><th>Forma de Recepcion</th><th>Total</th></tr></thead><tbody></tbody></table>
+            </div>
+          </div>'),
         'stringData' => [
           '#type' => 'html_tag',
           '#tag' => 'p',
           '#value' => $this->render->render($messageString),
+          '#weight' => 2,
         ],
         '#attached' => [
           'drupalSettings' => [
@@ -201,7 +261,7 @@ class ReportsPqrsdController extends ControllerBase {
    * @return array
    *   Return array data
    */
-  public function statisticsData() {
+  public function statisticsData($request) {
 
     // Arraglo con los meses del anio.
     $spanishMonths['January'] = 'Enero';
@@ -249,13 +309,31 @@ class ReportsPqrsdController extends ControllerBase {
 
     // Realizamos una consulta para traer los nids de todo los nodos que perteneces al tipo de contenido pqrsd.
     $query = \Drupal::entityQuery('node')
-      ->condition('type', 'pqrsd')
-      ->execute();
+      ->condition('type', 'pqrsd');
+
+    // Se agrega los filtros de fecha para mostrar por periodos.
+    if (!is_null($request->request->get('start_date'))) {
+      $query->condition('created', [
+        strtotime($request->request->get('start_date')['date']),
+        strtotime($request->request->get('finished_date')['date'])
+      ], 'BETWEEN');
+    }
+    else {
+      $start_date = strtotime('first day of January', time());
+      $finished_date = \Drupal::time()->getCurrentTime();
+      $query->condition('created', [
+        $start_date,
+        $finished_date
+      ], 'BETWEEN');
+    }
+
+    // Ejecutamos la consulta.
+    $results = $query->execute();
 
     $nodeStorage = $this->entityTypeManager->getStorage('node');
 
     // Cargamos lo nid de nodos pqrsd.
-    $nodeArray = $nodeStorage->loadMultiple($query);
+    $nodeArray = $nodeStorage->loadMultiple($results);
 
     foreach ($nodeArray as $node) {
 
@@ -320,14 +398,18 @@ class ReportsPqrsdController extends ControllerBase {
     // Tipos de solictante valores.
     $tipoSolicitanteValue = array_filter(
       $tipoSolicitanteCount,
-      function($item){ return $item > 0; });
+      function ($item) {
+        return $item > 0;
+      });
 
     $data['tipoSolicitante'] = $tipoSolicitanteValue;
 
     // Nombre de productos.
     $tipoNameProductValue = array_filter(
       $tipoNameProductCount,
-      function($item){ return $item > 0; });
+      function ($item) {
+        return $item > 0;
+      });
 
     $data['tipoProducto'] = $tipoNameProductValue;
 

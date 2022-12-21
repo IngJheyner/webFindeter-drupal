@@ -1,0 +1,35 @@
+/*Report styles*/
+.list-charts{
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 750px));
+  grid-gap: 10px;
+}
+.chart-container{
+  height: auto;
+  border: 1px solid #ccc;
+  padding: 5px;
+  background-color: #fff;
+}
+
+.chart-container:nth-child(3){
+  max-height: 600px;
+}
+
+time#time-period {
+  font-size: 15px;
+  font-weight: bold;
+
+}
+div.ajax-progress-throbber{
+  display: none;
+}
+.export-link{
+  margin: 15px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+  display: inline-block;
+  width: 150px;
+  text-align: center;
+}

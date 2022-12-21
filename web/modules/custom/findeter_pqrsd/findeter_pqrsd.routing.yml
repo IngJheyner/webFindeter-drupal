@@ -107,13 +107,13 @@ findeter_pqrsd.status_pqrsd:
   requirements:
     _permission: 'access content'
 
-findeter_pqrsd.expor_report_pdf:
-  path: '/report-to-pdf/{filter}'
-  defaults:
-    _controller: '\Drupal\findeter_pqrsd\Controller\CreatePDF::reportToPdf'
-    _title: 'Registro/Actualización de PQRSD'
-  requirements:
-    _user_is_logged_in: 'TRUE'
+# findeter_pqrsd.expor_report_pdf:
+#   path: '/report-to-pdf/{filter}'
+#   defaults:
+#     _controller: '\Drupal\findeter_pqrsd\Controller\CreatePDF::reportToPdf'
+#     _title: 'Registro/Actualización de PQRSD'
+#   requirements:
+#     _user_is_logged_in: 'TRUE'
 
 findeter_pqrsd.expor_report_excel:
   path: '/admin/reporte-excel-pqrsd/{filter}'

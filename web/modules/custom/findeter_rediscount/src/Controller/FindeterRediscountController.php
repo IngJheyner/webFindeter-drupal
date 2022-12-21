@@ -78,4 +78,28 @@ class FindeterRediscountController extends ControllerBase {
     ]);
   }
 
+  /**
+   * Se trae los datos de ciiu redescuento segun sea su codigo.
+   *
+   * @param int $code
+   *   - Parametro $code con argumento de identificacion del nodo por medio del codigo(title).
+   */
+  public function searchCodeCiiu($code) {
+
+    // Query de tipo nodo.
+    $query = $this->entityTypeManager->getStorage('node')->getQuery();
+
+    // Se carga el nodo con el query consultado.
+    $codeQuery = $query->condition('type', 'ciiu_rediscount')
+      ->condition('title', $code)
+      ->execute();
+
+    // Retornamos las variables en este caso datos de tipo json.
+    return new JsonResponse([
+      'status' => 'success',
+      'code' => $codeQuery,
+    ]);
+
+  }
+
 }

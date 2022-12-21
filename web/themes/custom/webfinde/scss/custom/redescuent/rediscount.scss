@@ -361,7 +361,31 @@
 
   }
 
+  /* ==============================
+  CODIGO CIIU
+  ============================== */
+  section.ciiu{
 
+    div.search-ciiu{
+      background: var.$color-gradient-primary;
+
+      div#response-search-ciiu{
+        max-width: 500px;
+        margin: auto;
+        text-align: center;
+        color: var.$color-terciario;
+      }
+
+      input[type="submit"]{
+        background: url(/themes/custom/webfinde/images/iconos/buscador2.png) no-repeat;
+        background-size: 35px 35px;
+        width: 38px;
+        height: 38px;
+        background-position: top center;
+      }
+    }
+
+  }
   /* ==============================
   SEKELETON PRELOADER
   ============================== */
@@ -395,6 +419,91 @@
   .show-info {
     opacity: 0;
     animation: fade-in 2s forwards;
+  }
+
+  /* ==============================
+  LOADER TEXT CODIGO DE CIIU
+  ============================== */
+  .loader {
+    width: 400px;
+    height: 24px;
+    border-left: 8px solid var.$color-terciario;
+    border-right: 8px solid var.$color-terciario;
+    overflow: hidden;
+    margin: auto;
+    display: none;
+
+    .sub{
+      height: 8px;
+      width: 0;
+      background: var.$color-terciario;
+      position: relative;
+      margin: 0;
+      &:nth-child(1) {
+        -webkit-animation: sub 2s ease-in-out infinite;
+        animation: sub 2s ease-in-out infinite;
+      }
+      &:nth-child(2) {
+        -webkit-animation: sub 2s ease-in-out .1s infinite;
+        animation: sub 2s ease-in-out .1s infinite;
+      }
+      &:nth-child(3) {
+        -webkit-animation: sub 2s ease-in-out .2s infinite;
+        animation: sub 2s ease-in-out .2s infinite;
+      }
+    }
+  }
+
+  @-webkit-keyframes sub {
+    0%{
+      left: 0;
+      width: 0px;
+    }
+
+    25%{
+      left: 0;
+      width: 400px;
+    }
+
+    50% {
+      left: 400px;
+      width: 0px;
+    }
+    75% {
+      left: 0;
+      width: 400px;
+
+    }
+    100%{
+      left: 0;
+      width: 0px;
+    }
+  }
+
+  @keyframes sub {
+    0%{
+      left: 0;
+      width: 0px;
+    }
+
+    25%{
+      left: 0;
+      width: 400px;
+    }
+
+    50% {
+      left: 400px;
+      width: 0px;
+    }
+    75% {
+      left: 0;
+      width: 400px;
+
+    }
+    100%{
+      left: 0;
+      width: 0px;
+    }
   }
 
   /* ==============================

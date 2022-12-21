@@ -940,7 +940,8 @@ function buildPQRSDform(){
  * Function to send an email when a PQRSD has been asigned
  * @author Sandi <email@email.com>
  */
-function sendNotificationAsign($user,$node){
+function sendNotificationAsign($user, $node){
+
   $mailManager = \Drupal::service('plugin.manager.mail');
   $module = 'findeter_pqrsd';
   $key = 'asigned_pqrsd';
@@ -976,6 +977,11 @@ function sendNotificationAsign($user,$node){
   $send = true;
 
   $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+
+  \Drupal::messenger()->addStatus(t('Se ha asignado el radicado No. @radicado al usuario @user', [
+    '@radicado' => $node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'],
+    '@user' => $user->getAccountName(),
+  ]));
 }
 
 
@@ -999,9 +1005,9 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
       if($field->field == 'field_pqrsd_respuesta'){
         if($variables['output'] == ''){
-          $variables['output'] = "Abierta asignada a: ";
+          $variables['output'] = ['#markup' => "<p class='text-open'>Abierta asignada a: </p>"];
         }else{
-          $variables['output'] = "Cerrada por: ";
+          $variables['output'] = ['#markup' => "<p class='text-close'>Cerrada por: </p>"];
         }
       }
 
@@ -1014,6 +1020,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
           'data-dialog-type'    => ['modal'],
           'data-dialog'         => ['modal'],
           'data-dialog-options' => ['{"width":1000}'],
+          'data-ajax-progress' => ['throbber'],
         ];
 
         $htmlOutput = '';
@@ -1355,7 +1362,7 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
 
       //Agregamos el link para ser visualizado como fila en la tabla
       $rows[] = [ '#rows' => [
-          'data' => \Drupal::service('renderer')->render($link),
+          'data' => \Drupal::service('renderer')->renderRoot($link),
           '#colspan' => 10,
         ]
       ];
@@ -1399,7 +1406,7 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
         'admin_label' => '',
         'empty' => TRUE,
         'tokenize' => FALSE,
-        'content' => \Drupal::service('renderer')->render($buildTable),
+        'content' => \Drupal::service('renderer')->renderRoot($buildTable),
         'plugin_id' => 'text_custom',
       );
 

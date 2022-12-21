@@ -1,0 +1,23 @@
+uuid: 3e1a7363-8d5e-41a8-9c06-9f726a1fb2fe
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.ciiu_rediscount
+  module:
+    - feeds
+id: node.ciiu_rediscount.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: ciiu_rediscount
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

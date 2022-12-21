@@ -80,6 +80,8 @@
 
 #}
 
+{% if node.isPublished() %}
+
 <article class="text-rize">
 
   <div class="articuloInternasBlog container" imgFondoEncabezado="{{ file_url(content.field_imagen_fondo_articulo[0]['#item'].entity.uri.value) }}">
@@ -113,3 +115,5 @@
   </div>
 
 </article>
+
+{% endif %}

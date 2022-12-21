@@ -43,9 +43,9 @@ class UsersAutoCompleteController extends ControllerBase {
    * Handler for autocomplete request.
    */
   public function handleAutocomplete(Request $request) {
-    
+
     $config = $this->config('findeter_pqrsd.admin');
-    
+
     $results = [];
     $input = $request->query->get('q');
 
@@ -65,16 +65,16 @@ class UsersAutoCompleteController extends ControllerBase {
       ->condition('name', $input, 'CONTAINS')
       ->condition('roles', $rolesAllowed,'IN')
       ->execute();
-      
+
     $users = $uids ? $userStorage->loadMultiple($uids) : [];
 
     foreach ($users as $user) {
-  
+
       $label = [
         $user->getAccountName(),
           '<small>(' . $user->id() . ')</small>'
       ];
-  
+
       $results[] = [
         'value' => EntityAutocomplete::getEntityLabels([$user]),
         'label' => implode(' ', $label),
@@ -82,7 +82,7 @@ class UsersAutoCompleteController extends ControllerBase {
     }
 
     return new JsonResponse($results);
-    
+
   }
 
 
@@ -90,9 +90,9 @@ class UsersAutoCompleteController extends ControllerBase {
    * Handler for autocomplete request.
    */
   public function handleList() {
-    
+
     $config = $this->config('findeter_pqrsd.admin');
-    
+
     $results = [];
 
     $userStorage = \Drupal::entityTypeManager()->getStorage('user');
@@ -103,7 +103,7 @@ class UsersAutoCompleteController extends ControllerBase {
       ->condition('status', '1')
       ->condition('roles', $rolesAllowed,'IN')
       ->execute();
-      
+
     $users = $uids ? $userStorage->loadMultiple($uids) : [];
 
     $html = '<table>';
@@ -121,7 +121,7 @@ class UsersAutoCompleteController extends ControllerBase {
     );
 
     return $output;
-    
+
   }
 
 }

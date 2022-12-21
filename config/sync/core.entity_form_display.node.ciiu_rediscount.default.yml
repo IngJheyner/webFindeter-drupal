@@ -1,0 +1,136 @@
+uuid: 700da42b-5664-4dd1-ac8b-1c09fa4e4fb5
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.ciiu_rediscount.feeds_item
+    - field.field.node.ciiu_rediscount.field_activity_ciiu
+    - field.field.node.ciiu_rediscount.field_bankables_ciiu
+    - field.field.node.ciiu_rediscount.field_observations_ciiu
+    - field.field.node.ciiu_rediscount.field_sectors_ciiu
+    - node.type.ciiu_rediscount
+  module:
+    - field_group
+    - path
+third_party_settings:
+  field_group:
+    group_group_tabs:
+      children:
+        - group_informacion
+      label: 'Group Tabs'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: horizontal
+        width_breakpoint: 640
+    group_informacion:
+      children:
+        - title
+        - field_activity_ciiu
+        - field_sectors_ciiu
+        - field_observations_ciiu
+        - field_bankables_ciiu
+        - uid
+        - status
+        - created
+        - langcode
+      label: Informacion
+      region: content
+      parent_name: group_group_tabs
+      weight: 1
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+id: node.ciiu_rediscount.default
+targetEntityType: node
+bundle: ciiu_rediscount
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_activity_ciiu:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_bankables_ciiu:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_observations_ciiu:
+    type: string_textarea
+    weight: 5
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_sectors_ciiu:
+    type: options_buttons
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 10
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 7
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  feeds_item: true
+  promote: true
+  sticky: true
+  url_redirects: true

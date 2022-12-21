@@ -72,7 +72,6 @@ class StepManager {
       // Init step.
       $step = new $class($this->messenger,$this);
     }
-    
     return $step;
   }
 

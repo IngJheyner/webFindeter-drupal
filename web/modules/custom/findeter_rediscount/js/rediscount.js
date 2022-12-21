@@ -35,6 +35,7 @@
         });
 
         $('[data-toggle="tooltip"]').tooltip();
+
         /*===========================================
         SECTORES
         =============================================*/
@@ -138,6 +139,69 @@
             icon.classList.toggle('d-none');
             iconSecond.classList.toggle('d-block');
           });
+        });
+
+        /*===========================================
+        BUSCAR CODIGO CIIU
+        =============================================*/
+
+        // Aceptar solo numeros.
+        const valideKey = (e) => {
+          var key = e.charCode;
+          return key >= 48 && key <= 57;
+        }
+
+        const textEditCode = document.querySelector("#edit-code");
+        textEditCode.addEventListener("keypress", event => { if(!valideKey(event)) event.preventDefault(); });
+
+        // Consultar codigo.
+        const btnEditCode = document.querySelector("#edit-send-code");
+        const htmlResponseCode = document.querySelector("#response-search-ciiu");
+        const loader = document.querySelector(".loader");
+
+        btnEditCode.addEventListener("click", event => {
+
+          event.preventDefault();
+
+          if(textEditCode.value !== "") {
+
+            loader.classList.toggle("d-block");
+            htmlResponseCode.classList.toggle("d-none");
+
+            // Enviamos la peticion como una promesa y ejecutamos la consulta.
+            setTimeout(() => {
+              fetch('/findeter-rediscount/search-code-ciiu/'+textEditCode.value, {
+                method: "GET",
+              })
+              .then(response => {
+
+                if (response.ok){
+
+                  loader.classList.toggle("d-block");
+                  htmlResponseCode.classList.toggle("d-none");
+                  return response.json();
+
+                }
+              })
+              .then((data) => {
+
+                if( Object.entries(data.code).length !== 0 ) {
+
+                  htmlResponseCode.innerHTML = "<p>El CIIU consultado pertenece a la actividad que hace parte de los sectores que financia Findeter.</p>";
+
+                } else {
+
+                  htmlResponseCode.innerHTML = "<p>Por favor contacte con un gerente de cuenta para revisar si la actividad económica es financiable por Findeter.</p>";
+
+                }
+
+              })
+              .catch(function (error) {
+                console.error("ERROR SECTORS: ", error.message)
+              })
+            }, 2000);
+          }
+
         });
 
       });
