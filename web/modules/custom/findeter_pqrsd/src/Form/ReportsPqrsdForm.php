@@ -64,7 +64,7 @@ class ReportsPqrsdForm extends FormBase {
       '#attributes' => [
         'href' => '#',
         'id' => 'send-pdf',
-        'class' => 'export-link',
+        'class' => 'export-link excel-pdf',
       ],
       '#suffix' => '<div class="ajax-progress ajax-progress-throbber"><div class="throbber">&nbsp;</div><div class="message">Espere, por favor...</div></div>',
     ];

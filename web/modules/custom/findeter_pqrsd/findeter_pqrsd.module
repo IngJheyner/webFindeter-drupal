@@ -236,10 +236,10 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
     }
 
     /* ============================================
-    Informe 379
+    Informe 379 (Deprecated)
     =============================================== */
 
-    $form['container_date'] = [
+    /*$form['container_date'] = [
       '#type' => 'details',
       '#title' => 'Reporte 379',
       '#open' =>FALSE,
@@ -266,7 +266,7 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
       '#size' => 30,
       //'#size' => 60,
       //'#maxlength' => 128,
-    ];
+    ];*/
 
   }
 
@@ -1003,12 +1003,24 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
     if($view->current_display == 'page_1' || $view->current_display == 'page_2'){
 
+      // No mostrar los iconos de semaforo si el estado de publicacion o anulacion es false
+      $status = $row->_entity->getFields()['status'][0]->getValue()['value'];
+
       if($field->field == 'field_pqrsd_respuesta'){
-        if($variables['output'] == ''){
-          $variables['output'] = ['#markup' => "<p class='text-open'>Abierta asignada a: </p>"];
-        }else{
-          $variables['output'] = ['#markup' => "<p class='text-close'>Cerrada por: </p>"];
+
+        if($status == 1){
+
+          if($variables['output'] == ''){
+
+            $variables['output'] = ['#markup' => "<p class='text-open'>Abierta asignada a: </p>"];
+
+          }else{
+            $variables['output'] = ['#markup' => "<p class='text-close'>Cerrada por: </p>"];
+          }
+        } else {
+          $variables['output'] = ['#markup' => "<div class='red'>Rojo</div><p class='text-canceled'>Anulado</p>"];
         }
+
       }
 
       if($field->field == 'view_node'){
@@ -1056,8 +1068,22 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
           $modalLink = $modalLink->toRenderable();
           $modalLink['#attributes'] = $modalOptions;
           $htmlOutput .= '<li class="dropbutton-action secondary-action">'.render($modalLink).'</li>';
-        }
 
+          // Anulacion de radicados (su estado real es despublicado).
+          if (in_array('pqrsd_administrador', $rolesUser) || in_array('administrator', $rolesUser)) {
+            $url = Url::fromRoute('findeter_pqrsd.canceled',
+            ['node' => $nid],
+            /*['query' => [
+              'token' => \Drupal::getContainer()->get('csrf_token')->get("/findeter-pqrsd/canceled/pqrsd/{$nid}")
+            ]*/
+            );
+            $modalLink = Link::fromTextAndUrl('Anular', $url);
+            $modalLink = $modalLink->toRenderable();
+            $modalLink['#attributes'] = $modalOptions;
+            $htmlOutput .= '<li class="dropbutton-action secondary-action">'.render($modalLink).'</li></li>';
+          }
+
+        }
         /*$url = Url::fromRoute('findeter_pqrsd.create_pdf',['nid' => $nid]);
         $modalLink = Link::fromTextAndUrl('PDF', $url);
         $modalLink = $modalLink->toRenderable();
@@ -1126,30 +1152,36 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
           $closed = $row->_entity->getFields()['field_pqrsd_respuesta'][0]->getValue()['value'];
         }
 
-        if($closed){
-          $semaphore = '
-            <div class="blue">Azul</div>
-        ';
-        }else{
-          if($timeStamp<$orangeDate){
+        // No mostrar los iconos de semaforo si el estado de publicacion o anulacion es false
+        if($status == 1){
+
+          if($closed){
             $semaphore = '
-            <div class="green">Verde</div>
-            <div class="days-left">Quedan:<br>'.$daysleft.' días</div>';
-
+              <div class="blue">Azul</div>
+          ';
           }else{
-
-            if($timeStamp>=$orangeDate && $timeStamp<$redDate){
-
+            if($timeStamp<$orangeDate){
               $semaphore = '
-                <div class="orange">Naranja</div>
-                <div class="days-left">Quedan:<br>'.$daysleft.' días</div>';
+              <div class="green">Verde</div>
+              <div class="days-left">Quedan:<br>'.$daysleft.' días</div>';
 
             }else{
-              if($timeStamp>=$redDate){
-                $semaphore = '<div class="red">Rojo</div>';
+
+              if($timeStamp>=$orangeDate && $timeStamp<$redDate){
+
+                $semaphore = '
+                  <div class="orange">Naranja</div>
+                  <div class="days-left">Quedan:<br>'.$daysleft.' días</div>';
+
+              }else{
+                if($timeStamp>=$redDate){
+                  $semaphore = '<div class="red">Rojo</div>';
+                }
               }
             }
           }
+        } else {
+          $semaphore = '<div class="red">Rojo</div><p class="text-canceled">Anulado</p';
         }
 
         $variables['output'] = ['#markup' => $semaphore];
@@ -1199,7 +1231,7 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
       <div class="seven-details col-2">
         <strong>Filtrar por:</strong>
         <div class="seven-details__summary">';
-    $variables['form']['fecha-vencimiento']['#suffix'] = '</div></div>';
+    $variables['form']['status']['#suffix'] = '</div></div>';
   }
 
   if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-2'){
@@ -1215,39 +1247,41 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
       <div class="seven-details col-2">
         <strong>Filtrar por:</strong>
         <div class="seven-details__summary">';
-    $variables['form']['fecha-vencimiento']['#suffix'] = '</div><hr></div>';
+    $variables['form']['status']['#suffix'] = '</div><hr></div>';
 
     //$url = Url::fromRoute('findeter_pqrsd.expor_report_pdf',['filter'=>'filter']);
     $urlReporteXlsx = Url::fromRoute('findeter_pqrsd.expor_report_excel',['filter'=>'filter']);
-    $urlFormato379 = Url::fromRoute('findeter_pqrsd.export_format_379', $_GET);
+    $urlStatistics = Url::fromRoute('findeter_pqrsd.reports_statistics');
 
     $link_options = array(
       'attributes' => array(
         'class' => array(
           'export-link',
+          'excel-link',
         ),
       ),
     );
-    $link_options_format_379 = array(
+    $link_options_statistics = array(
       'attributes' => array(
         'class' => array(
-          'export-link-format-379',
+          'export-link',
+          'statistics-link',
         ),
       ),
     );
     //$url->setOptions($link_options);
     $urlReporteXlsx->setOptions($link_options);
-    $urlFormato379->setOptions($link_options_format_379);
+    $urlStatistics->setOptions($link_options_statistics);
 
     //$exportPdf = Link::fromTextAndUrl('Exportar datos PDF', $url);
-    $urlReporteXlsx = Link::fromTextAndUrl('Exportar datos Excel', $urlReporteXlsx);
-    $urlFormato379 = Link::fromTextAndUrl('Exportar formato 379', $urlFormato379);
+    $urlReporteXlsx = Link::fromTextAndUrl('Exportar Excel', $urlReporteXlsx);
+    $urlStatistics = Link::fromTextAndUrl('Estadísticas', $urlStatistics);
 
     //$exportPdf = $exportPdf->toRenderable();
     $urlReporteXlsx = $urlReporteXlsx->toRenderable();
-    $urlFormato379 = $urlFormato379->toRenderable();
+    $urlStatistics = $urlStatistics->toRenderable();
 
-    $variables['form']['actions']['#suffix'] = render($urlReporteXlsx).''.render($urlFormato379);
+    $variables['form']['actions']['#suffix'] = render($urlReporteXlsx).' '.render($urlStatistics).'<ul><li>La exportación en Excel solo se aplicará para filtros del campo <strong><em>Fecha Creacion</em></strong></li></ul>';
   }
   /* ============================================
   PAGE ESTADOS DE PQRSD FILTER

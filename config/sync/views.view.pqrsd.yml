@@ -2427,23 +2427,24 @@ display:
           row_class: ''
           default_row_class: true
           columns:
-            counter: counter
+            nid: nid
             field_pqrsd_preferencial: field_pqrsd_preferencial
+            field_pqrsd_api_smfc: field_pqrsd_numero_radicado
             field_pqrsd_numero_radicado: field_pqrsd_numero_radicado
             created: created
             field_pqrsd_fecha_roja: field_pqrsd_fecha_roja
             field_pqrsd_tipo_radicado: field_pqrsd_tipo_radicado
-            field_pqrsd_primer_nombre: field_pqrsd_primer_nombre
-            field_pqrsd_segundo_nombre: field_pqrsd_segundo_nombre
-            field_pqrsd_primer_apellido: field_pqrsd_primer_apellido
-            field_pqrsd_segundo_apellido: field_pqrsd_segundo_apellido
-            field_pqrsd_numero_id: field_pqrsd_numero_id
             field_pqrsd_email: field_pqrsd_email
-            field_pqrsd_telefono: field_pqrsd_telefono
-            field_pqrsd_fax: field_pqrsd_fax
-            field_pqrsd_direccion: field_pqrsd_direccion
             field_pqrsd_departamento: field_pqrsd_departamento
+            field_pqrsd_direccion: field_pqrsd_direccion
             field_pqrsd_municipio: field_pqrsd_municipio
+            field_pqrsd_numero_id: field_pqrsd_numero_id
+            field_pqrsd_fax: field_pqrsd_fax
+            field_pqrsd_primer_apellido: field_pqrsd_primer_apellido
+            field_pqrsd_primer_nombre: field_pqrsd_primer_nombre
+            field_pqrsd_segundo_apellido: field_pqrsd_segundo_apellido
+            field_pqrsd_segundo_nombre: field_pqrsd_segundo_nombre
+            field_pqrsd_telefono: field_pqrsd_telefono
             nothing: nothing
             field_pqrsd_tipo_solicitante: field_pqrsd_tipo_solicitante
             field_pqrsd_descripcion: field_pqrsd_descripcion
@@ -2451,16 +2452,15 @@ display:
             field_pqrsd_canal_recepcion: field_pqrsd_canal_recepcion
             field_pqrsd_forma_recepcion: field_pqrsd_forma_recepcion
             field_pqrsd_fecha_naranja: field_pqrsd_fecha_naranja
+            status: field_pqrsd_respuesta
             field_pqrsd_respuesta: field_pqrsd_respuesta
             uid: field_pqrsd_respuesta
+            field_pqrsd_tipo_peticion: field_pqrsd_tipo_peticion
             field_dependencia_usuarios: field_pqrsd_respuesta
             field_entities_transfer_pqrsd: field_pqrsd_respuesta
-            nid: nid
-            view_node: view_node
-            field_pqrsd_api_smfc: field_pqrsd_numero_radicado
           default: '-1'
           info:
-            counter:
+            nid:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -2474,6 +2474,13 @@ display:
               separator: ''
               empty_column: false
               responsive: priority-low
+            field_pqrsd_api_smfc:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             field_pqrsd_numero_radicado:
               sortable: true
               default_sort_order: asc
@@ -2502,41 +2509,6 @@ display:
               separator: ''
               empty_column: false
               responsive: priority-low
-            field_pqrsd_primer_nombre:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_segundo_nombre:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_primer_apellido:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_segundo_apellido:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_numero_id:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             field_pqrsd_email:
               sortable: true
               default_sort_order: asc
@@ -2544,7 +2516,28 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_pqrsd_telefono:
+            field_pqrsd_departamento:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_direccion:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_municipio:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_numero_id:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -2558,22 +2551,36 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_pqrsd_direccion:
+            field_pqrsd_primer_apellido:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_pqrsd_departamento:
-              sortable: true
+            field_pqrsd_primer_nombre:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_pqrsd_municipio:
-              sortable: true
+            field_pqrsd_segundo_apellido:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_segundo_nombre:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pqrsd_telefono:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -2626,6 +2633,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            status:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             field_pqrsd_respuesta:
               sortable: false
               default_sort_order: asc
@@ -2640,6 +2654,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            field_pqrsd_tipo_peticion:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             field_dependencia_usuarios:
               sortable: false
               default_sort_order: asc
@@ -2648,27 +2669,6 @@ display:
               empty_column: false
               responsive: ''
             field_entities_transfer_pqrsd:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            nid:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            view_node:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pqrsd_api_smfc:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -4605,7 +4605,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '<b>Documento: </b>{{ field_pqrsd_numero_id__value }}'
+            text: "<b>Documento: </b>\r\n{{ field_pqrsd_numero_id }}"
             make_link: false
             path: ''
             absolute: false
@@ -8190,6 +8190,73 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: status
+          plugin_id: field
+          label: Publicado
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: boolean
+            format_custom_false: ''
+            format_custom_true: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         field_pqrsd_respuesta:
           id: field_pqrsd_respuesta
           table: node__field_pqrsd_respuesta
@@ -8265,8 +8332,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "{% if status == '1' %}\r\n{{ uid }}\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -8291,14 +8358,14 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: '0'
           element_class: ''
-          element_label_type: ''
+          element_label_type: '0'
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -8391,7 +8458,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<p><strong>Dependencia: </strong>{{ field_dependencia_usuarios }}</p>'
+            text: "{% if status == '1' %}\r\n<p><strong>Dependencia: </strong>{{ field_dependencia_usuarios }}</p>\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -8531,7 +8598,6 @@ display:
         options:
           role:
             administrator: administrator
-            colaborador: colaborador
             pqrsd_administrador: pqrsd_administrador
             auditor_pqrsd: auditor_pqrsd
             pqrsd_denuncias: pqrsd_denuncias
@@ -8802,19 +8868,6 @@ display:
             field_pqrsd_primer_nombre: field_pqrsd_primer_nombre
             field_pqrsd_segundo_apellido: field_pqrsd_segundo_apellido
             field_pqrsd_segundo_nombre: field_pqrsd_segundo_nombre
-        status:
-          id: status
-          table: node_field_data
-          field: status
-          entity_type: node
-          entity_field: status
-          plugin_id: boolean
-          value: '1'
-          group: 1
-          expose:
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
         type:
           id: type
           table: node_field_data
@@ -9282,6 +9335,65 @@ display:
                   max: ''
                   value: ''
                   type: date
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          operator: '='
+          value: All
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: Anulados
+            description: 'Radicados que fueron anulados y despublicados en el tablero de gestion de PQRSD.'
+            use_operator: false
+            operator: status_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: status
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              abogado: '0'
+              secretaria_general: '0'
+              colaborador: '0'
+              c_modificador: '0'
+              publicador: '0'
+              pqrsd_administrador: '0'
+              auditor_pqrsd: '0'
+              pqrsd_denuncias: '0'
+              c_vicetecnica: '0'
+          is_grouped: true
+          group_info:
+            label: Anulado
+            description: 'Radicados que fueron anulados y despublicados en el tablero de gestion de PQRSD.'
+            identifier: status
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Si
+                operator: '='
+                value: '0'
+              2:
+                title: 'No'
+                operator: '='
+                value: '1'
       filter_groups:
         operator: AND
         groups:
@@ -10136,19 +10248,6 @@ display:
         options:
           offset: '0'
       filters:
-        status:
-          value: '1'
-          table: node_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-          group: 1
         type:
           id: type
           table: node_field_data
@@ -10175,7 +10274,7 @@ display:
             max: '2020-01-02'
             value: ''
             type: date
-          group: '1'
+          group: 1
           exposed: false
           expose:
             operator_id: created_op
@@ -12076,6 +12175,73 @@ display:
           hide_alter_empty: 1
           entity_type: node
           plugin_id: dias_transcurridos_respuesta
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Anulado
+          exclude: 0
+          alter:
+            alter_text: 1
+            text: "{% if status == '0' %}\r\nSi\r\n{% else %}\r\nNo\r\n{% endif %}"
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: 1
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: boolean
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: 0
+          entity_type: node
+          entity_field: status
+          plugin_id: field
       arguments: {  }
       auth:
         - cookie

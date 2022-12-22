@@ -152,57 +152,61 @@
         }
 
         const textEditCode = document.querySelector("#edit-code");
-        textEditCode.addEventListener("keypress", event => { if(!valideKey(event)) event.preventDefault(); });
+        if(textEditCode !== null)
+          textEditCode.addEventListener("keypress", event => { if(!valideKey(event)) event.preventDefault(); });
 
         // Consultar codigo.
         const btnEditCode = document.querySelector("#edit-send-code");
-        const htmlResponseCode = document.querySelector("#response-search-ciiu");
-        const loader = document.querySelector(".loader");
 
-        btnEditCode.addEventListener("click", event => {
+        if(btnEditCode !== null) {
+          const htmlResponseCode = document.querySelector("#response-search-ciiu");
+          const loader = document.querySelector(".loader");
 
-          event.preventDefault();
+          btnEditCode.addEventListener("click", event => {
 
-          if(textEditCode.value !== "") {
+            event.preventDefault();
 
-            loader.classList.toggle("d-block");
-            htmlResponseCode.classList.toggle("d-none");
+            if(textEditCode.value !== "") {
 
-            // Enviamos la peticion como una promesa y ejecutamos la consulta.
-            setTimeout(() => {
-              fetch('/findeter-rediscount/search-code-ciiu/'+textEditCode.value, {
-                method: "GET",
-              })
-              .then(response => {
+              loader.classList.toggle("d-block");
+              htmlResponseCode.classList.toggle("d-none");
 
-                if (response.ok){
+              // Enviamos la peticion como una promesa y ejecutamos la consulta.
+              setTimeout(() => {
+                fetch('/findeter-rediscount/search-code-ciiu/'+textEditCode.value, {
+                  method: "GET",
+                })
+                .then(response => {
 
-                  loader.classList.toggle("d-block");
-                  htmlResponseCode.classList.toggle("d-none");
-                  return response.json();
+                  if (response.ok){
 
-                }
-              })
-              .then((data) => {
+                    loader.classList.toggle("d-block");
+                    htmlResponseCode.classList.toggle("d-none");
+                    return response.json();
 
-                if( Object.entries(data.code).length !== 0 ) {
+                  }
+                })
+                .then((data) => {
 
-                  htmlResponseCode.innerHTML = "<p>El CIIU consultado pertenece a la actividad que hace parte de los sectores que financia Findeter.</p>";
+                  if( Object.entries(data.code).length !== 0 ) {
 
-                } else {
+                    htmlResponseCode.innerHTML = "<p>El CIIU consultado pertenece a la actividad que hace parte de los sectores que financia Findeter.</p>";
 
-                  htmlResponseCode.innerHTML = "<p>Por favor contacte con un gerente de cuenta para revisar si la actividad económica es financiable por Findeter.</p>";
+                  } else {
 
-                }
+                    htmlResponseCode.innerHTML = "<p>Por favor contacte con un gerente de cuenta para revisar si la actividad económica es financiable por Findeter.</p>";
 
-              })
-              .catch(function (error) {
-                console.error("ERROR SECTORS: ", error.message)
-              })
-            }, 2000);
-          }
+                  }
 
-        });
+                })
+                .catch(function (error) {
+                  console.error("ERROR SECTORS: ", error.message)
+                })
+              }, 2000);
+            }
+
+          });
+        }
 
       });
 

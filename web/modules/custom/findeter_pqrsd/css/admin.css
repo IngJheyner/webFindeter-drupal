@@ -149,6 +149,12 @@ form#views-exposed-form-pqrsd-page-2{
   font-weight: bold;
   margin: 0;
 }
+.views-view-table .text-canceled{
+  color: red;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+}
 .views-view-table .text-transfer::before{
   content: '';
   background: url('images/transferir.svg');
@@ -189,6 +195,7 @@ div.ajax-progress-throbber{
   width: 200px;
 }*/
 .export-link{
+  position: relative;
   margin: 15px;
   border: 1px solid #ccc;
   padding: 10px;
@@ -198,14 +205,43 @@ div.ajax-progress-throbber{
   text-align: center;
 }
 
-.export-link-format-379{
-  margin: 15px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  background-color: #fff;
-  display: inline-block;
-  width: 200px;
-  text-align: center;
+.excel-link::before{
+  content: '';
+  background: url('images/excel.png');
+  background-position: top center;
+  background-size: 18px;
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.excel-pdf::before{
+  content: '';
+  background: url('images/pdf.png');
+  background-position: top center;
+  background-size: 18px;
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.statistics-link::before{
+  content: '';
+  background: url('images/graph.png');
+  background-position: top center;
+  background-size: 18px;
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
 }
 
 /* ==============================
