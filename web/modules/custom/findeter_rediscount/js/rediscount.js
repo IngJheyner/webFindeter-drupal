@@ -16,7 +16,7 @@
 
         const widthWindow = () =>  $(window).width() < 480 ? true : false;
 
-        $('#sectors-icon').not('.slick-initialized').slick({
+        $('#sectors-icon').slick({
           infinite: true,
           slidesToShow: 6,
           slidesToScroll: 6,
@@ -73,6 +73,7 @@
             sectorsInfo.classList.remove('show-info');
 
             moreInfo.classList.add('skeleton');
+
             subtitle.textContent = '';
             moreNav.innerHTML = '';
             moreContent.innerHTML = '';
@@ -108,12 +109,15 @@
               data.sectors.subsectors.map((sect, idx) => {
 
                 if (sect.title !== null) {
+
                   let active = idx === 0 ? "active" : "";
                   let showActive = idx === 0 ? 'show active': "";
 
                   moreNavHTML += '<li class="nav-item" role="presentation"><button class="nav-link btn-block '+ active +'" id="pills-subsectors-'+ idx +'-tab" data-toggle="pill" data-target="#subsectors-'+ idx +'" type="button" role="tab" aria-controls="subsectors-'+ idx +'" aria-selected="true">'+ sect.title +'</button></li>';
 
                   moreContentHTML += '<div class="tab-pane fade '+ showActive +'" id="subsectors-'+ idx +'" role="tabpanel" aria-labelledby="pills-subsectors-'+ idx +'-tab">'+ sect.description +'</div>';
+
+                  subtitle.textContent = "Conozca los subsectores financiables por findeter";
                 }
 
               });

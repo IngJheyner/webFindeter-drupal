@@ -45,15 +45,19 @@
 
           <div class="col-12 col-md-7 images">
 
-            <figure class="w-100 d-block text-center">
-              <img src="{{ file_url(value.image) }}" class="img-fluid mx-auto" width="400">
+            <figure class="w-100 d-block text-center m-0">
+
+              <img src="{{ file_url(value.image) }}" class="img-fluid mx-auto" width="400" onerror='this.remove();'>
+
             </figure>
 
           </div>
 
           <div class="col-12 mt-md-3 more-info">
 
-            <h4 class="text-center mb-4 subtitle">Conozca los subsectores financiables por findeter</h4>
+            <h4 class="text-center mb-4 subtitle">
+             {% if value.subsectors != empty %} Conozca los subsectores financiables por findeter {% endif %}
+            </h4>
 
             <div class="more-info__nav">
 
@@ -66,10 +70,13 @@
                   {% endfor %}
 
               </ul>
+
               <div class="tab-content" id="pills-tabContent">
+
                 {% for key, subsectors in value.subsectors %}
                   <div class="tab-pane fade {{ loop.first ? 'show active': '' }}" id="subsectors-{{ key }}" role="tabpanel" aria-labelledby="pills-subsectors-{{ key }}-tab">{{ subsectors.description|raw }}</div>
                 {% endfor %}
+
               </div>
 
             </div>
