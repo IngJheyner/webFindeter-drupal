@@ -1250,7 +1250,7 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
     $variables['form']['status']['#suffix'] = '</div><hr></div>';
 
     //$url = Url::fromRoute('findeter_pqrsd.expor_report_pdf',['filter'=>'filter']);
-    $urlReporteXlsx = Url::fromRoute('findeter_pqrsd.expor_report_excel',['filter'=>'filter']);
+    $urlReporteXlsx = Url::fromRoute('findeter_pqrsd.expor_report_excel', ['filter'=>'filter']);
     $urlStatistics = Url::fromRoute('findeter_pqrsd.reports_statistics');
 
     $link_options = array(

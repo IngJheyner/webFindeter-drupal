@@ -1,0 +1,23 @@
+uuid: b24b5421-2b38-400f-adf4-2de5870375cc
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - video_embed_field
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_video_entities
+field_name: field_video_entities
+entity_type: node
+type: video_embed_field
+settings: {  }
+module: video_embed_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

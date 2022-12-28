@@ -1,0 +1,26 @@
+uuid: b83528c3-78bf-4db7-ac79-24aab23b13e4
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video_entities
+    - node.type.entities_rediscount
+  module:
+    - video_embed_field
+id: node.entities_rediscount.field_video_entities
+field_name: field_video_entities
+entity_type: node
+bundle: entities_rediscount
+label: Video
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    youtube: youtube
+    youtube_playlist: '0'
+    vimeo: '0'
+    html_5: '0'
+field_type: video_embed_field

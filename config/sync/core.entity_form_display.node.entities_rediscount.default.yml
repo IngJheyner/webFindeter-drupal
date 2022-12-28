@@ -8,12 +8,14 @@ dependencies:
     - field.field.node.entities_rediscount.field_info_rediscount_entities
     - field.field.node.entities_rediscount.field_menu_entities
     - field.field.node.entities_rediscount.field_steps_access_credit_prgms
+    - field.field.node.entities_rediscount.field_video_entities
     - node.type.entities_rediscount
   module:
     - field_group
     - paragraphs
     - path
     - text
+    - video_embed_field
 third_party_settings:
   field_group:
     group_group_tabs:
@@ -57,6 +59,7 @@ third_party_settings:
       children:
         - field_description_entities
         - field_info_rediscount_entities
+        - field_video_entities
       label: 'Informacion y uso redescuento'
       region: content
       parent_name: group_group_tabs
@@ -157,6 +160,12 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_video_entities:
+    type: video_embed_field_textfield
+    weight: 35
+    region: content
+    settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
