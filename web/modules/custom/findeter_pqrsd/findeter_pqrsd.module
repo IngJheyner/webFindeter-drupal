@@ -14,7 +14,6 @@ use Drupal\views\ViewExecutable;
 use Drupal\Core\Render\Markup;
 use Drupal\node\Entity\Node;
 
-// use Drupal\findeter_pqrsd\Holidays\HolidaysPqrsd;
 use PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Days;
 
 use Cmixin\BusinessDay;
@@ -118,9 +117,6 @@ function _getBussinesDays($addDays, $day_answer = FALSE){
     $day = date('d', $timeStamp);
     $mounth = date('m', $timeStamp);
     $year = date('Y', $timeStamp);
-
-    // $holiDays = new HolidaysPqrsd(\Drupal::service('http_client_factory'), \Drupal::service('state'),
-    // \Drupal::service('logger.factory'));
 
     // Validar fecha de un dia feriado.
     $holiDays = FALSE;
