@@ -50,13 +50,39 @@
         let moreNav = moreInfo.querySelector('.more-info__nav ul');
         let moreContent = moreInfo.querySelector('.more-info__nav .tab-content');
 
+        let elementDivIcon = Node;
+
         document.querySelectorAll('#sectors-icon .sectors-icon__item')
         .forEach(el => {
 
           let icon = el.querySelector('.icon');
           let iconSecond = el.querySelector('.iconSecond');
 
+          // Funcion que cambia y selecciona el icono del sector.
+          const iconImgblue = (element = null) => {
+
+            if (element !== null) {
+              if (elementDivIcon !== Node) {
+                let removeClassIcon = elementDivIcon.querySelector('.icon');
+                removeClassIcon.classList.remove('d-none');
+                let removeClassIconSecond = elementDivIcon.querySelector('.iconSecond');
+                removeClassIconSecond.classList.remove('d-block');
+              }
+            }
+
+            icon.classList.toggle('d-none');
+            iconSecond.classList.toggle('d-block');
+          }
+
           el.addEventListener('click', event => {
+
+            // Se obtiene el nid del nodo desde el atributo.
+            let nid = el.getAttribute('nid');
+
+            // Se valida un selected al icono del sector seleccionado.
+            if (elementDivIcon !== el)
+              iconImgblue(el);
+            elementDivIcon = el; // Se pasa un nodo nuevo para ser borrado al seleccionar otro sector.
 
             // Removemos la data con alguna animacion mientras se espera la nueva peticion con
             // informacion enviada
@@ -77,8 +103,6 @@
             subtitle.textContent = '';
             moreNav.innerHTML = '';
             moreContent.innerHTML = '';
-
-            let nid = el.getAttribute('nid');
 
             fetch('/findeter-rediscount/sectorsinfo/'+nid, {
               method: "GET",
@@ -135,14 +159,13 @@
           });
 
           el.addEventListener('mouseover', event => {
-            icon.classList.toggle('d-none');
-            iconSecond.classList.toggle('d-block');
+            iconImgblue();
           });
 
           el.addEventListener('mouseout', event => {
-            icon.classList.toggle('d-none');
-            iconSecond.classList.toggle('d-block');
+            iconImgblue();
           });
+
         });
 
         /*===========================================
