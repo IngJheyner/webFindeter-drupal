@@ -16,7 +16,7 @@ use Drupal\Core\Cache\Cache;
 use Drupal\Core\Form\FormBuilderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Dompdf\Dompdf;
-use Drupal\Core\Url;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Returns responses for Findeter PQRSD Manager routes.
@@ -579,6 +579,106 @@ class ReportsPqrsdController extends ControllerBase {
     ));
 
     return $response;
+
+  }
+
+  /**
+   * Se muestra resultados de PQRSD por anio.
+   *
+   * @return string
+   *   Coomand Ajax
+   */
+  public static function resultsDataTableAnio($anio, $getQueryMonths = NULL) {
+
+    // Arraglo con los meses del anio.
+    $spanishMonths['January'] = 'Enero';
+    $spanishMonths['February'] = 'Febrero';
+    $spanishMonths['March'] = 'Marzo';
+    $spanishMonths['April'] = 'Abril';
+    $spanishMonths['May'] = 'Mayo';
+    $spanishMonths['June'] = 'Junio';
+    $spanishMonths['July'] = 'Julio';
+    $spanishMonths['August'] = 'Agosto';
+    $spanishMonths['September'] = 'Septiembre';
+    $spanishMonths['October'] = 'Octubre';
+    $spanishMonths['November'] = 'Noviembre';
+    $spanishMonths['December'] = 'Diciembre';
+
+    foreach ($spanishMonths as $key => $month) {
+      $mTable[$key]['name'] = $month;
+      $mTable[$key]['requests'] = 0;
+      $mTable[$key]['attended'] = 0;
+      $mTable[$key]['process'] = 0;
+      $mTable[$key]['canceled'] = 0;
+    }
+
+    // Storage de tipo entidad node.
+    $nodeStorage = \Drupal::service('entity_type.manager')->getStorage('node');
+
+    // Realizamos una consulta para traer los nid de pqrsd y ser iterado por cada uno de ellos.
+    $query = \Drupal::entityQuery('node')
+      ->condition('type', 'pqrsd')
+      ->condition('created', [
+        strtotime("01-01-$anio"),
+        strtotime("31-12-$anio")
+      ], 'BETWEEN')
+      ->execute();
+
+    // Cargamos lo nid de nodos pqrsd.
+    $nodeArray = $nodeStorage->loadMultiple($query);
+
+    // Recorremos la consulta y iteramos por cada una.
+    foreach ($nodeArray as $key => $node) {
+      $month = date('F', $node->get('created')->value);
+      $mTable[$month]['requests']++;
+
+      if ($node->get('field_pqrsd_respuesta')->value == '') {
+        $mTable[$month]['attended']++;
+      }
+      else {
+        $mTable[$month]['process']++;
+      }
+
+      if (!$node->isPublished()) {
+        $mTable[$month]['canceled']++;
+        $mTable[$month]['process']--;
+      }
+
+    }
+
+    // Filtramos el resultado de meses que tengan mas de una solicitud.
+    $mTable = array_filter(
+      $mTable,
+      function ($item) {
+        return $item['requests'] > 0;
+      });
+
+    // Totales de cada item en tabla.
+    $mTable['Total']['name'] = 'Total';
+    $mTable['Total']['requests'] = 0;
+    $mTable['Total']['attended'] = 0;
+    $mTable['Total']['process'] = 0;
+    $mTable['Total']['canceled'] = 0;
+
+    // Iteramos para acumular los totales.
+    foreach ($mTable as $tR => $values) {
+      $mTable['Total']['requests'] += $values['requests'];
+      $mTable['Total']['attended'] += $values['attended'];
+      $mTable['Total']['process'] += $values['process'];
+      $mTable['Total']['canceled'] += $values['canceled'];
+    }
+
+    if (is_null($getQueryMonths)) {
+      // Retornamos las variables en este caso datos de tipo json.
+      return new JsonResponse([
+        'status' => 200,
+        'data' => $mTable,
+        'method' => 'GET',
+      ]);
+    }
+    else {
+      return $mTable;
+    }
 
   }
 

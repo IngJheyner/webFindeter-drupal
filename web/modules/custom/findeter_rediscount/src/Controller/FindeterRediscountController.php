@@ -53,7 +53,7 @@ class FindeterRediscountController extends ControllerBase {
 
     $subsectors = [];
     $subsectorsItems = $sectors->get('field_subsectors_rediscount')->referencedEntities();
-    
+
     foreach ($subsectorsItems as $keyItem => $paragraph) {
 
       $subsectors[$keyItem] = [
