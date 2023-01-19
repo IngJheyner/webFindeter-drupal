@@ -1,0 +1,22 @@
+uuid: 926a23b1-654b-48d5-960a-b01c3ad568d1
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: programs_rediscount
+label: 'Programas Redescuento'
+type: 'canonical_entities:node'
+pattern: '/programa/[node:title]'
+selection_criteria:
+  571c704c-d2f1-4db8-8a8f-49bb0416a3ac:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 571c704c-d2f1-4db8-8a8f-49bb0416a3ac
+    context_mapping:
+      node: node
+    bundles:
+      programs: programs
+selection_logic: and
+weight: -5
+relationships: {  }
