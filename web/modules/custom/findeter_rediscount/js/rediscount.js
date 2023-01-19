@@ -224,11 +224,13 @@
 
                     if (datas.bankables == 1) {
 
-                      HtmlResponseCode += "<p>El CIIU consultado hace parte de la actividad <strong>"+datas.activity+"</strong>, la cual aplica a sector(s)  ";
+                      HtmlResponseCode += "<p>El CIIU consultado hace parte de la actividad <strong>"+datas.activity+"</strong>";
 
-                      datas.sectors.forEach(item => {
-                        HtmlResponseCode += item.title+" ";
-                      })
+                      if (datas.sectors !== undefined ) {
+                        datas.sectors.forEach(item => {
+                          HtmlResponseCode += ", la cual aplica a sector(s) "+item.title+" ";
+                        });
+                      }
 
                       HtmlResponseCode += "</p><ul class='text-white mt-3'><li>Esta información podrá variar y debe ser consultada según el proyecto a financiar.</li></ul>";
 
