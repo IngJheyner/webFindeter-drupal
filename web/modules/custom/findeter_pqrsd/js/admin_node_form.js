@@ -110,6 +110,83 @@
             }
           }
 
+          /*===========================================
+          TABLA COMPARATIVA POR ANIO
+          - Reporte anio
+          =============================================*/
+
+          /* ===== ===== SE CREA UN ELEMENTO O NOD DE TIPO SELECT ===== ===== */
+          const containerFieldMonths = document.querySelector('#container-text-reports-months');
+
+          // Creamos un formulario para realizar la peticion via get.
+          let formReportsAnio = document.createElement("form");
+          formReportsAnio.setAttribute('method',"get");
+
+          // Creamos un campo de tipo selector para los anios.
+          const selectAnio = document.createElement('select');
+          selectAnio.id = 'field-text-reports-months';
+
+          const divBarProgress = document.createElement('div');
+          divBarProgress.setAttribute('class', 'ajax-progress ajax-progress-throbber');
+          divBarProgress.style.display = "none";
+
+          const divProgressThrobber = document.createElement('div');
+          divProgressThrobber.setAttribute('class', 'throbber');
+          divProgressThrobber.innerHTML = '&nbsp';
+
+          const divProgressMessage = document.createElement('div');
+          divProgressMessage.setAttribute('class', 'message');
+          divProgressMessage.textContent = 'Espere, por favor...';
+
+          // Agregamos cada nodo para los elementos creados.
+          formReportsAnio.appendChild(selectAnio);
+
+          divBarProgress.append(divProgressThrobber, divProgressMessage);
+
+          formReportsAnio.appendChild(divBarProgress);
+          containerFieldMonths.appendChild(formReportsAnio);
+
+          const date = new Date();
+          const year = date.getFullYear();
+
+          for(let i = year; i >= 2020; i--) {
+            selectAnio.options.add(new Option(i, i));
+          }
+
+          let tableReportsMonths = document.querySelector('#table-reports-months');
+          let tbodyTableReportsMonths = tableReportsMonths.querySelector('tbody');
+
+          selectAnio.addEventListener('change', function() {
+            divBarProgress.style.display = 'block';
+            fetch('/admin/reporte-resultados-data-anio/'+selectAnio.value, {
+              method: "GET",
+            })
+            .then(response => {
+              if (response.ok){
+                divBarProgress.style.display = 'none';
+                return response.json();
+              }
+            })
+            .then((data) => {
+            // console.log(data.data)
+
+              let tbodyHTML = "";
+
+              let datas = data.data;
+
+              for (let clave in datas) {
+                tbodyHTML += '<tr><td>'+datas[clave].name+'</td><td>'+datas[clave].requests+'</td><td>'+datas[clave].attended+'</td><td>'+datas[clave].process+'</td><td>'+datas[clave].canceled+'</td></tr>';
+              }
+
+              tbodyTableReportsMonths.innerHTML = tbodyHTML;
+
+            })
+            .catch(function (error) {
+              console.error("ERROR SECTORS: ", error.message)
+            })
+          });
+
+
           // // Source of data, see module hook_views_pre_render function
           // if ($('canvas#tipo-radicado-chart').length) {
           //     colorArray = colorize(settings.pqrsdReports.tipoRadicado);

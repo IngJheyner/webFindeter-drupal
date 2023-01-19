@@ -53,7 +53,7 @@ class FindeterRediscountController extends ControllerBase {
 
     $subsectors = [];
     $subsectorsItems = $sectors->get('field_subsectors_rediscount')->referencedEntities();
-    
+
     foreach ($subsectorsItems as $keyItem => $paragraph) {
 
       $subsectors[$keyItem] = [
@@ -89,15 +89,39 @@ class FindeterRediscountController extends ControllerBase {
     // Query de tipo nodo.
     $query = $this->entityTypeManager->getStorage('node')->getQuery();
 
+    $nodeStorage = $this->entityTypeManager->getStorage('node');
+
     // Se carga el nodo con el query consultado.
-    $codeQuery = $query->condition('type', 'ciiu_rediscount')
+    $nid = $query->condition('type', 'ciiu_rediscount')
       ->condition('title', $code)
       ->execute();
+
+    $data = [];
+    if (count($nid) > 0) {
+      // Cargamos el node.
+      $nid = array_values($nid);
+      $node = $nodeStorage->load($nid[0]);
+
+      // Nombre de la actividad.
+      $data['activity'] = $node->get('field_activity_ciiu')->value;
+
+      // Referenciamos los secetores.
+      $entityReferences = $node->get('field_sectors_ciiu')->referencedEntities();
+
+      // Se itera para obtener los nombres de los sectores.
+      foreach ($entityReferences as $key => $value) {
+        $data['sectors'][] = [
+          'title' => $value->getTitle(),
+        ];
+      }
+      // Validacion de ciiu si es o no financiable.
+      $data['bankables'] = $node->get('field_bankables_ciiu')->value;
+    }
 
     // Retornamos las variables en este caso datos de tipo json.
     return new JsonResponse([
       'status' => 'success',
-      'code' => $codeQuery,
+      'ciiu' => $data,
     ]);
 
   }

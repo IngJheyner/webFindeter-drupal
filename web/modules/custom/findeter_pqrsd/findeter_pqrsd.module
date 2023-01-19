@@ -18,6 +18,8 @@ use PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Days;
 
 use Cmixin\BusinessDay;
 use Carbon\Carbon;
+use Drupal\findeter_pqrsd\Controller\ReportsPqrsdController;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Implements hook_help().
@@ -1383,7 +1385,7 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
       //Construimos un tag de tipo link para traer los datos en la tabla resultados
       $link = [
         '#type' => 'link',
-        '#title' => 'Mostrar resultados PQRSD.',
+        '#title' => 'Mostrar resultados.',
         '#url' => Url::fromRoute('findeter_pqrsd.reports_results_data_table'),
         '#attributes' => [
           'class' => ['use-ajax'],
@@ -1408,7 +1410,7 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
             '#theme' => 'table',
             '#rows' => $rows,
             '#weight' => 1,
-            '#prefix' => '<br><hr><h3>Tabla resumen de resultados</h3>',
+            '#prefix' => '<br><hr><h3>Tabla resumen de PQRSD</h3>',
             '#sticky' => TRUE,
             '#header' => [
               'Tipo',
@@ -1426,8 +1428,43 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
         ],
       ];
 
+      $buildTableAnio = [
+        'container' => [
+          '#type' => 'container',
+          '#attributes' => [
+            'id'=> "results-table-reports-months",
+          ],
+          'html_tag' => [
+            '#type' => 'html_tag',
+            '#tag' => 'div',
+            '#prefix' => '<br><hr><h3>Tabla comparativa por año.</h3>',
+            '#attributes' => [
+              'id' => 'container-text-reports-months'
+            ]
+          ],
+          'table' => [
+            '#theme' => 'table',
+            '#rows' => '',
+            '#weight' => 1,
+            '#sticky' => TRUE,
+            '#attributes' => [
+              'id' => 'table-reports-months'
+            ],
+            '#header' => [
+              'Mes',
+              'Solicitudes',
+              'Atendidas',
+              'En proceso',
+              'Canceladas',
+            ],
+            '#rows' => ReportsPqrsdController::resultsDataTableAnio(date('Y',\Drupal::time()->getCurrentTime()), 'queryDate'),
+            // '#rows' => ReportsPqrsdController::resultsDataTableAnio('2022', 'queryDate'),
+          ],
+        ],
+      ];
+
       //Agegamos un campo text_custom para visualizar la tabla en el pie de pagina
-      $options = array(
+      $options = [
         'id' => 'area_text_custom',
         'table' => 'views',
         'field' => 'area_text_custom',
@@ -1436,9 +1473,9 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
         'admin_label' => '',
         'empty' => TRUE,
         'tokenize' => FALSE,
-        'content' => \Drupal::service('renderer')->renderRoot($buildTable),
+        'content' => \Drupal::service('renderer')->renderRoot($buildTable).' '.\Drupal::service('renderer')->renderRoot($buildTableAnio),
         'plugin_id' => 'text_custom',
-      );
+      ];
 
       //Creamos un pie de pagina en la vista que muestre la tabla resultados
       $view->setHandler($display_id, 'footer', 'area_text_custom', $options);

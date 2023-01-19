@@ -2622,7 +2622,7 @@ div.encabezadoBlog section.encabezado div.menu nav {
 div.encabezadoBlog section.encabezado div.menu nav ul li {
   margin: 0 10px 0 10px;
 }
-div.encabezadoBlog section.encabezado div.menu nav ul li a {
+div.encabezadoBlog section.encabezado div.menu nav ul li > a {
   color: white;
   font-size: 14px;
   padding: 12px 0px;
@@ -2630,7 +2630,7 @@ div.encabezadoBlog section.encabezado div.menu nav ul li a {
   font-weight: bold;
   text-shadow: 1px 1px 2px black;
 }
-div.encabezadoBlog section.encabezado div.menu nav ul li a:hover::after {
+div.encabezadoBlog section.encabezado div.menu nav ul li > a:hover:not(.dropdown-toggle)::after {
   content: "";
   position: absolute;
   width: 105%;
@@ -2638,6 +2638,13 @@ div.encabezadoBlog section.encabezado div.menu nav ul li a:hover::after {
   background-color: white;
   top: 3em;
   left: -5px;
+}
+div.encabezadoBlog section.encabezado div.menu nav div.dropdown-menu ul {
+  padding-inline: 1rem;
+}
+div.encabezadoBlog section.encabezado div.menu nav div.dropdown-menu ul a {
+  font-size: 14px;
+  font-weight: bold;
 }
 div.encabezadoBlog section.encabezado div.menu div.buscador {
   display: none;
@@ -4876,6 +4883,7 @@ STEPS INFO
   /* ==============================
   PRINCIPAL
   ============================== */
+  /* ===== ===== INFO USO REDESCUENTO ===== ===== */
   /* ==============================
   MENU
   ============================== */
@@ -4912,6 +4920,9 @@ STEPS INFO
 }
 .rediscount .title {
   background-color: #112d6a;
+}
+.rediscount .info-uses-rediscount div.video-embed-field-provider-youtube {
+  height: 100%;
 }
 .rediscount nav ul {
   flex-direction: row;
@@ -5165,7 +5176,6 @@ STEPS INFO
 .rediscount section.ciiu div.search-ciiu div#response-search-ciiu {
   max-width: 500px;
   margin: auto;
-  text-align: center;
   color: #CDDC4B;
 }
 .rediscount section.ciiu div.search-ciiu input[type=submit] {

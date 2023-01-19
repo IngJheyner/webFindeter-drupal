@@ -50,13 +50,39 @@
         let moreNav = moreInfo.querySelector('.more-info__nav ul');
         let moreContent = moreInfo.querySelector('.more-info__nav .tab-content');
 
+        let elementDivIcon = Node;
+
         document.querySelectorAll('#sectors-icon .sectors-icon__item')
         .forEach(el => {
 
           let icon = el.querySelector('.icon');
           let iconSecond = el.querySelector('.iconSecond');
 
+          // Funcion que cambia y selecciona el icono del sector.
+          const iconImgblue = (element = null) => {
+
+            if (element !== null) {
+              if (elementDivIcon !== Node) {
+                let removeClassIcon = elementDivIcon.querySelector('.icon');
+                removeClassIcon.classList.remove('d-none');
+                let removeClassIconSecond = elementDivIcon.querySelector('.iconSecond');
+                removeClassIconSecond.classList.remove('d-block');
+              }
+            }
+
+            icon.classList.toggle('d-none');
+            iconSecond.classList.toggle('d-block');
+          }
+
           el.addEventListener('click', event => {
+
+            // Se obtiene el nid del nodo desde el atributo.
+            let nid = el.getAttribute('nid');
+
+            // Se valida un selected al icono del sector seleccionado.
+            if (elementDivIcon !== el)
+              iconImgblue(el);
+            elementDivIcon = el; // Se pasa un nodo nuevo para ser borrado al seleccionar otro sector.
 
             // Removemos la data con alguna animacion mientras se espera la nueva peticion con
             // informacion enviada
@@ -77,8 +103,6 @@
             subtitle.textContent = '';
             moreNav.innerHTML = '';
             moreContent.innerHTML = '';
-
-            let nid = el.getAttribute('nid');
 
             fetch('/findeter-rediscount/sectorsinfo/'+nid, {
               method: "GET",
@@ -135,14 +159,13 @@
           });
 
           el.addEventListener('mouseover', event => {
-            icon.classList.toggle('d-none');
-            iconSecond.classList.toggle('d-block');
+            iconImgblue();
           });
 
           el.addEventListener('mouseout', event => {
-            icon.classList.toggle('d-none');
-            iconSecond.classList.toggle('d-block');
+            iconImgblue();
           });
+
         });
 
         /*===========================================
@@ -163,7 +186,7 @@
         const btnEditCode = document.querySelector("#edit-send-code");
 
         if(btnEditCode !== null) {
-          const htmlResponseCode = document.querySelector("#response-search-ciiu");
+          const ResponseCode = document.querySelector("#response-search-ciiu");
           const loader = document.querySelector(".loader");
 
           btnEditCode.addEventListener("click", event => {
@@ -173,7 +196,7 @@
             if(textEditCode.value !== "") {
 
               loader.classList.toggle("d-block");
-              htmlResponseCode.classList.toggle("d-none");
+              ResponseCode.classList.toggle("d-none");
 
               // Enviamos la peticion como una promesa y ejecutamos la consulta.
               setTimeout(() => {
@@ -185,20 +208,42 @@
                   if (response.ok){
 
                     loader.classList.toggle("d-block");
-                    htmlResponseCode.classList.toggle("d-none");
+                    ResponseCode.classList.toggle("d-none");
                     return response.json();
 
                   }
                 })
                 .then((data) => {
 
-                  if( Object.entries(data.code).length !== 0 ) {
+                  let countData = Object.entries(data.ciiu);
+                  let datas = data.ciiu;
 
-                    htmlResponseCode.innerHTML = "<p>El CIIU consultado pertenece a la actividad que hace parte de los sectores que financia Findeter.</p>";
+                  if( countData.length !== 0 ) {
+
+                    let HtmlResponseCode = '';
+
+                    if (datas.bankables == 1) {
+
+                      HtmlResponseCode += "<p>El CIIU consultado hace parte de la actividad <strong>"+datas.activity+"</strong>, la cual aplica a sector(s)  ";
+
+                      datas.sectors.forEach(item => {
+                        HtmlResponseCode += item.title+" ";
+                      })
+
+                      HtmlResponseCode += "</p><ul class='text-white mt-3'><li>Esta información podrá variar y debe ser consultada según el proyecto a financiar.</li></ul>";
+
+                    } else {
+
+                      HtmlResponseCode += "<p>El CIIU consultado <strong>NO</strong> hace parte de los sectores financibles por Findeter, de igual forma puede consultar con un asesor comercial.</p>";
+
+                    }
+
+                    ResponseCode.innerHTML = HtmlResponseCode;
+
 
                   } else {
 
-                    htmlResponseCode.innerHTML = "<p>Por favor contacte con un gerente de cuenta para revisar si la actividad económica es financiable por Findeter.</p>";
+                    ResponseCode.innerHTML = "<p>Por favor contacte con un gerente de cuenta para revisar si la actividad económica es financiable por Findeter.</p>";
 
                   }
 

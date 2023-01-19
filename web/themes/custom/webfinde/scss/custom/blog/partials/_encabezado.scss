@@ -17,14 +17,14 @@ div.encabezadoBlog {
                 ul {
                     li {
                         margin: 0 10px 0 10px;
-                        a {
+                        > a {
                             color: white;
                             font-size: 14px;
                             padding: 12px 0px;
                             position: relative;
                             font-weight: bold;
                             text-shadow: 1px 1px 2px black;
-                            &:hover::after {
+                            &:hover:not(.dropdown-toggle)::after {
                                 content: "";
                                 position: absolute;
                                 width: 105%;
@@ -35,6 +35,16 @@ div.encabezadoBlog {
                             }
                         }
                     }
+                }
+
+                div.dropdown-menu{
+                  ul {
+                    padding-inline: 1rem;
+                    a {
+                      font-size: 14px;
+                      font-weight: bold;
+                    }
+                  }
                 }
             }
             /* ===== ===== BUSCADOR BLOG ===== ===== */
