@@ -16,7 +16,7 @@ third_party_settings:
   feeds_tamper:
     tampers:
       d394235f-3729-4c4e-b9e2-e105ff3f0a04:
-        separator: ','
+        separator: '~'
         limit: null
         uuid: d394235f-3729-4c4e-b9e2-e105ff3f0a04
         plugin: explode
@@ -47,6 +47,7 @@ processor_configuration:
   update_non_existent: _keep
   skip_hash_check: false
   authorize: true
+  revision: false
   expire: -1
   owner_feed_author: true
   owner_id: 0
