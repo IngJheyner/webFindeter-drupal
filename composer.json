@@ -41,9 +41,9 @@
         "drupal/config_split": "^1.7",
         "drupal/console": "^1.0.2",
         "drupal/content_access": "^1.0@alpha",
-        "drupal/core-composer-scaffold": "9.4.8",
-        "drupal/core-project-message": "9.4.8",
-        "drupal/core-recommended": "9.4.8",
+        "drupal/core-composer-scaffold": "9.5.2",
+        "drupal/core-project-message": "9.5.2",
+        "drupal/core-recommended": "9.5.2",
         "drupal/cshs": "^3.0",
         "drupal/custom_search": "^1.0@beta",
         "drupal/devel": "^4.1",
@@ -212,9 +212,8 @@
                 "Exposed date filter leads to a notice": "https://www.drupal.org/files/issues/2020-11-12/2811887-53.patch",
                 "The entity:user context is required and not present.": "https://www.drupal.org/files/issues/2019-10-23/3056234-10.patch",
                 "Call to a member function getCacheMaxAge() on null in getCacheMaxAge()": "https://www.drupal.org/files/issues/2020-09-08/get_cache_tags_null-3169694-2.patch",
-                "TypeError: Argument 1 passed to Drupal/views/Plugin/views/field/EntityOperations::getEntityTranslation() must implement interface Drupal/Core/Entity/EntityInterface, null given": "https://www.drupal.org/files/issues/2021-01-21/3105003-9.patch",
-                "Multiple usages of FieldPluginBase::getEntity do not check for NULL, leading to WSOD": "https://www.drupal.org/files/issues/2021-01-06/3007424-108.patch",
-                "3056489-1: AssertionError: Tokens need to be valid Twig variables. in assert()": "https://www.drupal.org/files/issues/2019-05-22/views-ignore_invalid_tokens_in_replace-3056489-1-D8.6.16.patch"
+                "Multiple usages of FieldPluginBase::getEntity do not check for NULL, leading to WSOD": "https://www.drupal.org/files/issues/2023-01-05/3007424-146-9.5.x.patch",
+                "Tokens need to be valid Twig variables.": "https://www.drupal.org/files/issues/2019-05-22/views-ignore_invalid_tokens_in_replace-2780891-28-D8.6.16.patch"
             },
             "drupal/content_access": {
                 "content access role": "https://www.drupal.org/files/issues/2020-08-28/content_access-role-2782813-25.patch"

@@ -4,16 +4,20 @@ status: true
 dependencies:
   config:
     - field.field.node.entities_rediscount.field_description_entities
+    - field.field.node.entities_rediscount.field_form_entities
+    - field.field.node.entities_rediscount.field_image_form_entities
     - field.field.node.entities_rediscount.field_info_interest_entities
     - field.field.node.entities_rediscount.field_info_rediscount_entities
     - field.field.node.entities_rediscount.field_menu_entities
     - field.field.node.entities_rediscount.field_steps_access_credit_prgms
     - field.field.node.entities_rediscount.field_video_entities
+    - image.style.thumbnail
     - node.type.entities_rediscount
   module:
     - field_group
     - paragraphs
     - path
+    - svg_image
     - text
     - video_embed_field
 third_party_settings:
@@ -23,6 +27,7 @@ third_party_settings:
         - group_info
         - group_info_rediscount
         - group_info_interes
+        - group_formulario
       label: 'Group Tabs'
       region: content
       parent_name: ''
@@ -88,6 +93,22 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
+    group_formulario:
+      children:
+        - field_form_entities
+        - field_image_form_entities
+      label: Formulario
+      region: content
+      parent_name: group_group_tabs
+      weight: 7
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
 id: node.entities_rediscount.default
 targetEntityType: node
 bundle: entities_rediscount
@@ -107,9 +128,25 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_form_entities:
+    type: string_textarea
+    weight: 36
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_image_form_entities:
+    type: image_image
+    weight: 37
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
   field_info_interest_entities:
     type: paragraphs
-    weight: 34
+    weight: 35
     region: content
     settings:
       title: Párrafo

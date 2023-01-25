@@ -1,0 +1,19 @@
+uuid: be761a77-a29b-4990-8cd6-4385d0fd2a49
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_form_entities
+    - node.type.entities_rediscount
+id: node.entities_rediscount.field_form_entities
+field_name: field_form_entities
+entity_type: node
+bundle: entities_rediscount
+label: Formulario
+description: 'Copia y pega aquí el Iframe del formulario.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

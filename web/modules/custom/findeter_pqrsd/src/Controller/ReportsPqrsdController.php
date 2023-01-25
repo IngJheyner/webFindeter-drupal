@@ -633,10 +633,10 @@ class ReportsPqrsdController extends ControllerBase {
       $mTable[$month]['requests']++;
 
       if ($node->get('field_pqrsd_respuesta')->value == '') {
-        $mTable[$month]['attended']++;
+        $mTable[$month]['process']++;
       }
       else {
-        $mTable[$month]['process']++;
+        $mTable[$month]['attended']++;
       }
 
       if (!$node->isPublished()) {

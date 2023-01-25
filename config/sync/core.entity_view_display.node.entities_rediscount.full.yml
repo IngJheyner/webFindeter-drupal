@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.entities_rediscount.field_description_entities
+    - field.field.node.entities_rediscount.field_form_entities
+    - field.field.node.entities_rediscount.field_image_form_entities
     - field.field.node.entities_rediscount.field_info_interest_entities
     - field.field.node.entities_rediscount.field_info_rediscount_entities
     - field.field.node.entities_rediscount.field_menu_entities
@@ -15,6 +17,7 @@ dependencies:
     - entity_reference_revisions
     - field_formatter_class
     - layout_builder
+    - svg_image
     - text
     - user
     - video_embed_field
@@ -33,6 +36,28 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_form_entities:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_image_form_entities:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 8
     region: content
   field_info_interest_entities:
     type: entity_reference_revisions_entity_view

@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.entities_rediscount.field_description_entities
+    - field.field.node.entities_rediscount.field_form_entities
+    - field.field.node.entities_rediscount.field_image_form_entities
     - field.field.node.entities_rediscount.field_info_interest_entities
     - field.field.node.entities_rediscount.field_info_rediscount_entities
     - field.field.node.entities_rediscount.field_menu_entities
@@ -26,6 +28,8 @@ content:
 hidden:
   addtoany: true
   field_description_entities: true
+  field_form_entities: true
+  field_image_form_entities: true
   field_info_interest_entities: true
   field_info_rediscount_entities: true
   field_menu_entities: true
