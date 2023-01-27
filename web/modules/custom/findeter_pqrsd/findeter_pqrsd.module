@@ -1456,9 +1456,10 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
               'Atendidas',
               'En proceso',
               'Canceladas',
+              'Promedio de días habiles de respuesta',
             ],
             '#rows' => ReportsPqrsdController::resultsDataTableAnio(date('Y',\Drupal::time()->getCurrentTime()), 'queryDate'),
-            // '#rows' => ReportsPqrsdController::resultsDataTableAnio('2022', 'queryDate'),
+            //'#rows' => ReportsPqrsdController::resultsDataTableAnio('2022', 'queryDate'),
           ],
         ],
       ];

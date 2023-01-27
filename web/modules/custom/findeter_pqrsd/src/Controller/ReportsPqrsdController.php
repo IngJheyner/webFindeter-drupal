@@ -17,6 +17,8 @@ use Drupal\Core\Form\FormBuilderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Dompdf\Dompdf;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Cmixin\BusinessDay;
+use Carbon\Carbon;
 
 /**
  * Returns responses for Findeter PQRSD Manager routes.
@@ -590,6 +592,9 @@ class ReportsPqrsdController extends ControllerBase {
    */
   public static function resultsDataTableAnio($anio, $getQueryMonths = NULL) {
 
+    BusinessDay::enable('Carbon\Carbon');
+    Carbon::setHolidaysRegion('co');
+
     // Arraglo con los meses del anio.
     $spanishMonths['January'] = 'Enero';
     $spanishMonths['February'] = 'Febrero';
@@ -610,6 +615,8 @@ class ReportsPqrsdController extends ControllerBase {
       $mTable[$key]['attended'] = 0;
       $mTable[$key]['process'] = 0;
       $mTable[$key]['canceled'] = 0;
+      $mTable[$key]['days_count'] = 0;
+      $mTable[$key]['days_answer'] = 0;
     }
 
     // Storage de tipo entidad node.
@@ -636,7 +643,53 @@ class ReportsPqrsdController extends ControllerBase {
         $mTable[$month]['process']++;
       }
       else {
-        $mTable[$month]['attended']++;
+
+        if (isset($node->get('field_pqrsd_fecha_respuesta')->getValue()[0]['value'])) {
+          // $dateI = new \DateTime(date('Y-m-d', $node->get('created')->getValue()[0]['value']));
+          // $dateF = new \DateTime($node->get('field_pqrsd_fecha_respuesta')->getValue()[0]['value']);
+          // $days = $dateI->diff($dateF);
+
+          $dateI = $node->get('created')->getValue()[0]['value'];
+          $dateF = strtotime($node->get('field_pqrsd_fecha_respuesta')->getValue()[0]['value']);
+
+          // Incremento en 1 dia.
+          $dayIterator = 24 * 60 * 60;
+
+          // Atendidas.
+          $mTable[$month]['attended']++;
+
+          // Contador de dias para cada fecha.
+          $days = 0;
+
+          for ($timeStamp = $dateI; $timeStamp <= $dateF; $timeStamp += $dayIterator) {
+
+            // Declaramos variabes para la fecha fesitvos.
+            $day = date('d', $timeStamp);
+            $mounth = date('m', $timeStamp);
+            $year = date('Y', $timeStamp);
+
+            // Obtenemos si es un dia vacacional o festivo.
+            $holiDays = Carbon::parse("$year-$mounth-$day")->isHoliday();
+
+            // Ni sabados ni Domingos.
+            if (!in_array(date('N', $timeStamp), [6, 7])) {
+              // Ni dias feriados.
+              if (!$holiDays) {
+                $days++;
+              }
+            }
+
+          }
+
+          // La siguientes variables es para realizar un promedio de dias de respuesta por mes.
+          // Dias de respuesta.
+          $mTable[$month]['days_count'] += $days;
+          $days = $mTable[$month]['days_count'] / $mTable[$month]['attended'];
+          $mTable[$month]['days_answer'] = round($days, 2);
+        }
+        else {
+          $mTable[$month]['attended']++;
+        }
       }
 
       if (!$node->isPublished()) {
@@ -660,12 +713,27 @@ class ReportsPqrsdController extends ControllerBase {
     $mTable['Total']['process'] = 0;
     $mTable['Total']['canceled'] = 0;
 
-    // Iteramos para acumular los totales.
-    foreach ($mTable as $tR => $values) {
-      $mTable['Total']['requests'] += $values['requests'];
-      $mTable['Total']['attended'] += $values['attended'];
-      $mTable['Total']['process'] += $values['process'];
-      $mTable['Total']['canceled'] += $values['canceled'];
+    if (count($mTable) > 1) {
+      // Recogemos los totales del promedio de dias de respuesta en cada uno de los meses de array.
+      $daysAvg = [];
+      // Iteramos para acumular los totales.
+      foreach ($mTable as $tR => $values) {
+
+        unset($mTable[$tR]['days_count']);
+
+        $mTable['Total']['requests'] += $values['requests'];
+        $mTable['Total']['attended'] += $values['attended'];
+        $mTable['Total']['process'] += $values['process'];
+        $mTable['Total']['canceled'] += $values['canceled'];
+
+        if (isset($values['days_answer'])) {
+          array_push($daysAvg, $values['days_answer']);
+        }
+      }
+      $mTable['Total']['days_answer'] = round(array_sum($daysAvg) / count($daysAvg), 2);
+    }
+    else {
+      $mTable['Total']['days_answer'] = 0;
     }
 
     if (is_null($getQueryMonths)) {

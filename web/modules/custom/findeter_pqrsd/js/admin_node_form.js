@@ -162,6 +162,7 @@
               method: "GET",
             })
             .then(response => {
+              console.log(response);
               if (response.ok){
                 divBarProgress.style.display = 'none';
                 return response.json();
@@ -175,7 +176,7 @@
               let datas = data.data;
 
               for (let clave in datas) {
-                tbodyHTML += '<tr><td>'+datas[clave].name+'</td><td>'+datas[clave].requests+'</td><td>'+datas[clave].attended+'</td><td>'+datas[clave].process+'</td><td>'+datas[clave].canceled+'</td></tr>';
+                tbodyHTML += '<tr><td>'+datas[clave].name+'</td><td>'+datas[clave].requests+'</td><td>'+datas[clave].attended+'</td><td>'+datas[clave].process+'</td><td>'+datas[clave].canceled+'</td><td>'+datas[clave].days_answer+'</td></tr>';
               }
 
               tbodyTableReportsMonths.innerHTML = tbodyHTML;

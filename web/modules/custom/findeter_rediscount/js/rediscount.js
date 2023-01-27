@@ -16,6 +16,11 @@
 
         const widthWindow = () =>  $(window).width() < 480 ? true : false;
 
+        const sliders = document.querySelectorAll('.slick-initialized');
+        sliders.forEach(item => {
+          $(item).slick('unslick');
+        })
+
         $('#sectors-icon').slick({
           infinite: true,
           slidesToShow: 6,
@@ -33,6 +38,8 @@
             }
           ],
         });
+
+
 
         $('[data-toggle="tooltip"]').tooltip();
 
