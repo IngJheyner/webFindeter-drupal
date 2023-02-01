@@ -140,9 +140,15 @@ class TransferPQRSD extends FormBase {
       $node->save();
 
       $response->addCommand(new InvokeCommand(NULL, 'afterAsignCallback', ['Reloading page!']));
+
+      \Drupal::messenger()->addStatus(t('Se ha notificado a la entidad %entidad el traslado de PQRSD con No. radicado @radicado ', [
+        '@radicado' => $node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'],
+        '%entidad' => $formValues['entities']
+      ]));
     }
     else {
-      \Drupal::messenger()->addError('Ocurrió un problema al enviar el correo.');
+
+      \Drupal::messenger()->addError('Ocurrió un problema al enviar el correo, por lo tanto no se ha podido notificar a la entidad.');
       $response->addCommand(new CloseModalDialogCommand());
     }
 
