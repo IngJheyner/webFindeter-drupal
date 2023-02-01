@@ -83,14 +83,46 @@
 
   .pill-tabs-product{
 
-    .nav-link {
+    button.nav-link {
+
+      position: relative;
       border: 1px solid var.$color-rgb-primary;
       color: var.$color-secundario;
-      margin-block: 3px;
-      text-align: left;
+      width: 100%;
+      background-color: white;
+
+      &::before{
+        content: "";
+        position: absolute;
+        z-index: -1;
+        right: -8px;
+        bottom: 50%;
+        width: 15px;
+        height: 20px;
+        background: var.$color-primario;
+        transform: translate(0, 50%);
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+
       &.active{
-        color: white;
         background-color: var.$color-primario;
+        color: white;
+        border: 0;
+
+        &::after{
+          content: "";
+          position: absolute;
+          z-index: -2;
+          background-color: var.$color-senario;
+          width: 20px;
+          height: 100%;
+          top: 0;
+          bottom: 0;
+          right: -15px;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
       }
     }
 
@@ -260,8 +292,15 @@
 
       #v-pills-tabContent > div{
         border: 5px solid rgba(153, 213, 239, 1);
-        color: white;
         border-radius: 2rem;
+
+        p, a, ul{
+          color: white;
+        }
+
+        a {
+          text-decoration: underline;
+        }
       }
     }
   }
@@ -356,11 +395,12 @@
   table.table-line-credit{
 
     tr.row-even {
-      background: var.$color-rgb-primary;
+      background: var.$color-rgb-secondary;
+      background: #e9e8e8de;
     }
 
     td.column-odd {
-      background: var.$color-rgb-primary;
+      background: var.$color-rgb-secondary;
     }
 
     td.column-even {

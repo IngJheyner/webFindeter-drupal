@@ -50,12 +50,12 @@
         let title = document.querySelector('.sectors-info .titles');
         let description = document.querySelector('.sectors-info .description');
         let containerImage = document.querySelector('.sectors-info .images');
-        let image = document.querySelector('.sectors-info .images img');
 
         let moreInfo = document.querySelector('.sectors-info .more-info');
         let subtitle = moreInfo.querySelector('.subtitle');
         let moreNav = moreInfo.querySelector('.more-info__nav ul');
         let moreContent = moreInfo.querySelector('.more-info__nav .tab-content');
+        let figureImage = document.querySelector('.sectors-info .images figure');
 
         let elementDivIcon = Node;
 
@@ -99,7 +99,18 @@
             description.textContent = '';
             description.classList.add('skeleton');
 
-            image.removeAttribute('src');
+            let image = document.querySelector('.sectors-info .images img');
+
+            if (image == null) {
+              image = document.createElement('img');
+              image.setAttribute('class', 'img-fluid mx-auto');
+              image.setAttribute('width', '400');
+              image.setAttribute('onerror', 'this.remove();');
+              figureImage.appendChild(image);
+            } else{
+              image.removeAttribute('src');
+            }
+
             containerImage.classList.add('skeleton');
 
             sectorsInfo.classList.add('card-skeleton');
@@ -133,6 +144,7 @@
               title.textContent = data.sectors.title;
               description.textContent = data.sectors.description;
               image.setAttribute('src', data.sectors.image);
+              image.setAttribute('alt', data.sectors.image_alt);
 
               let moreNavHTML = "";
               let moreContentHTML = "";

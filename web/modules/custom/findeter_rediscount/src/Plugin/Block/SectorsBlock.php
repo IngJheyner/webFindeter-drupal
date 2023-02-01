@@ -63,7 +63,10 @@ class SectorsBlock extends BlockBase implements ContainerFactoryPluginInterface 
 
       $icon = $file_storage->load($node->get('field_icon_sector')->target_id);
       $iconSecond = $file_storage->load($node->get('field_icon_second_sector')->target_id);
-      $image = $file_storage->load($node->get('field_image_sector')->target_id);
+
+      $imageData = $node->get('field_image_sector')->target_id;
+      $image = is_null($imageData) ? NULL : $file_storage->load($imageData);
+      $image_properties = is_null($image) ? NULL : $node->get('field_image_sector')->first()->getValue();
 
       $subsectorsItems = $node->get('field_subsectors_rediscount')->referencedEntities();
 
@@ -82,7 +85,8 @@ class SectorsBlock extends BlockBase implements ContainerFactoryPluginInterface 
         'icon_secon' => $iconSecond->getFileUri(),
         'title' => $node->getTitle(),
         'description' => $node->get('field_description_sector')->value,
-        'image' => is_null($image) ? '' : $image->getFileUri(),
+        'image' => is_null($image) ? NULL : $image->getFileUri(),
+        'image_alt' => is_null($image_properties) ? "" : $image_properties['alt'],
         'subsectors' => $subsectors,
       ];
 

@@ -49,7 +49,10 @@ class FindeterRediscountController extends ControllerBase {
 
     // Se carga los arhivos y nodos segun sea su nid.
     $sectors = $nodeStorage->load($nid);
-    $image = $file_storage->load($sectors->get('field_image_sector')->target_id);
+
+    $imageData = $sectors->get('field_image_sector')->target_id;
+    $image = is_null($imageData) ? NULL : $file_storage->load($imageData);
+    $image_properties = is_null($image) ? NULL : $sectors->get('field_image_sector')->first()->getValue();
 
     $subsectors = [];
     $subsectorsItems = $sectors->get('field_subsectors_rediscount')->referencedEntities();
@@ -67,7 +70,8 @@ class FindeterRediscountController extends ControllerBase {
     $data = [
       'title' => $sectors->getTitle(),
       'description' => $sectors->get('field_description_sector')->value,
-      'image' => is_null($image) ? '' : file_create_url($image->getFileUri()),
+      'image' => is_null($image) ? NULL : file_create_url($image->getFileUri()),
+      'image_alt' => is_null($image_properties) ? "" : $image_properties['alt'],
       'subsectors' => $subsectors,
     ];
 

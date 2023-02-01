@@ -4975,15 +4975,43 @@ STEPS INFO
   background-color: #0a9bd8;
   width: 280px;
 }
-.rediscount .pill-tabs-product .nav-link {
+.rediscount .pill-tabs-product button.nav-link {
+  position: relative;
   border: 1px solid rgba(153, 213, 239, 0.2);
   color: #296294;
-  margin-block: 3px;
-  text-align: left;
+  width: 100%;
+  background-color: white;
 }
-.rediscount .pill-tabs-product .nav-link.active {
-  color: white;
+.rediscount .pill-tabs-product button.nav-link::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -8px;
+  bottom: 50%;
+  width: 15px;
+  height: 20px;
+  background: #112d6a;
+  transform: translate(0, 50%);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.rediscount .pill-tabs-product button.nav-link.active {
   background-color: #112d6a;
+  color: white;
+  border: 0;
+}
+.rediscount .pill-tabs-product button.nav-link.active::after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  background-color: #0a9bd8;
+  width: 20px;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  right: -15px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .rediscount .pill-tabs-product #v-pills-tabContent > div {
   border: 5px solid rgba(153, 213, 239, 0.2);
@@ -5100,8 +5128,13 @@ STEPS INFO
 }
 .rediscount .info-interest .pill-tabs-interest #v-pills-tabContent > div {
   border: 5px solid rgb(153, 213, 239);
-  color: white;
   border-radius: 2rem;
+}
+.rediscount .info-interest .pill-tabs-interest #v-pills-tabContent > div p, .rediscount .info-interest .pill-tabs-interest #v-pills-tabContent > div a, .rediscount .info-interest .pill-tabs-interest #v-pills-tabContent > div ul {
+  color: white;
+}
+.rediscount .info-interest .pill-tabs-interest #v-pills-tabContent > div a {
+  text-decoration: underline;
 }
 .rediscount .banks-rediscount div.slick ul {
   margin-inline: 25px;
@@ -5165,10 +5198,11 @@ STEPS INFO
   top: 0.5rem;
 }
 .rediscount table.table-line-credit tr.row-even {
-  background: rgba(153, 213, 239, 0.2);
+  background: rgba(229, 229, 229, 0.8);
+  background: rgba(233, 232, 232, 0.8705882353);
 }
 .rediscount table.table-line-credit td.column-odd {
-  background: rgba(153, 213, 239, 0.2);
+  background: rgba(229, 229, 229, 0.8);
 }
 .rediscount table.table-line-credit td.column-even {
   background: #e5e5e5;
