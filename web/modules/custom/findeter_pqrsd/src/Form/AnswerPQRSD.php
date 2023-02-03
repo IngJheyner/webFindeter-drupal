@@ -223,8 +223,8 @@ class AnswerPQRSD extends FormBase {
         $to = $node->get('field_pqrsd_email')->getValue()[0]['value'];
 
         $mailBody[] = '<div style="background-color: white; padding: 0.5rem; max-width: 800px; margin-left: 15%; margin-right: 15%"><div style="margin:0; position: relative;">
-                      <img src="https://www.findeter.gov.co/themes/custom/webfinde/images/iconos/fondo_cabezote.png" style="max-width: 100%; height: 200px;" alt="Findeter" onerror="this.remove();">
-                      <img onerror="this.remove();" src="https://www.findeter.gov.co/sites/default/files/webfinde/images/encabezado/logofindeter2021v.svg" style="position: absolute;top: 0;left: 0;max-width: 300px;height: auto;transform: translate(0, 50%);" alt="Findeter"></div>';
+                      <img src="https://www.findeter.gov.co/modules/custom/findeter_pqrsd/css/images/fondo-answer-pqrsd.jpeg" style="max-width: 100%; height: 200px;" alt="Findeter" onerror="this.remove();">
+                      </div>';
         $mailBody[] = '<p>Estimado usuario, reciba un cordial saludo de parte de Findeter</p>';
         $mailBody[] = "<p>Le informamos que hemos dado respuesta a la PQRSD con número: <b>{$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value']}</b></p><br><br>";
         $mailBody[] = "<div class='numero-radicado'><strong>Estimado usuario: </strong><br>
@@ -232,9 +232,9 @@ class AnswerPQRSD extends FormBase {
 
         $mailBody[] = '<p>Puede consultar el estado o descargar la respuesta de su PQRSD haciendo <a href="https://www.findeter.gov.co/estado-pqrsd">clic aquí</a></p><br>';
 
-        $mailBody[] = '<p style="text-align:center">En caso de no visualizar la respuesta o presentar algún inconveniente con el archivo comunicarse a través<a href="mailto:correspondencia@findeter.gov.co">correspondencia@findeter.gov.co</a></p><br><br>';
+        $mailBody[] = '<p style="text-align:center">En caso de no visualizar la respuesta o presentar algún inconveniente con el archivo comunicarse a través <a href="mailto:correspondencia@findeter.gov.co">correspondencia@findeter.gov.co</a></p><br><br>';
 
-        $mailBody[] = '</div><a href="https://www.findeter.gov.co/form/encuesta-de-satisfaccion-pqrsd" target="_blank"><img src="https://www.findeter.gov.co/themes/custom/webfinde/images/iconos/answer-mail.png" style="max-width: 100%; height: auto;" alt="Findeter" onerror="this.remove();"></a><hr>';
+        $mailBody[] = '</div><a href="https://www.findeter.gov.co/modules/custom/findeter_pqrsd/css/images/fondo-encuesta-pqrsd-mail.png" style="max-width: 100%; height: auto; margin: auto; display: block;" alt="Findeter" onerror="this.remove();"></a><br><hr>';
         $mailBody[] = 'Cordialmente,';
         $mailBody[] = 'Vicepresidencia comercial - Servicio al cliente';
         $mailBody[] = 'Findeter';
