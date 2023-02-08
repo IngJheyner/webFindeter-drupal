@@ -4921,6 +4921,10 @@ STEPS INFO
   BUTTON
   ============================== */
 }
+.rediscount h2,
+.rediscount h3 {
+  font-weight: bold;
+}
 .rediscount .title {
   background-color: #112d6a;
 }
@@ -4937,6 +4941,7 @@ STEPS INFO
 .rediscount nav ul li.nav-item a.nav-link,
 .rediscount nav ul li.nav-item span.nav-link {
   position: relative;
+  color: #c6c6c6;
 }
 .rediscount nav ul li.nav-item a.nav-link::after, .rediscount nav ul li.nav-item a.nav-link::before,
 .rediscount nav ul li.nav-item span.nav-link::after,
@@ -4967,7 +4972,7 @@ STEPS INFO
 }
 .rediscount .info-tasses {
   background: linear-gradient(90deg, rgb(18, 47, 109) 5%, rgb(61, 99, 171) 50%, rgb(61, 99, 171) 50%, rgb(18, 47, 109) 100%);
-  border-radius: 10%;
+  border-radius: 3rem;
 }
 .rediscount .info-tasses .info-tasses__space-available {
   font-size: 30px;
@@ -4975,14 +4980,17 @@ STEPS INFO
   background-color: #0a9bd8;
   width: 280px;
 }
-.rediscount .pill-tabs-product button.nav-link {
+.rediscount .pill-tabs-product #v-pills-tab {
+  row-gap: 5px;
+}
+.rediscount .pill-tabs-product #v-pills-tab button.nav-link {
   position: relative;
   border: 1px solid rgba(153, 213, 239, 0.2);
   color: #296294;
   width: 100%;
   background-color: white;
 }
-.rediscount .pill-tabs-product button.nav-link::before {
+.rediscount .pill-tabs-product #v-pills-tab button.nav-link::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -4995,12 +5003,12 @@ STEPS INFO
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-.rediscount .pill-tabs-product button.nav-link.active {
+.rediscount .pill-tabs-product #v-pills-tab button.nav-link.active {
   background-color: #112d6a;
   color: white;
   border: 0;
 }
-.rediscount .pill-tabs-product button.nav-link.active::after {
+.rediscount .pill-tabs-product #v-pills-tab button.nav-link.active::after {
   content: "";
   position: absolute;
   z-index: -2;
@@ -5014,10 +5022,10 @@ STEPS INFO
   border-bottom-right-radius: 10px;
 }
 .rediscount .pill-tabs-product #v-pills-tabContent > div {
-  border: 5px solid rgba(153, 213, 239, 0.2);
+  border: 3px solid rgba(153, 213, 239, 0.2);
 }
 .rediscount .access-credit-findeter {
-  background-color: rgba(229, 229, 229, 0.8);
+  background-color: rgba(229, 229, 229, 0.5);
   padding-block-end: 8rem;
   padding-inline: 1rem;
 }
@@ -5061,21 +5069,12 @@ STEPS INFO
   background-color: transparent;
 }
 .rediscount div.sectors-icon button::before {
-  content: "";
+  color: #112d6a;
   width: 48px;
   position: absolute;
   top: 0;
   height: 48px;
-  transform: translate(-10px, 0px);
-}
-.rediscount div.sectors-icon button.slick-prev::before {
-  left: 0;
-  background: url(../images/iconos/flechaIzq2.png) no-repeat fixed center;
-  background-size: 40px 40px;
-}
-.rediscount div.sectors-icon button.slick-next::before {
-  background: url(../images/iconos/flechaDer2.png) no-repeat fixed center;
-  background-size: 40px 40px;
+  transform: translate(-20px, 0px);
 }
 .rediscount div.sectors-info .titles {
   min-height: 15px;
@@ -5084,8 +5083,12 @@ STEPS INFO
 .rediscount div.sectors-info .description {
   min-height: 100px;
 }
-.rediscount div.sectors-info .images {
-  min-height: 300px;
+.rediscount div.sectors-info .images figure img {
+  object-fit: contain;
+  object-view-box: inset(25% 25% 25% 25%);
+  width: 100%;
+  height: 300px;
+  border: 0;
 }
 .rediscount div.sectors-info .more-info {
   min-height: 50px;
@@ -5105,10 +5108,10 @@ STEPS INFO
 }
 .rediscount div.sectors-info .more-info .more-info__nav ul li button.active {
   color: white;
-  background-color: #112d6a;
+  background-color: #005CA8;
 }
 .rediscount div.sectors-info .more-info .more-info__nav div.tab-content .tab-pane {
-  border: 5px solid rgba(153, 213, 239, 0.2);
+  border: 3px solid rgba(153, 213, 239, 0.2);
   border-radius: 1rem;
   padding: 1rem;
 }
@@ -5121,6 +5124,7 @@ STEPS INFO
   text-align: center;
   background-color: white;
   min-width: 200px;
+  border-radius: 0.8rem;
 }
 .rediscount .info-interest .pill-tabs-interest .nav-link.active {
   color: white;
@@ -5150,7 +5154,7 @@ STEPS INFO
   color: #112d6a;
 }
 .rediscount form#views-exposed-form-rediscount-filter-line-credit {
-  border: 2px solid rgb(153, 213, 239);
+  border: 3px solid rgba(153, 213, 239, 0.2);
   border-radius: 2rem;
   padding: 1rem;
 }
@@ -5189,6 +5193,12 @@ STEPS INFO
   color: #296294;
   margin-left: 0.5rem;
 }
+.rediscount div.card strong {
+  color: #296294;
+}
+.rediscount div.card a {
+  text-decoration: underline;
+}
 .rediscount div.card div.card-images {
   position: relative;
 }
@@ -5197,14 +5207,17 @@ STEPS INFO
   right: 0.5rem;
   top: 0.5rem;
 }
-.rediscount table.table-line-credit tr.row-even {
-  background: rgba(229, 229, 229, 0.8);
+.rediscount table.table-line-credit tbody tr:nth-child(1) {
+  font-weight: bold;
+}
+.rediscount table.table-line-credit tbody tr.row-even {
+  background: rgba(229, 229, 229, 0.5);
   background: rgba(233, 232, 232, 0.8705882353);
 }
-.rediscount table.table-line-credit td.column-odd {
-  background: rgba(229, 229, 229, 0.8);
+.rediscount table.table-line-credit tbody td.column-odd {
+  background: rgba(229, 229, 229, 0.5);
 }
-.rediscount table.table-line-credit td.column-even {
+.rediscount table.table-line-credit tbody td.column-even {
   background: #e5e5e5;
 }
 .rediscount section.ciiu div.search-ciiu {
@@ -5223,7 +5236,7 @@ STEPS INFO
   background-position: top center;
 }
 .rediscount div.form-entities-rediscount {
-  background: rgba(229, 229, 229, 0.8);
+  background: rgba(229, 229, 229, 0.5);
 }
 .rediscount .card-skeleton {
   width: 100%;
@@ -5340,12 +5353,34 @@ STEPS INFO
   background-position-x: -150%;
   transition: background-position-x 600ms;
 }
+.rediscount div.btn-icon-agent a {
+  border-color: initial !important;
+  border: 1px solid !important;
+}
+.rediscount div.btn-icon-agent span {
+  background: url(/themes/custom/webfinde/images/iconos/icon-agent-rediscount.svg) no-repeat;
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  margin-inline-start: 1rem;
+}
 
 /* ==============================
 MEDIA QUERY
 ============================== */
 /*MOVIL VERTICAL(sm 320px)*/
 @media (max-width: 575.98px) {
+  .rediscount {
+    /* ==============================
+    MENU
+    ============================== */
+  }
+  .rediscount nav ul {
+    justify-content: space-between;
+  }
+  .rediscount .access-credit-findeter {
+    padding-block-end: 3rem;
+  }
   .rediscount div.info-tasses__interest_rate,
 .rediscount div.info-tasses__term {
     width: 100% !important;

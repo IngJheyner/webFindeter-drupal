@@ -124,23 +124,23 @@
   TITULO
   =============================================== #}
   <div class="container px-0 px-md-2">
-    <h1{{ title_attributes }} class="title text-white text-center p-3">
+    <h1{{ title_attributes }} class="title text-white text-left text-md-center p-3">
       {{ label.0 }}
     </h1>
   </div>
 
-  <div class="container my-5">
+  <div class="container my-3 my-md-5">
     {# ============================================
     MENU
     =============================================== #}
-    <nav class="menu mt-3">
+    <nav class="menu mt-md-3">
       {{ drupal_menu(node.get('field_menu_entities').value[0]['target_id']) }}
     </nav>
 
     {# ============================================
     INFORMACION DE USO REDESCUENTO
     =============================================== #}
-    <section class="info-uses-rediscount mt-5" id="uso-redescuento">
+    <section class="info-uses-rediscount mt-3 mt-md-5" id="uso-redescuento">
 
       <div class="description">
 
@@ -195,7 +195,10 @@
 
       </div>
 
-      <div class="btn-more text-center mt-4"><a href="#" class="btn btn-primary text-white">Consulte con un gerente de cuenta</a></div>
+      <div class="btn-more btn-icon-agent text-center mt-4">
+        <a href="#consulta-gerente-cuenta" class="btn btn-primary text-white">Consulte con un gerente de cuenta
+        <span></span></a>
+      </div>
 
     </section>
 
@@ -239,9 +242,10 @@
 
           <ul class="text-white mt-3">
            <li>Clasificación Industrial Internacional Uniforme.</li>
+           <li>La Clasificación Industrial Internacional Uniforme (CIIU) describe el detalle de su actividad económica.</li>
           </ul>
 
-          <div class="btn-more text-center mt-3"><a class="btn btn-primary">Consulte con un gerente de cuenta</a></div>
+          <div class="btn-more btn-icon-agent text-center mt-3"><a class="btn btn-primary">Consulte con un gerente de cuenta <span></span></a></div>
 
         </div>
         <div class="col-6 image-ciiu pl-0">
@@ -313,7 +317,7 @@
   {# ============================================
   FORMULARIO
   =============================================== #}
-  <div class="form-entities-rediscount py-4">
+  <div class="form-entities-rediscount py-4" id="consulta-gerente-cuenta">
 
     <h2 class="text-center">¿Dudas? ¡Solicite más información a uno de nuestros gerentes de cuenta!</h2>
 

@@ -6,6 +6,11 @@
 
 .rediscount{
 
+  h2,
+  h3 {
+    font-weight: bold;
+  }
+
   /* ==============================
   PRINCIPAL
   ============================== */
@@ -35,6 +40,7 @@
       a.nav-link,
       span.nav-link {
         position: relative;
+        color: #c6c6c6;
 
         &::after,
         &::before{
@@ -71,7 +77,7 @@
   ============================== */
   .info-tasses{
     background: var.$color-gradient-primary;
-    border-radius: 10%;
+    border-radius: 3rem;
 
     .info-tasses__space-available{
       font-size: 30px;
@@ -83,51 +89,54 @@
 
   .pill-tabs-product{
 
-    button.nav-link {
+    #v-pills-tab {
+      row-gap: 5px;
+      button.nav-link {
 
-      position: relative;
-      border: 1px solid var.$color-rgb-primary;
-      color: var.$color-secundario;
-      width: 100%;
-      background-color: white;
+        position: relative;
+        border: 1px solid var.$color-rgb-primary;
+        color: var.$color-secundario;
+        width: 100%;
+        background-color: white;
 
-      &::before{
-        content: "";
-        position: absolute;
-        z-index: -1;
-        right: -8px;
-        bottom: 50%;
-        width: 15px;
-        height: 20px;
-        background: var.$color-primario;
-        transform: translate(0, 50%);
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-      }
-
-      &.active{
-        background-color: var.$color-primario;
-        color: white;
-        border: 0;
-
-        &::after{
+        &::before{
           content: "";
           position: absolute;
-          z-index: -2;
-          background-color: var.$color-senario;
-          width: 20px;
-          height: 100%;
-          top: 0;
-          bottom: 0;
-          right: -15px;
+          z-index: -1;
+          right: -8px;
+          bottom: 50%;
+          width: 15px;
+          height: 20px;
+          background: var.$color-primario;
+          transform: translate(0, 50%);
           border-top-right-radius: 10px;
           border-bottom-right-radius: 10px;
+        }
+
+        &.active{
+          background-color: var.$color-primario;
+          color: white;
+          border: 0;
+
+          &::after{
+            content: "";
+            position: absolute;
+            z-index: -2;
+            background-color: var.$color-senario;
+            width: 20px;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+            right: -15px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+          }
         }
       }
     }
 
     #v-pills-tabContent > div{
-      border: 5px solid var.$color-rgb-primary;
+      border: 3px solid var.$color-rgb-primary;
     }
   }
 
@@ -202,25 +211,25 @@
       height: 50px;
       background-color: transparent;
       &::before{
-        content: "";
+        color: var.$color-primario;
         width: 48px;
         position: absolute;
         top: 0;
         height: 48px;
-        transform: translate(-10px, 0px);
+        transform: translate(-20px, 0px);
       }
     }
 
-    button.slick-prev::before {
-      left: 0;
-      background: url(../images/iconos/flechaIzq2.png) no-repeat fixed center;
-      background-size: 40px 40px;
-    }
+    // button.slick-prev::before {
+    //   left: 0;
+    //   background: url(../images/iconos/flechaIzq2.png) no-repeat fixed center;
+    //   background-size: 40px 40px;
+    // }
 
-    button.slick-next::before {
-      background: url(../images/iconos/flechaDer2.png) no-repeat fixed center;
-      background-size: 40px 40px;
-    }
+    // button.slick-next::before {
+    //   background: url(../images/iconos/flechaDer2.png) no-repeat fixed center;
+    //   background-size: 40px 40px;
+    // }
   }
 
   div.sectors-info{
@@ -235,7 +244,15 @@
     }
 
     .images {
-      min-height: 300px;
+      //min-height: 300px;
+
+      figure img {
+        object-fit: contain;
+        object-view-box: inset(25% 25% 25% 25%);
+        width: 100%;
+        height: 300px;
+        border: 0;
+      }
     }
 
     .more-info {
@@ -256,13 +273,13 @@
 
             button.active {
               color: white;
-              background-color: var.$color-primario;
+              background-color: #005CA8;
             }
           }
         }
 
         div.tab-content .tab-pane{
-          border: 5px solid var.$color-rgb-primary;
+          border: 3px solid var.$color-rgb-primary;
           border-radius: 1rem;
           padding: 1rem;
         }
@@ -284,6 +301,7 @@
         text-align: center;
         background-color: white;
         min-width: 200px;
+        border-radius: .8rem;
         &.active{
           color: white;
           background-color: rgba(153, 213, 239, 1);
@@ -331,7 +349,7 @@
   FILTRO LINEA DE CREDITO
   ============================== */
   form#views-exposed-form-rediscount-filter-line-credit{
-    border: 2px solid rgba(153, 213, 239, 1);
+    border: 3px solid var.$color-rgb-primary;
     border-radius: 2rem;
     padding: 1rem;
     details.form-item{
@@ -379,6 +397,12 @@
   }
 
   div.card{
+    strong {
+      color: var.$color-secundario;
+    }
+    a {
+      text-decoration: underline;
+    }
     div.card-images{
       position: relative;
       img.icon{
@@ -394,19 +418,26 @@
   ============================== */
   table.table-line-credit{
 
-    tr.row-even {
-      background: var.$color-rgb-secondary;
-      background: #e9e8e8de;
-    }
+    tbody {
 
-    td.column-odd {
-      background: var.$color-rgb-secondary;
-    }
+      tr:nth-child(1) {
+        font-weight: bold;
+      }
 
-    td.column-even {
-      background: var.$color-quinario;
-    }
+      tr.row-even {
+        background: var.$color-rgb-secondary;
+        background: #e9e8e8de;
+      }
 
+      td.column-odd {
+        background: var.$color-rgb-secondary;
+      }
+
+      td.column-even {
+        background: var.$color-quinario;
+      }
+
+    }
 
   }
 
@@ -585,6 +616,20 @@
     }
   }
 
+  div.btn-icon-agent {
+    a {
+      border-color: initial !important;
+      border: 1px solid !important
+    }
+    span{
+      background: url(/themes/custom/webfinde/images/iconos/icon-agent-rediscount.svg) no-repeat;
+      display: inline-block;
+      height: 24px;
+      width: 24px;
+      margin-inline-start: 1rem;
+    }
+  }
+
 }
 
 /* ==============================
@@ -593,6 +638,18 @@ MEDIA QUERY
 
 @include media-query.media(xs) {
   .rediscount{
+
+    /* ==============================
+    MENU
+    ============================== */
+    nav ul {
+
+      justify-content: space-between;
+    }
+
+    .access-credit-findeter{
+      padding-block-end: 3rem;
+    }
 
     div.info-tasses__interest_rate,
     div.info-tasses__term{

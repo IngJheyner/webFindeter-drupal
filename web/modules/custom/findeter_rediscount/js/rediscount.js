@@ -108,7 +108,7 @@
               image.setAttribute('onerror', 'this.remove();');
               figureImage.appendChild(image);
             } else{
-              image.removeAttribute('src');
+              image.setAttribute('src', '');
             }
 
             containerImage.classList.add('skeleton');
@@ -122,59 +122,67 @@
             moreNav.innerHTML = '';
             moreContent.innerHTML = '';
 
-            fetch('/findeter-rediscount/sectorsinfo/'+nid, {
-              method: "GET",
-            })
-            .then(response => {
-              if (response.ok){
+            setTimeout(() => {
+              fetch('/findeter-rediscount/sectorsinfo/'+nid, {
+                method: "GET",
+              })
+              .then(response => {
+                if (response.ok){
 
-                title.classList.remove('skeleton');
-                description.classList.remove('skeleton');
-                containerImage.classList.remove('skeleton');
-                moreInfo.classList.remove('skeleton');
+                  title.classList.remove('skeleton');
+                  description.classList.remove('skeleton');
+                  containerImage.classList.remove('skeleton');
+                  moreInfo.classList.remove('skeleton');
 
-                sectorsInfo.classList.remove('card-skeleton');
-                sectorsInfo.classList.add('show-info');
+                  sectorsInfo.classList.remove('card-skeleton');
+                  sectorsInfo.classList.add('show-info');
 
-                return response.json()
-              }
-            })
-            .then((data) => {
+                  return response.json()
+                }
+              })
+              .then((data) => {
 
-              title.textContent = data.sectors.title;
-              description.textContent = data.sectors.description;
-              image.setAttribute('src', data.sectors.image);
-              image.setAttribute('alt', data.sectors.image_alt);
+                title.textContent = data.sectors.title;
+                description.textContent = data.sectors.description;
 
-              let moreNavHTML = "";
-              let moreContentHTML = "";
-
-              data.sectors.subsectors.map((sect, idx) => {
-
-                if (sect.title !== null) {
-
-                  let active = idx === 0 ? "active" : "";
-                  let showActive = idx === 0 ? 'show active': "";
-
-                  moreNavHTML += '<li class="nav-item" role="presentation"><button class="nav-link btn-block '+ active +'" id="pills-subsectors-'+ idx +'-tab" data-toggle="pill" data-target="#subsectors-'+ idx +'" type="button" role="tab" aria-controls="subsectors-'+ idx +'" aria-selected="true">'+ sect.title +'</button></li>';
-
-                  moreContentHTML += '<div class="tab-pane fade '+ showActive +'" id="subsectors-'+ idx +'" role="tabpanel" aria-labelledby="pills-subsectors-'+ idx +'-tab">'+ sect.description +'</div>';
-
-                  subtitle.textContent = "Conozca los subsectores financiables por findeter";
+                if (data.sectors.image === null) {
+                  image.setAttribute('src', '');
+                } else {
+                  image.setAttribute('src', data.sectors.image);
+                  image.setAttribute('alt', data.sectors.image_alt);
                 }
 
-              });
 
-              moreNav.innerHTML = moreNavHTML;
-              moreContent.innerHTML = moreContentHTML;
+                let moreNavHTML = "";
+                let moreContentHTML = "";
 
-            })
-            .catch(function (error) {
-              console.error("ERROR SECTORS: ", error.message)
-            })
-            .finally(()=>{
-              // console.log('final');
-            })
+                data.sectors.subsectors.map((sect, idx) => {
+
+                  if (sect.title !== null) {
+
+                    // let active = idx === 0 ? "active" : "";
+                    // let showActive = idx === 0 ? 'show active': "";
+
+                    moreNavHTML += '<li class="nav-item" role="presentation"><button class="nav-link btn-block" id="pills-subsectors-'+ idx +'-tab" data-toggle="pill" data-target="#subsectors-'+ idx +'" type="button" role="tab" aria-controls="subsectors-'+ idx +'" aria-selected="true">'+ sect.title +'</button></li>';
+
+                    moreContentHTML += '<div class="tab-pane fade" id="subsectors-'+ idx +'" role="tabpanel" aria-labelledby="pills-subsectors-'+ idx +'-tab">'+ sect.description +'</div>';
+
+                    subtitle.textContent = "Conozca los subsectores financiables por findeter";
+                  }
+
+                });
+
+                moreNav.innerHTML = moreNavHTML;
+                moreContent.innerHTML = moreContentHTML;
+
+              })
+              .catch(function (error) {
+                console.error("ERROR SECTORS: ", error.message)
+              })
+              .finally(()=>{
+                // console.log('final');
+              })
+            }, 2000);
           });
 
           el.addEventListener('mouseover', event => {
@@ -255,7 +263,7 @@
 
                     } else {
 
-                      HtmlResponseCode += "<p>El CIIU consultado <strong>NO</strong> hace parte de los sectores financibles por Findeter, de igual forma puede consultar con un asesor comercial.</p>";
+                      HtmlResponseCode += "<p>El CIIU consultado con actividad <em>"+datas.activity+"</em> <strong>NO</strong> hace parte de los sectores financibles por Findeter, de igual forma puede consultar con un asesor comercial.</p>";
 
                     }
 

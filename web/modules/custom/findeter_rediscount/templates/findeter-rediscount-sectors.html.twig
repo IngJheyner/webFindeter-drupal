@@ -28,7 +28,7 @@
 
   </div>
 
-  <div class="sectors-info mt-4">
+  <div class="sectors-info mt-5">
 
     {% for value in data %}
 
@@ -65,7 +65,7 @@
 
                   {% for key, subsectors in value.subsectors %}
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link btn-block {{ loop.first ? 'active': '' }}" id="pills-subsectors-{{ key }}-tab" data-toggle="pill" data-target="#subsectors-{{ key }}" type="button" role="tab" aria-controls="subsectors-{{ key }}" aria-selected="true">{{ subsectors.title }}</button>
+                      <button class="nav-link btn-block" id="pills-subsectors-{{ key }}-tab" data-toggle="pill" data-target="#subsectors-{{ key }}" type="button" role="tab" aria-controls="subsectors-{{ key }}" aria-selected="true">{{ subsectors.title }}</button>
                     </li>
                   {% endfor %}
 
@@ -74,7 +74,7 @@
               <div class="tab-content" id="pills-tabContent">
 
                 {% for key, subsectors in value.subsectors %}
-                  <div class="tab-pane fade {{ loop.first ? 'show active': '' }}" id="subsectors-{{ key }}" role="tabpanel" aria-labelledby="pills-subsectors-{{ key }}-tab">{{ subsectors.description|raw }}</div>
+                  <div class="tab-pane fade" id="subsectors-{{ key }}" role="tabpanel" aria-labelledby="pills-subsectors-{{ key }}-tab">{{ subsectors.description|raw }}</div>
                 {% endfor %}
 
               </div>
