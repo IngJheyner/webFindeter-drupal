@@ -196,12 +196,12 @@ class StepOne extends BaseStep {
       'field_pqrsd_tipo_peticion' => [
         new ValidatorTypeRequest("Tipo de petición es requerido"),
       ],
-      'field_pqrsd_tipo_discapacidad' => [
+      /*'field_pqrsd_tipo_discapacidad' => [
         new ValidatorRequired("Tipo de discapacidad es requerido"),
-      ],
-      'field_pqrsd_grupo_etnico' => [
+      ],*/
+      /*'field_pqrsd_grupo_etnico' => [
         new ValidatorRequired("Grupo étnico es requerido"),
-      ],
+      ],*/
       'field_pqrsd_preferencial' => [
         new ValidatorRequired("Atención preferencial es requerido"),
       ],

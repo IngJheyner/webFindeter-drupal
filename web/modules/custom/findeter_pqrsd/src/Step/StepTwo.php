@@ -27,7 +27,11 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class StepTwo extends BaseStep {
 
-  // property to show messages
+  /**
+   * Messenger.
+   *
+   * @var Drupal\Core\Messenger\MessengerInterface
+   */
   private $messenger;
 
   /**
@@ -67,33 +71,33 @@ class StepTwo extends BaseStep {
   /**
    * {@inheritdoc}
    */
-  public function buildStepFormElements($steps,$form,$form_state) {
+  public function buildStepFormElements($steps, $form, $form_state) {
 
-    // Get the definitions
+    // Get the definitions.
     $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'pqrsd');
 
-    //values previous step
+    // Values previous step.
     $values = $steps[1]->getValues();
 
-    if($values['field_pqrsd_tipo_solicitante'] == 'juridica'
-    || $values['field_pqrsd_tipo_solicitante'] == "2"){
+    if ($values['field_pqrsd_tipo_solicitante'] == 'juridica'
+    || $values['field_pqrsd_tipo_solicitante'] == "2") {
       $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información básica:
                                       <p class="text-dark font-weight-bold">Persona jurídica</p></h2>';
 
-      // start col 1
+      // Start col 1.
       $formStep['field_pqrsd_nit'] = [
         '#type'       => 'textfield',
         '#title'      => $definitions['field_pqrsd_nit']->getLabel(),
-        //'#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_nit']->getLabel())],
-        '#attributes' => ['placeholder'=>'Ej: 2321133'],
+        // '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_nit']->getLabel())],
+        '#attributes' => ['placeholder' => 'Ej: 2321133'],
         '#prefix'     => '<div class="row mx-auto form-container"><div class="col-12 col-md-6 form-container-col">'
       ];
 
       $formStep['field_pqrsd_razon_social'] = [
         '#type'       => 'textfield',
         '#title'      => $definitions['field_pqrsd_razon_social']->getLabel(),
-        //'#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_razon_social']->getLabel())]
-        '#attributes' => ['placeholder'=>'Ej: Empresa S.A.S'],
+        // '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_razon_social']->getLabel())]
+        '#attributes' => ['placeholder' => 'Ej: Empresa S.A.S'],
       ];
 
       $formStep['field_pqrsd_tipo_empresa'] = [
@@ -103,21 +107,23 @@ class StepTwo extends BaseStep {
         '#empty_option' => '-Seleccione una opción-',
       ];
 
-    }else{
+    }
+    else {
 
-      if($values['field_pqrsd_tipo_solicitante'] == "1")
+      if ($values['field_pqrsd_tipo_solicitante'] == "1") {
         $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información básica:
                                         <p class="text-dark font-weight-bold">Persona Natural</p></h2>';
-      else
+      }
+      else {
         $formStep['title']['#markup'] = '<h2 class="text-center mt-4 mb-5">Información básica:
         <p class="text-dark font-weight-bold">Persona '.$values['field_pqrsd_tipo_solicitante'].'</p></h2>';
-
-      // start col 1
+      }
+      // Start col 1.
       $formStep['field_pqrsd_numero_id'] = [
         '#type'       => 'textfield',
         '#title'      => $definitions['field_pqrsd_numero_id']->getLabel(),
-        //'#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_numero_id']->getLabel())],
-        '#attributes' => ['placeholder'=>'Ej: 2321133'],
+        // '#attributes' => ['placeholder'=>'Diligencie su '.strtolower($definitions['field_pqrsd_numero_id']->getLabel())],
+        '#attributes' => ['placeholder' => 'Ej: 2321133'],
         '#prefix'     => '<div class="row mx-auto form-container"><div class="col-12 col-md-6 form-container-col">'
       ];
 
@@ -128,17 +134,19 @@ class StepTwo extends BaseStep {
       SMFC numerico y Findeter caracter.
       =============================================== */
       $valuesData = $steps[0]->getValues();
-      //Obtenemos el valor de tipo de radicado
+      // Obtenemos el valor de tipo de radicado.
       $itemTipDoc = $definitions['field_pqrsd_tipo_documento']->getSetting('allowed_values');
 
       $optionsTipDoc = [];
       $optionsTipDocSmfc = [];
 
       foreach ($itemTipDoc as $key => $value) {
-        if(is_numeric($key))
+        if (is_numeric($key)) {
           $optionsTipDocSmfc[$key] = $value;
-        else
+        }
+        else {
           $optionsTipDoc[$key] = $value;
+        }
       }
 
       $formStep['field_pqrsd_tipo_documento'] = [
@@ -161,48 +169,48 @@ class StepTwo extends BaseStep {
       '#type'    => 'select',
       '#title'   => $definitions['field_pqrsd_lgtbi']->getLabel(),
       '#options' => $definitions['field_pqrsd_lgtbi']->getSetting('allowed_values'),
-      '#empty_option' => '-Seleccione una opción-'
+      '#empty_option' => '-Seleccione una opción-',
     ];
 
     $formStep['field_pqrsd_primer_nombre'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_pqrsd_primer_nombre']->getLabel(),
-      '#attributes' => ['placeholder'=>'Ej: Juan']
+      '#attributes' => ['placeholder' => 'Ej: Juan']
     ];
 
     $formStep['field_pqrsd_segundo_nombre'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_pqrsd_segundo_nombre']->getLabel(),
-      '#attributes' => ['placeholder'=>'Ej: Carlos']
+      '#attributes' => ['placeholder' => 'Ej: Carlos']
     ];
 
     $formStep['field_pqrsd_primer_apellido'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_pqrsd_primer_apellido']->getLabel(),
-      '#attributes' => ['placeholder'=>'Ej: Pedraza']
+      '#attributes' => ['placeholder' => 'Ej: Pedraza']
     ];
 
-    // end col 1
+    // End col 1.
     $formStep['field_pqrsd_segundo_apellido'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_pqrsd_segundo_apellido']->getLabel(),
-      '#attributes' => ['placeholder'=>'Ej: Ortega'],
+      '#attributes' => ['placeholder' => 'Ej: Ortega'],
       '#suffix'       => '</div>'
     ];
 
-    if($values['field_pqrsd_tipo_solicitante'] == 'juridica'
-    || $values['field_pqrsd_tipo_solicitante'] == "2"){
+    if ($values['field_pqrsd_tipo_solicitante'] == 'juridica'
+    || $values['field_pqrsd_tipo_solicitante'] == "2") {
       $formStep['field_pqrsd_primer_nombre']['#title'] .= ' del representante legal';
       $formStep['field_pqrsd_segundo_nombre']['#title'] .= ' del representante legal';
       $formStep['field_pqrsd_primer_apellido']['#title'] .= ' del representante legal';
       $formStep['field_pqrsd_segundo_apellido']['#title'] .= ' del representante legal';
     }
 
-    // start col 2
+    // Start col 2.
     $formStep['field_pqrsd_direccion'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_pqrsd_direccion']->getLabel(),
-      '#attributes' => ['placeholder'=>'Ej: carrera 2 No 32 - 15'],
+      '#attributes' => ['placeholder' => 'Ej: carrera 2 No 32 - 15'],
       '#prefix'     => '<div class="col-12 col-md-6 form-container-col">'
     ];
 
@@ -226,10 +234,11 @@ class StepTwo extends BaseStep {
       ],
     ];
 
-    $departmentValue = false;
-    if($form_state->getValue('field_pqrsd_departamento') != ''){
+    $departmentValue = FALSE;
+    if ($form_state->getValue('field_pqrsd_departamento') != '') {
       $departmentValue = $form_state->getValue('field_pqrsd_departamento');
-    }elseif(isset($steps[2]->values['field_pqrsd_departamento'])){
+    }
+    elseif (isset($steps[2]->values['field_pqrsd_departamento'])) {
       $departmentValue = $steps[2]->values['field_pqrsd_departamento'];
     }
 
@@ -251,27 +260,25 @@ class StepTwo extends BaseStep {
     $formStep['field_pqrsd_telefono'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_pqrsd_telefono']->getLabel(),
-      '#attributes' => ['placeholder'=>'Ej: 5435455']
+      '#attributes' => ['placeholder' => 'Ej: 5435455']
     ];
 
     $formStep['field_pqrsd_fax'] = [
       '#type'       => 'textfield',
       '#title'      => $definitions['field_pqrsd_fax']->getLabel(),
-      '#attributes' => ['placeholder'=>'Ej: 4354555']
+      '#attributes' => ['placeholder' => 'Ej: 4354555']
     ];
 
-    // end col 2
+    // End col 2.
     $formStep['field_pqrsd_email'] = [
       '#type'       => 'email',
       '#title'      => $definitions['field_pqrsd_email']->getLabel(),
-      '#attributes' => ['placeholder'=>'Ej: correo@gmail.com'],
+      '#attributes' => ['placeholder' => 'Ej: correo@gmail.com'],
       '#suffix'     => '</div></div>'
     ];
 
     return $formStep;
   }
-
-
 
   /**
    * {@inheritdoc}
@@ -322,9 +329,9 @@ class StepTwo extends BaseStep {
       'field_pqrsd_sexo' => [
         new ValidatorNaturalRequester("El sexo es requerido"),
       ],
-      'field_pqrsd_lgtbi' => [
+      /*'field_pqrsd_lgtbi' => [
         new ValidatorNaturalRequester("Lgtbi es requerido"),
-      ],
+      ],*/
       'field_pqrsd_primer_nombre' => [
         new ValidatorRequired("Primer nombre es requerido"),
         new ValidatorCharacterSpecial("Primer nombre: No se permite caracteres especiales ni números."),

@@ -102,10 +102,11 @@ class StepFour extends BaseStep {
     ];
 
     $authorization[] = $definitions['field_pqrsd_autorizacion']->getSetting('allowed_values');
+    $authorization[] = $definitions['field_pqrsd_autorizacion']->getDescription();
 
     $formStep['field_pqrsd_autorizacion'] = [
       '#type'  => 'checkbox',
-      '#title' => $authorization[0]['autorizacion_findeter'],
+      '#title' => $authorization[0]['autorizacion_findeter']." $authorization[1]",
     ];
 
     $marketing[] = $definitions['field_pqrsd_marketing']->getSetting('allowed_values');

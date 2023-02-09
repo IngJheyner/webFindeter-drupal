@@ -3,8 +3,12 @@ langcode: es
 status: true
 dependencies:
   module:
+    - field_permissions
     - node
     - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
 id: node.field_pqrsd_autorizacion
 field_name: field_pqrsd_autorizacion
 entity_type: node
@@ -13,7 +17,7 @@ settings:
   allowed_values:
     -
       value: autorizacion_findeter
-      label: 'Al dar clic sobre el botón "Enviar solicitud" ésta quedará registrada y con ella autoriza a FINDETER el tratamiento de mis datos personales para la gestión interna conforme a su política de protección de datos.'
+      label: 'Al dar clic sobre el botón "Enviar solicitud" ésta quedará registrada y con ella autoriza a FINDETER el tratamiento de sus datos personales para la gestión interna conforme a la Política de Protección de Datos de Findeter S.A la cual la puede consultar'
   allowed_values_function: ''
 module: options
 locked: false
