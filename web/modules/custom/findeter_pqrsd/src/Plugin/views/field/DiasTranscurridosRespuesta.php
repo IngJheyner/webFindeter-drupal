@@ -94,7 +94,7 @@ class DiasTranscurridosRespuesta extends FieldPluginBase {
 
     if (isset($row->getFields()['field_pqrsd_fecha_respuesta'][0])) {
 
-      $dateI = $row->get('created')->getValue()[0]['value'];
+      $dateI = $row->get('created')->getValue()[0]['value'] + 86400;
       $dateF = strtotime($row->get('field_pqrsd_fecha_respuesta')->getValue()[0]['value']);
 
       for ($timeStamp = $dateI; $timeStamp <= $dateF; $timeStamp += 86400) {

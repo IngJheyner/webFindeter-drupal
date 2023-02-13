@@ -649,11 +649,10 @@ class ReportsPqrsdController extends ControllerBase {
           // $dateF = new \DateTime($node->get('field_pqrsd_fecha_respuesta')->getValue()[0]['value']);
           // $days = $dateI->diff($dateF);
 
-          $dateI = $node->get('created')->getValue()[0]['value'];
+          // 86400 = 1 dia.
+          // Se incrementa a la fecha de radicado.
+          $dateI = $node->get('created')->getValue()[0]['value'] + 86400;
           $dateF = strtotime($node->get('field_pqrsd_fecha_respuesta')->getValue()[0]['value']);
-
-          // Incremento en 1 dia.
-          $dayIterator = 24 * 60 * 60;
 
           // Atendidas.
           $mTable[$month]['attended']++;
@@ -661,7 +660,7 @@ class ReportsPqrsdController extends ControllerBase {
           // Contador de dias para cada fecha.
           $days = 0;
 
-          for ($timeStamp = $dateI; $timeStamp <= $dateF; $timeStamp += $dayIterator) {
+          for ($timeStamp = $dateI; $timeStamp <= $dateF; $timeStamp += 86400) {
 
             // Declaramos variabes para la fecha fesitvos.
             $day = date('d', $timeStamp);
