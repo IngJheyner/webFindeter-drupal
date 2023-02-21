@@ -8,13 +8,14 @@ description: 'Módulos que se instala solo en ambientes de desarrollo y se exclu
 weight: 0
 folder: ../config/dev
 module:
+  ajax_example: 0
   devel: 0
   devel_entity_updates: 0
   examples: 0
   potx: 0
-  ajax_example: 0
 theme: {  }
-blacklist: {  }
+blacklist:
+  - advagg.settings
 graylist:
   - advagg.settings
   - seckit.settings
