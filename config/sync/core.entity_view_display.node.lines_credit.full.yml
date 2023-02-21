@@ -9,6 +9,8 @@ dependencies:
     - field.field.node.lines_credit.field_currency_linecredit
     - field.field.node.lines_credit.field_date_validity_prgms
     - field.field.node.lines_credit.field_field_sector_prgms
+    - field.field.node.lines_credit.field_form_entities
+    - field.field.node.lines_credit.field_image_form_entities
     - field.field.node.lines_credit.field_image_prgms
     - field.field.node.lines_credit.field_info_product_linecredit
     - field.field.node.lines_credit.field_interest_rate_prgms
@@ -28,6 +30,7 @@ dependencies:
     - field_formatter_class
     - layout_builder
     - options
+    - svg_image
     - user
 third_party_settings:
   layout_builder:
@@ -70,6 +73,28 @@ content:
       link: true
     third_party_settings: {  }
     weight: 13
+    region: content
+  field_form_entities:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_image_form_entities:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 16
     region: content
   field_info_product_linecredit:
     type: entity_reference_revisions_entity_view

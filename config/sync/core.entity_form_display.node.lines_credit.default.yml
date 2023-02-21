@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.lines_credit.field_currency_linecredit
     - field.field.node.lines_credit.field_date_validity_prgms
     - field.field.node.lines_credit.field_field_sector_prgms
+    - field.field.node.lines_credit.field_form_entities
+    - field.field.node.lines_credit.field_image_form_entities
     - field.field.node.lines_credit.field_image_prgms
     - field.field.node.lines_credit.field_info_product_linecredit
     - field.field.node.lines_credit.field_interest_rate_prgms
@@ -36,6 +38,7 @@ third_party_settings:
         - group_info_product
         - group_programs
         - group_steps_acces_credit
+        - group_form_group_entities
       label: 'Group Tabs'
       region: content
       parent_name: ''
@@ -114,7 +117,7 @@ third_party_settings:
       label: 'Paso para acceder a un credito de Findeter'
       region: content
       parent_name: group_group_tabs
-      weight: 5
+      weight: 4
       format_type: tab
       format_settings:
         classes: ''
@@ -168,6 +171,22 @@ third_party_settings:
         id: ''
         description: ''
         required_fields: true
+    group_form_group_entities:
+      children:
+        - field_form_entities
+        - field_image_form_entities
+      label: Formulario
+      region: content
+      parent_name: group_group_tabs
+      weight: 5
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
 id: node.lines_credit.default
 targetEntityType: node
 bundle: lines_credit
@@ -210,6 +229,22 @@ content:
     weight: 13
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_form_entities:
+    type: string_textarea
+    weight: 29
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_image_form_entities:
+    type: image_image
+    weight: 30
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
   field_image_prgms:
     type: image_image
