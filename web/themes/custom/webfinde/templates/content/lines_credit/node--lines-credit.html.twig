@@ -288,7 +288,7 @@
         <div class="row mt-4 px-5 py-3">
 
           {% for key, value in node.field_programs_linecredit %}
-            <div class="col-4 col-card">
+            <div class="col-12 col-md-6 col-lg-4 mb-3 mb-lg-0 col-card">
               {{ content.field_programs_linecredit[key] }}
             </div>
           {% endfor %}
@@ -314,6 +314,29 @@
       </ul>
 
     </section>
+
+    {# ============================================
+    FORMULARIO
+    =============================================== #}
+
+    {% if node.field_form_entities.value %}
+      <div class="form-entities-rediscount py-4" id="consulta-gerente-cuenta">
+
+        <h2 class="text-center">¿Dudas? ¡Solicite más información a uno de nuestros gerentes de cuenta!</h2>
+
+        <div class="container my-5">
+          <div class="row">
+            <div class="col-12 col-md-7">
+              {{ content.field_form_entities.0['#context']['value']|raw }}
+            </div>
+            <div class="col-5 d-none d-md-block">
+              <img onerror='this.remove();' src="{{ file_url(content.field_image_form_entities[0]['#item'].entity.uri.value) }}" class="img-fluid" />
+            </div>
+
+          </div>
+        </div>
+      </div>
+    {% endif %}
   </div>
 
 </article>
