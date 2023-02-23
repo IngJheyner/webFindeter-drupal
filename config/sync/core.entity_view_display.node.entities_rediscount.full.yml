@@ -1,0 +1,116 @@
+uuid: 6a94fff3-3c88-4b76-898c-8e3129ae65ff
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.entities_rediscount.field_description_entities
+    - field.field.node.entities_rediscount.field_form_entities
+    - field.field.node.entities_rediscount.field_image_form_entities
+    - field.field.node.entities_rediscount.field_info_interest_entities
+    - field.field.node.entities_rediscount.field_info_rediscount_entities
+    - field.field.node.entities_rediscount.field_menu_entities
+    - field.field.node.entities_rediscount.field_steps_access_credit_prgms
+    - field.field.node.entities_rediscount.field_video_entities
+    - node.type.entities_rediscount
+  module:
+    - entity_reference_revisions
+    - field_formatter_class
+    - layout_builder
+    - svg_image
+    - text
+    - user
+    - video_embed_field
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.entities_rediscount.full
+targetEntityType: node
+bundle: entities_rediscount
+mode: full
+content:
+  field_description_entities:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_form_entities:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_image_form_entities:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_info_interest_entities:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_info_rediscount_entities:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_menu_entities:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_steps_access_credit_prgms:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_video_entities:
+    type: video_embed_field_video
+    label: above
+    settings:
+      autoplay: false
+      responsive: true
+      width: 854
+      height: 480
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 6
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

@@ -1,0 +1,137 @@
+uuid: 783700d1-5784-44e7-b9fc-1778033cdb16
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.programs.field_available_prgrms
+    - field.field.node.programs.field_beneficiaries_prgms
+    - field.field.node.programs.field_date_validity_prgms
+    - field.field.node.programs.field_field_sector_prgms
+    - field.field.node.programs.field_image_prgms
+    - field.field.node.programs.field_info_product_prgms
+    - field.field.node.programs.field_interest_rate_prgms
+    - field.field.node.programs.field_margin_prgms
+    - field.field.node.programs.field_means_progms
+    - field.field.node.programs.field_space_available_prgms
+    - field.field.node.programs.field_steps_access_credit_prgms
+    - field.field.node.programs.field_subtitle_prgms
+    - field.field.node.programs.field_term_prgms
+    - field.field.node.programs.field_validity_prgms
+    - node.type.programs
+  module:
+    - datetime
+    - entity_reference_revisions
+    - field_formatter_class
+    - layout_builder
+    - options
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.programs.full
+targetEntityType: node
+bundle: programs
+mode: full
+content:
+  field_date_validity_prgms:
+    type: datetime_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: long
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 10
+    region: content
+  field_field_sector_prgms:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 9
+    region: content
+  field_info_product_prgms:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_interest_rate_prgms:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_margin_prgms:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_means_progms:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_space_available_prgms:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_steps_access_credit_prgms:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_subtitle_prgms:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_term_prgms:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_validity_prgms:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+hidden:
+  addtoany: true
+  field_available_prgrms: true
+  field_beneficiaries_prgms: true
+  field_image_prgms: true
+  langcode: true
+  links: true

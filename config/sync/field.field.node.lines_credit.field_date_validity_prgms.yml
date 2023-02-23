@@ -1,0 +1,21 @@
+uuid: 46fe1ff4-abbe-45f1-92b2-8547097e2834
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date_validity_prgms
+    - node.type.lines_credit
+  module:
+    - datetime
+id: node.lines_credit.field_date_validity_prgms
+field_name: field_date_validity_prgms
+entity_type: node
+bundle: lines_credit
+label: Vigencia
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

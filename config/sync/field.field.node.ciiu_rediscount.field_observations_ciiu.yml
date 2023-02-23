@@ -1,0 +1,19 @@
+uuid: 40cb5873-a8f5-46e5-8376-0b12e2845d57
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_observations_ciiu
+    - node.type.ciiu_rediscount
+id: node.ciiu_rediscount.field_observations_ciiu
+field_name: field_observations_ciiu
+entity_type: node
+bundle: ciiu_rediscount
+label: 'Observaciones / Ajustes por IF'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -216,7 +216,7 @@ class RegisterPQRSD extends FormBase {
 
     $allSteps = $this->stepManager->getAllSteps();
 
-    if(isset($allSteps[1])){
+    if (isset($allSteps[1])) {
 
       if($allSteps[1]->getValues()['field_pqrsd_tipo_solicitante'] == 'anonimo'){
 
@@ -229,7 +229,7 @@ class RegisterPQRSD extends FormBase {
 
     }
 
-    // fill fields with stored values
+    // Fill fields with stored values.
     if($this->step->getValues() != ''){
       foreach($this->step->getValues() as $field=>$value){
         if(isset($form['wrapper']['content-fields'][$field])){
@@ -283,8 +283,7 @@ class RegisterPQRSD extends FormBase {
       $response->addCommand(new HtmlCommand('#messages-wrapper', ''));
     }
 
-
-    if($this->stepId == 6){
+    if($this->stepId == 6) {
 
       $steps = $this->stepManager->getAllSteps();
 
@@ -292,19 +291,19 @@ class RegisterPQRSD extends FormBase {
       //$url = Url::fromRoute('findeter_pqrsd.confirm_register_pqrsd',['operation'=>'create','nid'=>500])->toString();
       $response->addCommand(new \Drupal\Core\Ajax\RedirectCommand($url));
 
-    }else{
+    }
+    else {
 
       // Update Form.
-      $response->addCommand(new ReplaceCommand('#form-wrapper',$form['wrapper']));
+      $response->addCommand(new ReplaceCommand('#form-wrapper', $form['wrapper']));
 
-      //Scroll at the top of the form
+      // Scroll at the top of the form.
       $response->addCommand(new ScrollTopCommand('#form-wrapper'));
 
     }
 
     return $response;
   }
-
 
   /**
    * {@inheritdoc}
@@ -334,15 +333,13 @@ class RegisterPQRSD extends FormBase {
         // Validate all validators for field.
         $field_value = $form_state->getValue($field);
         foreach ($validators as $validator) {
-          if (!$validator->validates($field_value,$allValues)) {
+          if (!$validator->validates($field_value, $allValues)) {
             $form_state->setErrorByName($field, $validator->getErrorMessage());
           }
         }
       }
     }
-
   }
-
 
   /**
    * {@inheritdoc}
@@ -356,8 +353,8 @@ class RegisterPQRSD extends FormBase {
     foreach ($this->step->getFieldNames() as $name) {
       $values[$name] = $form_state->getValue($name);
     }
-    // only for step zero
-    if($this->step->getStep()===0){
+    // Only for step zero.
+    if ($this->step->getStep() === 0) {
       $values['field_pqrsd_tipo_radicado'] = $triggering_element['#value'];
     }
 
@@ -367,16 +364,16 @@ class RegisterPQRSD extends FormBase {
 
     $this->stepId = $triggering_element['#goto_step'];
 
-    // for anonimo request, jump step 2
+    // For anonimo request, jump step 2.
     $allSteps = $this->stepManager->getAllSteps();
-    if(isset($allSteps[1])){
+    if (isset($allSteps[1])) {
       $valuesStep1 = $allSteps[1]->getValues();
-      if($valuesStep1['field_pqrsd_tipo_solicitante'] == 'anonimo'){
-        if($this->step->getStep() == 1){
+      if ($valuesStep1['field_pqrsd_tipo_solicitante'] == 'anonimo') {
+        if ($this->step->getStep() == 1) {
           $this->stepId = 3;
         }
 
-        if($this->step->getStep() == 3 && $triggering_element['#value']=='Volver'){
+        if ($this->step->getStep() == 3 && $triggering_element['#value'] == 'Volver') {
           $this->stepId = 1;
         }
       }
@@ -392,7 +389,6 @@ class RegisterPQRSD extends FormBase {
     $form_state->setRebuild(TRUE);
   }
 
-
   /**
    * Submit handler for last step of form.
    *
@@ -403,45 +399,46 @@ class RegisterPQRSD extends FormBase {
    */
   public function submitValues(array &$form, FormStateInterface $form_state) {
 
-    //retrying all values
+    // Retrying all values.
     $steps = $this->stepManager->getAllSteps();
 
-    //define new node of content type
+    // Define new node of content type.
     $newRequest = Node::create(['type' => 'pqrsd']);
     $newRequest->set('title', 'User request - '.date('U'));
 
-    //to retrive all values at one single array
+    // To retrive all values at one single array.
     $values = [];
-    //FileSotorage que se carga a la entidad de tipo file
+    // FileSotorage que se carga a la entidad de tipo file.
     $fileStorageArray = [];
-    foreach($steps as $step){
-      foreach($step->getValues() as $field=>$value){
+    foreach ($steps as $step) {
+      foreach ($step->getValues() as $field => $value) {
 
-        //adding all values in the same array
+        // Adding all values in the same array.
         $values += $step->getValues();
 
-        if($field == 'field_pqrsd_marketing'){
-          if($value){
+        if ($field == 'field_pqrsd_marketing') {
+          if ($value) {
             $value = 'autorizacion_marketing';
-          }else{
+          }
+          else {
             $value = '';
           }
         }
 
-        if($field == 'field_pqrsd_autorizacion'){
+        if ($field == 'field_pqrsd_autorizacion') {
           $value = 'autorizacion_findeter';
         }
 
-        if($value != ''){
+        if ($value != '') {
           $newRequest->set($field, $value);
         }
 
-        // store all files
-        if($field == 'field_pqrsd_archivo'){
+        // Store all files.
+        if ($field == 'field_pqrsd_archivo') {
 
           $fileStorage = $this->entityTypeManager->getStorage('file');
 
-          foreach($value as $key=>$fid){
+          foreach ($value as $key => $fid) {
             if (!empty($fid)) {
 
               /*$file = File::load($fid);
@@ -449,7 +446,7 @@ class RegisterPQRSD extends FormBase {
               $file->save();*/
               $file = $fileStorage->load($fid);
 
-              //Se agegra el file entidad al arreglo filestorage declarado antes del ciclo for
+              // Se agegra el file entidad al arreglo filestorage declarado antes del ciclo for.
               $fileStorageArray[$key] = $file;
 
             }
@@ -461,20 +458,21 @@ class RegisterPQRSD extends FormBase {
 
     $numeroRadicado = generarNumeroRadicado($values['field_pqrsd_tipo_radicado']);
 
-    // define title of node
+    // Define title of node.
     $newRequest->set('title', 'Radicado: '.$numeroRadicado.'.'.date('U'));
 
-    // set "# radicado"
+    // Set "# radicado".
     /* Si es un radicado de tipo Queja, se antepone el codigo de entidad de findeter para SMFC
     @author 3desarrollo===== ===== */
-    if($values['field_pqrsd_tipo_radicado'] == 'Quejas' ||
-    $values['field_pqrsd_tipo_radicado'] == 'Reclamos'){
+    if ($values['field_pqrsd_tipo_radicado'] == 'Quejas' ||
+    $values['field_pqrsd_tipo_radicado'] == 'Reclamos') {
 
       $numeroRadicado = $this->apiSmfc->getTipCodeEntity($numeroRadicado);
       $newRequest->set('field_pqrsd_numero_radicado', $numeroRadicado);
 
-    }else{
-      $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);
+    }
+    else {
+      $newRequest->set('field_pqrsd_numero_radicado', $numeroRadicado);
     }
 
     $config = $this->config('findeter_pqrsd.admin');
@@ -483,36 +481,36 @@ class RegisterPQRSD extends FormBase {
     $newRequest->uid = $user->id();
     $newRequest->set('field_pqrsd_asignaciones', $user->getAccountName().' | '.$user->id().' | '.date('j/m/Y H:i:s'));
 
-    // channel and way to recipt the PQRSD
+    // Channel and way to recipt the PQRSD.
     $newRequest->set('field_pqrsd_canal_recepcion', 'web');
     $newRequest->set('field_pqrsd_forma_recepcion', 'electronico');
 
-    // define date of answer
+    // Define date of answer.
     $datesConfigure = defineDatesSemaphore($values);
     $newRequest->set('field_pqrsd_fecha_roja', $datesConfigure['red']);
     $newRequest->set('field_pqrsd_fecha_naranja', $datesConfigure['orange']);
 
-    //Instancia de recepcion @author 3desarrollo
-    //Por defecto 2. Entidad
+    // Instancia de recepcion @author 3desarrollo.
+    // Por defecto 2. Entidad.
     $newRequest->set('field_pqrsd_instance_reception', 2);
 
     /* set "# radicado"
     $newRequest->set('field_pqrsd_numero_radicado',$numeroRadicado);*/
-    Cache::invalidateTags(['node_list:pqrsd']);//Invalidamos las tags creadas en la cache con cid findeter_pqrsd_statistics y que tengas este tag asociado
+    // Invalidamos las tags creadas en la cache con cid findeter_pqrsd_statistics y que tengas este tag asociado.
+    Cache::invalidateTags(['node_list:pqrsd']);
 
     $newRequest->enforceIsNew();
     $newRequest->save();
 
-
     /* Se agrega como archivos gestionados a file.usage  ===== ===== */
-    foreach($fileStorageArray as $file){
+    foreach ($fileStorageArray as $file) {
 
       $this->fileUsage->add($file, 'findeter_pqrsd', 'node', $newRequest->id());
 
     }
 
-    // send email
-    if(isset($values['field_pqrsd_email']) && $values['field_pqrsd_email'] != ''){
+    // Send email.
+    if (isset($values['field_pqrsd_email']) && $values['field_pqrsd_email'] != '') {
 
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'findeter_pqrsd';
@@ -527,7 +525,7 @@ class RegisterPQRSD extends FormBase {
 
       $mailBody[] = '<p>De antemano queremos agradecerle por haberse puesto en contacto con nosotros a traves del sistema de atención al usuario. Su opinión es muy importante para nosotros.</p>';
 
-      $mailBody[] = '<p>Le informamos que su solicitud ha sido registrada satisfactoriamente con el código de radicado:<br><strong>'.$numeroRadicado.'</strong></p>';
+      $mailBody[] = "<p>Le informamos que su solicitud ha sido registrada satisfactoriamente con el código de radicado:<br><strong>$numeroRadicado.'</strong></p>";
 
       $mailBody[] = '<p>Con este código podrá <a href="https://www.findeter.gov.co/estado-pqrsd">ingresar</a> para consultar el estado de la misma y si es el caso ampliar o enviar información adicional</p>';
 
@@ -537,21 +535,21 @@ class RegisterPQRSD extends FormBase {
       $mailBody[] = 'Findeter';
       $mailBody[] = '<a href="https://www.findeter.gov.co" target="_blank"><img onerror="this.remove();" alt="Findeter" src="https://www.findeter.gov.co/sites/default/files/webfinde/images/encabezado/logo.png" width="300" height="150"></a>';
 
-      $params['message'] = implode('<br>',$mailBody);
+      $params['message'] = implode('<br>', $mailBody);
 
       $langcode = \Drupal::currentUser()->getPreferredLangcode();
-      $send = true;
+      $send = TRUE;
 
       $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
 
-      if($result['result'] !== true){
+      if ($result['result'] !== TRUE) {
         \Drupal::messenger()->addError('Ocurrió un problema al enviar el correo.');
       }
     }
 
-    sendNotificationAsign($user,$newRequest);
+    sendNotificationAsign($user, $newRequest);
 
-    // store the nid value of new node created
+    // Store the nid value of new node created.
     $values['new_nid'] = $newRequest->id();
 
     $values['pqrsd_numero_radicado'] = $numeroRadicado;
@@ -564,30 +562,31 @@ class RegisterPQRSD extends FormBase {
     Queja o Reclamo.
     @author 3ddesarrollo
     =============================================== */
-    if($values['field_pqrsd_tipo_radicado'] == 'Quejas' ||
-    $values['field_pqrsd_tipo_radicado'] == 'Reclamos'){
+    if ($values['field_pqrsd_tipo_radicado'] == 'Quejas' ||
+    $values['field_pqrsd_tipo_radicado'] == 'Reclamos') {
 
       /* Se guarda los nid como variables de estado para que despues
       sea registrado en la API SMFC. ==== ====== */
       $nid = $this->state->get('findeter_pqrsd.api_smfc_nid');
 
-      if(is_null($nid) || empty($nid)){
+      if (is_null($nid) || empty($nid)) {
 
         $this->state->set('findeter_pqrsd.api_smfc_nid', [
           [
+            "nid" => $values['new_nid'],
+            "title" => $newRequest->getTitle(),
+            "created" => $newRequest->getCreatedTime(),
+            "smfc" => FALSE,
+          ]
+        ]);
+
+      }
+      else {
+        $nid[] = [
           "nid" => $values['new_nid'],
           "title" => $newRequest->getTitle(),
           "created" => $newRequest->getCreatedTime(),
           "smfc" => FALSE,
-          ]
-        ]);
-
-      }else{
-        $nid[] = [
-        "nid" => $values['new_nid'],
-        "title" => $newRequest->getTitle(),
-        "created" => $newRequest->getCreatedTime(),
-        "smfc" => FALSE,
         ];
 
         $this->state->set('findeter_pqrsd.api_smfc_nid', $nid);

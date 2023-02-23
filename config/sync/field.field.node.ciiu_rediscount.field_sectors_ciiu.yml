@@ -1,0 +1,29 @@
+uuid: 1506af80-c3ed-4679-bb81-03d7c890cb91
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sectors_ciiu
+    - node.type.ciiu_rediscount
+    - node.type.sectors_rediscount
+id: node.ciiu_rediscount.field_sectors_ciiu
+field_name: field_sectors_ciiu
+entity_type: node
+bundle: ciiu_rediscount
+label: Sectores
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      sectors_rediscount: sectors_rediscount
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

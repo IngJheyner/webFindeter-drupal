@@ -1,0 +1,22 @@
+uuid: aaa7e77c-ce00-489a-9999-5a10bd04db90
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.ciiu_rediscount
+id: node.ciiu_rediscount.promote
+field_name: promote
+entity_type: node
+bundle: ciiu_rediscount
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

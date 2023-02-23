@@ -1,0 +1,192 @@
+uuid: b24e99a6-070b-4221-bbc6-34242ae845b2
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.lines_credit.field_available_prgrms
+    - field.field.node.lines_credit.field_beneficiaries_prgms
+    - field.field.node.lines_credit.field_currency_linecredit
+    - field.field.node.lines_credit.field_date_validity_prgms
+    - field.field.node.lines_credit.field_field_sector_prgms
+    - field.field.node.lines_credit.field_form_entities
+    - field.field.node.lines_credit.field_image_form_entities
+    - field.field.node.lines_credit.field_image_prgms
+    - field.field.node.lines_credit.field_info_product_linecredit
+    - field.field.node.lines_credit.field_interest_rate_prgms
+    - field.field.node.lines_credit.field_margin_prgms
+    - field.field.node.lines_credit.field_means_progms
+    - field.field.node.lines_credit.field_programs_linecredit
+    - field.field.node.lines_credit.field_space_available_prgms
+    - field.field.node.lines_credit.field_steps_access_credit_prgms
+    - field.field.node.lines_credit.field_subtitle_prgms
+    - field.field.node.lines_credit.field_term_prgms
+    - field.field.node.lines_credit.field_type_beneficiary_lincredit
+    - field.field.node.lines_credit.field_validity_prgms
+    - node.type.lines_credit
+  module:
+    - datetime
+    - entity_reference_revisions
+    - field_formatter_class
+    - layout_builder
+    - options
+    - svg_image
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.lines_credit.full
+targetEntityType: node
+bundle: lines_credit
+mode: full
+content:
+  field_available_prgrms:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_beneficiaries_prgms:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_date_validity_prgms:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: long
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 7
+    region: content
+  field_field_sector_prgms:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_form_entities:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_image_form_entities:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_info_product_linecredit:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_interest_rate_prgms:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_margin_prgms:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_means_progms:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_programs_linecredit:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 9
+    region: content
+  field_space_available_prgms:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_steps_access_credit_prgms:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_subtitle_prgms:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_term_prgms:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_validity_prgms:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  field_currency_linecredit: true
+  field_image_prgms: true
+  field_type_beneficiary_lincredit: true
+  langcode: true

@@ -1,0 +1,26 @@
+uuid: a8cb588c-f87f-4609-8efc-4983cc521f8d
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.banks_rediscount.field_icon_bank
+    - field.field.node.banks_rediscount.field_text_alternative_bank
+    - node.type.banks_rediscount
+  module:
+    - user
+id: node.banks_rediscount.teaser
+targetEntityType: node
+bundle: banks_rediscount
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_icon_bank: true
+  field_text_alternative_bank: true
+  langcode: true

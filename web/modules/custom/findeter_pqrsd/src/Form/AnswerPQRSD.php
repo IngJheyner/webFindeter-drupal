@@ -2,16 +2,14 @@
 
 namespace Drupal\findeter_pqrsd\Form;
 
-use Drupal\Core\Ajax\InvokeCommand;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\AlertCommand;
 use Drupal\node\Entity\Node;
-use Drupal\file\Entity\File;
-use Drupal\block\Entity\Block;
-use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Ajax\RedirectCommand;
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Url;
+use Drupal\user\Entity\User;
 
 /**
  * Class AnswerPQRSD.
@@ -147,6 +145,10 @@ class AnswerPQRSD extends FormBase {
       '#ajax'  => [
         'callback' => '::ajaxCloseModal',
         'event'    => 'click',
+        'progress' => [
+          'type' => 'bar',
+          'message' => 'Se esta guardando su respuesta..',
+        ],
       ],
     ];
 
@@ -194,18 +196,16 @@ class AnswerPQRSD extends FormBase {
       $node->field_pqrsd_respuesta[] = $formValues['field_pqrsd_respuesta'];
       $node->field_pqrsd_respuesta_a_favor[] = $formValues['field_pqrsd_respuesta_a_favor'];
       $node->field_pqrsd_fecha_respuesta[] = date('Y-m-d\TH:i:s', strtotime('now'));
-      $node->field_pqrsd_tutela[] = $formValues['field_pqrsd_tutela'];
-      $node->field_pqrsd_entes_control[] = $formValues['field_pqrsd_entes_control'];
-      $node->field_pqrsd_motivo[] = $formValues['field_pqrsd_motivo'];
+
+      $node->field_pqrsd_tutela[] = isset($formValues['field_pqrsd_tutela']) ?: NULL;
+      $node->field_pqrsd_entes_control[] = isset($formValues['field_pqrsd_entes_control']) ?: NULL;
+      $node->field_pqrsd_motivo[] = isset($formValues['field_pqrsd_motivo']) ?: NULL;
 
       $fileStorage = \Drupal::entityTypeManager()->getStorage('file');
 
       foreach ($formValues['field_pqrsd_respuesta_archivos'] as $fid) {
-        $node->field_pqrsd_respuesta_archivos[] = $fid;
 
-        /*$file = File::load($fid);
-        $file->setPermanent();
-        $file->save();*/
+        $node->field_pqrsd_respuesta_archivos[] = $fid;
         $file = $fileStorage->load($fid);
         \Drupal::service('file.usage')->add($file, 'findeter_pqrsd', 'node', $formValues['node_id']);
 
@@ -222,58 +222,59 @@ class AnswerPQRSD extends FormBase {
         // $to = $form_state->getValue('field_pqrsd_email');
         $to = $node->get('field_pqrsd_email')->getValue()[0]['value'];
 
-        $mailBody[] = '<p>Reciba un cordial saludo de parte de Findeter.</p>';
-        $mailBody[] = "<p>Le informamos que hemos dado respuesta la PQRSD con número: <b>{$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value']}</b></p><br><br>";
+        $mailBody[] = '<div style="background-color: white; padding: 0.5rem; max-width: 800px; margin-left: 15%; margin-right: 15%"><div style="margin:0; position: relative;">
+                      <img src="https://www.findeter.gov.co/modules/custom/findeter_pqrsd/css/images/fondo-answer-pqrsd.jpeg" style="max-width: 100%; height: 200px;" alt="Findeter" onerror="this.remove();">
+                      </div>';
+        $mailBody[] = '<p>Estimado usuario, reciba un cordial saludo de parte de Findeter</p>';
+        $mailBody[] = "<p>Le informamos que hemos dado respuesta a la PQRSD con número: <b>{$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value']}</b></p><br><br>";
         $mailBody[] = "<div class='numero-radicado'><strong>Estimado usuario: </strong><br>
         <blockquote>{$node->get('field_pqrsd_respuesta')->getValue()[0]['value']}</blockquote>";
 
-        if (sizeof($formValues['field_pqrsd_respuesta_archivos'])) {
-          $mailBody[] = '<p><strong>Nota:</strong> La respuesta a este radicado tiene <u>archivos adjuntos</u>, consulta con el numero de radicado asignado en el siguiente <a href="https://www.findeter.gov.co/estado-pqrsd">enlace</a></p>';
-        }
+        $mailBody[] = '<p>Puede consultar el estado o descargar la respuesta de su PQRSD haciendo <a href="https://www.findeter.gov.co/estado-pqrsd">clic aquí</a></p><br>';
 
-        $mailBody[] = '</div><hr>';
+        $mailBody[] = '<p style="text-align:center">En caso de no visualizar la respuesta o presentar algún inconveniente con el archivo comunicarse a través <a href="mailto:correspondencia@findeter.gov.co">correspondencia@findeter.gov.co</a></p><br><br>';
+
+        $mailBody[] = '</div><a href="https://www.findeter.gov.co/modules/custom/findeter_pqrsd/css/images/fondo-encuesta-pqrsd-mail.png" style="max-width: 100%; height: auto; margin: auto; display: block;" alt="Findeter" onerror="this.remove();"></a><br><hr>';
         $mailBody[] = 'Cordialmente,';
         $mailBody[] = 'Vicepresidencia comercial - Servicio al cliente';
         $mailBody[] = 'Findeter';
-        $mailBody[] = '<a href="https://www.findeter.gov.co" target="_blank"><img onerror="this.remove();" alt="Findeter" src="https://www.findeter.gov.co/sites/default/files/webfinde/images/encabezado/logo.png" width="300" height="150"></a>';
+        $mailBody[] = '</div>';
 
-        $params['message'] = implode('<br>',$mailBody);
+        $params['message'] = implode('<br>', $mailBody);
 
         $langcode = \Drupal::currentUser()->getPreferredLangcode();
-        $send = true;
+        $send = TRUE;
 
         $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
 
-        if($result['result'] !== true){
-          \Drupal::messenger()->addError('Ocurrió un problema al enviar el correo.');
-        }
-
-
-        // send email to admin user
-        $user = \Drupal\user\Entity\User::load(1);
+        // Send email to admin user.
+        $user = User::load(1);
         $to = $user->getEmail();
 
-        $mailBody[] = '<br><hr><br><strong>PQRSD Respondida:</strong>';
-        $mailBody[] = 'Se dió respuesta a la PQRSD con número: <b>'.$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'].'</b><br><br>';
-        $mailBody[] = '<div class="numero-radicado"><strong>Texto de respuesta:</strong><br>
-        <blockquote>'.$node->get('field_pqrsd_respuesta')->getValue()[0]['value'].'</blockquote>
-        </div>';
+        $mailBodyUser[] = '<div style="background-color: white; padding: 0.5rem"><br><strong>PQRSD Respondida:</strong>';
+        $mailBodyUser[] = "Se dió respuesta a la PQRSD con número: <b>{$node->get('field_pqrsd_numero_radicado')->getValue()[0]['value']}</b><br><br>";
+        $mailBodyUser[] = "<div class='numero-radicado'><strong>Texto de respuesta:</strong><br><blockquote>{$node->get('field_pqrsd_respuesta')->getValue()[0]['value']}</blockquote></div><hr>";
+        $mailBodyUser[] = 'Cordialmente,';
+        $mailBodyUser[] = 'Vicepresidencia comercial - Servicio al cliente';
+        $mailBodyUser[] = 'Findeter';
+        $mailBodyUser[] = '<a href="https://www.findeter.gov.co" target="_blank"><img onerror="this.remove();" alt="Findeter" src="https://www.findeter.gov.co/sites/default/files/webfinde/images/encabezado/logo.png" width="300" height="150"></a></div>';
 
-        $params['message'] = implode('<br>',$mailBody);
-
-        $langcode = \Drupal::currentUser()->getPreferredLangcode();
-        $send = true;
+        $params['message'] = implode('<br>', $mailBodyUser);
 
         $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
 
-        if($result['result'] !== true){
+        if ($result['result'] !== TRUE) {
           \Drupal::messenger()->addError('Ocurrió un problema al enviar el correo.');
         }
+
+        \Drupal::messenger()->addStatus(t('Se ha cerrado y concedido una respuesta al radicado No. @radicado', ['@radicado' => $node->get('field_pqrsd_numero_radicado')->getValue()[0]['value']]));
+
       }
     }
 
     $response = new AjaxResponse();
-    $response->addCommand(new InvokeCommand(NULL, 'afterAsignCallback', ['Reloading page!']));
+    $url = Url::fromRoute('view.pqrsd.page_1');
+    $response->addCommand(new RedirectCommand($url->toString()));
     return $response;
 
   }

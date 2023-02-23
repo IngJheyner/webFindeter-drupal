@@ -1,0 +1,27 @@
+uuid: 8305a086-c8ae-4200-9096-c923e67afb3d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.sectors_rediscount.field_description_sector
+    - field.field.node.sectors_rediscount.field_icon_second_sector
+    - field.field.node.sectors_rediscount.field_icon_sector
+    - field.field.node.sectors_rediscount.field_image_sector
+    - field.field.node.sectors_rediscount.field_subsectors_rediscount
+    - node.type.sectors_rediscount
+  module:
+    - user
+id: node.sectors_rediscount.default
+targetEntityType: node
+bundle: sectors_rediscount
+mode: default
+content: {  }
+hidden:
+  addtoany: true
+  field_description_sector: true
+  field_icon_second_sector: true
+  field_icon_sector: true
+  field_image_sector: true
+  field_subsectors_rediscount: true
+  langcode: true
+  links: true

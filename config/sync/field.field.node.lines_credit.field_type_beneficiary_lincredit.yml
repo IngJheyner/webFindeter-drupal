@@ -1,0 +1,21 @@
+uuid: aca6c43c-dc26-4511-a099-e1862c749805
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_type_beneficiary_lincredit
+    - node.type.lines_credit
+  module:
+    - options
+id: node.lines_credit.field_type_beneficiary_lincredit
+field_name: field_type_beneficiary_lincredit
+entity_type: node
+bundle: lines_credit
+label: 'Tipo de beneficiario'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

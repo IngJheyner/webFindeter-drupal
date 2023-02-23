@@ -1,0 +1,2246 @@
+uuid: d0421bcb-97db-43a5-a98a-cb4956bbcc4e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_beneficiaries_prgms
+    - field.storage.node.field_date_validity_prgms
+    - field.storage.node.field_icon_bank
+    - field.storage.node.field_image_prgms
+    - field.storage.node.field_interest_rate_prgms
+    - field.storage.node.field_margin_prgms
+    - field.storage.node.field_means_progms
+    - field.storage.node.field_programs_linecredit
+    - field.storage.node.field_space_available_prgms
+    - field.storage.node.field_term_prgms
+    - field.storage.node.field_validity_prgms
+    - node.type.banks_rediscount
+    - node.type.lines_credit
+  module:
+    - better_exposed_filters
+    - datetime
+    - node
+    - options
+    - slick_views
+    - svg_image
+    - user
+    - views_bootstrap
+id: rediscount
+label: Redescuento
+module: views
+description: ''
+tag: ''
+base_table: node_field_data
+base_field: nid
+display:
+  default:
+    id: default
+    display_title: Default
+    display_plugin: default
+    position: 0
+    display_options:
+      title: Bancos
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_icon_bank:
+          id: field_icon_bank
+          table: node__field_icon_bank
+          field: field_icon_bank
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: div
+          element_class: images-slick
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image
+          settings:
+            image_link: ''
+            image_style: ''
+            svg_attributes:
+              width: 200
+              height: 200
+            svg_render_as_image: true
+            image_loading:
+              attribute: lazy
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 0
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: tag
+        options: {  }
+      empty: {  }
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+          granularity: second
+      arguments: {  }
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            banks_rediscount: banks_rediscount
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      style:
+        type: slick
+        options:
+          caption: field_icon_bank
+          optionset: default
+          class: ''
+          id: ''
+          image: ''
+          link: ''
+          overlay: ''
+          title: ''
+          vanilla: false
+          layout: ''
+          view_mode: ''
+          cache: 0
+          skin: ''
+          lazy: ''
+          style: ''
+          background: false
+          box_caption: ''
+          box_caption_custom: ''
+          box_media_style: ''
+          loading: lazy
+          preload: false
+          responsive_image_style: ''
+          box_style: ''
+          image_style: ''
+          media_switch: ''
+          ratio: ''
+          thumbnail_style: ''
+          grid: ''
+          grid_medium: ''
+          grid_small: ''
+          overridables: {  }
+          thumbnail: ''
+          optionset_thumbnail: ''
+          skin_thumbnail: ''
+          thumbnail_caption: ''
+          thumbnail_effect: ''
+          thumbnail_position: ''
+          override: false
+          skin_arrows: ''
+          skin_dots: ''
+          use_theme_field: false
+          preserve_keys: false
+          visible_items: 0
+          grouping: {  }
+          uses_fields: false
+      row:
+        type: fields
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_tags: {  }
+      relationships: {  }
+      css_class: 'banks-rediscount mt-5'
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: "<div class=\"mb-3 w-100 px-5\"><h2 class=\"text-center\">Solicite su crédito de redescuento Findeter con alguna de las siguientes entidades financieras</h2></div>\r\n<p>Solicite su credito de redescuento Findeter en alguna de las siguientes entidades financieras:</p>"
+            format: html_editor
+          tokenize: false
+      footer: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_icon_bank'
+  banks_entities_1:
+    id: banks_entities_1
+    display_title: Bancos
+    display_plugin: block
+    position: 1
+    display_options:
+      style:
+        type: slick
+        options:
+          caption:
+            field_icon_bank: field_icon_bank
+            title: '0'
+          optionset: default
+          class: ''
+          id: ''
+          image: ''
+          link: ''
+          overlay: ''
+          title: ''
+          vanilla: false
+          layout: ''
+          cache: 0
+          skin: grid
+          style: grid
+          grid: '6'
+          grid_medium: '6'
+          grid_small: '2'
+          overridables:
+            arrows: '0'
+            autoplay: '0'
+            dots: '0'
+            draggable: '0'
+            infinite: '0'
+            mouseWheel: '0'
+            randomize: '0'
+            variableWidth: '0'
+          thumbnail: ''
+          optionset_thumbnail: ''
+          skin_thumbnail: ''
+          thumbnail_caption: ''
+          thumbnail_effect: ''
+          thumbnail_position: ''
+          override: false
+          preserve_keys: false
+          visible_items: 6
+      row:
+        type: fields
+        options: {  }
+      defaults:
+        css_class: false
+        style: false
+        row: false
+        header: false
+      css_class: 'banks-rediscount d-none d-md-block mt-5'
+      display_description: ''
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: "<div class=\"mb-3 w-100 px-md-5\"><h2 class=\"text-center\">Solicite su crédito de redescuento Findeter con alguna de las siguientes entidades financieras</h2></div>\r\n<p>Solicite su credito de redescuento Findeter en alguna de las siguientes entidades financieras:</p>"
+            format: html_editor
+          tokenize: false
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_icon_bank'
+  banks_entities_2:
+    id: banks_entities_2
+    display_title: 'Bancos - mobile'
+    display_plugin: block
+    position: 1
+    display_options:
+      style:
+        type: slick
+        options:
+          caption:
+            field_icon_bank: field_icon_bank
+            title: '0'
+          optionset: default
+          class: ''
+          id: ''
+          image: ''
+          link: ''
+          overlay: ''
+          title: ''
+          vanilla: false
+          layout: ''
+          cache: 0
+          skin: grid
+          style: grid
+          grid: '6'
+          grid_medium: '6'
+          grid_small: '2'
+          overridables:
+            arrows: '0'
+            autoplay: '0'
+            dots: '0'
+            draggable: '0'
+            infinite: '0'
+            mouseWheel: '0'
+            randomize: '0'
+            variableWidth: '0'
+          thumbnail: ''
+          optionset_thumbnail: ''
+          skin_thumbnail: ''
+          thumbnail_caption: ''
+          thumbnail_effect: ''
+          thumbnail_position: ''
+          override: false
+          preserve_keys: false
+          visible_items: 1
+      row:
+        type: fields
+        options: {  }
+      defaults:
+        css_class: false
+        style: false
+        row: false
+        header: false
+      css_class: 'banks-rediscount d-block d-md-none mt-5'
+      display_description: ''
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: "<div class=\"mb-3 w-100 px-md-5\"><h2 class=\"text-center\">Solicite su crédito de redescuento Findeter con alguna de las siguientes entidades financieras</h2></div>\r\n<p>Solicite su credito de redescuento Findeter en alguna de las siguientes entidades financieras:</p>"
+            format: html_editor
+          tokenize: false
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_icon_bank'
+  filter_line_credit:
+    id: filter_line_credit
+    display_title: 'Filtro - Linea de credito'
+    display_plugin: block
+    position: 3
+    display_options:
+      title: 'Filtro - Linea de credito'
+      fields:
+        field_image_prgms:
+          id: field_image_prgms
+          table: node__field_image_prgms
+          field: field_image_prgms
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image_url
+          settings:
+            image_style: filter_line_credit_rediscount
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_interest_rate_prgms:
+          id: field_interest_rate_prgms
+          table: node__field_interest_rate_prgms
+          field: field_interest_rate_prgms
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Tasa al intermediario:'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_term_prgms:
+          id: field_term_prgms
+          table: node__field_term_prgms
+          field: field_term_prgms
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Plazo
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_beneficiaries_prgms:
+          id: field_beneficiaries_prgms
+          table: node__field_beneficiaries_prgms
+          field: field_beneficiaries_prgms
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Beneficiarios
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_programs_linecredit:
+          id: field_programs_linecredit
+          table: node__field_programs_linecredit
+          field: field_programs_linecredit
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: custom
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<div class=\"card\">\r\n\r\n  <div class=\"card-images\">\r\n  <img class=\"card-img-top\" src=\"{{ field_image_prgms }} \" alt=\"Card image cap\">\r\n   \r\n   {% if field_programs_linecredit is not empty %}\r\n      <img class=\"icon\" src=\"/themes/custom/webfinde/images/iconos/redescuento/icon-world.svg \" alt=\"Card image cap\" width=\"24\" height=\"24\">\r\n   {% endif %}\r\n  </div>\r\n\r\n  <div class=\"card-body\">\r\n\r\n    <p class=\"card-text mb-2\">\r\n      {{ title }} \r\n    </p>\r\n\r\n    <p class=\"card-text mb-2\">\r\n      <strong>Tasa al intermediario:</strong> {{ field_interest_rate_prgms }} \r\n    </p>\r\n\r\n    <p class=\"card-text mb-2\">\r\n      <strong>Plazo:</strong> {{ field_term_prgms }} \r\n    </p>\r\n\r\n    <p class=\"card-text mb-2\">\r\n       <strong>Beneficiarios:</strong> {{ field_beneficiaries_prgms  }} \r\n    </p>\r\n\r\n  </div>\r\n</div>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 4
+          total_pages: 4
+          id: 0
+          tags:
+            next: '>>'
+            previous: '<<'
+            first: ''
+            last: ''
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 3
+      exposed_form:
+        type: bef
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+          text_input_required: 'Seleccione cualquier filtro y pulse Aplicar para ver los resultados'
+          text_input_required_format: html_editor
+          bef:
+            general:
+              autosubmit: true
+              autosubmit_exclude_textfield: false
+              autosubmit_textfield_delay: 500
+              autosubmit_hide: true
+              input_required: false
+              allow_secondary: false
+              secondary_label: 'Opciones avanzadas'
+              secondary_open: false
+              reset_button_always_show: false
+            filter:
+              field_means_progms_value:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: true
+                  is_secondary: false
+              field_currency_linecredit_value:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: true
+                  is_secondary: false
+              field_field_sector_prgms_target_id:
+                plugin_id: default
+                advanced:
+                  placeholder_text: ''
+                  collapsible: true
+                  is_secondary: false
+              field_type_beneficiary_lincredit_value:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: true
+                  is_secondary: false
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: "<div class=\"alert alert-secondary\" role=\"alert\">\r\n No se encontraron resultados\r\n</div>"
+            format: html_editor
+          tokenize: false
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            lines_credit: lines_credit
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_means_progms_value:
+          id: field_means_progms_value
+          table: node__field_means_progms
+          field: field_means_progms_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: list_field
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_means_progms_value_op
+            label: 'Uso de los recursos (field_means_progms)'
+            description: null
+            use_operator: false
+            operator: field_means_progms_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_means_progms_value
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: true
+          group_info:
+            label: 'Destino de los recursos'
+            description: ''
+            identifier: field_means_progms_value
+            optional: true
+            widget: select
+            multiple: true
+            remember: false
+            default_group: '1'
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Inversion
+                operator: and
+                value:
+                  inversion: inversion
+              2:
+                title: 'Capital de trabajo'
+                operator: and
+                value:
+                  capital: capital
+          reduce_duplicates: false
+        field_currency_linecredit_value:
+          id: field_currency_linecredit_value
+          table: node__field_currency_linecredit
+          field: field_currency_linecredit_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: list_field
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_currency_linecredit_value_op
+            label: 'Moneda (field_currency_linecredit)'
+            description: null
+            use_operator: false
+            operator: field_currency_linecredit_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_currency_linecredit_value
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: true
+          group_info:
+            label: Moneda
+            description: ''
+            identifier: field_currency_linecredit_value
+            optional: true
+            widget: select
+            multiple: true
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Pesos (COP)'
+                operator: and
+                value:
+                  cop: cop
+              2:
+                title: 'Dólares (USD'
+                operator: and
+                value:
+                  usd: usd
+              3:
+                title: ''
+                operator: or
+                value: {  }
+          reduce_duplicates: false
+        field_field_sector_prgms_target_id:
+          id: field_field_sector_prgms_target_id
+          table: node__field_field_sector_prgms
+          field: field_field_sector_prgms_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_field_sector_prgms_target_id_op
+            label: 'Sector elegible (field_field_sector_prgms)'
+            description: ''
+            use_operator: false
+            operator: field_field_sector_prgms_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_field_sector_prgms_target_id
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              abogado: '0'
+              secretaria_general: '0'
+              colaborador: '0'
+              c_modificador: '0'
+              publicador: '0'
+              pqrsd_administrador: '0'
+              auditor_pqrsd: '0'
+              pqrsd_denuncias: '0'
+              c_vicetecnica: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: true
+          group_info:
+            label: 'Sector de la empresa'
+            description: ''
+            identifier: field_field_sector_prgms_target_id
+            optional: true
+            widget: select
+            multiple: true
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Desarrollo urbando y vivienda'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '421'
+              2:
+                title: Educación
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '422'
+              3:
+                title: Energía
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '423'
+        field_type_beneficiary_lincredit_value:
+          id: field_type_beneficiary_lincredit_value
+          table: node__field_type_beneficiary_lincredit
+          field: field_type_beneficiary_lincredit_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: list_field
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_type_beneficiary_lincredit_value_op
+            label: 'Tipo de beneficiario (field_type_beneficiary_lincredit)'
+            description: null
+            use_operator: false
+            operator: field_type_beneficiary_lincredit_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_type_beneficiary_lincredit_value
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: true
+          group_info:
+            label: 'Tipo de beneficiario'
+            description: ''
+            identifier: field_type_beneficiary_lincredit_value
+            optional: true
+            widget: select
+            multiple: true
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Entidad territorial'
+                operator: and
+                value:
+                  territorial: territorial
+              2:
+                title: 'Empresa pública'
+                operator: and
+                value:
+                  publica: publica
+              3:
+                title: 'Empresa privada'
+                operator: or
+                value:
+                  privada: privada
+          reduce_duplicates: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: views_bootstrap_grid
+        options:
+          grouping: {  }
+          row_class: mb-4
+          default_row_class: false
+          col_xs: col-12
+          col_sm: col-sm-12
+          col_md: col-md-6
+          col_lg: col-lg-6
+          col_xl: col-xl-6
+      row:
+        type: fields
+        options: {  }
+      defaults:
+        empty: false
+        title: false
+        css_class: false
+        use_ajax: false
+        pager: false
+        exposed_form: false
+        style: false
+        row: false
+        fields: false
+        filters: false
+        filter_groups: false
+        header: false
+      css_class: 'mt-3 mt-md-5 filter-line-credit'
+      use_ajax: true
+      display_description: ''
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: '<div class="mb-4"><h2 class="text-center">Líneas de redescuento</h2></div>'
+            format: html_editor
+          tokenize: false
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_beneficiaries_prgms'
+        - 'config:field.storage.node.field_image_prgms'
+        - 'config:field.storage.node.field_interest_rate_prgms'
+        - 'config:field.storage.node.field_programs_linecredit'
+        - 'config:field.storage.node.field_term_prgms'
+  table_line_credit:
+    id: table_line_credit
+    display_title: 'Tabla - Linea de credito'
+    display_plugin: block
+    position: 2
+    display_options:
+      title: 'Tabla - Linea de credito'
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_space_available_prgms:
+          id: field_space_available_prgms
+          table: node__field_space_available_prgms
+          field: field_space_available_prgms
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Cupo disponible'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_interest_rate_prgms:
+          id: field_interest_rate_prgms
+          table: node__field_interest_rate_prgms
+          field: field_interest_rate_prgms
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Tasa al intermediario'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_term_prgms:
+          id: field_term_prgms
+          table: node__field_term_prgms
+          field: field_term_prgms
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Plazo
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_validity_prgms:
+          id: field_validity_prgms
+          table: node__field_validity_prgms
+          field: field_validity_prgms
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Vigencia Texto'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_date_validity_prgms:
+          id: field_date_validity_prgms
+          table: node__field_date_validity_prgms
+          field: field_date_validity_prgms
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Vigencia de la línea'
+          exclude: false
+          alter:
+            alter_text: true
+            text: 'Hasta el {{ field_date_validity_prgms }} {{ field_validity_prgms }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: long
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_margin_prgms:
+          id: field_margin_prgms
+          table: node__field_margin_prgms
+          field: field_margin_prgms
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Margen intermediación'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_means_progms:
+          id: field_means_progms
+          table: node__field_means_progms
+          field: field_means_progms
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Usos
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_beneficiaries_prgms:
+          id: field_beneficiaries_prgms
+          table: node__field_beneficiaries_prgms
+          field: field_beneficiaries_prgms
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Beneficiarios
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        view_node:
+          id: view_node
+          table: node
+          field: view_node
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: entity_link
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: true
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: 'Conoce mas'
+            rel: ''
+            link_class: 'btn btn-primary text-white'
+            prefix: ''
+            suffix: ''
+            target: '{{ view_node }}'
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: 'Conoce más'
+          output_url_as_text: false
+          absolute: false
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 5
+          total_pages: 5
+          id: 0
+          tags:
+            next: '>>'
+            previous: '<<'
+            first: ''
+            last: ''
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 5
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            lines_credit: lines_credit
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            title: title
+            field_space_available_prgms: field_space_available_prgms
+            field_interest_rate_prgms: field_interest_rate_prgms
+            field_term_prgms: field_term_prgms
+            field_date_validity_prgms: field_date_validity_prgms
+            field_validity_prgms: field_validity_prgms
+            field_margin_prgms: field_margin_prgms
+            field_means_progms: field_means_progms
+            field_beneficiaries_prgms: field_beneficiaries_prgms
+            view_node: view_node
+          default: '-1'
+          info:
+            title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_space_available_prgms:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_interest_rate_prgms:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_term_prgms:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_date_validity_prgms:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_validity_prgms:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_margin_prgms:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_means_progms:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_beneficiaries_prgms:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            view_node:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: false
+          sticky: false
+          summary: ''
+          empty_table: false
+          caption: ''
+          description: ''
+      row:
+        type: fields
+        options: {  }
+      defaults:
+        title: false
+        css_class: false
+        use_ajax: false
+        pager: false
+        style: false
+        row: false
+        fields: false
+        filters: false
+        filter_groups: false
+        header: false
+      css_class: 'table-line-credit mt-5'
+      use_ajax: true
+      display_description: ''
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: "<div class=\"mb-4\">\r\n<h2 class=\"text-center\">Compare las condiciones de las lineas de redescuento</h2>\r\n<div class=\"btn-more text-md-center mt-4\">\r\n<a href=\"#\" class=\"btn btn-primary d-inline-block text-white mb-3 mb-md-0 mr-md-5\">Lineas crédito redescuento</a><a href=\"#\" class=\"btn btn-primary d-inline-block text-white\">Tasa de cartelera</a>\r\n</div>\r\n</div>"
+            format: html_editor
+          tokenize: false
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_beneficiaries_prgms'
+        - 'config:field.storage.node.field_date_validity_prgms'
+        - 'config:field.storage.node.field_interest_rate_prgms'
+        - 'config:field.storage.node.field_margin_prgms'
+        - 'config:field.storage.node.field_means_progms'
+        - 'config:field.storage.node.field_space_available_prgms'
+        - 'config:field.storage.node.field_term_prgms'
+        - 'config:field.storage.node.field_validity_prgms'

@@ -79,6 +79,10 @@ ESTILOS GLOBALES
   font-family: "Roboto", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   color: #296294;
 }
@@ -612,7 +616,6 @@ MEDIA QUERY
   div.sliderHome {
     top: 5rem;
   }
-
   section.menuGovCo div.govCo a img {
     width: 90%;
   }
@@ -622,11 +625,9 @@ MEDIA QUERY
   div.sliderHome {
     top: 8rem;
   }
-
   section.menuGovCo div.govCo a img {
     width: 90%;
   }
-
   section.menuPrincipal {
     /* ==============================
     MENU ESCRITORIO
@@ -665,6 +666,9 @@ ENCABEZADO
 ============================== */
 /* ==============================
 CUSTOM TITULOS
+============================== */
+/* ==============================
+STEPS INFO
 ============================== */
 /* =====================================
 CONTROL DE PAUSA PARA EL VIDEO DEL HOME
@@ -851,7 +855,7 @@ MEDIA QUERY
     margin: 1.5rem 0rem 0 0rem;
   }
   div.block-search form#search-block-form div.buscadorAcceso input[type=search] {
-    height: calc(1em + .75rem + 2px);
+    height: calc(1em + 0.75rem + 2px);
     border: 1px solid #112d6a !important;
   }
   div.block-search form#search-block-form div.buscadorAcceso input[type=search]::placeholder {
@@ -1079,6 +1083,9 @@ ENCABEZADO
 CUSTOM TITULOS
 ============================== */
 /* ==============================
+STEPS INFO
+============================== */
+/* ==============================
 INTERNAS
 ============================== */
 /* ===== ===== ENCABEZADO ===== ===== */
@@ -1142,14 +1149,14 @@ article.productoServicios div.cuerpoContenido h4.tituloTabs {
   padding: 0.5rem;
 }
 article.productoServicios div.cuerpoContenido ul.tabPrincipal li > a {
-  color: #a8a8a8;
+  color: rgb(168, 168, 168);
 }
 article.productoServicios div.cuerpoContenido ul.tabPrincipal li > a.active {
   color: #112d6a;
   font-weight: bold;
 }
 article.productoServicios div.cuerpoContenido ul.tabInternas li > a {
-  color: #a8a8a8;
+  color: rgb(168, 168, 168);
 }
 article.productoServicios div.cuerpoContenido ul.tabInternas li > a.active {
   color: white;
@@ -1217,13 +1224,12 @@ MEDIA QUERY
   section.productosServicios .grid-container .grid-item {
     width: 212px;
   }
-
   /* =================================
   VENTANA MODAL PRODUCTOS Y SERVICIOS
   ==================================== */
   #modalProductosServicios {
     height: inherit;
-    background: repeating-linear-gradient(188deg, transparent 0px, transparent 0%, #112d6a 0px, #296294) !important;
+    background: repeating-linear-gradient(188deg, transparent 0px, transparent 0%, rgb(17, 45, 106) 0px, rgb(41, 98, 148)) !important;
     position: fixed;
   }
   #modalProductosServicios .modal-dialog .modal-content .modal-body {
@@ -1251,13 +1257,12 @@ MEDIA QUERY
   section.productosServicios .grid-container .grid-item {
     width: 212px;
   }
-
   /* =================================
   VENTANA MODAL PRODUCTOS Y SERVICIOS
   ==================================== */
   #modalProductosServicios {
     height: inherit;
-    background: repeating-linear-gradient(188deg, transparent 0px, transparent 0%, #112d6a 0px, #296294) !important;
+    background: repeating-linear-gradient(188deg, transparent 0px, transparent 0%, rgb(17, 45, 106) 0px, rgb(41, 98, 148)) !important;
   }
   #modalProductosServicios .modal-dialog .modal-content .modal-body {
     top: 4em;
@@ -1282,7 +1287,6 @@ MEDIA QUERY
   section.productosServicios .grid-container .grid-item {
     width: 212px;
   }
-
   /* =================================
   VENTANA MODAL PRODUCTOS Y SERVICIOS
   ==================================== */
@@ -1299,7 +1303,6 @@ MEDIA QUERY
   section.productosServicios .grid-container {
     overflow-x: scroll;
   }
-
   /* =================================
   VENTANA MODAL PRODUCTOS Y SERVICIOS
   ==================================== */
@@ -1522,6 +1525,9 @@ ENCABEZADO
 CUSTOM TITULOS
 ============================== */
 /* ==============================
+STEPS INFO
+============================== */
+/* ==============================
 TODAS LAS NOTICIAS
 ============================== */
 /* ===== ===== ENCABEZADO ===== ===== */
@@ -1618,7 +1624,6 @@ MEDIA QUERY
   div.pageNoticias div.view-header h1 {
     font-size: 1.5rem;
   }
-
   article.noticiasInternas div.container-info div.info-header {
     grid-column: 1/4;
   }
@@ -2006,7 +2011,7 @@ div.contactenos form input[type=submit] {
 
 div.suscribirseHome {
   background-color: #112d6a;
-  background: linear-gradient(90deg, #122f6d 0%, #3d63ab 50%, #3d63ab 50%, #122f6d 100%);
+  background: linear-gradient(90deg, rgb(18, 47, 109) 0%, rgb(61, 99, 171) 50%, rgb(61, 99, 171) 50%, rgb(18, 47, 109) 100%);
   border-bottom: 1px solid #e5e5e5;
 }
 div.suscribirseHome form input[type=email] {
@@ -2159,7 +2164,6 @@ MEDIA QUERY
   div.contactenos h5 {
     font-size: 1rem;
   }
-
   div.suscribirseHome form input[type=email] {
     height: calc(2em + 0.75rem + 1px);
   }
@@ -2234,7 +2238,7 @@ a#text_resize_reset {
 }*/
 .footer {
   background-color: #112d6a;
-  background: linear-gradient(90deg, #122f6d 0%, #3d63ab 50%, #3d63ab 50%, #122f6d 100%);
+  background: linear-gradient(90deg, rgb(18, 47, 109) 0%, rgb(61, 99, 171) 50%, rgb(61, 99, 171) 50%, rgb(18, 47, 109) 100%);
 }
 .footer img.logoSuper {
   position: absolute;
@@ -2459,11 +2463,9 @@ MEDIA QUERY
   .footer img.imgCreditoDirecto {
     width: 25% !important;
   }
-
   ul.iconosSocial {
     text-align: center;
   }
-
   div.field--name-field-ntf-judiciales-footer {
     margin-bottom: 2rem;
   }
@@ -2484,7 +2486,6 @@ MEDIA QUERY
     margin-right: 1rem;
     content: "" url("../images/iconos/mail.png");
   }
-
   div.field--name-field-email-contacto-footer {
     margin-bottom: 0;
   }
@@ -2505,7 +2506,6 @@ MEDIA QUERY
     margin-right: 1rem;
     content: "" url("../images/iconos/mail.png");
   }
-
   div.field--name-field-correo-institucional-foote {
     margin-bottom: 2rem;
   }
@@ -2526,7 +2526,6 @@ MEDIA QUERY
     margin-right: 1rem;
     content: "" url("../images/iconos/mail.png");
   }
-
   div.field--name-field-email-judiciales-footer {
     margin-bottom: 0;
   }
@@ -2570,7 +2569,6 @@ MEDIA QUERY
     margin-right: 1rem;
     content: "" url("../images/iconos/mail.png");
   }
-
   div.field--name-field-email-judiciales-footer {
     margin-bottom: 0;
   }
@@ -2624,7 +2622,7 @@ div.encabezadoBlog section.encabezado div.menu nav {
 div.encabezadoBlog section.encabezado div.menu nav ul li {
   margin: 0 10px 0 10px;
 }
-div.encabezadoBlog section.encabezado div.menu nav ul li a {
+div.encabezadoBlog section.encabezado div.menu nav ul li > a {
   color: white;
   font-size: 14px;
   padding: 12px 0px;
@@ -2632,7 +2630,7 @@ div.encabezadoBlog section.encabezado div.menu nav ul li a {
   font-weight: bold;
   text-shadow: 1px 1px 2px black;
 }
-div.encabezadoBlog section.encabezado div.menu nav ul li a:hover::after {
+div.encabezadoBlog section.encabezado div.menu nav ul li > a:hover:not(.dropdown-toggle)::after {
   content: "";
   position: absolute;
   width: 105%;
@@ -2640,6 +2638,13 @@ div.encabezadoBlog section.encabezado div.menu nav ul li a:hover::after {
   background-color: white;
   top: 3em;
   left: -5px;
+}
+div.encabezadoBlog section.encabezado div.menu nav div.dropdown-menu ul {
+  padding-inline: 1rem;
+}
+div.encabezadoBlog section.encabezado div.menu nav div.dropdown-menu ul a {
+  font-size: 14px;
+  font-weight: bold;
 }
 div.encabezadoBlog section.encabezado div.menu div.buscador {
   display: none;
@@ -2735,7 +2740,6 @@ MEDIA QUERY
   section.encabezado .menu nav ul li a {
     font-size: 12px !important;
   }
-
   section.titulos {
     margin-top: 2rem !important;
   }
@@ -2764,7 +2768,6 @@ MEDIA QUERY
   section.encabezado .menu nav button {
     border-color: transparent;
   }
-
   section.titulos {
     margin-top: 1rem !important;
   }
@@ -2791,7 +2794,6 @@ MEDIA QUERY
     height: 2px !important;
     top: 2.3em !important;
   }
-
   /* ==============================
   MENU TABLET
   ============================== */
@@ -2804,7 +2806,6 @@ MEDIA QUERY
     top: 76px;
     width: 174%;
   }
-
   section.titulos {
     margin-top: 6rem !important;
   }
@@ -2832,7 +2833,6 @@ MEDIA QUERY
   section.encabezado .menu nav ul li a {
     padding: 0 !important;
   }
-
   section.titulos {
     margin-top: 1rem !important;
   }
@@ -3013,7 +3013,6 @@ MEDIA QUERY
   div.articuloBlog {
     transform: translate(0, -90px);
   }
-
   /* ==============================
   INTERNAS
   ============================== */
@@ -3027,7 +3026,6 @@ MEDIA QUERY
   div.articuloBlog {
     transform: translate(0, -100px);
   }
-
   div.articuloBlogDos {
     border-bottom: 2px solid #e5e5e5;
     padding-bottom: 2rem;
@@ -3057,7 +3055,6 @@ MEDIA QUERY
     transform: scale(1.1, 1.1);
     transition: 1s all;
   }
-
   /* ==============================
   INTERNAS
   ============================== */
@@ -3071,7 +3068,6 @@ MEDIA QUERY
   div.articuloBlog {
     transform: translate(0, -95px);
   }
-
   /* ==============================
   INTERNAS
   ============================== */
@@ -3094,7 +3090,6 @@ MEDIA QUERY
   div.articuloBlog {
     transform: translate(0, 0);
   }
-
   /* ==============================
   INTERNAS
   ============================== */
@@ -3189,7 +3184,6 @@ MEDIA QUERY
     padding: 30px 0px;
     font-size: 1.9rem;
   }
-
   section.boletinBlog {
     padding: 0;
   }
@@ -3208,7 +3202,6 @@ MEDIA QUERY
     text-align: center;
     margin-bottom: 2rem;
   }
-
   section.boletinBlog {
     padding: 0;
   }
@@ -3228,7 +3221,6 @@ MEDIA QUERY
     margin-bottom: 2rem;
     font-size: 2rem;
   }
-
   section.boletinBlog {
     padding: 0;
   }
@@ -3255,6 +3247,9 @@ ENCABEZADO
 ============================== */
 /* ==============================
 CUSTOM TITULOS
+============================== */
+/* ==============================
+STEPS INFO
 ============================== */
 article.pot div.cajaTitulo {
   display: flex;
@@ -3525,7 +3520,6 @@ MEDIA QUERY
   section.beneficios div.images div.imagesGaleria div[class*=col] {
     padding-left: 0 !important;
   }
-
   section.porqueFindeter blockquote {
     width: 100% !important;
   }
@@ -3535,16 +3529,13 @@ MEDIA QUERY
   section.porqueFindeter div.cifras div.row > div[class*=col] {
     border-bottom: 2px solid #e5e5e5;
   }
-
   section.trayectoria blockquote {
     width: 100% !important;
   }
-
   section.nuestroEquipo div.imagen {
     padding-right: 0;
     padding-left: 0;
   }
-
   section.contactenos > div.row {
     margin: 0 !important;
   }
@@ -3564,11 +3555,9 @@ MEDIA QUERY
   section.porqueFindeter div.cifras div.row > div[class*=col] {
     border-bottom: 2px solid #e5e5e5;
   }
-
   section.trayectoria blockquote {
     width: 100% !important;
   }
-
   section.contactenos > div.row {
     margin: 0 !important;
   }
@@ -3588,7 +3577,6 @@ MEDIA QUERY
   section.porqueFindeter div.cifras div.row > div[class*=col] {
     border-bottom: 2px solid #e5e5e5;
   }
-
   section.contactenos > div.row {
     margin: 0 !important;
   }
@@ -3602,7 +3590,6 @@ MEDIA QUERY
   section.porqueFindeter div.cifras h1 {
     font-size: 2rem;
   }
-
   div.pot section.contactenos > div.row {
     margin: 0;
   }
@@ -3624,6 +3611,9 @@ ENCABEZADO
 ============================== */
 /* ==============================
 CUSTOM TITULOS
+============================== */
+/* ==============================
+STEPS INFO
 ============================== */
 /* ==============================
 SECCION B
@@ -3946,6 +3936,9 @@ ENCABEZADO
 /* ==============================
 CUSTOM TITULOS
 ============================== */
+/* ==============================
+STEPS INFO
+============================== */
 /* ===== ===== ENCABEZADO ===== ===== */
 div.encabezadoConvocatorias figure {
   position: absolute;
@@ -4095,6 +4088,9 @@ ENCABEZADO
 CUSTOM TITULOS
 ============================== */
 /* ==============================
+STEPS INFO
+============================== */
+/* ==============================
 PROSPERITY FUND CONVOCATORIAS
 ============================== */
 /* ===== ===== ENCABEZADO ===== ===== */
@@ -4172,6 +4168,9 @@ ENCABEZADO
 ============================== */
 /* ==============================
 CUSTOM TITULOS
+============================== */
+/* ==============================
+STEPS INFO
 ============================== */
 /* ==============================
 TODAS LAS NOTICIAS
@@ -4273,6 +4272,9 @@ ENCABEZADO
 ============================== */
 /* ==============================
 CUSTOM TITULOS
+============================== */
+/* ==============================
+STEPS INFO
 ============================== */
 /* ===== ===== ENCABEZADO ===== ===== */
 div.encabezadoPqrsd figure {
@@ -4395,7 +4397,7 @@ div.form-lading-page form div.iti {
 }
 div.form-lading-page form span.select2 > span.selection > span.select2-selection--single {
   width: 100%;
-  height: calc(1.5em + .75rem + 2px);
+  height: calc(1.5em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   border: 1px solid #112d6a !important;
@@ -4413,6 +4415,9 @@ ENCABEZADO
 ============================== */
 /* ==============================
 CUSTOM TITULOS
+============================== */
+/* ==============================
+STEPS INFO
 ============================== */
 div.form-encuesta-pqrsd figure {
   position: absolute;
@@ -4464,6 +4469,9 @@ ENCABEZADO
 /* ==============================
 CUSTOM TITULOS
 ============================== */
+/* ==============================
+STEPS INFO
+============================== */
 div.encabezadoLogin figure {
   position: absolute;
   z-index: -1;
@@ -4513,6 +4521,9 @@ ENCABEZADO
 ============================== */
 /* ==============================
 CUSTOM TITULOS
+============================== */
+/* ==============================
+STEPS INFO
 ============================== */
 section.headerCalendario figure {
   position: absolute;
@@ -4572,6 +4583,9 @@ ENCABEZADO
 /* ==============================
 CUSTOM TITULOS
 ============================== */
+/* ==============================
+STEPS INFO
+============================== */
 article.datosAbiertos figure {
   position: absolute;
   z-index: -1;
@@ -4621,6 +4635,9 @@ ENCABEZADO
 ============================== */
 /* ==============================
 CUSTOM TITULOS
+============================== */
+/* ==============================
+STEPS INFO
 ============================== */
 /* ===== ===== ENCABEZADO ===== ===== */
 article.lineasCreditoRedescuento figure {
@@ -4686,6 +4703,9 @@ ENCABEZADO
 ============================== */
 /* ==============================
 CUSTOM TITULOS
+============================== */
+/* ==============================
+STEPS INFO
 ============================== */
 /* ===== ===== ENCABEZADO ===== ===== */
 article.sobreFindeter figure {
@@ -4774,6 +4794,663 @@ article.sobreFindeter .encabezado h1 {
 }
 article.sobreFindeter .encabezado h1 {
   padding-bottom: 12px;
+}
+
+/* ===== ===== PROGRAMS ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+ENCABEZADO
+============================== */
+/* ==============================
+CUSTOM TITULOS
+============================== */
+/* ==============================
+STEPS INFO
+============================== */
+.rediscount ul.step-info {
+  counter-reset: step;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+  margin: 0;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  .rediscount ul.step-info {
+    flex-direction: column;
+  }
+}
+.rediscount ul.step-info li {
+  list-style-type: none;
+  position: relative;
+  text-align: center;
+  flex-basis: 20%;
+}
+.rediscount ul.step-info li::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  border: 1px solid #ddd;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  background-color: #0a9bd8;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+}
+.rediscount ul.step-info li:last-child::before {
+  content: "Listo";
+}
+.rediscount ul.step-info li::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background-color: #0a9bd8;
+  top: 50px;
+  left: -50%;
+  z-index: -1;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  .rediscount ul.step-info li::after {
+    content: none;
+  }
+}
+.rediscount ul.step-info li:first-child::after {
+  content: none;
+}
+.rediscount ul.step-info li.active::before {
+  background-color: #112d6a;
+}
+.rediscount ul.step-info li.active + li:after {
+  background: linear-gradient(90deg, rgb(255, 255, 255) 15%, rgb(153, 213, 239) 48%, rgba(10, 155, 216, 0.3253676471) 100%);
+}
+
+.rediscount {
+  /* ==============================
+  PRINCIPAL
+  ============================== */
+  /* ===== ===== INFO USO REDESCUENTO ===== ===== */
+  /* ==============================
+  MENU
+  ============================== */
+  /* ==============================
+  LINEAS CREDIT / PROGRAMAS
+  ============================== */
+  /* ==============================
+  SECTORES
+  ============================== */
+  /* ==============================
+  INFO INTERES
+  ============================== */
+  /* ==============================
+  BANCOS
+  ============================== */
+  /* ==============================
+  FILTRO LINEA DE CREDITO
+  ============================== */
+  /* ==============================
+  TABLA LINEA DE CREDITO
+  ============================== */
+  /* ==============================
+  CODIGO CIIU
+  ============================== */
+  /* ==============================
+  FORMULARIO
+  ============================== */
+  /* ==============================
+  SEKELETON PRELOADER
+  ============================== */
+  /* ==============================
+  LOADER TEXT CODIGO DE CIIU
+  ============================== */
+  /* ==============================
+  BUTTON
+  ============================== */
+}
+.rediscount h2,
+.rediscount h3 {
+  font-weight: bold;
+}
+.rediscount .title {
+  background-color: #112d6a;
+}
+.rediscount .info-uses-rediscount div.video-embed-field-provider-youtube {
+  height: 100%;
+}
+.rediscount nav ul {
+  flex-direction: row;
+  justify-content: center;
+}
+.rediscount nav ul li.nav-item {
+  padding-inline: 1rem;
+}
+.rediscount nav ul li.nav-item a.nav-link,
+.rediscount nav ul li.nav-item span.nav-link {
+  position: relative;
+  color: #c6c6c6;
+}
+.rediscount nav ul li.nav-item a.nav-link::after, .rediscount nav ul li.nav-item a.nav-link::before,
+.rediscount nav ul li.nav-item span.nav-link::after,
+.rediscount nav ul li.nav-item span.nav-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #0a9bd8;
+  transform: scaleX(0);
+  transition: transform 0.25s;
+}
+.rediscount nav ul li.nav-item a.nav-link::before,
+.rediscount nav ul li.nav-item span.nav-link::before {
+  top: -3px;
+  transform-origin: left;
+}
+.rediscount nav ul li.nav-item a.nav-link::after,
+.rediscount nav ul li.nav-item span.nav-link::after {
+  bottom: -3px;
+  transform-origin: right;
+}
+.rediscount nav ul li.nav-item a.nav-link:hover::before, .rediscount nav ul li.nav-item a.nav-link:hover::after,
+.rediscount nav ul li.nav-item span.nav-link:hover::before,
+.rediscount nav ul li.nav-item span.nav-link:hover::after {
+  transform: scaleX(1);
+}
+.rediscount .info-tasses {
+  background: linear-gradient(90deg, rgb(18, 47, 109) 5%, rgb(61, 99, 171) 50%, rgb(61, 99, 171) 50%, rgb(18, 47, 109) 100%);
+  border-radius: 3rem;
+}
+.rediscount .info-tasses .info-tasses__space-available {
+  font-size: 30px;
+  padding: 10px;
+  background-color: #0a9bd8;
+  width: 280px;
+}
+.rediscount .pill-tabs-product #v-pills-tab {
+  row-gap: 5px;
+}
+.rediscount .pill-tabs-product #v-pills-tab button.nav-link {
+  position: relative;
+  border: 1px solid rgba(153, 213, 239, 0.2);
+  color: #296294;
+  width: 100%;
+  background-color: white;
+}
+.rediscount .pill-tabs-product #v-pills-tab button.nav-link::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -8px;
+  bottom: 50%;
+  width: 15px;
+  height: 20px;
+  background: #112d6a;
+  transform: translate(0, 50%);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.rediscount .pill-tabs-product #v-pills-tab button.nav-link.active {
+  background-color: #112d6a;
+  color: white;
+  border: 0;
+}
+.rediscount .pill-tabs-product #v-pills-tab button.nav-link.active::after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  background-color: #0a9bd8;
+  width: 20px;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  right: -15px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.rediscount .pill-tabs-product #v-pills-tabContent > div {
+  border: 3px solid rgba(153, 213, 239, 0.2);
+}
+.rediscount .access-credit-findeter {
+  background-color: rgba(229, 229, 229, 0.5);
+  padding-block-end: 8rem;
+  padding-inline: 1rem;
+}
+.rediscount .info-lines-recourses-international {
+  background: linear-gradient(90deg, rgb(18, 47, 109) 5%, rgb(61, 99, 171) 50%, rgb(61, 99, 171) 50%, rgb(18, 47, 109) 100%);
+}
+.rediscount .info-lines-recourses-international div.row:hover .col-card {
+  filter: blur(3px);
+  opacity: 0.5;
+  transform: scale(0.98);
+  box-shadow: none;
+  cursor: pointer;
+}
+.rediscount .info-lines-recourses-international div.row:hover .col-card.col-card:hover {
+  transform: scale(1);
+  filter: blur(0px);
+  opacity: 1;
+  box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.125);
+}
+.rediscount .info-lines-recourses-international div.card-body img {
+  transform: scale(1, 1);
+  transition: 1s all;
+}
+.rediscount .info-lines-recourses-international div.card-body img:hover {
+  transform: scale(1.1, 1.1);
+  transition: 1s all;
+}
+.rediscount div.sectors-icon div.sectors-icon__item img {
+  transition: 0.5s ease;
+}
+.rediscount div.sectors-icon div.sectors-icon__item img:hover {
+  transform: translate(0, -3px);
+}
+.rediscount div.sectors-icon div.sectors-icon__item img.iconSecond {
+  display: none;
+}
+.rediscount div.sectors-icon button {
+  z-index: 5;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+}
+.rediscount div.sectors-icon button::before {
+  color: #112d6a;
+  width: 48px;
+  position: absolute;
+  top: 0;
+  height: 48px;
+  transform: translate(-20px, 0px);
+}
+.rediscount div.sectors-info .titles {
+  min-height: 15px;
+  margin-bottom: 150px;
+}
+.rediscount div.sectors-info .description {
+  min-height: 100px;
+}
+.rediscount div.sectors-info .images figure img {
+  object-fit: contain;
+  object-view-box: inset(25% 25% 25% 25%);
+  width: 100%;
+  height: 300px;
+  border: 0;
+}
+.rediscount div.sectors-info .more-info {
+  min-height: 50px;
+}
+.rediscount div.sectors-info .more-info .more-info__nav ul {
+  justify-content: space-between;
+}
+.rediscount div.sectors-info .more-info .more-info__nav ul li {
+  flex-basis: 200px;
+}
+.rediscount div.sectors-info .more-info .more-info__nav ul li button {
+  color: #112d6a;
+  background-color: rgba(153, 213, 239, 0.2);
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 10px;
+}
+.rediscount div.sectors-info .more-info .more-info__nav ul li button.active {
+  color: white;
+  background-color: #005CA8;
+}
+.rediscount div.sectors-info .more-info .more-info__nav div.tab-content .tab-pane {
+  border: 3px solid rgba(153, 213, 239, 0.2);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+.rediscount .info-interest {
+  background: linear-gradient(90deg, rgb(18, 47, 109) 5%, rgb(61, 99, 171) 50%, rgb(61, 99, 171) 50%, rgb(18, 47, 109) 100%);
+}
+.rediscount .info-interest .pill-tabs-interest .nav-link {
+  color: #112d6a;
+  margin-block: 3px;
+  text-align: center;
+  background-color: white;
+  min-width: 200px;
+  border-radius: 0.8rem;
+}
+.rediscount .info-interest .pill-tabs-interest .nav-link.active {
+  color: white;
+  background-color: rgb(153, 213, 239);
+}
+.rediscount .info-interest .pill-tabs-interest #v-pills-tabContent > div {
+  border: 5px solid rgb(153, 213, 239);
+  border-radius: 2rem;
+}
+.rediscount .info-interest .pill-tabs-interest #v-pills-tabContent > div p, .rediscount .info-interest .pill-tabs-interest #v-pills-tabContent > div a, .rediscount .info-interest .pill-tabs-interest #v-pills-tabContent > div ul {
+  color: white;
+}
+.rediscount .info-interest .pill-tabs-interest #v-pills-tabContent > div a {
+  text-decoration: underline;
+}
+.rediscount .banks-rediscount div.slick ul {
+  margin-inline: 25px;
+}
+.rediscount .banks-rediscount div.slick ul li div.images-slick {
+  height: 100px;
+}
+.rediscount .banks-rediscount div.slick ul li div.images-slick img {
+  height: 100%;
+  margin-inline: auto;
+}
+.rediscount .banks-rediscount div.slick .slick-arrow::before {
+  color: #112d6a;
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit {
+  border: 3px solid rgba(153, 213, 239, 0.2);
+  border-radius: 2rem;
+  padding: 1rem;
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit details.form-item {
+  float: none;
+  border: 1px solid rgba(153, 213, 239, 0.2);
+  margin-block: 0;
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit details.form-item summary {
+  display: initial;
+  position: relative;
+  width: 100%;
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit details.form-item summary::after {
+  position: absolute;
+  right: 0.5rem;
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit details.form-item summary[aria-expanded=false]::after {
+  content: "+";
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit details.form-item summary[aria-expanded=true]::after {
+  content: "-";
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit details.form-item fieldset {
+  margin-block: 0;
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit details.form-item fieldset legend {
+  display: none;
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit details.form-item fieldset input[type=checkbox] {
+  height: 20px;
+  width: 20px;
+  margin-top: 0.1rem;
+}
+.rediscount form#views-exposed-form-rediscount-filter-line-credit details.form-item fieldset label {
+  color: #296294;
+  margin-left: 0.5rem;
+}
+.rediscount div.card strong {
+  color: #296294;
+}
+.rediscount div.card a {
+  text-decoration: underline;
+}
+.rediscount div.card div.card-images {
+  position: relative;
+}
+.rediscount div.card div.card-images img.icon {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+.rediscount table.table-line-credit tbody tr:nth-child(1) {
+  font-weight: bold;
+}
+.rediscount table.table-line-credit tbody tr.row-even {
+  background: rgba(229, 229, 229, 0.5);
+  background: rgba(233, 232, 232, 0.8705882353);
+}
+.rediscount table.table-line-credit tbody td.column-odd {
+  background: rgba(229, 229, 229, 0.5);
+}
+.rediscount table.table-line-credit tbody td.column-even {
+  background: #e5e5e5;
+}
+.rediscount section.ciiu div.search-ciiu {
+  background: linear-gradient(90deg, rgb(18, 47, 109) 5%, rgb(61, 99, 171) 50%, rgb(61, 99, 171) 50%, rgb(18, 47, 109) 100%);
+}
+.rediscount section.ciiu div.search-ciiu div#response-search-ciiu {
+  max-width: 500px;
+  margin: auto;
+  color: #CDDC4B;
+}
+.rediscount section.ciiu div.search-ciiu input[type=submit] {
+  background: url(/themes/custom/webfinde/images/iconos/buscador2.png) no-repeat;
+  background-size: 35px 35px;
+  width: 38px;
+  height: 38px;
+  background-position: top center;
+}
+.rediscount div.form-entities-rediscount {
+  background: rgba(229, 229, 229, 0.5);
+}
+.rediscount .card-skeleton {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+.rediscount .card-skeleton .skeleton {
+  background-image: linear-gradient(90deg, #ccc 0px, rgba(229, 229, 229, 0.9) 40px, #ccc 80px);
+  background-size: 300%;
+  background-position: 100% 0;
+  border-radius: inherit;
+  animation: shimmer 1s infinite;
+}
+@keyframes shimmer {
+  to {
+    background-position: -100% 0;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.rediscount .show-info {
+  opacity: 0;
+  animation: fade-in 2s forwards;
+}
+.rediscount .loader {
+  width: 400px;
+  height: 24px;
+  border-left: 8px solid #CDDC4B;
+  border-right: 8px solid #CDDC4B;
+  overflow: hidden;
+  margin: auto;
+  display: none;
+}
+.rediscount .loader .sub {
+  height: 8px;
+  width: 0;
+  background: #CDDC4B;
+  position: relative;
+  margin: 0;
+}
+.rediscount .loader .sub:nth-child(1) {
+  -webkit-animation: sub 2s ease-in-out infinite;
+  animation: sub 2s ease-in-out infinite;
+}
+.rediscount .loader .sub:nth-child(2) {
+  -webkit-animation: sub 2s ease-in-out 0.1s infinite;
+  animation: sub 2s ease-in-out 0.1s infinite;
+}
+.rediscount .loader .sub:nth-child(3) {
+  -webkit-animation: sub 2s ease-in-out 0.2s infinite;
+  animation: sub 2s ease-in-out 0.2s infinite;
+}
+@-webkit-keyframes sub {
+  0% {
+    left: 0;
+    width: 0px;
+  }
+  25% {
+    left: 0;
+    width: 400px;
+  }
+  50% {
+    left: 400px;
+    width: 0px;
+  }
+  75% {
+    left: 0;
+    width: 400px;
+  }
+  100% {
+    left: 0;
+    width: 0px;
+  }
+}
+@keyframes sub {
+  0% {
+    left: 0;
+    width: 0px;
+  }
+  25% {
+    left: 0;
+    width: 400px;
+  }
+  50% {
+    left: 400px;
+    width: 0px;
+  }
+  75% {
+    left: 0;
+    width: 400px;
+  }
+  100% {
+    left: 0;
+    width: 0px;
+  }
+}
+.rediscount div.btn-more a {
+  border-radius: 1rem;
+  background-color: #112d6a !important;
+  background-image: linear-gradient(-60deg, transparent, transparent 40%, rgba(255, 255, 255, 0.2666666667) 40%, rgba(255, 255, 255, 0.2666666667) 60%, transparent 60%, transparent 100%);
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  background-position-x: 150%;
+}
+.rediscount div.btn-more a:hover {
+  background-position-x: -150%;
+  transition: background-position-x 600ms;
+}
+.rediscount div.btn-icon-agent a {
+  border-color: initial !important;
+  border: 1px solid !important;
+}
+.rediscount div.btn-icon-agent span {
+  background: url(/themes/custom/webfinde/images/iconos/icon-agent-rediscount.svg) no-repeat;
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  margin-inline-start: 1rem;
+}
+
+/* ==============================
+MEDIA QUERY
+============================== */
+/*MOVIL VERTICAL(sm 320px)*/
+@media (max-width: 575.98px) {
+  .rediscount {
+    /* ==============================
+    MENU
+    ============================== */
+  }
+  .rediscount nav ul {
+    justify-content: space-between;
+  }
+  .rediscount .access-credit-findeter {
+    padding-block-end: 3rem;
+  }
+  .rediscount div.info-tasses__interest_rate,
+.rediscount div.info-tasses__term {
+    width: 100% !important;
+  }
+  .rediscount div.sectors-info .more-info .more-info__nav ul li {
+    flex-basis: 170px;
+  }
+  .rediscount .banks-rediscount div.slick ul {
+    margin-inline: 0;
+  }
+  .rediscount .banks-rediscount div.slick ul li {
+    width: 100%;
+  }
+}
+/*MOVIL VERTICAL(sm 320px)*/
+/* ===== ===== EVENTOS ===== ===== */
+/* ==============================
+COLORES
+============================== */
+/* ==============================
+ENCABEZADO
+============================== */
+/* ==============================
+CUSTOM TITULOS
+============================== */
+/* ==============================
+STEPS INFO
+============================== */
+/* ==============================
+EVENTOS
+============================== */
+/* ===== ===== ENCABEZADO ===== ===== */
+div.encabezadoEventos figure {
+  position: absolute;
+  z-index: -1;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+div.encabezadoEventos figure img {
+  height: 100%;
+}
+div.encabezadoEventos div.encabezado {
+  height: 7rem;
+}
+div.encabezadoEventos div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  div.encabezadoEventos div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  div.encabezadoEventos div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.encabezadoEventos div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

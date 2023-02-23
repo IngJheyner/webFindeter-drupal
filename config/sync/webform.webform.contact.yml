@@ -28,9 +28,8 @@ elements: |-
     '#markup': |
       <h4>Su opini&oacute;n es importante para nosotros</h4>
       &nbsp;
-      
+
       <p>Perm&iacute;tanos conocer sus comentarios acerca de cualquier tema relacionado con nuestra organizaci&oacute;n.</p>
-      
   email:
     '#type': email
     '#title': 'Correo electrónico'
@@ -74,11 +73,11 @@ elements: |-
     '#test': 'Please ignore this email.'
   check_contactenos_form_acepta_terminos_y_condiciones:
     '#type': checkbox
-    '#title': 'Acepto términos y condiciones'
+    '#title': 'Acepto Términos y condiciones de uso del portal'
     '#required': true
     '#required_error': 'Debe aceptar los términos y condiciones'
-    '#attributes':
-      style: 'font-size:5px'
+    '#prefix': '<a href="https://www.findeter.gov.co/transparencia-y-acceso-a-la-informacion-publica/politicas-de-seguridad-de-la-informacion/terminos-y-condiciones-de-uso-del-portal" target="_blank">'
+    '#suffix': '</a>'
   actions:
     '#type': webform_actions
     '#title': 'Submit button(s)'

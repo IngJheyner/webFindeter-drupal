@@ -1,4 +1,4 @@
-asign_user: '1'
+asign_user: '112'
 view_mode: full
 css_path: modules/custom/findeter_pqrsd/css/pdf.css
 roles: 'administrator,colaborador'
@@ -100,6 +100,14 @@ semaphore:
       - '<b>Tipo de radicado:</b> Peticiones'
       - '<b>Tipo de petición:</b> Solicitud incompleta'
       - '<b>Opción de extensión:</b> Seleccionada'
+  consulta:
+    logic: 'business days'
+    orange: '9'
+    red: '15'
+    title: 'Solicitud de consulta'
+    condition:
+      - '<b>Tipo de radicado:</b> Peticiones'
+      - '<b>Tipo de petición:</b> Solicitud de consulta'
   all:
     logic: 'calendar days'
     orange: '3'

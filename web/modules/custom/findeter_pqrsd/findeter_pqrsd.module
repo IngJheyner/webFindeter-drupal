@@ -14,8 +14,12 @@ use Drupal\views\ViewExecutable;
 use Drupal\Core\Render\Markup;
 use Drupal\node\Entity\Node;
 
-use Drupal\findeter_pqrsd\Holidays\HolidaysPqrsd;
 use PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Days;
+
+use Cmixin\BusinessDay;
+use Carbon\Carbon;
+use Drupal\findeter_pqrsd\Controller\ReportsPqrsdController;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Implements hook_help().
@@ -100,6 +104,10 @@ function _getBussinesDays($addDays, $day_answer = FALSE){
 
   $tot_day_answer = 0; //Conteo de dias habiles para la respuesta
 
+  // Validar fecha de un dia feriado.
+  BusinessDay::enable('Carbon\Carbon');
+  Carbon::setHolidaysRegion('co');
+
   // loop for X days
   for($i=0; $i<$addDays; $i++){
 
@@ -112,17 +120,15 @@ function _getBussinesDays($addDays, $day_answer = FALSE){
     $mounth = date('m', $timeStamp);
     $year = date('Y', $timeStamp);
 
-    $holiDays = new HolidaysPqrsd(\Drupal::service('http_client_factory'), \Drupal::service('state'),
-    \Drupal::service('logger.factory'));
-
     // Validar fecha de un dia feriado.
-    $feriado = FALSE;
+    $holiDays = FALSE;
     if (!$day_answer) {
-      $feriado = $holiDays->isHoliDays($year, $mounth, $day);
+      $holiDays = Carbon::parse("$year-$mounth-$day")->isHoliday();
+      // $holiDays = Carbon::parse("2022-07-20")->isHoliday();
     }
 
     // if it's Saturday or Sunday get $i-1
-    if(($nextDay == 0 || $nextDay == 6) || $feriado) {
+    if(($nextDay == 0 || $nextDay == 6) || $holiDays) {
         $day_answer == FALSE ? $i-- : $tot_day_answer++;
     }
     // modify timestamp, add 1 day
@@ -228,10 +234,10 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
     }
 
     /* ============================================
-    Informe 379
+    Informe 379 (Deprecated)
     =============================================== */
 
-    $form['container_date'] = [
+    /*$form['container_date'] = [
       '#type' => 'details',
       '#title' => 'Reporte 379',
       '#open' =>FALSE,
@@ -258,7 +264,7 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
       '#size' => 30,
       //'#size' => 60,
       //'#maxlength' => 128,
-    ];
+    ];*/
 
   }
 
@@ -516,7 +522,6 @@ function findeter_pqrsd_cron() {
 function findeter_pqrsd_preprocess_page(&$variables) {
 
   //$apiSmfc = \Drupal::service('api.smfc');
-
   $routeUrl = \Drupal::routeMatch()->getRouteName();
 
   if ($routeUrl == 'findeter_pqrsd.confirm_register_pqrsd_admin') {
@@ -933,7 +938,8 @@ function buildPQRSDform(){
  * Function to send an email when a PQRSD has been asigned
  * @author Sandi <email@email.com>
  */
-function sendNotificationAsign($user,$node){
+function sendNotificationAsign($user, $node){
+
   $mailManager = \Drupal::service('plugin.manager.mail');
   $module = 'findeter_pqrsd';
   $key = 'asigned_pqrsd';
@@ -969,6 +975,11 @@ function sendNotificationAsign($user,$node){
   $send = true;
 
   $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+
+  \Drupal::messenger()->addStatus(t('Se ha asignado el radicado No. @radicado al usuario @user', [
+    '@radicado' => $node->get('field_pqrsd_numero_radicado')->getValue()[0]['value'],
+    '@user' => $user->getAccountName(),
+  ]));
 }
 
 
@@ -990,12 +1001,24 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
 
     if($view->current_display == 'page_1' || $view->current_display == 'page_2'){
 
+      // No mostrar los iconos de semaforo si el estado de publicacion o anulacion es false
+      $status = $row->_entity->getFields()['status'][0]->getValue()['value'];
+
       if($field->field == 'field_pqrsd_respuesta'){
-        if($variables['output'] == ''){
-          $variables['output'] = "Abierta asignada a: ";
-        }else{
-          $variables['output'] = "Cerrada por: ";
+
+        if($status == 1){
+
+          if($variables['output'] == ''){
+
+            $variables['output'] = ['#markup' => "<p class='text-open'>Abierta asignada a: </p>"];
+
+          }else{
+            $variables['output'] = ['#markup' => "<p class='text-close'>Cerrada por: </p>"];
+          }
+        } else {
+          $variables['output'] = ['#markup' => "<div class='red'>Rojo</div><p class='text-canceled'>Anulado</p>"];
         }
+
       }
 
       if($field->field == 'view_node'){
@@ -1007,6 +1030,7 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
           'data-dialog-type'    => ['modal'],
           'data-dialog'         => ['modal'],
           'data-dialog-options' => ['{"width":1000}'],
+          'data-ajax-progress' => ['throbber'],
         ];
 
         $htmlOutput = '';
@@ -1042,8 +1066,22 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
           $modalLink = $modalLink->toRenderable();
           $modalLink['#attributes'] = $modalOptions;
           $htmlOutput .= '<li class="dropbutton-action secondary-action">'.render($modalLink).'</li>';
-        }
 
+          // Anulacion de radicados (su estado real es despublicado).
+          if (in_array('pqrsd_administrador', $rolesUser) || in_array('administrator', $rolesUser)) {
+            $url = Url::fromRoute('findeter_pqrsd.canceled',
+            ['node' => $nid],
+            /*['query' => [
+              'token' => \Drupal::getContainer()->get('csrf_token')->get("/findeter-pqrsd/canceled/pqrsd/{$nid}")
+            ]*/
+            );
+            $modalLink = Link::fromTextAndUrl('Anular', $url);
+            $modalLink = $modalLink->toRenderable();
+            $modalLink['#attributes'] = $modalOptions;
+            $htmlOutput .= '<li class="dropbutton-action secondary-action">'.render($modalLink).'</li></li>';
+          }
+
+        }
         /*$url = Url::fromRoute('findeter_pqrsd.create_pdf',['nid' => $nid]);
         $modalLink = Link::fromTextAndUrl('PDF', $url);
         $modalLink = $modalLink->toRenderable();
@@ -1112,30 +1150,36 @@ function findeter_pqrsd_preprocess_views_view_field(&$variables) {
           $closed = $row->_entity->getFields()['field_pqrsd_respuesta'][0]->getValue()['value'];
         }
 
-        if($closed){
-          $semaphore = '
-            <div class="blue">Azul</div>
-        ';
-        }else{
-          if($timeStamp<$orangeDate){
+        // No mostrar los iconos de semaforo si el estado de publicacion o anulacion es false
+        if($status == 1){
+
+          if($closed){
             $semaphore = '
-            <div class="green">Verde</div>
-            <div class="days-left">Quedan:<br>'.$daysleft.' días</div>';
-
+              <div class="blue">Azul</div>
+          ';
           }else{
-
-            if($timeStamp>=$orangeDate && $timeStamp<$redDate){
-
+            if($timeStamp<$orangeDate){
               $semaphore = '
-                <div class="orange">Naranja</div>
-                <div class="days-left">Quedan:<br>'.$daysleft.' días</div>';
+              <div class="green">Verde</div>
+              <div class="days-left">Quedan:<br>'.$daysleft.' días</div>';
 
             }else{
-              if($timeStamp>=$redDate){
-                $semaphore = '<div class="red">Rojo</div>';
+
+              if($timeStamp>=$orangeDate && $timeStamp<$redDate){
+
+                $semaphore = '
+                  <div class="orange">Naranja</div>
+                  <div class="days-left">Quedan:<br>'.$daysleft.' días</div>';
+
+              }else{
+                if($timeStamp>=$redDate){
+                  $semaphore = '<div class="red">Rojo</div>';
+                }
               }
             }
           }
+        } else {
+          $semaphore = '<div class="red">Rojo</div><p class="text-canceled">Anulado</p';
         }
 
         $variables['output'] = ['#markup' => $semaphore];
@@ -1185,7 +1229,7 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
       <div class="seven-details col-2">
         <strong>Filtrar por:</strong>
         <div class="seven-details__summary">';
-    $variables['form']['fecha-vencimiento']['#suffix'] = '</div></div>';
+    $variables['form']['status']['#suffix'] = '</div></div>';
   }
 
   if($variables['form']['#id'] == 'views-exposed-form-pqrsd-page-2'){
@@ -1201,39 +1245,41 @@ function findeter_pqrsd_preprocess_views_exposed_form(&$variables) {
       <div class="seven-details col-2">
         <strong>Filtrar por:</strong>
         <div class="seven-details__summary">';
-    $variables['form']['fecha-vencimiento']['#suffix'] = '</div><hr></div>';
+    $variables['form']['status']['#suffix'] = '</div><hr></div>';
 
     //$url = Url::fromRoute('findeter_pqrsd.expor_report_pdf',['filter'=>'filter']);
-    $urlReporteXlsx = Url::fromRoute('findeter_pqrsd.expor_report_excel',['filter'=>'filter']);
-    $urlFormato379 = Url::fromRoute('findeter_pqrsd.export_format_379', $_GET);
+    $urlReporteXlsx = Url::fromRoute('findeter_pqrsd.expor_report_excel', ['filter'=>'filter']);
+    $urlStatistics = Url::fromRoute('findeter_pqrsd.reports_statistics');
 
     $link_options = array(
       'attributes' => array(
         'class' => array(
           'export-link',
+          'excel-link',
         ),
       ),
     );
-    $link_options_format_379 = array(
+    $link_options_statistics = array(
       'attributes' => array(
         'class' => array(
-          'export-link-format-379',
+          'export-link',
+          'statistics-link',
         ),
       ),
     );
     //$url->setOptions($link_options);
     $urlReporteXlsx->setOptions($link_options);
-    $urlFormato379->setOptions($link_options_format_379);
+    $urlStatistics->setOptions($link_options_statistics);
 
     //$exportPdf = Link::fromTextAndUrl('Exportar datos PDF', $url);
-    $urlReporteXlsx = Link::fromTextAndUrl('Exportar datos Excel', $urlReporteXlsx);
-    $urlFormato379 = Link::fromTextAndUrl('Exportar formato 379', $urlFormato379);
+    $urlReporteXlsx = Link::fromTextAndUrl('Exportar Excel', $urlReporteXlsx);
+    $urlStatistics = Link::fromTextAndUrl('Estadísticas', $urlStatistics);
 
     //$exportPdf = $exportPdf->toRenderable();
     $urlReporteXlsx = $urlReporteXlsx->toRenderable();
-    $urlFormato379 = $urlFormato379->toRenderable();
+    $urlStatistics = $urlStatistics->toRenderable();
 
-    $variables['form']['actions']['#suffix'] = render($urlReporteXlsx).''.render($urlFormato379);
+    $variables['form']['actions']['#suffix'] = render($urlReporteXlsx).' '.render($urlStatistics).'<ul><li>La exportación en Excel solo se aplicará para filtros del campo <strong><em>Fecha Creacion</em></strong></li></ul>';
   }
   /* ============================================
   PAGE ESTADOS DE PQRSD FILTER
@@ -1339,7 +1385,7 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
       //Construimos un tag de tipo link para traer los datos en la tabla resultados
       $link = [
         '#type' => 'link',
-        '#title' => 'Mostrar resultados PQRSD.',
+        '#title' => 'Mostrar resultados.',
         '#url' => Url::fromRoute('findeter_pqrsd.reports_results_data_table'),
         '#attributes' => [
           'class' => ['use-ajax'],
@@ -1348,7 +1394,7 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
 
       //Agregamos el link para ser visualizado como fila en la tabla
       $rows[] = [ '#rows' => [
-          'data' => \Drupal::service('renderer')->render($link),
+          'data' => \Drupal::service('renderer')->renderRoot($link),
           '#colspan' => 10,
         ]
       ];
@@ -1364,7 +1410,7 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
             '#theme' => 'table',
             '#rows' => $rows,
             '#weight' => 1,
-            '#prefix' => '<br><hr><h3>Tabla resumen de resultados</h3>',
+            '#prefix' => '<br><hr><h3>Tabla resumen de PQRSD</h3>',
             '#sticky' => TRUE,
             '#header' => [
               'Tipo',
@@ -1382,8 +1428,44 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
         ],
       ];
 
+      $buildTableAnio = [
+        'container' => [
+          '#type' => 'container',
+          '#attributes' => [
+            'id'=> "results-table-reports-months",
+          ],
+          'html_tag' => [
+            '#type' => 'html_tag',
+            '#tag' => 'div',
+            '#prefix' => '<br><hr><h3>Tabla comparativa por año.</h3>',
+            '#attributes' => [
+              'id' => 'container-text-reports-months'
+            ]
+          ],
+          'table' => [
+            '#theme' => 'table',
+            '#rows' => '',
+            '#weight' => 1,
+            '#sticky' => TRUE,
+            '#attributes' => [
+              'id' => 'table-reports-months'
+            ],
+            '#header' => [
+              'Mes',
+              'Solicitudes',
+              'Atendidas',
+              'En proceso',
+              'Canceladas',
+              'Promedio de días habiles de respuesta',
+            ],
+            '#rows' => ReportsPqrsdController::resultsDataTableAnio(date('Y',\Drupal::time()->getCurrentTime()), 'queryDate'),
+            //'#rows' => ReportsPqrsdController::resultsDataTableAnio('2022', 'queryDate'),
+          ],
+        ],
+      ];
+
       //Agegamos un campo text_custom para visualizar la tabla en el pie de pagina
-      $options = array(
+      $options = [
         'id' => 'area_text_custom',
         'table' => 'views',
         'field' => 'area_text_custom',
@@ -1392,9 +1474,9 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
         'admin_label' => '',
         'empty' => TRUE,
         'tokenize' => FALSE,
-        'content' => \Drupal::service('renderer')->render($buildTable),
+        'content' => \Drupal::service('renderer')->renderRoot($buildTable).' '.\Drupal::service('renderer')->renderRoot($buildTableAnio),
         'plugin_id' => 'text_custom',
-      );
+      ];
 
       //Creamos un pie de pagina en la vista que muestre la tabla resultados
       $view->setHandler($display_id, 'footer', 'area_text_custom', $options);

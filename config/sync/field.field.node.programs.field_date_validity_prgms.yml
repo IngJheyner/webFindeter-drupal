@@ -1,0 +1,21 @@
+uuid: 7fe0fdae-a0c3-4e8e-9f30-d0595618b273
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date_validity_prgms
+    - node.type.programs
+  module:
+    - datetime
+id: node.programs.field_date_validity_prgms
+field_name: field_date_validity_prgms
+entity_type: node
+bundle: programs
+label: Vigencia
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

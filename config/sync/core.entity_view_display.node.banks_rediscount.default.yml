@@ -1,0 +1,21 @@
+uuid: b823fc9b-34db-466a-9894-c6a8a769cc1a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.banks_rediscount.field_icon_bank
+    - field.field.node.banks_rediscount.field_text_alternative_bank
+    - node.type.banks_rediscount
+  module:
+    - user
+id: node.banks_rediscount.default
+targetEntityType: node
+bundle: banks_rediscount
+mode: default
+content: {  }
+hidden:
+  addtoany: true
+  field_icon_bank: true
+  field_text_alternative_bank: true
+  langcode: true
+  links: true

@@ -1,0 +1,21 @@
+uuid: 6832ee29-2149-45ba-b069-46f65a144897
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_means_progms
+    - node.type.lines_credit
+  module:
+    - options
+id: node.lines_credit.field_means_progms
+field_name: field_means_progms
+entity_type: node
+bundle: lines_credit
+label: 'Uso de los recursos'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

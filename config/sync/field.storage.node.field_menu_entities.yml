@@ -1,0 +1,24 @@
+uuid: d42c122d-a026-48e3-ba10-8fa31c1283a2
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - system
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_menu_entities
+field_name: field_menu_entities
+entity_type: node
+type: entity_reference
+settings:
+  target_type: menu
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

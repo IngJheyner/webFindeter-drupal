@@ -1,0 +1,23 @@
+uuid: 9f612e74-4410-4532-91ad-bee4f491fb4f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bankables_ciiu
+    - node.type.ciiu_rediscount
+id: node.ciiu_rediscount.field_bankables_ciiu
+field_name: field_bankables_ciiu
+entity_type: node
+bundle: ciiu_rediscount
+label: Financiables
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: si
+  off_label: 'no'
+field_type: boolean

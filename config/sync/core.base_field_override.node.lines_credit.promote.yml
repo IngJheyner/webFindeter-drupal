@@ -1,0 +1,22 @@
+uuid: e6a9dfd7-9b13-4da3-b566-9b6fb866b37c
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.lines_credit
+id: node.lines_credit.promote
+field_name: promote
+entity_type: node
+bundle: lines_credit
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

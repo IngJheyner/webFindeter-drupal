@@ -1,0 +1,686 @@
+@use '../../mixins/custom-etiquetas' as custom-etiquetas;
+@use '../../custom/variables' as var;
+@use '../../mixins/media-query' as media-query;
+
+@include custom-etiquetas.step-info("rediscount");
+
+.rediscount{
+
+  h2,
+  h3 {
+    font-weight: bold;
+  }
+
+  /* ==============================
+  PRINCIPAL
+  ============================== */
+  .title{
+    background-color: var.$color-primario;
+  }
+
+  /* ===== ===== INFO USO REDESCUENTO ===== ===== */
+  .info-uses-rediscount {
+    // VIDEO EMBEBIDO
+    div.video-embed-field-provider-youtube {
+      height: 100%;
+    }
+  }
+
+  /* ==============================
+  MENU
+  ============================== */
+  nav ul {
+
+    flex-direction: row;
+    justify-content: center;
+
+    li.nav-item {
+      padding-inline: 1rem;
+
+      a.nav-link,
+      span.nav-link {
+        position: relative;
+        color: #c6c6c6;
+
+        &::after,
+        &::before{
+          content: '';
+          position: absolute;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: var.$color-senario;
+          transform: scaleX(0);
+          transition: transform .25s;
+        }
+
+        &::before {
+          top: -3px;
+          transform-origin: left;
+        }
+
+        &::after {
+          bottom: -3px;
+          transform-origin: right;
+        }
+
+        &:hover::before,
+        &:hover::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+  /* ==============================
+  LINEAS CREDIT / PROGRAMAS
+  ============================== */
+  .info-tasses{
+    background: var.$color-gradient-primary;
+    border-radius: 3rem;
+
+    .info-tasses__space-available{
+      font-size: 30px;
+      padding: 10px;
+      background-color: var.$color-senario;
+      width: 280px;
+    }
+  }
+
+  .pill-tabs-product{
+
+    #v-pills-tab {
+      row-gap: 5px;
+      button.nav-link {
+
+        position: relative;
+        border: 1px solid var.$color-rgb-primary;
+        color: var.$color-secundario;
+        width: 100%;
+        background-color: white;
+
+        &::before{
+          content: "";
+          position: absolute;
+          z-index: -1;
+          right: -8px;
+          bottom: 50%;
+          width: 15px;
+          height: 20px;
+          background: var.$color-primario;
+          transform: translate(0, 50%);
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+
+        &.active{
+          background-color: var.$color-primario;
+          color: white;
+          border: 0;
+
+          &::after{
+            content: "";
+            position: absolute;
+            z-index: -2;
+            background-color: var.$color-senario;
+            width: 20px;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+            right: -15px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+          }
+        }
+      }
+    }
+
+    #v-pills-tabContent > div{
+      border: 3px solid var.$color-rgb-primary;
+    }
+  }
+
+  .access-credit-findeter{
+    background-color: var.$color-rgb-secondary;
+    padding-block-end: 8rem;
+    padding-inline: 1rem;
+  }
+
+  .info-lines-recourses-international {
+
+    background: var.$color-gradient-primary;
+
+    div.row:hover .col-card{
+
+      filter: blur(3px);
+      opacity: .5;
+      transform: scale(.98);
+      box-shadow: none;
+      cursor: pointer;
+
+      &.col-card:hover{
+        transform: scale(1);
+        filter: blur(0px);
+        opacity: 1;
+        box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.125);
+      }
+    }
+
+    div.card-body{
+
+      img {
+        transform: scale(1, 1);
+        transition: 1s all;
+
+        &:hover {
+          transform: scale(1.1, 1.1);
+          transition: 1s all;
+        }
+      }
+
+      // div.btn-more > a{
+      //   background: var.$color-gradient-primary !important;
+      //   border-radius: 1rem;
+      // }
+
+    }
+  }
+
+  /* ==============================
+  SECTORES
+  ============================== */
+  div.sectors-icon {
+
+    div.sectors-icon__item{
+
+      img {
+        transition: 0.5s ease;
+        &:hover {
+          transform: translate(0, -3px);
+        }
+
+      }
+      img.iconSecond {
+        display: none;
+      }
+
+    }
+    button{
+      z-index: 5;
+      width: 50px;
+      height: 50px;
+      background-color: transparent;
+      &::before{
+        color: var.$color-primario;
+        width: 48px;
+        position: absolute;
+        top: 0;
+        height: 48px;
+        transform: translate(-20px, 0px);
+      }
+    }
+
+    // button.slick-prev::before {
+    //   left: 0;
+    //   background: url(../images/iconos/flechaIzq2.png) no-repeat fixed center;
+    //   background-size: 40px 40px;
+    // }
+
+    // button.slick-next::before {
+    //   background: url(../images/iconos/flechaDer2.png) no-repeat fixed center;
+    //   background-size: 40px 40px;
+    // }
+  }
+
+  div.sectors-info{
+
+    .titles {
+      min-height: 15px;
+      margin-bottom: 150px;
+    }
+
+    .description {
+      min-height: 100px;
+    }
+
+    .images {
+      //min-height: 300px;
+
+      figure img {
+        object-fit: contain;
+        object-view-box: inset(25% 25% 25% 25%);
+        width: 100%;
+        height: 300px;
+        border: 0;
+      }
+    }
+
+    .more-info {
+      min-height: 50px;
+
+      .more-info__nav {
+        ul{
+          justify-content: space-between;
+          li {
+            flex-basis: max(200px);
+            button {
+              color: var.$color-primario;
+              background-color: var.$color-rgb-primary;
+              font-weight: 700;
+              padding: 10px;
+              border-radius: 10px;
+            }
+
+            button.active {
+              color: white;
+              background-color: #005CA8;
+            }
+          }
+        }
+
+        div.tab-content .tab-pane{
+          border: 3px solid var.$color-rgb-primary;
+          border-radius: 1rem;
+          padding: 1rem;
+        }
+      }
+    }
+  }
+
+  /* ==============================
+  INFO INTERES
+  ============================== */
+  .info-interest{
+    background: var.$color-gradient-primary;
+
+    .pill-tabs-interest{
+
+      .nav-link {
+        color: var.$color-primario;
+        margin-block: 3px;
+        text-align: center;
+        background-color: white;
+        min-width: 200px;
+        border-radius: .8rem;
+        &.active{
+          color: white;
+          background-color: rgba(153, 213, 239, 1);
+        }
+      }
+
+      #v-pills-tabContent > div{
+        border: 5px solid rgba(153, 213, 239, 1);
+        border-radius: 2rem;
+
+        p, a, ul{
+          color: white;
+        }
+
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  /* ==============================
+  BANCOS
+  ============================== */
+  .banks-rediscount{
+    div.slick {
+      ul{
+        margin-inline: 25px;
+        li div.images-slick{
+          height: 100px;
+          img {
+            height: 100%;
+            margin-inline: auto;
+          }
+        }
+      }
+
+      .slick-arrow::before{
+        color: var.$color-primario;
+      }
+    }
+  }
+
+  /* ==============================
+  FILTRO LINEA DE CREDITO
+  ============================== */
+  form#views-exposed-form-rediscount-filter-line-credit{
+    border: 3px solid var.$color-rgb-primary;
+    border-radius: 2rem;
+    padding: 1rem;
+    details.form-item{
+
+      float: none;
+      border: 1px solid rgba(153, 213, 239, 0.2);
+      margin-block: 0;
+
+      summary{
+        display: initial;
+        position: relative;
+        width: 100%;
+        &::after{
+          position: absolute;
+          right: .5rem;
+        }
+        &[aria-expanded='false']::after{
+          content: "+";
+        }
+
+        &[aria-expanded='true']::after{
+          content: "-";
+        }
+      }
+
+      fieldset{
+        margin-block: 0;
+        legend{
+          display: none;
+        }
+
+        input[type='checkbox'] {
+          height: 20px;
+          width: 20px;
+          margin-top: .1rem;
+        }
+
+        label{
+          color: var.$color-secundario;
+          margin-left: .5rem;
+        }
+      }
+
+    }
+  }
+
+  div.card{
+    strong {
+      color: var.$color-secundario;
+    }
+    a {
+      text-decoration: underline;
+    }
+    div.card-images{
+      position: relative;
+      img.icon{
+        position: absolute;
+        right: 0.5rem;
+        top: 0.5rem;
+      }
+    }
+  }
+
+  /* ==============================
+  TABLA LINEA DE CREDITO
+  ============================== */
+  table.table-line-credit{
+
+    tbody {
+
+      tr:nth-child(1) {
+        font-weight: bold;
+      }
+
+      tr.row-even {
+        background: var.$color-rgb-secondary;
+        background: #e9e8e8de;
+      }
+
+      td.column-odd {
+        background: var.$color-rgb-secondary;
+      }
+
+      td.column-even {
+        background: var.$color-quinario;
+      }
+
+    }
+
+  }
+
+  /* ==============================
+  CODIGO CIIU
+  ============================== */
+  section.ciiu{
+
+    div.search-ciiu{
+      background: var.$color-gradient-primary;
+
+      div#response-search-ciiu{
+        max-width: 500px;
+        margin: auto;
+        color: var.$color-terciario;
+      }
+
+      input[type="submit"]{
+        background: url(/themes/custom/webfinde/images/iconos/buscador2.png) no-repeat;
+        background-size: 35px 35px;
+        width: 38px;
+        height: 38px;
+        background-position: top center;
+      }
+    }
+
+  }
+
+  /* ==============================
+  FORMULARIO
+  ============================== */
+  div.form-entities-rediscount {
+    background: var.$color-rgb-secondary;
+  }
+  /* ==============================
+  SEKELETON PRELOADER
+  ============================== */
+  .card-skeleton {
+    width: 100%;
+    height: 100%;
+    background-color: #ffff;
+    padding: 10px;
+    border-radius: 8px;
+
+    .skeleton{
+      background-image: linear-gradient(90deg, #ccc 0px, rgb(229 229 229 / 90%) 40px, #ccc 80px);
+      background-size: 300%;
+      background-position: 100% 0;
+      border-radius: inherit;
+      animation: shimmer 1s infinite;
+    }
+  }
+
+  @keyframes shimmer {
+    to {
+      background-position: -100% 0;
+    }
+  }
+
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .show-info {
+    opacity: 0;
+    animation: fade-in 2s forwards;
+  }
+
+  /* ==============================
+  LOADER TEXT CODIGO DE CIIU
+  ============================== */
+  .loader {
+    width: 400px;
+    height: 24px;
+    border-left: 8px solid var.$color-terciario;
+    border-right: 8px solid var.$color-terciario;
+    overflow: hidden;
+    margin: auto;
+    display: none;
+
+    .sub{
+      height: 8px;
+      width: 0;
+      background: var.$color-terciario;
+      position: relative;
+      margin: 0;
+      &:nth-child(1) {
+        -webkit-animation: sub 2s ease-in-out infinite;
+        animation: sub 2s ease-in-out infinite;
+      }
+      &:nth-child(2) {
+        -webkit-animation: sub 2s ease-in-out .1s infinite;
+        animation: sub 2s ease-in-out .1s infinite;
+      }
+      &:nth-child(3) {
+        -webkit-animation: sub 2s ease-in-out .2s infinite;
+        animation: sub 2s ease-in-out .2s infinite;
+      }
+    }
+  }
+
+  @-webkit-keyframes sub {
+    0%{
+      left: 0;
+      width: 0px;
+    }
+
+    25%{
+      left: 0;
+      width: 400px;
+    }
+
+    50% {
+      left: 400px;
+      width: 0px;
+    }
+    75% {
+      left: 0;
+      width: 400px;
+
+    }
+    100%{
+      left: 0;
+      width: 0px;
+    }
+  }
+
+  @keyframes sub {
+    0%{
+      left: 0;
+      width: 0px;
+    }
+
+    25%{
+      left: 0;
+      width: 400px;
+    }
+
+    50% {
+      left: 400px;
+      width: 0px;
+    }
+    75% {
+      left: 0;
+      width: 400px;
+
+    }
+    100%{
+      left: 0;
+      width: 0px;
+    }
+  }
+
+  /* ==============================
+  BUTTON
+  ============================== */
+  div.btn-more a{
+    // background: var.$color-gradient-primary !important;
+    border-radius: 1rem;
+    // background-position-x: 150%;
+    background-color: var.$color-primario !important;
+    background-image: linear-gradient(
+      -60deg,
+      transparent, transparent 40%,
+      #ffffff44 40%, #ffffff44 60%,
+      transparent 60%, transparent 100%
+    );
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    background-position-x: 150%;
+
+    &:hover{
+      background-position-x: -150%;
+      transition: background-position-x 600ms;
+    }
+  }
+
+  div.btn-icon-agent {
+    a {
+      border-color: initial !important;
+      border: 1px solid !important
+    }
+    span{
+      background: url(/themes/custom/webfinde/images/iconos/icon-agent-rediscount.svg) no-repeat;
+      display: inline-block;
+      height: 24px;
+      width: 24px;
+      margin-inline-start: 1rem;
+    }
+  }
+
+}
+
+/* ==============================
+MEDIA QUERY
+============================== */
+
+@include media-query.media(xs) {
+  .rediscount{
+
+    /* ==============================
+    MENU
+    ============================== */
+    nav ul {
+
+      justify-content: space-between;
+    }
+
+    .access-credit-findeter{
+      padding-block-end: 3rem;
+    }
+
+    div.info-tasses__interest_rate,
+    div.info-tasses__term{
+      width: 100% !important;
+    }
+
+    div.sectors-info{
+    .more-info {
+      .more-info__nav {
+        ul{
+          li {
+            flex-basis: max(170px);
+          }
+        }
+      }
+    }
+    }
+
+    .banks-rediscount{
+      div.slick {
+        ul{
+          margin-inline: 0;
+          li{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-query.media(sm) {
+
+}

@@ -33,7 +33,6 @@ third_party_settings:
     group_informacion:
       children:
         - title
-        - field_tipo_articulo
         - field_tipo_de_articulo
         - group_editor
       label: Información
@@ -82,8 +81,6 @@ third_party_settings:
         - created
         - status
         - path
-        - promote
-        - sticky
         - langcode
       label: Editor
       region: content
@@ -151,23 +148,9 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    weight: 10
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   status:
     type: boolean_checkbox
     weight: 8
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    weight: 11
     region: content
     settings:
       display_label: true
@@ -191,4 +174,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
+  promote: true
+  sticky: true
   url_redirects: true

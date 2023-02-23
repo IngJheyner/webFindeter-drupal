@@ -1,0 +1,21 @@
+uuid: 8a04b039-a0c8-4e27-aed6-7dc1716b0d7e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description_entities
+    - node.type.entities_rediscount
+  module:
+    - text
+id: node.entities_rediscount.field_description_entities
+field_name: field_description_entities
+entity_type: node
+bundle: entities_rediscount
+label: Descripcion
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

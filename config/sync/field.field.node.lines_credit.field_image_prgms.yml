@@ -1,0 +1,57 @@
+uuid: 6596e2ac-d64f-4dbb-a578-cb49c8e8b126
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_prgms
+    - node.type.lines_credit
+  module:
+    - filefield_paths
+    - image
+third_party_settings:
+  filefield_paths:
+    enabled: false
+    file_path:
+      value: '[date:custom:Y]-[date:custom:m]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+id: node.lines_credit.field_image_prgms
+field_name: field_image_prgms
+entity_type: node
+bundle: lines_credit
+label: 'Imagen de linea de credito'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: webfinde/images/redescuento/lineas_credito
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

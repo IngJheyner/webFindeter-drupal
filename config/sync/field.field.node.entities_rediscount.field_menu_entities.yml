@@ -1,0 +1,26 @@
+uuid: d6887721-fa8b-4a7d-acf4-3427bedb1d6b
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_menu_entities
+    - node.type.entities_rediscount
+    - system.menu.companies-territorial-entities
+id: node.entities_rediscount.field_menu_entities
+field_name: field_menu_entities
+entity_type: node
+bundle: entities_rediscount
+label: Menu
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 38ab3150-3e1a-48b9-bed1-44c82a991def
+default_value_callback: ''
+settings:
+  handler: 'default:menu'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

@@ -1,0 +1,307 @@
+uuid: ec2f40da-053c-4c08-a32d-1ef094fb3bb9
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.programs.field_available_prgrms
+    - field.field.node.programs.field_beneficiaries_prgms
+    - field.field.node.programs.field_date_validity_prgms
+    - field.field.node.programs.field_field_sector_prgms
+    - field.field.node.programs.field_image_prgms
+    - field.field.node.programs.field_info_product_prgms
+    - field.field.node.programs.field_interest_rate_prgms
+    - field.field.node.programs.field_margin_prgms
+    - field.field.node.programs.field_means_progms
+    - field.field.node.programs.field_space_available_prgms
+    - field.field.node.programs.field_steps_access_credit_prgms
+    - field.field.node.programs.field_subtitle_prgms
+    - field.field.node.programs.field_term_prgms
+    - field.field.node.programs.field_validity_prgms
+    - image.style.thumbnail
+    - node.type.programs
+  module:
+    - datetime
+    - field_group
+    - paragraphs
+    - path
+    - svg_image
+third_party_settings:
+  field_group:
+    group_group_tabs:
+      children:
+        - group_info
+        - group_info_product
+        - group_steps_acces_credit
+      label: 'Group Tabs'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: horizontal
+        width_breakpoint: 640
+    group_info:
+      children:
+        - title
+        - field_available_prgrms
+        - field_subtitle_prgms
+        - field_image_prgms
+        - field_space_available_prgms
+        - field_interest_rate_prgms
+        - field_term_prgms
+        - group_benefits
+        - langcode
+        - uid
+        - created
+        - path
+        - status
+      label: Informacion
+      region: content
+      parent_name: group_group_tabs
+      weight: 1
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_benefits:
+      children:
+        - field_beneficiaries_prgms
+        - group_vigencia
+        - field_means_progms
+        - field_margin_prgms
+        - field_field_sector_prgms
+      label: Beneficios
+      region: content
+      parent_name: group_info
+      weight: 23
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+        formatter: closed
+    group_info_product:
+      children:
+        - field_info_product_prgms
+      label: 'Informacion de producto'
+      region: content
+      parent_name: group_group_tabs
+      weight: 2
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_steps_acces_credit:
+      children:
+        - field_steps_access_credit_prgms
+      label: 'Pasos para acceder a un credito Findeter'
+      region: content
+      parent_name: group_group_tabs
+      weight: 3
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_vigencia:
+      children:
+        - field_date_validity_prgms
+        - field_validity_prgms
+      label: Vigencia
+      region: content
+      parent_name: group_benefits
+      weight: 20
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+id: node.programs.default
+targetEntityType: node
+bundle: programs
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 26
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_available_prgrms:
+    type: options_select
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_beneficiaries_prgms:
+    type: string_textarea
+    weight: 19
+    region: content
+    settings:
+      rows: 2
+      placeholder: ''
+    third_party_settings: {  }
+  field_date_validity_prgms:
+    type: datetime_default
+    weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_field_sector_prgms:
+    type: entity_reference_autocomplete
+    weight: 23
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_image_prgms:
+    type: image_image
+    weight: 18
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_info_product_prgms:
+    type: paragraphs
+    weight: 21
+    region: content
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_interest_rate_prgms:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_margin_prgms:
+    type: string_textfield
+    weight: 22
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_means_progms:
+    type: options_select
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_space_available_prgms:
+    type: string_textfield
+    weight: 20
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_steps_access_credit_prgms:
+    type: string_textfield
+    weight: 30
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_subtitle_prgms:
+    type: string_textfield
+    weight: 17
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_term_prgms:
+    type: string_textfield
+    weight: 22
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_validity_prgms:
+    type: string_textfield
+    weight: 24
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 24
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 27
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 28
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 15
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 25
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  promote: true
+  sticky: true
+  url_redirects: true

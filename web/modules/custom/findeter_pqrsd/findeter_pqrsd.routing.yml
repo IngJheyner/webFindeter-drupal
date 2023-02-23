@@ -1,3 +1,8 @@
+################################
+#USUARIOS
+################################
+
+#Registrar pqrsd.
 findeter_pqrsd.register_pqrsd:
   path: '/registrar-pqrsd'
   defaults:
@@ -6,66 +11,7 @@ findeter_pqrsd.register_pqrsd:
   requirements:
     _permission: 'access content'
 
-findeter_pqrsd.asign_pqrsd:
-  path: '/pqrsd/pqrsd-ajax-asign/{nid}/{usr}'
-  defaults:
-    _form: '\Drupal\findeter_pqrsd\Form\AsignPQRSD'
-    _title: 'Asignar requerimiento'
-  requirements:
-    _user_is_logged_in: 'TRUE'
-
-findeter_pqrsd.transfer_pqrsd:
-  path: '/pqrsd/transfer-pqrsd/{nid}'
-  defaults:
-    _form: '\Drupal\findeter_pqrsd\Form\TransferPQRSD'
-    _title: 'Transferir requerimiento'
-  requirements:
-    _user_is_logged_in: 'TRUE'
-
-findeter_pqrsd.answer_pqrsd:
-  path: '/pqrsd/answer-pqrsd-ajax/{nid}'
-  defaults:
-    _form: '\Drupal\findeter_pqrsd\Form\AnswerPQRSD'
-    _title: 'Responder requerimiento'
-  requirements:
-    _user_is_logged_in: 'TRUE'
-
-findeter_pqrsd.create_pdf:
-  path: '/pqrsd/create-pdf/{nid}'
-  defaults:
-    _controller: '\Drupal\findeter_pqrsd\Controller\CreatePDF::nodeToPdf'
-    _title: 'Crear PDF'
-  requirements:
-    _permission: 'access content'
-    _user_is_logged_in: 'TRUE'
-
-findeter_pqrsd.admin_module:
-  path: '/admin/pqrsd'
-  defaults:
-    _form: '\Drupal\findeter_pqrsd\Form\AdminModule'
-    _title: 'Administración módulo PQRSD'
-  requirements:
-    _permission: 'access administration pages'
-    _user_is_logged_in: 'TRUE'
-  options:
-    _admin_route: TRUE
-
-findeter_pqrsd.register_pqrsd_admin:
-  path: '/admin/registrar-pqrsd'
-  defaults:
-    _form: '\Drupal\findeter_pqrsd\Form\RegisterPQRSDAdmin'
-    _title: 'Registro de PQRSD'
-  requirements:
-    _custom_access: '\Drupal\findeter_pqrsd\Controller\UserControl::access'
-
-findeter_pqrsd.update_pqrsd_admin:
-  path: '/admin/actualizar-pqrsd/{nid}'
-  defaults:
-    _form: '\Drupal\findeter_pqrsd\Form\UpdatePQRSDAdmin'
-    _title: 'Actualizar registro de PQRSD'
-  requirements:
-    _user_is_logged_in: 'TRUE'
-
+#Confirmacion de registro de PQRSD con mensaje al usuario.
 findeter_pqrsd.confirm_register_pqrsd:
   path: '/registro-pqrsd/{nid}'
   defaults:
@@ -74,6 +20,82 @@ findeter_pqrsd.confirm_register_pqrsd:
   requirements:
     _permission: 'access content'
 
+#Estados de los pqrsd
+findeter_pqrsd.status_pqrsd:
+  path: '/estado-pqrsd'
+  defaults:
+    _form: '\Drupal\findeter_pqrsd\Form\StatusPQRSD'
+    _title: 'Consulta de estado de radicado'
+  requirements:
+    _permission: 'access content'
+
+
+################################
+#ADMINISTRADORES
+################################
+
+#Asignacion de pqrsd.
+findeter_pqrsd.asign_pqrsd:
+  path: '/pqrsd/pqrsd-ajax-asign/{nid}/{usr}'
+  defaults:
+    _form: '\Drupal\findeter_pqrsd\Form\AsignPQRSD'
+    _title: 'Asignar requerimiento'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+
+#Transferencia de pqrsd por competencia.
+findeter_pqrsd.transfer_pqrsd:
+  path: '/pqrsd/transfer-pqrsd/{nid}'
+  defaults:
+    _form: '\Drupal\findeter_pqrsd\Form\TransferPQRSD'
+    _title: 'Transferir requerimiento'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+
+#Respuesta de pqrsd.
+findeter_pqrsd.answer_pqrsd:
+  path: '/pqrsd/answer-pqrsd-ajax/{nid}'
+  defaults:
+    _form: '\Drupal\findeter_pqrsd\Form\AnswerPQRSD'
+    _title: 'Responder requerimiento'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+
+#Registro de pqrsd por el lado de administrativo.
+findeter_pqrsd.register_pqrsd_admin:
+  path: '/admin/registrar-pqrsd'
+  defaults:
+    _form: '\Drupal\findeter_pqrsd\Form\RegisterPQRSDAdmin'
+    _title: 'Registro de PQRSD'
+  requirements:
+    _custom_access: '\Drupal\findeter_pqrsd\Controller\UserControl::access'
+
+#Actualizacion de pqrsd por el lado administrativo.
+findeter_pqrsd.update_pqrsd_admin:
+  path: '/admin/actualizar-pqrsd/{nid}'
+  defaults:
+    _form: '\Drupal\findeter_pqrsd\Form\UpdatePQRSDAdmin'
+    _title: 'Actualizar registro de PQRSD'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+
+# Anular un radicado ( Queda en estado despublicado).
+findeter_pqrsd.canceled:
+  path: '/findeter-pqrsd/canceled/pqrsd/{node}'
+  defaults:
+    _title: 'Confirmar anulacion'
+    _form: 'Drupal\findeter_pqrsd\Form\CanceledPqrsdForm'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+    _role: 'pqrsd_administrador+administrator'
+    node: ^\d+$
+    _csrf_token: 'TRUE'
+  options:
+    parameters:
+      node:
+        type: entity:node
+
+#Confirmacion de registro de PQRSD con mensaje a administrativo.
 findeter_pqrsd.confirm_register_pqrsd_admin:
   path: '/admin/confirm-pqrsd/{operation}/{nid}'
   defaults:
@@ -82,6 +104,7 @@ findeter_pqrsd.confirm_register_pqrsd_admin:
   requirements:
     _user_is_logged_in: 'TRUE'
 
+#Autocompletar usuarios en el registro administrativo.
 findeter_pqrsd.autocomplete.users:
   path: '/pqrsd/autocomplete/users'
   defaults:
@@ -90,6 +113,7 @@ findeter_pqrsd.autocomplete.users:
   requirements:
     _permission: 'access content'
 
+#Lista de usuarios, se utiliza cuando se asigna los usuarios.
 findeter_pqrsd.userslist:
   path: '/pqrsd/userslist'
   defaults:
@@ -99,32 +123,14 @@ findeter_pqrsd.userslist:
   requirements:
     _permission: 'access content'
 
-findeter_pqrsd.status_pqrsd:
-  path: '/estado-pqrsd'
-  defaults:
-    _form: '\Drupal\findeter_pqrsd\Form\StatusPQRSD'
-    _title: 'Consulta de estado de radicado'
-  requirements:
-    _permission: 'access content'
 
-findeter_pqrsd.expor_report_pdf:
-  path: '/report-to-pdf/{filter}'
-  defaults:
-    _controller: '\Drupal\findeter_pqrsd\Controller\CreatePDF::reportToPdf'
-    _title: 'Registro/Actualización de PQRSD'
-  requirements:
-    _user_is_logged_in: 'TRUE'
+################################
+#REPORTES
+################################
 
+#Reporte en excel de los PQRSD.
 findeter_pqrsd.expor_report_excel:
   path: '/admin/reporte-excel-pqrsd/{filter}'
-  requirements:
-    _user_is_logged_in: 'TRUE'
-
-findeter_pqrsd.export_format_379:
-  path: '/admin/reporte-formato-379'
-  defaults:
-    _controller: '\Drupal\findeter_pqrsd\Controller\CreateTxt379::reportFormat379'
-    _title: 'Reporte formato 379'
   requirements:
     _user_is_logged_in: 'TRUE'
     _role: 'pqrsd_administrador+administrator'
@@ -146,7 +152,7 @@ findeter_pqrsd.reports_statistics:
     _controller: '\Drupal\findeter_pqrsd\Controller\ReportsPqrsdController::statistics'
   requirements:
     _user_is_logged_in: 'TRUE'
-    _custom_access: '\Drupal\findeter_pqrsd\Controller\UserControl::access'
+    _role: 'pqrsd_administrador+administrator'
 
 #Mostrar resultados de PQRSD en la tabla de reportes
 findeter_pqrsd.reports_results_data_table:
@@ -155,4 +161,66 @@ findeter_pqrsd.reports_results_data_table:
     _controller: '\Drupal\findeter_pqrsd\Controller\ReportsPqrsdController::resultsDataTable'
   requirements:
     _user_is_logged_in: 'TRUE'
-    _custom_access: '\Drupal\findeter_pqrsd\Controller\UserControl::access'
+    _role: 'pqrsd_administrador+administrator'
+
+#Mostar resultado de PQRSD comparativo por anio.
+findeter_pqrsd.reports_results_data_anio:
+  path: '/admin/reporte-resultados-data-anio/{anio}'
+  defaults:
+    _controller: '\Drupal\findeter_pqrsd\Controller\ReportsPqrsdController::resultsDataTableAnio'
+  methods:  [GET]
+  requirements:
+    _user_is_logged_in: 'TRUE'
+    _role: 'pqrsd_administrador+administrator'
+#PDF a cada uno de los PQRSD (Deprecated).
+#findeter_pqrsd.create_pdf:
+#  path: '/pqrsd/create-pdf/{nid}'
+#  defaults:
+#    _controller: '\Drupal\findeter_pqrsd\Controller\CreatePDF::nodeToPdf'
+#    _title: 'Crear PDF'
+#  requirements:
+#   _permission: 'access content'
+#    _user_is_logged_in: 'TRUE'
+
+# PDF de todos los PQRSD del sistema (Deprecated)
+# findeter_pqrsd.expor_report_pdf:
+#   path: '/report-to-pdf/{filter}'
+#   defaults:
+#     _controller: '\Drupal\findeter_pqrsd\Controller\CreatePDF::reportToPdf'
+#     _title: 'Registro/Actualización de PQRSD'
+#   requirements:
+#     _user_is_logged_in: 'TRUE'
+
+# Reporte 379 (Deprecated).
+#findeter_pqrsd.export_format_379:
+#  path: '/admin/reporte-formato-379'
+#  defaults:
+#    _controller: '\Drupal\findeter_pqrsd\Controller\CreateTxt379::reportFormat379'
+#    _title: 'Reporte formato 379'
+#  requirements:
+#    _user_is_logged_in: 'TRUE'
+#    _role: 'pqrsd_administrador+administrator'
+
+
+################################
+#MENU ADMINISTRADOR (TABS MENU)
+################################
+
+#Formulario de configuracion administrativo de pqrsd.
+findeter_pqrsd.admin_module:
+  path: '/admin/pqrsd'
+  defaults:
+    _form: '\Drupal\findeter_pqrsd\Form\AdminModule'
+    _title: 'Administración módulo PQRSD'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+    _role: 'pqrsd_administrador+administrator'
+  options:
+    _admin_route: TRUE
+
+#Pagina de reportes.
+view.pqrsd.page_2:
+  path: '/admin/reportes-pqrsd'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+    _role: 'pqrsd_administrador+administrator+auditor_pqrsd+pqrsd_denuncias'

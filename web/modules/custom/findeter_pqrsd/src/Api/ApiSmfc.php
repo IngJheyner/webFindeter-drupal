@@ -174,8 +174,8 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
 
     // $this->login();
     // $this->refreshToken();
-    // $this->postComplaints(406);
-    // $this->putComplaints(410);
+    // $this->postComplaints(456);
+    // $this->putComplaints(455);
     // $this->getUpdateInfoUserComplaints();
 
   }
@@ -660,7 +660,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
     }
 
     // Descripcion de solicitud field_pqrsd_descripcion.
-    $descriptionSolic = $nodeStorage->get("field_pqrsd_descripcion")->getValue()[0]['value'];
+    $descriptionSolic = preg_replace("/[\r\n|\n|\r]+/", " ", $nodeStorage->get("field_pqrsd_descripcion")->getValue()[0]['value']);
 
     // Anexo archivos para la queja.
     $anexFileComplaintsFile = $nodeStorage->get("field_pqrsd_archivo")->getValue();
@@ -866,8 +866,10 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
       $file_storage = $this->entityTypeManager->getStorage('file');
 
       /* =============================================================================================================
-      SE CARGA PREVIAMENTE TODOS LOS ARCHIVOS COMO RESPUESTA FINAL, YA QUE EL SISTEMA SOLO PERMITE ENVIAR UNA RESPUESTA DE QUEJA O RECLAMO UNA VEZ SE HAYA DILIGENCIADO POR PARTE DE LA AGENCIA; EL SISTEMA NO TIENE UNA OPCION DE REPLICA O DESISTIMIENTO EN EL FLUJO DE TRABAJO COMO DEMANDA EL SFC.
-      SE CIERRA POR COMPLETO LA QUEJA O RECLAMO.
+      - SE CARGA PREVIAMENTE TODOS LOS ARCHIVOS COMO RESPUESTA FINAL, YA QUE EL SISTEMA SOLO PERMITE ENVIAR UNA RESPUESTA
+      DE QUEJA O RECLAMO UNA VEZ SE HAYA DILIGENCIADO POR PARTE DE LA AGENCIA; EL SISTEMA NO TIENE UNA OPCION DE REPLICA
+      O DESISTIMIENTO EN EL FLUJO DE TRABAJO COMO DEMANDA EL SFC.
+      - SE CIERRA POR COMPLETO LA QUEJA O RECLAMO.
       =============================================================================================================== */
       foreach ($anexFileResponseFile as $file) {
 
@@ -920,57 +922,55 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
           return FALSE;
 
         }
-        else {
+      }
 
-          $dataSignature = '{"codigo_queja": "'.$codComplaints.'", '.
-            '"sexo": "'.$sexo.'", '.
-            '"lgbtiq": "'.$lgtbi.'", '.
-            '"condicion_especial": "'.$conditionSpecial.'", '. //
-            '"canal_cod": "'.$canal.'", '. //
-            '"producto_cod": "'.$codProduct.'", '.
-            '"macro_motivo_cod": "'.$codMotive.'", '.
-            '"estado_cod": "4", '.
-            '"fecha_actualizacion": "'.$dateResponse.'", '.
-            '"producto_digital": "2", '.
-            '"a_favor_de": "'.$infavorof.'", '.
-            '"aceptacion_queja": null, '.
-            '"rectificacion_queja": null, '.
-            '"desistimiento_queja": "'.$withdrawal.'", '. //
-            '"prorroga_queja": null, '.
-            '"admision": "9", '.
-            '"documentacion_rta_final": true, '.
-            '"anexo_queja": true, '.
-            '"fecha_cierre": "'.$dateResponse.'", '.
-            '"tutela": "'.$wardShip.'", '.
-            '"ente_control": "'.$entityControl.'", '.
-            '"marcacion": null, '.
-            '"queja_expres": "'.$complaintsExpress.'"}';
+      $dataSignature = '{"codigo_queja": "'.$codComplaints.'", '.
+        '"sexo": "'.$sexo.'", '.
+        '"lgbtiq": "'.$lgtbi.'", '.
+        '"condicion_especial": "'.$conditionSpecial.'", '. //
+        '"canal_cod": "'.$canal.'", '. //
+        '"producto_cod": "'.$codProduct.'", '.
+        '"macro_motivo_cod": "'.$codMotive.'", '.
+        '"estado_cod": "4", '.
+        '"fecha_actualizacion": "'.$dateResponse.'", '.
+        '"producto_digital": "2", '.
+        '"a_favor_de": "'.$infavorof.'", '.
+        '"aceptacion_queja": null, '.
+        '"rectificacion_queja": null, '.
+        '"desistimiento_queja": "'.$withdrawal.'", '. //
+        '"prorroga_queja": null, '.
+        '"admision": "9", '.
+        '"documentacion_rta_final": true, '.
+        '"anexo_queja": true, '.
+        '"fecha_cierre": "'.$dateResponse.'", '.
+        '"tutela": "'.$wardShip.'", '.
+        '"ente_control": "'.$entityControl.'", '.
+        '"marcacion": null, '.
+        '"queja_expres": "'.$complaintsExpress.'"}';
 
-          // Firma encrypt sha256 en funcion de hmac.
-          $signature = strtoupper(hash_hmac('sha256', $dataSignature, $this->secretKey, FALSE));
+      // Firma encrypt sha256 en funcion de hmac.
+      $signature = strtoupper(hash_hmac('sha256', $dataSignature, $this->secretKey, FALSE));
 
-          // Se envia la data para poder validar algunos valores.
-          $data = ['code' => $codComplaints, 'data' => $dataSignature];
+      // Se envia la data para poder validar algunos valores.
+      $data = ['code' => $codComplaints, 'data' => $dataSignature];
 
-          // Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service.
-          $response = $this->httpClient($signature, 'PUT', 'queja/', $data);
+      // Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service.
+      $response = $this->httpClient($signature, 'PUT', 'queja/', $data);
 
-          if (isset($response['code'])) {
+      if (isset($response['code'])) {
 
-            $this->logger->get('API SMFC')->warning("Code: %code Mensaje actualizacion de radicado: %message <br> Se ha producido un error al actualizar radicado No. %settled como cliente web services en el sistema <strong> API SMFC.",
-            [
-              '%code' => $response['code'],
-              '%message' => $response['message'],
-              '%settled' => $codComplaints
-            ]);
+        $this->logger->get('API SMFC')->warning("Code: %code Mensaje actualizacion de radicado: %message <br> Se ha producido un error al actualizar radicado No. %settled como cliente web services en el sistema <strong> API SMFC.",
+        [
+          '%code' => $response['code'],
+          '%message' => $response['message'],
+          '%settled' => $codComplaints
+        ]);
 
-            return FALSE;
+        return FALSE;
 
-          }
-          else {
-            return TRUE;
-          }
-        }
+      }
+      else {
+        return TRUE;
       }
     }
     else {

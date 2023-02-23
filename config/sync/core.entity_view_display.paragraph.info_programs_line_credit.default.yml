@@ -1,0 +1,31 @@
+uuid: 1f432573-6de0-4bd4-95d7-e037d737d377
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.info_programs_line_credit.field_description_prgms
+    - field.field.paragraph.info_programs_line_credit.field_tittle_product_prgms
+    - paragraphs.paragraphs_type.info_programs_line_credit
+  module:
+    - text
+id: paragraph.info_programs_line_credit.default
+targetEntityType: paragraph
+bundle: info_programs_line_credit
+mode: default
+content:
+  field_description_prgms:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_tittle_product_prgms:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

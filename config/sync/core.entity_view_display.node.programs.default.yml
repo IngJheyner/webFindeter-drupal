@@ -1,0 +1,58 @@
+uuid: 2d53103c-333e-4b3d-8328-d22cfa6bfb5d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.programs.field_available_prgrms
+    - field.field.node.programs.field_beneficiaries_prgms
+    - field.field.node.programs.field_date_validity_prgms
+    - field.field.node.programs.field_field_sector_prgms
+    - field.field.node.programs.field_image_prgms
+    - field.field.node.programs.field_info_product_prgms
+    - field.field.node.programs.field_interest_rate_prgms
+    - field.field.node.programs.field_margin_prgms
+    - field.field.node.programs.field_means_progms
+    - field.field.node.programs.field_space_available_prgms
+    - field.field.node.programs.field_steps_access_credit_prgms
+    - field.field.node.programs.field_subtitle_prgms
+    - field.field.node.programs.field_term_prgms
+    - field.field.node.programs.field_validity_prgms
+    - node.type.programs
+  module:
+    - options
+    - user
+id: node.programs.default
+targetEntityType: node
+bundle: programs
+mode: default
+content:
+  field_available_prgrms:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_beneficiaries_prgms:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  addtoany: true
+  field_date_validity_prgms: true
+  field_field_sector_prgms: true
+  field_image_prgms: true
+  field_info_product_prgms: true
+  field_interest_rate_prgms: true
+  field_margin_prgms: true
+  field_means_progms: true
+  field_space_available_prgms: true
+  field_steps_access_credit_prgms: true
+  field_subtitle_prgms: true
+  field_term_prgms: true
+  field_validity_prgms: true
+  langcode: true
+  links: true

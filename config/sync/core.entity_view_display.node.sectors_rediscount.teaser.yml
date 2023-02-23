@@ -1,0 +1,32 @@
+uuid: 08c0b758-3c4b-4964-94a8-844e328673f3
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.sectors_rediscount.field_description_sector
+    - field.field.node.sectors_rediscount.field_icon_second_sector
+    - field.field.node.sectors_rediscount.field_icon_sector
+    - field.field.node.sectors_rediscount.field_image_sector
+    - field.field.node.sectors_rediscount.field_subsectors_rediscount
+    - node.type.sectors_rediscount
+  module:
+    - user
+id: node.sectors_rediscount.teaser
+targetEntityType: node
+bundle: sectors_rediscount
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_description_sector: true
+  field_icon_second_sector: true
+  field_icon_sector: true
+  field_image_sector: true
+  field_subsectors_rediscount: true
+  langcode: true

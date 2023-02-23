@@ -1,0 +1,22 @@
+uuid: b40842c7-c34a-4574-9fa8-df8d13872c7f
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.entities_rediscount
+id: node.entities_rediscount.promote
+field_name: promote
+entity_type: node
+bundle: entities_rediscount
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -13,6 +13,12 @@ use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Cache\Cache;
+use Drupal\Core\Form\FormBuilderInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Dompdf\Dompdf;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Cmixin\BusinessDay;
+use Carbon\Carbon;
 
 /**
  * Returns responses for Findeter PQRSD Manager routes.
@@ -57,6 +63,13 @@ class ReportsPqrsdController extends ControllerBase {
   protected $languageManager;
 
   /**
+   * FormBuilder.
+   *
+   * @var Drupal\Core\Form\FormBuilderInterface
+   */
+  protected $formBuilder;
+
+  /**
    * Servicios.
    *
    * @param Drupal\Core\Entity\EntityFieldManagerInterface $field_manager
@@ -69,14 +82,17 @@ class ReportsPqrsdController extends ControllerBase {
    *   LanguageManager.
    * @param Drupal\Core\Cache\CacheBackendInterface $cache
    *   Cache.
+   * @param Drupal\Core\Form\FormBuilderInterface $form_builder
+   *   Form Builder.
    */
-  public function __construct(EntityFieldManagerInterface $field_manager, EntityTypeManager $entity_type_manager, RendererInterface $render, LanguageManagerInterface $language_manager, CacheBackendInterface $cache) {
+  public function __construct(EntityFieldManagerInterface $field_manager, EntityTypeManager $entity_type_manager, RendererInterface $render, LanguageManagerInterface $language_manager, CacheBackendInterface $cache, FormBuilderInterface $form_builder) {
 
     $this->fieldManager = $field_manager;
     $this->entityTypeManager = $entity_type_manager;
     $this->render = $render;
     $this->languageManager = $language_manager;
     $this->cache = $cache;
+    $this->formBuilder = $form_builder;
 
   }
 
@@ -95,7 +111,8 @@ class ReportsPqrsdController extends ControllerBase {
      $container->get('entity_type.manager'),
      $container->get('renderer'),
      $container->get('language_manager'),
-     $container->get('cache.default')
+     $container->get('cache.default'),
+     $container->get('form_builder')
     );
   }
 
@@ -105,8 +122,8 @@ class ReportsPqrsdController extends ControllerBase {
    * @return mixed
    *   Return render html.
    */
-  public function statistics() {
-
+  public function statistics(Request $request) {
+    // dump($request->request->get('message'));
     // Creamos variables de inicializacion en tiempo y valores como el cid de cache creado en cache.default.
     $startTime = microtime(TRUE);
     $cid = "findeter_pqrsd_statistics: {$this->languageManager->getCurrentLanguage()->getId()}";
@@ -114,13 +131,15 @@ class ReportsPqrsdController extends ControllerBase {
     $fromCache = FALSE;
 
     // Validacion de cache, sino ejecutamos la funcion para generar una nueva consulta.
-    if ($cache = $this->cache->get($cid)) {
+    if (($cache = $this->cache->get($cid)) && is_null($request->request->get('start_date'))) {
       $data = $cache->data;
       $fromCache = TRUE;
     }
     else {
-      $data = $this->statisticsData();
-      $this->cache->set($cid, $data, Cache::PERMANENT, ['node_list:pqrsd']);
+      $data = $this->statisticsData($request);
+      if (is_null($request->request->get('start_date'))) {
+        $this->cache->set($cid, $data, Cache::PERMANENT, ['node_list:pqrsd']);
+      }
     }
 
     $endTime = microtime(TRUE);
@@ -160,20 +179,63 @@ class ReportsPqrsdController extends ControllerBase {
 
       }
 
-      $build['charts-graph'] = [
+      // Formulario de filtro para estadisticas.
+      $form = $this->formBuilder->getForm('Drupal\findeter_pqrsd\Form\ReportsPqrsdForm');
+
+      $build[]['form-filter'] = [
+        '#type' => 'html_tag',
+        '#tag' => 'div',
+        '#value' => $this->render->render($form),
+        '#weight' => 0,
+      ];
+
+      // Definir peridod de fechas consultas.
+      if (is_null($request->request->get('start_date'))) {
+
+        $start_date = date("d-m-Y", strtotime('first day of January', time()));
+        $finished_date = date("d-m-Y", \Drupal::time()->getCurrentTime());
+
+      }
+      else {
+        $start_date = date("d-m-Y", strtotime($request->request->get('start_date')['date']));
+        $finished_date = date("d-m-Y", strtotime($request->request->get('finished_date')['date']));
+      }
+
+      $build[]['charts-graph'] = [
         '#type' => 'item',
         '#markup' => Markup::create('
+          <time id="time-period"> Periodo '.$start_date.' al '.$finished_date.'</time>
           <div class="list-charts">
-            <div class="chart-container"><canvas id="time-chart"></canvas></div>
-            <div class="chart-container"><canvas id="tipo-radicado-chart"></canvas></div>
-            <div class="chart-container"><canvas id="tipo-solicitante-chart"></canvas></div>
-            <div class="chart-container"><canvas id="tipo-producto-chart"></canvas></div>
-            <div class="chart-container"><canvas id="canal-recepcion-chart"></canvas></div>
-            <div class="chart-container"><canvas id="forma-recepcion-chart"></canvas></div></div>'),
+            <div class="chart-container">
+              <canvas id="time-chart"></canvas>
+              <table id="time-chart"><thead><tr><th>Mes</th><th>Total</th></tr></thead><tbody></tbody></table>
+            </div>
+            <div class="chart-container">
+              <canvas id="tipo-radicado-chart"></canvas>
+              <table id="tipo-radicado-chart"><thead><tr><th>Tipo de Radicado</th><th>Total</th></tr></thead><tbody></tbody></table>
+            </div>
+            <div class="chart-container">
+              <canvas id="tipo-solicitante-chart"></canvas>
+              <table id="tipo-solicitante-chart"><thead><tr><th>Tipo de Solicitante</th><th>Total</th></tr></thead><tbody></tbody></table>
+            </div>
+            <div class="chart-container" id="tipo-producto-chart">
+              <canvas id="tipo-producto-chart"></canvas>
+              <table id="tipo-producto-chart"><thead><tr><th>Tipo de Producto</th><th>Total</th></tr></thead><tbody></tbody></table>
+            </div>
+            <div class="chart-container">
+              <canvas id="canal-recepcion-chart"></canvas>
+              <table id="canal-recepcion-chart"><thead><tr><th>Canal de Recepcion</th><th>Total</th></tr></thead><tbody></tbody></table>
+            </div>
+            <div class="chart-container">
+              <canvas id="forma-recepcion-chart"></canvas>
+              <table id="forma-recepcion-chart"><thead><tr><th>Forma de Recepcion</th><th>Total</th></tr></thead><tbody></tbody></table>
+            </div>
+          </div>'),
         'stringData' => [
           '#type' => 'html_tag',
           '#tag' => 'p',
           '#value' => $this->render->render($messageString),
+          '#weight' => 2,
         ],
         '#attached' => [
           'drupalSettings' => [
@@ -201,7 +263,7 @@ class ReportsPqrsdController extends ControllerBase {
    * @return array
    *   Return array data
    */
-  public function statisticsData() {
+  public function statisticsData($request) {
 
     // Arraglo con los meses del anio.
     $spanishMonths['January'] = 'Enero';
@@ -249,13 +311,31 @@ class ReportsPqrsdController extends ControllerBase {
 
     // Realizamos una consulta para traer los nids de todo los nodos que perteneces al tipo de contenido pqrsd.
     $query = \Drupal::entityQuery('node')
-      ->condition('type', 'pqrsd')
-      ->execute();
+      ->condition('type', 'pqrsd');
+
+    // Se agrega los filtros de fecha para mostrar por periodos.
+    if (!is_null($request->request->get('start_date'))) {
+      $query->condition('created', [
+        strtotime($request->request->get('start_date')['date']),
+        strtotime($request->request->get('finished_date')['date'])
+      ], 'BETWEEN');
+    }
+    else {
+      $start_date = strtotime('first day of January', time());
+      $finished_date = \Drupal::time()->getCurrentTime();
+      $query->condition('created', [
+        $start_date,
+        $finished_date
+      ], 'BETWEEN');
+    }
+
+    // Ejecutamos la consulta.
+    $results = $query->execute();
 
     $nodeStorage = $this->entityTypeManager->getStorage('node');
 
     // Cargamos lo nid de nodos pqrsd.
-    $nodeArray = $nodeStorage->loadMultiple($query);
+    $nodeArray = $nodeStorage->loadMultiple($results);
 
     foreach ($nodeArray as $node) {
 
@@ -320,14 +400,18 @@ class ReportsPqrsdController extends ControllerBase {
     // Tipos de solictante valores.
     $tipoSolicitanteValue = array_filter(
       $tipoSolicitanteCount,
-      function($item){ return $item > 0; });
+      function ($item) {
+        return $item > 0;
+      });
 
     $data['tipoSolicitante'] = $tipoSolicitanteValue;
 
     // Nombre de productos.
     $tipoNameProductValue = array_filter(
       $tipoNameProductCount,
-      function($item){ return $item > 0; });
+      function ($item) {
+        return $item > 0;
+      });
 
     $data['tipoProducto'] = $tipoNameProductValue;
 
@@ -497,6 +581,171 @@ class ReportsPqrsdController extends ControllerBase {
     ));
 
     return $response;
+
+  }
+
+  /**
+   * Se muestra resultados de PQRSD por anio.
+   *
+   * @return string
+   *   Coomand Ajax
+   */
+  public static function resultsDataTableAnio($anio, $getQueryMonths = NULL) {
+
+    BusinessDay::enable('Carbon\Carbon');
+    Carbon::setHolidaysRegion('co');
+
+    // Arraglo con los meses del anio.
+    $spanishMonths['January'] = 'Enero';
+    $spanishMonths['February'] = 'Febrero';
+    $spanishMonths['March'] = 'Marzo';
+    $spanishMonths['April'] = 'Abril';
+    $spanishMonths['May'] = 'Mayo';
+    $spanishMonths['June'] = 'Junio';
+    $spanishMonths['July'] = 'Julio';
+    $spanishMonths['August'] = 'Agosto';
+    $spanishMonths['September'] = 'Septiembre';
+    $spanishMonths['October'] = 'Octubre';
+    $spanishMonths['November'] = 'Noviembre';
+    $spanishMonths['December'] = 'Diciembre';
+
+    foreach ($spanishMonths as $key => $month) {
+      $mTable[$key]['name'] = $month;
+      $mTable[$key]['requests'] = 0;
+      $mTable[$key]['attended'] = 0;
+      $mTable[$key]['process'] = 0;
+      $mTable[$key]['canceled'] = 0;
+      $mTable[$key]['days_count'] = 0;
+      $mTable[$key]['days_answer'] = 0;
+    }
+
+    // Storage de tipo entidad node.
+    $nodeStorage = \Drupal::service('entity_type.manager')->getStorage('node');
+
+    // Realizamos una consulta para traer los nid de pqrsd y ser iterado por cada uno de ellos.
+    $query = \Drupal::entityQuery('node')
+      ->condition('type', 'pqrsd')
+      ->condition('created', [
+        strtotime("01-01-$anio"),
+        strtotime("31-12-$anio")
+      ], 'BETWEEN')
+      ->execute();
+
+    // Cargamos lo nid de nodos pqrsd.
+    $nodeArray = $nodeStorage->loadMultiple($query);
+
+    // Recorremos la consulta y iteramos por cada una.
+    foreach ($nodeArray as $key => $node) {
+      $month = date('F', $node->get('created')->value);
+      $mTable[$month]['requests']++;
+
+      if ($node->get('field_pqrsd_respuesta')->value == '') {
+        $mTable[$month]['process']++;
+      }
+      else {
+
+        if (isset($node->get('field_pqrsd_fecha_respuesta')->getValue()[0]['value'])) {
+          // $dateI = new \DateTime(date('Y-m-d', $node->get('created')->getValue()[0]['value']));
+          // $dateF = new \DateTime($node->get('field_pqrsd_fecha_respuesta')->getValue()[0]['value']);
+          // $days = $dateI->diff($dateF);
+
+          // 86400 = 1 dia.
+          // Se incrementa a la fecha de radicado.
+          $dateI = $node->get('created')->getValue()[0]['value'] + 86400;
+          $dateF = strtotime($node->get('field_pqrsd_fecha_respuesta')->getValue()[0]['value']);
+
+          // Atendidas.
+          $mTable[$month]['attended']++;
+
+          // Contador de dias para cada fecha.
+          $days = 0;
+
+          for ($timeStamp = $dateI; $timeStamp <= $dateF; $timeStamp += 86400) {
+
+            // Declaramos variabes para la fecha fesitvos.
+            $day = date('d', $timeStamp);
+            $mounth = date('m', $timeStamp);
+            $year = date('Y', $timeStamp);
+
+            // Obtenemos si es un dia vacacional o festivo.
+            $holiDays = Carbon::parse("$year-$mounth-$day")->isHoliday();
+
+            // Ni sabados ni Domingos.
+            if (!in_array(date('N', $timeStamp), [6, 7])) {
+              // Ni dias feriados.
+              if (!$holiDays) {
+                $days++;
+              }
+            }
+
+          }
+
+          // La siguientes variables es para realizar un promedio de dias de respuesta por mes.
+          // Dias de respuesta.
+          $mTable[$month]['days_count'] += $days;
+          $days = $mTable[$month]['days_count'] / $mTable[$month]['attended'];
+          $mTable[$month]['days_answer'] = round($days, 2);
+        }
+        else {
+          $mTable[$month]['attended']++;
+        }
+      }
+
+      if (!$node->isPublished()) {
+        $mTable[$month]['canceled']++;
+        $mTable[$month]['process']--;
+      }
+
+    }
+
+    // Filtramos el resultado de meses que tengan mas de una solicitud.
+    $mTable = array_filter(
+      $mTable,
+      function ($item) {
+        return $item['requests'] > 0;
+      });
+
+    // Totales de cada item en tabla.
+    $mTable['Total']['name'] = 'Total';
+    $mTable['Total']['requests'] = 0;
+    $mTable['Total']['attended'] = 0;
+    $mTable['Total']['process'] = 0;
+    $mTable['Total']['canceled'] = 0;
+
+    if (count($mTable) > 1) {
+      // Recogemos los totales del promedio de dias de respuesta en cada uno de los meses de array.
+      $daysAvg = [];
+      // Iteramos para acumular los totales.
+      foreach ($mTable as $tR => $values) {
+
+        unset($mTable[$tR]['days_count']);
+
+        $mTable['Total']['requests'] += $values['requests'];
+        $mTable['Total']['attended'] += $values['attended'];
+        $mTable['Total']['process'] += $values['process'];
+        $mTable['Total']['canceled'] += $values['canceled'];
+
+        if (isset($values['days_answer'])) {
+          array_push($daysAvg, $values['days_answer']);
+        }
+      }
+      $mTable['Total']['days_answer'] = round(array_sum($daysAvg) / count($daysAvg), 2);
+    }
+    else {
+      $mTable['Total']['days_answer'] = 0;
+    }
+
+    if (is_null($getQueryMonths)) {
+      // Retornamos las variables en este caso datos de tipo json.
+      return new JsonResponse([
+        'status' => 200,
+        'data' => $mTable,
+        'method' => 'GET',
+      ]);
+    }
+    else {
+      return $mTable;
+    }
 
   }
 
