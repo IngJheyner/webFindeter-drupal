@@ -25,7 +25,7 @@ class CiiuForm extends FormBase {
     $form['container'] = [
       '#type' => 'container',
       '#attributes' => [
-        'class' => 'd-flex justify-content-around align-items-center px-5',
+        'class' => 'd-flex justify-content-around align-items-center px-md-5',
       ]
     ];
 
