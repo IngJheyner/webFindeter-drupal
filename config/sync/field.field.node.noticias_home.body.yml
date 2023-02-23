@@ -15,7 +15,11 @@ label: Descripción
 description: ''
 required: true
 translatable: true
-default_value: {  }
+default_value:
+  -
+    value: ''
+    summary: Resumen
+    format: html_editor
 default_value_callback: ''
 settings:
   display_summary: true
