@@ -10,7 +10,7 @@
           Dependiendo del tipo de radicado se caragan valores
           SMFC(Queja o Reclamo)
           =============================================*/
-          loadOptionsField = (petition, element) => {
+          const loadOptionsField = (petition, element) => {
 
             let item = [];
             let itemSmfc = [];
@@ -213,7 +213,7 @@
                 method: "GET",
               })
               .then(response => {
-                console.log(response);
+
                 if (response.ok){
                   divBarProgress.style.display = 'none';
                   return response.json();
