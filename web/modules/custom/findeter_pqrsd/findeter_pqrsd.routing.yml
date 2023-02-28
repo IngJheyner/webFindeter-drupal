@@ -172,6 +172,17 @@ findeter_pqrsd.reports_results_data_anio:
   requirements:
     _user_is_logged_in: 'TRUE'
     _role: 'pqrsd_administrador+administrator'
+
+#Mostar resultado de PQRSD comparativo por anio.
+findeter_pqrsd.send-data-smfc:
+  path: '/admin/send-data-smfc'
+  defaults:
+    _controller: '\Drupal\findeter_pqrsd\Controller\ReportsPqrsdController::sendDataSmfc'
+  methods:  [GET]
+  requirements:
+    _user_is_logged_in: 'TRUE'
+    _role: 'pqrsd_administrador+administrator'
+
 #PDF a cada uno de los PQRSD (Deprecated).
 #findeter_pqrsd.create_pdf:
 #  path: '/pqrsd/create-pdf/{nid}'

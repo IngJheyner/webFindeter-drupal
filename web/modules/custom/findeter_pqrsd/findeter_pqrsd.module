@@ -171,7 +171,9 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
     $rowSmfc = [];
     $total = 0;
 
+
     if(!empty($stateSmfcNid) || !is_null($stateSmfcNid)){
+
       foreach ($stateSmfcNid as $key => $value) {
         $total++;
         $rowSmfc[] = [
@@ -181,7 +183,14 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
           $stateSmfcNid[$key]['smfc'] ? Markup::create('<span>En espera...</span>') : Markup::create('<span>- - -</span>'),
         ];
       }
+
+      $rowSmfc[] = [
+        [ 'data' => Markup::create('<a href="javascript:void(0);" style="float: right;" class="button button--primary" id="send-data-smfc">Enviar a SMART - SFC</a>'),
+        'colspan' => [4]
+        ]
+      ];
     }
+
     $form['container_api_smfc'] = [
       '#type' => 'details',
       '#title' => 'API SMFC',
@@ -455,62 +464,6 @@ function findeter_pqrsd_cron() {
 
     }
 
-  }
-
-   /* ============================================
-  Enviar radicados de Quejas o Reclamos
-  a la aplicacion API SMFC
-  ===============================================*/
-  $stateSmfcNid = \Drupal::service('state')->get('findeter_pqrsd.api_smfc_nid');
-
-  if(!is_null($stateSmfcNid) && !empty($stateSmfcNid)) {
-
-    $apiSmfc = \Drupal::service('api.smfc');
-    $nid = [];
-    $login = $apiSmfc->login();
-
-    if($login) {
-
-      foreach ($stateSmfcNid as $key => $state) {
-
-        $nid[$key] = [
-          "nid" => $state['nid'],
-          "title" => $state['title'],
-          "created" => $state['created'],
-          "smfc" => $state['smfc']
-        ];
-
-        if(date('Y-m-d', $now) !== date('Y-m-d', $state['created'])) {
-
-          if($state['smfc'] === FALSE) {
-
-            $post = $apiSmfc->postComplaints($state['nid']);
-            //$post = TRUE;
-
-            $post ? $nid[$key]["smfc"] = TRUE : $nid[$key]["smfc"] = FALSE;
-
-          }
-          else {
-
-            // Consultamos si hay informacion de usuarios para actualizar.
-            $putUpdbUser = $apiSmfc->getUpdateInfoUserComplaints();
-
-            if($putUpdbUser) {
-              $put = $apiSmfc->putComplaints($state['nid']);
-              //$put = TRUE;
-
-              if(!$put)
-                $nid[$key]["smfc"] = TRUE;
-              else
-                unset($nid[$key]);
-            }
-          }
-
-        }
-      }
-
-      \Drupal::service('state')->set('findeter_pqrsd.api_smfc_nid', $nid);
-    }
   }
 }
 

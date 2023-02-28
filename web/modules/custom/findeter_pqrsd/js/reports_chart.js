@@ -1,6 +1,7 @@
 (function($, Drupal) {
+
   //'use strict';
-  Drupal.behaviors.reports_chart = {
+  Drupal.behaviors.reportsChart = {
     attach: function(context, settings) {
 
       // Funcion que da color a cada uno de los items de la graficas
@@ -237,7 +238,7 @@
       const generatePdf = async () => {
 
         // Se inicia la nueva variable de jspdf y html2canvas
-        const { jsPDF } = window.jspdf;
+        window.jsPDF = window.jspdf.jsPDF;
 
         // Seleccion de la lista de charts que representas las graficas
         const listChart = document.querySelector('div.list-charts');
@@ -258,7 +259,7 @@
 
             tableHtml += "<tr><td>"+element[0]+"</td><td>"+element[1]+"</td></tr>";
 
-            if ( iterar % 12 == 0) {
+            if (iterar % 12 == 0) {
 
               if (iterar === 12) {
 
@@ -293,22 +294,37 @@
         // Se crea una imagen de los graficos y se agrega al PDF
         for(let i = 0; i < listChartContainer.length; i++) {
 
-          await html2canvas(listChartContainer[i], {
+          // await html2canvas(listChartContainer[i], {
+          //   width: doc.internal.pageSize.getWidth(),
+          //   height: doc.internal.pageSize.getHeight(),
+          //   scale: 1,
+          // })
+          // .then((canvas) => {
+          //   const img = canvas.toDataURL("image/jpeg");
+          //   // doc.addImage(img, "PNG", 140, 10, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
+          //   doc.addImage(img, "JPEG", 30, 93, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
+          //   // console.log(doc.internal.pageSize.getWidth());
+          //   //doc.save("p&lstatement.pdf");
+          //   if ((listChartContainer.length - 1) != i) {
+          //     doc.addPage();
+          //   }
+          // });
+
+          const canvas = await html2canvas(listChartContainer[i], {
             width: doc.internal.pageSize.getWidth(),
             height: doc.internal.pageSize.getHeight(),
             scale: 1,
-            //x: 100,
-          })
-          .then((canvas) => {
-            const img = canvas.toDataURL("image/jpeg");
-            // doc.addImage(img, "PNG", 140, 10, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
-            doc.addImage(img, "JPEG", 30, 93, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
-            // console.log(doc.internal.pageSize.getWidth());
-            //doc.save("p&lstatement.pdf");
-            if ((listChartContainer.length - 1) != i) {
-              doc.addPage();
-            }
           });
+
+          const img = canvas.toDataURL("image/jpeg");
+          // doc.addImage(img, "PNG", 140, 10, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
+          doc.addImage(img, "JPEG", 30, 93, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
+
+          // console.log(doc.internal.pageSize.getWidth());
+          //doc.save("p&lstatement.pdf");
+          if ((listChartContainer.length - 1) != i) {
+            doc.addPage();
+          }
 
         }
 
