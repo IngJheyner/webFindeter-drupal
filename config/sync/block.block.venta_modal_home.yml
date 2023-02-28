@@ -1,6 +1,6 @@
 uuid: 9be5dfd3-0284-44af-9113-a8562049cddf
 langcode: es
-status: false
+status: true
 dependencies:
   content:
     - 'block_content:basic:a490fb80-90d2-4b00-820c-9be5e8a1b1be'
@@ -12,7 +12,7 @@ dependencies:
 id: venta_modal_home
 theme: webfinde
 region: region_C
-weight: -13
+weight: -12
 provider: null
 plugin: 'block_content:a490fb80-90d2-4b00-820c-9be5e8a1b1be'
 settings:
@@ -28,4 +28,4 @@ visibility:
     id: request_path
     negate: false
     context_mapping: {  }
-    pages: /contratacion
+    pages: "<front>\r\n/productos-y-servicios/lineas-de-credito-directo\r\n/productos-y-servicios/lineas-de-credito-de-redescuento"
