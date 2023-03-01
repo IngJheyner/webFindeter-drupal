@@ -89,6 +89,14 @@
   ]
 %}
 
+{%
+  set urlGovCo = drupal_field('field_url_govco_header', 'block_content', 4)
+%}
+
+{%
+  set urlImage = drupal_field('field_img_govco_encabezado_home', 'block_content', 4)
+%}
+
 <div{{ attributes.addClass(classes) }}>
 
   {# ============================================
