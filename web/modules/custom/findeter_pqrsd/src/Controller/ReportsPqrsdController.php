@@ -19,6 +19,12 @@ use Dompdf\Dompdf;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Cmixin\BusinessDay;
 use Carbon\Carbon;
+use Drupal\Core\State\StateInterface;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\findeter_pqrsd\Api\ApiSmfcInterface;
+use Drupal\Core\Messenger\MessengerInterface;
 
 /**
  * Returns responses for Findeter PQRSD Manager routes.
@@ -70,6 +76,27 @@ class ReportsPqrsdController extends ControllerBase {
   protected $formBuilder;
 
   /**
+   * State.
+   *
+   * @var Drupal\Core\State\StateInterface
+   */
+  protected $state;
+
+  /**
+   * API SMFC.
+   *
+   * @var Drupal\findeter_pqrsd\Api\ApiSmfcInterface
+   */
+  protected $apiSmfc;
+
+  /**
+   * Messenger.
+   *
+   * @var Drupal\findeter_pqrsd\Api\ApiSmfcInterface
+   */
+  protected $messenge;
+
+  /**
    * Servicios.
    *
    * @param Drupal\Core\Entity\EntityFieldManagerInterface $field_manager
@@ -84,8 +111,14 @@ class ReportsPqrsdController extends ControllerBase {
    *   Cache.
    * @param Drupal\Core\Form\FormBuilderInterface $form_builder
    *   Form Builder.
+   * @param Drupal\Core\State\StateInterface $state
+   *   State.
+   * @param Drupal\findeter_pqrsd\Api\ApiSmfcInterface $api_smfc
+   *   API SMFC.
+   * @param Drupal\Core\Messenger\MessengerInterface $messenger
+   *   Messenger.
    */
-  public function __construct(EntityFieldManagerInterface $field_manager, EntityTypeManager $entity_type_manager, RendererInterface $render, LanguageManagerInterface $language_manager, CacheBackendInterface $cache, FormBuilderInterface $form_builder) {
+  public function __construct(EntityFieldManagerInterface $field_manager, EntityTypeManager $entity_type_manager, RendererInterface $render, LanguageManagerInterface $language_manager, CacheBackendInterface $cache, FormBuilderInterface $form_builder, StateInterface $state, ApiSmfcInterface $api_smfc, MessengerInterface $messenger) {
 
     $this->fieldManager = $field_manager;
     $this->entityTypeManager = $entity_type_manager;
@@ -93,6 +126,9 @@ class ReportsPqrsdController extends ControllerBase {
     $this->languageManager = $language_manager;
     $this->cache = $cache;
     $this->formBuilder = $form_builder;
+    $this->state = $state;
+    $this->apiSmfc = $api_smfc;
+    $this->messenge = $messenger;
 
   }
 
@@ -112,7 +148,10 @@ class ReportsPqrsdController extends ControllerBase {
      $container->get('renderer'),
      $container->get('language_manager'),
      $container->get('cache.default'),
-     $container->get('form_builder')
+     $container->get('form_builder'),
+     $container->get('state'),
+     $container->get('api.smfc'),
+    $container->get('messenger')
     );
   }
 
@@ -747,6 +786,88 @@ class ReportsPqrsdController extends ControllerBase {
       return $mTable;
     }
 
+  }
+
+  /**
+   * Enviar radicados de Quejas o Reclamos a la aplicacion API SMFC.
+   *
+   * @return \Symfony\Component\HttpFoundation\JsonResponse
+   *   Retorna un json con el estado de la peticion.
+   */
+  public function sendDataSmfc() {
+
+    $now = \Drupal::time()->getCurrentTime();
+
+    $url = Url::fromRoute('dblog.overview');
+    $link = Link::fromTextAndUrl(t('Registro de errores'), $url);
+
+    $stateSmfcNid = $this->state->get('findeter_pqrsd.api_smfc_nid');
+
+    if (!is_null($stateSmfcNid) && !empty($stateSmfcNid)) {
+
+      $nid = [];
+      $login = $this->apiSmfc->login();
+
+      if ($login) {
+
+        foreach ($stateSmfcNid as $key => $state) {
+
+          $nid[$key] = [
+            "nid" => $state['nid'],
+            "title" => $state['title'],
+            "created" => $state['created'],
+            "smfc" => $state['smfc']
+          ];
+
+          if (date('Y-m-d', $now) !== date('Y-m-d', $state['created'])) {
+
+            if ($state['smfc'] === FALSE) {
+
+              $post = $this->apiSmfc->postComplaints($state['nid']);
+              // $post = TRUE;
+
+              if ($post) {
+                $nid[$key]["smfc"] = TRUE;
+                $this->messenge->addMessage('Se ha creado el ' . $state['title'] . ' en la aplicación SMFC.');
+              }
+              else {
+
+                $nid[$key]["smfc"] = FALSE;
+                $this->messenge->addError('No se ha podido enviar el ' . $state['title'] . 'a la aplicación SMFC. Ver ' . $link->toString() . ' para más información.');
+              }
+
+            }
+            else {
+
+              // Consultamos si hay informacion de usuarios para actualizar.
+              $putUpdbUser = $this->apiSmfc->getUpdateInfoUserComplaints();
+
+              if ($putUpdbUser) {
+                $put = $this->apiSmfc->putComplaints($state['nid']);
+                // $put = TRUE;
+
+                if (!$put) {
+                  $nid[$key]["smfc"] = TRUE;
+                  $this->messenge->addWarning(Markup::create('No se ha podido actualizar el ' . $state['title'] . 'a la aplicación SMFC. Ver el estado de respuesta ó ' . $link->toString() . ' para más información.'));
+                }
+                else {
+                  unset($nid[$key]);
+                  $this->messenge->addMessage(Markup::create('Se ha actualizado y enviado el ' . $state['title'] . ' en la aplicación SMFC.'));
+                }
+              }
+            }
+
+          }
+        }
+
+        $this->state->set('findeter_pqrsd.api_smfc_nid', $nid);
+
+        return new JsonResponse([
+          'status' => 200,
+          'method' => 'GET',
+        ]);
+      }
+    }
   }
 
 }

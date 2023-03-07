@@ -81,6 +81,14 @@
   ]
 %}
 
+{%
+  set urlGovCo = drupal_field('field_url_govco_header', 'block_content', 4)
+%}
+
+{%
+  set urlImage = drupal_field('field_img_govco_encabezado_home', 'block_content', 4)
+%}
+
 <article{{ attributes.addClass(classes) }}>
   {#{ kint(content) }#}
 
@@ -220,7 +228,7 @@
 
               <h5>Sector Elegible</h5>
 
-              <p>{{ content.field_sector_prgms.0 }}</p>
+              <p>{{ content.field_field_sector_prgms }}</p>
 
             </div>
 

@@ -1,6 +1,7 @@
 (function($, Drupal) {
+
   //'use strict';
-  Drupal.behaviors.reports_chart = {
+  Drupal.behaviors.reportsChart = {
     attach: function(context, settings) {
 
       // Funcion que da color a cada uno de los items de la graficas
@@ -9,43 +10,45 @@
         var opacity = '0.8';
         var result = [];
         let colorList = [];
-        colorList[0] = 'rgba(249, 65, 68, ' + opacity + ')',
-          colorList[1] = 'rgba(243, 114, 44, ' + opacity + ')',
-          colorList[2] = 'rgba(248, 150, 30, ' + opacity + ')',
-          colorList[3] = 'rgba(249, 132, 74, ' + opacity + ')',
-          colorList[4] = 'rgba(249, 199, 79s, ' + opacity + ')',
-          colorList[5] = 'rgba(144, 190, 109, ' + opacity + ')',
-          colorList[6] = 'rgba(67, 170, 139, ' + opacity + ')',
-          colorList[7] = 'rgba(77, 144, 142, ' + opacity + ')',
-          colorList[8] = 'rgba(87, 117, 144, ' + opacity + ')',
-          colorList[9] = 'rgba(39, 125, 161, ' + opacity + ')',
-          colorList[10] = 'rgba(153, 5, 7, ' + opacity + ')',
-          colorList[11] = 'rgba(135, 52, 8, ' + opacity + ')',
-          colorList[12] = 'rgba(136, 77, 4, ' + opacity + ')',
-          colorList[13] = 'rgba(156, 55, 5, ' + opacity + ')',
-          colorList[14] = 'rgba(157, 112, 6, ' + opacity + ')',
-          colorList[15] = 'rgba(71, 104, 47, ' + opacity + ')',
-          colorList[16] = 'rgba(33, 84, 69, ' + opacity + ')',
-          colorList[17] = 'rgba(38, 71, 70, ' + opacity + ')',
-          colorList[18] = 'rgba(43, 58, 72, ' + opacity + ')',
-          colorList[19] = 'rgba(19, 62, 80, ' + opacity + ')',
-          colorList[20] = 'rgba(252, 163, 164, ' + opacity + ')',
-          colorList[21] = 'rgba(249, 185, 151, ' + opacity + ')',
-          colorList[22] = 'rgba(252, 204, 146, ' + opacity + ')',
-          colorList[23] = 'rgba(252, 194, 165, ' + opacity + ')',
-          colorList[24] = 'rgba(252, 227, 168, ' + opacity + ')',
-          colorList[25] = 'rgba(201, 223, 184, ' + opacity + ')',
-          colorList[26] = 'rgba(159, 217, 199, ' + opacity + ')',
-          colorList[27] = 'rgba(162, 205, 204, ' + opacity + ')',
-          colorList[28] = 'rgba(169, 187, 203, ' + opacity + ')',
-          colorList[29] = 'rgba(132, 197, 225, ' + opacity + ')'
+        colorList[0] = 'rgba(249, 65, 68, ' + opacity + ')';
+        colorList[1] = 'rgba(243, 114, 44, ' + opacity + ')';
+        colorList[2] = 'rgba(248, 150, 30, ' + opacity + ')';
+        colorList[3] = 'rgba(249, 132, 74, ' + opacity + ')';
+        colorList[4] = 'rgba(249, 199, 79s, ' + opacity + ')';
+        colorList[5] = 'rgba(144, 190, 109, ' + opacity + ')';
+        colorList[6] = 'rgba(67, 170, 139, ' + opacity + ')';
+        colorList[7] = 'rgba(77, 144, 142, ' + opacity + ')';
+        colorList[8] = 'rgba(87, 117, 144, ' + opacity + ')';
+        colorList[9] = 'rgba(39, 125, 161, ' + opacity + ')';
+        colorList[10] = 'rgba(153, 5, 7, ' + opacity + ')';
+        colorList[11] = 'rgba(135, 52, 8, ' + opacity + ')';
+        colorList[12] = 'rgba(136, 77, 4, ' + opacity + ')';
+        colorList[13] = 'rgba(156, 55, 5, ' + opacity + ')';
+        colorList[14] = 'rgba(157, 112, 6, ' + opacity + ')';
+        colorList[15] = 'rgba(71, 104, 47, ' + opacity + ')';
+        colorList[16] = 'rgba(33, 84, 69, ' + opacity + ')';
+        colorList[17] = 'rgba(38, 71, 70, ' + opacity + ')';
+        colorList[18] = 'rgba(43, 58, 72, ' + opacity + ')';
+        colorList[19] = 'rgba(19, 62, 80, ' + opacity + ')';
+        colorList[20] = 'rgba(252, 163, 164, ' + opacity + ')';
+        colorList[21] = 'rgba(249, 185, 151, ' + opacity + ')';
+        colorList[22] = 'rgba(252, 204, 146, ' + opacity + ')';
+        colorList[23] = 'rgba(252, 194, 165, ' + opacity + ')';
+        colorList[24] = 'rgba(252, 227, 168, ' + opacity + ')';
+        colorList[25] = 'rgba(201, 223, 184, ' + opacity + ')';
+        colorList[26] = 'rgba(159, 217, 199, ' + opacity + ')';
+        colorList[27] = 'rgba(162, 205, 204, ' + opacity + ')';
+        colorList[28] = 'rgba(169, 187, 203, ' + opacity + ')';
+        colorList[29] = 'rgba(132, 197, 225, ' + opacity + ')';
 
         $.map(data, function(element, index) {
             var index = Math.floor(Math.random() * colorList.length);
             result.push(colorList[index]);
             delete colorList[index];
-        })
+        });
+
         return result;
+
       }
 
       // Funcion que crea las graficas
@@ -237,7 +240,7 @@
       const generatePdf = async () => {
 
         // Se inicia la nueva variable de jspdf y html2canvas
-        const { jsPDF } = window.jspdf;
+        window.jsPDF = window.jspdf.jsPDF;
 
         // Seleccion de la lista de charts que representas las graficas
         const listChart = document.querySelector('div.list-charts');
@@ -258,7 +261,7 @@
 
             tableHtml += "<tr><td>"+element[0]+"</td><td>"+element[1]+"</td></tr>";
 
-            if ( iterar % 12 == 0) {
+            if (iterar % 12 == 0) {
 
               if (iterar === 12) {
 
@@ -293,22 +296,37 @@
         // Se crea una imagen de los graficos y se agrega al PDF
         for(let i = 0; i < listChartContainer.length; i++) {
 
-          await html2canvas(listChartContainer[i], {
+          // await html2canvas(listChartContainer[i], {
+          //   width: doc.internal.pageSize.getWidth(),
+          //   height: doc.internal.pageSize.getHeight(),
+          //   scale: 1,
+          // })
+          // .then((canvas) => {
+          //   const img = canvas.toDataURL("image/jpeg");
+          //   // doc.addImage(img, "PNG", 140, 10, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
+          //   doc.addImage(img, "JPEG", 30, 93, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
+          //   // console.log(doc.internal.pageSize.getWidth());
+          //   //doc.save("p&lstatement.pdf");
+          //   if ((listChartContainer.length - 1) != i) {
+          //     doc.addPage();
+          //   }
+          // });
+
+          const canvas = await html2canvas(listChartContainer[i], {
             width: doc.internal.pageSize.getWidth(),
             height: doc.internal.pageSize.getHeight(),
             scale: 1,
-            //x: 100,
-          })
-          .then((canvas) => {
-            const img = canvas.toDataURL("image/jpeg");
-            // doc.addImage(img, "PNG", 140, 10, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
-            doc.addImage(img, "JPEG", 30, 93, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
-            // console.log(doc.internal.pageSize.getWidth());
-            //doc.save("p&lstatement.pdf");
-            if ((listChartContainer.length - 1) != i) {
-              doc.addPage();
-            }
           });
+
+          const img = canvas.toDataURL("image/jpeg");
+          // doc.addImage(img, "PNG", 140, 10, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
+          doc.addImage(img, "JPEG", 30, 93, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
+
+          // console.log(doc.internal.pageSize.getWidth());
+          //doc.save("p&lstatement.pdf");
+          if ((listChartContainer.length - 1) != i) {
+            doc.addPage();
+          }
 
         }
 
