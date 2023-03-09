@@ -362,6 +362,144 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_icon_bank:
+          id: field_icon_bank
+          table: node__field_icon_bank
+          field: field_icon_bank
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: div
+          element_class: images-slick
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image
+          settings:
+            image_link: ''
+            image_style: ''
+            svg_attributes:
+              width: 200
+              height: 200
+            svg_render_as_image: true
+            image_loading:
+              attribute: lazy
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+      pager:
+        type: none
+        options:
+          offset: 0
       style:
         type: slick
         options:
@@ -370,21 +508,21 @@ display:
             title: '0'
           optionset: default
           class: ''
-          id: ''
+          id: '1'
           image: ''
           link: ''
           overlay: ''
           title: ''
           vanilla: false
-          layout: ''
+          layout: below
           cache: 0
           skin: grid
-          style: grid
+          style: ''
           grid: '6'
           grid_medium: '6'
-          grid_small: '2'
+          grid_small: '6'
           overridables:
-            arrows: '0'
+            arrows: arrows
             autoplay: '0'
             dots: '0'
             draggable: '0'
@@ -398,7 +536,7 @@ display:
           thumbnail_caption: ''
           thumbnail_effect: ''
           thumbnail_position: ''
-          override: false
+          override: true
           preserve_keys: false
           visible_items: 6
       row:
@@ -406,8 +544,10 @@ display:
         options: {  }
       defaults:
         css_class: false
+        pager: false
         style: false
         row: false
+        fields: false
         header: false
       css_class: 'banks-rediscount d-none d-md-block mt-5'
       display_description: ''
@@ -426,6 +566,8 @@ display:
             format: html_editor
           tokenize: false
       display_extenders: {  }
+      allow:
+        items_per_page: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -441,6 +583,10 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      pager:
+        type: none
+        options:
+          offset: 0
       style:
         type: slick
         options:
@@ -485,6 +631,7 @@ display:
         options: {  }
       defaults:
         css_class: false
+        pager: false
         style: false
         row: false
         header: false
@@ -501,7 +648,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: "<div class=\"mb-3 w-100 px-md-5\"><h2 class=\"text-center\">Solicite su crédito de redescuento Findeter con alguna de las siguientes entidades financieras</h2></div>\r\n<p>Solicite su credito de redescuento Findeter en alguna de las siguientes entidades financieras:</p>"
+            value: "<div class=\"mb-3 w-100 px-md-5\"><h2 class=\"text-center\">Solicite su crédito de redescuento Findeter con alguna de las siguientes entidades financieras</h2></div>\r\n<p class=\"mb-5\">Solicite su credito de redescuento Findeter en alguna de las siguientes entidades financieras:</p>"
             format: html_editor
           tokenize: false
       display_extenders: {  }
@@ -1010,11 +1157,16 @@ display:
                   collapsible: true
                   is_secondary: false
               field_field_sector_prgms_target_id:
-                plugin_id: default
+                plugin_id: bef
                 advanced:
                   placeholder_text: ''
+                  rewrite:
+                    filter_rewrite_values: ''
                   collapsible: true
                   is_secondary: false
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: false
               field_type_beneficiary_lincredit_value:
                 plugin_id: default
                 advanced:
@@ -1037,6 +1189,7 @@ display:
             value: "<div class=\"alert alert-secondary\" role=\"alert\">\r\n No se encontraron resultados\r\n</div>"
             format: html_editor
           tokenize: false
+      arguments: {  }
       filters:
         status:
           id: status
@@ -1103,7 +1256,7 @@ display:
           plugin_id: list_field
           operator: or
           value: {  }
-          group: 1
+          group: 2
           exposed: true
           expose:
             operator_id: field_means_progms_value_op
@@ -1142,6 +1295,11 @@ display:
                 operator: and
                 value:
                   capital: capital
+              3:
+                title: 'Sustitucion de deuda'
+                operator: and
+                value:
+                  sustitucion: sustitucion
           reduce_duplicates: false
         field_currency_linecredit_value:
           id: field_currency_linecredit_value
@@ -1153,7 +1311,7 @@ display:
           plugin_id: list_field
           operator: or
           value: {  }
-          group: 1
+          group: 2
           exposed: true
           expose:
             operator_id: field_currency_linecredit_value_op
@@ -1192,10 +1350,61 @@ display:
                 operator: and
                 value:
                   usd: usd
+          reduce_duplicates: false
+        field_type_beneficiary_lincredit_value:
+          id: field_type_beneficiary_lincredit_value
+          table: node__field_type_beneficiary_lincredit
+          field: field_type_beneficiary_lincredit_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: list_field
+          operator: or
+          value: {  }
+          group: 2
+          exposed: true
+          expose:
+            operator_id: field_type_beneficiary_lincredit_value_op
+            label: 'Tipo de beneficiario (field_type_beneficiary_lincredit)'
+            description: null
+            use_operator: false
+            operator: field_type_beneficiary_lincredit_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_type_beneficiary_lincredit_value
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: true
+          group_info:
+            label: 'Tipo de beneficiario'
+            description: ''
+            identifier: field_type_beneficiary_lincredit_value
+            optional: true
+            widget: select
+            multiple: true
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Entidad territorial'
+                operator: and
+                value:
+                  territorial: territorial
+              2:
+                title: 'Empresa pública'
+                operator: and
+                value:
+                  publica: publica
               3:
-                title: ''
-                operator: or
-                value: {  }
+                title: 'Empresa privada'
+                operator: and
+                value:
+                  privada: privada
           reduce_duplicates: false
         field_field_sector_prgms_target_id:
           id: field_field_sector_prgms_target_id
@@ -1210,7 +1419,7 @@ display:
             min: ''
             max: ''
             value: ''
-          group: 1
+          group: 2
           exposed: true
           expose:
             operator_id: field_field_sector_prgms_target_id_op
@@ -1274,106 +1483,31 @@ display:
                   max: ''
                   value: '423'
               4:
-                title: a
+                title: Transporte
                 operator: '='
                 value:
                   min: ''
                   max: ''
-                  value: '1'
+                  value: '427'
               5:
-                title: b
+                title: 'Medio ambiente'
                 operator: '='
                 value:
                   min: ''
                   max: ''
-                  value: '2'
+                  value: '425'
               6:
-                title: c
+                title: Salud
                 operator: '='
                 value:
                   min: ''
                   max: ''
-                  value: '3'
-              7:
-                title: d
-                operator: '='
-                value:
-                  min: ''
-                  max: ''
-                  value: '4'
-              8:
-                title: e
-                operator: '='
-                value:
-                  min: ''
-                  max: ''
-                  value: '5'
-              9:
-                title: f
-                operator: '='
-                value:
-                  min: ''
-                  max: ''
-                  value: '6'
-        field_type_beneficiary_lincredit_value:
-          id: field_type_beneficiary_lincredit_value
-          table: node__field_type_beneficiary_lincredit
-          field: field_type_beneficiary_lincredit_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: list_field
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_type_beneficiary_lincredit_value_op
-            label: 'Tipo de beneficiario (field_type_beneficiary_lincredit)'
-            description: null
-            use_operator: false
-            operator: field_type_beneficiary_lincredit_value_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_type_beneficiary_lincredit_value
-            required: false
-            remember: false
-            multiple: true
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: true
-          group_info:
-            label: 'Tipo de beneficiario'
-            description: ''
-            identifier: field_type_beneficiary_lincredit_value
-            optional: true
-            widget: select
-            multiple: true
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              1:
-                title: 'Entidad territorial'
-                operator: and
-                value:
-                  territorial: territorial
-              2:
-                title: 'Empresa pública'
-                operator: and
-                value:
-                  publica: publica
-              3:
-                title: 'Empresa privada'
-                operator: or
-                value:
-                  privada: privada
-          reduce_duplicates: false
+                  value: '424'
       filter_groups:
         operator: AND
         groups:
           1: AND
+          2: OR
       style:
         type: views_bootstrap_grid
         options:
@@ -1395,14 +1529,19 @@ display:
         use_ajax: false
         pager: false
         exposed_form: false
+        group_by: false
         style: false
         row: false
+        relationships: false
         fields: false
+        arguments: false
         filters: false
         filter_groups: false
         header: false
+      relationships: {  }
       css_class: 'mt-3 mt-md-5 filter-line-credit'
       use_ajax: true
+      group_by: false
       display_description: ''
       header:
         area:

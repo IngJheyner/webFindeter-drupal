@@ -143,3 +143,13 @@ function findeter_rediscount_form_views_exposed_form_alter(&$form, FormStateInte
 
   }
 }
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function findeter_rediscount_views_query_alter($view, $query) {
+
+  if ($view->id() == 'rediscount' && $view->getDisplay()->display['id'] == 'filter_line_credit') {
+    $query->distinct = true;
+  }
+}
