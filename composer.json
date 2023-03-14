@@ -213,7 +213,8 @@
                 "The entity:user context is required and not present.": "https://www.drupal.org/files/issues/2019-10-23/3056234-10.patch",
                 "Call to a member function getCacheMaxAge() on null in getCacheMaxAge()": "https://www.drupal.org/files/issues/2020-09-08/get_cache_tags_null-3169694-2.patch",
                 "Multiple usages of FieldPluginBase::getEntity do not check for NULL, leading to WSOD": "https://www.drupal.org/files/issues/2023-01-05/3007424-146-9.5.x.patch",
-                "Tokens need to be valid Twig variables.": "https://www.drupal.org/files/issues/2019-05-22/views-ignore_invalid_tokens_in_replace-2780891-28-D8.6.16.patch"
+                "Tokens need to be valid Twig variables.": "https://www.drupal.org/files/issues/2019-05-22/views-ignore_invalid_tokens_in_replace-2780891-28-D8.6.16.patch",
+                "Fix AJAX add_css – insert the needed CSS assets after the already-inserted ones": "https://www.drupal.org/files/issues/2021-04-19/1461322-29.patch"
             },
             "drupal/content_access": {
                 "content access role": "https://www.drupal.org/files/issues/2020-08-28/content_access-role-2782813-25.patch"
@@ -226,6 +227,9 @@
             },
             "drupal/advagg": {
               "Fix error in CkEditor": "https://www.drupal.org/files/issues/2022-12-29/3310388_6.patch"
+            },
+            "drupal/slick": {
+              "caught TypeError: Cannot read properties of null (reading 'add')": "https://www.drupal.org/files/issues/2023-03-01/3027025-13.patch"
             }
         }
     }

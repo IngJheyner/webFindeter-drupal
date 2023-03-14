@@ -100,39 +100,40 @@ function defineDatesSemaphore($values){
  */
 function _getBussinesDays($addDays, $day_answer = FALSE){
 
-  $timeStamp = strtotime("tomorrow");
+   // Validar fecha de un dia feriado.
+   BusinessDay::enable('Carbon\Carbon');
+   Carbon::setHolidaysRegion('co');
+
+  $hoy = date("Y-m-d H:i:s");
+  $timeStamp = strtotime("+1 day");
 
   $tot_day_answer = 0; //Conteo de dias habiles para la respuesta
 
-  // Validar fecha de un dia feriado.
-  BusinessDay::enable('Carbon\Carbon');
-  Carbon::setHolidaysRegion('co');
-
   // loop for X days
-  for($i=0; $i<$addDays; $i++){
-
-    // add 1 day to timestamp
-    $addDay = 86400;
+  for($i=0; $i<=$addDays; $i++){
 
     // get what day it is next day
-    $nextDay = date('w', ($timeStamp+$addDay));
+    //$nextDay = date('w', ($timeStamp+$addDay));
+    $nextDay = date('w', ($timeStamp));
     $day = date('d', $timeStamp);
     $mounth = date('m', $timeStamp);
     $year = date('Y', $timeStamp);
 
     // Validar fecha de un dia feriado.
     $holiDays = FALSE;
-    if (!$day_answer) {
-      $holiDays = Carbon::parse("$year-$mounth-$day")->isHoliday();
-      // $holiDays = Carbon::parse("2022-07-20")->isHoliday();
-    }
+    //if (!$day_answer) {
+    $holiDays = Carbon::parse("$year-$mounth-$day")->isHoliday();
+    // $holiDays = Carbon::parse("2022-07-20")->isHoliday();
+    //}
 
     // if it's Saturday or Sunday get $i-1
     if(($nextDay == 0 || $nextDay == 6) || $holiDays) {
         $day_answer == FALSE ? $i-- : $tot_day_answer++;
     }
     // modify timestamp, add 1 day
-    $timeStamp = $timeStamp+$addDay;
+    if($addDays > $i) {
+      $timeStamp = $timeStamp+86400;
+    }
 
   }
 
