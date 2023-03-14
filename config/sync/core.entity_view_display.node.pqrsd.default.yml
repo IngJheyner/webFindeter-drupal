@@ -3,6 +3,7 @@ langcode: es
 status: true
 dependencies:
   config:
+    - field.field.node.pqrsd.feeds_item
     - field.field.node.pqrsd.field_entities_transfer_pqrsd
     - field.field.node.pqrsd.field_paises_pqrsd
     - field.field.node.pqrsd.field_pqrsd_api_smfc
@@ -68,6 +69,7 @@ mode: default
 content: {  }
 hidden:
   addtoany: true
+  feeds_item: true
   field_entities_transfer_pqrsd: true
   field_paises_pqrsd: true
   field_pqrsd_api_smfc: true

@@ -1,0 +1,77 @@
+uuid: c4abcb4a-3469-461f-859f-a64aad236cde
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.pqrsd.field_pqrsd_fecha_roja
+    - field.field.node.pqrsd.field_pqrsd_marketing
+    - field.field.node.pqrsd.field_pqrsd_numero_radicado
+    - node.type.pqrsd
+  module:
+    - node
+label: PQRSD
+id: pqrsd
+description: 'Actualizacion de PQRSD'
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'private://feeds/pqrsd'
+parser: csv
+parser_configuration:
+  delimiter: ;
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: pqrsd
+  langcode: es
+  insert_new: 0
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: false
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 1
+custom_sources:
+  no_settled:
+    value: '# Radicado'
+    label: '# Radicado'
+    machine_name: no_settled
+    type: csv
+  date_expiration:
+    value: 'Fecha vencimiento'
+    label: 'Fecha vencimiento'
+    machine_name: date_expiration
+    type: csv
+  marketing:
+    value: Marketing
+    label: Marketing
+    machine_name: marketing
+    type: csv
+mappings:
+  -
+    target: field_pqrsd_numero_radicado
+    map:
+      value: no_settled
+    settings:
+      language: null
+    unique:
+      value: '1'
+  -
+    target: field_pqrsd_fecha_roja
+    map:
+      value: date_expiration
+    settings:
+      language: es
+      timezone: UTC
+  -
+    target: field_pqrsd_marketing
+    map:
+      value: marketing
+    settings:
+      language: null
