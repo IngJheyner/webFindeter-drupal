@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.full
+    - field.field.node.pqrsd.feeds_item
     - field.field.node.pqrsd.field_entities_transfer_pqrsd
     - field.field.node.pqrsd.field_paises_pqrsd
     - field.field.node.pqrsd.field_pqrsd_api_smfc
@@ -826,5 +827,6 @@ content:
     region: content
 hidden:
   addtoany: true
+  feeds_item: true
   field_pqrsd_api_smfc: true
   langcode: true

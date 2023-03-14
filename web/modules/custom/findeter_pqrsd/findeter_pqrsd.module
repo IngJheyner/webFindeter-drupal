@@ -1271,7 +1271,7 @@ function findeter_pqrsd_views_pre_view(ViewExecutable $view, $display_id, array 
   if($view->storage->id()== 'pqrsd' && ($display_id == 'page_1' || $display_id == 'page_2')){
     $args[0] = $currentUser->id();
     // if user is admin, remove argument to show all nodes
-    if(in_array('administrator',$rolesUser) || in_array('auditor_pqrsd',$rolesUser) || in_array('pqrsd_denuncias',$rolesUser)){
+    if(in_array('administrator',$rolesUser) || in_array('auditor_pqrsd',$rolesUser) || in_array('pqrsd_denuncias',$rolesUser) || in_array('pqrsd_administrador',$rolesUser)){
       unset($args[0]);
     }
 
