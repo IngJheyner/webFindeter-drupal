@@ -20,6 +20,9 @@
 
   /* ===== ===== INFO USO REDESCUENTO ===== ===== */
   .info-uses-rediscount {
+    h2 {
+      padding: 0 10rem 0 10rem;
+    }
     // VIDEO EMBEBIDO
     div.video-embed-field-provider-youtube {
       height: 100%;
@@ -41,6 +44,10 @@
       span.nav-link {
         position: relative;
         color: #c6c6c6;
+
+        &:hover{
+          color: var.$color-primario;
+        }
 
         &::after,
         &::before{
@@ -260,9 +267,10 @@
 
       .more-info__nav {
         ul{
-          justify-content: space-between;
+          justify-content: space-evenly;
           li {
             flex-basis: max(200px);
+            margin-bottom: 1rem;
             button {
               color: var.$color-primario;
               background-color: var.$color-rgb-primary;
@@ -630,6 +638,19 @@
     }
   }
 
+}
+
+/* ==============================
+TOOLTIP
+============================== */
+div.rediscount.tooltip-custom .tooltip-inner {
+  background-color: var.$color-quinario !important;
+  color: var.$color-primario;
+}
+
+div.rediscount.bs-tooltip-top .arrow::before,
+div.rediscount.bs-tooltip-auto[x-placement^="top"] .arrow::before {
+  border-top-color: var.$color-quinario !important;
 }
 
 /* ==============================

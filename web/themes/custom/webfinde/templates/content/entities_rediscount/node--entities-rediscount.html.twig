@@ -228,7 +228,38 @@
       {# ============================================
       TABLA LINEA DE CREDITO
       =============================================== #}
-      <section id="comparativo">{{ drupal_view('rediscount', 'table_line_credit')}}</section>
+      <section id="comparativo" class="mt-5">
+
+        <h2 class="text-center">Compare las condiciones de las lineas de redescuento</h2>
+
+        <div class="text-md-center mt-4">
+
+          <div class="pill-tabs-tables">
+
+            <div class="btn-more justify-content-center nav nav-pills mb-2" id="v-pills-tab" role="tablist" aria-orientation="horizontal">
+
+              <a href="#table-info-1" class="btn btn-primary text-white mb-3 mb-md-0 mr-md-5 active"
+              id="table-info-1-tab" data-toggle="pill" data-target="#table-info-1" type="button" role="tab" aria-controls="table-info-1" aria-selected="true">Lineas crédito redescuento</a>
+
+              <a href="#table-info-2" class="btn btn-primary text-white"
+              id="table-info-2-tab" data-toggle="pill" data-target="#table-info-2" type="button" role="tab" aria-controls="table-info-2" aria-selected="true">Tasa de cartelera</a>
+
+            </div>
+
+            <div class="tab-content" id="v-pills-tabContent">
+
+              <div id="table-info-1" class="tab-pane fade active show" role="tabpanel" aria-labelledby="table-info-1-tab">{{ drupal_view('rediscount', 'table_line_credit')}}</div>
+
+              <div id="table-info-2" class="tab-pane fade" role="tabpanel" aria-labelledby="table-info-2-tab">{{ drupal_field('body', 'node', 472) }}</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
       {# ============================================
       CONSULTA CIIU
       =============================================== #}
