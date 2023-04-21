@@ -32,7 +32,7 @@
                             </tr>
                         </thead>
                         <tbody id="tbodyrespuesta">
-                            
+
                         </tbody>
                     </table>
                 </div>
@@ -47,8 +47,8 @@
                         <label class="form-group col-md-3">Programa : </label>
                         <span class="col-md-9" id="txtprograma"></span>
                     </div>
-                    
-                    <div class="col-md-12">     
+
+                    <div class="col-md-12">
                         <label class="form-group col-md-3">Número del proceso : </label>
                         <span class="col-md-9" id="txtnumproc"></span>
                     </div>
@@ -94,7 +94,7 @@
                     <div class="col-md-12">
                         <label class="form-group col-md-3">Departamento(s) : </label>
                         <div class="form-control-md-6" id="txtubicacion"><br></div>
-                    </div>	
+                    </div>
                 </div-->
 
                 <div class="row col-md-10">
@@ -105,7 +105,7 @@
                     </div>
                 </div>
 
-        
+
             </div>
             <div class="row">
                 <div class="col-sm-12">
@@ -239,7 +239,7 @@
                     }
 
                 });
-            }); 
+            });
 
             function base64ToArrayBuffer(base64) {
                 var binaryString = window.atob(base64);
@@ -275,7 +275,7 @@
                             'nombredocu'    :   NombreDoc
                         }
                     },
-                    responseType: 'blob',        
+                    responseType: 'blob',
                     success: function(res){
                         //console.log(res);
                         //var data = new Uint8Array(res);
@@ -295,7 +295,7 @@
                 });
             });
         });
-        
+
     </script>
 </body>
 </html>

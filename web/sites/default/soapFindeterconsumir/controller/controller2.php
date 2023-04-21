@@ -3,7 +3,7 @@
 function consult(){
     try {
         $url = "http://w2sdg022:8083/Servicio/SvcConvocatorias.svc?wsdl";
-        
+
         $client = new SoapClient($url);
         /*$elarray = array(
             'InPrograma'            =>    null,
@@ -26,16 +26,16 @@ function consult(){
         );*/
         //echo json_encode($client->__getFunctions());
 
- 
+
         // Listas para descargas archivos PDF de cada convocatoria
 
         define('CONVOCATORIA_DOCUMENTOS_LISTAS', [
-            '0' => 'Adjuntos cronogramas por convocatorias', 
-            '1' => 'Informes definitivo de requisitos habilitantes', 
-            '2' => 'Informes verificación de requisitos habilitantes ', 
-            '3' => 'Informes de requerimientos por subsanar', 
-            '4' => 'Informes de verificación económica', 
-            '5' => 'Informe de calificación y orden de elegibilidad', 
+            '0' => 'Adjuntos cronogramas por convocatorias',
+            '1' => 'Informes definitivo de requisitos habilitantes',
+            '2' => 'Informes verificación de requisitos habilitantes ',
+            '3' => 'Informes de requerimientos por subsanar',
+            '4' => 'Informes de verificación económica',
+            '5' => 'Informe de calificación y orden de elegibilidad',
             '6' => 'Adjuntos por convocatorias']);
 
 

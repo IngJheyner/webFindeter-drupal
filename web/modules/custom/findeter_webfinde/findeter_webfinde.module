@@ -61,6 +61,10 @@ function findeter_webfinde_form_alter(&$form, FormStateInterface $form_state, $f
     $form['title']['widget'][0]['value']['#attributes']['readonly'] = 'readonly';
   }
 
+  if($form["#id"] == "views-exposed-form-convocatorias-block-convocatoria-ciudadano"){
+    $form['#action'] = '/convocatorias';
+  }
+
 }
 
 function findeter_webfinde_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
