@@ -222,7 +222,7 @@
       </div>
 
       <div class="btn-more btn-icon-agent text-center mt-4">
-        <a href="#consulta-gerente-cuenta" class="btn btn-primary text-white">Consulte con un gerente de cuenta
+        <a href="#informacion-de-interes" class="btn btn-primary text-white">Información de interes
         <span></span></a>
       </div>
 
@@ -242,42 +242,43 @@
       {{ drupal_view('rediscount', 'filter_line_credit')}}
     </section>
 
-    {% if path('<current>') in pathUrl %}
-      {# ============================================
-      TABLA LINEA DE CREDITO
-      =============================================== #}
-      <section id="comparativo" class="mt-5">
+    
+    {# ============================================
+    TABLA LINEA DE CREDITO
+    =============================================== #}
+    <section id="comparativo" class="mt-5">
 
-        <h2 class="text-center">Compare las condiciones de las lineas de redescuento</h2>
+      <h2 class="text-center">Compare las condiciones de las lineas de redescuento</h2>
 
-        <div class="text-md-center mt-4">
+      <div class="text-md-center mt-4">
 
-          <div class="pill-tabs-tables">
+        <div class="pill-tabs-tables">
 
-            <div class="btn-more justify-content-center nav nav-pills mb-2" id="v-pills-tab" role="tablist" aria-orientation="horizontal">
+          <div class="btn-more justify-content-center nav nav-pills mb-2" id="v-pills-tab" role="tablist" aria-orientation="horizontal">
 
-              <a href="#table-info-1" class="btn btn-primary text-white mb-3 mb-md-0 mr-md-5 active"
-              id="table-info-1-tab" data-toggle="pill" data-target="#table-info-1" type="button" role="tab" aria-controls="table-info-1" aria-selected="true">Lineas crédito redescuento</a>
+            <a href="#table-info-1" class="btn btn-primary text-white mb-3 mb-md-0 mr-md-5 active"
+            id="table-info-1-tab" data-toggle="pill" data-target="#table-info-1" type="button" role="tab" aria-controls="table-info-1" aria-selected="true">Lineas crédito redescuento</a>
 
-              <a href="#table-info-2" class="btn btn-primary text-white"
-              id="table-info-2-tab" data-toggle="pill" data-target="#table-info-2" type="button" role="tab" aria-controls="table-info-2" aria-selected="true">Tasa de cartelera</a>
+            <a href="#table-info-2" class="btn btn-primary text-white"
+            id="table-info-2-tab" data-toggle="pill" data-target="#table-info-2" type="button" role="tab" aria-controls="table-info-2" aria-selected="true">Tasa de cartelera</a>
 
-            </div>
+          </div>
 
-            <div class="tab-content" id="v-pills-tabContent">
+          <div class="tab-content" id="v-pills-tabContent">
 
-              <div id="table-info-1" class="tab-pane fade active show" role="tabpanel" aria-labelledby="table-info-1-tab">{{ drupal_view('rediscount', 'table_line_credit')}}</div>
+            <div id="table-info-1" class="tab-pane fade active show" role="tabpanel" aria-labelledby="table-info-1-tab">{{ drupal_view('rediscount', 'table_line_credit')}}</div>
 
-              <div id="table-info-2" class="tab-pane fade" role="tabpanel" aria-labelledby="table-info-2-tab">{{ drupal_field('body', 'node', 472) }}</div>
-
-            </div>
+            <div id="table-info-2" class="tab-pane fade" role="tabpanel" aria-labelledby="table-info-2-tab">{{ drupal_field('body', 'node', 472) }}</div>
 
           </div>
 
         </div>
 
-      </section>
+      </div>
 
+    </section>
+    
+    {% if path('<current>') in pathUrl %}
       {# ============================================
       CONSULTA CIIU
       =============================================== #}
@@ -302,7 +303,7 @@
            <li>La Clasificación Industrial Internacional Uniforme (CIIU) describe el detalle de su actividad económica.</li>
           </ul>
 
-          <div class="btn-more btn-icon-agent text-center mt-3"><a class="btn btn-primary">Consulte con un gerente de cuenta <span></span></a></div>
+          <div class="btn-more btn-icon-agent text-center mt-3"><a class="btn btn-primary" href="#informacion-de-interes">Información de interes <span></span></a></div>
 
         </div>
         <div class="col-6 image-ciiu pl-0 d-none d-md-block">
@@ -338,7 +339,7 @@
     {# ============================================
     INFORMACION DE INTERES
     =============================================== #}
-    <section class="info-interest p-3 p-md-5" id="condiciones">
+    <section class="info-interest p-3 p-md-5" id="informacion-de-interes">
 
       <h2 class="text-center text-white mb-4">Información de interes</h2>
 
