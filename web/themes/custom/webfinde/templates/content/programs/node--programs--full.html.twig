@@ -95,19 +95,19 @@
   {# ============================================
   MENU GOV CO
   =============================================== #}
-  <div class="row m-0 menuGovCo mb-5">
+  {# <div class="row m-0 menuGovCo mb-5"> #}
 
     {# ===== ===== Img govco ===== ===== #}
-    <div class="col-3 px-0 text-center d-none d-xl-block govCo">
+    {# <div class="col-3 px-0 text-center d-none d-xl-block govCo">
 
       <a href="{{ urlGovCo[0]['#title'] }}" target="_blank" tabindex="1">
         <img onerror='this.remove();' src="{{ file_url(urlImage[0]['#item'].entity.uri.value) }}" class="img-fluid mt-2 mt-lg-0" />
       </a>
 
-    </div>
+    </div> #}
 
     {# ===== ===== Img Logo ===== ===== #}
-    <div class="col-9 col-sm-6 col-md-4 col-lg-3 pt-1 px-0 d-xl-none text-center govCo">
+    {# <div class="col-9 col-sm-6 col-md-4 col-lg-3 pt-1 px-0 d-xl-none text-center govCo">
 
       <a href="{{ url('<front>') }}"><img onerror='this.remove();' src="" class="img-fluid" /></a>
 
@@ -118,6 +118,24 @@
       {{ drupal_menu('menu-govco') }}
 
     </div>
+
+  </div> #}
+  <div class="header-rediscount">
+
+    <figure class="w-100">
+
+      <img onerror='this.remove();' src='/themes/custom/webfinde/images/iconos/fondo_cabezote.png' class="img-fluid w-100">
+
+    </figure>
+
+    <div class="encabezado container">
+
+      {# <h1 class="tituloEncabezado mt-3">{{"News"|t}}</h1> #}
+
+    </div>
+
+    {# ===== ===== Migas de pan ===== ===== #}
+    {{ drupal_breadcrumb() }}
 
   </div>
 

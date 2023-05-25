@@ -102,19 +102,19 @@
   {# ============================================
   MENU GOV CO
   =============================================== #}
-  <div class="row m-0 menuGovCo mb-md-5">
+  {# <div class="row m-0 menuGovCo mb-md-5"> #}
 
     {# ===== ===== Img govco ===== ===== #}
-    <div class="col-3 px-0 text-center d-none d-xl-block govCo">
+    {# <div class="col-3 px-0 text-center d-none d-xl-block govCo">
 
       <a href="{{ urlGovCo[0]['#title'] }}" target="_blank" tabindex="1">
         <img onerror='this.remove();' src="{{ file_url(urlImage[0]['#item'].entity.uri.value) }}" class="img-fluid mt-2 mt-lg-0" />
       </a>
 
-    </div>
+    </div> #}
 
     {# ===== ===== Img Logo ===== ===== #}
-    <div class="col-9 col-sm-6 col-md-4 col-lg-3 pt-1 px-0 d-xl-none text-center govCo">
+    {# <div class="col-9 col-sm-6 col-md-4 col-lg-3 pt-1 px-0 d-xl-none text-center govCo">
 
       <a href="{{ url('<front>') }}"><img onerror='this.remove();' src="" class="img-fluid" /></a>
 
@@ -125,6 +125,24 @@
       {{ drupal_menu('menu-govco') }}
 
     </div>
+
+  </div> #}
+  <div class="header-rediscount">
+
+    <figure class="w-100">
+
+      <img onerror='this.remove();' src='/themes/custom/webfinde/images/iconos/fondo_cabezote.png' class="img-fluid w-100">
+
+    </figure>
+
+    <div class="encabezado container">
+
+      {# <h1 class="tituloEncabezado mt-3">{{"News"|t}}</h1> #}
+
+    </div>
+
+    {# ===== ===== Migas de pan ===== ===== #}
+    {{ drupal_breadcrumb() }}
 
   </div>
 
@@ -204,7 +222,7 @@
       </div>
 
       <div class="btn-more btn-icon-agent text-center mt-4">
-        <a href="#consulta-gerente-cuenta" class="btn btn-primary text-white">Consulte con un gerente de cuenta
+        <a href="#informacion-de-interes" class="btn btn-primary text-white">Información de interes
         <span></span></a>
       </div>
 
@@ -224,11 +242,43 @@
       {{ drupal_view('rediscount', 'filter_line_credit')}}
     </section>
 
+    
+    {# ============================================
+    TABLA LINEA DE CREDITO
+    =============================================== #}
+    <section id="comparativo" class="mt-5">
+
+      <h2 class="text-center">Compare las condiciones de las lineas de redescuento</h2>
+
+      <div class="text-md-center mt-4">
+
+        <div class="pill-tabs-tables">
+
+          <div class="btn-more justify-content-center nav nav-pills mb-2" id="v-pills-tab" role="tablist" aria-orientation="horizontal">
+
+            <a href="#table-info-1" class="btn btn-primary text-white mb-3 mb-md-0 mr-md-5 active"
+            id="table-info-1-tab" data-toggle="pill" data-target="#table-info-1" type="button" role="tab" aria-controls="table-info-1" aria-selected="true">Lineas crédito redescuento</a>
+
+            <a href="#table-info-2" class="btn btn-primary text-white"
+            id="table-info-2-tab" data-toggle="pill" data-target="#table-info-2" type="button" role="tab" aria-controls="table-info-2" aria-selected="true">Tasa de cartelera</a>
+
+          </div>
+
+          <div class="tab-content" id="v-pills-tabContent">
+
+            <div id="table-info-1" class="tab-pane fade active show" role="tabpanel" aria-labelledby="table-info-1-tab">{{ drupal_view('rediscount', 'table_line_credit')}}</div>
+
+            <div id="table-info-2" class="tab-pane fade" role="tabpanel" aria-labelledby="table-info-2-tab">{{ drupal_field('body', 'node', 472) }}</div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+    
     {% if path('<current>') in pathUrl %}
-      {# ============================================
-      TABLA LINEA DE CREDITO
-      =============================================== #}
-      <section id="comparativo">{{ drupal_view('rediscount', 'table_line_credit')}}</section>
       {# ============================================
       CONSULTA CIIU
       =============================================== #}
@@ -253,7 +303,7 @@
            <li>La Clasificación Industrial Internacional Uniforme (CIIU) describe el detalle de su actividad económica.</li>
           </ul>
 
-          <div class="btn-more btn-icon-agent text-center mt-3"><a class="btn btn-primary">Consulte con un gerente de cuenta <span></span></a></div>
+          <div class="btn-more btn-icon-agent text-center mt-3"><a class="btn btn-primary" href="#informacion-de-interes">Información de interes <span></span></a></div>
 
         </div>
         <div class="col-6 image-ciiu pl-0 d-none d-md-block">
@@ -289,7 +339,7 @@
     {# ============================================
     INFORMACION DE INTERES
     =============================================== #}
-    <section class="info-interest p-3 p-md-5" id="condiciones">
+    <section class="info-interest p-3 p-md-5" id="informacion-de-interes">
 
       <h2 class="text-center text-white mb-4">Información de interes</h2>
 

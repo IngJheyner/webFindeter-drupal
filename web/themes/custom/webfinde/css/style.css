@@ -4880,6 +4880,7 @@ STEPS INFO
 }
 
 .rediscount {
+  /* ===== ===== ENCABEZADO ===== ===== */
   /* ==============================
   PRINCIPAL
   ============================== */
@@ -4921,12 +4922,54 @@ STEPS INFO
   BUTTON
   ============================== */
 }
+.rediscount div.header-rediscount figure {
+  position: absolute;
+  z-index: -1;
+  transform: translate(0, -14rem);
+  height: 23rem;
+}
+.rediscount div.header-rediscount figure img {
+  height: 100%;
+}
+.rediscount div.header-rediscount div.encabezado {
+  height: 7rem;
+}
+.rediscount div.header-rediscount div.encabezado h1.tituloEncabezado {
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  /* ==============================
+  MEDIA QUERY
+  ============================== */
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+  /*MOVIL VERTICAL(sm 320px)*/
+}
+@media (max-width: 575.98px) {
+  .rediscount div.header-rediscount div.encabezado h1.tituloEncabezado {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .rediscount div.header-rediscount div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .rediscount div.header-rediscount div.encabezado h1.tituloEncabezado {
+    font-size: 3rem;
+  }
+}
 .rediscount h2,
 .rediscount h3 {
   font-weight: bold;
 }
 .rediscount .title {
   background-color: #112d6a;
+}
+.rediscount .info-uses-rediscount h2 {
+  padding: 0 10rem 0 10rem;
 }
 .rediscount .info-uses-rediscount div.video-embed-field-provider-youtube {
   height: 100%;
@@ -4942,6 +4985,10 @@ STEPS INFO
 .rediscount nav ul li.nav-item span.nav-link {
   position: relative;
   color: #c6c6c6;
+}
+.rediscount nav ul li.nav-item a.nav-link:hover,
+.rediscount nav ul li.nav-item span.nav-link:hover {
+  color: #112d6a;
 }
 .rediscount nav ul li.nav-item a.nav-link::after, .rediscount nav ul li.nav-item a.nav-link::before,
 .rediscount nav ul li.nav-item span.nav-link::after,
@@ -5094,10 +5141,11 @@ STEPS INFO
   min-height: 50px;
 }
 .rediscount div.sectors-info .more-info .more-info__nav ul {
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .rediscount div.sectors-info .more-info .more-info__nav ul li {
   flex-basis: 200px;
+  margin-bottom: 1rem;
 }
 .rediscount div.sectors-info .more-info .more-info__nav ul li button {
   color: #112d6a;
@@ -5363,6 +5411,19 @@ STEPS INFO
   height: 24px;
   width: 24px;
   margin-inline-start: 1rem;
+}
+
+/* ==============================
+TOOLTIP
+============================== */
+div.rediscount.tooltip-custom .tooltip-inner {
+  background-color: #e5e5e5 !important;
+  color: #112d6a;
+}
+
+div.rediscount.bs-tooltip-top .arrow::before,
+div.rediscount.bs-tooltip-auto[x-placement^=top] .arrow::before {
+  border-top-color: #e5e5e5 !important;
 }
 
 /* ==============================

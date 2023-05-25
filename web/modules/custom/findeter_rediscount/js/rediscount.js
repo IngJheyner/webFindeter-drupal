@@ -42,7 +42,10 @@
 
 
 
-        $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="tooltip"]').tooltip({
+          boundary: 'window',
+          template: '<div class="tooltip rediscount tooltip-custom" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+        });
 
         /*===========================================
         SECTORES
