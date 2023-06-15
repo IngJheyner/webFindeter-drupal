@@ -577,6 +577,7 @@ class RegisterPQRSD extends FormBase {
             "title" => $newRequest->getTitle(),
             "created" => $newRequest->getCreatedTime(),
             "smfc" => FALSE,
+            "put_files" => FALSE,
           ]
         ]);
 
@@ -587,13 +588,13 @@ class RegisterPQRSD extends FormBase {
           "title" => $newRequest->getTitle(),
           "created" => $newRequest->getCreatedTime(),
           "smfc" => FALSE,
+          "put_files" => FALSE,
         ];
 
         $this->state->set('findeter_pqrsd.api_smfc_nid', $nid);
 
       }
     }
-
   }
 
 }

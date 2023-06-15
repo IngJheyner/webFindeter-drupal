@@ -525,6 +525,7 @@ class ActionComplaintsSmfcController extends ControllerBase {
               "title" => $newRequest->getTitle(),
               "created" => $newRequest->getCreatedTime(),
               "smfc" => TRUE,
+              "put_files" => FALSE,
             ];
 
             // Actualizar el progreso de informacion.
