@@ -173,7 +173,7 @@ function findeter_pqrsd_form_alter(&$form, FormStateInterface $form_state, $form
     $total = 0;
 
 
-    if(!empty($stateSmfcNid) || !is_null($stateSmfcNid)){
+    if(!empty($stateSmfcNid) && !is_null($stateSmfcNid)){
 
       foreach ($stateSmfcNid as $key => $value) {
         $total++;

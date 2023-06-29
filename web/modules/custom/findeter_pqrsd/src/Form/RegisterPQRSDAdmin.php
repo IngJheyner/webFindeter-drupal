@@ -378,31 +378,34 @@ class RegisterPQRSDAdmin extends FormBase {
     Queja o Reclamo.
     @author 3ddesarrollo
     =============================================== */
-    if($form_state->getValue('field_pqrsd_tipo_radicado') == 'Quejas' ||
-    $form_state->getValue('field_pqrsd_tipo_radicado') == 'Reclamos'){
+    if ($form_state->getValue('field_pqrsd_tipo_radicado') == 'Quejas' ||
+    $form_state->getValue('field_pqrsd_tipo_radicado') == 'Reclamos') {
 
       /* Se guarda los nid como variables de estado para que despues
       sea registrado en la API SMFC. ==== ====== */
       $state = \Drupal::service('state');
       $nid = $state->get('findeter_pqrsd.api_smfc_nid');
 
-      if(is_null($nid)){
+      if (is_null($nid)) {
 
         $state->set('findeter_pqrsd.api_smfc_nid', [
           [
+            "nid" => $newRequest->id(),
+            "title" => $newRequest->getTitle(),
+            "created" => $newRequest->getCreatedTime(),
+            "smfc" => FALSE,
+            "put_files" => FALSE,
+          ]
+        ]);
+
+      }
+      else {
+        $nid[] = [
           "nid" => $newRequest->id(),
           "title" => $newRequest->getTitle(),
           "created" => $newRequest->getCreatedTime(),
           "smfc" => FALSE,
-          ]
-        ]);
-
-      }else{
-        $nid[] = [
-        "nid" => $newRequest->id(),
-        "title" => $newRequest->getTitle(),
-        "created" => $newRequest->getCreatedTime(),
-        "smfc" => FALSE,
+          "put_files" => FALSE,
         ];
 
         $state->set('findeter_pqrsd.api_smfc_nid', $nid);

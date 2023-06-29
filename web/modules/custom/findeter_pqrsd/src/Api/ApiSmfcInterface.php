@@ -2,6 +2,8 @@
 
 namespace Drupal\findeter_pqrsd\Api;
 
+use Drupal\Core\TypedData\Plugin\DataType\Any;
+
 /**
  * Interface para API Http cliente SMFC.
  *
@@ -84,8 +86,13 @@ interface ApiSmfcInterface {
    *
    * @param int $nid
    *   - Parametro $nid con argumento de identificacion del nodo.
+   * @param bool $sendFilesAnswer
+   *   - Parametro $sendFilesAnswer con argumento de archivos de respuesta enviados.
+   *
+   * @return bool|array
+   *   - Retorna un boolean|array con los datos de la queja actualizada.
    */
-  public function putComplaints(int $nid): bool;
+  public function putComplaints(int $nid, bool $sendFilesAnswer): bool|array;
 
   /**
    * Momento 4.

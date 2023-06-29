@@ -99,7 +99,7 @@ class AnswerPQRSD extends FormBase {
       }
 
       $form['field_pqrsd_motivo'] = [
-        '#type'    => 'select2',
+        '#type'    => 'select',
         '#title'   => $definitions['field_pqrsd_motivo']->getLabel(),
         '#options' => $optionsReasonSmfc,
         '#empty_option' => '-Seleccione una opción-',
@@ -193,13 +193,14 @@ class AnswerPQRSD extends FormBase {
 
       $node = Node::load($formValues['node_id']);
 
-      $node->field_pqrsd_respuesta[] = $formValues['field_pqrsd_respuesta'];
-      $node->field_pqrsd_respuesta_a_favor[] = $formValues['field_pqrsd_respuesta_a_favor'];
-      $node->field_pqrsd_fecha_respuesta[] = date('Y-m-d\TH:i:s', strtotime('now'));
+      $node->field_pqrsd_respuesta->value = $formValues['field_pqrsd_respuesta'];
+      $node->field_pqrsd_respuesta_a_favor->value = $formValues['field_pqrsd_respuesta_a_favor'];
+      $node->field_pqrsd_fecha_respuesta->value = date('Y-m-d\TH:i:s', strtotime('now'));
 
-      $node->field_pqrsd_tutela[] = isset($formValues['field_pqrsd_tutela']) ?: NULL;
-      $node->field_pqrsd_entes_control[] = isset($formValues['field_pqrsd_entes_control']) ?: NULL;
-      $node->field_pqrsd_motivo[] = isset($formValues['field_pqrsd_motivo']) ?: NULL;
+      $node->set('field_pqrsd_tutela', isset($formValues['field_pqrsd_tutela']) ? $formValues['field_pqrsd_tutela'] : NULL);
+      $node->set('field_pqrsd_entes_control', isset($formValues['field_pqrsd_entes_control']) ? $formValues['field_pqrsd_entes_control'] : NULL);
+
+      $node->field_pqrsd_motivo->value = isset($formValues['field_pqrsd_motivo']) ? $formValues['field_pqrsd_motivo'] : NULL;
 
       $fileStorage = \Drupal::entityTypeManager()->getStorage('file');
 

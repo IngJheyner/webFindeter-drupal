@@ -805,7 +805,7 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
   /**
    * {@inheritDoc}
    */
-  public function putComplaints(int $nid):bool {
+  public function putComplaints(int $nid, bool $sendFilesAnswer):bool|array {
 
     // $this->login();
 
@@ -863,64 +863,67 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
       // Queja expres.
       $complaintsExpress = isset($nodeStorage->get('field_pqrsd_queja_expres')->getValue()[0]['value']) ? $nodeStorage->get("field_pqrsd_queja_expres")->getValue()[0]['value'] : 2;
 
-      $file_storage = $this->entityTypeManager->getStorage('file');
-
       /* =============================================================================================================
       - SE CARGA PREVIAMENTE TODOS LOS ARCHIVOS COMO RESPUESTA FINAL, YA QUE EL SISTEMA SOLO PERMITE ENVIAR UNA RESPUESTA
       DE QUEJA O RECLAMO UNA VEZ SE HAYA DILIGENCIADO POR PARTE DE LA AGENCIA; EL SISTEMA NO TIENE UNA OPCION DE REPLICA
       O DESISTIMIENTO EN EL FLUJO DE TRABAJO COMO DEMANDA EL SFC.
       - SE CIERRA POR COMPLETO LA QUEJA O RECLAMO.
       =============================================================================================================== */
-      foreach ($anexFileResponseFile as $file) {
+      if (!$sendFilesAnswer) {
 
-        $anexFile = $file_storage->load($file['target_id']);
+        $file_storage = $this->entityTypeManager->getStorage('file');
 
-        // Editamos el nombre del archivo como sufijo Resp_final_sfc.
-        $anexExt = pathinfo($anexFile->getFilename(), PATHINFO_EXTENSION);
-        $strgFile = file_get_contents($anexFile->getFileUri());
+        foreach ($anexFileResponseFile as $file) {
 
-        $anexReplaceName = str_replace(".$anexExt", "_RESP_FINAL_SFC", $anexFile->getFilename());
-        $anexName = "{$this->fileSystem->dirname($anexFile->getFileUri())}/{$anexReplaceName}.$anexExt";
+          $anexFile = $file_storage->load($file['target_id']);
 
-        // Recortamos el nombre del archivo a 150STR si el archivo supera el numero de caracteres.
-        if (strlen($anexName) > 150) {
+          // Editamos el nombre del archivo como sufijo Resp_final_sfc.
+          $anexExt = pathinfo($anexFile->getFilename(), PATHINFO_EXTENSION);
+          $strgFile = file_get_contents($anexFile->getFileUri());
 
-          $anexSubtrName = substr($anexFile->getFilename(), 0, 130);
-          $anexName = "{$this->fileSystem->dirname($anexFile->getFileUri())}/{$anexSubtrName}_RESP_FINAL_SFC.$anexExt";
+          $anexReplaceName = str_replace(".$anexExt", "_RESP_FINAL_SFC", $anexFile->getFilename());
+          $anexName = "{$this->fileSystem->dirname($anexFile->getFileUri())}/{$anexReplaceName}.$anexExt";
 
-        }
+          // Recortamos el nombre del archivo a 150STR si el archivo supera el numero de caracteres.
+          if (strlen($anexName) > 150) {
 
-        if (file_put_contents($anexName, $strgFile) == FALSE) {
-          return FALSE;
-        }
+            $anexSubtrName = substr($anexFile->getFilename(), 0, 130);
+            $anexName = "{$this->fileSystem->dirname($anexFile->getFileUri())}/{$anexSubtrName}_RESP_FINAL_SFC.$anexExt";
 
-        // Se crea una variable de tipo string fomentado a uno de tipo objeto.
-        $dataSignature = '{"type": "'.$anexFile->getMimeType().'", '.
-        '"codigo_queja": "'.$codComplaints.'"}';
+          }
 
-        // Firma encrypt sha256 en funcion de hmac.
-        $signature = strtoupper(hash_hmac('sha256', $dataSignature, $this->secretKey, FALSE));
+          if (file_put_contents($anexName, $strgFile) == FALSE) {
+            return [
+              'code' => 400,
+              'sendFilesAnswer' => $sendFilesAnswer,
+            ];
+          }
 
-        $data = [
-          'file' => $anexName,
-          'type' => $anexFile->getMimeType(),
-          'code' => $codComplaints
-        ];
+          // Se crea una variable de tipo string fomentado a uno de tipo objeto.
+          $dataSignature = '{"type": "'.$anexFile->getMimeType().'", '.
+          '"codigo_queja": "'.$codComplaints.'"}';
 
-        // Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service.
-        $response = $this->httpClient($signature, 'POST', 'storage/', $data);
+          // Firma encrypt sha256 en funcion de hmac.
+          $signature = strtoupper(hash_hmac('sha256', $dataSignature, $this->secretKey, FALSE));
 
-        if (isset($response['code'])) {
+          $data = [
+            'file' => $anexName,
+            'type' => $anexFile->getMimeType(),
+            'code' => $codComplaints
+          ];
 
-          $this->logger->get('API SMFC')->warning("Code: %code Mensaje anexo respuesta radicado: %message <br> Se ha producido un error al crear el anexo de respuesta radicado No. %settled como cliente web services en el sistema <strong> API SMFC.",
-          [
-            '%code' => $response['code'],
-            '%message' => $response['message'],
-            '%settled' => $codComplaints
-          ]);
+          // Se obtiene la respuesta en peticion Http consumiendo o enviando la data a SMFC. Client Web Service.
+          $response = $this->httpClient($signature, 'POST', 'storage/', $data);
 
-          return FALSE;
-
+          if (isset($response['code'])) {
+            return [
+              'code' => 400,
+              'sendFilesAnswer' => $sendFilesAnswer,
+            ];
+          }
+          else {
+            $sendFilesAnswer = TRUE;
+          }
         }
       }
 
@@ -958,23 +961,23 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
       $response = $this->httpClient($signature, 'PUT', 'queja/', $data);
 
       if (isset($response['code'])) {
-
-        $this->logger->get('API SMFC')->warning("Code: %code Mensaje actualizacion de radicado: %message <br> Se ha producido un error al actualizar radicado No. %settled como cliente web services en el sistema <strong> API SMFC.",
-        [
-          '%code' => $response['code'],
-          '%message' => $response['message'],
-          '%settled' => $codComplaints
-        ]);
-
-        return FALSE;
-
+        return [
+          'code' => 400,
+          'sendFilesAnswer' => $sendFilesAnswer,
+        ];
       }
       else {
-        return TRUE;
+        return [
+          'code' => 200,
+          'sendFilesAnswer' => $sendFilesAnswer,
+        ];
       }
     }
     else {
-      return FALSE;
+      return [
+        'code' => 400,
+        'sendFilesAnswer' => $sendFilesAnswer,
+      ];
     }
   }
 
@@ -1050,8 +1053,6 @@ class ApiSmfc extends ApiSmfcHttp implements ApiSmfcInterface {
     $response = $this->httpClient($signature, 'GET', 'usuarios/info/');
 
     if (isset($response['code'])) {
-
-      $this->logger->get('API SMFC')->warning("Informacion de usuarios: Se ha producido un error al importar la informacion de edicion de usuarios del sistema SMFC. <br> ");
 
       return FALSE;
 

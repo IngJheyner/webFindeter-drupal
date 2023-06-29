@@ -796,71 +796,96 @@ class ReportsPqrsdController extends ControllerBase {
    */
   public function sendDataSmfc() {
 
+    // Obtenemos la fecha actual.
     $now = \Drupal::time()->getCurrentTime();
 
+    // Ruta para el registro de errores.
     $url = Url::fromRoute('dblog.overview');
     $link = Link::fromTextAndUrl(t('Registro de errores'), $url);
 
+    // Variables de estado, pqrsd pendientes de enviar.
     $stateSmfcNid = $this->state->get('findeter_pqrsd.api_smfc_nid');
 
+    // Validamos si hay informacion para enviar.
     if (!is_null($stateSmfcNid) && !empty($stateSmfcNid)) {
 
       $nid = [];
+
+      // Momento 1, login.
       $login = $this->apiSmfc->login();
 
+      // Validamos si el login fue exitoso.
       if ($login) {
 
-        foreach ($stateSmfcNid as $key => $state) {
+        // Consultamos si hay informacion de usuarios para actualizar.
+        // Si sale algun error, momento 2 y 3 no se ejecutan.
+        $putUpdbUser = $this->apiSmfc->getUpdateInfoUserComplaints();
 
-          $nid[$key] = [
-            "nid" => $state['nid'],
-            "title" => $state['title'],
-            "created" => $state['created'],
-            "smfc" => $state['smfc']
-          ];
+        // Validamos si la actualizacion de usuarios fue exitosa o no hay usuarios para actualizar.
+        if ($putUpdbUser) {
 
-          if (date('Y-m-d', $now) !== date('Y-m-d', $state['created'])) {
+          // Iteramos las solicitudes pendientes de enviar.
+          foreach ($stateSmfcNid as $key => $state) {
 
-            if ($state['smfc'] === FALSE) {
+            // Construimos el array de solicitudes.
+            $nid[$key] = [
+              "nid" => $state['nid'],
+              "title" => $state['title'],
+              "created" => $state['created'],
+              "smfc" => $state['smfc'],
+              "put_files" => $state['put_files'],
+            ];
 
-              $post = $this->apiSmfc->postComplaints($state['nid']);
-              // $post = TRUE;
+            // Validamos si la fecha de creacion es diferente a la fecha actual.
+            if (date('Y-m-d', $now) !== date('Y-m-d', $state['created'])) {
 
-              if ($post) {
-                $nid[$key]["smfc"] = TRUE;
-                $this->messenge->addMessage('Se ha creado el ' . $state['title'] . ' en la aplicación SMFC.');
+              // Momento 2, post.
+              if ($state['smfc'] === FALSE) {
+
+                $post = $this->apiSmfc->postComplaints($state['nid']);
+                // $post = TRUE;
+
+                if ($post) {
+                  $nid[$key]["smfc"] = TRUE;
+                  $this->messenge->addMessage('Se ha creado el ' . $state['title'] . ' en la aplicación SMFC.');
+                }
+                else {
+
+                  $nid[$key]["smfc"] = FALSE;
+                  $this->messenge->addError('No se ha podido enviar el ' . $state['title'] . 'a la aplicación SMFC. Ver ' . $link->toString() . ' para más información.');
+                }
+
               }
               else {
 
-                $nid[$key]["smfc"] = FALSE;
-                $this->messenge->addError('No se ha podido enviar el ' . $state['title'] . 'a la aplicación SMFC. Ver ' . $link->toString() . ' para más información.');
-              }
-
-            }
-            else {
-
-              // Consultamos si hay informacion de usuarios para actualizar.
-              $putUpdbUser = $this->apiSmfc->getUpdateInfoUserComplaints();
-
-              if ($putUpdbUser) {
-                $put = $this->apiSmfc->putComplaints($state['nid']);
+                // Momento 3, put.
+                $put = $this->apiSmfc->putComplaints($state['nid'], $state['put_files']);
                 // $put = TRUE;
 
-                if (!$put) {
+                if (isset($put['code']) && $put['code'] === 400) {
+
                   $nid[$key]["smfc"] = TRUE;
-                  $this->messenge->addWarning(Markup::create('No se ha podido actualizar el ' . $state['title'] . 'a la aplicación SMFC. Ver el estado de respuesta ó ' . $link->toString() . ' para más información.'));
+                  $nid[$key]["put_files"] = $put['sendFilesAnswer'];
+
+                  $this->messenge->addWarning(Markup::create('No se ha podido actualizar el ' . $state['title'] . 'en la aplicación SMARTSUPERVISION. <br>
+                  <ul>
+                    <li>Ver el estado de respuesta.</li>
+                    <li>Ver el ' . $link->toString() . ' para más información.</li>
+                  </ul>'));
                 }
                 else {
                   unset($nid[$key]);
-                  $this->messenge->addMessage(Markup::create('Se ha actualizado y enviado el ' . $state['title'] . ' en la aplicación SMFC.'));
+                  $this->messenge->addMessage(Markup::create('Se ha actualizado y enviado el ' . $state['title'] . ' en la aplicación SMARTSUPERVISION.'));
                 }
+
               }
+
             }
-
           }
-        }
 
-        $this->state->set('findeter_pqrsd.api_smfc_nid', $nid);
+          $this->state->set('findeter_pqrsd.api_smfc_nid', $nid);
+
+        }
 
         return new JsonResponse([
           'status' => 200,
