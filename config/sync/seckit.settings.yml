@@ -7,17 +7,17 @@ seckit_xss:
     vendor-prefix:
       x: false
       webkit: false
-    report-only: true
+    report-only: false
     default-src: '''self'''
-    script-src: '''self'' ''unsafe-inline'' *.fontawesome.com ajax.googleapis.com'
+    script-src: '''self'' ''unsafe-inline'' ''unsafe-eval'' use.fontawesome.com ajax.googleapis.com https://www.googletagmanager.com https://www.google-analytics.com https://embed.tawk.to static.addtoany.com platform.twitter.com connect.facebook.net cdn.jsdelivr.net'
     object-src: '''self'''
     style-src: '* ''unsafe-inline'''
     img-src: '* data:'
-    media-src: '*'
+    media-src: '''self'''
     frame-src: '*'
     frame-ancestors: '*'
     child-src: '*'
-    font-src: '''self'' themes.googleusercontent.com fonts.gstatic.com'
+    font-src: '*'
     connect-src: '*'
     report-uri: /report-csp-violation
     upgrade-req: true
@@ -50,7 +50,7 @@ seckit_fp:
   feature_policy: false
   feature_policy_policy: ''
 seckit_various:
-  from_origin: true
+  from_origin: false
   from_origin_destination: same
   referrer_policy: true
   referrer_policy_policy: strict-origin

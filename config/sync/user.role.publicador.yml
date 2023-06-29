@@ -47,19 +47,23 @@ dependencies:
     - node.type.8_6_plan_anual_de_adquisiciones
     - node.type.articulo_blog
     - node.type.casos_de_exito_home
+    - node.type.ciiu_rediscount
     - node.type.convocatorias
     - node.type.en
     - node.type.english
+    - node.type.entities_rediscount
     - node.type.escala_salarial
     - node.type.evaluacion_ejercicio_de_rendicio
     - node.type.evento
     - node.type.glosario
     - node.type.informes_de_gestion_y_sostenibil
+    - node.type.lines_credit
     - node.type.noticias_home
     - node.type.politica_de_accion_responsable
     - node.type.preguntas_frecuentes
     - node.type.productos_servicios
     - node.type.prosperity_fund
+    - node.type.sectors_rediscount
     - node.type.slider_home
     - node.type.sobre_findeter
     - node.type.terminos_condiciones_portal
@@ -110,6 +114,8 @@ dependencies:
     - layout_builder
     - media
     - node
+    - paragraphs_type_permissions
+    - quick_node_clone
     - system
     - taxonomy
     - video_embed_html5
@@ -123,6 +129,10 @@ permissions:
   - 'administer block_content display'
   - 'administer blocks'
   - 'administer video_embed_html5'
+  - 'clone ciiu_rediscount content'
+  - 'clone entities_rediscount content'
+  - 'clone lines_credit content'
+  - 'clone sectors_rediscount content'
   - 'create 10_10_costos_de_reproduccion content'
   - 'create 10_12_informe_de_peticiones_quej content'
   - 'create 13_1_politica_de_seguridad_de_la content'
@@ -162,22 +172,27 @@ permissions:
   - 'create articulo_blog content'
   - 'create audio media'
   - 'create casos_de_exito_home content'
+  - 'create ciiu_rediscount content'
   - 'create document media'
   - 'create en content'
   - 'create english content'
+  - 'create entities_rediscount content'
   - 'create escala_salarial content'
   - 'create evaluacion_ejercicio_de_rendicio content'
   - 'create evento content'
   - 'create glosario content'
   - 'create image media'
   - 'create informes_de_gestion_y_sostenibil content'
+  - 'create lines_credit content'
   - 'create noticias_home content'
+  - 'create paragraph content info_programs_line_credit'
   - 'create politica_de_accion_responsable content'
   - 'create preguntas_frecuentes content'
   - 'create productos_servicios content'
   - 'create prosperity_archivos media'
   - 'create prosperity_fund content'
   - 'create remote_video media'
+  - 'create sectors_rediscount content'
   - 'create slider_home content'
   - 'create sobre_findeter content'
   - 'create terminos_condiciones_portal content'
@@ -217,7 +232,19 @@ permissions:
   - 'create trans_tipo_cont_tramit_servicios content'
   - 'create url_youtube_articulo_blog media'
   - 'create video media'
+  - 'delete any ciiu_rediscount content'
+  - 'delete any entities_rediscount content'
+  - 'delete any lines_credit content'
+  - 'delete any sectors_rediscount content'
+  - 'delete ciiu_rediscount revisions'
+  - 'delete entities_rediscount revisions'
+  - 'delete own ciiu_rediscount content'
+  - 'delete own entities_rediscount content'
+  - 'delete own lines_credit content'
   - 'delete own prosperity_archivos media'
+  - 'delete own sectors_rediscount content'
+  - 'delete paragraph content info_programs_line_credit'
+  - 'delete sectors_rediscount revisions'
   - 'dropzone upload files'
   - 'edit any 10_10_costos_de_reproduccion content'
   - 'edit any 10_12_informe_de_peticiones_quej content'
@@ -257,15 +284,18 @@ permissions:
   - 'edit any articulo_blog content'
   - 'edit any audio media'
   - 'edit any casos_de_exito_home content'
+  - 'edit any ciiu_rediscount content'
   - 'edit any convocatorias content'
   - 'edit any document media'
   - 'edit any en content'
   - 'edit any english content'
+  - 'edit any entities_rediscount content'
   - 'edit any escala_salarial content'
   - 'edit any evaluacion_ejercicio_de_rendicio content'
   - 'edit any evento content'
   - 'edit any image media'
   - 'edit any informes_de_gestion_y_sostenibil content'
+  - 'edit any lines_credit content'
   - 'edit any noticias_home content'
   - 'edit any politica_de_accion_responsable content'
   - 'edit any preguntas_frecuentes content'
@@ -273,6 +303,7 @@ permissions:
   - 'edit any prosperity_archivos media'
   - 'edit any prosperity_fund content'
   - 'edit any remote_video media'
+  - 'edit any sectors_rediscount content'
   - 'edit any slider_home content'
   - 'edit any sobre_findeter content'
   - 'edit any terminos_condiciones_portal content'
@@ -351,22 +382,26 @@ permissions:
   - 'edit own articulo_blog content'
   - 'edit own audio media'
   - 'edit own casos_de_exito_home content'
+  - 'edit own ciiu_rediscount content'
   - 'edit own convocatorias content'
   - 'edit own document media'
   - 'edit own en content'
   - 'edit own english content'
+  - 'edit own entities_rediscount content'
   - 'edit own escala_salarial content'
   - 'edit own evaluacion_ejercicio_de_rendicio content'
   - 'edit own evento content'
   - 'edit own glosario content'
   - 'edit own image media'
   - 'edit own informes_de_gestion_y_sostenibil content'
+  - 'edit own lines_credit content'
   - 'edit own noticias_home content'
   - 'edit own politica_de_accion_responsable content'
   - 'edit own preguntas_frecuentes content'
   - 'edit own productos_servicios content'
   - 'edit own prosperity_fund content'
   - 'edit own remote_video media'
+  - 'edit own sectors_rediscount content'
   - 'edit own slider_home content'
   - 'edit own sobre_findeter content'
   - 'edit own terminos_condiciones_portal content'
@@ -409,7 +444,17 @@ permissions:
   - 'edit terms in blog'
   - 'edit terms in glosario'
   - 'edit terms in preguntas_frecuentes'
+  - 'revert ciiu_rediscount revisions'
+  - 'revert entities_rediscount revisions'
+  - 'revert lines_credit revisions'
+  - 'revert sectors_rediscount revisions'
   - 'update any media'
   - 'update media'
+  - 'update paragraph content info_programs_line_credit'
+  - 'view ciiu_rediscount revisions'
+  - 'view entities_rediscount revisions'
+  - 'view lines_credit revisions'
   - 'view media'
+  - 'view paragraph content info_programs_line_credit'
+  - 'view sectors_rediscount revisions'
   - 'view the administration theme'
