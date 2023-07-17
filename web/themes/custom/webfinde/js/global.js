@@ -68,6 +68,36 @@
                 });
 
                 /*===========================================
+                SOBRE FINDETER
+                - Ancla para ir a la seccion de proteccion de datos.
+                =============================================*/
+                let URLhash = window.location.hash;
+
+                if (URLhash == "#des14" && URLhash != "") {
+
+                  let navAboutUs = document.getElementById('tabSobrefindeter').querySelectorAll('li > a')[0];
+
+                  navAboutUs.setAttribute('aria-selected', 'false');
+                  navAboutUs.setAttribute('class', 'nav-link');
+
+                  let navDataProtection = document.getElementById('tabSobrefindeter').querySelectorAll('li > a')[14];
+                  navDataProtection.setAttribute('aria-selected', 'true');
+                  navDataProtection.setAttribute('class', 'nav-link active');
+
+                  let tabAboutUs = document.getElementById('myTabContent').querySelectorAll('div.tab-pane')[0];
+                  tabAboutUs.setAttribute('class', 'tab-pane font-accesibilidad fade');
+
+                  let tabDataProtection = document.getElementById('myTabContent').querySelectorAll('div.tab-pane')[14];
+                  tabDataProtection.setAttribute('class', 'tab-pane font-accesibilidad fade show active');
+
+
+                  $('html, body').animate({
+                      scrollTop: $("#des14").offset().top + 50
+                  }, 2000);
+
+                }
+
+                /*===========================================
                 SE ABRE LA VENTANA MODAL PARA EL HOME
                 =============================================*/
                 $('#myLargeModalLabel').modal('show');
